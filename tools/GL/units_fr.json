@@ -7997,6 +7997,83 @@
 		"equip":["dagger","sword","staff","rod","harp","throwing","mace","hat","clothes","lightArmor","robe"],
 		"enhancementSkills":["Traverser Stone Supplier","Scroll of Sword Madrigal","Visitor from Abyssea"]
 	},
+	"211001205": {
+		"name":"Shantotto, la sorcière",
+		"wikiEntry":"Wizardess_Shantotto",
+		"id":"211001205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4641,"mp":282,"atk":143,"def":161,"mag":218,"spr":207},
+			"minStats":{"hp":1532,"mp":93,"atk":47,"def":53,"mag":72,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"6_form": {
+			"name":"Shantotto, la sorcière",
+			"wikiEntry":"Wizardess_Shantotto",
+			"id":"211001205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3570,"mp":216,"atk":110,"def":123,"mag":167,"spr":159},
+				"minStats":{"hp":1178,"mp":71,"atk":36,"def":41,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"]
+		}
+	},
+	"211001305": {
+		"name":"Lilisette",
+		"wikiEntry":"Lilisette",
+		"id":"211001305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4848,"mp":251,"atk":196,"def":187,"mag":182,"spr":184},
+			"minStats":{"hp":1600,"mp":83,"atk":65,"def":62,"mag":60,"spr":61},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Lilisette",
+			"wikiEntry":"Lilisette",
+			"id":"211001305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3729,"mp":193,"atk":150,"def":143,"mag":140,"spr":141},
+				"minStats":{"hp":1231,"mp":64,"atk":50,"def":47,"mag":46,"spr":47},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","throwing","fist","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"211001404": {
+		"name":"Zeid",
+		"wikiEntry":"Zeid",
+		"id":"211001404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3777,"mp":158,"atk":158,"def":130,"mag":110,"spr":121},
+			"minStats":{"hp":1246,"mp":52,"atk":52,"def":43,"mag":36,"spr":40},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["sword","greatSword","katana","axe","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+	},
 	"212000103": {
 		"name":"Vaan",
 		"wikiEntry":"Vaan",
@@ -10577,7 +10654,7 @@
 	},
 	"307000105": {
 		"name":"Ray Jack",
-		"wikiEntry":"Ray_Jack",
+		"wikiEntry":"レイジャック",
 		"id":"307000105",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -10591,7 +10668,7 @@
 		"equip":["dagger","sword","greatSword","spear","mace","lightShield","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
 			"name":"Ray Jack",
-			"wikiEntry":"Ray_Jack",
+			"wikiEntry":"レイジャック",
 			"id":"307000105",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -14193,9 +14270,6 @@
   "208001304":{"name":"Edea","jpname":"イデア","id":"208001304","max_rarity":"6","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":3777,"mp":190,"atk":110,"def":117,"mag":160,"spr":160},"minStats":{"hp":1246,"mp":63,"atk":36,"def":39,"mag":53,"spr":53},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}},"stats_pattern":1,"equip":["staff","rod","whip","hat","clothes","robe"]},
   "208001505":{"name":"Sleeping Lion Squall","jpname":"孤高の獅子スコール","id":"208001505","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4808,"mp":241,"atk":210,"def":184,"mag":161,"spr":182},"minStats":{"hp":1587,"mp":80,"atk":69,"def":61,"mag":53,"spr":60},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],"6_form":{"name":"Sleeping Lion Squall","jpname":"孤高の獅子スコール","id":"208001505","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3698,"mp":185,"atk":161,"def":141,"mag":123,"spr":140},"minStats":{"hp":1220,"mp":61,"atk":53,"def":47,"mag":41,"spr":46},"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}},"stats_pattern":1,"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"]}},
   "208001604":{"name":"Fujin & Raijin","jpname":"風神&雷神","id":"208001604","max_rarity":"6","min_rarity":"4","sex":"other","stats":{"maxStats":{"hp":3559,"mp":156,"atk":150,"def":135,"mag":101,"spr":135},"minStats":{"hp":1174,"mp":51,"atk":50,"def":45,"mag":33,"spr":45},"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}},"stats_pattern":1,"equip":["dagger","hammer","throwing","mace","fist","hat","clothes","lightArmor"]},
-  "211001205":{"name":"Federation Demon Shantotto","jpname":"連邦の黒い悪魔シャントット","id":"211001205","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4641,"mp":282,"atk":143,"def":161,"mag":218,"spr":207},"minStats":{"hp":1532,"mp":93,"atk":47,"def":53,"mag":72,"spr":68},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],"6_form":{"name":"Federation Demon Shantotto","jpname":"連邦の黒い悪魔シャントット","id":"211001205","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3570,"mp":216,"atk":110,"def":123,"mag":167,"spr":159},"minStats":{"hp":1178,"mp":71,"atk":36,"def":41,"mag":55,"spr":52},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}},"stats_pattern":1,"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"]}},
-  "211001305":{"name":"Lilisette","jpname":"リリゼット","id":"211001305","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4848,"mp":251,"atk":196,"def":187,"mag":182,"spr":184},"minStats":{"hp":1600,"mp":83,"atk":65,"def":62,"mag":60,"spr":61},"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}},"stats_pattern":4,"equip":["dagger","sword","throwing","fist","hat","clothes","lightArmor","robe"],"6_form":{"name":"Lilisette","jpname":"リリゼット","id":"211001305","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3729,"mp":193,"atk":150,"def":143,"mag":140,"spr":141},"minStats":{"hp":1231,"mp":64,"atk":50,"def":47,"mag":46,"spr":47},"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}},"stats_pattern":1,"equip":["dagger","sword","throwing","fist","hat","clothes","lightArmor","robe"]}},
-  "211001404":{"name":"Zeid","jpname":"ザイド","id":"211001404","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3777,"mp":158,"atk":158,"def":130,"mag":110,"spr":121},"minStats":{"hp":1246,"mp":52,"atk":52,"def":43,"mag":36,"spr":40},"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}},"stats_pattern":1,"equip":["sword","greatSword","katana","axe","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]},
   "212001505":{"name":"Freedom Seeker Vaan","jpname":"自由を求めし少年ヴァン","id":"212001505","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4800,"mp":245,"atk":209,"def":189,"mag":165,"spr":186},"minStats":{"hp":1584,"mp":81,"atk":69,"def":62,"mag":54,"spr":61},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","katana","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"],"6_form":{"name":"Freedom Seeker Vaan","jpname":"自由を求めし少年ヴァン","id":"212001505","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3692,"mp":188,"atk":160,"def":145,"mag":126,"spr":143},"minStats":{"hp":1218,"mp":62,"atk":53,"def":48,"mag":42,"spr":47},"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}},"stats_pattern":1,"equip":["dagger","sword","katana","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"]}},
   "212001605":{"name":"Dancer Penelo","jpname":"舞い踊る恋心パンネロ","id":"212001605","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4620,"mp":284,"atk":107,"def":159,"mag":218,"spr":203},"minStats":{"hp":1525,"mp":94,"atk":35,"def":52,"mag":72,"spr":67},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","greatSword","rod","hammer","whip","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],"6_form":{"name":"Dancer Penelo","jpname":"舞い踊る恋心パンネロ","id":"212001605","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3553,"mp":218,"atk":82,"def":122,"mag":167,"spr":156},"minStats":{"hp":1172,"mp":72,"atk":27,"def":40,"mag":55,"spr":51},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}},"stats_pattern":1,"equip":["dagger","sword","greatSword","rod","hammer","whip","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]}},
   "212001705":{"name":"Forest Beauty Fran","jpname":"蒼穹の麗人フラン","id":"212001705","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4912,"mp":239,"atk":205,"def":188,"mag":184,"spr":190},"minStats":{"hp":1621,"mp":79,"atk":68,"def":62,"mag":61,"spr":63},"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}},"stats_pattern":4,"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"],"6_form":{"name":"Forest Beauty Fran","jpname":"蒼穹の麗人フラン","id":"212001705","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3778,"mp":183,"atk":157,"def":144,"mag":141,"spr":146},"minStats":{"hp":1247,"mp":60,"atk":52,"def":48,"mag":47,"spr":48},"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}},"stats_pattern":1,"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"]}},

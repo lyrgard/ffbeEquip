@@ -6263,7 +6263,7 @@
 		]
 	},
 	"100023605": {
-		"name":"Madame Edel",
+		"name":"Madam Edel",
 		"jpname":"マダム・エーデル",
 		"id":"100023605",
 		"max_rarity":"7",
@@ -6285,7 +6285,7 @@
 			{"dualWielding":{"atk":60}, "resist":[{"name":"charm","percent":100}], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Madame Edel",
+			"name":"Madam Edel",
 			"jpname":"マダム・エーデル",
 			"id":"100023605",
 			"sixStarForm":true,
@@ -6325,7 +6325,7 @@
 		]
 	},
 	"100023804": {
-		"name":"Almers",
+		"name":"Almaz",
 		"jpname":"アルマース",
 		"id":"100023804",
 		"max_rarity":"6",
@@ -7803,6 +7803,51 @@
 			]
 		}
 	},
+	"100028205": {
+		"name":"Zenaida",
+		"jpname":"セナイダ",
+		"id":"100028205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4850,"mp":222,"atk":207,"def":159,"mag":135,"spr":195},
+			"minStats":{"hp":1601,"mp":73,"atk":68,"def":52,"mag":45,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["spear","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":70, "mp%":30, "atk%":80, "def%":40, "spr%":40, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"fire","percent":10},{"name":"lightning","percent":10},{"name":"earth","percent":10},{"name":"dark","percent":10},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"human","physical":50},{"name":"dragon","physical":50},{"name":"stone","physical":50}], "special":["dualWield"]},
+			{"atk%":200, "equipedConditions":["unarmed"]},
+			{"atk%":20, "equipedConditions":["fist"]},
+			{"atk%":40, "spr%":40, "mpRefresh":7, "lbDamage":50, "equipedConditions":[["504235372","409041900"]]},
+			{"hp%":40, "atk%":40, "def%":20, "spr%":20, "skillEnhancement":{"235402":2.5,"235404":2.5,"235406":2.5,"235407":2.5,"235409":2.5,"512210":2.5,"512211":2.5,"512212":2.5,"512213":2.5}, "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"dualWielding":{"atk":50}, "killers":[{"name":"beast","physical":75},{"name":"human","physical":75},{"name":"dragon","physical":75},{"name":"stone","physical":75}], "lbDamage":50, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Zenaida",
+			"jpname":"セナイダ",
+			"id":"100028205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3730,"mp":170,"atk":159,"def":122,"mag":103,"spr":150},
+				"minStats":{"hp":1231,"mp":56,"atk":52,"def":40,"mag":34,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["spear","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":70, "mp%":30, "atk%":80, "def%":40, "spr%":40, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"fire","percent":10},{"name":"lightning","percent":10},{"name":"earth","percent":10},{"name":"dark","percent":10},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"human","physical":50},{"name":"dragon","physical":50},{"name":"stone","physical":50}], "special":["dualWield"]},
+				{"atk%":200, "equipedConditions":["unarmed"]},
+				{"atk%":20, "equipedConditions":["fist"]}
+			]
+		}
+	},
 	"100028305": {
 		"name":"Daisy",
 		"jpname":"デイジー",
@@ -8076,6 +8121,47 @@
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":50, "lbPerTurn":{"min":2,"max":2}}
 		]
+	},
+	"100029105": {
+		"name":"Musical Moogle",
+		"jpname":"ミュージカルモーグリ",
+		"id":"100029105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4682,"mp":250,"atk":189,"def":160,"mag":160,"spr":205},
+			"minStats":{"hp":1545,"mp":83,"atk":62,"def":53,"mag":53,"spr":68},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hammer","spear","harp","mace","lightShield","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":50, "mp%":40, "atk%":80, "def%":50, "spr%":80, "evade":{"physical":20}, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
+			{"hp%":30, "atk%":30, "spr%":30, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["409041800","504235371"]]},
+			{"atk%":20, "spr%":20, "resist":[{"name":"paralysis","percent":100}], "levelCondition":110},
+			{"spr%":20, "levelCondition":115},
+			{"skillEnhancement":{"235386":10,"235387":5,"235389":8}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Musical Moogle",
+			"jpname":"ミュージカルモーグリ",
+			"id":"100029105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3601,"mp":192,"atk":145,"def":123,"mag":123,"spr":157},
+				"minStats":{"hp":1188,"mp":63,"atk":48,"def":41,"mag":41,"spr":52},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hammer","spear","harp","mace","lightShield","hat","clothes","lightArmor"],
+			"skills": [
+				{"hp%":50, "mp%":40, "atk%":80, "def%":50, "spr%":80, "evade":{"physical":20}, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7}
+			]
+		}
 	},
 	"100029205": {
 		"name":"Green Mage Marie",
@@ -13839,7 +13925,7 @@
 		]
 	},
 	"211001205": {
-		"name":"Federation Demon Shantotto",
+		"name":"Wizardess Shantotto",
 		"jpname":"連邦の黒い悪魔シャントット",
 		"id":"211001205",
 		"max_rarity":"7",
@@ -13862,7 +13948,7 @@
 			{"hp%":20, "levelCondition":115}
 		],
 		"6_form": {
-			"name":"Federation Demon Shantotto",
+			"name":"Wizardess Shantotto",
 			"jpname":"連邦の黒い悪魔シャントット",
 			"id":"211001205",
 			"sixStarForm":true,

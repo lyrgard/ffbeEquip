@@ -4464,7 +4464,7 @@
 		"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"]
 	},
 	"100023605": {
-		"name":"Madame Edel",
+		"name":"Madam Edel",
 		"jpname":"マダム・エーデル",
 		"id":"100023605",
 		"max_rarity":"7",
@@ -4478,7 +4478,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Madame Edel",
+			"name":"Madam Edel",
 			"jpname":"マダム・エーデル",
 			"id":"100023605",
 			"sixStarForm":true,
@@ -4510,7 +4510,7 @@
 		"equip":["dagger","staff","rod","bow","harp","throwing","mace","lightShield","hat","clothes","robe"]
 	},
 	"100023804": {
-		"name":"Almers",
+		"name":"Almaz",
 		"jpname":"アルマース",
 		"id":"100023804",
 		"max_rarity":"6",
@@ -5552,6 +5552,37 @@
 			"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","helm","clothes","lightArmor","robe"]
 		}
 	},
+	"100028205": {
+		"name":"Zenaida",
+		"jpname":"セナイダ",
+		"id":"100028205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4850,"mp":222,"atk":207,"def":159,"mag":135,"spr":195},
+			"minStats":{"hp":1601,"mp":73,"atk":68,"def":52,"mag":45,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["spear","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"Zenaida",
+			"jpname":"セナイダ",
+			"id":"100028205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3730,"mp":170,"atk":159,"def":122,"mag":103,"spr":150},
+				"minStats":{"hp":1231,"mp":56,"atk":52,"def":40,"mag":34,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["spear","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
+	},
 	"100028305": {
 		"name":"Daisy",
 		"jpname":"デイジー",
@@ -5751,6 +5782,37 @@
 		},
 		"stats_pattern":1,
 		"equip":["hammer","spear","harp","mace","hat"]
+	},
+	"100029105": {
+		"name":"Musical Moogle",
+		"jpname":"ミュージカルモーグリ",
+		"id":"100029105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4682,"mp":250,"atk":189,"def":160,"mag":160,"spr":205},
+			"minStats":{"hp":1545,"mp":83,"atk":62,"def":53,"mag":53,"spr":68},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hammer","spear","harp","mace","lightShield","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Musical Moogle",
+			"jpname":"ミュージカルモーグリ",
+			"id":"100029105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3601,"mp":192,"atk":145,"def":123,"mag":123,"spr":157},
+				"minStats":{"hp":1188,"mp":63,"atk":48,"def":41,"mag":41,"spr":52},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hammer","spear","harp","mace","lightShield","hat","clothes","lightArmor"]
+		}
 	},
 	"100029205": {
 		"name":"Green Mage Marie",
@@ -9544,7 +9606,7 @@
 		"enhancementSkills":["トラバーサー石の供給者","剣闘士のマドリガル","アビセアからの来訪者"]
 	},
 	"211001205": {
-		"name":"Federation Demon Shantotto",
+		"name":"Wizardess Shantotto",
 		"jpname":"連邦の黒い悪魔シャントット",
 		"id":"211001205",
 		"max_rarity":"7",
@@ -9558,7 +9620,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"Federation Demon Shantotto",
+			"name":"Wizardess Shantotto",
 			"jpname":"連邦の黒い悪魔シャントット",
 			"id":"211001205",
 			"sixStarForm":true,
