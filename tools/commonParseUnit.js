@@ -1471,6 +1471,8 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         //Physical mitigation
     } else if (rawEffect[2] == 18) {
         result = {"noUse":true, "physicalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
+    } else if (rawEffect[2] == 54) {
+        result = {"noUse":true, "mirage":rawEffect[3][0], "turns":rawEffect[3][1]};
         // recover HP/MP percentage
     } else if (rawEffect[2] == 65) {
         result = {"noUse":true};
@@ -2290,7 +2292,11 @@ function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
             } else if(effect.effect.physicalMitigation){
                 if(!effectOut.physicalMitigation){
                     effectOut.physicalMitigation = effect.effect.physicalMitigation
-                } 
+                }
+            } else if(effect.effect.mirage){
+                if(!effectOut.mirage || effectOut.mirage < effect.effect.mirage){
+                    effectOut.mirage = effect.effect.mirage
+                }
             } else if (effect.effect.imbue) {
                 if (!effectOut.imbue) {
                     effectOut.imbue = [];

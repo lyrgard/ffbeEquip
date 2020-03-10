@@ -1400,12 +1400,12 @@ function startPage() {
     addTextChoicesTo("imbuesTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
     
     // Tank abilities
-    addIconChoicesTo("tankAbilities", ["drawAttacks", "stCover", "physicalAoeCover", "magicalAoeCover"], "checkbox", "tankAbilities", ["Draw Attacks", "ST Cover", "Physical AOE Cover", "Magical AOE Cover"]);
+    addIconChoicesTo("tankAbilities", ["drawAttacks", "stCover", "physicalAoeCover", "magicalAoeCover"], "checkbox", "tankAbilities", ["Draw Attacks", "ST Cover", "Physical AOE Cover", "Magical AOE Cover", "Mirage"]);
     addTextChoicesTo("tankAbilitiesSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     
 
     // Mitigation
-    addIconChoicesTo("mitigation", ["globalMitigation", "magicalMitigation", "physicalMitigation"], "checkbox", "mitigation", ["Mitigation", "Magic Mitigation", "Physical Mitigation"])
+    addIconChoicesTo("mitigation", ["globalMitigation", "magicalMitigation", "physicalMitigation", "mirage"], "checkbox", "mitigation", ["Mitigation", "Magic Mitigation", "Physical Mitigation"])
     addTextChoicesTo("mitigationSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     addTextChoicesTo("mitigationTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
 
