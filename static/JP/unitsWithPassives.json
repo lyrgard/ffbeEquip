@@ -6846,11 +6846,14 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ハートフルスマイル・HP","ハートフルスマイル・MP","開店の大号令","スウィープアウト・悪魔","スウィープアウト・死霊","お客様の笑顔を守る騎士"],
+		"enhancements": [
+			{"name":"お客様の笑顔を守る騎士","levels":[[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbFillRate":50,"levelCondition":120}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbFillRate":50,"levelCondition":120}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbFillRate":50,"replaceLb":{"name":"ナイト・ホスピタリティ","minEffects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Remove ATK, DEF, MAG and SPR debuff from all allies"},{"effect":{"statsBuff":{"atk":201,"def":201,"mag":201,"spr":201},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 201% for 3 turns to all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Grant a 4000 HP shield to all allies for 3 turns"}],"maxEffects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Remove ATK, DEF, MAG and SPR debuff from all allies"},{"effect":{"statsBuff":{"atk":230,"def":230,"mag":230,"spr":230},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 230% for 3 turns to all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Grant a 4000 HP shield to all allies for 3 turns"}]},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":60, "mp%":30, "def%":60, "spr%":30, "resist":[{"name":"charm","percent":100},{"name":"sleep","percent":100},{"name":"ice","percent":50},{"name":"light","percent":50}], "mpRefresh":5},
 			{"mp%":40, "spr%":40, "equipedConditions":[["405006900","504231731"]]},
-			{"def%":20, "levelCondition":115},
-			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "lbFillRate":50, "levelCondition":120}
+			{"def%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Cafe Charlotte",
@@ -6867,6 +6870,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["ハートフルスマイル・HP","ハートフルスマイル・MP","開店の大号令","スウィープアウト・悪魔","スウィープアウト・死霊","お客様の笑顔を守る騎士"],
 			"skills": [
 				{"hp%":60, "mp%":30, "def%":60, "spr%":30, "resist":[{"name":"charm","percent":100},{"name":"sleep","percent":100},{"name":"ice","percent":50},{"name":"light","percent":50}], "mpRefresh":5}
 			]
@@ -6886,13 +6890,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","hammer","spear","throwing","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["カレントナックル","リクイデート","TYPE001：バトルモード","人型機械に芽生えた心","家族の音声記録"],
+		"enhancements": [
+			{"name":"人型機械に芽生えた心","levels":[[{"atk%":30,"hp%":30,"levelCondition":110}],[{"atk%":30,"hp%":30,"levelCondition":110}],[{"atk%":30,"hp%":30,"skillEnhancement":{"510481":3,"512225":3,"512226":3},"levelCondition":110}]]},
+			{"name":"家族の音声記録","levels":[[{"dualWielding":{"atk":50},"lbDamage":30,"skillEnhancement":{"232238":1},"levelCondition":120}],[{"dualWielding":{"atk":50},"lbDamage":50,"skillEnhancement":{"232238":1},"levelCondition":120}],[{"dualWielding":{"atk":50},"lbDamage":50,"skillEnhancement":{"232238":3},"replaceLb":{"name":"ダイナミックパルサー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":23.1,"ignore":{"def":50},"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Physical lightning damage (23.1x * 2 = 46.2x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":120},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 120% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 150 MP to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":26,"ignore":{"def":50},"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Physical lightning damage (26x * 2 = 52x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":120},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 120% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 150 MP to caster"}],"frames":[190,200,210,220,230,240,250,260,270,280],"move":"walk"},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":40, "atk%":60, "def%":40, "spr%":40, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":50, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100}], "mpRefresh":7, "special":["dualWield"]},
 			{"atk%":40, "equipedConditions":["fist"]},
 			{"mp%":40, "atk%":40, "def%":40, "skillEnhancement":{"232238":1}, "equipedConditions":[["504232221","309004700"]]},
-			{"hp%":30, "atk%":30, "levelCondition":110},
-			{"mp%":20, "levelCondition":115},
-			{"dualWielding":{"atk":50}, "lbDamage":30, "skillEnhancement":{"232238":1}, "levelCondition":120}
+			{"mp%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Elnath",
@@ -6909,6 +6916,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","hammer","spear","throwing","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["カレントナックル","リクイデート","TYPE001：バトルモード","人型機械に芽生えた心","家族の音声記録"],
 			"skills": [
 				{"hp%":40, "atk%":60, "def%":40, "spr%":40, "dualWielding":{"atk":50}, "lbFillRate":50, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100}], "mpRefresh":7, "special":["dualWield"]},
 				{"atk%":40, "equipedConditions":["fist"]}
@@ -8513,6 +8521,108 @@
 				{"hp%":50, "mp%":30, "atk%":100, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"disease","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50},{"name":"undead","physical":50}], "mpRefresh":7, "lbDamage":50, "esperStatsBonus":{"Phoenix":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}}
 			]
 		}
+	},
+	"100030205": {
+		"name":"Nerine",
+		"jpname":"ネリネ",
+		"id":"100030205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4866,"mp":246,"atk":209,"def":152,"mag":151,"spr":170},
+			"minStats":{"hp":1606,"mp":81,"atk":69,"def":50,"mag":50,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30, "mp%":30, "atk%":90, "def%":30, "singleWielding":{"accuracy":75,"atk":150}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"wind","percent":50}], "killers":[{"name":"aquatic","physical":75},{"name":"human","physical":75}], "mpRefresh":5},
+			{"atk%":40, "equipedConditions":["greatSword"]},
+			{"atk%":40, "def%":40, "replaceLb":{"name":"ブルーミングスラッシュ","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":62.1},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (62.1x, ATK) to all enemies"},{"effect":{"skillEnhancement":{"235444":3,"235445":3,"235446":3,"235447":3,"512240":3,"512241":3,"512242":3,"512243":3,"512246":3,"512248":3},"turn":6},"desc":"Increase damage of アウル流護衛剣 (235444), アウル流護衛剣【強】 (235446), アウル流護衛剣【激】 (235447), アウル流護衛剣【静】 (235445), 乱咲の烈剣 (512246), 散華の風剣 (512240), 散華の風剣・改 (512241), 極咲の烈剣 (512248), 水蓮の波剣 (512242) and 水蓮の波剣・改 (512243) by 300% for 6 turns"},{"effect":{"gainSkills":{"skills":[{"id":"512253","name":"見切りの型・改"},{"id":"512254","name":"護身の型・改"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain 見切りの型・改 (512253) and 護身の型・改 (512254) for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":65},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (65x, ATK) to all enemies"},{"effect":{"skillEnhancement":{"235444":3,"235445":3,"235446":3,"235447":3,"512240":3,"512241":3,"512242":3,"512243":3,"512246":3,"512248":3},"turn":6},"desc":"Increase damage of アウル流護衛剣 (235444), アウル流護衛剣【強】 (235446), アウル流護衛剣【激】 (235447), アウル流護衛剣【静】 (235445), 乱咲の烈剣 (512246), 散華の風剣 (512240), 散華の風剣・改 (512241), 極咲の烈剣 (512248), 水蓮の波剣 (512242) and 水蓮の波剣・改 (512243) by 300% for 6 turns"},{"effect":{"gainSkills":{"skills":[{"id":"512253","name":"見切りの型・改"},{"id":"512254","name":"護身の型・改"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain 見切りの型・改 (512253) and 護身の型・改 (512254) for one turn"}],"frames":[120,142,203],"move":"walk"}, "equipedConditions":[["504235430","303008200"]]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":30, "atk%":30, "singleWielding":{"accuracy":25,"atk":100}, "mpRefresh":5, "lbDamage":50, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Nerine",
+			"jpname":"ネリネ",
+			"id":"100030205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3743,"mp":189,"atk":160,"def":116,"mag":116,"spr":130},
+				"minStats":{"hp":1235,"mp":62,"atk":53,"def":38,"mag":38,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":30, "mp%":30, "atk%":90, "def%":30, "singleWielding":{"accuracy":75,"atk":150}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"wind","percent":50}], "killers":[{"name":"aquatic","physical":75},{"name":"human","physical":75}], "mpRefresh":5},
+				{"atk%":40, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
+	"100030305": {
+		"name":"Owl",
+		"jpname":"アウル",
+		"id":"100030305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4744,"mp":250,"atk":207,"def":170,"mag":161,"spr":171},
+			"minStats":{"hp":1566,"mp":83,"atk":68,"def":56,"mag":53,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","staff","rod","hammer","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":60, "mp%":50, "atk%":80, "def%":50, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]},
+			{"atk%":40, "equipedConditions":["katana"]},
+			{"evade":{"physical":30}, "dualWielding":{"atk":50}, "equipedConditions":[["504235432","304005900"]]},
+			{"hp%":20, "levelCondition":115},
+			{"atk%":50, "skillEnhancement":{"235461":7,"235462":7,"235464":10,"235465":10}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Owl",
+			"jpname":"アウル",
+			"id":"100030305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3649,"mp":192,"atk":159,"def":130,"mag":123,"spr":131},
+				"minStats":{"hp":1204,"mp":63,"atk":52,"def":43,"mag":41,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","staff","rod","hammer","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":60, "mp%":50, "atk%":80, "def%":50, "dualWielding":{"atk":50}, "lbFillRate":100, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]},
+				{"atk%":40, "equipedConditions":["katana"]}
+			]
+		}
+	},
+	"100030404": {
+		"name":"Swan",
+		"jpname":"スワン",
+		"id":"100030404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3500,"mp":176,"atk":115,"def":132,"mag":141,"spr":141},
+			"minStats":{"hp":1155,"mp":58,"atk":38,"def":44,"mag":47,"spr":47},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","harp","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":30, "mp%":70, "def%":10, "spr%":60, "resist":[{"name":"water","percent":20},{"name":"wind","percent":10},{"name":"light","percent":10}]}
+		]
 	},
 	"100030505": {
 		"name":"Sieghard & Ignacio",

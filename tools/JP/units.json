@@ -4872,6 +4872,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ハートフルスマイル・HP","ハートフルスマイル・MP","開店の大号令","スウィープアウト・悪魔","スウィープアウト・死霊","お客様の笑顔を守る騎士"],
 		"6_form": {
 			"name":"Cafe Charlotte",
 			"jpname":"カフェシャルロット",
@@ -4886,7 +4887,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["ハートフルスマイル・HP","ハートフルスマイル・MP","開店の大号令","スウィープアウト・悪魔","スウィープアウト・死霊","お客様の笑顔を守る騎士"]
 		}
 	},
 	"100025405": {
@@ -4903,6 +4905,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","hammer","spear","throwing","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["カレントナックル","リクイデート","TYPE001：バトルモード","人型機械に芽生えた心","家族の音声記録"],
 		"6_form": {
 			"name":"Elnath",
 			"jpname":"エルナト",
@@ -4917,7 +4920,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["sword","hammer","spear","throwing","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","hammer","spear","throwing","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["カレントナックル","リクイデート","TYPE001：バトルモード","人型機械に芽生えた心","家族の音声記録"]
 		}
 	},
 	"100025504": {
@@ -6075,6 +6079,83 @@
 			"stats_pattern":1,
 			"equip":["dagger","bow","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor","robe"]
 		}
+	},
+	"100030205": {
+		"name":"Nerine",
+		"jpname":"ネリネ",
+		"id":"100030205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4866,"mp":246,"atk":209,"def":152,"mag":151,"spr":170},
+			"minStats":{"hp":1606,"mp":81,"atk":69,"def":50,"mag":50,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Nerine",
+			"jpname":"ネリネ",
+			"id":"100030205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3743,"mp":189,"atk":160,"def":116,"mag":116,"spr":130},
+				"minStats":{"hp":1235,"mp":62,"atk":53,"def":38,"mag":38,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"100030305": {
+		"name":"Owl",
+		"jpname":"アウル",
+		"id":"100030305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4744,"mp":250,"atk":207,"def":170,"mag":161,"spr":171},
+			"minStats":{"hp":1566,"mp":83,"atk":68,"def":56,"mag":53,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","staff","rod","hammer","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Owl",
+			"jpname":"アウル",
+			"id":"100030305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3649,"mp":192,"atk":159,"def":130,"mag":123,"spr":131},
+				"minStats":{"hp":1204,"mp":63,"atk":52,"def":43,"mag":41,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","staff","rod","hammer","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
+	"100030404": {
+		"name":"Swan",
+		"jpname":"スワン",
+		"id":"100030404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3500,"mp":176,"atk":115,"def":132,"mag":141,"spr":141},
+			"minStats":{"hp":1155,"mp":58,"atk":38,"def":44,"mag":47,"spr":47},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","harp","lightShield","hat","clothes","robe"]
 	},
 	"100030505": {
 		"name":"Sieghard & Ignacio",
