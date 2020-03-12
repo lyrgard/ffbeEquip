@@ -2275,7 +2275,7 @@ function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
                 if (!effectOut.statsBuff.def || effectOut.statsBuff.def < effect.effect.statsBuff.def) {
                     effectOut.statsBuff.def = effect.effect.statsBuff.def;
                 }
-                if (!effectOut.statsBuff.mag || effectOut.statsBuff.atk < effect.effect.statsBuff.mag) {
+                if (!effectOut.statsBuff.mag || effectOut.statsBuff.mag < effect.effect.statsBuff.mag) {
                     effectOut.statsBuff.mag = effect.effect.statsBuff.mag;
                 }
                 if (!effectOut.statsBuff.spr || effectOut.statsBuff.spr < effect.effect.statsBuff.spr) {

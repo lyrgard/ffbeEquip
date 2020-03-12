@@ -10089,7 +10089,8 @@
 		"enhancementSkills":["Venus Crest","Magical Mog","Standby - Water","Flood","Flare Fury"],
 		"enhancements": [
 			{"name":"Venus Crest","levels":[[{"mag%":30,"resist":[{"name":"fire","percent":30}]}],[{"mag%":40,"resist":[{"name":"fire","percent":40}]}],[{"mag%":60,"resist":[{"name":"fire","percent":60}]}]]},
-			{"name":"Magical Mog","levels":[[{"equipedConditions":["rod"],"mag%":40}],[{"equipedConditions":["rod"],"mag%":60}],[{"equipedConditions":["rod"],"mag%":100}]]}
+			{"name":"Magical Mog","levels":[[{"equipedConditions":["rod"],"mag%":40}],[{"equipedConditions":["rod"],"mag%":60}],[{"equipedConditions":["rod"],"mag%":100}]]},
+			{"name":"Experienced Guardian","levels":[[],[{"mag%":20,"mp%":20,"skillEnhancement":{"508020":7.5,"912377":7.5,"912378":7.5}}],[{"spr%":20,"mag%":30,"def%":20,"mp%":20,"hp%":20,"singleWielding":{"mag":50},"lbDamage":50,"skillEnhancement":{"508020":15,"912377":15,"912378":15}}],[{"spr%":50,"mag%":60,"def%":50,"mp%":20,"hp%":50,"singleWielding":{"mag":100},"dualWielding":{"mag":100},"lbDamage":150,"skillEnhancement":{"508020":30,"912377":30,"912378":30}}]]}
 		],
 		"skills": [
 			{"mp%":30, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
@@ -10117,7 +10118,8 @@
 			"enhancementSkills":["Venus Crest","Magical Mog","Standby - Water","Flood","Flare Fury"],
 		"enhancements": [
 			{"name":"Venus Crest","levels":[[{"mag%":30,"resist":[{"name":"fire","percent":30}]}],[{"mag%":40,"resist":[{"name":"fire","percent":40}]}],[{"mag%":60,"resist":[{"name":"fire","percent":60}]}]]},
-			{"name":"Magical Mog","levels":[[{"equipedConditions":["rod"],"mag%":40}],[{"equipedConditions":["rod"],"mag%":60}],[{"equipedConditions":["rod"],"mag%":100}]]}
+			{"name":"Magical Mog","levels":[[{"equipedConditions":["rod"],"mag%":40}],[{"equipedConditions":["rod"],"mag%":60}],[{"equipedConditions":["rod"],"mag%":100}]]},
+			{"name":"Experienced Guardian","levels":[[],[{"mag%":20,"mp%":20,"skillEnhancement":{"508020":7.5,"912377":7.5,"912378":7.5}}],[{"spr%":20,"mag%":30,"def%":20,"mp%":20,"hp%":20,"singleWielding":{"mag":50},"lbDamage":50,"skillEnhancement":{"508020":15,"912377":15,"912378":15}}],[{"spr%":50,"mag%":60,"def%":50,"mp%":20,"hp%":50,"singleWielding":{"mag":100},"dualWielding":{"mag":100},"lbDamage":150,"skillEnhancement":{"508020":30,"912377":30,"912378":30}}]]}
 		],
 			"skills": [
 				{"mp%":30, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5}
@@ -10177,6 +10179,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancements": [
+			{"name":"Believer of Infinite Possibilities","levels":[[],[{"spr%":10,"mp%":10,"skillEnhancement":{"228902":5,"228906":12,"228907":12,"508761":5,"508764":12}}],[{"spr%":30,"atk%":20,"mp%":30,"lbDamage":30,"lbPerTurn":{"min":3,"max":3},"skillEnhancement":{"228902":10,"228906":20,"228907":20,"508761":10,"508764":20}}],[{"spr%":30,"def%":30,"atk%":50,"mp%":30,"hp%":30,"lbDamage":100,"lbPerTurn":{"min":6,"max":6},"skillEnhancement":{"228902":15,"228906":34,"228907":34,"508761":15,"508764":34}}]]}
+		],
 		"skills": [
 			{"hp%":30, "mp%":30, "atk%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"earth","percent":30},{"name":"blind","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["katana"]},
@@ -10199,6 +10204,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancements": [
+			{"name":"Believer of Infinite Possibilities","levels":[[],[{"spr%":10,"mp%":10,"skillEnhancement":{"228902":5,"228906":12,"228907":12,"508761":5,"508764":12}}],[{"spr%":30,"atk%":20,"mp%":30,"lbDamage":30,"lbPerTurn":{"min":3,"max":3},"skillEnhancement":{"228902":10,"228906":20,"228907":20,"508761":10,"508764":20}}],[{"spr%":30,"def%":30,"atk%":50,"mp%":30,"hp%":30,"lbDamage":100,"lbPerTurn":{"min":6,"max":6},"skillEnhancement":{"228902":15,"228906":34,"228907":34,"508761":15,"508764":34}}]]}
+		],
 			"skills": [
 				{"hp%":30, "mp%":30, "atk%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"earth","percent":30},{"name":"blind","percent":100}], "mpRefresh":5},
 				{"atk%":50, "equipedConditions":["katana"]}
@@ -10262,7 +10270,7 @@
 			{"mag%":50, "spr%":50, "equipedConditions":["rod"]},
 			{"equipedConditions":[["409034900","504232703"]]},
 			{"hp%":20, "levelCondition":115},
-			{"mag%":50, "spr%":50, "evoMag":70, "levelCondition":120}
+			{"mag%":50, "spr%":50, "evoMag":70, "singleWielding":{"mag":100}, "dualWielding":{"mag":100}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Yunalesca",
@@ -10369,7 +10377,7 @@
 		]
 	},
 	"210001805": {
-		"name":"Tidus of Zanarkand",
+		"name":"Star Player Tidus",
 		"id":"210001805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -10390,7 +10398,7 @@
 			{"hp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Tidus of Zanarkand",
+			"name":"Star Player Tidus",
 			"id":"210001805",
 			"sixStarForm":true,
 			"max_rarity":"7",

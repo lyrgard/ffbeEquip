@@ -521,7 +521,8 @@ function addToOwnedUnits(unitId) {
     }
     
     ownedUnits[unitId].number += 1;
-    if (!tmrNumberByUnitId[unitId] || (tmrNumberByUnitId[unitId] < ownedUnits[unitId].number)) {
+    let ownedUnitsCount = ownedUnits[unitId].number + (ownedUnits[unitId].sevenStar || 0) * 2;
+    if (!tmrNumberByUnitId[unitId] || (tmrNumberByUnitId[unitId] < ownedUnitsCount)) {
         ownedUnits[unitId].farmable += 1;
     }
     updateUnitDisplay(unitId);
