@@ -696,7 +696,7 @@ function addMasterySkills(item, masterySkills, result) {
             result.push(copy);
             treatedItems.push(copy);
             for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
-                if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
+                if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 5) {
                     var copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
                     if (addMastery(copy, masterySkills[masteryIndex])) {
                         result.push(copy);
