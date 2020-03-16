@@ -1,5 +1,5 @@
 const skillToken = "SKILL";
-const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE", "EVO_MAG","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER", "R_LIGHTNING","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB", "ACCURACY", "LB_DAMAGE", "DRAW_ATTACKS", "ANY", "MONSTER_DAMAGE"];
+const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE", "EVO_MAG","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER", "R_LIGHTNING","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","R_STOP","R_CHARM","I_DISABLE","LB", "ACCURACY", "LB_DAMAGE", "DRAW_ATTACKS", "ANY", "MONSTER_DAMAGE"];
 const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK", "E_NONE"];
 const operators = ["/","*","+","-",">", "OR", "AND", ";"];
 const booleanResultOperators=[">", "OR", "AND", ";"];
@@ -59,6 +59,8 @@ const attributeByVariable = {
     "R_DISEASE":"resist|disease.percent",
     "R_PETRIFICATION":"resist|petrification.percent",
     "R_DEATH":"resist|death.percent",
+    "R_STOP":"resist|stop.percent",
+    "R_CHARM":"resist|charm.percent",
     "LB":"lbPerTurn",
     "ACCURACY": "accuracy",
     "DRAW_ATTACKS": "drawAttacks",
@@ -106,7 +108,10 @@ const abbreviations = {
     "I_EARTH" : "R_EARTH > 100",
     "I_LIGHT" : "R_LIGHT > 100",
     "I_DARK" : "R_DARK > 100",
+    "I_STOP" : "R_STOP > 100",
+    "I_CHARM" : "R_CHARM > 100",
     "SURVIVING" : "HP > MONSTER_DAMAGE",
+    "MP_TURN" : "MP * MP_REFRESH",
 }
 
 var elementVariablesUsed = [];
