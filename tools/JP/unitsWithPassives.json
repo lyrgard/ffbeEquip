@@ -13716,7 +13716,7 @@
 		]
 	},
 	"210001805": {
-		"name":"Tidus of Zanarkand",
+		"name":"Star Player Tidus",
 		"jpname":"ザナルカンドのティーダ",
 		"id":"210001805",
 		"max_rarity":"7",
@@ -13741,7 +13741,7 @@
 			{"hp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Tidus of Zanarkand",
+			"name":"Star Player Tidus",
 			"jpname":"ザナルカンドのティーダ",
 			"id":"210001805",
 			"sixStarForm":true,
@@ -21125,6 +21125,129 @@
 			"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"],
 			"skills": [
 				{"hp%":40, "mp%":50, "atk%":80, "def%":20, "mag%":70, "spr%":20, "dualWielding":{"atk":100,"mag":100}, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"earth","percent":30},{"name":"stop","percent":100},{"name":"fire","percent":-10},{"name":"wind","percent":20}], "killers":[{"name":"dragon","physical":75,"magical":75}], "mpRefresh":12, "special":["dualWield"]}
+			]
+		}
+	},
+	"339000205": {
+		"name":"Mont",
+		"jpname":"モント",
+		"id":"339000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5019,"mp":205,"atk":177,"def":211,"mag":129,"spr":194},
+			"minStats":{"hp":1656,"mp":68,"atk":58,"def":70,"mag":43,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":60, "mp%":20, "atk%":50, "def%":70, "spr%":40, "lbFillRate":100, "resist":[{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "drawAttacks":50},
+			{"hp%":20, "mp%":20, "atk%":50, "def%":50, "equipedConditions":[["504235504","409042200"]]},
+			{"def%":30, "lbPerTurn":{"min":3,"max":3}, "levelCondition":110},
+			{"hp%":20, "levelCondition":115},
+			{"atk%":50, "lbDamage":50, "skillEnhancement":{"235565":15,"235566":15,"235567":15,"512302":8,"512303":8}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Mont",
+			"jpname":"モント",
+			"id":"339000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3860,"mp":157,"atk":136,"def":162,"mag":99,"spr":149},
+				"minStats":{"hp":1274,"mp":52,"atk":45,"def":53,"mag":33,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":60, "mp%":20, "atk%":50, "def%":70, "spr%":40, "lbFillRate":100, "resist":[{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "drawAttacks":50}
+			]
+		}
+	},
+	"339000305": {
+		"name":"Sterne",
+		"jpname":"シュテル",
+		"id":"339000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4842,"mp":243,"atk":209,"def":193,"mag":153,"spr":179},
+			"minStats":{"hp":1598,"mp":80,"atk":69,"def":64,"mag":50,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":40, "mp%":30, "atk%":70, "def%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"dark","percent":30},{"name":"blind","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":75}], "mpRefresh":7},
+			{"atk%":50, "lbPerTurn":{"min":4,"max":4}, "lbDamage":50, "equipedConditions":[["504235500","406004700"]]},
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "killers":[{"name":"human","physical":75}], "skillEnhancement":{"235514":15,"235515":17.5,"235516":17.5,"235517":15,"235518":15,"235521":7.5,"512283":7.5,"512284":15}, "levelCondition":110},
+			{"spr%":20, "levelCondition":115},
+			{"atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Sterne",
+			"jpname":"シュテル",
+			"id":"339000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3724,"mp":186,"atk":160,"def":148,"mag":117,"spr":137},
+				"minStats":{"hp":1229,"mp":61,"atk":53,"def":49,"mag":39,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":40, "mp%":30, "atk%":70, "def%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"dark","percent":30},{"name":"blind","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":75}], "mpRefresh":7}
+			]
+		}
+	},
+	"339000405": {
+		"name":"Kitone",
+		"jpname":"キトン",
+		"id":"339000405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4760,"mp":260,"atk":207,"def":187,"mag":203,"spr":191},
+			"minStats":{"hp":1571,"mp":86,"atk":68,"def":62,"mag":67,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes"],
+		"skills": [
+			{"hp%":50, "mp%":40, "atk%":80, "def%":20, "mag%":30, "spr%":20, "dualWielding":{"atk":100}, "improvedDW":true, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"earth","percent":30}], "mpRefresh":7, "special":["dualWield"]},
+			{"atk%":20, "resist":[{"name":"stop","percent":100}], "equipedConditions":[["409042100","504235503"]]},
+			{"atk%":40, "mag%":40, "dualWielding":{"atk":50}, "killers":[{"name":"demon","physical":50},{"name":"human","physical":50}], "levelCondition":110},
+			{"def%":20, "levelCondition":115},
+			{"atk%":20, "mag%":20, "lbDamage":50, "skillEnhancement":{"235532":12,"235533":12,"235537":4,"235538":4}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Kitone",
+			"jpname":"キトン",
+			"id":"339000405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3661,"mp":200,"atk":159,"def":143,"mag":156,"spr":146},
+				"minStats":{"hp":1208,"mp":66,"atk":52,"def":47,"mag":51,"spr":48},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes"],
+			"skills": [
+				{"hp%":50, "mp%":40, "atk%":80, "def%":20, "mag%":30, "spr%":20, "dualWielding":{"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"earth","percent":30}], "mpRefresh":7, "special":["dualWield"]}
 			]
 		}
 	},

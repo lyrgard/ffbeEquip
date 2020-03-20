@@ -9479,7 +9479,7 @@
 		"equip":["dagger","staff","rod","lightShield","hat","clothes","robe"]
 	},
 	"210001805": {
-		"name":"Tidus of Zanarkand",
+		"name":"Star Player Tidus",
 		"jpname":"ザナルカンドのティーダ",
 		"id":"210001805",
 		"max_rarity":"7",
@@ -9493,7 +9493,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Tidus of Zanarkand",
+			"name":"Star Player Tidus",
 			"jpname":"ザナルカンドのティーダ",
 			"id":"210001805",
 			"sixStarForm":true,
@@ -14569,6 +14569,99 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"339000205": {
+		"name":"Mont",
+		"jpname":"モント",
+		"id":"339000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5019,"mp":205,"atk":177,"def":211,"mag":129,"spr":194},
+			"minStats":{"hp":1656,"mp":68,"atk":58,"def":70,"mag":43,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Mont",
+			"jpname":"モント",
+			"id":"339000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3860,"mp":157,"atk":136,"def":162,"mag":99,"spr":149},
+				"minStats":{"hp":1274,"mp":52,"atk":45,"def":53,"mag":33,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"339000305": {
+		"name":"Sterne",
+		"jpname":"シュテル",
+		"id":"339000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4842,"mp":243,"atk":209,"def":193,"mag":153,"spr":179},
+			"minStats":{"hp":1598,"mp":80,"atk":69,"def":64,"mag":50,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Sterne",
+			"jpname":"シュテル",
+			"id":"339000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3724,"mp":186,"atk":160,"def":148,"mag":117,"spr":137},
+				"minStats":{"hp":1229,"mp":61,"atk":53,"def":49,"mag":39,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
+	"339000405": {
+		"name":"Kitone",
+		"jpname":"キトン",
+		"id":"339000405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4760,"mp":260,"atk":207,"def":187,"mag":203,"spr":191},
+			"minStats":{"hp":1571,"mp":86,"atk":68,"def":62,"mag":67,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes"],
+		"6_form": {
+			"name":"Kitone",
+			"jpname":"キトン",
+			"id":"339000405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3661,"mp":200,"atk":159,"def":143,"mag":156,"spr":146},
+				"minStats":{"hp":1208,"mp":66,"atk":52,"def":47,"mag":51,"spr":48},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes"]
 		}
 	},
 	"401000104": {
