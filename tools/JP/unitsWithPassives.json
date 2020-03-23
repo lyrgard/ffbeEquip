@@ -14689,6 +14689,135 @@
 			{"hp%":40, "mp%":20, "atk%":80, "def%":50, "spr%":30, "singleWielding":{"accuracy":50,"atk":100}, "lbFillRate":50, "resist":[{"name":"blind","percent":100}]}
 		]
 	},
+	"212001905": {
+		"name":"Princess Ashe",
+		"jpname":"亡国の聖女アーシェ",
+		"id":"212001905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4401,"mp":290,"atk":172,"def":173,"mag":220,"spr":188},
+			"minStats":{"hp":1452,"mp":96,"atk":57,"def":57,"mag":73,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","gun","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"祖国を取り戻す誓い","levels":[[],[{"hp%":10,"lbPerTurn":{"min":2,"max":2},"lbDamage":50,"skillEnhancement":{"512326":7.5,"512334":7.5,"512342":7.5}}]]}
+		],
+		"skills": [
+			{"hp%":10, "mp%":60, "def%":40, "mag%":100, "spr%":40, "singleWielding":{"mag":100}, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"bird","physical":150,"magical":150},{"name":"aquatic","physical":150,"magical":150}], "mpRefresh":5, "skillEnhancement":{"235610":10,"235611":10,"235612":10,"235613":10,"235616":5,"235617":5,"235618":5,"235619":5,"235620":5,"235621":5}},
+			{"hp%":10, "def%":20, "mag%":50, "spr%":20, "equipedConditions":["lightShield"]},
+			{"hp%":10, "def%":20, "mag%":50, "spr%":20, "equipedConditions":["heavyShield"]},
+			{"mag%":50, "equipedConditions":["sword"]},
+			{"hp%":10, "def%":20, "mag%":50, "spr%":20, "equipedConditions":["lightShield"]},
+			{"hp%":10, "def%":20, "mag%":50, "spr%":20, "equipedConditions":["heavyShield"]},
+			{"singleWielding":{"mag":100}, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "mpRefresh":3, "equipedConditions":[["504235590","302012400"]]},
+			{"mp%":20, "mag%":50, "skillEnhancement":{"10160":4.5,"20310":20}, "levelCondition":105},
+			{"hp%":10, "def%":20, "mag%":50, "spr%":20, "equipedConditions":["lightShield"], "levelCondition":105},
+			{"hp%":10, "def%":20, "mag%":50, "spr%":20, "equipedConditions":["heavyShield"], "levelCondition":105},
+			{"hp%":20, "levelCondition":115},
+			{"mp%":40, "def%":40, "mag%":50, "spr%":40, "singleWielding":{"mag":100}, "skillEnhancement":{"235610":5,"235611":5,"235612":5,"235613":5,"235616":5,"235617":5,"235618":5,"235619":5,"235620":5,"235621":5}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Princess Ashe",
+			"jpname":"亡国の聖女アーシェ",
+			"id":"212001905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3385,"mp":223,"atk":132,"def":133,"mag":169,"spr":144},
+				"minStats":{"hp":1117,"mp":74,"atk":44,"def":44,"mag":56,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","gun","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"祖国を取り戻す誓い","levels":[[],[{"hp%":10,"lbPerTurn":{"min":2,"max":2},"lbDamage":50,"skillEnhancement":{"512326":7.5,"512334":7.5,"512342":7.5}}]]}
+		],
+			"skills": [
+				{"hp%":10, "mp%":60, "def%":40, "mag%":100, "spr%":40, "singleWielding":{"mag":100}, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"bird","physical":150,"magical":150},{"name":"aquatic","physical":150,"magical":150}], "mpRefresh":5, "skillEnhancement":{"235610":10,"235611":10,"235612":10,"235613":10,"235616":5,"235617":5,"235618":5,"235619":5,"235620":5,"235621":5}},
+				{"hp%":10, "def%":20, "mag%":50, "spr%":20, "equipedConditions":["lightShield"]},
+				{"hp%":10, "def%":20, "mag%":50, "spr%":20, "equipedConditions":["heavyShield"]},
+				{"mag%":50, "equipedConditions":["sword"]},
+				{"hp%":10, "def%":20, "mag%":50, "spr%":20, "equipedConditions":["lightShield"]},
+				{"hp%":10, "def%":20, "mag%":50, "spr%":20, "equipedConditions":["heavyShield"]}
+			]
+		}
+	},
+	"212002005": {
+		"name":"Vossler",
+		"jpname":"ウォースラ",
+		"id":"212002005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5009,"mp":218,"atk":168,"def":189,"mag":135,"spr":218},
+			"minStats":{"hp":1653,"mp":72,"atk":55,"def":62,"mag":45,"spr":72},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancements": [
+			{"name":"王家に仕えし忠臣","levels":[[],[{"singleWielding":{"accuracy":25,"atk":50}}]]}
+		],
+		"skills": [
+			{"hp%":90, "mp%":20, "atk%":40, "def%":60, "spr%":90, "evade":{"physical":10,"magical":20}, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":50, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"lightning","percent":50},{"name":"dark","percent":50}], "mpRefresh":5, "drawAttacks":30},
+			{"atk%":30, "spr%":30, "equipedConditions":["greatSword"]},
+			{"atk%":60, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"demon","physical":50},{"name":"human","physical":50}], "drawAttacks":10, "equipedConditions":[["409042400","303008400"]]},
+			{"atk%":20, "def%":20, "lbFillRate":50, "levelCondition":110},
+			{"mp%":10, "levelCondition":115},
+			{"hp%":50, "def%":20, "spr%":50, "resist":[{"name":"stop","percent":100}], "drawAttacks":10, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Vossler",
+			"jpname":"ウォースラ",
+			"id":"212002005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3853,"mp":167,"atk":129,"def":145,"mag":103,"spr":167},
+				"minStats":{"hp":1271,"mp":55,"atk":43,"def":48,"mag":34,"spr":55},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancements": [
+			{"name":"王家に仕えし忠臣","levels":[[],[{"singleWielding":{"accuracy":25,"atk":50}}]]}
+		],
+			"skills": [
+				{"hp%":90, "mp%":20, "atk%":40, "def%":60, "spr%":90, "evade":{"physical":10,"magical":20}, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":50, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"lightning","percent":50},{"name":"dark","percent":50}], "mpRefresh":5, "drawAttacks":30},
+				{"atk%":30, "spr%":30, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
+	"212002104": {
+		"name":"Bergan",
+		"jpname":"ベルガ",
+		"id":"212002104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3491,"mp":173,"atk":160,"def":127,"mag":122,"spr":125},
+			"minStats":{"hp":1152,"mp":57,"atk":53,"def":42,"mag":40,"spr":41},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"帝国のジャッジマスター【ベルガ】","levels":[[],[{"mag%":30,"atk%":30,"hp%":30,"skillEnhancement":{"235650":10,"235652":10,"512351":2.5,"512352":2.5}}]]}
+		],
+		"skills": [
+			{"hp%":70, "atk%":80, "def%":20, "mag%":40, "spr%":10, "resist":[{"name":"poison","percent":50},{"name":"confuse","percent":100},{"name":"silence","percent":50},{"name":"petrification","percent":50}], "drawAttacks":30, "skillEnhancement":{"20040":6,"20050":6,"20110":6,"20120":6,"20230":6,"20240":6,"20450":6,"20460":6,"20470":6,"235650":4,"235652":4}, "special":["dualWield"]}
+		]
+	},
 	"213000105": {
 		"name":"Lightning",
 		"jpname":"ライトニング",
