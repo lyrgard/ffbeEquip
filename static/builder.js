@@ -4795,6 +4795,11 @@ let handleExternalControl = function(message) {
             select("races", data.value);
             parent.postMessage(JSON.stringify({'type':'monsterRacesSet', 'value':''}), '*');
             break;
+        case 'tryReduceOverCapSelect':
+			console.log(data.value);
+            $("#tryReduceOverCapSelect").val(data.value);
+            parent.postMessage(JSON.stringify({'type':'tryReduceOverCapSelect', 'value':''}), '*');
+            break;
         case 'setDefaultEnhancements':
             setDefaultEnhancements(data.value);
             parent.postMessage(JSON.stringify({'type':'defaultEnhancementsSet', 'value':''}), '*');
