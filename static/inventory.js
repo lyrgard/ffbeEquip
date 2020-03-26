@@ -1176,12 +1176,16 @@ function prepareLastItemReleases() {
         }
     }
     var tmrs = {};
+    var stmrs = {};
     var events = {};
     var itemsById = {};
     var items = equipments.concat(materia);
     for (var index in items) {
         if (items[index].tmrUnit && unitsToSearch.includes(items[index].tmrUnit)) {
             tmrs[items[index].tmrUnit] = items[index];
+        }
+        if (items[index].stmrUnit && unitsToSearch.includes(items[index].stmrUnit)) {
+            stmrs[items[index].stmrUnit] = items[index];
         }
         if (items[index].eventNames && items[index].eventNames.some(event => eventsToSearch.includes(event))) {
             items[index].eventNames.forEach(eventNames => {
@@ -1200,6 +1204,9 @@ function prepareLastItemReleases() {
                 lastItemReleases[dateIndex].sources[sourceIndex].items = [];
                 for (var unitIndex in lastItemReleases[dateIndex].sources[sourceIndex].units) {
                     lastItemReleases[dateIndex].sources[sourceIndex].items.push(tmrs[lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex]]);
+                    if (stmrs[lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex]]) {
+                        lastItemReleases[dateIndex].sources[sourceIndex].items.push(stmrs[lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex]]);
+                    }
                 }
             } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event") {
                 lastItemReleases[dateIndex].sources[sourceIndex].items = events[lastItemReleases[dateIndex].sources[sourceIndex].name];
