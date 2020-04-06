@@ -13008,7 +13008,7 @@
 		]
 	},
 	"209001405": {
-		"name":"CG Vivi",
+		"name":"Black Mage Vivi",
 		"jpname":"黒魔道士の少年ビビ",
 		"id":"209001405",
 		"max_rarity":"7",
@@ -13035,7 +13035,7 @@
 			{"def%":30, "spr%":30, "lbDamage":100, "skillEnhancement":{"232480":2,"232481":2,"232483":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Vivi",
+			"name":"Black Mage Vivi",
 			"jpname":"黒魔道士の少年ビビ",
 			"id":"209001405",
 			"sixStarForm":true,
@@ -13062,7 +13062,7 @@
 		}
 	},
 	"209001505": {
-		"name":"CG Zidane",
+		"name":"Rakish Thief Zidane",
 		"jpname":"尻尾の少年ジタン",
 		"id":"209001505",
 		"max_rarity":"7",
@@ -13086,7 +13086,7 @@
 			{"dualWielding":{"atk":60}, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Zidane",
+			"name":"Rakish Thief Zidane",
 			"jpname":"尻尾の少年ジタン",
 			"id":"209001505",
 			"sixStarForm":true,
@@ -13110,7 +13110,7 @@
 		}
 	},
 	"209001705": {
-		"name":"Quina",
+		"name":"Strange Gourmand Quina",
 		"jpname":"クイナ",
 		"id":"209001705",
 		"max_rarity":"7",
@@ -13135,7 +13135,7 @@
 			{"hp%":40, "mag%":40, "singleWielding":{"mag":50}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Quina",
+			"name":"Strange Gourmand Quina",
 			"jpname":"クイナ",
 			"id":"209001705",
 			"sixStarForm":true,
@@ -13210,7 +13210,7 @@
 		}
 	},
 	"209001904": {
-		"name":"Fratley",
+		"name":"Sir Iron-tail Fratley",
 		"jpname":"フラットレイ",
 		"id":"209001904",
 		"max_rarity":"6",
@@ -13233,7 +13233,7 @@
 		]
 	},
 	"209002004": {
-		"name":"Zorn & Thorn",
+		"name":"Court Jesters Zorn & Thorn",
 		"jpname":"ゾーン&ソーン",
 		"id":"209002004",
 		"max_rarity":"6",
@@ -19356,6 +19356,128 @@
 			"skills": [
 				{"hp%":20, "mp%":30, "mag%":80, "spr%":30, "singleWielding":{"mag":50}, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"ice","percent":30},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5},
 				{"mp%":30, "spr%":30, "equipedConditions":["rod"]}
+			]
+		}
+	},
+	"312000705": {
+		"name":"Fenrir Knight Riesz",
+		"jpname":"フェンリルナイト リース",
+		"id":"312000705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4732,"mp":247,"atk":209,"def":184,"mag":218,"spr":168},
+			"minStats":{"hp":1562,"mp":82,"atk":69,"def":61,"mag":72,"spr":55},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["sword","staff","bow","spear","whip","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":60, "mp%":30, "atk%":100, "def%":30, "mag%":70, "evoMag":100, "singleWielding":{"accuracy":25,"atk":100,"mag":100}, "resist":[{"name":"wind","percent":30},{"name":"dark","percent":30},{"name":"petrification","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":50,"magical":50}], "mpRefresh":5, "lbDamage":100},
+			{"atk%":40, "mag%":40, "lbPerTurn":{"min":4,"max":4}, "killers":[{"name":"human","physical":50,"magical":50}], "equipedConditions":[["504235804","308006600"]]},
+			{"def%":20, "levelCondition":115},
+			{"mp%":30, "atk%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100,"mag":100}, "skillEnhancement":{"235834":15,"235835":15,"235836":15,"235837":15}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Fenrir Knight Riesz",
+			"jpname":"フェンリルナイト リース",
+			"id":"312000705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3640,"mp":190,"atk":160,"def":141,"mag":167,"spr":129},
+				"minStats":{"hp":1201,"mp":63,"atk":53,"def":47,"mag":55,"spr":43},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["sword","staff","bow","spear","whip","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":60, "mp%":30, "atk%":100, "def%":30, "mag%":70, "evoMag":100, "singleWielding":{"accuracy":25,"atk":100,"mag":100}, "resist":[{"name":"wind","percent":30},{"name":"dark","percent":30},{"name":"petrification","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":50,"magical":50}], "mpRefresh":5, "lbDamage":100}
+			]
+		}
+	},
+	"312000805": {
+		"name":"Divine Fist Kevin",
+		"jpname":"ゴッドハンド ケヴィン",
+		"id":"312000805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4809,"mp":241,"atk":212,"def":187,"mag":147,"spr":174},
+			"minStats":{"hp":1587,"mp":80,"atk":70,"def":62,"mag":49,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","spear","mace","fist","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":50, "mp%":50, "atk%":100, "def%":50, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":100},{"name":"human","physical":100}], "mpRefresh":7, "special":["dualWield"]},
+			{"atk%":200, "equipedConditions":["unarmed"]},
+			{"hp%":30, "atk%":50, "def%":30, "spr%":30, "dualWielding":{"atk":50}, "lbDamage":50, "equipedConditions":[["504235800","309005200"]]},
+			{"atk%":20, "levelCondition":115},
+			{"atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"235813":15,"235814":15,"235815":15,"235816":12.5,"512451":15,"512452":15,"512455":8}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Divine Fist Kevin",
+			"jpname":"ゴッドハンド ケヴィン",
+			"id":"312000805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3699,"mp":185,"atk":163,"def":143,"mag":113,"spr":133},
+				"minStats":{"hp":1221,"mp":61,"atk":54,"def":47,"mag":37,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","spear","mace","fist","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":50, "mp%":50, "atk%":100, "def%":50, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":100},{"name":"human","physical":100}], "mpRefresh":7, "special":["dualWield"]},
+				{"atk%":200, "equipedConditions":["unarmed"]}
+			]
+		}
+	},
+	"312000905": {
+		"name":"Warlock Charlotte",
+		"jpname":"イビルシャーマン シャルロット",
+		"id":"312000905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4851,"mp":236,"atk":207,"def":179,"mag":219,"spr":179},
+			"minStats":{"hp":1601,"mp":78,"atk":68,"def":59,"mag":72,"spr":59},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","bow","harp","whip","mace","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":60, "mp%":30, "atk%":100, "def%":40, "mag%":60, "singleWielding":{"accuracy":25,"atk":100,"mag":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"dark","percent":50},{"name":"blind","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7, "lbDamage":50},
+			{"atk%":50, "mag%":50, "singleWielding":{"accuracy":25,"atk":100,"mag":100}, "equipedConditions":[["504235802","307002800"]]},
+			{"mag%":20, "levelCondition":115},
+			{"atk%":40, "mag%":40, "spr%":40, "lbDamage":50, "skillEnhancement":{"235850":15,"235851":15,"235854":12.5,"235855":12.5,"235857":10,"235858":10}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Warlock Charlotte",
+			"jpname":"イビルシャーマン シャルロット",
+			"id":"312000905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3731,"mp":181,"atk":159,"def":137,"mag":168,"spr":137},
+				"minStats":{"hp":1231,"mp":60,"atk":52,"def":45,"mag":55,"spr":45},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","bow","harp","whip","mace","lightShield","hat","clothes","robe"],
+			"skills": [
+				{"hp%":60, "mp%":30, "atk%":100, "def%":40, "mag%":60, "singleWielding":{"accuracy":25,"atk":100,"mag":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"dark","percent":50},{"name":"blind","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7, "lbDamage":50}
 			]
 		}
 	},
