@@ -125,14 +125,6 @@ FFBEEquipExternalControl = {
             FFBEEquipExternalControl.listeners.monsterRacesSet = resolve;
         });
     },
-
-    'tryReduceOverCapSelect': function(selectedStat) {
-        console.log("tryReduceOverCapSelect " + JSON.stringify(selectedStat));
-        return new Promise(function(resolve) {
-            FFBEEquipExternalControl.iframe.contentWindow.postMessage(JSON.stringify({'type':'tryReduceOverCapSelect', 'value':selectedStat}), '*');
-            FFBEEquipExternalControl.listeners.tryReduceOverCapSelect = resolve;
-        });
-    },
     
     'setDefaultEnhancements': function(enhancements) {
         if (Array.isArray(enhancements) && enhancements.every(e => FFBEEquipExternalControl.weaponEnhancementList.includes(e))) {
