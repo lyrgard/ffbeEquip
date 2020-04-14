@@ -7182,6 +7182,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["参れ、黒龍！","黒き威圧感","双月","アビスクエーサー","Wメテオ","星をも超える力"],
 		"6_form": {
 			"name":"Black Mage Golbez",
 			"jpname":"漆黒の魔道士ゴルベーザ",
@@ -7196,7 +7197,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"]
+			"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["参れ、黒龍！","黒き威圧感","双月","アビスクエーサー","Wメテオ","星をも超える力"]
 		}
 	},
 	"204001805": {
@@ -7213,6 +7215,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe"],
+		"enhancementSkills":["メルトン","ゾファイ","なんだ　そのあわれな　じゅつは…","ほのおは　こうして　つかうものだ！","人間と決別せし者","狂える赤き戦士"],
 		"6_form": {
 			"name":"Rubicante",
 			"jpname":"ルビカンテ",
@@ -7227,7 +7230,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","hat","clothes","robe"]
+			"equip":["staff","rod","hat","clothes","robe"],
+			"enhancementSkills":["メルトン","ゾファイ","なんだ　そのあわれな　じゅつは…","ほのおは　こうして　つかうものだ！","人間と決別せし者","狂える赤き戦士"]
 		}
 	},
 	"204001904": {
@@ -9022,7 +9026,7 @@
 		"equip":["dagger","staff","rod","hat","clothes","robe"]
 	},
 	"209001405": {
-		"name":"CG Vivi",
+		"name":"Black Mage Vivi",
 		"jpname":"黒魔道士の少年ビビ",
 		"id":"209001405",
 		"max_rarity":"7",
@@ -9036,7 +9040,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","hat","clothes","robe"],
 		"6_form": {
-			"name":"CG Vivi",
+			"name":"Black Mage Vivi",
 			"jpname":"黒魔道士の少年ビビ",
 			"id":"209001405",
 			"sixStarForm":true,
@@ -9053,7 +9057,7 @@
 		}
 	},
 	"209001505": {
-		"name":"CG Zidane",
+		"name":"Rakish Thief Zidane",
 		"jpname":"尻尾の少年ジタン",
 		"id":"209001505",
 		"max_rarity":"7",
@@ -9067,7 +9071,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","mace","fist","lightShield","hat","clothes","lightArmor"],
 		"6_form": {
-			"name":"CG Zidane",
+			"name":"Rakish Thief Zidane",
 			"jpname":"尻尾の少年ジタン",
 			"id":"209001505",
 			"sixStarForm":true,
@@ -9084,7 +9088,7 @@
 		}
 	},
 	"209001705": {
-		"name":"Quina",
+		"name":"Strange Gourmand Quina",
 		"jpname":"クイナ",
 		"id":"209001705",
 		"max_rarity":"7",
@@ -9098,7 +9102,7 @@
 		"stats_pattern":4,
 		"equip":["rod","bow","spear","gun","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"Quina",
+			"name":"Strange Gourmand Quina",
 			"jpname":"クイナ",
 			"id":"209001705",
 			"sixStarForm":true,
@@ -9146,7 +9150,7 @@
 		}
 	},
 	"209001904": {
-		"name":"Fratley",
+		"name":"Sir Iron-tail Fratley",
 		"jpname":"フラットレイ",
 		"id":"209001904",
 		"max_rarity":"6",
@@ -9161,7 +9165,7 @@
 		"equip":["dagger","spear","hat","helm","clothes","lightArmor","heavyArmor","robe"]
 	},
 	"209002004": {
-		"name":"Zorn & Thorn",
+		"name":"Court Jesters Zorn & Thorn",
 		"jpname":"ゾーン&ソーン",
 		"id":"209002004",
 		"max_rarity":"6",
@@ -9174,6 +9178,114 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","whip","lightShield","hat","clothes","robe"]
+	},
+	"209002105": {
+		"name":"Reaper Kuja",
+		"jpname":"美しき死神クジャ",
+		"id":"209002105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4572,"mp":279,"atk":130,"def":160,"mag":220,"spr":205},
+			"minStats":{"hp":1509,"mp":92,"atk":43,"def":53,"mag":73,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"6_form": {
+			"name":"Reaper Kuja",
+			"jpname":"美しき死神クジャ",
+			"id":"209002105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3516,"mp":214,"atk":100,"def":123,"mag":169,"spr":157},
+				"minStats":{"hp":1160,"mp":71,"atk":33,"def":41,"mag":56,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","mace","hat","clothes","robe"]
+		}
+	},
+	"209002205": {
+		"name":"Garland (FFIX)",
+		"jpname":"ガーランド(FFIX)",
+		"id":"209002205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4669,"mp":286,"atk":135,"def":153,"mag":217,"spr":201},
+			"minStats":{"hp":1541,"mp":94,"atk":45,"def":50,"mag":72,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"Garland (FFIX)",
+			"jpname":"ガーランド(FFIX)",
+			"id":"209002205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3591,"mp":220,"atk":103,"def":117,"mag":166,"spr":154},
+				"minStats":{"hp":1185,"mp":73,"atk":34,"def":39,"mag":55,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"209002305": {
+		"name":"Pluto Knight Zidane",
+		"jpname":"プルート隊ジタン",
+		"id":"209002305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4850,"mp":213,"atk":206,"def":188,"mag":150,"spr":178},
+			"minStats":{"hp":1601,"mp":70,"atk":68,"def":62,"mag":50,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","bow","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"6_form": {
+			"name":"Pluto Knight Zidane",
+			"jpname":"プルート隊ジタン",
+			"id":"209002305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3730,"mp":163,"atk":158,"def":144,"mag":115,"spr":136},
+				"minStats":{"hp":1231,"mp":54,"atk":52,"def":48,"mag":38,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","bow","throwing","fist","lightShield","hat","helm","clothes","lightArmor"]
+		}
+	},
+	"209002404": {
+		"name":"Mikoto",
+		"jpname":"ミコト",
+		"id":"209002404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3518,"mp":180,"atk":122,"def":125,"mag":122,"spr":135},
+			"minStats":{"hp":1161,"mp":59,"atk":40,"def":41,"mag":40,"spr":45},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","katana","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"]
 	},
 	"210000105": {
 		"name":"Tidus",
@@ -9479,7 +9591,7 @@
 		"equip":["dagger","staff","rod","lightShield","hat","clothes","robe"]
 	},
 	"210001805": {
-		"name":"Tidus of Zanarkand",
+		"name":"Star Player Tidus",
 		"jpname":"ザナルカンドのティーダ",
 		"id":"210001805",
 		"max_rarity":"7",
@@ -9493,7 +9605,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Tidus of Zanarkand",
+			"name":"Star Player Tidus",
 			"jpname":"ザナルカンドのティーダ",
 			"id":"210001805",
 			"sixStarForm":true,
@@ -10111,6 +10223,83 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","katana","spear","lightShield","hat","helm","clothes","lightArmor"]
+	},
+	"212001905": {
+		"name":"Princess Ashe",
+		"jpname":"亡国の聖女アーシェ",
+		"id":"212001905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4401,"mp":290,"atk":172,"def":173,"mag":220,"spr":188},
+			"minStats":{"hp":1452,"mp":96,"atk":57,"def":57,"mag":73,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","gun","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Princess Ashe",
+			"jpname":"亡国の聖女アーシェ",
+			"id":"212001905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3385,"mp":223,"atk":132,"def":133,"mag":169,"spr":144},
+				"minStats":{"hp":1117,"mp":74,"atk":44,"def":44,"mag":56,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","gun","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
+	"212002005": {
+		"name":"Vossler",
+		"jpname":"ウォースラ",
+		"id":"212002005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5009,"mp":218,"atk":168,"def":189,"mag":135,"spr":218},
+			"minStats":{"hp":1653,"mp":72,"atk":55,"def":62,"mag":45,"spr":72},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"Vossler",
+			"jpname":"ウォースラ",
+			"id":"212002005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3853,"mp":167,"atk":129,"def":145,"mag":103,"spr":167},
+				"minStats":{"hp":1271,"mp":55,"atk":43,"def":48,"mag":34,"spr":55},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"212002104": {
+		"name":"Bergan",
+		"jpname":"ベルガ",
+		"id":"212002104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3491,"mp":173,"atk":160,"def":127,"mag":122,"spr":125},
+			"minStats":{"hp":1152,"mp":57,"atk":53,"def":42,"mag":40,"spr":41},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"]
 	},
 	"213000105": {
 		"name":"Lightning",
@@ -13098,6 +13287,99 @@
 			"equip":["dagger","staff","rod","whip","hat","clothes","robe"]
 		}
 	},
+	"312000705": {
+		"name":"Fenrir Knight Riesz",
+		"jpname":"フェンリルナイト リース",
+		"id":"312000705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4732,"mp":247,"atk":209,"def":184,"mag":218,"spr":168},
+			"minStats":{"hp":1562,"mp":82,"atk":69,"def":61,"mag":72,"spr":55},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["sword","staff","bow","spear","whip","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Fenrir Knight Riesz",
+			"jpname":"フェンリルナイト リース",
+			"id":"312000705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3640,"mp":190,"atk":160,"def":141,"mag":167,"spr":129},
+				"minStats":{"hp":1201,"mp":63,"atk":53,"def":47,"mag":55,"spr":43},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["sword","staff","bow","spear","whip","lightShield","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
+	"312000805": {
+		"name":"Divine Fist Kevin",
+		"jpname":"ゴッドハンド ケヴィン",
+		"id":"312000805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4809,"mp":241,"atk":212,"def":187,"mag":147,"spr":174},
+			"minStats":{"hp":1587,"mp":80,"atk":70,"def":62,"mag":49,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","spear","mace","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Divine Fist Kevin",
+			"jpname":"ゴッドハンド ケヴィン",
+			"id":"312000805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3699,"mp":185,"atk":163,"def":143,"mag":113,"spr":133},
+				"minStats":{"hp":1221,"mp":61,"atk":54,"def":47,"mag":37,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","spear","mace","fist","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"312000905": {
+		"name":"Warlock Charlotte",
+		"jpname":"イビルシャーマン シャルロット",
+		"id":"312000905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4851,"mp":236,"atk":207,"def":179,"mag":219,"spr":179},
+			"minStats":{"hp":1601,"mp":78,"atk":68,"def":59,"mag":72,"spr":59},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","bow","harp","whip","mace","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"Warlock Charlotte",
+			"jpname":"イビルシャーマン シャルロット",
+			"id":"312000905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3731,"mp":181,"atk":159,"def":137,"mag":168,"spr":137},
+				"minStats":{"hp":1231,"mp":60,"atk":52,"def":45,"mag":55,"spr":45},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","bow","harp","whip","mace","lightShield","hat","clothes","robe"]
+		}
+	},
 	"313000105": {
 		"name":"Tiz",
 		"jpname":"ティズ",
@@ -14569,6 +14851,99 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"339000205": {
+		"name":"Mont",
+		"jpname":"モント",
+		"id":"339000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5019,"mp":205,"atk":177,"def":211,"mag":129,"spr":194},
+			"minStats":{"hp":1656,"mp":68,"atk":58,"def":70,"mag":43,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Mont",
+			"jpname":"モント",
+			"id":"339000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3860,"mp":157,"atk":136,"def":162,"mag":99,"spr":149},
+				"minStats":{"hp":1274,"mp":52,"atk":45,"def":53,"mag":33,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"339000305": {
+		"name":"Sterne",
+		"jpname":"シュテル",
+		"id":"339000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4842,"mp":243,"atk":209,"def":193,"mag":153,"spr":179},
+			"minStats":{"hp":1598,"mp":80,"atk":69,"def":64,"mag":50,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Sterne",
+			"jpname":"シュテル",
+			"id":"339000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3724,"mp":186,"atk":160,"def":148,"mag":117,"spr":137},
+				"minStats":{"hp":1229,"mp":61,"atk":53,"def":49,"mag":39,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
+	"339000405": {
+		"name":"Kitone",
+		"jpname":"キトン",
+		"id":"339000405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4760,"mp":260,"atk":207,"def":187,"mag":203,"spr":191},
+			"minStats":{"hp":1571,"mp":86,"atk":68,"def":62,"mag":67,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes"],
+		"6_form": {
+			"name":"Kitone",
+			"jpname":"キトン",
+			"id":"339000405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3661,"mp":200,"atk":159,"def":143,"mag":156,"spr":146},
+				"minStats":{"hp":1208,"mp":66,"atk":52,"def":47,"mag":51,"spr":48},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes"]
 		}
 	},
 	"401000104": {

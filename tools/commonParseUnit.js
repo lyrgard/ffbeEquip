@@ -2053,9 +2053,9 @@ function formatSimpleOutput(units) {
 }
 
 function getUnitBasicInfo(unit, prefix = "", sixStarForm = false) {
-    var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name + "\",";
+    var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name.replace(/"/g, '\\"') + "\",";
     if (unit.jpname) {
-        result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname + "\",";
+        result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname.replace(/"/g, '\\"') + "\",";
     }
     if (unit.wikiEntry) {
         result += "\n" + prefix + "\t\t\"wikiEntry\":\"" + unit.wikiEntry + "\",";
