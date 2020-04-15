@@ -56,7 +56,7 @@ const importIdConversion = {
     16: "Fenrir",
     17: "Anima",
     18: "Asura",
-    19: "Kokuryu"
+    19: "Black Dragon"
 };
 
 function beforeShow() {
