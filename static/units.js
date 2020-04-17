@@ -966,7 +966,7 @@ function exportAsImage(minRarity = 1) {
 }
 
 function exportAsCsv() {
-    var csv = "Unit Id; Unit Name;Min Rarity;Max Rarity;Number Owned (not 7*); 7* Number owned;Number of TMR owned;Number of STMR owned;Number of TMR still farmable;Number of STMR sill obtainable\n";
+    var csv = "Unit Id; Unit Name;Min Rarity;Max Rarity;Number Owned (not 7*); 7* Number owned;Number of TMR owned;Number of STMR owned;Number of TMR still farmable;Number of STMR still obtainable\n";
     var sortedUnits = sortByRarity(units);
     for (var index = 0, len = sortedUnits.length; index < len; index++) {
         var unit = sortedUnits[index];

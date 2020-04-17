@@ -7109,7 +7109,7 @@
 		}
 	},
 	"100026004": {
-		"name":"Calland",
+		"name":"Colundo",
 		"jpname":"カランド",
 		"id":"100026004",
 		"max_rarity":"6",
@@ -7128,7 +7128,7 @@
 		]
 	},
 	"100026103": {
-		"name":"カロライン",
+		"name":"Caroline",
 		"jpname":"カロライン",
 		"id":"100026103",
 		"max_rarity":"5",
@@ -8709,6 +8709,109 @@
 				{"hp%":30, "mp%":50, "def%":40, "mag%":50, "spr%":100, "resist":[{"name":"lightning","percent":25},{"name":"light","percent":25}], "mpRefresh":7, "skillEnhancement":{"10210":12,"20310":14}, "special":["dualWield"]}
 			]
 		}
+	},
+	"100030705": {
+		"name":"Cleome",
+		"jpname":"クレオメ",
+		"id":"100030705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4721,"mp":258,"atk":211,"def":183,"mag":149,"spr":180},
+			"minStats":{"hp":1558,"mp":85,"atk":69,"def":60,"mag":49,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["katana","harp","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "atk%":150, "def%":20, "spr%":20, "evade":{"physical":10}, "singleWielding":{"accuracy":50,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "lbDamage":50},
+			{"mp%":40, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504235870","304007100"]]},
+			{"atk%":60, "equipedConditions":["katana",["504235870","304007100"]]},
+			{"mp%":20, "def%":20, "spr%":20, "levelCondition":105},
+			{"hp%":20, "levelCondition":115},
+			{"atk%":50, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"stop","percent":100}], "killers":[{"name":"machine","physical":100},{"name":"undead","physical":100}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Cleome",
+			"jpname":"クレオメ",
+			"id":"100030705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3631,"mp":198,"atk":162,"def":140,"mag":114,"spr":138},
+				"minStats":{"hp":1198,"mp":65,"atk":53,"def":46,"mag":38,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["katana","harp","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":20, "mp%":20, "atk%":150, "def%":20, "spr%":20, "evade":{"physical":10}, "singleWielding":{"accuracy":50,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "lbDamage":50}
+			]
+		}
+	},
+	"100030805": {
+		"name":"Ambie",
+		"jpname":"アンビエ",
+		"id":"100030805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4653,"mp":264,"atk":170,"def":171,"mag":160,"spr":192},
+			"minStats":{"hp":1535,"mp":87,"atk":56,"def":56,"mag":53,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","bow","harp","throwing","gun","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":20, "mp%":30, "atk%":120, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":10},{"name":"disease","percent":100}], "mpRefresh":5},
+			{"mp%":20, "atk%":20, "singleWielding":{"accuracy":25,"atk":75}, "equipedConditions":[["316002200","504235878"]]},
+			{"atk%":80, "equipedConditions":["harp",["316002200","504235878"]]},
+			{"mp%":30, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":75}, "levelCondition":110},
+			{"mp%":30, "equipedConditions":["clothes"], "levelCondition":110},
+			{"hp%":20, "levelCondition":115},
+			{"hp%":20, "atk%":40, "mag%":20, "resist":[{"name":"stop","percent":100}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Ambie",
+			"jpname":"アンビエ",
+			"id":"100030805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3579,"mp":203,"atk":130,"def":131,"mag":123,"spr":147},
+				"minStats":{"hp":1181,"mp":67,"atk":43,"def":43,"mag":41,"spr":49},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","bow","harp","throwing","gun","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":20, "mp%":30, "atk%":120, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":10},{"name":"disease","percent":100}], "mpRefresh":5}
+			]
+		}
+	},
+	"100030904": {
+		"name":"Acele",
+		"jpname":"アチェーレ",
+		"id":"100030904",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3592,"mp":179,"atk":112,"def":151,"mag":113,"spr":138},
+			"minStats":{"hp":1185,"mp":59,"atk":37,"def":50,"mag":37,"spr":46},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":40, "mp%":30, "def%":70, "spr%":70, "evade":{"physical":40}, "drawAttacks":30}
+		]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -11456,15 +11559,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["ウイークメーカー・水","ウイークメーカー・土","ブラボー フィガロ！","ロイヤルショック","ヘンな武器開発","エドガー・ロニ・フィガロ"],
 		"enhancements": [
-			{"name":"辣腕の国王","levels":[[],[{"spr%":30,"def%":30,"hp%":30,"dualWielding":{"atk":20},"singleWielding":{"accuracy":25,"atk":50}}]]}
+			{"name":"辣腕の国王","levels":[[],[{"spr%":30,"def%":30,"hp%":30,"dualWielding":{"atk":20},"singleWielding":{"accuracy":25,"atk":50}}]]},
+			{"name":"エドガー・ロニ・フィガロ","levels":[[{"spr%":20,"def%":20,"atk%":40,"hp%":20,"lbPerTurn":{"min":1,"max":1},"levelCondition":120}],[{"spr%":20,"def%":20,"atk%":80,"hp%":20,"lbPerTurn":{"min":1,"max":1},"levelCondition":120}],[{"spr%":20,"def%":20,"atk%":80,"hp%":20,"lbPerTurn":{"min":1,"max":1},"lbDamage":100,"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":80, "def%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "lbFillRate":50, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":5, "special":["dualWield"]},
 			{"lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"machine","physical":100}], "equipedConditions":[["504229930","409027900"]]},
-			{"skillEnhancement":{"229940":1.5,"229943":1.5,"229944":0.75,"229945":1.5,"229948":1.5,"509283":1.5,"509284":0.75,"509287":0.75}, "levelCondition":110},
-			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "atk%":40, "def%":20, "spr%":20, "lbPerTurn":{"min":1,"max":1}, "levelCondition":120}
+			{"skillEnhancement":{"229940":1.5,"229943":1.5,"229944":0.75,"229945":1.5,"229948":1.5,"509283":1.5,"509284":0.75,"509287":0.75,"512512":0.75,"512513":0.75}, "levelCondition":110},
+			{"mp%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"King Edgar of Figaro",
@@ -11481,6 +11585,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["ウイークメーカー・水","ウイークメーカー・土","ブラボー フィガロ！","ロイヤルショック","ヘンな武器開発","エドガー・ロニ・フィガロ"],
 		"enhancements": [
 			{"name":"辣腕の国王","levels":[[],[{"spr%":30,"def%":30,"hp%":30,"dualWielding":{"atk":20},"singleWielding":{"accuracy":25,"atk":50}}]]}
 		],
@@ -11503,17 +11608,18 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","マッシュ・レネ・フィガロ"],
 		"enhancements": [
-			{"name":"ダンカン仕込みの気合","levels":[[],[{"atk%":30,"mp%":30}]]}
+			{"name":"ダンカン仕込みの気合","levels":[[],[{"atk%":30,"mp%":30}]]},
+			{"name":"マッシュ・レネ・フィガロ","levels":[[{"spr%":20,"atk%":40,"mp%":20,"hp%":20,"mpRefresh":5,"levelCondition":120}],[{"spr%":20,"atk%":60,"mp%":20,"hp%":20,"mpRefresh":5,"lbDamage":50,"levelCondition":120}],[{"spr%":20,"atk%":60,"mp%":20,"hp%":20,"mpRefresh":5,"lbDamage":50,"singleWielding":{"accuracy":25,"atk":50},"lbPerTurn":{"min":6,"max":6},"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":50, "mp%":20, "atk%":30, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "skillEnhancement":{"200200":1.5}},
 			{"atk%":200, "equipedConditions":["unarmed"]},
 			{"atk%":50, "equipedConditions":["fist"]},
-			{"atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"229977":1.5}, "equipedConditions":[["504229931","409028000"]]},
-			{"skillEnhancement":{"200200":1.5,"229970":0.75,"229971":0.75,"229972":0.75,"229973":1.5,"229974":1.5,"229977":0.75,"509302":1.5}, "levelCondition":110},
-			{"def%":20, "levelCondition":115},
-			{"hp%":20, "mp%":20, "atk%":40, "spr%":20, "mpRefresh":5, "levelCondition":120}
+			{"atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"229977":1.5,"708493":1.5,"708494":1.5}, "equipedConditions":[["504229931","409028000"]]},
+			{"skillEnhancement":{"200200":1.5,"229970":0.75,"229971":0.75,"229972":0.75,"229973":1.5,"229974":1.5,"229977":0.75,"509302":1.5,"512518":1.5,"512519":1.5,"708493":0.75,"708494":0.75,"708495":1.5,"708496":1.5,"708497":1.5,"708498":1.5}, "levelCondition":110},
+			{"def%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Monk Sabin of Kolts",
@@ -11530,6 +11636,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","マッシュ・レネ・フィガロ"],
 		"enhancements": [
 			{"name":"ダンカン仕込みの気合","levels":[[],[{"atk%":30,"mp%":30}]]}
 		],
@@ -21511,7 +21618,7 @@
 		]
 	},
 	"339000105": {
-		"name":"Gilgamesh",
+		"name":"Gilgamesh (WOTV FFBE)",
 		"jpname":"ギルガメッシュ",
 		"id":"339000105",
 		"max_rarity":"7",
@@ -21531,7 +21638,7 @@
 			{"atk%":40, "mag%":40, "skillEnhancement":{"234430":9,"234434":3.75,"234435":9,"234437":9,"511685":3,"511686":3}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Gilgamesh",
+			"name":"Gilgamesh (WOTV FFBE)",
 			"jpname":"ギルガメッシュ",
 			"id":"339000105",
 			"sixStarForm":true,
