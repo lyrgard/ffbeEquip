@@ -7347,7 +7347,7 @@
 		}
 	},
 	"100027105": {
-		"name":"Ifrit Rain",
+		"name":"Infernal Fire Rain",
 		"jpname":"炎獄レイン",
 		"id":"100027105",
 		"max_rarity":"7",
@@ -7368,7 +7368,7 @@
 			{"mp%":30, "spr%":30, "lbDamage":50, "skillEnhancement":{"233545":5,"233549":8,"510928":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Ifrit Rain",
+			"name":"Infernal Fire Rain",
 			"jpname":"炎獄レイン",
 			"id":"100027105",
 			"sixStarForm":true,
@@ -7388,7 +7388,7 @@
 		}
 	},
 	"100027205": {
-		"name":"Bahamut Fina",
+		"name":"Draconian Princess Fina",
 		"jpname":"竜姫フィーナ",
 		"id":"100027205",
 		"max_rarity":"7",
@@ -7410,7 +7410,7 @@
 			{"hp%":20, "mag%":20, "skillEnhancement":{"233474":6,"233475":6,"510881":5,"510882":5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Bahamut Fina",
+			"name":"Draconian Princess Fina",
 			"jpname":"竜姫フィーナ",
 			"id":"100027205",
 			"sixStarForm":true,
@@ -7431,7 +7431,7 @@
 		}
 	},
 	"100027305": {
-		"name":"Diabolos Sol",
+		"name":"Dark Spirit Sol",
 		"jpname":"冥鬼ソル",
 		"id":"100027305",
 		"max_rarity":"7",
@@ -7454,7 +7454,7 @@
 			{"mag%":30, "spr%":30, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Diabolos Sol",
+			"name":"Dark Spirit Sol",
 			"jpname":"冥鬼ソル",
 			"id":"100027305",
 			"sixStarForm":true,
@@ -7475,7 +7475,7 @@
 		}
 	},
 	"100027405": {
-		"name":"Asura Akstar",
+		"name":"Supreme Deva Akstar",
 		"jpname":"覇王アクスター",
 		"id":"100027405",
 		"max_rarity":"7",
@@ -7496,7 +7496,7 @@
 			{"hp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Asura Akstar",
+			"name":"Supreme Deva Akstar",
 			"jpname":"覇王アクスター",
 			"id":"100027405",
 			"sixStarForm":true,
@@ -13114,6 +13114,56 @@
 			{"hp%":10, "atk%":10, "mag%":20}
 		]
 	},
+	"209001305": {
+		"name":"Dagger",
+		"jpname":"ダガー",
+		"id":"209001305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4747,"mp":264,"atk":128,"def":166,"mag":176,"spr":216},
+			"minStats":{"hp":1567,"mp":87,"atk":42,"def":55,"mag":58,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"君の小鳥になりたい","levels":[[],[{"spr%":30,"mag%":30,"mp%":30}]]}
+		],
+		"skills": [
+			{"mp%":50, "mag%":90, "spr%":80, "evoMag":50, "resist":[{"name":"sleep","percent":100},{"name":"lightning","percent":20},{"name":"paralysis","percent":100},{"name":"water","percent":20},{"name":"disease","percent":100}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "special":["dualWield"]},
+			{"mag%":40, "equipedConditions":["rod"]},
+			{"spr%":40, "equipedConditions":["staff"]},
+			{"hp%":30, "def%":30, "spr%":30, "resist":[{"name":"stop","percent":100}], "esperStatsBonus":{"Alexander":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "equipedConditions":[["504235950","310008800"]]},
+			{"hp%":30, "def%":30, "dualWielding":{"mag":50,"spr":50}, "resist":[{"name":"dark","percent":20},{"name":"confuse","percent":100}], "levelCondition":110},
+			{"mp%":20, "levelCondition":115}
+		],
+		"6_form": {
+			"name":"Dagger",
+			"jpname":"ダガー",
+			"id":"209001305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3651,"mp":203,"atk":98,"def":127,"mag":135,"spr":166},
+				"minStats":{"hp":1205,"mp":67,"atk":32,"def":42,"mag":45,"spr":55},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"君の小鳥になりたい","levels":[[],[{"spr%":30,"mag%":30,"mp%":30}]]}
+		],
+			"skills": [
+				{"mp%":50, "mag%":90, "spr%":80, "evoMag":50, "resist":[{"name":"sleep","percent":100},{"name":"lightning","percent":20},{"name":"paralysis","percent":100},{"name":"water","percent":20},{"name":"disease","percent":100}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "special":["dualWield"]},
+				{"mag%":40, "equipedConditions":["rod"]},
+				{"spr%":40, "equipedConditions":["staff"]}
+			]
+		}
+	},
 	"209001405": {
 		"name":"Black Mage Vivi",
 		"jpname":"黒魔道士の少年ビビ",
@@ -13524,6 +13574,76 @@
 		"skills": [
 			{"hp%":20, "mp%":30, "def%":20, "spr%":30, "resist":[{"name":"light","percent":10},{"name":"fire","percent":10},{"name":"wind","percent":10},{"name":"stop","percent":50},{"name":"charm","percent":50}], "mpRefresh":5},
 			{"hp%":20, "mp%":20, "atk%":20, "mag%":20, "equipedConditions":["clothes"]}
+		]
+	},
+	"209002505": {
+		"name":"Summoner Scion Eiko",
+		"jpname":"召喚士の末裔エーコ",
+		"id":"209002505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4379,"mp":241,"atk":134,"def":164,"mag":178,"spr":218},
+			"minStats":{"hp":1445,"mp":80,"atk":44,"def":54,"mag":59,"spr":72},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"旅立ちの決意","levels":[[],[{"spr%":30,"def%":30,"hp%":30,"evoMag":20}]]},
+			{"name":"T召喚魔法","levels":[[],[]]}
+		],
+		"skills": [
+			{"hp%":20, "mp%":50, "def%":20, "mag%":50, "spr%":100, "evoMag":30, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":70},{"name":"blind","percent":70},{"name":"sleep","percent":70},{"name":"silence","percent":70},{"name":"paralysis","percent":70},{"name":"confuse","percent":70},{"name":"disease","percent":70},{"name":"petrification","percent":70}], "mpRefresh":10, "esperStatsBonus":{"all":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}},
+			{"spr%":20, "esperStatsBonus":{"all":{"hp":70,"mp":70,"atk":70,"def":70,"mag":70,"spr":70}}, "equipedConditions":[["504235952","316002300"]]},
+			{"hp%":20, "mag%":20, "lbPerTurn":{"min":2,"max":2}, "levelCondition":110},
+			{"spr%":20, "levelCondition":115},
+			{"mp%":40, "spr%":40, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "skillEnhancement":{"235961":30,"235962":30,"235963":30,"235964":20,"235965":20,"235966":20}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Summoner Scion Eiko",
+			"jpname":"召喚士の末裔エーコ",
+			"id":"209002505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3368,"mp":185,"atk":103,"def":126,"mag":136,"spr":167},
+				"minStats":{"hp":1111,"mp":61,"atk":34,"def":42,"mag":45,"spr":55},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"旅立ちの決意","levels":[[],[{"spr%":30,"def%":30,"hp%":30,"evoMag":20}]]},
+			{"name":"T召喚魔法","levels":[[],[]]}
+		],
+			"skills": [
+				{"hp%":20, "mp%":50, "def%":20, "mag%":50, "spr%":100, "evoMag":30, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":70},{"name":"blind","percent":70},{"name":"sleep","percent":70},{"name":"silence","percent":70},{"name":"paralysis","percent":70},{"name":"confuse","percent":70},{"name":"disease","percent":70},{"name":"petrification","percent":70}], "mpRefresh":10, "esperStatsBonus":{"all":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}}
+			]
+		}
+	},
+	"209002704": {
+		"name":"Queen Brahne",
+		"jpname":"ブラネ女王",
+		"id":"209002704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3639,"mp":146,"atk":113,"def":119,"mag":133,"spr":149},
+			"minStats":{"hp":1201,"mp":48,"atk":37,"def":39,"mag":44,"spr":49},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["staff","rod","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"際限のない欲望","levels":[[],[{"spr%":30,"mag%":30,"mp%":30,"lbPerTurn":{"min":1,"max":1},"lbDamage":50}]]}
+		],
+		"skills": [
+			{"hp%":50, "mp%":30, "def%":40, "mag%":30, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100}], "mpRefresh":3, "esperStatsBonus":{"all":{"hp":20,"mp":20,"atk":20,"def":20,"mag":20,"spr":20}}}
 		]
 	},
 	"210000105": {
