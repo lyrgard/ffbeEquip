@@ -2954,6 +2954,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Magical String Musician","Fairy's Gavotte","Marvelous Queen","Passionate Fugue","Spiritual Rondo","Healing Fragrance"],
 		"6_form": {
 			"name":"엘핌",
 			"wikiEntry":"Elephim",
@@ -2968,7 +2969,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"]
+			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["Magical String Musician","Fairy's Gavotte","Marvelous Queen","Passionate Fugue","Spiritual Rondo","Healing Fragrance"]
 		}
 	},
 	"100017204": {
@@ -2984,7 +2986,8 @@
 			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Evasive Blade","Kindhearted Swordsman","Devoted Stance"]
 	},
 	"100017304": {
 		"name":"마그나",
@@ -2999,7 +3002,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["staff","rod","mace","hat","clothes","robe"]
+		"equip":["staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["Sacred Flux","Luminous Fall","Great Mage's Feats!","Magna Counter"]
 	},
 	"100017403": {
 		"name":"포렐스켓",
@@ -9423,8 +9427,8 @@
 		"enhancementSkills":["Astral Fire","Astral Blizzard","Flare"]
 	},
 	"214000605": {
-		"name":"Witch Y'shtola",
-		"wikiEntry":"魔女ヤ・シュトラ",
+		"name":"마녀 야슈톨라",
+		"wikiEntry":"Y'shtola,_the Sorceress",
 		"id":"214000605",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -9437,8 +9441,8 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","hammer","lightShield","hat","clothes","robe"],
 		"6_form": {
-			"name":"Witch Y'shtola",
-			"wikiEntry":"魔女ヤ・シュトラ",
+			"name":"마녀 야슈톨라",
+			"wikiEntry":"Y'shtola,_the Sorceress",
 			"id":"214000605",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -14659,6 +14663,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["Overcharge","Demagnetizing Strike","Combat Overdrive","Ancient Figure","Shock Embrace","Storm Clouds","Bolting Strike","Precursor of the Storm"],
 		"6_form": {
 			"name":"에스더",
 			"wikiEntry":"Esther",
@@ -14673,7 +14678,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","robe"],
+			"enhancementSkills":["Overcharge","Demagnetizing Strike","Combat Overdrive","Ancient Figure","Shock Embrace","Storm Clouds","Bolting Strike","Precursor of the Storm"]
 		}
 	},
 	"401006905": {
@@ -14690,6 +14696,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","hammer","harp","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Withering Arms","Withering Guard","Growing Offense","Growing Defense","Protective Petals","Protective Vines","All pinned up!","Hop into battle!","Hop to the rescue!","Marian, watch over me!"],
 		"6_form": {
 			"name":"실비",
 			"wikiEntry":"Sylvie",
@@ -14704,7 +14711,8 @@
 				"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","hammer","harp","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+			"equip":["dagger","sword","staff","rod","hammer","harp","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["Withering Arms","Withering Guard","Growing Offense","Growing Defense","Protective Petals","Protective Vines","All pinned up!","Hop into battle!","Hop to the rescue!","Marian, watch over me!"]
 		}
 	},
 	"401007005": {
@@ -15398,10 +15406,13 @@
   "208000505":{"name":"Selphie","jpname":"セルフィ","id":"208000505","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4563,"mp":270,"atk":101,"def":169,"mag":220,"spr":206},"minStats":{"hp":1506,"mp":89,"atk":33,"def":56,"mag":73,"spr":68},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"],"6_form":{"name":"Selphie","jpname":"セルフィ","id":"208000505","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3510,"mp":207,"atk":77,"def":130,"mag":169,"spr":158},"minStats":{"hp":1158,"mp":68,"atk":25,"def":43,"mag":56,"spr":52},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}},"stats_pattern":1,"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"]}},
   "208000605":{"name":"Irvine","jpname":"アーヴァイン","id":"208000605","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4627,"mp":244,"atk":208,"def":170,"mag":154,"spr":182},"minStats":{"hp":1527,"mp":81,"atk":69,"def":56,"mag":51,"spr":60},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["bow","throwing","gun","hat","clothes","lightArmor"],"6_form":{"name":"Irvine","jpname":"アーヴァイン","id":"208000605","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3559,"mp":187,"atk":160,"def":130,"mag":118,"spr":140},"minStats":{"hp":1174,"mp":62,"atk":53,"def":43,"mag":39,"spr":46},"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}},"stats_pattern":1,"equip":["bow","throwing","gun","hat","clothes","lightArmor"]}},
   "208001304":{"name":"Edea","jpname":"イデア","id":"208001304","max_rarity":"6","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":3777,"mp":190,"atk":110,"def":117,"mag":160,"spr":160},"minStats":{"hp":1246,"mp":63,"atk":36,"def":39,"mag":53,"spr":53},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}},"stats_pattern":1,"equip":["staff","rod","whip","hat","clothes","robe"]},
+  "209001305":{"name":"Dagger","jpname":"ダガー","id":"209001305","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4747,"mp":264,"atk":128,"def":166,"mag":176,"spr":216},"minStats":{"hp":1567,"mp":87,"atk":42,"def":55,"mag":58,"spr":71},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","mace","hat","clothes","robe"],"6_form":{"name":"Dagger","jpname":"ダガー","id":"209001305","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3651,"mp":203,"atk":98,"def":127,"mag":135,"spr":166},"minStats":{"hp":1205,"mp":67,"atk":32,"def":42,"mag":45,"spr":55},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}},"stats_pattern":1,"equip":["dagger","staff","rod","mace","hat","clothes","robe"]}},
   "209002105":{"name":"Reaper Kuja","jpname":"美しき死神クジャ","id":"209002105","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4572,"mp":279,"atk":130,"def":160,"mag":220,"spr":205},"minStats":{"hp":1509,"mp":92,"atk":43,"def":53,"mag":73,"spr":68},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","mace","hat","clothes","robe"],"6_form":{"name":"Reaper Kuja","jpname":"美しき死神クジャ","id":"209002105","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3516,"mp":214,"atk":100,"def":123,"mag":169,"spr":157},"minStats":{"hp":1160,"mp":71,"atk":33,"def":41,"mag":56,"spr":52},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}},"stats_pattern":1,"equip":["dagger","staff","rod","mace","hat","clothes","robe"]}},
   "209002205":{"name":"Garland (FFIX)","jpname":"ガーランド(FFIX)","id":"209002205","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4669,"mp":286,"atk":135,"def":153,"mag":217,"spr":201},"minStats":{"hp":1541,"mp":94,"atk":45,"def":50,"mag":72,"spr":66},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"],"6_form":{"name":"Garland (FFIX)","jpname":"ガーランド(FFIX)","id":"209002205","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3591,"mp":220,"atk":103,"def":117,"mag":166,"spr":154},"minStats":{"hp":1185,"mp":73,"atk":34,"def":39,"mag":55,"spr":51},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}},"stats_pattern":1,"equip":["dagger","staff","rod","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"]}},
   "209002305":{"name":"Pluto Knight Zidane","jpname":"プルート隊ジタン","id":"209002305","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4850,"mp":213,"atk":206,"def":188,"mag":150,"spr":178},"minStats":{"hp":1601,"mp":70,"atk":68,"def":62,"mag":50,"spr":59},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","bow","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],"6_form":{"name":"Pluto Knight Zidane","jpname":"プルート隊ジタン","id":"209002305","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3730,"mp":163,"atk":158,"def":144,"mag":115,"spr":136},"minStats":{"hp":1231,"mp":54,"atk":52,"def":48,"mag":38,"spr":45},"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}},"stats_pattern":1,"equip":["dagger","sword","bow","throwing","fist","lightShield","hat","helm","clothes","lightArmor"]}},
   "209002404":{"name":"Mikoto","jpname":"ミコト","id":"209002404","max_rarity":"6","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":3518,"mp":180,"atk":122,"def":125,"mag":122,"spr":135},"minStats":{"hp":1161,"mp":59,"atk":40,"def":41,"mag":40,"spr":45},"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}},"stats_pattern":1,"equip":["dagger","sword","katana","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"]},
+  "209002505":{"name":"Summoner Scion Eiko","jpname":"召喚士の末裔エーコ","id":"209002505","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4379,"mp":241,"atk":134,"def":164,"mag":178,"spr":218},"minStats":{"hp":1445,"mp":80,"atk":44,"def":54,"mag":59,"spr":72},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","hat","clothes","robe"],"6_form":{"name":"Summoner Scion Eiko","jpname":"召喚士の末裔エーコ","id":"209002505","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3368,"mp":185,"atk":103,"def":126,"mag":136,"spr":167},"minStats":{"hp":1111,"mp":61,"atk":34,"def":42,"mag":45,"spr":55},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}},"stats_pattern":1,"equip":["dagger","staff","rod","harp","hat","clothes","robe"]}},
+  "209002704":{"name":"Queen Brahne","jpname":"ブラネ女王","id":"209002704","max_rarity":"6","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":3639,"mp":146,"atk":113,"def":119,"mag":133,"spr":149},"minStats":{"hp":1201,"mp":48,"atk":37,"def":39,"mag":44,"spr":49},"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}},"stats_pattern":1,"equip":["staff","rod","hat","clothes","robe"]},
   "212001505":{"name":"Freedom Seeker Vaan","jpname":"自由を求めし少年ヴァン","id":"212001505","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4800,"mp":245,"atk":209,"def":189,"mag":165,"spr":186},"minStats":{"hp":1584,"mp":81,"atk":69,"def":62,"mag":54,"spr":61},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","katana","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"],"6_form":{"name":"Freedom Seeker Vaan","jpname":"自由を求めし少年ヴァン","id":"212001505","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3692,"mp":188,"atk":160,"def":145,"mag":126,"spr":143},"minStats":{"hp":1218,"mp":62,"atk":53,"def":48,"mag":42,"spr":47},"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}},"stats_pattern":1,"equip":["dagger","sword","katana","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"]}},
   "212001605":{"name":"Dancer Penelo","jpname":"舞い踊る恋心パンネロ","id":"212001605","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4620,"mp":284,"atk":107,"def":159,"mag":218,"spr":203},"minStats":{"hp":1525,"mp":94,"atk":35,"def":52,"mag":72,"spr":67},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","greatSword","rod","hammer","whip","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],"6_form":{"name":"Dancer Penelo","jpname":"舞い踊る恋心パンネロ","id":"212001605","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3553,"mp":218,"atk":82,"def":122,"mag":167,"spr":156},"minStats":{"hp":1172,"mp":72,"atk":27,"def":40,"mag":55,"spr":51},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}},"stats_pattern":1,"equip":["dagger","sword","greatSword","rod","hammer","whip","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]}},
   "212001705":{"name":"Forest Beauty Fran","jpname":"蒼穹の麗人フラン","id":"212001705","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4912,"mp":239,"atk":205,"def":188,"mag":184,"spr":190},"minStats":{"hp":1621,"mp":79,"atk":68,"def":62,"mag":61,"spr":63},"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}},"stats_pattern":4,"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"],"6_form":{"name":"Forest Beauty Fran","jpname":"蒼穹の麗人フラン","id":"212001705","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3778,"mp":183,"atk":157,"def":144,"mag":141,"spr":146},"minStats":{"hp":1247,"mp":60,"atk":52,"def":48,"mag":47,"spr":48},"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}},"stats_pattern":1,"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"]}},
