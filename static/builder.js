@@ -730,7 +730,7 @@ function logBuild(build, value) {
             if (equipmentFlatStatBonus > 0) {
                 bonusTextElement.attr("title", `(${upperCaseStat} increase % - Equipped ${upperCaseStat} (DH) increase %) modifiers, capped individually.`);
                 bonusPercent += "&nbsp;-&nbsp;";
-                var cap = 300;
+                var cap = getStatBonusCap('tdh');
                 if (build[0] && build[1] && weaponList.includes(build[0].type) && weaponList.includes(build[1].type)) {
                     cap = builds[currentUnitIndex].tdwCap * 100;
                 }
