@@ -21,6 +21,8 @@ var magicalKillers;
 var tankAbilities;
 var mitigation;
 
+var skillSearchMatcher;// = SkillSearchFormula.getMatcherFromFormula("lb");
+
 var fullyDisplayedUnits = [];
 
 var defaultFilter = {
@@ -94,6 +96,7 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
                                                                 if (matchesCriteria(tankAbilities, unit, null, true)) {
                                                                     if (matchesCriteria(mitigation, unit, null, true)) {
                                                                         if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
+                                                                            if (!skillSearchMatcher || matchesSkillSearch(skillSearchMatcher, units[unit.id]))
                                                                             result.push({
                                                                                 "searchData": unit,
                                                                                 "unit": units[unit.id]
@@ -117,6 +120,13 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
         }
     }
     return result;
+}
+
+function matchesSkillSearch(skillSearch, unit) {
+    return skillSearch(unit.lb, 'lb')
+        || unit.passives.some(passive => skillSearch(passive, 'passive'))
+        || unit.actives.some(active => skillSearch(active, 'active'))
+        || unit.magics.some(magic => skillSearch(magic, 'magic'));
 }
 
 function matchesSkill(unit) {
@@ -974,9 +984,13 @@ function getSkillsToDisplay(unit) {
         let skillsDisplayedForChain = [];
         if (mustDisplaySkillForChainFamily(unit.lb, unit.lb.maxEffects, "lb") || mustDisplaySkill(unit.lb, unit.lb.maxEffects, "lb", unit.lb.name)) {
             result.push('lb');
-        } 
+        } else if (skillSearchMatcher && skillSearchMatcher(unit.lb, 'lb')) {
+            result.push('lb');
+        }
         unit.passives.forEach(passive => {
             if (mustDisplaySkill(passive, passive.effects, "passives", passive.name)) {
+                result.push(passive.id);
+            } else if (skillSearchMatcher && skillSearchMatcher(passive, 'passive')) {
                 result.push(passive.id);
             }
         });
@@ -987,6 +1001,8 @@ function getSkillsToDisplay(unit) {
                 result.push(active.id);
             } else if (mustDisplaySkill(active, active.effects, "actives", active.name)) {
                 result.push(active.id);        
+            }  else if (skillSearchMatcher && skillSearchMatcher(active, 'active')) {
+                result.push(active.id);
             }
         });
         unit.magics.forEach(magic => {
@@ -998,6 +1014,8 @@ function getSkillsToDisplay(unit) {
                 result.push(magic.id);
             } else if (mustDisplaySkill(magic, magic.effects, "actives", magic.name)) {
                 result.push(magic.id);        
+            }  else if (skillSearchMatcher && skillSearchMatcher(magic, 'magic')) {
+                result.push(magic.id);
             }
         });
         if (skillFilter.multicastCount > 1) {

@@ -16638,12 +16638,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","bow","spear","lightShield","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Chooser of the Slain","Glowing Pierce","Radiant White Wings","Fight"],
+		"enhancements": [
+			{"name":"Chooser of the Slain","levels":[[{"mp%":10,"hp%":10}],[{"mp%":10,"hp%":10,"skillEnhancement":{"227737":12,"227738":15}}],[{"mp%":10,"hp%":10,"skillEnhancement":{"227737":24,"227738":30,"227743":24,"227750":30,"227751":7}}]]},
+			{"name":"Fight","levels":[[{"spr%":10,"mag%":10,"def%":10,"atk%":10,"levelCondition":115}],[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"lbPerTurn":{"min":5,"max":5},"levelCondition":115}],[{"spr%":50,"mag%":50,"def%":50,"atk%":90,"lbPerTurn":{"min":5,"max":5},"lbDamage":60,"mpRefresh":5,"levelCondition":115}]]}
+		],
 		"skills": [
-			{"hp%":10, "mp%":10, "atk%":20, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}},
+			{"atk%":20, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}},
 			{"atk%":30, "def%":30, "spr%":30, "equipedConditions":["sword"]},
 			{"atk%":60, "spr%":30, "equipedConditions":["bow"]},
 			{"hp%":30, "mp%":30, "mpRefresh":10, "lbDamage":40, "equipedConditions":[["302006100","312002300"]]},
-			{"atk%":10, "def%":10, "mag%":10, "spr%":10, "levelCondition":115},
 			{"hp%":20, "atk%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
 			{"hp%":20, "mp%":20, "equipedConditions":["bow"], "levelCondition":120}
 		],
@@ -16662,8 +16666,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","lightShield","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Chooser of the Slain","Glowing Pierce","Radiant White Wings","Fight"],
+		"enhancements": [
+			{"name":"Chooser of the Slain","levels":[[{"mp%":10,"hp%":10}],[{"mp%":10,"hp%":10,"skillEnhancement":{"227737":12,"227738":15}}],[{"mp%":10,"hp%":10,"skillEnhancement":{"227737":24,"227738":30,"227743":24,"227750":30,"227751":7}}]]}
+		],
 			"skills": [
-				{"hp%":10, "mp%":10, "atk%":20, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}},
+				{"atk%":20, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}},
 				{"atk%":30, "def%":30, "spr%":30, "equipedConditions":["sword"]},
 				{"atk%":60, "spr%":30, "equipedConditions":["bow"]}
 			]
@@ -16683,11 +16691,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["hat","clothes","robe"],
+		"enhancementSkills":["Aerial Burst","Prepare to be cleansed!","Mystic Zone","Victory Sword","Heavenly Punishment","Fight"],
+		"enhancements": [
+			{"name":"Mystic Zone","levels":[[{"mag%":30}],[{"mag%":30,"mp%":20,"hp%":20}],[{"mag%":30,"mp%":20,"hp%":20}]]},
+			{"name":"Fight","levels":[[{"spr%":10,"mag%":10,"def%":10,"atk%":10,"levelCondition":115}],[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"lbDamage":50,"skillEnhancement":{"227765":16.5},"levelCondition":115}],[{"spr%":50,"mag%":50,"def%":50,"atk%":50,"lbDamage":150,"replaceLb":{"name":"Ether Strike","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":52.2},"area":"ST","target":"ENEMY"},"desc":"Magic damage (52.2x, MAG) to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":58},"area":"ST","target":"ENEMY"},"desc":"Magic damage (58x, MAG) to one enemy"}],"frames":[460],"move":"walk"},"mpRefresh":5,"skillEnhancement":{"227765":33},"levelCondition":115}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":20, "def%":20, "mag%":120, "spr%":20, "mpRefresh":5},
+			{"hp%":20, "mp%":20, "def%":20, "mag%":90, "spr%":20, "mpRefresh":5},
 			{"hp%":10, "mp%":10, "def%":10, "mag%":50, "spr%":10, "equipedConditions":[["409021000","403045500"]]},
-			{"atk%":10, "def%":10, "mag%":10, "spr%":10, "levelCondition":115},
-			{"mag%":30, "lbDamage":50, "skillEnhancement":{"227765":1.5,"227774":1.5}, "levelCondition":120}
+			{"mag%":30, "lbDamage":50, "skillEnhancement":{"227765":1.5,"227774":1.5,"708145":1.5,"708146":1.5}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"芙蕾",
@@ -16704,8 +16716,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["hat","clothes","robe"],
+			"enhancementSkills":["Aerial Burst","Prepare to be cleansed!","Mystic Zone","Victory Sword","Heavenly Punishment","Fight"],
+		"enhancements": [
+			{"name":"Mystic Zone","levels":[[{"mag%":30}],[{"mag%":30,"mp%":20,"hp%":20}],[{"mag%":30,"mp%":20,"hp%":20}]]}
+		],
 			"skills": [
-				{"hp%":20, "mp%":20, "def%":20, "mag%":120, "spr%":20, "mpRefresh":5}
+				{"hp%":20, "mp%":20, "def%":20, "mag%":90, "spr%":20, "mpRefresh":5}
 			]
 		}
 	},
@@ -16723,6 +16739,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","axe","hammer","spear","mace","fist","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Blaze Blade","Storm Edge","Dead End","Fight"],
+		"enhancements": [
+			{"name":"Fight","levels":[[{"spr%":10,"mag%":10,"def%":10,"atk%":10,"levelCondition":115}],[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"lbDamage":50,"mpRefresh":5,"skillEnhancement":{"227783":17,"227786":20},"levelCondition":115}],[{"spr%":50,"mag%":50,"def%":50,"atk%":100,"lbDamage":180,"mpRefresh":15,"skillEnhancement":{"227783":34,"227786":40},"levelCondition":115}]]}
+		],
 		"skills": [
 			{"hp%":40, "mp%":40, "atk%":20, "def%":20, "singleWielding":{"accuracy":25,"atk":75}},
 			{"atk%":30, "equipedConditions":["sword"]},
@@ -16730,7 +16750,6 @@
 			{"atk%":30, "equipedConditions":["spear"]},
 			{"atk%":30, "equipedConditions":["fist"]},
 			{"hp%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":75}, "equipedConditions":[["409021100","303005000"]]},
-			{"atk%":10, "def%":10, "mag%":10, "spr%":10, "levelCondition":115},
 			{"hp%":20, "atk%":20, "spr%":20, "lbDamage":20, "levelCondition":120}
 		],
 		"6_form": {
@@ -16748,6 +16767,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","axe","hammer","spear","mace","fist","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["Blaze Blade","Storm Edge","Dead End","Fight"],
 			"skills": [
 				{"hp%":40, "mp%":40, "atk%":20, "def%":20, "singleWielding":{"accuracy":25,"atk":75}},
 				{"atk%":30, "equipedConditions":["sword"]},
@@ -16794,8 +16814,8 @@
 		]
 	},
 	"330000605": {
-		"name":"Lezard Valeth",
-		"wikiEntry":"レザード・ヴァレス",
+		"name":"雷扎德·瓦雷斯",
+		"wikiEntry":"Lezard_Valeth",
 		"id":"330000605",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -16811,13 +16831,13 @@
 			{"hp%":30, "mp%":50, "mag%":80, "singleWielding":{"mag":100}, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"lightning","percent":30}], "killers":[{"name":"human","magical":75},{"name":"spirit","magical":75},{"name":"undead","magical":75}]},
 			{"hp%":30, "spr%":30, "equipedConditions":["robe"]},
 			{"mag%":30, "spr%":30, "equipedConditions":["rod"]},
-			{"def%":50, "mag%":50, "replaceLb":{"name":"メテオスウォーム","minEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":150},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% for one turn"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":29},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (29x, MAG) to all enemies"},{"effect":{"imperil":{"fire":120,"lightning":120,"dark":120},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Lightning and Dark by 120% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 200 MP to caster"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":150},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% for one turn"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":55},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (55x, MAG) to all enemies"},{"effect":{"imperil":{"fire":120,"lightning":120,"dark":120},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Lightning and Dark by 120% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 350 MP to caster"}],"frames":[156,168,176,212,220,236,252,276],"move":"walk"}, "equipedConditions":[["408005500","310005900"]]},
+			{"def%":50, "mag%":50, "replaceLb":{"name":"Meteor Swarm","minEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":150},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% for one turn"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":29},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (29x, MAG) to all enemies"},{"effect":{"imperil":{"fire":120,"lightning":120,"dark":120},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Lightning and Dark by 120% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 200 MP to caster"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":150},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% for one turn"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":55},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (55x, MAG) to all enemies"},{"effect":{"imperil":{"fire":120,"lightning":120,"dark":120},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Lightning and Dark by 120% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 350 MP to caster"}],"frames":[156,168,176,212,220,236,252,276],"move":"walk"}, "equipedConditions":[["408005500","310005900"]]},
 			{"mp%":20, "levelCondition":115},
-			{"mag%":50, "spr%":50, "resist":[{"name":"dark","percent":50}], "skillEnhancement":{"232612":2,"232613":2,"232614":2}, "levelCondition":120}
+			{"mag%":50, "spr%":50, "resist":[{"name":"dark","percent":50}], "skillEnhancement":{"232612":2.5,"232613":2.5,"232614":2.5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Lezard Valeth",
-			"wikiEntry":"レザード・ヴァレス",
+			"name":"雷扎德·瓦雷斯",
+			"wikiEntry":"Lezard_Valeth",
 			"id":"330000605",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -16838,8 +16858,8 @@
 		}
 	},
 	"330000805": {
-		"name":"Mystina",
-		"wikiEntry":"メルティーナ",
+		"name":"梅爾緹娜",
+		"wikiEntry":"Mystina",
 		"id":"330000805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -16858,11 +16878,11 @@
 			{"mag%":50, "equipedConditions":["rod"]},
 			{"mag%":50, "singleWielding":{"mag":100}, "equipedConditions":[["310006000","504232603"]]},
 			{"hp%":20, "levelCondition":115},
-			{"hp%":30, "spr%":30, "skillEnhancement":{"232637":1.5,"232638":1.5,"232639":1.5}, "replaceLb":{"name":"セレスティアルスター","minEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Remove MAG and SPR debuff from caster"},{"effect":{"statsBuff":{"mag":300},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 300% for one turn to caster"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":25,"elements":["wind"]},"area":"AOE","target":"ENEMY"},"desc":"Magic wind damage (25x, MAG) to all enemies"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Remove MAG and SPR debuff from caster"},{"effect":{"statsBuff":{"mag":300},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 300% for one turn to caster"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":45,"elements":["wind"]},"area":"AOE","target":"ENEMY"},"desc":"Magic wind damage (45x, MAG) to all enemies"}],"frames":[108,124,152,160,164,168,172,176,200,208,216,224,232,240],"move":"walk"}, "levelCondition":120}
+			{"hp%":30, "spr%":30, "skillEnhancement":{"232637":1.5,"232638":1.5,"232639":1.5}, "replaceLb":{"name":"Celestial Star","minEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Remove MAG and SPR debuff from caster"},{"effect":{"statsBuff":{"mag":300},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 300% for one turn to caster"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":25,"elements":["wind"]},"area":"AOE","target":"ENEMY"},"desc":"Magic wind damage (25x, MAG) to all enemies"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Remove MAG and SPR debuff from caster"},{"effect":{"statsBuff":{"mag":300},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 300% for one turn to caster"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":45,"elements":["wind"]},"area":"AOE","target":"ENEMY"},"desc":"Magic wind damage (45x, MAG) to all enemies"}],"frames":[108,124,152,160,164,168,172,176,200,208,216,224,232,240],"move":"walk"}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Mystina",
-			"wikiEntry":"メルティーナ",
+			"name":"梅爾緹娜",
+			"wikiEntry":"Mystina",
 			"id":"330000805",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -16884,8 +16904,8 @@
 		}
 	},
 	"330000904": {
-		"name":"Aelia",
-		"wikiEntry":"エイミ(ヴァルキリープロファイル)",
+		"name":"艾麗婭",
+		"wikiEntry":"Aelia",
 		"id":"330000904",
 		"max_rarity":"6",
 		"min_rarity":"4",
