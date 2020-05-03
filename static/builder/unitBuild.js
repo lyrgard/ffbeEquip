@@ -188,15 +188,17 @@ class UnitBuild {
                 });
             }
         }
-        this.unit.enhancements.forEach(skill => {
-           if (skill.allowUseOf && (!skill.levelCondition || skill.levelCondition <= this._level))  {
-               skill.allowUseOf.forEach(a => {
-                    if (!equip.includes(a)) {
-                        equip.push(a);
-                    }
-                });
-            }
-        });
+        if (this.unit.enhancements) {
+            this.unit.enhancements.forEach(skill => {
+                if (skill.allowUseOf && (!skill.levelCondition || skill.levelCondition <= this._level)) {
+                    skill.allowUseOf.forEach(a => {
+                        if (!equip.includes(a)) {
+                            equip.push(a);
+                        }
+                    });
+                }
+            });
+        }
         return equip.filter(e => !this._bannedEquipableTypes.includes(e));
     }
     
