@@ -144,12 +144,14 @@ function showPullSimulator() {
 function displayStats() {
     var stats = {
         "all": {
+            "NV": {"different":0, "total":0, "number":0},
             "7": {"different":0, "total":0, "number":0},
             "5": {"different":0, "total":0, "number":0},
             "4": {"different":0, "total":0, "number":0},
             "3": {"different":0, "total":0, "number":0},
         },
         "timeLimited": {
+            "NV": {"different":0, "total":0, "number":0},
             "7": {"different":0, "total":0, "number":0},
             "5": {"different":0, "total":0, "number":0},
             "4": {"different":0, "total":0, "number":0},
@@ -159,7 +161,7 @@ function displayStats() {
     var unitIds = Object.keys(releasedUnits);
     for (var i = unitIds.length; i--;) {
         var unit = releasedUnits[unitIds[i]];
-        if (unit.min_rarity >= 3) {
+        if (unit.min_rarity >= 3 || unit.min_rarity == 'NV') {
             var maxRarity = (unit.unreleased7Star ? 6 : unit.max_rarity);
             stats.all[unit.min_rarity].total++;
             if (maxRarity == 7) {
@@ -277,7 +279,7 @@ function displayUnitsByRarity(units, minRarity = 1) {
                 if (!ownedUnits[unit.id] || !ownedUnits[unit.id].sevenStar) {
                     continue;
                 }
-            } else if (unit.min_rarity < minRarity) {
+            } else if (unit.min_rarity != 'NV' && unit.min_rarity < minRarity) {
                 continue;
             }
             var maxRarity = (unit.unreleased7Star ? 6 : unit.max_rarity);
@@ -322,6 +324,27 @@ function displayUnitsByRarity(units, minRarity = 1) {
     return html;
 
 };
+
+function getUnitImage(unit) {
+    var unitImage = '/img/units/unit_icon_' + unit.id.substr(0,7);
+    var formToDisplay = unit.max_rarity;
+    if (unit.max_rarity == 'NV' && unit.min_rarity != 'NV') {
+        unitImage += '1';
+    } else {
+        unitImage += unit.id.substr(7,1);
+    }
+    if (unit.max_rarity == 'NV') {
+        unitImage += '7';
+    } else {
+        if (unit.max_rarity == 7 && ownedUnits[unit.id] && !ownedUnits[unit.id].sevenStar) {
+            unitImage += '6';
+        } else {
+            unitImage += unit.max_rarity;
+        }
+    }
+    unitImage += '.png'
+    return unitImage;
+}
 
 function getUnitDisplay(unit, useTmrName = false) {
   var html = "";
@@ -379,11 +402,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         
         html += '<div class="secondColumn">'
         html += '<div class="imageAndName">'
-        var formToDisplay = unit.max_rarity;
-        if (formToDisplay == 7 && ownedUnits[unit.id] && !ownedUnits[unit.id].sevenStar) {
-            formToDisplay = 6;
-        }
-        html += '<div><img class="unitImage lazyload" data-src="/img/units/unit_icon_' + unit.id.substr(0, unit.id.length - 1) + formToDisplay + '.png"/></div>';
+        html += '<div><img class="unitImage lazyload" data-src="' + getUnitImage(unit) + '"/></div>';
         
         html +='<div class="unitNameAndRarity">';
         html +='<div class="unitName">';
@@ -503,12 +522,23 @@ function updateUnitDisplay(unitId) {
 }
 
 function getRarity(minRarity, maxRarity) {
+    let nv = false;
+    if (minRarity == 'NV') {
+        minRarity = 7;
+    }
+    if (maxRarity == 'NV') {
+        nv = true;
+        maxRarity = 7;
+    }
     var html = '';
     for (var rarityIndex = 0; rarityIndex < minRarity; rarityIndex++ ) {
         html += '★';
     }
     for (var rarityIndex = 0; rarityIndex < (maxRarity - minRarity); rarityIndex++ ) {
         html += '☆';
+    }
+    if (nv) {
+        html += '<img src="img/icons/NV.png">'
     }
     return html;
 }
@@ -869,8 +899,8 @@ function sortTMRAlphabetically(units) {
 function sortByRarity(units) {
     var unitsToSort = Object.values(units).slice();
     return unitsToSort.sort(function (unit1, unit2){
-        var maxRarity1 = unit1.max_rarity;
-        var maxRarity2 = unit2.max_rarity;
+        var maxRarity1 = unit1.max_rarity == 'NV' ? 8 : unit1.max_rarity;
+        var maxRarity2 = unit2.max_rarity == 'NV' ? 8 : unit2.max_rarity
         if (maxRarity1 == 7 && unit1.unreleased7Star) {
             maxRarity1 = 6;
         }
@@ -881,7 +911,9 @@ function sortByRarity(units) {
             if (unit1.min_rarity == unit2.min_rarity) {
                 return unit1.name.localeCompare(unit2.name);
             } else {
-                return unit2.min_rarity - unit1.min_rarity;
+                var minRarity1 = unit1.min_rarity == 'NV' ? 8 : unit1.min_rarity;
+                var minRarity2 = unit2.min_rarity == 'NV' ? 8 : unit2.min_rarity
+                return minRarity2 - minRarity1;
             }
         } else {
             return maxRarity2 - maxRarity1;
@@ -1186,6 +1218,11 @@ function startPage() {
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("units", true, function(unitResult) {
         units = unitResult;
+        Object.keys(units).forEach(unitId => {
+           if (units[unitId].braveShifted) {
+               delete units[unitId];
+           }
+        });
         getStaticData("releasedUnits", false, function(releasedUnitResult) {
             releasedUnits = [];
             for (var unitId in unitResult) {

@@ -161,7 +161,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
     unitOut.magics = [];
     
     for (skillIndex in skillsIn) {
-        if (skillsIn[skillIndex].rarity > maxRarity) {
+        if (skillsIn[skillIndex].rarity > maxRarity || skillsIn[skillIndex].rarity == 'NV' && maxRarity != 'NV') {
             continue; // don't take into account skills for a max rarity not yet released
         }
         var skillId = skillsIn[skillIndex].id.toString();
@@ -185,6 +185,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         
     }
     unitOut.innates = {};
+
     addElementalResist(baseEffects, unitData.element_resist);
     addAilmentResist(baseEffects, unitData.status_resist);
     addElementalResist(unitOut.innates, unitData.element_resist);
@@ -836,7 +837,7 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
             conditions = [rawEffect[3][0]];
         }
         for (var i = conditions.length; i--;) {
-            var gilgameshSkill = {"equipedConditions":[conditions[i].toString()]};
+            var gilgameshSkill = {"equipedConditions": [conditions[i].toString()]};
             gilgameshSkill["atk%"] = rawEffect[3][1];
             gilgameshSkill["def%"] = rawEffect[3][2];
             gilgameshSkill["mag%"] = rawEffect[3][3];
@@ -846,6 +847,17 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
             result.push(gilgameshSkill);
         }
         return result;
+
+    } else if (rawEffect[2] == 89) {
+
+        addToStat(result, 'atk', rawEffect[3][0]);
+        addToStat(result, 'def', rawEffect[3][1]);
+        addToStat(result, 'mag', rawEffect[3][2]);
+        addToStat(result, 'spr', rawEffect[3][3]);
+        addToStat(result, 'hp', rawEffect[3][4]);
+        addToStat(result, 'mp', rawEffect[3][5]);
+
+        return [result];
 
     // equipment type conditionned killers
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 75) {
@@ -1983,8 +1995,8 @@ function formatOutput(units) {
     return result;
 }
 
-function formatUnit(unit, prefix = "", sixStarForm = false) {
-    result = getUnitBasicInfo(unit,prefix, sixStarForm) + ",";
+function formatUnit(unit, prefix = "", form = null) {
+    result = getUnitBasicInfo(unit,prefix, form) + ",";
     if (unit.enhancements && unit.enhancements.length > 0) {
         result += "\n\t\t\"enhancements\": [";
         for (var i = 0, len = unit.enhancements.length; i < len; i++) {
@@ -2007,8 +2019,11 @@ function formatUnit(unit, prefix = "", sixStarForm = false) {
         result+= "\n" + formatSkill(skill, prefix + "\t\t\t");
     }
     result += "\n" + prefix + "\t\t]";
-    if (unit["6_form"]) {
-        result += ",\n\t\t\"6_form\": {" + formatUnit(unit["6_form"], "\t", true) + "\n\t\t}";
+    if (!form && unit["6_form"]) {
+        result += ",\n\t\t\"6_form\": {" + formatUnit(unit["6_form"], "\t", 6) + "\n\t\t}";
+    }
+    if (unit["7_form"]) {
+        result += ",\n\t\t\"7_form\": {" + formatUnit(unit["7_form"], "\t", 7) + "\n\t\t}";
     }
     return result;
 }
@@ -2044,7 +2059,10 @@ function formatSimpleOutput(units) {
         result += "\n\t\"" + unitId + "\": {";
         result += getUnitBasicInfo(unit);
         if (unit["6_form"]) {
-            result += ",\n\t\t\"6_form\": {" + getUnitBasicInfo(unit["6_form"], "\t", true) + "\n\t\t}";
+            result += ",\n\t\t\"6_form\": {" + getUnitBasicInfo(unit["6_form"], "\t", 6) + "\n\t\t}";
+        }
+        if (unit["7_form"]) {
+            result += ",\n\t\t\"7_form\": {" + getUnitBasicInfo(unit["7_form"], "\t", 7) + "\n\t\t}";
         }
         result += "\n\t}";
     }
@@ -2052,20 +2070,29 @@ function formatSimpleOutput(units) {
     return result;
 }
 
-function getUnitBasicInfo(unit, prefix = "", sixStarForm = false) {
-    var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name.replace(/"/g, '\\"') + "\",";
+function getUnitBasicInfo(unit, prefix = "", form = null) {
+    var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name.replace(/"/g, '\\"') + (unit.braveShifted && !unit.name.endsWith("- Brave Shifted") ? " - Brave Shifted" : '') + "\",";
     if (unit.jpname) {
-        result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname.replace(/"/g, '\\"') + "\",";
+        result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname.replace(/"/g, '\\"') + (unit.braveShifted ? " - Brave Shifted" : '') + "\",";
     }
     if (unit.wikiEntry) {
         result += "\n" + prefix + "\t\t\"wikiEntry\":\"" + unit.wikiEntry + "\",";
     }
     result += "\n" + prefix + "\t\t\"id\":\"" + unit.id + "\",";
-    if (sixStarForm) {
+    if (form == 6) {
         result += "\n" + prefix + "\t\t\"sixStarForm\":true,";
+    }
+    if (form == 7) {
+        result += "\n" + prefix + "\t\t\"sevenStarForm\":true,";
     }
     if (unit.unreleased7Star) {
         result += "\n" + prefix + "\t\t\"unreleased7Star\":true,";
+    }
+    if (unit.braveShift) {
+        result += "\n" + prefix + "\t\t\"braveShift\":\"" + unit.braveShift + "\",";
+    }
+    if (unit.braveShifted) {
+        result += "\n" + prefix + "\t\t\"braveShifted\":true,";
     }
     result += "\n" + prefix + "\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
     result += "\n" + prefix + "\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";

@@ -6,12 +6,17 @@ var commonParse = require('../commonParseUnit');
 filterGame = [];
 filterUnits = ["199000101", "256000301"]
 
-var unitNamesById = {};
-var unitIdByTmrId = {};
+const innateNeoVisionUnits = ["207002007"];
+const braveShiftUnitIdByBaseUnitId = {
+    "207002007": "207002017",
+    "207000305": "207000327",
+    "207000505": "207000527"
+};
+const braveAbilityIdsByUnitId = {
+    "207000305": ["236111", "236120", "236125", "236116", "236118", "236128"],
+    "207000505": ["236061", "236068", "236073", "236066", "236076"]
+}
 var enhancementsByUnitId = {};
-var oldItemsAccessById = {};
-var releasedUnits;
-var skillNotIdentifiedNumber = 0;
 var glNameById = {};
 var dev = false;
 var imgUrls;
@@ -85,7 +90,8 @@ getData('units.json', function (units) {
                                     var unitsOut = {};
                                     for (var unitId in units) {
                                         var unitIn = units[unitId];
-                                        if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
+                                        if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("8") && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
+                                            manageNV(unitIn, unitId);
                                             var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId);
                                             unitsOut[unitOut.data.id] = unitOut.data;
                                         }
@@ -105,6 +111,22 @@ getData('units.json', function (units) {
     });
 });
 
+function manageNV(unitIn, unitId) {
+    if (braveAbilityIdsByUnitId[unitId]) {
+        unitIn.skills
+            .filter(skill => braveAbilityIdsByUnitId[unitId].includes(skill.id.toString()))
+            .forEach(skill => {
+                skill.rarity = "NV"
+                skill.level = 0
+            });
+    }
+    if (innateNeoVisionUnits.includes(unitId) || Object.values(braveShiftUnitIdByBaseUnitId).includes(unitId)) {
+        unitIn.rarity_max = 'NV';
+        unitIn.rarity_min = 'NV';
+        unitIn.entries[unitId].rarity = 'NV';
+    }
+}
+
 function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry = unitIn["rarity_max"]) {
     var unit = {};
     unit.data = {};
@@ -113,6 +135,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
     var unitData;
     
     var unitStats = {"minStats":{}, "maxStats":{}, "pots":{}};
+
     for (entryId in unitIn.entries) {
         if (unitIn.entries[entryId].rarity == maxRariry) {
             unitData = unitIn.entries[entryId];
@@ -133,10 +156,15 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
                 if (!data.mitigation) {
                     data.mitigation = {};
                 }
-                data.mitigation.magical = unitData.magical_resist;  
+                data.mitigation.magical = unitData.magical_resist;
             }
             break;
         }
+    }
+    if (!unitData) {
+        console.log(unitId)
+        console.log(maxRariry);
+        console.log(JSON.stringify(unitIn.entries));
     }
     if (glNameById[unitId]) {
         data["name"] = glNameById[unitId];
@@ -144,8 +172,10 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
     } else {
         data["name"] = unitIn["name"];    
     }
+
     data["max_rarity"] = maxRariry;
     data["min_rarity"] = unitIn["rarity_min"];
+
     data["stats"] = unitStats;
     if (!unitIn.sex) {
         console.log(unitIn);
@@ -164,19 +194,35 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
             data["enhancementSkills"].push(skills[skillId].name);
         }
     }
+
+    if (braveShiftUnitIdByBaseUnitId[unitId] && maxRariry == 'NV') {
+        data["braveShift"] = braveShiftUnitIdByBaseUnitId[unitId];
+    }
+    if (Object.values(braveShiftUnitIdByBaseUnitId).includes(unitId)) {
+        data["braveShifted"] = true;
+    }
     
     data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, lbs, enhancementsByUnitId[unitId], maxRariry, unitData, data);
     
     verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     
-    if (maxRariry == 7) {
+    if ((maxRariry == 7 || maxRariry == 'NV') && unitIn.rarity_min != 'NV') {
         data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, 6).data;
+    }
+    if (maxRariry == 'NV' && unitIn.rarity_min != 'NV') {
+        data["7_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, 7).data;
     }
     
     return unit;
 }
 
-
+function assureArray(input) {
+    if (Array.isArray(input)) {
+        return input;
+    } else {
+        return [input];
+    }
+}
 
 function verifyImage(serieId, minRarity, maxRarity) {
     for (var i = minRarity; i <= maxRarity; i++) {

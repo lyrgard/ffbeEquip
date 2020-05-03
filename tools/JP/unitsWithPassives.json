@@ -11860,6 +11860,7 @@
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン"],
 		"enhancements": [
+			{"name":"俺は、俺の現実を生きる","levels":[[],[{"lbPerTurn":{"min":5,"max":5},"lbDamage":150,"replaceLb":{"name":"超究武神覇斬","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":24.1,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (24.1x * 2 = 48.2x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":27,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (27x * 2 = 54x, ATK) to one enemy (ignore cover)"}],"frames":[188,206,222,254,270,282,304,326,342,356,388,406,418,448,550],"move":"walk"}}]]},
 			{"name":"ソルジャークラス1ST","levels":[[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mp%":50,"hp%":50}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60},{"equipedConditions":["greatSword"],"atk%":30}]]}
 		],
 		"skills": [
@@ -11885,6 +11886,7 @@
 			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 			"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン"],
 		"enhancements": [
+			{"name":"俺は、俺の現実を生きる","levels":[[],[{"lbPerTurn":{"min":5,"max":5},"lbDamage":150,"replaceLb":{"name":"超究武神覇斬","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":24.1,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (24.1x * 2 = 48.2x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":27,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (27x * 2 = 54x, ATK) to one enemy (ignore cover)"}],"frames":[188,206,222,254,270,282,304,326,342,356,388,406,418,448,550],"move":"walk"}}]]},
 			{"name":"ソルジャークラス1ST","levels":[[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mp%":50,"hp%":50}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60},{"equipedConditions":["greatSword"],"atk%":30}]]}
 		],
 			"skills": [
@@ -11906,6 +11908,9 @@
 		},
 		"stats_pattern":1,
 		"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"マリンの未来のために","levels":[[],[{"atk%":50,"singleWielding":{"accuracy":25,"atk":50}}]]}
+		],
 		"skills": [
 			{"hp%":30, "atk%":20, "def%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100}]}
 		]
@@ -11914,24 +11919,27 @@
 		"name":"Tifa",
 		"jpname":"ティファ",
 		"id":"207000305",
-		"max_rarity":"7",
+		"braveShift":"207000327",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4692,"mp":209,"atk":199,"def":175,"mag":146,"spr":187},
-			"minStats":{"hp":1548,"mp":69,"atk":66,"def":58,"mag":48,"spr":62},
+			"maxStats":{"hp":4750,"mp":238,"atk":205,"def":173,"mag":156,"spr":187},
+			"minStats":{"hp":1568,"mp":79,"atk":68,"def":57,"mag":51,"spr":62},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%"],
+		"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%","メテオクラッシャー","フィーバータイム","クラウドとの約束"],
 		"enhancements": [
+			{"name":"名物\"コスモキャニオン\"を一杯","levels":[[],[{"mp%":30,"hp%":30,"resist":[{"name":"water","percent":50}]}]]},
 			{"name":"双拳士","levels":[[{"atk%":30,"special":["dualWield"]}],[{"atk%":50,"mp%":30,"special":["dualWield"]}],[{"atk%":70,"mp%":50,"special":["dualWield"],"dualWielding":{"atk":10}}]]},
 			{"name":"気合","levels":[[{"spr%":30,"def%":30,"lbFillRate":100,"levelCondition":105}],[{"spr%":30,"def%":30,"lbFillRate":100,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100}],"levelCondition":105}],[{"spr%":30,"def%":30,"lbFillRate":100,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"levelCondition":105}]]},
-			{"name":"MP+20%","levels":[[{"mp%":20,"levelCondition":115}],[{"mp%":30,"levelCondition":115}],[{"improvedDW":true,"levelCondition":115}]]}
+			{"name":"MP+20%","levels":[[{"mp%":20,"levelCondition":115}],[{"mp%":30,"levelCondition":115}],[{"improvedDW":true,"levelCondition":115}]]},
+			{"name":"クラウドとの約束","levels":[[{"hp":1000,"skillEnhancement":{"227834":10,"227836":16,"508162":5,"509873":5,"509874":5,"707903":16,"707904":16,"707909":10,"707910":10}}],[{"hp":1000,"skillEnhancement":{"227834":20,"227836":26,"508162":7.5,"509873":7.5,"509874":7.5,"707903":26,"707904":26,"707909":20,"707910":20}}],[{"hp":2000,"skillEnhancement":{"227834":30,"227836":36,"508162":10,"509873":10,"509874":10,"707903":36,"707904":36,"707909":30,"707910":30}}],[{"hp":2000,"skillEnhancement":{"227834":35,"227836":41,"508162":12.5,"509873":12.5,"509874":12.5,"707903":41,"707904":41,"707909":35,"707910":35}}],[{"hp":3000,"skillEnhancement":{"227834":40,"227836":46,"508162":15,"509873":15,"509874":15,"707903":46,"707904":46,"707909":40,"707910":40}}]]}
 		],
 		"skills": [
-			{"hp%":30, "spr%":20, "evade":{"physical":20}, "lbPerTurn":{"min":1,"max":1}},
+			{"hp%":30, "atk%":30, "spr%":20, "evade":{"physical":20}, "dualWielding":{"atk":100}, "lbPerTurn":{"min":1,"max":1}},
 			{"atk%":50, "equipedConditions":["fist"]},
 			{"atk%":30, "dualWielding":{"atk":40}, "replaceLb":{"name":"リミットリール","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11.6},"area":"ST","target":"ENEMY"},"desc":"Physical damage (11.6x, ATK) to one enemy"},{"effect":{"imperil":{"water":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 75% for 5 turns to one enemy"},{"effect":{"break":{"def":45},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (14.5x, ATK) to one enemy"},{"effect":{"imperil":{"water":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 5 turns to one enemy"},{"effect":{"break":{"def":74},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 74% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"}],"frames":[133,143,163,198,253,310,362,499,583],"move":"walk"}, "equipedConditions":[["504227847","309003300"]]},
 			{"hp%":20, "atk%":20, "def%":20, "skillEnhancement":{"227830":1.5,"227831":1.5,"227832":1.5,"227833":1.5,"227834":1.5,"227835":1.5,"227836":1.5,"227837":0.75,"508161":1.5,"508162":0.75,"509873":0.75,"509874":0.75,"707903":1.5,"707904":1.5,"707909":1.5,"707910":1.5}, "levelCondition":120}
@@ -11951,15 +11959,73 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%"],
+			"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%","メテオクラッシャー","フィーバータイム","クラウドとの約束"],
 		"enhancements": [
+			{"name":"名物\"コスモキャニオン\"を一杯","levels":[[],[{"mp%":30,"hp%":30,"resist":[{"name":"water","percent":50}]}]]},
 			{"name":"双拳士","levels":[[{"atk%":30,"special":["dualWield"]}],[{"atk%":50,"mp%":30,"special":["dualWield"]}],[{"atk%":70,"mp%":50,"special":["dualWield"],"dualWielding":{"atk":10}}]]}
 		],
 			"skills": [
 				{"hp%":30, "spr%":20, "evade":{"physical":20}, "lbPerTurn":{"min":1,"max":1}},
 				{"atk%":50, "equipedConditions":["fist"]}
 			]
+		},
+		"7_form": {
+			"name":"Tifa",
+			"jpname":"ティファ",
+			"id":"207000305",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4692,"mp":209,"atk":199,"def":175,"mag":146,"spr":187},
+				"minStats":{"hp":1548,"mp":69,"atk":66,"def":58,"mag":48,"spr":62},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%","メテオクラッシャー","フィーバータイム","クラウドとの約束"],
+		"enhancements": [
+			{"name":"名物\"コスモキャニオン\"を一杯","levels":[[],[{"mp%":30,"hp%":30,"resist":[{"name":"water","percent":50}]}]]},
+			{"name":"双拳士","levels":[[{"atk%":30,"special":["dualWield"]}],[{"atk%":50,"mp%":30,"special":["dualWield"]}],[{"atk%":70,"mp%":50,"special":["dualWield"],"dualWielding":{"atk":10}}]]},
+			{"name":"気合","levels":[[{"spr%":30,"def%":30,"lbFillRate":100,"levelCondition":105}],[{"spr%":30,"def%":30,"lbFillRate":100,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100}],"levelCondition":105}],[{"spr%":30,"def%":30,"lbFillRate":100,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"levelCondition":105}]]},
+			{"name":"MP+20%","levels":[[{"mp%":20,"levelCondition":115}],[{"mp%":30,"levelCondition":115}],[{"improvedDW":true,"levelCondition":115}]]}
+		],
+			"skills": [
+				{"hp%":30, "spr%":20, "evade":{"physical":20}, "lbPerTurn":{"min":1,"max":1}},
+				{"atk%":50, "equipedConditions":["fist"]},
+				{"atk%":30, "dualWielding":{"atk":40}, "replaceLb":{"name":"リミットリール","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11.6},"area":"ST","target":"ENEMY"},"desc":"Physical damage (11.6x, ATK) to one enemy"},{"effect":{"imperil":{"water":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 75% for 5 turns to one enemy"},{"effect":{"break":{"def":45},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (14.5x, ATK) to one enemy"},{"effect":{"imperil":{"water":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 5 turns to one enemy"},{"effect":{"break":{"def":74},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 74% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"}],"frames":[133,143,163,198,253,310,362,499,583],"move":"walk"}, "equipedConditions":[["504227847","309003300"]]},
+				{"hp%":20, "atk%":20, "def%":20, "skillEnhancement":{"227830":1.5,"227831":1.5,"227832":1.5,"227833":1.5,"227834":1.5,"227835":1.5,"227836":1.5,"227837":0.75,"508161":1.5,"508162":0.75,"509873":0.75,"509874":0.75,"707903":1.5,"707904":1.5,"707909":1.5,"707910":1.5}, "levelCondition":120}
+			]
 		}
+	},
+	"207000327": {
+		"name":"Tifa - Brave Shifted",
+		"jpname":"ティファ - Brave Shifted",
+		"id":"207000327",
+		"braveShifted":true,
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4758,"mp":235,"atk":208,"def":176,"mag":153,"spr":184},
+			"minStats":{"hp":1570,"mp":78,"atk":69,"def":58,"mag":50,"spr":61},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["メテオクラッシャー","ザンガン流精神統一","スラムの心得"],
+		"enhancements": [
+			{"name":"スラムの心得","levels":[[{"killers":[{"name":"aquatic","physical":100},{"name":"human","physical":100}],"levelCondition":120}],[{"killers":[{"name":"aquatic","physical":125},{"name":"human","physical":125}],"levelCondition":120}],[{"killers":[{"name":"aquatic","physical":150},{"name":"human","physical":150}],"levelCondition":120}],[{"killers":[{"name":"aquatic","physical":175},{"name":"human","physical":175}],"levelCondition":120}],[{"killers":[{"name":"aquatic","physical":200},{"name":"human","physical":200}],"levelCondition":120}]]}
+		],
+		"skills": [
+			{"atk%":30, "dualWielding":{"atk":100}, "levelCondition":120},
+			{"resist":[{"name":"water","percent":50}], "lbDamage":100, "equipedConditions":[["504227847","309003300"]], "levelCondition":120},
+			{"hp%":50, "mp%":50, "atk%":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
+			{"atk%":50, "def%":50, "spr%":50, "evade":{"physical":30}, "special":["dualWield"], "levelCondition":120},
+			{"hp%":20, "atk%":70, "dualWielding":{"atk":50}, "levelCondition":120},
+			{"improvedDW":true, "levelCondition":120}
+		]
 	},
 	"207000405": {
 		"name":"Aerith",
@@ -11975,11 +12041,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","mace","hat","clothes","robe"],
+		"enhancementSkills":["星の守護","いのちの奔流","エンシェントホーリー","アースヒール","星を救う想い"],
+		"enhancements": [
+			{"name":"古代種の秘術","levels":[[],[{"spr%":30,"mp%":30,"lbFillRate":100}]]},
+			{"name":"星を救う想い","levels":[[{"spr%":40,"levelCondition":120}],[{"spr%":60,"mag%":20,"def%":20,"levelCondition":120}],[{"spr%":80,"mag%":40,"def%":40,"replaceLb":{"name":"大いなる福音","minEffects":[{"effect":null,"desc":"Cure all status effects for all allies"},{"effect":null,"desc":"Revive all allies from KO (50% HP)"},{"effect":null,"desc":"Restore 50% HP to all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Remove ATK, DEF, MAG, SPR, Stop and Charm debuff from all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Auto-revive (100% HP) for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Cure all status effects for all allies"},{"effect":null,"desc":"Revive all allies from KO (100% HP)"},{"effect":null,"desc":"Restore 100% HP to all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Remove ATK, DEF, MAG, SPR, Stop and Charm debuff from all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Auto-revive (100% HP) for 3 turns to all allies"}]},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":20, "mp%":30, "spr%":80, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"ice","percent":20},{"name":"stop","percent":100}], "mpRefresh":5, "skillEnhancement":{"10060":2,"10170":1,"10210":3}},
 			{"hp%":30, "mp%":20, "mpRefresh":5, "equipedConditions":[["504229740","409026800"]]},
-			{"def%":20, "levelCondition":115},
-			{"spr%":40, "levelCondition":120}
+			{"def%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Aerith",
@@ -11996,6 +12066,10 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","bow","mace","hat","clothes","robe"],
+			"enhancementSkills":["星の守護","いのちの奔流","エンシェントホーリー","アースヒール","星を救う想い"],
+		"enhancements": [
+			{"name":"古代種の秘術","levels":[[],[{"spr%":30,"mp%":30,"lbFillRate":100}]]}
+		],
 			"skills": [
 				{"hp%":20, "mp%":30, "spr%":80, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"ice","percent":20},{"name":"stop","percent":100}], "mpRefresh":5, "skillEnhancement":{"10060":2,"10170":1,"10210":3}}
 			]
@@ -12005,23 +12079,26 @@
 		"name":"Red XIII",
 		"jpname":"レッドXIII",
 		"id":"207000505",
-		"max_rarity":"7",
+		"braveShift":"207000527",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4896,"mp":197,"atk":219,"def":173,"mag":152,"spr":181},
-			"minStats":{"hp":1616,"mp":65,"atk":72,"def":57,"mag":50,"spr":60},
+			"maxStats":{"hp":4904,"mp":212,"atk":219,"def":173,"mag":152,"spr":178},
+			"minStats":{"hp":1618,"mp":70,"atk":72,"def":57,"mag":50,"spr":59},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
-		"enhancementSkills":["気高き心","ブレイズチャージ","ストームチャージ","シャドウチャージ","アースレイヴ","オーバーハウル","スピリットオブセト","星を守りし一族"],
+		"enhancementSkills":["気高き心","シャドウチャージ","ストームチャージ","ブレイズチャージ","アースレイヴ","オーバーハウル","スピリットオブセト","星を守りし一族","キラースレイヴ","ハイスピードファング","星命学の知識"],
 		"enhancements": [
+			{"name":"一族の生き残り","levels":[[],[{"spr%":60,"lbPerTurn":{"min":3,"max":3}}]]},
 			{"name":"気高き心","levels":[[{"lbFillRate":50,"singleWielding":{"accuracy":25,"atk":100}}],[{"lbFillRate":100,"singleWielding":{"accuracy":25,"atk":125}}],[{"lbFillRate":100,"singleWielding":{"accuracy":25,"atk":150}}]]},
-			{"name":"星を守りし一族","levels":[[{"atk%":40,"levelCondition":120}],[{"atk%":40,"hp%":40,"levelCondition":120}],[{"atk%":80,"hp%":80,"replaceLb":{"name":"コスモメモリー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (15x * 2 = 30x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":71,"wind":71,"dark":71},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Wind and Dark by 71% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"unlocked-913137497","name":"Tリミット"}]}},"desc":"Gain 3 uses of アースレイヴ (229785, 708241, 708242), オーバーハウル (229790, 708249, 708250), シャドウチャージ (229788, 708247, 708248), スターダストレイ (229783), ストームチャージ (229787, 708245, 708246), スピリットオブセト (229791, 708251, 708252), スレッドファング (229780), ハウリングムーン (229784), ブラッドファング (229782), ブレイズチャージ (229786, 708243, 708244) and ルナティックハイ (229781) for 4 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":22.25,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (22.25x * 2 = 44.5x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":100,"wind":100,"dark":100},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Wind and Dark by 100% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"unlocked-913137497","name":"Tリミット"}]}},"desc":"Gain 3 uses of アースレイヴ (229785, 708241, 708242), オーバーハウル (229790, 708249, 708250), シャドウチャージ (229788, 708247, 708248), スターダストレイ (229783), ストームチャージ (229787, 708245, 708246), スピリットオブセト (229791, 708251, 708252), スレッドファング (229780), ハウリングムーン (229784), ブラッドファング (229782), ブレイズチャージ (229786, 708243, 708244) and ルナティックハイ (229781) for 4 turns"}],"frames":[440],"move":"walk"},"levelCondition":120}]]}
+			{"name":"星を守りし一族","levels":[[{"atk%":40,"levelCondition":120}],[{"atk%":40,"hp%":40,"levelCondition":120}],[{"atk%":80,"hp%":80,"replaceLb":{"name":"コスモメモリー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (15x * 2 = 30x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":71,"wind":71,"dark":71},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Wind and Dark by 71% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"unlocked-951520984","name":"Tリミット"}]}},"desc":"Gain 3 uses of アースレイヴ (229785, 708241, 708242), オーバーハウル (229790, 708249, 708250), キラースレイヴ (236061, 236062, 236063, 236064, 236065), クリムゾンロアー (236089), シャドウチャージ (229788, 708247, 708248), スターダストファイア (236087), スターダストレイ (229783), ストームチャージ (229787, 708245, 708246), スピリットオブセト (229791, 708251, 708252), スレッドファング (229780), ハイスピードファング (236068, 236069, 236070, 236071, 236072), ハウリングフレイム (236082, 236083, 236084, 236085, 236086), ハウリングムーン (229784), フレアファング (800528), ブラッドファング (229782), ブレイズチャージ (229786, 708243, 708244), ルナティックハイ (229781) and ルナティックバースト (236073) for 4 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":22.25,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (22.25x * 2 = 44.5x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":100,"wind":100,"dark":100},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Wind and Dark by 100% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"unlocked-951520984","name":"Tリミット"}]}},"desc":"Gain 3 uses of アースレイヴ (229785, 708241, 708242), オーバーハウル (229790, 708249, 708250), キラースレイヴ (236061, 236062, 236063, 236064, 236065), クリムゾンロアー (236089), シャドウチャージ (229788, 708247, 708248), スターダストファイア (236087), スターダストレイ (229783), ストームチャージ (229787, 708245, 708246), スピリットオブセト (229791, 708251, 708252), スレッドファング (229780), ハイスピードファング (236068, 236069, 236070, 236071, 236072), ハウリングフレイム (236082, 236083, 236084, 236085, 236086), ハウリングムーン (229784), フレアファング (800528), ブラッドファング (229782), ブレイズチャージ (229786, 708243, 708244), ルナティックハイ (229781) and ルナティックバースト (236073) for 4 turns"}],"frames":[440],"move":"walk"},"levelCondition":120}]]},
+			{"name":"星命学の知識","levels":[[{"mp":200,"skillEnhancement":{"229785":2,"229786":4,"509201":30,"511519":30,"511520":30,"708241":2,"708242":2,"708243":4,"708244":4}}],[{"mp":200,"skillEnhancement":{"229785":2,"229786":4,"509201":35,"511519":35,"511520":35,"708241":2,"708242":2,"708243":4,"708244":4}}],[{"mp":200,"skillEnhancement":{"229785":4,"229786":8,"509201":40,"511519":40,"511520":40,"708241":4,"708242":4,"708243":8,"708244":8}}],[{"mp":200,"skillEnhancement":{"229785":6.5,"229786":13,"509201":45,"511519":45,"511520":45,"708241":6.5,"708242":6.5,"708243":13,"708244":13}}],[{"mp":200,"skillEnhancement":{"229785":9,"229786":18,"509201":50,"511519":50,"511520":50,"708241":9,"708242":9,"708243":18,"708244":18}}]]}
 		],
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":50, "def%":60, "spr%":20, "resist":[{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"demon","physical":75},{"name":"undead","physical":75}]},
+			{"hp%":40, "mp%":20, "atk%":120, "def%":60, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"demon","physical":75},{"name":"undead","physical":75}]},
 			{"atk%":200, "equipedConditions":["unarmed"]},
 			{"mp%":20, "def%":20, "spr%":20, "killers":[{"name":"beast","physical":75},{"name":"demon","physical":75},{"name":"undead","physical":75}], "skillEnhancement":{"229780":1.5,"229783":0.75,"229785":1.5,"708241":1.5,"708242":1.5}, "equipedConditions":[["409026900","409027000"]]},
 			{"mp%":20, "levelCondition":115}
@@ -12041,15 +12118,71 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
-			"enhancementSkills":["気高き心","ブレイズチャージ","ストームチャージ","シャドウチャージ","アースレイヴ","オーバーハウル","スピリットオブセト","星を守りし一族"],
+			"enhancementSkills":["気高き心","シャドウチャージ","ストームチャージ","ブレイズチャージ","アースレイヴ","オーバーハウル","スピリットオブセト","星を守りし一族","キラースレイヴ","ハイスピードファング","星命学の知識"],
 		"enhancements": [
+			{"name":"一族の生き残り","levels":[[],[{"spr%":60,"lbPerTurn":{"min":3,"max":3}}]]},
 			{"name":"気高き心","levels":[[{"lbFillRate":50,"singleWielding":{"accuracy":25,"atk":100}}],[{"lbFillRate":100,"singleWielding":{"accuracy":25,"atk":125}}],[{"lbFillRate":100,"singleWielding":{"accuracy":25,"atk":150}}]]}
 		],
 			"skills": [
 				{"hp%":40, "mp%":20, "atk%":50, "def%":60, "spr%":20, "resist":[{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"demon","physical":75},{"name":"undead","physical":75}]},
 				{"atk%":200, "equipedConditions":["unarmed"]}
 			]
+		},
+		"7_form": {
+			"name":"Red XIII",
+			"jpname":"レッドXIII",
+			"id":"207000505",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4896,"mp":197,"atk":219,"def":173,"mag":152,"spr":181},
+				"minStats":{"hp":1616,"mp":65,"atk":72,"def":57,"mag":50,"spr":60},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
+			"enhancementSkills":["気高き心","シャドウチャージ","ストームチャージ","ブレイズチャージ","アースレイヴ","オーバーハウル","スピリットオブセト","星を守りし一族","キラースレイヴ","ハイスピードファング","星命学の知識"],
+		"enhancements": [
+			{"name":"一族の生き残り","levels":[[],[{"spr%":60,"lbPerTurn":{"min":3,"max":3}}]]},
+			{"name":"気高き心","levels":[[{"lbFillRate":50,"singleWielding":{"accuracy":25,"atk":100}}],[{"lbFillRate":100,"singleWielding":{"accuracy":25,"atk":125}}],[{"lbFillRate":100,"singleWielding":{"accuracy":25,"atk":150}}]]},
+			{"name":"星を守りし一族","levels":[[{"atk%":40,"levelCondition":120}],[{"atk%":40,"hp%":40,"levelCondition":120}],[{"atk%":80,"hp%":80,"replaceLb":{"name":"コスモメモリー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (15x * 2 = 30x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":71,"wind":71,"dark":71},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Wind and Dark by 71% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"unlocked-951520984","name":"Tリミット"}]}},"desc":"Gain 3 uses of アースレイヴ (229785, 708241, 708242), オーバーハウル (229790, 708249, 708250), キラースレイヴ (236061, 236062, 236063, 236064, 236065), クリムゾンロアー (236089), シャドウチャージ (229788, 708247, 708248), スターダストファイア (236087), スターダストレイ (229783), ストームチャージ (229787, 708245, 708246), スピリットオブセト (229791, 708251, 708252), スレッドファング (229780), ハイスピードファング (236068, 236069, 236070, 236071, 236072), ハウリングフレイム (236082, 236083, 236084, 236085, 236086), ハウリングムーン (229784), フレアファング (800528), ブラッドファング (229782), ブレイズチャージ (229786, 708243, 708244), ルナティックハイ (229781) and ルナティックバースト (236073) for 4 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":22.25,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (22.25x * 2 = 44.5x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":100,"wind":100,"dark":100},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Wind and Dark by 100% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"unlocked-951520984","name":"Tリミット"}]}},"desc":"Gain 3 uses of アースレイヴ (229785, 708241, 708242), オーバーハウル (229790, 708249, 708250), キラースレイヴ (236061, 236062, 236063, 236064, 236065), クリムゾンロアー (236089), シャドウチャージ (229788, 708247, 708248), スターダストファイア (236087), スターダストレイ (229783), ストームチャージ (229787, 708245, 708246), スピリットオブセト (229791, 708251, 708252), スレッドファング (229780), ハイスピードファング (236068, 236069, 236070, 236071, 236072), ハウリングフレイム (236082, 236083, 236084, 236085, 236086), ハウリングムーン (229784), フレアファング (800528), ブラッドファング (229782), ブレイズチャージ (229786, 708243, 708244), ルナティックハイ (229781) and ルナティックバースト (236073) for 4 turns"}],"frames":[440],"move":"walk"},"levelCondition":120}]]}
+		],
+			"skills": [
+				{"hp%":40, "mp%":20, "atk%":50, "def%":60, "spr%":20, "resist":[{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"demon","physical":75},{"name":"undead","physical":75}]},
+				{"atk%":200, "equipedConditions":["unarmed"]},
+				{"mp%":20, "def%":20, "spr%":20, "killers":[{"name":"beast","physical":75},{"name":"demon","physical":75},{"name":"undead","physical":75}], "skillEnhancement":{"229780":1.5,"229783":0.75,"229785":1.5,"708241":1.5,"708242":1.5}, "equipedConditions":[["409026900","409027000"]]},
+				{"mp%":20, "levelCondition":115}
+			]
 		}
+	},
+	"207000527": {
+		"name":"Red XIII - Brave Shifted",
+		"jpname":"レッドXIII - Brave Shifted",
+		"id":"207000527",
+		"braveShifted":true,
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4895,"mp":209,"atk":219,"def":170,"mag":155,"spr":181},
+			"minStats":{"hp":1615,"mp":69,"atk":72,"def":56,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
+		"enhancementSkills":["キラースレイヴ","ハウリングフレイム","戦士の咆哮"],
+		"enhancements": [
+			{"name":"戦士の咆哮","levels":[[{"lbDamage":150,"mpRefresh":20,"levelCondition":120}],[{"lbDamage":150,"mpRefresh":30,"levelCondition":120}],[{"lbDamage":175,"mpRefresh":40,"levelCondition":120}],[{"lbDamage":175,"mpRefresh":45,"levelCondition":120}],[{"lbDamage":200,"mpRefresh":50,"levelCondition":120}]]}
+		],
+		"skills": [
+			{"atk%":70, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
+			{"lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"fire","percent":50}], "equipedConditions":[["409026900","409027000"]], "levelCondition":120},
+			{"hp%":60, "mp%":60, "singleWielding":{"accuracy":25,"atk":75}, "killers":[{"name":"beast","physical":150},{"name":"demon","physical":150},{"name":"undead","physical":150}], "levelCondition":120},
+			{"hp%":60, "atk%":60, "def%":60, "singleWielding":{"accuracy":25,"atk":75}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
+			{"atk%":70, "def%":40, "spr%":40, "lbFillRate":150, "levelCondition":120}
+		]
 	},
 	"207000605": {
 		"name":"Yuffie",
@@ -12065,14 +12198,18 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["血祭","しゅしゅしゅ","鎧袖一触","最終回『マテリアよ永遠に……』","五強の塔・試練突破者"],
+		"enhancements": [
+			{"name":"忍者の心得","levels":[[],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"poison","percent":100}]}]]},
+			{"name":"最終回『マテリアよ永遠に……』","levels":[[{"def%":20,"singleWielding":{"accuracy":25,"atk":50},"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"levelCondition":110}],[{"def%":20,"atk%":20,"hp%":20,"singleWielding":{"accuracy":25,"atk":50},"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"levelCondition":110}],[{"def%":20,"atk%":20,"hp%":20,"singleWielding":{"accuracy":25,"atk":100},"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"replaceLb":{"name":"森羅万象","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":28.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (28.1x * 2 = 56.2x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":120,"ice":120,"lightning":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 120% for 5 turns to all enemies"},{"effect":{"killers":[{"name":"bird","physical":75}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Avians by 75% to caster for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":31,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (31x * 2 = 62x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":120,"ice":120,"lightning":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 120% for 5 turns to all enemies"},{"effect":{"killers":[{"name":"bird","physical":75}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Avians by 75% to caster for 5 turns"}],"frames":[203,208,213,218,223,228,233,238,243,248,253,258,263,268,273,278,283,288,293,298],"move":"walk"},"levelCondition":110}]]},
+			{"name":"五強の塔・試練突破者","levels":[[{"spr%":40,"mp%":10,"killers":[{"name":"bird","physical":50}],"skillEnhancement":{"229902":3,"229909":2,"229910":2,"229911":2},"levelCondition":120}],[{"spr%":40,"mp%":30,"killers":[{"name":"bird","physical":50}],"skillEnhancement":{"229902":3,"229909":2,"229910":2,"229911":2},"levelCondition":120}],[{"spr%":40,"mp%":30,"killers":[{"name":"bird","physical":75}],"skillEnhancement":{"229902":30,"229909":30,"229910":30,"229911":30},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":30, "mp%":40, "atk%":50, "def%":30, "mag%":30, "spr%":20, "evade":{"physical":10}, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":50}], "mpRefresh":7},
 			{"atk%":30, "equipedConditions":["throwing"]},
 			{"atk%":30, "evade":{"physical":20}, "equipedConditions":[["504229874","315022500"]]},
 			{"atk%":30, "equipedConditions":["throwing",["504229874","315022500"]]},
-			{"def%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}], "levelCondition":110},
-			{"atk%":20, "levelCondition":115},
-			{"mp%":10, "spr%":40, "killers":[{"name":"bird","physical":50}], "skillEnhancement":{"229902":3,"229909":2,"229910":2,"229911":2}, "levelCondition":120}
+			{"atk%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Yuffie",
@@ -12089,6 +12226,10 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes","lightArmor"],
+			"enhancementSkills":["血祭","しゅしゅしゅ","鎧袖一触","最終回『マテリアよ永遠に……』","五強の塔・試練突破者"],
+		"enhancements": [
+			{"name":"忍者の心得","levels":[[],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"poison","percent":100}]}]]}
+		],
 			"skills": [
 				{"hp%":30, "mp%":40, "atk%":50, "def%":30, "mag%":30, "spr%":20, "evade":{"physical":10}, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":50}], "mpRefresh":7},
 				{"atk%":30, "equipedConditions":["throwing"]}
@@ -12109,6 +12250,9 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancements": [
+			{"name":"ボクも、この星を守るんや！","levels":[[],[{"spr%":30,"def%":30,"mp%":30,"hp%":30}]]}
+		],
 		"skills": [
 			{"hp%":10, "mp%":10, "def%":10, "spr%":10}
 		]
@@ -12129,6 +12273,7 @@
 		"equip":["dagger","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["ビーストフレア","ライブスパーク","ギガダンク","ワンハンドガンナー","カオスセイバー","ルクレツィアリグレット","タークスオブタークス"],
 		"enhancements": [
+			{"name":"長き悪夢より目覚めし者","levels":[[],[{"atk%":30,"skillEnhancement":{"227850":13,"227853":13,"511513":3,"708227":13,"708228":13,"708229":13,"708230":13}}]]},
 			{"name":"ワンハンドガンナー","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":150}}],[{"singleWielding":{"accuracy":25,"atk":200}}]]},
 			{"name":"タークスオブタークス","levels":[[{"atk%":30,"hp%":20,"killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}],"levelCondition":110}],[{"atk%":50,"hp%":40,"killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}],"levelCondition":110}],[{"atk%":50,"mp%":50,"hp%":40,"killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}],"skillEnhancement":{"227850":3,"227852":3,"227853":3,"227854":3,"227856":3,"708227":3,"708228":3,"708229":3,"708230":3,"708231":3,"708232":3,"708233":3,"708234":3},"levelCondition":110}]]}
 		],
@@ -12156,6 +12301,7 @@
 			"equip":["dagger","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 			"enhancementSkills":["ビーストフレア","ライブスパーク","ギガダンク","ワンハンドガンナー","カオスセイバー","ルクレツィアリグレット","タークスオブタークス"],
 		"enhancements": [
+			{"name":"長き悪夢より目覚めし者","levels":[[],[{"atk%":30,"skillEnhancement":{"227850":13,"227853":13,"511513":3,"708227":13,"708228":13,"708229":13,"708230":13}}]]},
 			{"name":"ワンハンドガンナー","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":150}}],[{"singleWielding":{"accuracy":25,"atk":200}}]]}
 		],
 			"skills": [
@@ -12179,6 +12325,7 @@
 		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["刀の極意","伝説のソルジャー","天舞輪廻斬","リユニオン","攻撃+20%"],
 		"enhancements": [
+			{"name":"星の正統なる後継者","levels":[[],[{"atk%":30,"killers":[{"name":"human","physical":75}],"skillEnhancement":{"224520":25,"228051":32,"228052":25,"228053":25,"508320":32,"707586":25,"707587":25},"replaceLb":{"name":"片翼の天使","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":24.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (24.2x * 2 = 48.4x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"light":120,"dark":120},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Light and Dark by 120% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":30,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (30x * 2 = 60x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"light":120,"dark":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Light and Dark by 120% for 5 turns to all enemies"}],"frames":[220],"move":"walk"}}]]},
 			{"name":"刀の極意","levels":[[{"equipedConditions":["katana"],"atk%":50}],[{"equipedConditions":["katana"],"atk%":80}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}},{"equipedConditions":["katana"],"atk%":80}]]},
 			{"name":"伝説のソルジャー","levels":[[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mp%":50,"hp%":50}],[{"spr%":30,"mag%":30,"def%":30,"atk%":60,"mp%":50,"hp%":50}],[{"spr%":30,"mag%":30,"def%":30,"atk%":60,"mp%":50,"hp%":50}]]},
 			{"name":"攻撃+20%","levels":[[{"atk%":20,"levelCondition":115}],[{"atk%":30,"levelCondition":115}],[]]}
@@ -12206,6 +12353,7 @@
 			"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 			"enhancementSkills":["刀の極意","伝説のソルジャー","天舞輪廻斬","リユニオン","攻撃+20%"],
 		"enhancements": [
+			{"name":"星の正統なる後継者","levels":[[],[{"atk%":30,"killers":[{"name":"human","physical":75}],"skillEnhancement":{"224520":25,"228051":32,"228052":25,"228053":25,"508320":32,"707586":25,"707587":25},"replaceLb":{"name":"片翼の天使","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":24.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (24.2x * 2 = 48.4x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"light":120,"dark":120},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Light and Dark by 120% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":30,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (30x * 2 = 60x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"light":120,"dark":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Light and Dark by 120% for 5 turns to all enemies"}],"frames":[220],"move":"walk"}}]]},
 			{"name":"刀の極意","levels":[[{"equipedConditions":["katana"],"atk%":50}],[{"equipedConditions":["katana"],"atk%":80}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}},{"equipedConditions":["katana"],"atk%":80}]]},
 			{"name":"伝説のソルジャー","levels":[[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mp%":50,"hp%":50}],[{"spr%":30,"mag%":30,"def%":30,"atk%":60,"mp%":50,"hp%":50}],[{"spr%":30,"mag%":30,"def%":30,"atk%":60,"mp%":50,"hp%":50}]]}
 		],
@@ -12228,13 +12376,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["急所斬り","ラッキースター","ハードラッシュ","託された夢","エアリスとの約束"],
+		"enhancements": [
+			{"name":"いらっしゃいませ－！","levels":[[],[{"resist":[{"name":"paralysis","percent":100}],"lbPerTurn":{"min":3,"max":3}}]]},
+			{"name":"託された夢","levels":[[{"def%":30,"esperStatsBonus":{"all":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}},"levelCondition":110}],[{"def%":30,"atk%":20,"hp%":20,"esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}},"levelCondition":110}],[{"def%":30,"atk%":20,"hp%":20,"esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}},"singleWielding":{"accuracy":25,"atk":50},"killers":[{"name":"human","physical":100}],"levelCondition":110}]]},
+			{"name":"エアリスとの約束","levels":[[{"spr%":30,"skillEnhancement":{"229882":3,"229884":3,"229891":3,"708515":3,"708516":3},"levelCondition":120}],[{"spr%":50,"mag%":20,"def%":20,"skillEnhancement":{"229882":3,"229884":3,"229891":3,"708515":3,"708516":3},"levelCondition":120}],[{"spr%":50,"mag%":20,"def%":20,"skillEnhancement":{"229882":3,"229884":3,"229891":3,"708515":3,"708516":3},"lbDamage":70,"replaceLb":{"name":"連続斬","minEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":50},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 50% for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":58.8},"area":"ST","target":"ENEMY"},"desc":"Physical damage (58.8x, ATK) to one enemy"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":50},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 50% for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":67.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (67.5x, ATK) to one enemy"}],"frames":[96,104,152,160,214],"move":"walk"},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":70, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
 			{"atk%":30, "equipedConditions":["greatSword"]},
 			{"atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "lbDamage":30, "equipedConditions":[["303005800","504229873"]]},
-			{"def%":30, "esperStatsBonus":{"all":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}, "levelCondition":110},
-			{"atk%":20, "levelCondition":115},
-			{"spr%":30, "skillEnhancement":{"229882":3,"229884":3,"229891":3}, "levelCondition":120}
+			{"atk%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Zack",
@@ -12251,9 +12403,66 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["急所斬り","ラッキースター","ハードラッシュ","託された夢","エアリスとの約束"],
+		"enhancements": [
+			{"name":"いらっしゃいませ－！","levels":[[],[{"resist":[{"name":"paralysis","percent":100}],"lbPerTurn":{"min":3,"max":3}}]]}
+		],
 			"skills": [
 				{"hp%":50, "mp%":50, "atk%":70, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
 				{"atk%":30, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
+	"207001305": {
+		"name":"Reno (FFVII REMAKE)",
+		"jpname":"レノ(FFVII REMAKE)",
+		"id":"207001305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4804,"mp":248,"atk":206,"def":192,"mag":156,"spr":188},
+			"minStats":{"hp":1585,"mp":82,"atk":68,"def":63,"mag":51,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"今さら善人ぶるなよ、と","levels":[[],[{"atk%":30,"mp%":30,"hp%":30,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}]}]]}
+		],
+		"skills": [
+			{"hp%":50, "mp%":40, "atk%":40, "def%":60, "spr%":60, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"sleep","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"lightning","percent":40},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},
+			{"atk%":30, "equipedConditions":["clothes"]},
+			{"resist":[{"name":"lightning","percent":20}], "equipedConditions":["mace"]},
+			{"atk%":20, "equipedConditions":["mace"]},
+			{"lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"lightning","percent":50}], "mpRefresh":5, "equipedConditions":[["504236242","409043400"]]},
+			{"mp%":30, "spr%":30, "levelCondition":105},
+			{"hp%":20, "levelCondition":115},
+			{"atk%":30, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Reno (FFVII REMAKE)",
+			"jpname":"レノ(FFVII REMAKE)",
+			"id":"207001305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3695,"mp":190,"atk":158,"def":147,"mag":120,"spr":144},
+				"minStats":{"hp":1219,"mp":63,"atk":52,"def":49,"mag":40,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"今さら善人ぶるなよ、と","levels":[[],[{"atk%":30,"mp%":30,"hp%":30,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}]}]]}
+		],
+			"skills": [
+				{"hp%":50, "mp%":40, "atk%":40, "def%":60, "spr%":60, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"sleep","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"lightning","percent":40},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},
+				{"atk%":30, "equipedConditions":["clothes"]},
+				{"resist":[{"name":"lightning","percent":20}], "equipedConditions":["mace"]},
+				{"atk%":20, "equipedConditions":["mace"]}
 			]
 		}
 	},
@@ -12400,6 +12609,100 @@
 		"skills": [
 			{"hp%":30, "mp%":30, "atk%":60, "def%":30, "spr%":30, "dualWielding":{"atk":25}, "resist":[{"name":"dark","percent":20}], "special":["dualWield"]}
 		]
+	},
+	"207002007": {
+		"name":"Cloud (FFVII REMAKE)",
+		"jpname":"クラウド(FFVII REMAKE)",
+		"id":"207002007",
+		"braveShift":"207002017",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4871,"mp":251,"atk":233,"def":174,"mag":158,"spr":179},
+			"minStats":{"hp":1607,"mp":83,"atk":77,"def":57,"mag":52,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ブレイバー","バーストスラッシュ"],
+		"skills": [
+			{"hp%":100, "mp%":50, "atk%":110, "def%":80, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "mpRefresh":5, "lbDamage":50},
+			{"atk%":20, "spr%":20, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["303008700","504236244"]]},
+			{"mp%":20, "atk%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"atk%":30, "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "lbDamage":50, "skillEnhancement":{"236002":15,"236003":15,"236004":15,"236006":20,"236007":20,"236008":20}, "levelCondition":120}
+		]
+	},
+	"207002017": {
+		"name":"Cloud (FFVII REMAKE) - Brave Shifted",
+		"jpname":"クラウド(FFVII REMAKE) - Brave Shifted",
+		"id":"207002017",
+		"braveShifted":true,
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4854,"mp":254,"atk":227,"def":171,"mag":155,"spr":182},
+			"minStats":{"hp":1602,"mp":84,"atk":75,"def":56,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ブレイバー","スピンスラッシュ"],
+		"skills": [
+			{"hp%":90, "mp%":50, "atk%":80, "def%":70, "mag%":30, "spr%":30, "dualWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "mpRefresh":5, "special":["dualWield"]},
+			{"atk%":20, "spr%":20, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["303008700","504236244"]]},
+			{"atk%":30, "spr%":30, "dualWielding":{"atk":50}, "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"atk%":30, "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "lbDamage":50, "skillEnhancement":{"236002":15,"236003":15,"236004":15,"236006":20,"236007":20,"236008":20}, "levelCondition":120}
+		]
+	},
+	"207002105": {
+		"name":"Barreth (FFVII REMAKE)",
+		"jpname":"バレット(FFVII REMAKE)",
+		"id":"207002105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4872,"mp":236,"atk":208,"def":184,"mag":147,"spr":180},
+			"minStats":{"hp":1608,"mp":78,"atk":69,"def":61,"mag":49,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"アバランチ魂","levels":[[],[{"atk%":20,"resist":[{"name":"fire","percent":30},{"name":"disease","percent":100}]}]]}
+		],
+		"skills": [
+			{"hp%":50, "mp%":30, "atk%":100, "def%":40, "mag%":30, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":7, "lbDamage":50},
+			{"hp%":20, "mp%":20, "atk%":30, "lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"machine","physical":50}], "equipedConditions":[["504236240","405011200"]]},
+			{"def%":20, "levelCondition":115},
+			{"atk%":50, "singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"236220":15,"236221":15,"236222":15,"236223":5.5,"236225":5,"236226":5}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Barreth (FFVII REMAKE)",
+			"jpname":"バレット(FFVII REMAKE)",
+			"id":"207002105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3747,"mp":181,"atk":160,"def":141,"mag":113,"spr":138},
+				"minStats":{"hp":1237,"mp":60,"atk":53,"def":47,"mag":37,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"アバランチ魂","levels":[[],[{"atk%":20,"resist":[{"name":"fire","percent":30},{"name":"disease","percent":100}]}]]}
+		],
+			"skills": [
+				{"hp%":50, "mp%":30, "atk%":100, "def%":40, "mag%":30, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":7, "lbDamage":50}
+			]
+		}
 	},
 	"208000105": {
 		"name":"Squall",
@@ -15690,7 +15993,7 @@
 		]
 	},
 	"214000605": {
-		"name":"Witch Y'shtola",
+		"name":"Y'shtola, the Sorceress",
 		"jpname":"魔女ヤ・シュトラ",
 		"id":"214000605",
 		"max_rarity":"7",
@@ -15712,7 +16015,7 @@
 			{"mp%":20, "mag%":40, "singleWielding":{"mag":100}, "skillEnhancement":{"510611":1.5,"510612":1.5,"510613":1.5,"510614":1.5,"510616":1.5,"510617":1.5,"510618":1.5,"510619":1.5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Witch Y'shtola",
+			"name":"Y'shtola, the Sorceress",
 			"jpname":"魔女ヤ・シュトラ",
 			"id":"214000605",
 			"sixStarForm":true,

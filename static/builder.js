@@ -1092,10 +1092,18 @@ function getUnitSelectOptions() {
     Object.keys(units).sort(function(id1, id2) {
         return units[id1].name.localeCompare(units[id2].name);
     }).forEach(function(value, index) {
-        if (displayOnly7StarsUnits && units[value].max_rarity != 7) {
+        if (displayOnly7StarsUnits && units[value].max_rarity != 7 && units[value].max_rarity != 'NV') {
             return;
         }
-        options += '<option value="'+ value + '">' + units[value].name + (!displayOnly7StarsUnits && units[value]["6_form"] ? ' ' + units[value].max_rarity + '★ ' : "") +  ((units[value].unreleased7Star || units[value].jpname) ? ' - JP data' : "") + '</option>';
+        options += '<option value="'+ value + '">'
+            + units[value].name
+            + (!displayOnly7StarsUnits && units[value]["6_form"] && units[value].max_rarity == 7 ? ' ' + units[value].max_rarity + '★ ' : "")
+            + (units[value].max_rarity == 'NV' && units[value]["7_form"] ? ' NV ' : "")
+            + ((server != 'JP' && (units[value].unreleased7Star || units[value].jpname)) ? ' - JP data' : "")
+            + '</option>';
+        if (units[value]["7_form"]) {
+            options += '<option value="'+ value + '-7">' + units[value]["7_form"].name + ' 7★</option>';
+        }
         if (!displayOnly7StarsUnits && units[value]["6_form"]) {
             options += '<option value="'+ value + '-6">' + units[value]["6_form"].name + ' 6★</option>';
         }
@@ -1229,12 +1237,16 @@ function onUnitChange() {
             let iconId;
             let unitWithSkillsId = unitId;
             if (unitId.endsWith("-6")) {
+                unitWithSkillsId = unitId.substr(0, unitId.length - 2);
+                selectedUnitData = units[unitId.substr(0, unitId.length - 2)]["6_form"];
+                iconId = unitId.substr(0, unitId.length - 3) + '6';
+            } else if (unitId.endsWith("-7")) {
                 unitWithSkillsId = unitId.substr(0,unitId.length-2);
-                selectedUnitData = units[unitId.substr(0,unitId.length-2)]["6_form"];
-                iconId = unitId.substr(0,unitId.length-3) + '6';
+                selectedUnitData = units[unitId.substr(0,unitId.length-2)]["7_form"];
+                iconId = unitId.substr(0,unitId.length-3) + '7';
             } else {
                 selectedUnitData = units[unitId];
-                iconId = unitId.substr(0,unitId.length-1) + selectedUnitData.max_rarity;
+                iconId = unitId.substr(0,unitId.length-1) + (selectedUnitData.max_rarity == 'NV' ? '7' : selectedUnitData.max_rarity);
             }
             if (selectedUnitData) {
                 let unitWithSkills = await ensureInitUnitWithSkills(unitWithSkillsId);
@@ -1250,7 +1262,7 @@ function onUnitChange() {
                     unitData.enhancementLevels = [];
                     for (var i = unitData.enhancements.length; i--;) {
                         var enhancementLevel = unitData.enhancements[i].levels.length - 1;
-                        if (sameUnit) {
+                        if (sameUnit && $("#enhancement_" + i).val()) {
                             enhancementLevel = $("#enhancement_" + i).val();
                         }
                         unitData.skills = unitData.skills.concat(unitData.enhancements[i].levels[enhancementLevel]);
@@ -1463,7 +1475,7 @@ function updateSkillSelectOptions(skillSelect) {
 }
 
 function updateUnitLevelDisplay() {
-    if (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.max_rarity == 7 && !builds[currentUnitIndex].unit.sixStarForm) {
+    if (builds[currentUnitIndex].unit && (builds[currentUnitIndex].unit.max_rarity == 7 || builds[currentUnitIndex].unit.max_rarity == 'NV') && !builds[currentUnitIndex].unit.sixStarForm) {
         $("#unitLevel").removeClass("hidden");
         if (builds[currentUnitIndex]._level) {
             $("#unitLevel select").val(builds[currentUnitIndex]._level.toString());
@@ -1636,7 +1648,17 @@ function loadBuild(buildIndex) {
     currentUnitIndex = buildIndex;
     var build = builds[buildIndex];
 
-    selectUnitDropdownWithoutNotify(build.unit ? (build.unit.id + (build.unit.sixStarForm ? '-6' : '')) : null);
+    var unitToSelect = null;
+    if (build.unit) {
+        unitToSelect = build.unit.id;
+        if (build.unit.sixStarForm) {
+            unitToSelect += '-6';
+        }
+        if (build.unit.sevenStarForm) {
+            unitToSelect += '-7';
+        }
+    }
+    selectUnitDropdownWithoutNotify(unitToSelect);
 
     $(".unitAttackElement div.elements label").removeClass("active");
     if (build.innateElements) {
@@ -1725,8 +1747,12 @@ var displayUnitRarity = function(unit) {
         rarityWrapper.show();
         rarityWrapper.empty();
 
-        for (var i = 0; i < rarity; i++) {
-            rarityWrapper.append('☆');
+        if (rarity == 'NV') {
+            rarityWrapper.append('<img src="img/icons/NV.png">');
+        } else {
+            for (var i = 0; i < rarity; i++) {
+                rarityWrapper.append('☆');
+            }
         }
         if (rarity == "7") {
             $('#forceTmrAbilityDiv').removeClass('hidden');
@@ -3029,7 +3055,13 @@ async function loadStateHashAndBuild(data, importMode = false) {
             displayOnly7StarsUnits = !displayOnly7StarsUnits;
             refreshUnitSelect();
         }
-        selectUnitDropdownWithoutNotify(unit.id + ((unit.rarity == 6 && units[unit.id]["6_form"]) ? '-6' : ''));
+        var unitToSelect = unit.id;
+        if (unit.rarity == 6 && units[unit.id]["6_form"]) {
+            unitToSelect += '-6';
+        } else if (unit.rarity == 7 && units[unit.id]["7_form"]) {
+            unitToSelect += '-7';
+        }
+        selectUnitDropdownWithoutNotify(unitToSelect);
         await onUnitChange();
         
         if (unit.enhancementLevels) {

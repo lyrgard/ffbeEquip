@@ -188,7 +188,7 @@ class UnitBuild {
                 });
             }
         }
-        this.unit.skills.forEach(skill => {
+        this.unit.enhancements.forEach(skill => {
            if (skill.allowUseOf && (!skill.levelCondition || skill.levelCondition <= this._level))  {
                skill.allowUseOf.forEach(a => {
                     if (!equip.includes(a)) {

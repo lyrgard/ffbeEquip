@@ -8288,17 +8288,18 @@
 		"name":"Tifa",
 		"jpname":"ティファ",
 		"id":"207000305",
-		"max_rarity":"7",
+		"braveShift":"207000327",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4692,"mp":209,"atk":199,"def":175,"mag":146,"spr":187},
-			"minStats":{"hp":1548,"mp":69,"atk":66,"def":58,"mag":48,"spr":62},
+			"maxStats":{"hp":4750,"mp":238,"atk":205,"def":173,"mag":156,"spr":187},
+			"minStats":{"hp":1568,"mp":79,"atk":68,"def":57,"mag":51,"spr":62},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%"],
+		"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%","メテオクラッシャー","フィーバータイム","クラウドとの約束"],
 		"6_form": {
 			"name":"Tifa",
 			"jpname":"ティファ",
@@ -8314,8 +8315,42 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%"]
+			"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%","メテオクラッシャー","フィーバータイム","クラウドとの約束"]
+		},
+		"7_form": {
+			"name":"Tifa",
+			"jpname":"ティファ",
+			"id":"207000305",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4692,"mp":209,"atk":199,"def":175,"mag":146,"spr":187},
+				"minStats":{"hp":1548,"mp":69,"atk":66,"def":58,"mag":48,"spr":62},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%","メテオクラッシャー","フィーバータイム","クラウドとの約束"]
 		}
+	},
+	"207000327": {
+		"name":"Tifa - Brave Shifted",
+		"jpname":"ティファ - Brave Shifted",
+		"id":"207000327",
+		"braveShifted":true,
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4758,"mp":235,"atk":208,"def":176,"mag":153,"spr":184},
+			"minStats":{"hp":1570,"mp":78,"atk":69,"def":58,"mag":50,"spr":61},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["メテオクラッシャー","ザンガン流精神統一","スラムの心得"]
 	},
 	"207000405": {
 		"name":"Aerith",
@@ -8331,6 +8366,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","mace","hat","clothes","robe"],
+		"enhancementSkills":["星の守護","いのちの奔流","エンシェントホーリー","アースヒール","星を救う想い"],
 		"6_form": {
 			"name":"Aerith",
 			"jpname":"エアリス",
@@ -8345,24 +8381,26 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","bow","mace","hat","clothes","robe"]
+			"equip":["staff","rod","bow","mace","hat","clothes","robe"],
+			"enhancementSkills":["星の守護","いのちの奔流","エンシェントホーリー","アースヒール","星を救う想い"]
 		}
 	},
 	"207000505": {
 		"name":"Red XIII",
 		"jpname":"レッドXIII",
 		"id":"207000505",
-		"max_rarity":"7",
+		"braveShift":"207000527",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4896,"mp":197,"atk":219,"def":173,"mag":152,"spr":181},
-			"minStats":{"hp":1616,"mp":65,"atk":72,"def":57,"mag":50,"spr":60},
+			"maxStats":{"hp":4904,"mp":212,"atk":219,"def":173,"mag":152,"spr":178},
+			"minStats":{"hp":1618,"mp":70,"atk":72,"def":57,"mag":50,"spr":59},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
-		"enhancementSkills":["気高き心","ブレイズチャージ","ストームチャージ","シャドウチャージ","アースレイヴ","オーバーハウル","スピリットオブセト","星を守りし一族"],
+		"enhancementSkills":["気高き心","シャドウチャージ","ストームチャージ","ブレイズチャージ","アースレイヴ","オーバーハウル","スピリットオブセト","星を守りし一族","キラースレイヴ","ハイスピードファング","星命学の知識"],
 		"6_form": {
 			"name":"Red XIII",
 			"jpname":"レッドXIII",
@@ -8378,8 +8416,42 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
-			"enhancementSkills":["気高き心","ブレイズチャージ","ストームチャージ","シャドウチャージ","アースレイヴ","オーバーハウル","スピリットオブセト","星を守りし一族"]
+			"enhancementSkills":["気高き心","シャドウチャージ","ストームチャージ","ブレイズチャージ","アースレイヴ","オーバーハウル","スピリットオブセト","星を守りし一族","キラースレイヴ","ハイスピードファング","星命学の知識"]
+		},
+		"7_form": {
+			"name":"Red XIII",
+			"jpname":"レッドXIII",
+			"id":"207000505",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4896,"mp":197,"atk":219,"def":173,"mag":152,"spr":181},
+				"minStats":{"hp":1616,"mp":65,"atk":72,"def":57,"mag":50,"spr":60},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
+			"enhancementSkills":["気高き心","シャドウチャージ","ストームチャージ","ブレイズチャージ","アースレイヴ","オーバーハウル","スピリットオブセト","星を守りし一族","キラースレイヴ","ハイスピードファング","星命学の知識"]
 		}
+	},
+	"207000527": {
+		"name":"Red XIII - Brave Shifted",
+		"jpname":"レッドXIII - Brave Shifted",
+		"id":"207000527",
+		"braveShifted":true,
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4895,"mp":209,"atk":219,"def":170,"mag":155,"spr":181},
+			"minStats":{"hp":1615,"mp":69,"atk":72,"def":56,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
+		"enhancementSkills":["キラースレイヴ","ハウリングフレイム","戦士の咆哮"]
 	},
 	"207000605": {
 		"name":"Yuffie",
@@ -8395,6 +8467,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["血祭","しゅしゅしゅ","鎧袖一触","最終回『マテリアよ永遠に……』","五強の塔・試練突破者"],
 		"6_form": {
 			"name":"Yuffie",
 			"jpname":"ユフィ",
@@ -8409,7 +8482,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes","lightArmor"]
+			"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes","lightArmor"],
+			"enhancementSkills":["血祭","しゅしゅしゅ","鎧袖一触","最終回『マテリアよ永遠に……』","五強の塔・試練突破者"]
 		}
 	},
 	"207000703": {
@@ -8507,6 +8581,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["急所斬り","ラッキースター","ハードラッシュ","託された夢","エアリスとの約束"],
 		"6_form": {
 			"name":"Zack",
 			"jpname":"ザックス",
@@ -8521,7 +8596,39 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["急所斬り","ラッキースター","ハードラッシュ","託された夢","エアリスとの約束"]
+		}
+	},
+	"207001305": {
+		"name":"Reno (FFVII REMAKE)",
+		"jpname":"レノ(FFVII REMAKE)",
+		"id":"207001305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4804,"mp":248,"atk":206,"def":192,"mag":156,"spr":188},
+			"minStats":{"hp":1585,"mp":82,"atk":68,"def":63,"mag":51,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Reno (FFVII REMAKE)",
+			"jpname":"レノ(FFVII REMAKE)",
+			"id":"207001305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3695,"mp":190,"atk":158,"def":147,"mag":120,"spr":144},
+				"minStats":{"hp":1219,"mp":63,"atk":52,"def":49,"mag":40,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"]
 		}
 	},
 	"207001605": {
@@ -8631,6 +8738,71 @@
 		},
 		"stats_pattern":1,
 		"equip":["sword","katana","gun","fist","hat","clothes","lightArmor"]
+	},
+	"207002007": {
+		"name":"Cloud (FFVII REMAKE)",
+		"jpname":"クラウド(FFVII REMAKE)",
+		"id":"207002007",
+		"braveShift":"207002017",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4871,"mp":251,"atk":233,"def":174,"mag":158,"spr":179},
+			"minStats":{"hp":1607,"mp":83,"atk":77,"def":57,"mag":52,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ブレイバー","バーストスラッシュ"]
+	},
+	"207002017": {
+		"name":"Cloud (FFVII REMAKE) - Brave Shifted",
+		"jpname":"クラウド(FFVII REMAKE) - Brave Shifted",
+		"id":"207002017",
+		"braveShifted":true,
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4854,"mp":254,"atk":227,"def":171,"mag":155,"spr":182},
+			"minStats":{"hp":1602,"mp":84,"atk":75,"def":56,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ブレイバー","スピンスラッシュ"]
+	},
+	"207002105": {
+		"name":"Barreth (FFVII REMAKE)",
+		"jpname":"バレット(FFVII REMAKE)",
+		"id":"207002105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4872,"mp":236,"atk":208,"def":184,"mag":147,"spr":180},
+			"minStats":{"hp":1608,"mp":78,"atk":69,"def":61,"mag":49,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Barreth (FFVII REMAKE)",
+			"jpname":"バレット(FFVII REMAKE)",
+			"id":"207002105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3747,"mp":181,"atk":160,"def":141,"mag":113,"spr":138},
+				"minStats":{"hp":1237,"mp":60,"atk":53,"def":47,"mag":37,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
 	},
 	"208000105": {
 		"name":"Squall",
@@ -10775,7 +10947,7 @@
 		"enhancementSkills":["アストラルファイア","アンブラルブリザード","フレア"]
 	},
 	"214000605": {
-		"name":"Witch Y'shtola",
+		"name":"Y'shtola, the Sorceress",
 		"jpname":"魔女ヤ・シュトラ",
 		"id":"214000605",
 		"max_rarity":"7",
@@ -10789,7 +10961,7 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","hammer","lightShield","hat","clothes","robe"],
 		"6_form": {
-			"name":"Witch Y'shtola",
+			"name":"Y'shtola, the Sorceress",
 			"jpname":"魔女ヤ・シュトラ",
 			"id":"214000605",
 			"sixStarForm":true,
