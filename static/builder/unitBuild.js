@@ -49,6 +49,7 @@ class UnitBuild {
         this._tdwCap = null;
         this._bannedEquipableTypes = [];
         this._monsterAttackFormula = null;
+        this._exAwakeningLevel = 0;
     }
     
     getPartialDualWield() {
@@ -470,6 +471,16 @@ class UnitBuild {
     
     setLevel(level) {
         this._level = level;
+        this.updateStats();
+        this._tdwCap = null;
+    }
+
+    setExAwakeningLevel(level) {
+        this._exAwakeningLevel = level;
+        this.updateStats();
+    }
+
+    updateStats() {
         if (this.unit) {
             if (this._level > 100) {
                 this.stats = {
@@ -483,8 +494,14 @@ class UnitBuild {
             } else {
                 this.stats = this.unit.stats.maxStats;
             }
+            if (this.unit.exAwakening && this._exAwakeningLevel) {
+                ['hp', 'mp', 'atk', 'def', 'mag', 'spr'].forEach(stat => {
+                    for (let i = 0; i < this._exAwakeningLevel; i++) {
+                        this.stats[stat] += this.unit.exAwakening[i][stat];
+                    }
+                });
+            }
         }
-        this._tdwCap = null;
     }
     
     getStat(stat) {

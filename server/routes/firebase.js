@@ -199,6 +199,7 @@ const partyBuildSchema = Joi.object().keys({
         lbShardsPerTurn: Joi.number().min(0).max(100),
         stack: Joi.number().min(0).max(99),
         level: Joi.number().min(0).max(120),
+        exAwakening:Joi.number().min(0).max(3),
         calculatedValues: Joi.object().keys({
             hp:calculatedValuesBaseStatsSchema,
             mp:calculatedValuesBaseStatsSchema,

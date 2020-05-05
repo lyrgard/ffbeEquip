@@ -6,12 +6,6 @@ var commonParse = require('../commonParseUnit');
 filterGame = [];
 filterUnits = ["199000101", "256000301"]
 
-const innateNeoVisionUnits = ["207002007"];
-const braveShiftUnitIdByBaseUnitId = {
-    "207002007": "207002017",
-    "207000305": "207000327",
-    "207000505": "207000527"
-};
 const braveAbilityIdsByUnitId = {
     "207000305": ["236111", "236120", "236125", "236116", "236118", "236128"],
     "207000505": ["236061", "236068", "236073", "236066", "236076"]
@@ -88,10 +82,10 @@ getData('units.json', function (units) {
                                     }
 
                                     var unitsOut = {};
+                                    manageNV(units);
                                     for (var unitId in units) {
                                         var unitIn = units[unitId];
                                         if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("8") && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
-                                            manageNV(unitIn, unitId);
                                             var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId);
                                             unitsOut[unitOut.data.id] = unitOut.data;
                                         }
@@ -111,20 +105,48 @@ getData('units.json', function (units) {
     });
 });
 
-function manageNV(unitIn, unitId) {
-    if (braveAbilityIdsByUnitId[unitId]) {
-        unitIn.skills
-            .filter(skill => braveAbilityIdsByUnitId[unitId].includes(skill.id.toString()))
-            .forEach(skill => {
-                skill.rarity = "NV"
-                skill.level = 0
-            });
+function manageNV(units) {
+    const braveShiftUnitIdByBaseUnitId = [];
+    const baseUnitIdByNVUnitId = {};
+    for (var unitId in units) {
+        const unitIn = units[unitId];
+        if (unitIn.skills) {
+            unitIn.skills
+                .filter(skill => skill.brave_ability)
+                .forEach(skill => {
+                    skill.rarity = "NV"
+                    skill.level = 0
+                });
+        }
+        if (unitIn.base_id) {
+            unitIn.rarity_max = 'NV';
+            unitIn.rarity_min = 'NV';
+            unitIn.entries[unitId].rarity = 'NV';
+            if (unitIn.base_id != unitId)  {
+                braveShiftUnitIdByBaseUnitId.push({baseUnitId: unitIn.base_id, braveShiftedUnitId: unitId});
+            } else {
+                unitIn.nv_upgrade = unitIn.entries[unitId].nv_upgrade;
+            }
+        }
+        if (unitIn.rarity_max == 7) {
+            const baseUnitId = unitId.substr(0, unitId.length -1);
+            nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
+            if (nvIds.length) {
+                unitIn.rarity_max = 'NV';
+                unitIn.entries[nvIds[0]].rarity = 'NV';
+                baseUnitIdByNVUnitId[nvIds[0]] = unitId;
+                unitIn.nv_upgrade = unitIn.entries[nvIds[0]].nv_upgrade;
+            }
+        }
     }
-    if (innateNeoVisionUnits.includes(unitId) || Object.values(braveShiftUnitIdByBaseUnitId).includes(unitId)) {
-        unitIn.rarity_max = 'NV';
-        unitIn.rarity_min = 'NV';
-        unitIn.entries[unitId].rarity = 'NV';
-    }
+    braveShiftUnitIdByBaseUnitId.forEach(data => {
+        let baseId = data.baseUnitId;
+        if (!units[data.baseUnitId] && baseUnitIdByNVUnitId[data.baseUnitId]) {
+            baseId = baseUnitIdByNVUnitId[data.baseUnitId];
+        }
+        units[baseId].braveShiftedUnitId = data.braveShiftedUnitId;
+        units[data.braveShiftedUnitId].nv_upgrade = units[baseId].nv_upgrade;
+    });
 }
 
 function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry = unitIn["rarity_max"]) {
@@ -195,11 +217,18 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
         }
     }
 
-    if (braveShiftUnitIdByBaseUnitId[unitId] && maxRariry == 'NV') {
-        data["braveShift"] = braveShiftUnitIdByBaseUnitId[unitId];
+    if (unitIn.braveShiftedUnitId && maxRariry == 'NV') {
+        data["braveShift"] = unitIn.braveShiftedUnitId;
     }
-    if (Object.values(braveShiftUnitIdByBaseUnitId).includes(unitId)) {
-        data["braveShifted"] = true;
+    if (unitIn.base_id != unitId) {
+        data["braveShifted"] = unitIn.base_id;
+    }
+    if (maxRariry == 'NV') {
+        data.exAwakenings = [
+            lowerCaseKeys(unitIn.nv_upgrade[0].stats),
+            lowerCaseKeys(unitIn.nv_upgrade[1].stats),
+            lowerCaseKeys(unitIn.nv_upgrade[2].stats),
+        ]
     }
     
     data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, lbs, enhancementsByUnitId[unitId], maxRariry, unitData, data);
@@ -214,6 +243,15 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
     }
     
     return unit;
+}
+
+function lowerCaseKeys(obj) {
+    Object.keys(obj).forEach(key => {
+        const value = obj[key];
+        delete obj[key];
+        obj[key.toLowerCase()] = value;
+    });
+    return obj;
 }
 
 function assureArray(input) {

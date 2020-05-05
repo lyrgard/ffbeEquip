@@ -2094,6 +2094,9 @@ function getUnitBasicInfo(unit, prefix = "", form = null) {
     if (unit.braveShifted) {
         result += "\n" + prefix + "\t\t\"braveShifted\":true,";
     }
+    if (unit.exAwakenings) {
+        result += "\n" + prefix + "\t\t\"exAwakening\": " + JSON.stringify(unit.exAwakenings) + ',';
+    }
     result += "\n" + prefix + "\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
     result += "\n" + prefix + "\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";
     result += "\n" + prefix + "\t\t\"sex\":\"" + unit.sex + "\",";

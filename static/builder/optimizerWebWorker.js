@@ -24,9 +24,10 @@ onmessage = function(event) {
         case "setData":
             var unitBuild = new UnitBuild(messageData.unit, messageData.fixedItems, messageData.baseValues);
             server = messageData.server;
-            unitBuild.setLevel(messageData.level),
-            unitBuild.innateElements = messageData.innateElements,
-            unitBuild.monsterAttackFormula = messageData.monsterAttackFormula,
+            unitBuild.setLevel(messageData.level);
+            unitBuild.setExAwakeningLevel(messageData.exAwakeningLevel);
+            unitBuild.innateElements = messageData.innateElements;
+            unitBuild.monsterAttackFormula = messageData.monsterAttackFormula;
             unitBuild.formula = messageData.formula;
             optimizer.unitBuild = unitBuild;
             optimizer.dataByType = messageData.dataByType;

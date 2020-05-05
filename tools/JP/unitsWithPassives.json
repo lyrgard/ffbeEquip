@@ -11920,6 +11920,7 @@
 		"jpname":"ティファ",
 		"id":"207000305",
 		"braveShift":"207000327",
+		"exAwakening": [{"hp":618,"mp":31,"atk":27,"def":22,"mag":20,"spr":24},{"hp":475,"mp":24,"atk":21,"def":17,"mag":16,"spr":19},{"hp":333,"mp":17,"atk":14,"def":12,"mag":11,"spr":13}],
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
@@ -12004,6 +12005,7 @@
 		"jpname":"ティファ - Brave Shifted",
 		"id":"207000327",
 		"braveShifted":true,
+		"exAwakening": [{"hp":618,"mp":31,"atk":27,"def":22,"mag":20,"spr":24},{"hp":475,"mp":24,"atk":21,"def":17,"mag":16,"spr":19},{"hp":333,"mp":17,"atk":14,"def":12,"mag":11,"spr":13}],
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -12016,15 +12018,11 @@
 		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
 		"enhancementSkills":["メテオクラッシャー","ザンガン流精神統一","スラムの心得"],
 		"enhancements": [
-			{"name":"スラムの心得","levels":[[{"killers":[{"name":"aquatic","physical":100},{"name":"human","physical":100}],"levelCondition":120}],[{"killers":[{"name":"aquatic","physical":125},{"name":"human","physical":125}],"levelCondition":120}],[{"killers":[{"name":"aquatic","physical":150},{"name":"human","physical":150}],"levelCondition":120}],[{"killers":[{"name":"aquatic","physical":175},{"name":"human","physical":175}],"levelCondition":120}],[{"killers":[{"name":"aquatic","physical":200},{"name":"human","physical":200}],"levelCondition":120}]]}
+			{"name":"スラムの心得","levels":[[{"killers":[{"name":"aquatic","physical":100},{"name":"human","physical":100}]}],[{"killers":[{"name":"aquatic","physical":125},{"name":"human","physical":125}]}],[{"killers":[{"name":"aquatic","physical":150},{"name":"human","physical":150}]}],[{"killers":[{"name":"aquatic","physical":175},{"name":"human","physical":175}]}],[{"killers":[{"name":"aquatic","physical":200},{"name":"human","physical":200}]}]]}
 		],
 		"skills": [
-			{"atk%":30, "dualWielding":{"atk":100}, "levelCondition":120},
-			{"resist":[{"name":"water","percent":50}], "lbDamage":100, "equipedConditions":[["504227847","309003300"]], "levelCondition":120},
-			{"hp%":50, "mp%":50, "atk%":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
-			{"atk%":50, "def%":50, "spr%":50, "evade":{"physical":30}, "special":["dualWield"], "levelCondition":120},
-			{"hp%":20, "atk%":70, "dualWielding":{"atk":50}, "levelCondition":120},
-			{"improvedDW":true, "levelCondition":120}
+			{"hp%":70, "mp%":50, "atk%":200, "def%":50, "spr%":50, "evade":{"physical":30}, "dualWielding":{"atk":150}, "improvedDW":true, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "special":["dualWield"]},
+			{"resist":[{"name":"water","percent":50}], "lbDamage":100, "equipedConditions":[["504227847","309003300"]]}
 		]
 	},
 	"207000405": {
@@ -12080,6 +12078,7 @@
 		"jpname":"レッドXIII",
 		"id":"207000505",
 		"braveShift":"207000527",
+		"exAwakening": [{"hp":638,"mp":28,"atk":28,"def":22,"mag":20,"spr":23},{"hp":490,"mp":21,"atk":23,"def":17,"mag":15,"spr":18},{"hp":343,"mp":15,"atk":15,"def":12,"mag":11,"spr":12}],
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -12162,6 +12161,7 @@
 		"jpname":"レッドXIII - Brave Shifted",
 		"id":"207000527",
 		"braveShifted":true,
+		"exAwakening": [{"hp":638,"mp":28,"atk":28,"def":22,"mag":20,"spr":23},{"hp":490,"mp":21,"atk":23,"def":17,"mag":15,"spr":18},{"hp":343,"mp":15,"atk":15,"def":12,"mag":11,"spr":12}],
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -12174,14 +12174,11 @@
 		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
 		"enhancementSkills":["キラースレイヴ","ハウリングフレイム","戦士の咆哮"],
 		"enhancements": [
-			{"name":"戦士の咆哮","levels":[[{"lbDamage":150,"mpRefresh":20,"levelCondition":120}],[{"lbDamage":150,"mpRefresh":30,"levelCondition":120}],[{"lbDamage":175,"mpRefresh":40,"levelCondition":120}],[{"lbDamage":175,"mpRefresh":45,"levelCondition":120}],[{"lbDamage":200,"mpRefresh":50,"levelCondition":120}]]}
+			{"name":"戦士の咆哮","levels":[[{"lbDamage":150,"mpRefresh":20}],[{"lbDamage":150,"mpRefresh":30}],[{"lbDamage":175,"mpRefresh":40}],[{"lbDamage":175,"mpRefresh":45}],[{"lbDamage":200,"mpRefresh":50}]]}
 		],
 		"skills": [
-			{"atk%":70, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
-			{"lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"fire","percent":50}], "equipedConditions":[["409026900","409027000"]], "levelCondition":120},
-			{"hp%":60, "mp%":60, "singleWielding":{"accuracy":25,"atk":75}, "killers":[{"name":"beast","physical":150},{"name":"demon","physical":150},{"name":"undead","physical":150}], "levelCondition":120},
-			{"hp%":60, "atk%":60, "def%":60, "singleWielding":{"accuracy":25,"atk":75}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
-			{"atk%":70, "def%":40, "spr%":40, "lbFillRate":150, "levelCondition":120}
+			{"hp%":120, "mp%":60, "atk%":200, "def%":100, "spr%":40, "singleWielding":{"accuracy":75,"atk":200}, "lbFillRate":150, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":150},{"name":"demon","physical":150},{"name":"undead","physical":150}]},
+			{"lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"fire","percent":50}], "equipedConditions":[["409026900","409027000"]]}
 		]
 	},
 	"207000605": {
@@ -12615,6 +12612,7 @@
 		"jpname":"クラウド(FFVII REMAKE)",
 		"id":"207002007",
 		"braveShift":"207002017",
+		"exAwakening": [{"hp":633,"mp":33,"atk":61,"def":23,"mag":21,"spr":23},{"hp":487,"mp":25,"atk":47,"def":17,"mag":16,"spr":18},{"hp":341,"mp":18,"atk":33,"def":12,"mag":11,"spr":13}],
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -12627,11 +12625,8 @@
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["ブレイバー","バーストスラッシュ"],
 		"skills": [
-			{"hp%":100, "mp%":50, "atk%":110, "def%":80, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "mpRefresh":5, "lbDamage":50},
-			{"atk%":20, "spr%":20, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["303008700","504236244"]]},
-			{"mp%":20, "atk%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":110},
-			{"atk%":20, "levelCondition":115},
-			{"atk%":30, "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "lbDamage":50, "skillEnhancement":{"236002":15,"236003":15,"236004":15,"236006":20,"236007":20,"236008":20}, "levelCondition":120}
+			{"hp%":100, "mp%":70, "atk%":180, "def%":80, "mag%":30, "spr%":50, "singleWielding":{"accuracy":50,"atk":200}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":100},{"name":"machine","physical":100}], "mpRefresh":5, "lbDamage":100, "skillEnhancement":{"236002":15,"236003":15,"236004":15,"236006":20,"236007":20,"236008":20}},
+			{"atk%":20, "spr%":20, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["303008700","504236244"]]}
 		]
 	},
 	"207002017": {
@@ -12639,6 +12634,7 @@
 		"jpname":"クラウド(FFVII REMAKE) - Brave Shifted",
 		"id":"207002017",
 		"braveShifted":true,
+		"exAwakening": [{"hp":633,"mp":33,"atk":61,"def":23,"mag":21,"spr":23},{"hp":487,"mp":25,"atk":47,"def":17,"mag":16,"spr":18},{"hp":341,"mp":18,"atk":33,"def":12,"mag":11,"spr":13}],
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -12651,11 +12647,8 @@
 		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["ブレイバー","スピンスラッシュ"],
 		"skills": [
-			{"hp%":90, "mp%":50, "atk%":80, "def%":70, "mag%":30, "spr%":30, "dualWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "mpRefresh":5, "special":["dualWield"]},
-			{"atk%":20, "spr%":20, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["303008700","504236244"]]},
-			{"atk%":30, "spr%":30, "dualWielding":{"atk":50}, "levelCondition":110},
-			{"atk%":20, "levelCondition":115},
-			{"atk%":30, "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "lbDamage":50, "skillEnhancement":{"236002":15,"236003":15,"236004":15,"236006":20,"236007":20,"236008":20}, "levelCondition":120}
+			{"hp%":90, "mp%":50, "atk%":160, "def%":70, "mag%":30, "spr%":60, "dualWielding":{"atk":150}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":100},{"name":"machine","physical":100}], "mpRefresh":5, "lbDamage":50, "skillEnhancement":{"236002":15,"236003":15,"236004":15,"236006":20,"236007":20,"236008":20}, "special":["dualWield"]},
+			{"atk%":20, "spr%":20, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["303008700","504236244"]]}
 		]
 	},
 	"207002105": {

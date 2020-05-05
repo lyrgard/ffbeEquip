@@ -163,13 +163,13 @@ getData('equipment.json', function (items) {
                                 var unit = units[unitIndex];
                                 unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
 
-                                if (unit.TMR) {
+                                if (unit.TMR && (!unit.base_id ||unit.base_id == unitIndex)) {
                                     unitIdByTmrId[unit.TMR[1]] = unitIndex;
                                     if (unit.rarity_min > 3 && !unit.is_summonable) {
                                         unitNamesById[unitIndex].event = true;
                                     }
                                 }
-                                if (unit.sTMR) {
+                                if (unit.sTMR && (!unit.base_id ||unit.base_id == unitIndex)) {
                                     unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
                                 }
                             }

@@ -247,6 +247,7 @@ function optimize() {
             "espers":espersToSend,
             "unit":builds[currentUnitIndex].unit,
             "level":builds[currentUnitIndex]._level,
+            "exAwakeningLevel": builds[currentUnitIndex]._exAwakeningLevel,
             "fixedItems":builds[currentUnitIndex].fixedItems, 
             "baseValues":builds[currentUnitIndex].baseValues,
             "innateElements":builds[currentUnitIndex].innateElements,
@@ -1483,6 +1484,14 @@ function updateUnitLevelDisplay() {
             $("#unitLevel select").val("120");
             builds[currentUnitIndex].setLevel(120);    
         }
+        if (builds[currentUnitIndex].unit.max_rarity == 'NV' && !builds[currentUnitIndex].unit.sevenStarForm) {
+            $("#unitExAwakeningLevel").removeClass("hidden");
+            if (builds[currentUnitIndex]._exAwakeningLevel) {
+                $("#unitExAwakeningLevel select").val(builds[currentUnitIndex]._exAwakeningLevel.toString());
+            } else {
+                $("#unitExAwakeningLevel select").val("0");
+            }
+        }
     } else {
         $("#unitLevel").addClass("hidden");
     }
@@ -1754,7 +1763,7 @@ var displayUnitRarity = function(unit) {
                 rarityWrapper.append('☆');
             }
         }
-        if (rarity == "7") {
+        if (rarity == "7" || rarity == 'NV') {
             $('#forceTmrAbilityDiv').removeClass('hidden');
         } else {
             $('#forceTmrAbilityDiv').addClass('hidden');
@@ -2691,6 +2700,9 @@ function getStateHash(onlyCurrent = true) {
             if (build._level) {
                 unit.level = build._level;
             }
+            if (build._exAwakeningLevel) {
+                unit.exAwakening = build._exAwakeningLevel;
+            }
             unit.calculatedValues = {
                 "elementResists": {},
                 "ailmentResists": {},
@@ -3085,6 +3097,11 @@ async function loadStateHashAndBuild(data, importMode = false) {
             builds[currentUnitIndex].setLevel(unit.level);
             updateUnitStats();
             recalculateApplicableSkills();
+        }
+        if (unit.exAwakening) {
+            $("#unitExAwakeningLevel select").val(unit.exAwakening.toString());
+            builds[currentUnitIndex].setExAwakeningLevel(unit.exAwakening);
+            updateUnitStats();
         }
 
         select("elements", unit.innateElements);
@@ -4384,6 +4401,11 @@ function startPage() {
         builds[currentUnitIndex].setLevel($("#unitLevel select").val());
         updateUnitStats();
         recalculateApplicableSkills();
+        logCurrentBuild();
+    });
+    $("#unitExAwakeningLevel select").change(function() {
+        builds[currentUnitIndex].setExAwakeningLevel(+$("#unitExAwakeningLevel select").val());
+        updateUnitStats();
         logCurrentBuild();
     });
     $("#useNewJpDamageFormula").change(function() {logCurrentBuild();});
