@@ -27,7 +27,7 @@ FFBEEquipBuildAsImage = {
         FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/box.png', 0, 0 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 730, 235);
 
         let unitId = unit.id;
-        let iconId = unitId.substr(0,unitId.length-1) + unit.rarity;
+        let iconId = unitId.substr(0,unitId.length-1) + (unit.rarity == 'NV' ? '7' : unit.rarity);
         FFBEEquipBuildAsImage.drawImageCentered(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/units/unit_ills_${iconId}.png`, 52, 52 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 1, () => {
     
             let x = 105;
@@ -45,7 +45,11 @@ FFBEEquipBuildAsImage = {
             ctx.fillText("SPR", x +100, y + 60);
             
             ctx.font = "16px Arial";
-            ctx.fillText(unit.name, 105, y - 5);
+            let name = unit.name;
+            if (unit.exAwakening) {
+                name += ' EX+' + unit.exAwakening;
+            }
+            ctx.fillText(name, 105, y - 5);
 
             ctx.font = "bold 18px Arial";
             
