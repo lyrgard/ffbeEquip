@@ -97,6 +97,19 @@ let espersById = {
     "19":"Black Dragon"
 }
 
+const visionCardStatPatterns = {
+    "1": {
+        "1": [0]
+    },
+    "100": {
+        "10": [0, 10, 20, 30, 40, 50, 60, 70, 80, 100]
+    }
+}
+
+const unitRules = {
+    4008: (unit) => unit.game_id == 10007,
+}
+
 var unitNamesById = {};
 var unitIdByTmrId = {};
 var unitIdBySTmrId = {};
@@ -104,9 +117,10 @@ var oldItemsAccessById = {};
 var oldItemsEventById = {};
 var oldItemsMaxNumberById = {};
 var releasedUnits;
-var skillNotIdentifiedNumber = 0;
 var glNameById = {};
 var dev = false;
+var unitIdsByRule = {};
+var jpUnits;
 
 
 function getData(filename, callback) {
@@ -139,68 +153,81 @@ getData('equipment.json', function (items) {
         getData('skills_ability.json', function (skills) {
             getData('skills_passive.json', function (passives) {
                 getData('skills_magic.json', function (magics) {
-                    Object.keys(skills).forEach(skillId => {
-                        skills[skillId].active = true;
-                        skills[skillId].type = "ABILITY";
-                    });
-                    Object.keys(passives).forEach(skillId => {
-                        skills[skillId] = passives[skillId];
-                        skills[skillId].active = false;
-                        skills[skillId].type = "PASSIVE";
-                    });
-                    Object.keys(magics).forEach(skillId => {
-                        skills[skillId] = magics[skillId];
-                        skills[skillId].active = true;
-                        skills[skillId].type = "MAGIC";
-                    });
-                    getData('units.json', function (units) {
-                        fs.readFile('../../static/GL/data.json', function (err, glDatacontent) {
-                            var glData = JSON.parse(glDatacontent);
-                            for (var glIndex = glData.length; glIndex--;) {
-                                glNameById[glData[glIndex].id] = glData[glIndex].name;
-                            }
-                            for (var unitIndex in units) {
-                                var unit = units[unitIndex];
-                                unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
-
-                                if (unit.TMR && (!unit.base_id ||unit.base_id == unitIndex)) {
-                                    unitIdByTmrId[unit.TMR[1]] = unitIndex;
-                                    if (unit.rarity_min > 3 && !unit.is_summonable) {
-                                        unitNamesById[unitIndex].event = true;
-                                    }
+                    getData('vision_cards.json', function (visionCards) {
+                        Object.keys(skills).forEach(skillId => {
+                            skills[skillId].active = true;
+                            skills[skillId].type = "ABILITY";
+                        });
+                        Object.keys(passives).forEach(skillId => {
+                            skills[skillId] = passives[skillId];
+                            skills[skillId].active = false;
+                            skills[skillId].type = "PASSIVE";
+                        });
+                        Object.keys(magics).forEach(skillId => {
+                            skills[skillId] = magics[skillId];
+                            skills[skillId].active = true;
+                            skills[skillId].type = "MAGIC";
+                        });
+                        getData('units.json', function (units) {
+                            fs.readFile('../../static/GL/data.json', function (err, glDatacontent) {
+                                var glData = JSON.parse(glDatacontent);
+                                for (var glIndex = glData.length; glIndex--;) {
+                                    glNameById[glData[glIndex].id] = glData[glIndex].name;
                                 }
-                                if (unit.sTMR && (!unit.base_id ||unit.base_id == unitIndex)) {
-                                    unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
-                                }
-                            }
+                                for (var unitIndex in units) {
+                                    var unit = units[unitIndex];
+                                    unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
 
-
-
-                            fs.readFile('../../static/JP/data.json', function (err, content) {
-                                var oldItems = JSON.parse(content);
-                                for (var index in oldItems) {
-                                    oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
-                                    if (oldItems[index].eventName) {
-                                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
-                                    } else if (oldItems[index].eventNames) {
-                                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventNames;
+                                    if (unit.TMR && (!unit.base_id ||unit.base_id == unitIndex)) {
+                                        unitIdByTmrId[unit.TMR[1]] = unitIndex;
+                                        if (unit.rarity_min > 3 && !unit.is_summonable) {
+                                            unitNamesById[unitIndex].event = true;
+                                        }
                                     }
-                                    if (oldItems[index].maxNumber) {
-                                        oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                                    if (unit.sTMR && (!unit.base_id ||unit.base_id == unitIndex)) {
+                                        unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
                                     }
                                 }
 
-                                fs.readFile('../../static/JP/releasedUnits.json', function (err, content) {
-                                    releasedUnits = JSON.parse(content);
+                                Object.keys(unitRules).forEach(ruleId => {
+                                    let unitIds = Object.keys(units).filter(unitId => unitRules[ruleId](units[unitId]));
+                                    unitIdsByRule[ruleId] = unitIds;
+                                });
 
-                                    var result = {"items":[]};
-                                    for (var itemId in items) {
-                                        treatItem(items,itemId, result, skills);
+                                fs.readFile('../../static/JP/data.json', function (err, content) {
+                                    var oldItems = JSON.parse(content);
+                                    for (var index in oldItems) {
+                                        oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
+                                        if (oldItems[index].eventName) {
+                                            oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                                        } else if (oldItems[index].eventNames) {
+                                            oldItemsEventById[oldItems[index].id] = oldItems[index].eventNames;
+                                        }
+                                        if (oldItems[index].maxNumber) {
+                                            oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                                        }
                                     }
-                                    for (var materiaId in materias) {
-                                        treatItem(materias,materiaId, result, skills);
-                                    }
-                                    fs.writeFileSync('data.json', formatOutput(result.items));
+
+                                    fs.readFile('../../static/JP/releasedUnits.json', function (err, content) {
+                                        releasedUnits = JSON.parse(content);
+                                        fs.readFile('../../static/JP/units.json', function (err, content) {
+                                            jpUnits = JSON.parse(content);
+
+                                            var result = {"items":[]};
+                                            for (var itemId in items) {
+                                                treatItem(items,itemId, result, skills);
+                                            }
+                                            for (var materiaId in materias) {
+                                                treatItem(materias,materiaId, result, skills);
+                                            }
+                                            fs.writeFileSync('data.json', formatOutput(result.items));
+                                            cards = [];
+                                            for (visionCardId in visionCards) {
+                                                cards.push(treatVisionCard(visionCards[visionCardId], visionCardId, skills));
+                                            }
+                                            fs.writeFileSync('visionCards.json', formatVisionCards(cards));
+                                        });
+                                    });
                                 });
                             });
                         });
@@ -310,6 +337,68 @@ function treatItem(items, itemId, result, skills) {
     }
     
     result.items = result.items.concat(readSkills(itemIn, itemOut,skills));
+}
+
+function treatVisionCard(visionCard, visionCardId, skills) {
+    let card = {};
+    card.id = visionCardId;
+    card.name = visionCard.name;
+    card.type = 'visionCard';
+    card.icon = 'vc_vignette_item_icon_' + visionCardId + '.png';
+    verifyImage(card.icon);
+    if (visionCard.compendium_id) {
+        card.sortId = visionCard.compendium_id;
+    }
+    card.access = ["unknown"];
+    card.levels = [];
+    for (let level = 1; level <= visionCard.max_level; level++) {
+        let levelData = {};
+        card.levels.push(levelData);
+        stats.forEach(stat => {
+            value = visionCard.stats[stat][0] + (visionCard.stats[stat][1] - visionCard.stats[stat][0]) * visionCardStatPatterns[visionCard.stat_pattern][visionCard.max_level][level - 1] / 100;
+            addStat(levelData, stat.toLowerCase(), Math.floor(value));
+        });
+        for (let i = 1; i <= level; i++) {
+            if (visionCard.skills && visionCard.skills[i]) {
+                let skill = skills[visionCard.skills[i].toString()];
+                skill.effects_raw.forEach((rawEffect, index) => {
+                    if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
+                        // mastery skill
+                        let conditional = {};
+                        addMastery(conditional, rawEffect);
+                        if (!levelData.conditional) levelData.conditional = [];
+                        const sameCondition = levelData.conditional.filter(cond => arrayEquivalents(cond.equipedConditions, conditional.equipedConditions));
+                        if (sameCondition.length === 0) {
+                            levelData.conditional.push(conditional);
+                        } else {
+                            stats.forEach(stat => {
+                                if (conditional[stat.toLowerCase() + '%']) {
+                                    addStat(sameCondition[0], stat.toLowerCase() + '%', conditional[stat.toLowerCase() + '%']);
+                                }
+                            });
+                        }
+                    } else {
+                        if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
+                            let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
+                            let conditional = {};
+                            addEffectToItem(conditional, skill, index, skills);
+                            if (!levelData.conditional) levelData.conditional = [];
+                            conditional.exclusiveUnits = unitIdsByRule[ruleId].filter(unitId => jpUnits[unitId].max_rarity == 'NV');
+                            levelData.conditional.push(conditional);
+                        } else {
+                            addEffectToItem(levelData, skill, index, skills);
+                        }
+                    }
+                });
+            }
+        }
+        // TODO restriction
+    }
+    return card;
+}
+
+function arrayEquivalents(a1, a2) {
+    return a1.length === a2.length && a1.every(item => a2.includes(item));
 }
 
 function readStats(itemIn, itemOut) {
@@ -936,10 +1025,10 @@ function addLbPerTurn(item, min, max) {
     }
     item.lbPerTurn.min += min;
     item.lbPerTurn.max += max;
-} 
+}
 
+const itemProperties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills","rarity", "conditional"];
 function formatOutput(items) {
-    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills","rarity"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
@@ -949,20 +1038,58 @@ function formatOutput(items) {
         } else {
             result += ",";
         }
-        result += "\n\t{";
+        result += "\n\t"
+        result += formatItem(item);
+    }
+    result += "\n]";
+    return result;
+}
+
+function formatItem(item) {
+    result = "{";
+    var firstProperty = true;
+    for (var propertyIndex in itemProperties) {
+        var property = itemProperties[propertyIndex];
+        if (item[property]) {
+            if (firstProperty) {
+                firstProperty = false;
+            } else {
+                result += ", ";
+            }
+            result+= "\"" + property + "\":" + JSON.stringify(item[property]);
+        }
+    }
+    result += "}";
+    return result;
+}
+
+function formatVisionCards(cards) {
+    var baseProperties = ["id","name","jpname","type","access","maxNumber","eventNames","icon","sortId"];
+    var result = "[\n";
+    var first = true;
+    for (var index in cards) {
+        var card = cards[index]
+        if (first) {
+            first = false;
+        } else {
+            result += ",";
+        }
+        result += "\n{";
         var firstProperty = true;
-        for (var propertyIndex in properties) {
-            var property = properties[propertyIndex];
-            if (item[property]) {
+        for (var propertyIndex in baseProperties) {
+            var property = baseProperties[propertyIndex];
+            if (card[property]) {
                 if (firstProperty) {
                     firstProperty = false;
                 } else {
                     result += ", ";
                 }
-                result+= "\"" + property + "\":" + JSON.stringify(item[property]);
+                result+= "\"" + property + "\":" + JSON.stringify(card[property]);
             }
         }
-        result += "}";
+        result += ", \"levels\":[\n\t";
+        result += card.levels.map(level => formatItem(level)).join(',\n\t')
+        result += "\n]}";
     }
     result += "\n]";
     return result;

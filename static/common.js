@@ -288,14 +288,14 @@ function getKillersHtml(item) {
 function getExclusiveUnitsHtml(item) {
     html = "<div class='exclusive'>Only ";
     var first = true;
-    $(item.exclusiveUnits).each(function(index, exclusiveUnitId) {
+    item.exclusiveUnits.forEach(exclusiveUnitId => {
         if (first) {
             first = false;
         } else {
             html += ", ";
         }
         if (units[exclusiveUnitId]) {
-            html += toLink(units[exclusiveUnitId].name);
+            html += toUnitLink(units[exclusiveUnitId]);
         } else {
             html += "Not released yet unit";
         }
@@ -303,6 +303,15 @@ function getExclusiveUnitsHtml(item) {
     html += "</div>";
     return html;
 }
+
+function toUnitLink(unit) {
+    return '<a href="' + toUrl(unit.name) + '" target="_blank" class="unitLink" rel="noreferrer" onclick="event.stopPropagation();" title="' + unit.name + '"><img src="' + getMaxRarityUnitIcon(unit) + '"/></a>'
+}
+
+function getMaxRarityUnitIcon(unit) {
+    return 'img/units/unit_icon_' + unit.id.substr(0, unit.id.length -1) + (unit.max_rarity == 'NV' ? '7' : unit.max_rarity) + '.png';
+}
+
 function getSpecialHtml(item) {
     var special = "";
     

@@ -1,0 +1,54 @@
+[
+
+{"id":"100000201", "name":"天翔ける騎士たち", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000201.png", "sortId":3, "levels":[
+	{"atk":35, "def":35},
+	{"atk":36, "def":36},
+	{"atk":38, "def":38},
+	{"atk":39, "def":39, "resist":[{"name":"wind","percent":30}]},
+	{"atk":41, "def":41, "resist":[{"name":"wind","percent":30}]},
+	{"atk":42, "def":42, "resist":[{"name":"wind","percent":30}]},
+	{"atk":44, "atk%":20, "def":44, "def%":20, "resist":[{"name":"wind","percent":30}]},
+	{"atk":45, "atk%":20, "def":45, "def%":20, "resist":[{"name":"wind","percent":30}]},
+	{"atk":47, "atk%":20, "def":47, "def%":20, "resist":[{"name":"wind","percent":30}]},
+	{"atk":50, "atk%":20, "def":50, "def%":20, "resist":[{"name":"wind","percent":30}]}
+]},
+{"id":"100000301", "name":"水の巫女と水神", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000301.png", "sortId":4, "levels":[
+	{"spr":20},
+	{"spr":22},
+	{"spr":24},
+	{"spr":26, "esperStatsBonus":{"Leviathan":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}},
+	{"spr":28, "esperStatsBonus":{"Leviathan":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}},
+	{"spr":30, "esperStatsBonus":{"Leviathan":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}},
+	{"spr":32, "esperStatsBonus":{"Leviathan":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}},
+	{"spr":34, "esperStatsBonus":{"Leviathan":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}},
+	{"spr":36, "esperStatsBonus":{"Leviathan":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}},
+	{"spr":40, "spr%":30, "esperStatsBonus":{"Leviathan":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}}
+]},
+{"id":"100000401", "name":"報復の鉄槌", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000401.png", "sortId":5, "levels":[
+	{"atk":45},
+	{"atk":46},
+	{"atk":48},
+	{"atk":49},
+	{"atk":51},
+	{"atk":52},
+	{"atk":54, "resist":[{"name":"dark","percent":30}]},
+	{"atk":55, "resist":[{"name":"dark","percent":30}]},
+	{"atk":57, "resist":[{"name":"dark","percent":30}]},
+	{"atk":60, "atk%":30, "resist":[{"name":"dark","percent":30}]}
+]},
+{"id":"207000101", "name":"真夜中の疾走", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
+	{"atk":40},
+	{"atk":46},
+	{"atk":52},
+	{"atk":58, "conditional":[{"equipedConditions":["greatSword"],"atk%":50}]},
+	{"atk":64, "conditional":[{"equipedConditions":["greatSword"],"atk%":50}]},
+	{"atk":70, "conditional":[{"equipedConditions":["greatSword"],"atk%":50}]},
+	{"atk":76, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
+	{"atk":82, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
+	{"atk":88, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
+	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"atk%":100},{"atk%":30,"exclusiveUnits":["207000305","207000327","207000505","207000527","207002007","207002017"]}]}
+]},
+{"id":"900020101", "name":"メタルジャボテン見参！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_900020101.png", "sortId":6, "levels":[
+	{"hp":10, "mp":10}
+]}
+]

@@ -467,6 +467,46 @@ function tryToLoadHash() {
     }
 }
 
+function addCardsToData(cards) {
+    Object.keys(cards).forEach(cardId => {
+        let card = cards[cardId];
+        let lastLevel = card.levels[card.levels.length -1];
+        card = combineTwoItems(card, lastLevel);
+        let conditionals = lastLevel.conditional ? lastLevel.conditional : [];
+        computeConditionalCombinations(card, conditionals, (card) => {
+            data.push(card);
+        });
+    });
+}
+
+function computeConditionalCombinations(item, conditionals, onCombinationFound,index = 0) {
+    if (index === conditionals.length) {
+        onCombinationFound(item);
+    } else {
+        // First try without that condition
+        computeConditionalCombinations(item, conditionals, onCombinationFound, index + 1);
+        // Then with the condition
+        item = combineTwoItems(item, conditionals[index]);
+
+        if (conditionals[index].equipedConditions) {
+            if (!item.equipedConditions) item.equipedConditions = [];
+            item.equipedConditions = item.equipedConditions.concat(conditionals[index].equipedConditions).filter((c, i, a) => a.indexOf(c) === i);
+            if (!isEquipedConditionViable(item.equipedConditions)) {
+                return;
+            }
+        }
+        if (conditionals[index].exclusiveUnits) {
+            item.exclusiveUnits = conditionals[index].exclusiveUnits;
+        }
+        computeConditionalCombinations(item, conditionals, onCombinationFound, index + 1);
+    }
+}
+
+function isEquipedConditionViable(equipedConditions) {
+    // TODO
+    return true;
+}
+
 // will be called by common.js at page load
 function startPage() {
     // Triggers on unit base stats change
@@ -488,11 +528,14 @@ function startPage() {
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("data", true, function(result) {
         data = result;
-        getStaticData("units", true, function(result) {
-            units = result;
-            populateUnitSelect();
-            prepareSearch(data);
-            tryToLoadHash();
+        getStaticData("visionCards", true, function(cards) {
+            addCardsToData(cards);
+            getStaticData("units", true, function(result) {
+                units = result;
+                populateUnitSelect();
+                prepareSearch(data);
+                tryToLoadHash();
+            });
         });
     });
 	
