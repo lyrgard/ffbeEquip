@@ -528,7 +528,7 @@ function startPage() {
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("data", true, function(result) {
         data = result;
-        getStaticData("visionCards", true, function(cards) {
+        getStaticData("visionCards", false, function(cards) {
             addCardsToData(cards);
             getStaticData("units", true, function(result) {
                 units = result;
