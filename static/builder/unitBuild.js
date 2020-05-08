@@ -525,6 +525,7 @@ class UnitBuild {
                 }
             }
         }
+        return false;
     }
 
     get involvedStats() {

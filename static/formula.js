@@ -183,7 +183,11 @@ function parseExpression(formula, pos, unit) {
                 return;
             }
         } else if (token.startsWith("CHAIN_MULT(") && token.endsWith(")")) {
-            outputQueue.push({"type":"chainMultiplier", "value":parseFloat(token.substr(11, token.length - 12))});
+            let chainMult = token.substr(11, token.length - 12);
+            if (chainMult != 'MAX') {
+                chainMult = parseFloat(chainMult);
+            }
+            outputQueue.push({"type":"chainMultiplier", "value":chainMult});
         } else if (token == "LB_DAMAGE") {
             outputQueue.push(formulaFromSkill(unit.lb));
         } else if (baseVariables.includes(token)) {

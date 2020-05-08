@@ -746,12 +746,25 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             "switchWeapons": false
         };  
     } else if (formula.type == "chainMultiplier") {
-        return {
-            "min": formula.value,
-            "avg": formula.value,
-            "max": formula.value,
-            "switchWeapons": false
-        };  
+        if (formula.value === 'MAX') {
+            let chainMult = 4;
+            if (unitBuild.hasDualWieldMastery() && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+                chainMult = 6;
+            }
+            return {
+                "min": chainMult,
+                "avg": chainMult,
+                "max": chainMult,
+                "switchWeapons": false
+            };
+        } else {
+            return {
+                "min": formula.value,
+                "avg": formula.value,
+                "max": formula.value,
+                "switchWeapons": false
+            };
+        }
     } else if (operatorsInFormula.includes(formula.type)) {
         var result1 = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context);
         if (formula.type == "OR") {

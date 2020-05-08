@@ -429,7 +429,11 @@ function readChainMultiplier() {
     let stringValue = $(".goal .chainMultiplier input").val();
     if (stringValue) {
         stringValue = stringValue.replace(',', '.');
-        return parseFloat(stringValue) || 1;
+        if (stringValue.toUpperCase() === 'MAX') {
+            return 'MAX';
+        } else {
+            return parseFloat(stringValue) || 1;
+        }
     } else {
         return 1;
     }
