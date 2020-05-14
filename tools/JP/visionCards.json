@@ -1,5 +1,17 @@
 [
 
+{"id":"100000101", "name":"新たな旅立ち", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000101.png", "sortId":2, "levels":[
+	{"spr":50},
+	{"spr":53},
+	{"spr":56},
+	{"spr":59, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10}]},
+	{"spr":62, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10}]},
+	{"spr":65, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10}]},
+	{"spr":68, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10}]},
+	{"spr":71, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10}]},
+	{"spr":74, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10}]},
+	{"spr":80, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"light","percent":20}]}
+]},
 {"id":"100000201", "name":"天翔ける騎士たち", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000201.png", "sortId":3, "levels":[
 	{"atk":35, "def":35},
 	{"atk":36, "def":36},
@@ -36,6 +48,18 @@
 	{"atk":57, "resist":[{"name":"dark","percent":30}]},
 	{"atk":60, "atk%":30, "resist":[{"name":"dark","percent":30}]}
 ]},
+{"id":"100000501", "name":"世界を変えるために", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000501.png", "sortId":9, "levels":[
+	{"atk":40},
+	{"atk":46},
+	{"atk":52},
+	{"atk":58, "conditional":[{"equipedConditions":["greatSword"],"def%":20,"hp%":20}]},
+	{"atk":64, "conditional":[{"equipedConditions":["greatSword"],"def%":20,"hp%":20}]},
+	{"atk":70, "conditional":[{"equipedConditions":["greatSword"],"def%":20,"hp%":20}]},
+	{"atk":76, "conditional":[{"equipedConditions":["greatSword"],"def%":40,"hp%":40}]},
+	{"atk":82, "conditional":[{"equipedConditions":["greatSword"],"def%":40,"hp%":40}]},
+	{"atk":88, "conditional":[{"equipedConditions":["greatSword"],"def%":40,"hp%":40}]},
+	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"def%":40,"hp%":40},{"hp%":20,"def%":20,"exclusiveSex":"male"}]}
+]},
 {"id":"207000101", "name":"真夜中の疾走", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
 	{"atk":40},
 	{"atk":46},
@@ -46,7 +70,7 @@
 	{"atk":76, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
 	{"atk":82, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
 	{"atk":88, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
-	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"atk%":100},{"atk%":30,"exclusiveUnits":["207000305","207000327","207000505","207000527","207002007","207002017"]}]}
+	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"atk%":100},{"atk%":30,"exclusiveUnits":["207000105","207000204","207000305","207000327","207000405","207000505","207000527","207000605","207000703","207000805","207001005","207001105","207001305","207002007","207002017","207002105"]}]}
 ]},
 {"id":"900020101", "name":"メタルジャボテン見参！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_900020101.png", "sortId":6, "levels":[
 	{"hp":10, "mp":10}

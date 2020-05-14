@@ -107,7 +107,8 @@ const visionCardStatPatterns = {
 }
 
 const unitRules = {
-    4008: (unit) => unit.game_id == 10007,
+    4008: (item) => item.exclusiveUnits = unitIdsByGameId[10007], // FF7 units
+    7102: (item) => item.exclusiveSex = 'male',// Male units
 }
 
 var unitNamesById = {};
@@ -119,7 +120,7 @@ var oldItemsMaxNumberById = {};
 var releasedUnits;
 var glNameById = {};
 var dev = false;
-var unitIdsByRule = {};
+var unitIdsByGameId = {};
 var jpUnits;
 
 
@@ -189,9 +190,12 @@ getData('equipment.json', function (items) {
                                     }
                                 }
 
-                                Object.keys(unitRules).forEach(ruleId => {
-                                    let unitIds = Object.keys(units).filter(unitId => unitRules[ruleId](units[unitId]));
-                                    unitIdsByRule[ruleId] = unitIds;
+                                Object.keys(units).forEach(unitId => {
+                                    let unit = units[unitId];
+                                    if (unit.game_id) {
+                                        if (!unitIdsByGameId[unit.game_id]) unitIdsByGameId[unit.game_id] = [];
+                                        unitIdsByGameId[unit.game_id].push(unitId);
+                                    }
                                 });
 
                                 fs.readFile('../../static/JP/data.json', function (err, content) {
@@ -383,7 +387,10 @@ function treatVisionCard(visionCard, visionCardId, skills) {
                             let conditional = {};
                             addEffectToItem(conditional, skill, index, skills);
                             if (!levelData.conditional) levelData.conditional = [];
-                            conditional.exclusiveUnits = unitIdsByRule[ruleId].filter(unitId => jpUnits[unitId].max_rarity == 'NV');
+                            if (!Object.keys(unitRules).includes(ruleId)) {
+                                console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                            }
+                            unitRules[ruleId](conditional);
                             levelData.conditional.push(conditional);
                         } else {
                             addEffectToItem(levelData, skill, index, skills);

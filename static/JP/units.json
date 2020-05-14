@@ -1384,17 +1384,19 @@
 		"name":"Veritas of the Dark",
 		"jpname":"常闇のヴェリアス",
 		"id":"100007705",
-		"max_rarity":"7",
+		"braveShift":"100007727",
+		"exAwakening": [{"hp":623,"mp":30,"atk":28,"def":23,"mag":22,"spr":22},{"hp":480,"mp":23,"atk":21,"def":18,"mag":17,"spr":17},{"hp":336,"mp":16,"atk":14,"def":12,"mag":12,"spr":12}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4745,"mp":205,"atk":195,"def":179,"mag":162,"spr":164},
-			"minStats":{"hp":1566,"mp":68,"atk":64,"def":56,"mag":53,"spr":52},
+			"maxStats":{"hp":4796,"mp":228,"atk":214,"def":178,"mag":166,"spr":173},
+			"minStats":{"hp":1583,"mp":75,"atk":71,"def":59,"mag":55,"spr":57},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["常闇","インパクト","暗黒の罪科","暗黒の刃"],
+		"enhancementSkills":["常闇","インパクト","暗黒の罪科","暗黒の刃","怨讐の闇刃・改","晦冥の罪科","英傑のオーラ"],
 		"6_form": {
 			"name":"Veritas of the Dark",
 			"jpname":"常闇のヴェリアス",
@@ -1410,8 +1412,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["常闇","インパクト","暗黒の罪科","暗黒の刃"]
+			"enhancementSkills":["常闇","インパクト","暗黒の罪科","暗黒の刃","怨讐の闇刃・改","晦冥の罪科","英傑のオーラ"]
+		},
+		"7_form": {
+			"name":"Veritas of the Dark",
+			"jpname":"常闇のヴェリアス",
+			"id":"100007705",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4745,"mp":205,"atk":195,"def":179,"mag":162,"spr":164},
+				"minStats":{"hp":1566,"mp":68,"atk":64,"def":56,"mag":53,"spr":52},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["常闇","インパクト","暗黒の罪科","暗黒の刃","怨讐の闇刃・改","晦冥の罪科","英傑のオーラ"]
 		}
+	},
+	"100007727": {
+		"name":"常闇のヴェリアス - Brave Shifted",
+		"jpname":"常闇のヴェリアス - Brave Shifted",
+		"id":"100007727",
+		"braveShifted":true,
+		"exAwakening": [{"hp":623,"mp":30,"atk":28,"def":23,"mag":22,"spr":22},{"hp":480,"mp":23,"atk":21,"def":18,"mag":17,"spr":17},{"hp":336,"mp":16,"atk":14,"def":12,"mag":12,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4832,"mp":222,"atk":217,"def":182,"mag":158,"spr":168},
+			"minStats":{"hp":1595,"mp":73,"atk":72,"def":60,"mag":52,"spr":55},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","fist","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["怨讐の闇刃・改","修羅の獄剣","六盟傑のリーダー"]
 	},
 	"100007804": {
 		"name":"Veritas of the Heavens",
@@ -6296,6 +6333,104 @@
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","robe"]
 	},
+	"100031007": {
+		"name":"Rain -Neo Vision-",
+		"jpname":"レイン-Neo Vision-",
+		"id":"100031007",
+		"braveShift":"100031017",
+		"exAwakening": [{"hp":633,"mp":32,"atk":59,"def":23,"mag":20,"spr":23},{"hp":487,"mp":25,"atk":45,"def":18,"mag":16,"spr":18},{"hp":341,"mp":17,"atk":32,"def":12,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4869,"mp":249,"atk":226,"def":175,"mag":157,"spr":176},
+			"minStats":{"hp":1607,"mp":82,"atk":75,"def":58,"mag":52,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","hammer","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ライジングセイバー","アストラルエッジ"]
+	},
+	"100031017": {
+		"name":"Rain -Neo Vision- - Brave Shifted",
+		"jpname":"レイン-Neo Vision- - Brave Shifted",
+		"id":"100031017",
+		"braveShifted":true,
+		"exAwakening": [{"hp":633,"mp":32,"atk":59,"def":23,"mag":20,"spr":23},{"hp":487,"mp":25,"atk":45,"def":18,"mag":16,"spr":18},{"hp":341,"mp":17,"atk":32,"def":12,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4856,"mp":254,"atk":232,"def":168,"mag":154,"spr":180},
+			"minStats":{"hp":1602,"mp":84,"atk":77,"def":55,"mag":51,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["アッシュブレイド","アストラルエッジ"]
+	},
+	"100031205": {
+		"name":"Bruce",
+		"jpname":"ブルース",
+		"id":"100031205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4744,"mp":255,"atk":210,"def":185,"mag":150,"spr":181},
+			"minStats":{"hp":1566,"mp":84,"atk":69,"def":61,"mag":50,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","gun","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Bruce",
+			"jpname":"ブルース",
+			"id":"100031205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3649,"mp":196,"atk":161,"def":142,"mag":115,"spr":139},
+				"minStats":{"hp":1204,"mp":65,"atk":53,"def":47,"mag":38,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","throwing","gun","hat","clothes","lightArmor"]
+		}
+	},
+	"100031305": {
+		"name":"Rinoa",
+		"jpname":"リノラ",
+		"id":"100031305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4695,"mp":272,"atk":150,"def":181,"mag":202,"spr":209},
+			"minStats":{"hp":1549,"mp":90,"atk":50,"def":60,"mag":67,"spr":69},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","gun","hat","clothes","robe"],
+		"6_form": {
+			"name":"Rinoa",
+			"jpname":"リノラ",
+			"id":"100031305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3611,"mp":209,"atk":115,"def":139,"mag":155,"spr":160},
+				"minStats":{"hp":1192,"mp":69,"atk":38,"def":46,"mag":51,"spr":53},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","gun","hat","clothes","robe"]
+		}
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -8636,7 +8771,7 @@
 		}
 	},
 	"207001605": {
-		"name":"Cloud(FFVII AC)",
+		"name":"Cloud (FFVII: AC)",
 		"jpname":"クラウド(FFVII AC)",
 		"id":"207001605",
 		"max_rarity":"7",
@@ -8650,7 +8785,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Cloud(FFVII AC)",
+			"name":"Cloud (FFVII: AC)",
 			"jpname":"クラウド(FFVII AC)",
 			"id":"207001605",
 			"sixStarForm":true,
@@ -8667,7 +8802,7 @@
 		}
 	},
 	"207001705": {
-		"name":"Tifa(FFVII AC)",
+		"name":"Tifa (FFVII: AC)",
 		"jpname":"ティファ(FFVII AC)",
 		"id":"207001705",
 		"max_rarity":"7",
@@ -8681,7 +8816,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
 		"6_form": {
-			"name":"Tifa(FFVII AC)",
+			"name":"Tifa (FFVII: AC)",
 			"jpname":"ティファ(FFVII AC)",
 			"id":"207001705",
 			"sixStarForm":true,
@@ -10762,6 +10897,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["天鳴万雷・改","ヴァルハラへの誘い","逆流雷","オプティマチェンジ：アタッカー","シーンドライブ"],
 		"6_form": {
 			"name":"Radiant Lightning",
 			"jpname":"閃光のライトニング",
@@ -10776,7 +10912,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["天鳴万雷・改","ヴァルハラへの誘い","逆流雷","オプティマチェンジ：アタッカー","シーンドライブ"]
 		}
 	},
 	"213001105": {
@@ -10793,6 +10930,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["聖なる守護者","溢魔の秘蹟","ラストリゾート","運命に抗う力","未来の英雄"],
 		"6_form": {
 			"name":"Neverending Hope",
 			"jpname":"未来へのホープ",
@@ -10807,7 +10945,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["聖なる守護者","溢魔の秘蹟","ラストリゾート","運命に抗う力","未来の英雄"]
 		}
 	},
 	"213001205": {
