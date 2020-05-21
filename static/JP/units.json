@@ -5393,7 +5393,7 @@
 		}
 	},
 	"100027505": {
-		"name":"Alexander Charlotte",
+		"name":"Hallowed Aegis Charlotte",
 		"jpname":"聖砦シャルロット",
 		"id":"100027505",
 		"max_rarity":"7",
@@ -5407,7 +5407,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Alexander Charlotte",
+			"name":"Hallowed Aegis Charlotte",
 			"jpname":"聖砦シャルロット",
 			"id":"100027505",
 			"sixStarForm":true,
@@ -5424,7 +5424,7 @@
 		}
 	},
 	"100027605": {
-		"name":"Shiva Lasswell",
+		"name":"Mystical Ice Lasswell",
 		"jpname":"氷魔ラスウェル",
 		"id":"100027605",
 		"max_rarity":"7",
@@ -5438,7 +5438,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Shiva Lasswell",
+			"name":"Mystical Ice Lasswell",
 			"jpname":"氷魔ラスウェル",
 			"id":"100027605",
 			"sixStarForm":true,
@@ -5455,7 +5455,7 @@
 		}
 	},
 	"100027705": {
-		"name":"Odin Raegen",
+		"name":"War Hero Raegen",
 		"jpname":"戦騎レーゲン",
 		"id":"100027705",
 		"max_rarity":"7",
@@ -5469,7 +5469,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Odin Raegen",
+			"name":"War Hero Raegen",
 			"jpname":"戦騎レーゲン",
 			"id":"100027705",
 			"sixStarForm":true,
@@ -5517,7 +5517,7 @@
 		}
 	},
 	"100027905": {
-		"name":"Tetra Sylphid Physalis",
+		"name":"Four Winds Physalis",
 		"jpname":"四天ファイサリス",
 		"id":"100027905",
 		"max_rarity":"7",
@@ -5531,7 +5531,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor"],
 		"6_form": {
-			"name":"Tetra Sylphid Physalis",
+			"name":"Four Winds Physalis",
 			"jpname":"四天ファイサリス",
 			"id":"100027905",
 			"sixStarForm":true,
@@ -8375,17 +8375,19 @@
 		"name":"Cloud",
 		"jpname":"クラウド",
 		"id":"207000105",
-		"max_rarity":"7",
+		"braveShift":"207000127",
+		"exAwakening": [{"hp":627,"mp":27,"atk":29,"def":25,"mag":23,"spr":23},{"hp":483,"mp":21,"atk":22,"def":19,"mag":18,"spr":18},{"hp":338,"mp":15,"atk":16,"def":13,"mag":12,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4825,"mp":208,"atk":204,"def":190,"mag":176,"spr":180},
-			"minStats":{"hp":1592,"mp":69,"atk":67,"def":63,"mag":58,"spr":59},
+			"maxStats":{"hp":4825,"mp":208,"atk":224,"def":190,"mag":176,"spr":180},
+			"minStats":{"hp":1592,"mp":69,"atk":74,"def":63,"mag":58,"spr":59},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン"],
+		"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン","ソニックインパクト","バスターエンド","ティファとの約束"],
 		"6_form": {
 			"name":"Cloud",
 			"jpname":"クラウド",
@@ -8401,8 +8403,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン"]
+			"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン","ソニックインパクト","バスターエンド","ティファとの約束"]
+		},
+		"7_form": {
+			"name":"Cloud",
+			"jpname":"クラウド",
+			"id":"207000105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4825,"mp":208,"atk":204,"def":190,"mag":176,"spr":180},
+				"minStats":{"hp":1592,"mp":69,"atk":67,"def":63,"mag":58,"spr":59},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン","ソニックインパクト","バスターエンド","ティファとの約束"]
 		}
+	},
+	"207000127": {
+		"name":"クラウド - Brave Shifted",
+		"jpname":"クラウド - Brave Shifted",
+		"id":"207000127",
+		"braveShifted":true,
+		"exAwakening": [{"hp":627,"mp":27,"atk":29,"def":25,"mag":23,"spr":23},{"hp":483,"mp":21,"atk":22,"def":19,"mag":18,"spr":18},{"hp":338,"mp":15,"atk":16,"def":13,"mag":12,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4866,"mp":206,"atk":228,"def":197,"mag":168,"spr":174},
+			"minStats":{"hp":1606,"mp":68,"atk":75,"def":65,"mag":55,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ソニックインパクト","ラッシュストライク","幻想との決別"]
 	},
 	"207000204": {
 		"name":"Barret",
@@ -8739,6 +8776,37 @@
 			"enhancementSkills":["急所斬り","ラッキースター","ハードラッシュ","託された夢","エアリスとの約束"]
 		}
 	},
+	"207001205": {
+		"name":"Rufus Shinra",
+		"jpname":"ルーファウス神羅(FFVII REMAKE)",
+		"id":"207001205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4877,"mp":244,"atk":207,"def":173,"mag":160,"spr":197},
+			"minStats":{"hp":1609,"mp":81,"atk":68,"def":57,"mag":53,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Rufus Shinra",
+			"jpname":"ルーファウス神羅(FFVII REMAKE)",
+			"id":"207001205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3751,"mp":187,"atk":159,"def":133,"mag":123,"spr":151},
+				"minStats":{"hp":1238,"mp":62,"atk":52,"def":44,"mag":41,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"]
+		}
+	},
 	"207001305": {
 		"name":"Reno (FFVII REMAKE)",
 		"jpname":"レノ(FFVII REMAKE)",
@@ -8944,6 +9012,42 @@
 			"stats_pattern":1,
 			"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
+	},
+	"207002207": {
+		"name":"Aerith (FFVII REMAKE)",
+		"jpname":"エアリス(FFVII REMAKE)",
+		"id":"207002207",
+		"braveShift":"207002217",
+		"exAwakening": [{"hp":621,"mp":35,"atk":18,"def":22,"mag":23,"spr":31},{"hp":478,"mp":27,"atk":14,"def":17,"mag":17,"spr":24},{"hp":335,"mp":19,"atk":10,"def":12,"mag":12,"spr":17}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4780,"mp":269,"atk":140,"def":171,"mag":174,"spr":242},
+			"minStats":{"hp":1577,"mp":89,"atk":46,"def":56,"mag":57,"spr":80},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","mace","hat","clothes","robe"],
+		"enhancementSkills":["テンペスト","光の盾"]
+	},
+	"207002217": {
+		"name":"Aerith (FFVII REMAKE) - Brave Shifted",
+		"jpname":"エアリス(FFVII REMAKE) - Brave Shifted",
+		"id":"207002217",
+		"braveShifted":true,
+		"exAwakening": [{"hp":621,"mp":35,"atk":18,"def":22,"mag":23,"spr":31},{"hp":478,"mp":27,"atk":14,"def":17,"mag":17,"spr":24},{"hp":335,"mp":19,"atk":10,"def":12,"mag":12,"spr":17}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4597,"mp":279,"atk":141,"def":147,"mag":242,"spr":208},
+			"minStats":{"hp":1517,"mp":92,"atk":47,"def":49,"mag":80,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","mace","hat","clothes","robe"],
+		"enhancementSkills":["テンペスト","ジャッジメントレイ"]
 	},
 	"208000105": {
 		"name":"Squall",

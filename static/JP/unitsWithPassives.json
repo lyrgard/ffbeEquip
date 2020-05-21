@@ -7577,7 +7577,7 @@
 		}
 	},
 	"100027505": {
-		"name":"Alexander Charlotte",
+		"name":"Hallowed Aegis Charlotte",
 		"jpname":"聖砦シャルロット",
 		"id":"100027505",
 		"max_rarity":"7",
@@ -7600,7 +7600,7 @@
 			{"def%":40, "spr%":40, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Alexander Charlotte",
+			"name":"Hallowed Aegis Charlotte",
 			"jpname":"聖砦シャルロット",
 			"id":"100027505",
 			"sixStarForm":true,
@@ -7623,7 +7623,7 @@
 		}
 	},
 	"100027605": {
-		"name":"Shiva Lasswell",
+		"name":"Mystical Ice Lasswell",
 		"jpname":"氷魔ラスウェル",
 		"id":"100027605",
 		"max_rarity":"7",
@@ -7644,7 +7644,7 @@
 			{"atk%":50, "lbDamage":50, "skillEnhancement":{"233690":2,"233691":2,"233692":2,"233693":2,"233694":2,"233695":2,"233696":2,"233697":2,"233698":2,"510960":2,"510962":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Shiva Lasswell",
+			"name":"Mystical Ice Lasswell",
 			"jpname":"氷魔ラスウェル",
 			"id":"100027605",
 			"sixStarForm":true,
@@ -7665,7 +7665,7 @@
 		}
 	},
 	"100027705": {
-		"name":"Odin Raegen",
+		"name":"War Hero Raegen",
 		"jpname":"戦騎レーゲン",
 		"id":"100027705",
 		"max_rarity":"7",
@@ -7693,7 +7693,7 @@
 			{"atk%":30, "def%":30, "spr%":30, "lbDamage":50, "skillEnhancement":{"233640":7,"233641":7,"233644":7,"233645":7,"233646":7,"233647":7,"233648":7,"233649":7,"233650":7,"233655":7,"510946":7,"510947":7}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Odin Raegen",
+			"name":"War Hero Raegen",
 			"jpname":"戦騎レーゲン",
 			"id":"100027705",
 			"sixStarForm":true,
@@ -7765,7 +7765,7 @@
 		}
 	},
 	"100027905": {
-		"name":"Tetra Sylphid Physalis",
+		"name":"Four Winds Physalis",
 		"jpname":"四天ファイサリス",
 		"id":"100027905",
 		"max_rarity":"7",
@@ -7787,7 +7787,7 @@
 			{"mag%":30, "spr%":30, "skillEnhancement":{"233580":1,"233581":1,"233582":1,"233586":1,"233587":1,"233589":1,"233590":1,"510934":1,"510935":1}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Tetra Sylphid Physalis",
+			"name":"Four Winds Physalis",
 			"jpname":"四天ファイサリス",
 			"id":"100027905",
 			"sixStarForm":true,
@@ -12034,23 +12034,26 @@
 		"name":"Cloud",
 		"jpname":"クラウド",
 		"id":"207000105",
-		"max_rarity":"7",
+		"braveShift":"207000127",
+		"exAwakening": [{"hp":627,"mp":27,"atk":29,"def":25,"mag":23,"spr":23},{"hp":483,"mp":21,"atk":22,"def":19,"mag":18,"spr":18},{"hp":338,"mp":15,"atk":16,"def":13,"mag":12,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4825,"mp":208,"atk":204,"def":190,"mag":176,"spr":180},
-			"minStats":{"hp":1592,"mp":69,"atk":67,"def":63,"mag":58,"spr":59},
+			"maxStats":{"hp":4825,"mp":208,"atk":224,"def":190,"mag":176,"spr":180},
+			"minStats":{"hp":1592,"mp":69,"atk":74,"def":63,"mag":58,"spr":59},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン"],
+		"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン","ソニックインパクト","バスターエンド","ティファとの約束"],
 		"enhancements": [
 			{"name":"俺は、俺の現実を生きる","levels":[[],[{"lbPerTurn":{"min":5,"max":5},"lbDamage":150,"replaceLb":{"name":"超究武神覇斬","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":24.1,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (24.1x * 2 = 48.2x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":27,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (27x * 2 = 54x, ATK) to one enemy (ignore cover)"}],"frames":[188,206,222,254,270,282,304,326,342,356,388,406,418,448,550],"move":"walk"}}]]},
-			{"name":"ソルジャークラス1ST","levels":[[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mp%":50,"hp%":50}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60},{"equipedConditions":["greatSword"],"atk%":30}]]}
+			{"name":"ソルジャークラス1ST","levels":[[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mp%":50,"hp%":50}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60},{"equipedConditions":["greatSword"],"atk%":30}]]},
+			{"name":"ティファとの約束","levels":[[{"atk":50,"skillEnhancement":{"214790":15,"214800":15,"214810":12,"214820":5,"214830":5,"214840":12,"707228":5,"707229":5,"707230":5,"707231":5}}],[{"atk":50,"skillEnhancement":{"214790":24,"214800":24,"214810":21,"214820":6,"214830":6,"214840":21,"707228":6,"707229":6,"707230":6,"707231":6}}],[{"atk":75,"skillEnhancement":{"214790":33,"214800":33,"214810":30,"214820":7,"214830":7,"214840":30,"707228":7,"707229":7,"707230":7,"707231":7}}],[{"atk":75,"skillEnhancement":{"214790":42,"214800":42,"214810":39,"214820":8,"214830":8,"214840":39,"707228":8,"707229":8,"707230":8,"707231":8}}],[{"atk":100,"skillEnhancement":{"214790":51,"214800":51,"214810":48,"214820":9,"214830":9,"214840":48,"707228":9,"707229":9,"707230":9,"707231":9}}]]}
 		],
 		"skills": [
-			{"singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
+			{"atk%":90, "singleWielding":{"accuracy":50,"atk":150}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
 			{"atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504214990","303004400"]]},
 			{"atk%":20, "levelCondition":115},
 			{"lbDamage":30, "skillEnhancement":{"214790":0.5,"214800":0.5,"214810":0.5,"214820":0.1,"214830":0.1,"214840":0.5,"707228":0.1,"707229":0.1,"707230":0.1,"707231":0.1}, "levelCondition":120}
@@ -12070,7 +12073,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン"],
+			"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン","ソニックインパクト","バスターエンド","ティファとの約束"],
 		"enhancements": [
 			{"name":"俺は、俺の現実を生きる","levels":[[],[{"lbPerTurn":{"min":5,"max":5},"lbDamage":150,"replaceLb":{"name":"超究武神覇斬","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":24.1,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (24.1x * 2 = 48.2x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":27,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (27x * 2 = 54x, ATK) to one enemy (ignore cover)"}],"frames":[188,206,222,254,270,282,304,326,342,356,388,406,418,448,550],"move":"walk"}}]]},
 			{"name":"ソルジャークラス1ST","levels":[[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mp%":50,"hp%":50}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60},{"equipedConditions":["greatSword"],"atk%":30}]]}
@@ -12078,7 +12081,59 @@
 			"skills": [
 				{"singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]}
 			]
+		},
+		"7_form": {
+			"name":"Cloud",
+			"jpname":"クラウド",
+			"id":"207000105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4825,"mp":208,"atk":204,"def":190,"mag":176,"spr":180},
+				"minStats":{"hp":1592,"mp":69,"atk":67,"def":63,"mag":58,"spr":59},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン","ソニックインパクト","バスターエンド","ティファとの約束"],
+		"enhancements": [
+			{"name":"俺は、俺の現実を生きる","levels":[[],[{"lbPerTurn":{"min":5,"max":5},"lbDamage":150,"replaceLb":{"name":"超究武神覇斬","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":24.1,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (24.1x * 2 = 48.2x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":27,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (27x * 2 = 54x, ATK) to one enemy (ignore cover)"}],"frames":[188,206,222,254,270,282,304,326,342,356,388,406,418,448,550],"move":"walk"}}]]},
+			{"name":"ソルジャークラス1ST","levels":[[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mp%":50,"hp%":50}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60}],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"mp%":60,"hp%":60},{"equipedConditions":["greatSword"],"atk%":30}]]}
+		],
+			"skills": [
+				{"singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
+				{"atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504214990","303004400"]]},
+				{"atk%":20, "levelCondition":115},
+				{"lbDamage":30, "skillEnhancement":{"214790":0.5,"214800":0.5,"214810":0.5,"214820":0.1,"214830":0.1,"214840":0.5,"707228":0.1,"707229":0.1,"707230":0.1,"707231":0.1}, "levelCondition":120}
+			]
 		}
+	},
+	"207000127": {
+		"name":"クラウド - Brave Shifted",
+		"jpname":"クラウド - Brave Shifted",
+		"id":"207000127",
+		"braveShifted":true,
+		"exAwakening": [{"hp":627,"mp":27,"atk":29,"def":25,"mag":23,"spr":23},{"hp":483,"mp":21,"atk":22,"def":19,"mag":18,"spr":18},{"hp":338,"mp":15,"atk":16,"def":13,"mag":12,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4866,"mp":206,"atk":228,"def":197,"mag":168,"spr":174},
+			"minStats":{"hp":1606,"mp":68,"atk":75,"def":65,"mag":55,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ソニックインパクト","ラッシュストライク","幻想との決別"],
+		"enhancements": [
+			{"name":"幻想との決別","levels":[[{"lbDamage":50}],[{"lbDamage":60}],[{"lbDamage":70}],[{"lbDamage":85}],[{"lbDamage":100}]]}
+		],
+		"skills": [
+			{"hp%":120, "mp%":60, "atk%":140, "def%":70, "spr%":70, "singleWielding":{"accuracy":50,"atk":150}, "lbPerTurn":{"min":9,"max":9}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":100}]},
+			{"atk%":60, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"human","physical":50}], "equipedConditions":[["504214990","303004400"]]}
+		]
 	},
 	"207000204": {
 		"name":"Barret",
@@ -12596,6 +12651,55 @@
 			]
 		}
 	},
+	"207001205": {
+		"name":"Rufus Shinra",
+		"jpname":"ルーファウス神羅(FFVII REMAKE)",
+		"id":"207001205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4877,"mp":244,"atk":207,"def":173,"mag":160,"spr":197},
+			"minStats":{"hp":1609,"mp":81,"atk":68,"def":57,"mag":53,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"],
+		"enhancements": [
+			{"name":"御曹司のプライド","levels":[[],[{"skillEnhancement":{"236521":2,"236523":2,"236524":2,"236525":2,"512741":2,"512742":2,"512743":2,"512746":2},"lbDamage":50},{"equipedConditions":["gun"],"atk%":20,"def%":20}]]}
+		],
+		"skills": [
+			{"hp%":30, "mp%":20, "atk%":80, "def%":30, "evade":{"physical":20}, "dualWielding":{"atk":100}, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"confuse","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+			{"atk%":20, "equipedConditions":["gun"]},
+			{"atk%":40, "spr%":40, "dualWielding":{"atk":50}, "equipedConditions":[["405011800","504236413"]]},
+			{"def%":30, "spr%":30, "levelCondition":105},
+			{"hp%":20, "levelCondition":115},
+			{"mp%":40, "atk%":40, "lbFillRate":100, "lbDamage":50, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Rufus Shinra",
+			"jpname":"ルーファウス神羅(FFVII REMAKE)",
+			"id":"207001205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3751,"mp":187,"atk":159,"def":133,"mag":123,"spr":151},
+				"minStats":{"hp":1238,"mp":62,"atk":52,"def":44,"mag":41,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"],
+		"enhancements": [
+			{"name":"御曹司のプライド","levels":[[],[{"skillEnhancement":{"236521":2,"236523":2,"236524":2,"236525":2,"512741":2,"512742":2,"512743":2,"512746":2},"lbDamage":50},{"equipedConditions":["gun"],"atk%":20,"def%":20}]]}
+		],
+			"skills": [
+				{"hp%":30, "mp%":20, "atk%":80, "def%":30, "evade":{"physical":20}, "dualWielding":{"atk":100}, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"confuse","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+				{"atk%":20, "equipedConditions":["gun"]}
+			]
+		}
+	},
 	"207001305": {
 		"name":"Reno (FFVII REMAKE)",
 		"jpname":"レノ(FFVII REMAKE)",
@@ -12882,6 +12986,50 @@
 				{"hp%":50, "mp%":30, "atk%":100, "def%":40, "mag%":30, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":7, "lbDamage":50}
 			]
 		}
+	},
+	"207002207": {
+		"name":"Aerith (FFVII REMAKE)",
+		"jpname":"エアリス(FFVII REMAKE)",
+		"id":"207002207",
+		"braveShift":"207002217",
+		"exAwakening": [{"hp":621,"mp":35,"atk":18,"def":22,"mag":23,"spr":31},{"hp":478,"mp":27,"atk":14,"def":17,"mag":17,"spr":24},{"hp":335,"mp":19,"atk":10,"def":12,"mag":12,"spr":17}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4780,"mp":269,"atk":140,"def":171,"mag":174,"spr":242},
+			"minStats":{"hp":1577,"mp":89,"atk":46,"def":56,"mag":57,"spr":80},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","mace","hat","clothes","robe"],
+		"enhancementSkills":["テンペスト","光の盾"],
+		"skills": [
+			{"hp%":70, "mp%":100, "def%":30, "mag%":60, "spr%":170, "singleWielding":{"mag":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"demon","magical":75}], "mpRefresh":10},
+			{"def%":30, "mag%":30, "spr%":30, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "equipedConditions":[["504236410","405011700"]]}
+		]
+	},
+	"207002217": {
+		"name":"Aerith (FFVII REMAKE) - Brave Shifted",
+		"jpname":"エアリス(FFVII REMAKE) - Brave Shifted",
+		"id":"207002217",
+		"braveShifted":true,
+		"exAwakening": [{"hp":621,"mp":35,"atk":18,"def":22,"mag":23,"spr":31},{"hp":478,"mp":27,"atk":14,"def":17,"mag":17,"spr":24},{"hp":335,"mp":19,"atk":10,"def":12,"mag":12,"spr":17}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4597,"mp":279,"atk":141,"def":147,"mag":242,"spr":208},
+			"minStats":{"hp":1517,"mp":92,"atk":47,"def":49,"mag":80,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","mace","hat","clothes","robe"],
+		"enhancementSkills":["テンペスト","ジャッジメントレイ"],
+		"skills": [
+			{"hp%":80, "mp%":70, "def%":40, "mag%":170, "spr%":90, "singleWielding":{"mag":200}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"demon","magical":150}], "mpRefresh":5, "lbDamage":50, "skillEnhancement":{"236432":5,"236433":5,"236434":5,"236435":5,"236436":5}},
+			{"def%":30, "mag%":30, "spr%":30, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "equipedConditions":[["504236410","405011700"]]}
+		]
 	},
 	"208000105": {
 		"name":"Squall",

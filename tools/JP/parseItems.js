@@ -387,7 +387,7 @@ function treatVisionCard(visionCard, visionCardId, skills) {
                             let conditional = {};
                             addEffectToItem(conditional, skill, index, skills);
                             if (!levelData.conditional) levelData.conditional = [];
-                            if (!Object.keys(unitRules).includes(ruleId)) {
+                            if (!Object.keys(unitRules).includes(ruleId.toString())) {
                                 console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
                             }
                             unitRules[ruleId](conditional);
