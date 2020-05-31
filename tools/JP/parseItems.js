@@ -107,8 +107,9 @@ const visionCardStatPatterns = {
 }
 
 const unitRules = {
-    4008: (item) => item.exclusiveUnits = unitIdsByGameId[10007], // FF7 units
+    4008: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10007], // FF7 units
     7102: (item) => item.exclusiveSex = 'male',// Male units
+    7216: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001], // FFBE units
 }
 
 var unitNamesById = {};
@@ -120,7 +121,7 @@ var oldItemsMaxNumberById = {};
 var releasedUnits;
 var glNameById = {};
 var dev = false;
-var unitIdsByGameId = {};
+var nvUnitIdsByGameId = {};
 var jpUnits;
 
 
@@ -192,9 +193,9 @@ getData('equipment.json', function (items) {
 
                                 Object.keys(units).forEach(unitId => {
                                     let unit = units[unitId];
-                                    if (unit.game_id) {
-                                        if (!unitIdsByGameId[unit.game_id]) unitIdsByGameId[unit.game_id] = [];
-                                        unitIdsByGameId[unit.game_id].push(unitId);
+                                    if (unit.game_id && unit.skills && unit.skills.some(s => s.brave_ability)) {
+                                        if (!nvUnitIdsByGameId[unit.game_id]) nvUnitIdsByGameId[unit.game_id] = [];
+                                        nvUnitIdsByGameId[unit.game_id].push(unitId);
                                     }
                                 });
 

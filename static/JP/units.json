@@ -1014,17 +1014,19 @@
 		"name":"Aileen",
 		"jpname":"アイリーン",
 		"id":"100005905",
-		"max_rarity":"7",
+		"braveShift":"100005927",
+		"exAwakening": [{"hp":619,"mp":28,"atk":29,"def":22,"mag":21,"spr":23},{"hp":476,"mp":22,"atk":23,"def":17,"mag":16,"spr":18},{"hp":333,"mp":15,"atk":16,"def":12,"mag":11,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4754,"mp":193,"atk":195,"def":163,"mag":158,"spr":161},
-			"minStats":{"hp":1569,"mp":64,"atk":65,"def":51,"mag":52,"spr":51},
+			"maxStats":{"hp":4761,"mp":215,"atk":225,"def":169,"mag":159,"spr":180},
+			"minStats":{"hp":1571,"mp":71,"atk":74,"def":56,"mag":52,"spr":59},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["リカバリーオイル","アナリシス","パイルドライバー"],
+		"enhancementSkills":["リカバリーオイル","アナリシス","パイルドライバー","パイルドライバー・改","アームリヴァンプ","ジェイクとの絆【アイリーン】"],
 		"6_form": {
 			"name":"Aileen",
 			"jpname":"アイリーン",
@@ -1040,8 +1042,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["リカバリーオイル","アナリシス","パイルドライバー"]
+			"enhancementSkills":["リカバリーオイル","アナリシス","パイルドライバー","パイルドライバー・改","アームリヴァンプ","ジェイクとの絆【アイリーン】"]
+		},
+		"7_form": {
+			"name":"Aileen",
+			"jpname":"アイリーン",
+			"id":"100005905",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4754,"mp":193,"atk":195,"def":163,"mag":158,"spr":161},
+				"minStats":{"hp":1569,"mp":64,"atk":65,"def":51,"mag":52,"spr":51},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["リカバリーオイル","アナリシス","パイルドライバー","パイルドライバー・改","アームリヴァンプ","ジェイクとの絆【アイリーン】"]
 		}
+	},
+	"100005927": {
+		"name":"Aileen - Brave Shifted",
+		"jpname":"アイリーン - Brave Shifted",
+		"id":"100005927",
+		"braveShifted":true,
+		"exAwakening": [{"hp":619,"mp":28,"atk":29,"def":22,"mag":21,"spr":23},{"hp":476,"mp":22,"atk":23,"def":17,"mag":16,"spr":18},{"hp":333,"mp":15,"atk":16,"def":12,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4837,"mp":200,"atk":229,"def":174,"mag":158,"spr":174},
+			"minStats":{"hp":1596,"mp":66,"atk":76,"def":57,"mag":52,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["パイルドライバー・改","マントルドライバー","武器専門のエンジニア"]
 	},
 	"100006003": {
 		"name":"Ulrica",
@@ -2186,17 +2223,19 @@
 		"name":"Pyro Glacial Lasswell",
 		"jpname":"氷炎の騎士ラスウェル",
 		"id":"100011705",
-		"max_rarity":"7",
+		"braveShift":"100011727",
+		"exAwakening": [{"hp":639,"mp":28,"atk":29,"def":24,"mag":20,"spr":24},{"hp":492,"mp":22,"atk":23,"def":18,"mag":16,"spr":18},{"hp":344,"mp":15,"atk":16,"def":13,"mag":11,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4908,"mp":214,"atk":204,"def":184,"mag":157,"spr":177},
-			"minStats":{"hp":1620,"mp":71,"atk":67,"def":61,"mag":52,"spr":58},
+			"maxStats":{"hp":4918,"mp":218,"atk":226,"def":184,"mag":157,"spr":182},
+			"minStats":{"hp":1623,"mp":72,"atk":75,"def":61,"mag":52,"spr":60},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["秘刀の継承者","紫電一閃・醒","絶・明鏡","MP+20%"],
+		"enhancementSkills":["秘刀の継承者","紫電一閃・醒","絶・明鏡","MP+20%","烈魂の刃","紫電一閃・大悟","技に込めた思い"],
 		"6_form": {
 			"name":"Pyro Glacial Lasswell",
 			"jpname":"氷炎の騎士ラスウェル",
@@ -2212,8 +2251,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["秘刀の継承者","紫電一閃・醒","絶・明鏡","MP+20%"]
+			"enhancementSkills":["秘刀の継承者","紫電一閃・醒","絶・明鏡","MP+20%","烈魂の刃","紫電一閃・大悟","技に込めた思い"]
+		},
+		"7_form": {
+			"name":"Pyro Glacial Lasswell",
+			"jpname":"氷炎の騎士ラスウェル",
+			"id":"100011705",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4908,"mp":214,"atk":204,"def":184,"mag":157,"spr":177},
+				"minStats":{"hp":1620,"mp":71,"atk":67,"def":61,"mag":52,"spr":58},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["秘刀の継承者","紫電一閃・醒","絶・明鏡","MP+20%","烈魂の刃","紫電一閃・大悟","技に込めた思い"]
 		}
+	},
+	"100011727": {
+		"name":"Pyro Glacial Lasswell - Brave Shifted",
+		"jpname":"氷炎の騎士ラスウェル - Brave Shifted",
+		"id":"100011727",
+		"braveShifted":true,
+		"exAwakening": [{"hp":639,"mp":28,"atk":29,"def":24,"mag":20,"spr":24},{"hp":492,"mp":22,"atk":23,"def":18,"mag":16,"spr":18},{"hp":344,"mp":15,"atk":16,"def":13,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4947,"mp":214,"atk":228,"def":179,"mag":160,"spr":174},
+			"minStats":{"hp":1633,"mp":71,"atk":75,"def":59,"mag":53,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["烈魂の刃","雪華終焉・改","星を導く者"]
 	},
 	"100011805": {
 		"name":"Lotus Mage Fina",
@@ -5486,7 +5560,7 @@
 		}
 	},
 	"100027805": {
-		"name":"Fenrir Edel",
+		"name":"Untamed Wolf Edel",
 		"jpname":"魔狼マダム・エーデル",
 		"id":"100027805",
 		"max_rarity":"7",
@@ -5500,7 +5574,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Fenrir Edel",
+			"name":"Untamed Wolf Edel",
 			"jpname":"魔狼マダム・エーデル",
 			"id":"100027805",
 			"sixStarForm":true,
@@ -6369,6 +6443,37 @@
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["アッシュブレイド","アストラルエッジ"]
 	},
+	"100031105": {
+		"name":"幼心の少女執事シンジュ",
+		"jpname":"幼心の少女執事シンジュ",
+		"id":"100031105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4851,"mp":243,"atk":209,"def":186,"mag":139,"spr":177},
+			"minStats":{"hp":1601,"mp":80,"atk":69,"def":61,"mag":46,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","whip","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"幼心の少女執事シンジュ",
+			"jpname":"幼心の少女執事シンジュ",
+			"id":"100031105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3731,"mp":186,"atk":160,"def":143,"mag":106,"spr":136},
+				"minStats":{"hp":1231,"mp":61,"atk":53,"def":47,"mag":35,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","whip","fist","hat","clothes","lightArmor","robe"]
+		}
+	},
 	"100031205": {
 		"name":"Bruce",
 		"jpname":"ブルース",
@@ -6430,6 +6535,73 @@
 			"stats_pattern":1,
 			"equip":["staff","rod","gun","hat","clothes","robe"]
 		}
+	},
+	"100031405": {
+		"name":"ダンディな獣人ペツォッタ",
+		"jpname":"ダンディな獣人ペツォッタ",
+		"id":"100031405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4912,"mp":245,"atk":205,"def":191,"mag":167,"spr":180},
+			"minStats":{"hp":1621,"mp":81,"atk":68,"def":63,"mag":55,"spr":59},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"ダンディな獣人ペツォッタ",
+			"jpname":"ダンディな獣人ペツォッタ",
+			"id":"100031405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3778,"mp":188,"atk":157,"def":146,"mag":128,"spr":138},
+				"minStats":{"hp":1247,"mp":62,"atk":52,"def":48,"mag":42,"spr":46},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"]
+		}
+	},
+	"100031507": {
+		"name":"Awakened Genius Akstar",
+		"jpname":"目覚めし臥竜アクスター",
+		"id":"100031507",
+		"braveShift":"100031517",
+		"exAwakening": [{"hp":639,"mp":32,"atk":59,"def":25,"mag":19,"spr":25},{"hp":491,"mp":25,"atk":46,"def":19,"mag":15,"spr":19},{"hp":344,"mp":17,"atk":32,"def":13,"mag":10,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4912,"mp":245,"atk":228,"def":192,"mag":146,"spr":189},
+			"minStats":{"hp":1621,"mp":81,"atk":75,"def":63,"mag":48,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["壊刀・裂氷河","覇刀・国崩し"]
+	},
+	"100031517": {
+		"name":"Awakened Genius Akstar - Brave Shifted",
+		"jpname":"目覚めし臥竜アクスター - Brave Shifted",
+		"id":"100031517",
+		"braveShifted":true,
+		"exAwakening": [{"hp":639,"mp":32,"atk":59,"def":25,"mag":19,"spr":25},{"hp":491,"mp":25,"atk":46,"def":19,"mag":15,"spr":19},{"hp":344,"mp":17,"atk":32,"def":13,"mag":10,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4883,"mp":258,"atk":233,"def":177,"mag":147,"spr":180},
+			"minStats":{"hp":1611,"mp":85,"atk":77,"def":58,"mag":49,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["懲刀・悪因果","覇刀・国崩し"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -7786,6 +7958,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["ダークスワロー","アースグレイヴ","エアロスパーク","世界を無に帰す力","無の力","全てを無へ","宇宙の　法則が　乱れる！"],
 		"6_form": {
 			"name":"Dark Mage Exdeath",
 			"jpname":"暗黒魔道士エクスデス",
@@ -7800,7 +7973,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["ダークスワロー","アースグレイヴ","エアロスパーク","世界を無に帰す力","無の力","全てを無へ","宇宙の　法則が　乱れる！"]
 		}
 	},
 	"205001005": {
@@ -7817,6 +7991,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["守りの剣","誓約の護り","暁炎","暁光","バル国の王"],
 		"6_form": {
 			"name":"Warrior of Dawn Galuf",
 			"jpname":"暁の四戦士ガラフ",
@@ -7831,7 +8006,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["守りの剣","誓約の護り","暁炎","暁光","バル国の王"]
 		}
 	},
 	"205001105": {
@@ -7910,6 +8086,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["モーグリの助言・退霊","モーグリの助言・退獣","海竜の魂を見出す力","飛竜の守護","飛竜の急襲改","森羅万象の恵み"],
 		"6_form": {
 			"name":"Warrior of Light Krile",
 			"jpname":"光の戦士クルル",
@@ -7924,7 +8101,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"enhancementSkills":["モーグリの助言・退霊","モーグリの助言・退獣","海竜の魂を見出す力","飛竜の守護","飛竜の急襲改","森羅万象の恵み"]
 		}
 	},
 	"206000103": {
@@ -11054,7 +11232,7 @@
 		}
 	},
 	"213001205": {
-		"name":"Hecatoncheir Vanille",
+		"name":"Daughter of Destiny Vanille",
 		"jpname":"宿命の少女ヴァニラ",
 		"id":"213001205",
 		"max_rarity":"7",
@@ -11068,7 +11246,7 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","harp","whip","hat","clothes","robe"],
 		"6_form": {
-			"name":"Hecatoncheir Vanille",
+			"name":"Daughter of Destiny Vanille",
 			"jpname":"宿命の少女ヴァニラ",
 			"id":"213001205",
 			"sixStarForm":true,
@@ -11085,7 +11263,7 @@
 		}
 	},
 	"213001305": {
-		"name":"Bahamut Fang",
+		"name":"Graceful Champion Fang",
 		"jpname":"麗しき勇士ファング",
 		"id":"213001305",
 		"max_rarity":"7",
@@ -11099,7 +11277,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","spear","lightShield","hat","clothes","lightArmor"],
 		"6_form": {
-			"name":"Bahamut Fang",
+			"name":"Graceful Champion Fang",
 			"jpname":"麗しき勇士ファング",
 			"id":"213001305",
 			"sixStarForm":true,
