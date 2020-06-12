@@ -4,7 +4,7 @@
   "description": "FFBE Equip",
   "main": "server.js",
   "engines": {
-    "node": ">= 8"
+    "node": ">=8"
   },
   "scripts": {
     "test": "nyc mocha test/server --recursive",

@@ -141,6 +141,10 @@ app.use((req, res) => {
 
 app.use(errorHandler);
 
+if (process.env.PORT) {
+    config.port = process.env.PORT;
+}
+
 if (module === require.main) {
   app.listen(config.port, () => {
     console.log(`App server running at http://localhost:${config.port}`);

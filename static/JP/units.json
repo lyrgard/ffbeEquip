@@ -82,17 +82,19 @@
 		"name":"Dark Fina",
 		"jpname":"魔人フィーナ",
 		"id":"100000315",
-		"max_rarity":"7",
+		"braveShift":"100000337",
+		"exAwakening": [{"hp":587,"mp":33,"atk":19,"def":22,"mag":31,"spr":23},{"hp":451,"mp":25,"atk":15,"def":17,"mag":24,"spr":18},{"hp":316,"mp":18,"atk":10,"def":12,"mag":17,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4513,"mp":247,"atk":149,"def":169,"mag":200,"spr":179},
-			"minStats":{"hp":1489,"mp":82,"atk":49,"def":51,"mag":66,"spr":55},
+			"maxStats":{"hp":4514,"mp":250,"atk":149,"def":170,"mag":240,"spr":180},
+			"minStats":{"hp":1490,"mp":83,"atk":49,"def":56,"mag":79,"spr":59},
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
-		"enhancementSkills":["リタリエイト","アルテマ","ディストピア"],
+		"enhancementSkills":["リタリエイト","アルテマ","ディストピア","土のクリスタルに眠りし者","クレイスカージ","ソーサリーウィップ"],
 		"6_form": {
 			"name":"Dark Fina",
 			"jpname":"魔人フィーナ",
@@ -108,7 +110,24 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","whip","mace","hat","clothes","robe"],
-			"enhancementSkills":["リタリエイト","アルテマ","ディストピア"]
+			"enhancementSkills":["リタリエイト","アルテマ","ディストピア","土のクリスタルに眠りし者","クレイスカージ","ソーサリーウィップ"]
+		},
+		"7_form": {
+			"name":"Dark Fina",
+			"jpname":"魔人フィーナ",
+			"id":"100000315",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4513,"mp":247,"atk":149,"def":169,"mag":200,"spr":179},
+				"minStats":{"hp":1489,"mp":82,"atk":49,"def":51,"mag":66,"spr":55},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["staff","rod","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["リタリエイト","アルテマ","ディストピア","土のクリスタルに眠りし者","クレイスカージ","ソーサリーウィップ"]
 		}
 	},
 	"100000324": {
@@ -125,6 +144,24 @@
 		},
 		"stats_pattern":1,
 		"equip":["bow","throwing","hat","helm","clothes","lightArmor"]
+	},
+	"100000337": {
+		"name":"Dark Fina - Brave Shifted",
+		"jpname":"魔人フィーナ - Brave Shifted",
+		"id":"100000337",
+		"braveShifted":true,
+		"exAwakening": [{"hp":587,"mp":33,"atk":19,"def":22,"mag":31,"spr":23},{"hp":451,"mp":25,"atk":15,"def":17,"mag":24,"spr":18},{"hp":316,"mp":18,"atk":10,"def":12,"mag":17,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4510,"mp":268,"atk":154,"def":163,"mag":242,"spr":178},
+			"minStats":{"hp":1488,"mp":88,"atk":51,"def":54,"mag":80,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["ソーサリーウィップ","ブリーズチェイン","解放されし魔人の力"]
 	},
 	"100000403": {
 		"name":"Nichol",
@@ -2439,17 +2476,19 @@
 		"name":"Blossom Sage Sakura",
 		"jpname":"桜雲の賢者サクラ",
 		"id":"100012405",
-		"max_rarity":"7",
+		"braveShift":"100012427",
+		"exAwakening": [{"hp":588,"mp":36,"atk":17,"def":23,"mag":31,"spr":25},{"hp":452,"mp":28,"atk":13,"def":18,"mag":24,"spr":20},{"hp":316,"mp":19,"atk":9,"def":12,"mag":16,"spr":14}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4518,"mp":274,"atk":131,"def":177,"mag":204,"spr":193},
-			"minStats":{"hp":1491,"mp":90,"atk":43,"def":58,"mag":67,"spr":64},
+			"maxStats":{"hp":4521,"mp":275,"atk":131,"def":177,"mag":235,"spr":195},
+			"minStats":{"hp":1492,"mp":91,"atk":43,"def":58,"mag":78,"spr":64},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
-		"enhancementSkills":["迅・終の轟雷","防御結界","ロッドの極意","迅・レブルインテンション","神鳴り"],
+		"enhancementSkills":["迅・終の轟雷","防御結界","ロッドの極意","迅・レブルインテンション","神鳴り","魔昇光","迅・雷の一閃","桜雲の賢者"],
 		"6_form": {
 			"name":"Blossom Sage Sakura",
 			"jpname":"桜雲の賢者サクラ",
@@ -2465,8 +2504,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
-			"enhancementSkills":["迅・終の轟雷","防御結界","ロッドの極意","迅・レブルインテンション","神鳴り"]
+			"enhancementSkills":["迅・終の轟雷","防御結界","ロッドの極意","迅・レブルインテンション","神鳴り","魔昇光","迅・雷の一閃","桜雲の賢者"]
+		},
+		"7_form": {
+			"name":"Blossom Sage Sakura",
+			"jpname":"桜雲の賢者サクラ",
+			"id":"100012405",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4518,"mp":274,"atk":131,"def":177,"mag":204,"spr":193},
+				"minStats":{"hp":1491,"mp":90,"atk":43,"def":58,"mag":67,"spr":64},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
+			"enhancementSkills":["迅・終の轟雷","防御結界","ロッドの極意","迅・レブルインテンション","神鳴り","魔昇光","迅・雷の一閃","桜雲の賢者"]
 		}
+	},
+	"100012427": {
+		"name":"桜雲の賢者サクラ - Brave Shifted",
+		"jpname":"桜雲の賢者サクラ - Brave Shifted",
+		"id":"100012427",
+		"braveShifted":true,
+		"exAwakening": [{"hp":588,"mp":36,"atk":17,"def":23,"mag":31,"spr":25},{"hp":452,"mp":28,"atk":13,"def":18,"mag":24,"spr":20},{"hp":316,"mp":19,"atk":9,"def":12,"mag":16,"spr":14}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4500,"mp":283,"atk":128,"def":170,"mag":240,"spr":206},
+			"minStats":{"hp":1485,"mp":93,"atk":42,"def":56,"mag":79,"spr":68},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
+		"enhancementSkills":["魔昇光","迅・桜雷レブルインテンション","黒衣の賢者"]
 	},
 	"100012505": {
 		"name":"Maritime Strategist Nichol",
@@ -5188,6 +5262,37 @@
 		"stats_pattern":1,
 		"equip":["dagger","sword","hammer","gun","mace","hat","clothes"]
 	},
+	"100026205": {
+		"name":"Alhena",
+		"jpname":"アルヘナ",
+		"id":"100026205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4541,"mp":288,"atk":130,"def":161,"mag":218,"spr":208},
+			"minStats":{"hp":1499,"mp":95,"atk":43,"def":53,"mag":72,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","spear","hat","clothes","robe"],
+		"6_form": {
+			"name":"Alhena",
+			"jpname":"アルヘナ",
+			"id":"100026205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3493,"mp":221,"atk":100,"def":123,"mag":167,"spr":160},
+				"minStats":{"hp":1153,"mp":73,"atk":33,"def":41,"mag":55,"spr":53},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","spear","hat","clothes","robe"]
+		}
+	},
 	"100026505": {
 		"name":"FamilyMart Physalis",
 		"jpname":"ファミマ ファイサリス",
@@ -6602,6 +6707,42 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["懲刀・悪因果","覇刀・国崩し"]
+	},
+	"100031607": {
+		"name":"Sol - Neo Vision-",
+		"jpname":"ソル-Neo Vision-",
+		"id":"100031607",
+		"braveShift":"100031617",
+		"exAwakening": [{"hp":591,"mp":38,"atk":18,"def":19,"mag":63,"spr":27},{"hp":454,"mp":29,"atk":14,"def":15,"mag":48,"spr":21},{"hp":318,"mp":20,"atk":9,"def":10,"mag":34,"spr":14}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4544,"mp":289,"atk":135,"def":147,"mag":242,"spr":207},
+			"minStats":{"hp":1500,"mp":95,"atk":45,"def":49,"mag":80,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["暗黒の光束","氷闇の飛礫"]
+	},
+	"100031617": {
+		"name":"Sol - Neo Vision- - Brave Shifted",
+		"jpname":"ソル-Neo Vision- - Brave Shifted",
+		"id":"100031617",
+		"braveShifted":true,
+		"exAwakening": [{"hp":591,"mp":38,"atk":18,"def":19,"mag":63,"spr":27},{"hp":454,"mp":29,"atk":14,"def":15,"mag":48,"spr":21},{"hp":318,"mp":20,"atk":9,"def":10,"mag":34,"spr":14}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4494,"mp":281,"atk":135,"def":143,"mag":243,"spr":202},
+			"minStats":{"hp":1483,"mp":93,"atk":45,"def":47,"mag":80,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","whip","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["ブリザードデストラクション","氷闇の飛礫"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -8024,6 +8165,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流"],
 		"6_form": {
 			"name":"Warrior of Light Bartz",
 			"jpname":"光の戦士バッツ",
@@ -8038,7 +8180,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流"]
 		}
 	},
 	"205001205": {
@@ -8055,6 +8198,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","bow","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["タイクーン王国第二王女","魔法剣士：まほうバリア","火水の抱擁","煌めきの水舞い","ピュアヒーリング"],
 		"6_form": {
 			"name":"Warrior of Light Lenna",
 			"jpname":"光の戦士レナ",
@@ -8069,7 +8213,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","bow","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","staff","rod","bow","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"enhancementSkills":["タイクーン王国第二王女","魔法剣士：まほうバリア","火水の抱擁","煌めきの水舞い","ピュアヒーリング"]
 		}
 	},
 	"205001305": {

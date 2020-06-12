@@ -109,6 +109,7 @@ const visionCardStatPatterns = {
 const unitRules = {
     4008: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10007], // FF7 units
     7102: (item) => item.exclusiveSex = 'male',// Male units
+    7103: (item) => item.exclusiveSex = 'female',// Female units,
     7216: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001], // FFBE units
 }
 
