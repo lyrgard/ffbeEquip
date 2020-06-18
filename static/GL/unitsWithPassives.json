@@ -10970,7 +10970,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":110, "def%":40, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":50,"atk":150}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"bird","physical":75}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "replaceLb":{"name":"雑魚散らし","minEffects":[{"effect":null,"desc":"Cast Death (61%) or deal physical damage (30x * 1 = 30x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}],"maxEffects":[{"effect":null,"desc":"Cast Death (90%) or deal physical damage (48x * 1 = 48x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}]}},
+			{"hp%":40, "mp%":20, "atk%":110, "def%":40, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":50,"atk":150}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"bird","physical":75}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "replaceLb":{"name":"No Mercy","minEffects":[{"effect":null,"desc":"Cast Death (61%) or deal physical damage (30x * 1 = 30x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}],"maxEffects":[{"effect":null,"desc":"Cast Death (90%) or deal physical damage (48x * 1 = 48x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}]}},
 			{"hp%":20, "atk%":30, "def%":40, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"234576":8}, "equipedConditions":[["504234522","303008000"]]},
 			{"lbFillRate":50, "levelCondition":105},
 			{"lbDamage":25, "levelCondition":110},
@@ -10992,7 +10992,7 @@
 			"stats_pattern":1,
 			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 			"skills": [
-				{"hp%":40, "mp%":20, "atk%":110, "def%":40, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":50,"atk":150}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"bird","physical":75}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "replaceLb":{"name":"雑魚散らし","minEffects":[{"effect":null,"desc":"Cast Death (61%) or deal physical damage (30x * 1 = 30x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}],"maxEffects":[{"effect":null,"desc":"Cast Death (90%) or deal physical damage (48x * 1 = 48x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}]}}
+				{"hp%":40, "mp%":20, "atk%":110, "def%":40, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":50,"atk":150}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"bird","physical":75}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "replaceLb":{"name":"No Mercy","minEffects":[{"effect":null,"desc":"Cast Death (61%) or deal physical damage (30x * 1 = 30x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}],"maxEffects":[{"effect":null,"desc":"Cast Death (90%) or deal physical damage (48x * 1 = 48x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}]}}
 			]
 		}
 	},
@@ -11014,7 +11014,7 @@
 		]
 	},
 	"208001505": {
-		"name":"Sleeping Lion Squall",
+		"name":"Lone Lion Squall",
 		"id":"208001505",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -11035,7 +11035,7 @@
 			{"hp%":20, "mp%":10, "atk%":20, "def%":40, "spr%":40, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"234544":4,"234545":4,"234546":4,"234547":9}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Sleeping Lion Squall",
+			"name":"Lone Lion Squall",
 			"id":"208001505",
 			"sixStarForm":true,
 			"max_rarity":"7",

@@ -85,7 +85,7 @@ getData('units.json', function (units) {
                                     manageNV(units);
                                     for (var unitId in units) {
                                         var unitIn = units[unitId];
-                                        if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("8") && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
+                                        if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("7") && !unitId.startsWith("8") && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
                                             var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId);
                                             unitsOut[unitOut.data.id] = unitOut.data;
                                         }
