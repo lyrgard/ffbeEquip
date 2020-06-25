@@ -1753,17 +1753,19 @@
 		"name":"Loren",
 		"jpname":"ロレーヌ",
 		"id":"100009105",
-		"max_rarity":"7",
+		"braveShift":"100009127",
+		"exAwakening": [{"hp":633,"mp":31,"atk":29,"def":24,"mag":22,"spr":23},{"hp":487,"mp":24,"atk":22,"def":19,"mag":17,"spr":18},{"hp":341,"mp":17,"atk":16,"def":13,"mag":12,"spr":12}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4759,"mp":201,"atk":200,"def":188,"mag":162,"spr":176},
-			"minStats":{"hp":1570,"mp":66,"atk":66,"def":62,"mag":53,"spr":58},
+			"maxStats":{"hp":4866,"mp":236,"atk":222,"def":188,"mag":170,"spr":176},
+			"minStats":{"hp":1606,"mp":78,"atk":73,"def":62,"mag":56,"spr":58},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["双剣将軍","アームズイレイサー","アーマーイレイサー","フルブレイク改"],
+		"enhancementSkills":["双剣将軍","アーマーイレイサー","アームズイレイサー","フルブレイク改","入魂の一刃","滅閃一刃","騎士団との絆【ロレーヌ】"],
 		"6_form": {
 			"name":"Loren",
 			"jpname":"ロレーヌ",
@@ -1779,8 +1781,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["双剣将軍","アームズイレイサー","アーマーイレイサー","フルブレイク改"]
+			"enhancementSkills":["双剣将軍","アーマーイレイサー","アームズイレイサー","フルブレイク改","入魂の一刃","滅閃一刃","騎士団との絆【ロレーヌ】"]
+		},
+		"7_form": {
+			"name":"Loren",
+			"jpname":"ロレーヌ",
+			"id":"100009105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4759,"mp":201,"atk":200,"def":188,"mag":162,"spr":176},
+				"minStats":{"hp":1570,"mp":66,"atk":66,"def":62,"mag":53,"spr":58},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["双剣将軍","アーマーイレイサー","アームズイレイサー","フルブレイク改","入魂の一刃","滅閃一刃","騎士団との絆【ロレーヌ】"]
 		}
+	},
+	"100009127": {
+		"name":"Loren - Brave Shifted",
+		"jpname":"ロレーヌ - Brave Shifted",
+		"id":"100009127",
+		"braveShifted":true,
+		"exAwakening": [{"hp":633,"mp":31,"atk":29,"def":24,"mag":22,"spr":23},{"hp":487,"mp":24,"atk":22,"def":19,"mag":17,"spr":18},{"hp":341,"mp":17,"atk":16,"def":13,"mag":12,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4797,"mp":223,"atk":226,"def":179,"mag":175,"spr":180},
+			"minStats":{"hp":1583,"mp":74,"atk":75,"def":59,"mag":58,"spr":59},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["滅閃一刃","双剣舞","蒼月の心得"]
 	},
 	"100009204": {
 		"name":"Kupolkan",
@@ -9594,7 +9631,7 @@
 		"equip":["staff","rod","whip","hat","clothes","robe"]
 	},
 	"208001505": {
-		"name":"Sleeping Lion Squall",
+		"name":"Lone Lion Squall",
 		"jpname":"孤高の獅子スコール",
 		"id":"208001505",
 		"max_rarity":"7",
@@ -9608,7 +9645,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Sleeping Lion Squall",
+			"name":"Lone Lion Squall",
 			"jpname":"孤高の獅子スコール",
 			"id":"208001505",
 			"sixStarForm":true,
@@ -10824,17 +10861,19 @@
 		"name":"Balthier",
 		"jpname":"バルフレア",
 		"id":"212000505",
-		"max_rarity":"7",
+		"braveShift":"212000527",
+		"exAwakening": [{"hp":621,"mp":30,"atk":29,"def":22,"mag":19,"spr":24},{"hp":478,"mp":23,"atk":23,"def":17,"mag":15,"spr":18},{"hp":334,"mp":16,"atk":16,"def":12,"mag":10,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4742,"mp":201,"atk":202,"def":170,"mag":149,"spr":184},
-			"minStats":{"hp":1565,"mp":66,"atk":67,"def":56,"mag":49,"spr":61},
+			"maxStats":{"hp":4778,"mp":230,"atk":226,"def":170,"mag":149,"spr":184},
+			"minStats":{"hp":1577,"mp":76,"atk":75,"def":56,"mag":49,"spr":61},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
-		"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット"],
+		"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット","プレパレーションガン","フリーダムバレット・単射","空賊の義侠心"],
 		"6_form": {
 			"name":"Balthier",
 			"jpname":"バルフレア",
@@ -10850,8 +10889,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
-			"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット"]
+			"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット","プレパレーションガン","フリーダムバレット・単射","空賊の義侠心"]
+		},
+		"7_form": {
+			"name":"Balthier",
+			"jpname":"バルフレア",
+			"id":"212000505",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4742,"mp":201,"atk":202,"def":170,"mag":149,"spr":184},
+				"minStats":{"hp":1565,"mp":66,"atk":67,"def":56,"mag":49,"spr":61},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
+			"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット","プレパレーションガン","フリーダムバレット・単射","空賊の義侠心"]
 		}
+	},
+	"212000527": {
+		"name":"バルフレア - Brave Shifted",
+		"jpname":"バルフレア - Brave Shifted",
+		"id":"212000527",
+		"braveShifted":true,
+		"exAwakening": [{"hp":621,"mp":30,"atk":29,"def":22,"mag":19,"spr":24},{"hp":478,"mp":23,"atk":23,"def":17,"mag":15,"spr":18},{"hp":334,"mp":16,"atk":16,"def":12,"mag":10,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4835,"mp":228,"atk":229,"def":165,"mag":146,"spr":189},
+			"minStats":{"hp":1596,"mp":75,"atk":76,"def":54,"mag":48,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
+		"enhancementSkills":["プレパレーションガン","フリーダムバレット・連射","空賊の射撃術"]
 	},
 	"212000603": {
 		"name":"Fran",
@@ -11198,6 +11272,73 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"]
+	},
+	"212002207": {
+		"name":"Gabranth -Neo Vision-",
+		"jpname":"ガブラス-Neo Vision-",
+		"id":"212002207",
+		"braveShift":"212002217",
+		"exAwakening": [{"hp":653,"mp":27,"atk":22,"def":62,"mag":15,"spr":25},{"hp":502,"mp":21,"atk":17,"def":48,"mag":12,"spr":20},{"hp":352,"mp":15,"atk":12,"def":33,"mag":8,"spr":14}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5023,"mp":209,"atk":170,"def":239,"mag":119,"spr":195},
+			"minStats":{"hp":1658,"mp":69,"atk":56,"def":79,"mag":39,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["センテンス","ジャッジディフェンス"]
+	},
+	"212002217": {
+		"name":"Gabranth -Neo Vision- - Brave Shifted",
+		"jpname":"ガブラス-Neo Vision- - Brave Shifted",
+		"id":"212002217",
+		"braveShifted":true,
+		"exAwakening": [{"hp":653,"mp":27,"atk":22,"def":62,"mag":15,"spr":25},{"hp":502,"mp":21,"atk":17,"def":48,"mag":12,"spr":20},{"hp":352,"mp":15,"atk":12,"def":33,"mag":8,"spr":14}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":215,"atk":179,"def":236,"mag":130,"spr":192},
+			"minStats":{"hp":1650,"mp":71,"atk":59,"def":78,"mag":43,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["センテンス","アグレッサー"]
+	},
+	"212002305": {
+		"name":"Ray of Hope Larsa",
+		"jpname":"未来射す光ラーサー",
+		"id":"212002305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4612,"mp":270,"atk":149,"def":148,"mag":206,"spr":200},
+			"minStats":{"hp":1522,"mp":89,"atk":49,"def":49,"mag":68,"spr":66},
+			"pots":{"hp":540,"mp":150,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","whip","hat","clothes"],
+		"6_form": {
+			"name":"Ray of Hope Larsa",
+			"jpname":"未来射す光ラーサー",
+			"id":"212002305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3547,"mp":207,"atk":114,"def":113,"mag":158,"spr":153},
+				"minStats":{"hp":1171,"mp":68,"atk":38,"def":37,"mag":52,"spr":50},
+				"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","whip","hat","clothes"]
+		}
 	},
 	"213000105": {
 		"name":"Lightning",

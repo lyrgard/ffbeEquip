@@ -2332,22 +2332,25 @@
 		"name":"Loren",
 		"jpname":"ロレーヌ",
 		"id":"100009105",
-		"max_rarity":"7",
+		"braveShift":"100009127",
+		"exAwakening": [{"hp":633,"mp":31,"atk":29,"def":24,"mag":22,"spr":23},{"hp":487,"mp":24,"atk":22,"def":19,"mag":17,"spr":18},{"hp":341,"mp":17,"atk":16,"def":13,"mag":12,"spr":12}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4759,"mp":201,"atk":200,"def":188,"mag":162,"spr":176},
-			"minStats":{"hp":1570,"mp":66,"atk":66,"def":62,"mag":53,"spr":58},
+			"maxStats":{"hp":4866,"mp":236,"atk":222,"def":188,"mag":170,"spr":176},
+			"minStats":{"hp":1606,"mp":78,"atk":73,"def":62,"mag":56,"spr":58},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["双剣将軍","アームズイレイサー","アーマーイレイサー","フルブレイク改"],
+		"enhancementSkills":["双剣将軍","アーマーイレイサー","アームズイレイサー","フルブレイク改","入魂の一刃","滅閃一刃","騎士団との絆【ロレーヌ】"],
 		"enhancements": [
-			{"name":"双剣将軍","levels":[[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30,"mp%":20,"hp%":20}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":60,"mp%":20,"hp%":20}]]}
+			{"name":"双剣将軍","levels":[[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30,"mp%":20,"hp%":20}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":60,"mp%":20,"hp%":20}]]},
+			{"name":"騎士団との絆【ロレーヌ】","levels":[[{"mp":20,"skillEnhancement":{"213820":12,"227161":12,"227162":12,"227163":12,"227164":12}}],[{"mp":40,"skillEnhancement":{"213820":22,"227161":22,"227162":22,"227163":22,"227164":22}}],[{"mp":60,"skillEnhancement":{"213820":32,"227161":32,"227162":32,"227163":32,"227164":32}}],[{"mp":80,"skillEnhancement":{"213820":42,"227161":42,"227162":42,"227163":42,"227164":42}}],[{"mp":100,"skillEnhancement":{"213820":52,"227161":52,"227162":52,"227163":52,"227164":52}}]]}
 		],
 		"skills": [
-			{"hp%":30, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"hp%":50, "mp%":20, "atk%":40, "def%":30, "spr%":30, "dualWielding":{"atk":50}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"キングダムオーダー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.05x * 2 = 14.1x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":50,"wind":50,"light":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain 疾風の剣 (501960), 疾風迅雷 (501980) and 迅雷の剣 (501970) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8.5x * 2 = 17x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":79,"wind":79,"light":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain 疾風の剣 (501960), 疾風迅雷 (501980) and 迅雷の剣 (501970) for 3 turns"}],"frames":[34,44,57,71,85,95,108,122,146,158,192,210,228,246,262],"move":"walk"}, "equipedConditions":[["504213800","303004500"]]},
 			{"atk%":50, "equipedConditions":["dagger"], "levelCondition":105},
@@ -2371,7 +2374,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["双剣将軍","アームズイレイサー","アーマーイレイサー","フルブレイク改"],
+			"enhancementSkills":["双剣将軍","アーマーイレイサー","アームズイレイサー","フルブレイク改","入魂の一刃","滅閃一刃","騎士団との絆【ロレーヌ】"],
 		"enhancements": [
 			{"name":"双剣将軍","levels":[[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30,"mp%":20,"hp%":20}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":60,"mp%":20,"hp%":20}]]}
 		],
@@ -2379,7 +2382,62 @@
 				{"hp%":30, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 				{"atk%":50, "equipedConditions":["sword"]}
 			]
+		},
+		"7_form": {
+			"name":"Loren",
+			"jpname":"ロレーヌ",
+			"id":"100009105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4759,"mp":201,"atk":200,"def":188,"mag":162,"spr":176},
+				"minStats":{"hp":1570,"mp":66,"atk":66,"def":62,"mag":53,"spr":58},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["双剣将軍","アーマーイレイサー","アームズイレイサー","フルブレイク改","入魂の一刃","滅閃一刃","騎士団との絆【ロレーヌ】"],
+		"enhancements": [
+			{"name":"双剣将軍","levels":[[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30,"mp%":20,"hp%":20}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":60,"mp%":20,"hp%":20}]]}
+		],
+			"skills": [
+				{"hp%":30, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+				{"atk%":50, "equipedConditions":["sword"]},
+				{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"キングダムオーダー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.05x * 2 = 14.1x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":50,"wind":50,"light":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain 疾風の剣 (501960), 疾風迅雷 (501980) and 迅雷の剣 (501970) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8.5x * 2 = 17x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":79,"wind":79,"light":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain 疾風の剣 (501960), 疾風迅雷 (501980) and 迅雷の剣 (501970) for 3 turns"}],"frames":[34,44,57,71,85,95,108,122,146,158,192,210,228,246,262],"move":"walk"}, "equipedConditions":[["504213800","303004500"]]},
+				{"atk%":50, "equipedConditions":["dagger"], "levelCondition":105},
+				{"atk%":50, "equipedConditions":["katana"], "levelCondition":105},
+				{"atk%":50, "equipedConditions":["greatSword"], "levelCondition":105},
+				{"mp%":20, "levelCondition":115},
+				{"skillEnhancement":{"213820":2.4,"501960":2.3,"501970":1.25,"501980":1.1}, "levelCondition":120}
+			]
 		}
+	},
+	"100009127": {
+		"name":"Loren - Brave Shifted",
+		"jpname":"ロレーヌ - Brave Shifted",
+		"id":"100009127",
+		"braveShifted":true,
+		"exAwakening": [{"hp":633,"mp":31,"atk":29,"def":24,"mag":22,"spr":23},{"hp":487,"mp":24,"atk":22,"def":19,"mag":17,"spr":18},{"hp":341,"mp":17,"atk":16,"def":13,"mag":12,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4797,"mp":223,"atk":226,"def":179,"mag":175,"spr":180},
+			"minStats":{"hp":1583,"mp":74,"atk":75,"def":59,"mag":58,"spr":59},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["滅閃一刃","双剣舞","蒼月の心得"],
+		"enhancements": [
+			{"name":"蒼月の心得","levels":[[{"atk":420,"killers":[{"name":"aquatic","physical":50},{"name":"stone","physical":50},{"name":"undead","physical":50}]}],[{"atk":440,"killers":[{"name":"aquatic","physical":50},{"name":"stone","physical":50},{"name":"undead","physical":50}]}],[{"atk":460,"killers":[{"name":"aquatic","physical":75},{"name":"stone","physical":75},{"name":"undead","physical":75}]}],[{"atk":480,"killers":[{"name":"aquatic","physical":75},{"name":"stone","physical":75},{"name":"undead","physical":75}]}],[{"atk":500,"killers":[{"name":"aquatic","physical":100},{"name":"stone","physical":100},{"name":"undead","physical":100}]}]]}
+		],
+		"skills": [
+			{"hp%":70, "mp%":70, "atk%":120, "def%":70, "spr%":70, "dualWielding":{"atk":50}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "lbDamage":50, "special":["dualWield"]},
+			{"atk%":80, "dualWielding":{"atk":100}, "equipedConditions":[["504213800","303004500"]]}
+		]
 	},
 	"100009204": {
 		"name":"Kupolkan",
@@ -13830,7 +13888,7 @@
 		]
 	},
 	"208001505": {
-		"name":"Sleeping Lion Squall",
+		"name":"Lone Lion Squall",
 		"jpname":"孤高の獅子スコール",
 		"id":"208001505",
 		"max_rarity":"7",
@@ -13855,7 +13913,7 @@
 			{"hp%":20, "mp%":10, "atk%":20, "def%":40, "spr%":40, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"234544":4,"234545":4,"234546":4,"234547":9}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Sleeping Lion Squall",
+			"name":"Lone Lion Squall",
 			"jpname":"孤高の獅子スコール",
 			"id":"208001505",
 			"sixStarForm":true,
@@ -15710,23 +15768,26 @@
 		"name":"Balthier",
 		"jpname":"バルフレア",
 		"id":"212000505",
-		"max_rarity":"7",
+		"braveShift":"212000527",
+		"exAwakening": [{"hp":621,"mp":30,"atk":29,"def":22,"mag":19,"spr":24},{"hp":478,"mp":23,"atk":23,"def":17,"mag":15,"spr":18},{"hp":334,"mp":16,"atk":16,"def":12,"mag":10,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4742,"mp":201,"atk":202,"def":170,"mag":149,"spr":184},
-			"minStats":{"hp":1565,"mp":66,"atk":67,"def":56,"mag":49,"spr":61},
+			"maxStats":{"hp":4778,"mp":230,"atk":226,"def":170,"mag":149,"spr":184},
+			"minStats":{"hp":1577,"mp":76,"atk":75,"def":56,"mag":49,"spr":61},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
-		"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット"],
+		"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット","プレパレーションガン","フリーダムバレット・単射","空賊の義侠心"],
 		"enhancements": [
 			{"name":"過去に背を向けた空賊","levels":[[],[{"atk%":50,"mp%":30,"hp%":50,"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":70},"skillEnhancement":{"209240":20,"209250":20,"209260":20,"209270":20,"209280":20,"501160":20,"507940":20,"705270":20,"705280":20,"705290":20,"705300":20}}]]},
-			{"name":"最速の空賊","levels":[[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":20,"magical":20},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]}
+			{"name":"最速の空賊","levels":[[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":20,"magical":20},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]},
+			{"name":"空賊の義侠心","levels":[[{"hp":250,"skillEnhancement":{"209240":5,"507940":15,"705270":5,"705280":5}}],[{"hp":500,"skillEnhancement":{"209240":7.5,"507940":15,"705270":7.5,"705280":7.5}}],[{"hp":750,"skillEnhancement":{"209240":10,"507940":16,"705270":10,"705280":10}}],[{"hp":900,"skillEnhancement":{"209240":11.5,"507940":16,"705270":11.5,"705280":11.5}}],[{"hp":1000,"skillEnhancement":{"209240":12.5,"507940":17,"705270":12.5,"705280":12.5}}]]}
 		],
 		"skills": [
-			{"hp%":20, "atk%":30, "def%":20, "mpRefresh":5},
+			{"hp%":20, "atk%":30, "def%":20, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"bird","physical":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["gun"]},
 			{"hp%":20, "mp%":20, "atk%":20, "mag%":20, "singleWieldingOneHanded":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "equipedConditions":[["313002400","504227506"]]},
 			{"skillEnhancement":{"202340":0.3,"209240":1,"209250":1,"209260":1,"209270":1,"209280":1,"501160":1,"705270":1,"705280":1,"705290":1,"705300":1}, "levelCondition":105},
@@ -15748,7 +15809,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
-			"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット"],
+			"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット","プレパレーションガン","フリーダムバレット・単射","空賊の義侠心"],
 		"enhancements": [
 			{"name":"過去に背を向けた空賊","levels":[[],[{"atk%":50,"mp%":30,"hp%":50,"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":70},"skillEnhancement":{"209240":20,"209250":20,"209260":20,"209270":20,"209280":20,"501160":20,"507940":20,"705270":20,"705280":20,"705290":20,"705300":20}}]]},
 			{"name":"最速の空賊","levels":[[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":20,"magical":20},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]}
@@ -15757,7 +15818,61 @@
 				{"hp%":20, "atk%":30, "def%":20, "mpRefresh":5},
 				{"atk%":50, "equipedConditions":["gun"]}
 			]
+		},
+		"7_form": {
+			"name":"Balthier",
+			"jpname":"バルフレア",
+			"id":"212000505",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4742,"mp":201,"atk":202,"def":170,"mag":149,"spr":184},
+				"minStats":{"hp":1565,"mp":66,"atk":67,"def":56,"mag":49,"spr":61},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
+			"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット","プレパレーションガン","フリーダムバレット・単射","空賊の義侠心"],
+		"enhancements": [
+			{"name":"過去に背を向けた空賊","levels":[[],[{"atk%":50,"mp%":30,"hp%":50,"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":70},"skillEnhancement":{"209240":20,"209250":20,"209260":20,"209270":20,"209280":20,"501160":20,"507940":20,"705270":20,"705280":20,"705290":20,"705300":20}}]]},
+			{"name":"最速の空賊","levels":[[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":20,"magical":20},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]}
+		],
+			"skills": [
+				{"hp%":20, "atk%":30, "def%":20, "mpRefresh":5},
+				{"atk%":50, "equipedConditions":["gun"]},
+				{"hp%":20, "mp%":20, "atk%":20, "mag%":20, "singleWieldingOneHanded":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "equipedConditions":[["313002400","504227506"]]},
+				{"skillEnhancement":{"202340":0.3,"209240":1,"209250":1,"209260":1,"209270":1,"209280":1,"501160":1,"705270":1,"705280":1,"705290":1,"705300":1}, "levelCondition":105},
+				{"mp%":20, "levelCondition":115},
+				{"atk%":30, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
+			]
 		}
+	},
+	"212000527": {
+		"name":"バルフレア - Brave Shifted",
+		"jpname":"バルフレア - Brave Shifted",
+		"id":"212000527",
+		"braveShifted":true,
+		"exAwakening": [{"hp":621,"mp":30,"atk":29,"def":22,"mag":19,"spr":24},{"hp":478,"mp":23,"atk":23,"def":17,"mag":15,"spr":18},{"hp":334,"mp":16,"atk":16,"def":12,"mag":10,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4835,"mp":228,"atk":229,"def":165,"mag":146,"spr":189},
+			"minStats":{"hp":1596,"mp":75,"atk":76,"def":54,"mag":48,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
+		"enhancementSkills":["プレパレーションガン","フリーダムバレット・連射","空賊の射撃術"],
+		"enhancements": [
+			{"name":"空賊の射撃術","levels":[[{"atk%":30,"killers":[{"name":"beast","physical":50}],"skillEnhancement":{"501160":20}}],[{"atk%":40,"killers":[{"name":"beast","physical":70}],"skillEnhancement":{"501160":25}}],[{"atk%":50,"killers":[{"name":"beast","physical":80}],"skillEnhancement":{"501160":30}}],[{"atk%":60,"killers":[{"name":"beast","physical":90}],"skillEnhancement":{"501160":32.5}}],[{"atk%":70,"killers":[{"name":"beast","physical":100}],"skillEnhancement":{"501160":35}}]]}
+		],
+		"skills": [
+			{"hp%":50, "mp%":50, "atk%":80, "def%":20, "spr%":20, "evade":{"physical":20,"magical":20}, "singleWielding":{"accuracy":50,"atk":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":100}], "mpRefresh":5},
+			{"atk%":50, "evade":{"physical":15}, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":100}, "equipedConditions":[["313002400","504227506"]]}
+		]
 	},
 	"212000603": {
 		"name":"Fran",
@@ -16302,6 +16417,119 @@
 		"skills": [
 			{"hp%":70, "atk%":80, "def%":20, "mag%":40, "spr%":10, "resist":[{"name":"poison","percent":50},{"name":"confuse","percent":100},{"name":"silence","percent":50},{"name":"petrification","percent":50}], "drawAttacks":30, "skillEnhancement":{"20040":6,"20050":6,"20110":6,"20120":6,"20230":6,"20240":6,"20450":6,"20460":6,"20470":6,"235650":4,"235652":4}, "special":["dualWield"]}
 		]
+	},
+	"212002207": {
+		"name":"Gabranth -Neo Vision-",
+		"jpname":"ガブラス-Neo Vision-",
+		"id":"212002207",
+		"braveShift":"212002217",
+		"exAwakening": [{"hp":653,"mp":27,"atk":22,"def":62,"mag":15,"spr":25},{"hp":502,"mp":21,"atk":17,"def":48,"mag":12,"spr":20},{"hp":352,"mp":15,"atk":12,"def":33,"mag":8,"spr":14}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5023,"mp":209,"atk":170,"def":239,"mag":119,"spr":195},
+			"minStats":{"hp":1658,"mp":69,"atk":56,"def":79,"mag":39,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["センテンス","ジャッジディフェンス"],
+		"skills": [
+			{"hp%":30, "mp%":80, "atk%":50, "def%":30, "spr%":20, "dualWielding":{"def":50}, "lbFillRate":100, "resist":[{"name":"dark","percent":50},{"name":"fire","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":10, "drawAttacks":70, "special":["dualWield"]},
+			{"def%":30, "equipedConditions":["helm"]},
+			{"def%":30, "equipedConditions":["lightArmor"]},
+			{"def%":30, "equipedConditions":["heavyArmor"]},
+			{"atk%":30, "def%":30, "equipedConditions":["helm"]},
+			{"hp%":20, "spr%":20, "equipedConditions":["helm"]},
+			{"hp%":25, "def%":25, "equipedConditions":["helm"]},
+			{"hp%":25, "def%":25, "equipedConditions":["lightArmor"]},
+			{"hp%":25, "def%":25, "equipedConditions":["heavyArmor"]},
+			{"hp%":30, "dualWielding":{"def":100}, "equipedConditions":[["504236890","407005300"]]},
+			{"hp%":20, "spr%":20, "equipedConditions":["lightArmor"]},
+			{"hp%":20, "spr%":20, "equipedConditions":["heavyArmor"]}
+		]
+	},
+	"212002217": {
+		"name":"Gabranth -Neo Vision- - Brave Shifted",
+		"jpname":"ガブラス-Neo Vision- - Brave Shifted",
+		"id":"212002217",
+		"braveShifted":true,
+		"exAwakening": [{"hp":653,"mp":27,"atk":22,"def":62,"mag":15,"spr":25},{"hp":502,"mp":21,"atk":17,"def":48,"mag":12,"spr":20},{"hp":352,"mp":15,"atk":12,"def":33,"mag":8,"spr":14}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":215,"atk":179,"def":236,"mag":130,"spr":192},
+			"minStats":{"hp":1650,"mp":71,"atk":59,"def":78,"mag":43,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["センテンス","アグレッサー"],
+		"skills": [
+			{"hp%":50, "mp%":80, "atk%":20, "def%":20, "dualWielding":{"def":50}, "lbFillRate":100, "resist":[{"name":"dark","percent":30},{"name":"fire","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"human","physical":150}], "mpRefresh":10, "lbDamage":100, "drawAttacks":70, "special":["dualWield"]},
+			{"def%":30, "equipedConditions":["helm"]},
+			{"def%":30, "equipedConditions":["lightArmor"]},
+			{"def%":30, "equipedConditions":["heavyArmor"]},
+			{"atk%":30, "def%":30, "equipedConditions":["helm"]},
+			{"hp%":20, "spr%":20, "equipedConditions":["helm"]},
+			{"def%":20, "equipedConditions":["lightArmor"]},
+			{"def%":20, "equipedConditions":["heavyArmor"]},
+			{"atk%":30, "spr%":30, "equipedConditions":["helm"]},
+			{"hp%":30, "dualWielding":{"def":100}, "equipedConditions":[["504236890","407005300"]]},
+			{"hp%":20, "spr%":20, "equipedConditions":["lightArmor"]},
+			{"hp%":20, "spr%":20, "equipedConditions":["heavyArmor"]},
+			{"def%":50, "equipedConditions":["lightArmor"]},
+			{"def%":50, "equipedConditions":["heavyArmor"]}
+		]
+	},
+	"212002305": {
+		"name":"Ray of Hope Larsa",
+		"jpname":"未来射す光ラーサー",
+		"id":"212002305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4612,"mp":270,"atk":149,"def":148,"mag":206,"spr":200},
+			"minStats":{"hp":1522,"mp":89,"atk":49,"def":49,"mag":68,"spr":66},
+			"pots":{"hp":540,"mp":150,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","whip","hat","clothes"],
+		"enhancements": [
+			{"name":"歪みを正す信念","levels":[[],[{"resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}],"lbPerTurn":{"min":5,"max":5}}]]}
+		],
+		"skills": [
+			{"hp%":40, "mp%":60, "atk%":60, "def%":30, "spr%":50, "dualWielding":{"def":20}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "special":["dualWield"]},
+			{"def%":20, "spr%":20, "mpRefresh":10, "equipedConditions":[["504236891","301005800"]]},
+			{"mp%":30, "atk%":30, "mag%":30, "evade":{"physical":10}, "levelCondition":110},
+			{"hp%":20, "levelCondition":115},
+			{"hp%":20, "mp%":20, "atk%":20, "def%":30, "spr%":30, "dualWielding":{"def":30}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Ray of Hope Larsa",
+			"jpname":"未来射す光ラーサー",
+			"id":"212002305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3547,"mp":207,"atk":114,"def":113,"mag":158,"spr":153},
+				"minStats":{"hp":1171,"mp":68,"atk":38,"def":37,"mag":52,"spr":50},
+				"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","whip","hat","clothes"],
+		"enhancements": [
+			{"name":"歪みを正す信念","levels":[[],[{"resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}],"lbPerTurn":{"min":5,"max":5}}]]}
+		],
+			"skills": [
+				{"hp%":40, "mp%":60, "atk%":60, "def%":30, "spr%":50, "dualWielding":{"def":20}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "special":["dualWield"]}
+			]
+		}
 	},
 	"213000105": {
 		"name":"Lightning",
