@@ -87,7 +87,7 @@ class VirtualScroll {
     updateHeights() {
         let children = this.container.children();
         let deviation = 0;
-        for (i = 1; i < children.length - 1; i++) {
+        for (let i = 1; i < children.length - 1; i++) {
             let e = children[i];
             let index = i - 1;
             let itemInfo = this.itemInfos[this.firstItemIndex + index];
@@ -99,7 +99,7 @@ class VirtualScroll {
                 itemInfo.default = false;
             }
         }
-        for (i = this.lastItemIndex + 1; i < this.items.length; i++) {
+        for (let i = this.lastItemIndex + 1; i < this.items.length; i++) {
             this.itemInfos[i].position += deviation;
         }
         this.totalHeight += deviation;
