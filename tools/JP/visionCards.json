@@ -96,6 +96,30 @@
 	{"atk":74, "conditional":[{"equipedConditions":["spear"],"atk%":40}]},
 	{"atk":80, "conditional":[{"equipedConditions":["spear"],"atk%":40},{"atk%":20,"exclusiveSex":"female"},{"killers":[{"name":"beast","physical":25},{"name":"bug","physical":25}],"exclusiveSex":"female"}]}
 ]},
+{"id":"100001001", "name":"ビューティフルバケーション", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001001.png", "sortId":16, "levels":[
+	{"spr":50},
+	{"spr":53},
+	{"spr":56},
+	{"spr":59, "resist":[{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10}]},
+	{"spr":62, "resist":[{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10}]},
+	{"spr":65, "resist":[{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10}]},
+	{"spr":68, "resist":[{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10},{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10}]},
+	{"spr":71, "resist":[{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10},{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10}]},
+	{"spr":74, "resist":[{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10},{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10}]},
+	{"spr":80, "resist":[{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10},{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10},{"name":"ice","percent":20},{"name":"water","percent":20},{"name":"dark","percent":20}], "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}
+]},
+{"id":"202000101", "name":"黒騎士との戦い", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
+	{"atk":50},
+	{"atk":54},
+	{"atk":58},
+	{"atk":62, "conditional":[{"equipedConditions":["bow"],"atk%":40},{"equipedConditions":["sword"],"atk%":20},{"equipedConditions":["axe"],"atk%":20},{"equipedConditions":["spear"],"atk%":20}]},
+	{"atk":66, "conditional":[{"equipedConditions":["bow"],"atk%":40},{"equipedConditions":["sword"],"atk%":20},{"equipedConditions":["axe"],"atk%":20},{"equipedConditions":["spear"],"atk%":20}]},
+	{"atk":70, "conditional":[{"equipedConditions":["bow"],"atk%":40},{"equipedConditions":["sword"],"atk%":20},{"equipedConditions":["axe"],"atk%":20},{"equipedConditions":["spear"],"atk%":20}]},
+	{"atk":74, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
+	{"atk":78, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
+	{"atk":82, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
+	{"atk":90, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40},{"exclusiveUnits":["202000505","202000527","202001705","202001727","202001907","202001917"]}]}
+]},
 {"id":"207000101", "name":"真夜中の疾走", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
 	{"atk":40},
 	{"atk":46},

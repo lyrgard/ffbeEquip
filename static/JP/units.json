@@ -6958,17 +6958,19 @@
 		"name":"Emperor",
 		"jpname":"皇帝",
 		"id":"202000505",
-		"max_rarity":"7",
+		"braveShift":"202000527",
+		"exAwakening": [{"hp":595,"mp":35,"atk":20,"def":21,"mag":31,"spr":24},{"hp":458,"mp":27,"atk":15,"def":16,"mag":24,"spr":18},{"hp":320,"mp":19,"atk":11,"def":11,"mag":17,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4577,"mp":239,"atk":150,"def":164,"mag":193,"spr":182},
-			"minStats":{"hp":1510,"mp":79,"atk":50,"def":52,"mag":64,"spr":57},
+			"maxStats":{"hp":4577,"mp":270,"atk":150,"def":164,"mag":237,"spr":182},
+			"minStats":{"hp":1510,"mp":89,"atk":50,"def":54,"mag":78,"spr":60},
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe"],
-		"enhancementSkills":["地獄の業火","わたしは死なん！","君臨"],
+		"enhancementSkills":["地獄の業火","わたしは死なん！","君臨","私にひざまずけ","レッドソウル","世界征服を企む暴君"],
 		"6_form": {
 			"name":"Emperor",
 			"jpname":"皇帝",
@@ -6984,8 +6986,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","hat","clothes","robe"],
-			"enhancementSkills":["地獄の業火","わたしは死なん！","君臨"]
+			"enhancementSkills":["地獄の業火","わたしは死なん！","君臨","私にひざまずけ","レッドソウル","世界征服を企む暴君"]
+		},
+		"7_form": {
+			"name":"Emperor",
+			"jpname":"皇帝",
+			"id":"202000505",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4577,"mp":239,"atk":150,"def":164,"mag":193,"spr":182},
+				"minStats":{"hp":1510,"mp":79,"atk":50,"def":52,"mag":64,"spr":57},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["staff","rod","hat","clothes","robe"],
+			"enhancementSkills":["地獄の業火","わたしは死なん！","君臨","私にひざまずけ","レッドソウル","世界征服を企む暴君"]
 		}
+	},
+	"202000527": {
+		"name":"皇帝 - Brave Shifted",
+		"jpname":"皇帝 - Brave Shifted",
+		"id":"202000527",
+		"braveShifted":true,
+		"exAwakening": [{"hp":595,"mp":35,"atk":20,"def":21,"mag":31,"spr":24},{"hp":458,"mp":27,"atk":15,"def":16,"mag":24,"spr":18},{"hp":320,"mp":19,"atk":11,"def":11,"mag":17,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4611,"mp":262,"atk":153,"def":160,"mag":240,"spr":191},
+			"minStats":{"hp":1522,"mp":86,"atk":50,"def":53,"mag":79,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","hat","clothes","robe"],
+		"enhancementSkills":["私にひざまずけ","地獄の業火","バリアボム","我が支配を受け入れよ"]
 	},
 	"202001402": {
 		"name":"Paul",
@@ -7017,6 +7054,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["トゥーハンデッドウェポン","フィン・ブロッサム","レジスタンスプライド","ブラッディローズ","アドヴァシティセーバー","不朽の正義"],
 		"6_form": {
 			"name":"Wild Rose Firion",
 			"jpname":"のばらの義士フリオニール",
@@ -7031,23 +7069,27 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor"]
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["トゥーハンデッドウェポン","フィン・ブロッサム","レジスタンスプライド","ブラッディローズ","アドヴァシティセーバー","不朽の正義"]
 		}
 	},
 	"202001705": {
 		"name":"Dark Knight Leon",
 		"jpname":"闇騎士レオンハルト",
 		"id":"202001705",
-		"max_rarity":"7",
+		"braveShift":"202001727",
+		"exAwakening": [{"hp":632,"mp":29,"atk":30,"def":25,"mag":19,"spr":24},{"hp":486,"mp":23,"atk":23,"def":19,"mag":15,"spr":18},{"hp":340,"mp":16,"atk":16,"def":14,"mag":10,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4860,"mp":215,"atk":207,"def":194,"mag":148,"spr":182},
-			"minStats":{"hp":1604,"mp":71,"atk":68,"def":64,"mag":49,"spr":60},
+			"maxStats":{"hp":4860,"mp":225,"atk":231,"def":194,"mag":148,"spr":182},
+			"minStats":{"hp":1604,"mp":74,"atk":76,"def":64,"mag":49,"spr":60},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["皇帝を継ぐ者","ダークフロウ","黒き執行者","ダークナイトジャッジ","闇の先を見据える眼","闇に染まれ","ダークコラプションII","野心の新皇帝"],
 		"6_form": {
 			"name":"Dark Knight Leon",
 			"jpname":"闇騎士レオンハルト",
@@ -7062,7 +7104,141 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["皇帝を継ぐ者","ダークフロウ","黒き執行者","ダークナイトジャッジ","闇の先を見据える眼","闇に染まれ","ダークコラプションII","野心の新皇帝"]
+		},
+		"7_form": {
+			"name":"Dark Knight Leon",
+			"jpname":"闇騎士レオンハルト",
+			"id":"202001705",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4860,"mp":215,"atk":207,"def":194,"mag":148,"spr":182},
+				"minStats":{"hp":1604,"mp":71,"atk":68,"def":64,"mag":49,"spr":60},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["皇帝を継ぐ者","ダークフロウ","黒き執行者","ダークナイトジャッジ","闇の先を見据える眼","闇に染まれ","ダークコラプションII","野心の新皇帝"]
+		}
+	},
+	"202001727": {
+		"name":"Dark Knight Leon - Brave Shifted",
+		"jpname":"闇騎士レオンハルト - Brave Shifted",
+		"id":"202001727",
+		"braveShifted":true,
+		"exAwakening": [{"hp":632,"mp":29,"atk":30,"def":25,"mag":19,"spr":24},{"hp":486,"mp":23,"atk":23,"def":19,"mag":15,"spr":18},{"hp":340,"mp":16,"atk":16,"def":14,"mag":10,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4922,"mp":215,"atk":228,"def":199,"mag":149,"spr":176},
+			"minStats":{"hp":1624,"mp":71,"atk":75,"def":66,"mag":49,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["闇に染まれ","ブラッディダーク","闇騎士の力"]
+	},
+	"202001907": {
+		"name":"Firion -Neo Vision-",
+		"jpname":"フリオニール-Neo Vision-",
+		"id":"202001907",
+		"braveShift":"202001917",
+		"exAwakening": [{"hp":639,"mp":32,"atk":60,"def":25,"mag":20,"spr":24},{"hp":492,"mp":24,"atk":46,"def":19,"mag":16,"spr":19},{"hp":344,"mp":17,"atk":32,"def":13,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4918,"mp":243,"atk":231,"def":191,"mag":155,"spr":187},
+			"minStats":{"hp":1623,"mp":80,"atk":76,"def":63,"mag":51,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["ソードファイター","ブラッドウェポン"]
+	},
+	"202001917": {
+		"name":"Firion -Neo Vision- - Brave Shifted",
+		"jpname":"フリオニール-Neo Vision- - Brave Shifted",
+		"id":"202001917",
+		"braveShifted":true,
+		"exAwakening": [{"hp":639,"mp":32,"atk":60,"def":25,"mag":20,"spr":24},{"hp":492,"mp":24,"atk":46,"def":19,"mag":16,"spr":19},{"hp":344,"mp":17,"atk":32,"def":13,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4862,"mp":252,"atk":233,"def":182,"mag":152,"spr":192},
+			"minStats":{"hp":1604,"mp":83,"atk":77,"def":60,"mag":50,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["ソードファイター","エンパイアリベリオン"]
+	},
+	"202002105": {
+		"name":"Thoughtful Sister Maria",
+		"jpname":"兄想う少女マリア",
+		"id":"202002105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4718,"mp":259,"atk":147,"def":161,"mag":174,"spr":214},
+			"minStats":{"hp":1557,"mp":85,"atk":49,"def":53,"mag":57,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","bow","mace","hat","clothes","robe"],
+		"6_form": {
+			"name":"Thoughtful Sister Maria",
+			"jpname":"兄想う少女マリア",
+			"id":"202002105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3629,"mp":199,"atk":113,"def":123,"mag":133,"spr":164},
+				"minStats":{"hp":1198,"mp":66,"atk":37,"def":41,"mag":44,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["staff","bow","mace","hat","clothes","robe"]
+		}
+	},
+	"202002205": {
+		"name":"Minwu",
+		"jpname":"ミンウ",
+		"id":"202002205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4587,"mp":255,"atk":149,"def":169,"mag":209,"spr":200},
+			"minStats":{"hp":1514,"mp":84,"atk":49,"def":56,"mag":69,"spr":66},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","lightShield","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Minwu",
+			"jpname":"ミンウ",
+			"id":"202002205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3528,"mp":196,"atk":114,"def":130,"mag":160,"spr":153},
+				"minStats":{"hp":1164,"mp":65,"atk":38,"def":43,"mag":53,"spr":50},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","lightShield","hat","clothes","lightArmor","robe"]
 		}
 	},
 	"203000105": {
