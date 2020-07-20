@@ -1,0 +1,488 @@
+/* --------------------------------------------------------------- *\
+   ffbe.page.myespers.css
+
+   CSS for 'My Espers' tool
+
+\* --------------------------------------------------------------- */
+
+#espers .notOwned {
+    opacity: 0.3;
+}
+
+/* Tabs ---------------------------------------------------------- */
+
+#tabs .nav-link {
+    padding: 0.5rem 0.75rem;
+}
+
+#tabs .img-esper {
+    border-radius: 0.25rem;
+}
+
+/* Table --------------------------------------------------------- */
+
+#allEspers .groupedByElementResist,
+#allEspers .groupedByAilmentResist,
+#allEspers .getKillerHtml {
+    text-align: center;
+}
+
+#allEspers .groupedByElementResist .text,
+#allEspers .groupedByAilmentResist .text,
+#allEspers .getKillerHtml .text {
+    font-size: 0.75rem;
+    padding: 0.125rem;
+}
+/* Flexbox Grid -------------------------------------------------- */
+
+.hexagon-grid {
+  --hex_color: rgba(var(--body_bg_1), 0.5);
+  --hex_hover: rgb(var(--body_bg_1));
+  --hex_min_width: 925px;
+
+  padding: 1.728rem 0;
+}
+
+.hexagon-grid,
+.hexagon-grid--row {
+  max-width: 100%;
+  min-width: var(--hex_min_width);
+}
+
+.hexagon-grid--row {
+  margin-top: calc(((6rem * 0.288) * -1 + 0.35rem));
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.hexagon-grid--col {
+  cursor: pointer;
+  position: relative;
+  width: 6rem;
+  height: 3.462rem;
+  margin: 1.728rem 0;
+  margin-right: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:	var(--hex_color);
+  overflow: visible;
+  font-size: 0.75rem;
+}
+
+.hexagon-grid--col:before,
+.hexagon-grid--col:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  left: 0;
+  border-left: 3rem solid transparent;
+  border-right: 3rem solid transparent;
+}
+
+.hexagon-grid--col:before {
+  bottom: 100%;
+  border-bottom: 1.728rem solid var(--hex_color);
+}
+
+.hexagon-grid--col:after {
+  top: 100%;
+  border-top: 1.728rem solid var(--hex_color);
+}
+
+.hexagon-grid .ability-icon img {
+  max-height: 15px;
+}
+
+.hexagon-grid .ability-name {
+  padding: 4px 2px;
+  font-weight: bold;
+}
+
+.hexagon-grid .ability-name svg {
+  transform: scale(0.75);
+  margin-left: 1px;
+}
+
+.hexagon-grid--col:hover         { background:          var(--hex_hover); }
+.hexagon-grid--col:hover::before { border-bottom-color: var(--hex_hover); }
+.hexagon-grid--col:hover::after  { border-top-color:    var(--hex_hover); }
+
+.hexagon-grid--col.selected.hp, .hexagon-grid--col.hp:not(.selected):hover {
+    --hex_color: #ffffba;
+    --hex_hover: #ffffba;
+}
+
+.hexagon-grid--col.selected.mp, .hexagon-grid--col.mp:not(.selected):hover {
+    --hex_color: #baffc9;
+    --hex_hover: #baffc9;
+}
+
+.hexagon-grid--col.selected.atk, .hexagon-grid--col.atk:not(.selected):hover {
+    --hex_color: #baffc9;
+    --hex_hover: #baffc9;
+}
+
+.hexagon-grid--col.selected.def, .hexagon-grid--col.def:not(.selected):hover {
+    --hex_color: #baffc9;
+    --hex_hover: #baffc9;
+    background-color:#ffdfba
+}
+
+.hexagon-grid--col.selected.mag, .hexagon-grid--col.mag:not(.selected):hover {
+    --hex_color: #baffc9;
+    --hex_hover: #baffc9;
+}
+
+.hexagon-grid--col.selected.spr, .hexagon-grid--col.spr:not(.selected):hover {
+    --hex_color: #bae1ff;
+    --hex_hover: #bae1ff;
+}
+
+.hexagon-grid--col.selected.ability, .hexagon-grid--col.ability:not(.selected):hover {
+    --hex_color: #e9dace;
+    --hex_hover: #e9dace;
+}
+
+.hexagon-grid--col.selected.resist, .hexagon-grid--col.resist:not(.selected):hover {
+    --hex_color: #e3e79f;
+    --hex_hover: #e3e79f;
+}
+
+.hexagon-grid--col.selected.killer, .hexagon-grid--col.killer:not(.selected):hover {
+    --hex_color: #f1ded3;
+    --hex_hover: #f1ded3;
+}
+
+/* Legacy Grid --------------------------------------------------- */
+
+#panWrapper {
+  overflow: auto;
+  padding:8px
+}
+
+#gridTrimmer {
+  margin: 0 auto;
+  overflow:hidden
+}
+
+#gridTrimmer.star1 {
+  height: 470px;
+  width:540px
+}
+
+#gridTrimmer.star1 #gridContainer {
+  margin-left: -180px;
+  margin-top:-170px
+}
+
+#gridTrimmer.star2 {
+  height: 660px;
+  width:740px
+}
+
+#gridTrimmer.star2 #gridContainer {
+  margin-left: -90px;
+  margin-top:-80px
+}
+
+#gridTrimmer.star3 {
+  height: 860px;
+  width:940px
+}
+
+#gridTrimmer.star3 #gridContainer {
+  margin-left: 10px;
+  margin-top:20px
+}
+
+#gridContainer {
+  height: 1000px;
+  position: relative;
+  transform-origin: 50% 50%;
+  width:1000px
+}
+
+#grid, #grid li {
+  overflow:hidden
+}
+
+#grid li {
+  float: left;
+  list-style-type: none;
+  padding: 0 0 10.722533817%;
+  position: relative;
+  transform: rotate(-60deg) skewY(30deg);
+  visibility: hidden;
+  width:9.285714286%;
+  color: var(--dark);
+  font-size: 0.75rem;
+  z-index: 2
+}
+
+#grid li * {
+  visibility:visible
+}
+
+#grid li .hexagon {
+  align-items: center;
+  background:	rgb(var(--body_bg_1));
+  color: #b0b0b0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transform: skewY(-30deg) rotate(60deg);
+  width:100%;
+  z-index: 1;
+}
+
+#grid li .hexagon .wikilink {
+  color:#b0b0b0
+}
+
+#grid li .hexagon.selected .wikilink {
+  color:#00f
+}
+
+#grid li .hexagon a {
+  color:#b0b0b0
+}
+
+#grid li .hexagon.selected, #grid li .hexagon.selected a {
+  color:#000
+}
+
+#grid li .hexagon.hover, #grid li .hexagon:hover {
+  cursor: pointer;
+  background:	rgb(var(--body_bg_2));
+}
+
+#grid li .hexagon.notUsed {
+  visibility:hidden
+}
+
+#grid li:nth-child(9n + 2), #grid li:nth-child(9n + 4), #grid li:nth-child(9n + 6), #grid li:nth-child(9n + 8) {
+  margin: 0 1%
+}
+
+#grid li:nth-child(18n + 10), #grid li:nth-child(18n + 11), #grid li:nth-child(18n + 12), #grid li:nth-child(18n + 13), #grid li:nth-child(18n + 14), #grid li:nth-child(18n + 15), #grid li:nth-child(18n + 16), #grid li:nth-child(18n + 17), #grid li:nth-child(18n + 18) {
+  margin-bottom: -2%;
+  margin-top: -2%;
+  transform:translateX(50%) rotate(-60deg) skewY(30deg)
+}
+
+#grid li:nth-child(18n + 10) {
+  margin-left:.5%
+}
+
+#grid li .hexagon .iconHolder {
+  position: absolute;
+  top:7px
+}
+
+#grid .iconHolder img,
+#grid .iconHolder .icon {
+    max-width: 35px;
+    height: auto;
+}
+
+#grid li .hexagon .cost {
+  bottom: 10px;
+  position:absolute
+}
+
+#grid li .hexagon .text {
+  font-weight: 700;
+  text-align: center;
+  z-index:10;
+    line-height: 1.1;
+}
+
+#grid li .hexagon .specialValueItem {
+  align-items: center;
+  flex-direction:row
+}
+
+#grid.star1 li .hexagon.star2, #grid.star1 li .hexagon.star2 *, #grid.star1 li .hexagon.star3, #grid.star1 li .hexagon.star3 *, #grid.star2 li .hexagon.star3, #grid.star2 li .hexagon.star3 * {
+  visibility:hidden
+}
+
+.line {
+  border: none !important;
+  outline: 6px solid var(--form_border);
+  z-index: 0 !important
+}
+
+#grid .selected.hexagon.hp      { background: #ffffba }
+#grid .selected.hexagon.mp      { background: #baffc9 }
+#grid .selected.hexagon.atk     { background: #ffb3ba }
+#grid .selected.hexagon.def     { background: #ffdfba }
+#grid .selected.hexagon.mag     { background: #bfaebf }
+#grid .selected.hexagon.spr     { background: #bae1ff }
+#grid .selected.hexagon.ability { background: #e9dace }
+#grid .selected.hexagon.resist  { background: #e3e79f }
+#grid .selected.hexagon.killer  { background: #f1ded3 }
+
+
+.hexagon.ability i.img {
+    height: 20px;
+    width: 20px
+}
+
+
+.esperHeader {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 10px;
+    min-height: 150px;
+    padding-right:30px
+}
+
+
+
+.error {
+    color: red;
+    font-weight:700
+}
+
+#spFixed {
+    background-color: #052464;
+    border-radius: 5px;
+    bottom: 20px;
+    color: #fff;
+    cursor: help;
+    display: none;
+    font-size: 1.1em;
+    left: 10px;
+    opacity: .5;
+    padding: 5px 10px;
+    position: fixed;
+    z-index:9999
+}
+
+#spFixed:hover {
+    opacity:1
+}
+
+#spFixed .name {
+    font-weight:700
+}
+
+#toggleGrid {
+    background-color: #052464;
+    border-radius: 75px;
+    bottom: 10px;
+    cursor: pointer;
+    display: none;
+    height: 75px;
+    opacity: .5;
+    position: fixed;
+    right: 10px;
+    width: 75px;
+    z-index:9999
+}
+
+#toggleGrid:hover {
+    opacity:1
+}
+
+#toggleGrid span {
+    color: #fff;
+    font-size: 30px;
+    left: 50%;
+    margin-left: -13px;
+    margin-top: -14px;
+    position: absolute;
+    top:50%
+}
+
+
+.hexagon.killer .iconHolder {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 72px;
+    justify-content:center
+}
+
+#esperSkills, td.killers {
+    flex-direction:column
+}
+
+@media (max-width: 768px),(pointer: coarse) and(hover: none) {
+  #toggleGrid { display:block }
+  #esper #panWrapper {
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, .31);
+    left: -100000px;
+    position: absolute;
+    top:-100000px
+  }
+
+  #esper.viewingTrainingGrid .esperHeader, #esper.viewingTrainingGrid .shareLink {
+    display:none
+  }
+
+  #esper.viewingTrainingGrid #panWrapper {
+    left: 0;
+    position: relative;
+    top:0
+  }
+
+  #gridContainer {
+    transform:scale(.7)
+  }
+
+  #gridTrimmer.star1 {
+    height: 330px;
+    width:378px
+  }
+
+  #gridTrimmer.star1 #gridContainer {
+    margin-left: -280px;
+    margin-top:-270px
+  }
+
+  #gridTrimmer.star2 {
+    height: 462px;
+    width:518px
+  }
+
+  #gridTrimmer.star2 #gridContainer {
+    margin-left: -210px;
+    margin-top:-205px
+  }
+
+  #gridTrimmer.star3 {
+    height: 602px;
+    width:658px
+  }
+
+  #gridTrimmer.star3 #gridContainer {
+    margin-left: -140px;
+    margin-top:-135px
+  }
+}
+
+@media (min-width: 650px) {
+  #panWrapper.star1, #panWrapper.star2, #panWrapper.star3 { overflow-x:hidden }
+}
+
+@media (min-width: 500px) {
+  #panWrapper.star1, #panWrapper.star2 { overflow-x:hidden }
+}
+
+@media (min-width: 360px) {
+  #panWrapper.star1 { overflow-x: hidden }
+}
+
+

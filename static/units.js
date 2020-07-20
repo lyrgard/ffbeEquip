@@ -21,11 +21,11 @@ function beforeShow() {
     $("#unitsWrapper").removeClass("hidden");
     $("#searchBox").addClass("hidden");
 
-    $(".nav-tabs li.alphabeticalSort").removeClass("active");
-    $(".nav-tabs li.raritySort").removeClass("active");
-    $(".nav-tabs li.tmrAlphabeticalSort").removeClass("active");
-    $(".nav-tabs li.history").removeClass("active");
-    $(".nav-tabs li.pullSimulator").removeClass("active");
+    $(".nav-tabs .alphabeticalSort").removeClass("active");
+    $(".nav-tabs .raritySort").removeClass("active");
+    $(".nav-tabs .tmrAlphabeticalSort").removeClass("active");
+    $(".nav-tabs .history").removeClass("active");
+    $(".nav-tabs .pullSimulator").removeClass("active");
     $("#searchBox").prop("placeholder", "Enter unit name");
 }
 
@@ -33,9 +33,14 @@ function showAlphabeticalSort() {
     beforeShow();
     currentSort = showAlphabeticalSort;
     $("#searchBox").removeClass("hidden");
-    $(".nav-tabs li.alphabeticalSort").addClass("active");
+    $(".nav-tabs .alphabeticalSort").addClass("active");
     // filter, sort and display the results
     $("#results").html(displayUnits(sortAlphabetically(filterName(releasedUnits))));
+
+    if (!$('#results').hasClass('row')) {
+      $('#results').addClass('row');
+    }
+
     $("#results").unmark({
         done: function() {
             var textToSearch = $("#searchBox").val();
@@ -51,9 +56,14 @@ function showRaritySort(minRarity = 1) {
     beforeShow();
     currentSort = showRaritySort;
     $("#searchBox").removeClass("hidden");
-    $(".nav-tabs li.raritySort").addClass("active");
+    $(".nav-tabs .raritySort").addClass("active");
     // filter, sort and display the results
     $("#results").html(displayUnitsByRarity(sortByRarity(filterName(releasedUnits)), minRarity));
+
+    if ($('#results').hasClass('row')) {
+      $('#results').removeClass('row');
+    }
+
     $("#results").unmark({
         done: function() {
             var textToSearch = $("#searchBox").val();
@@ -71,9 +81,14 @@ function showTMRAlphabeticalSort() {
     $("#searchBox").removeClass("hidden");
     $("#searchBox").prop("placeholder", "Enter TMR name");
 
-    $(".nav-tabs li.tmrAlphabeticalSort").addClass("active");
+    $(".nav-tabs .tmrAlphabeticalSort").addClass("active");
     // filter, sort and display the results
     $("#results").html(displayUnits(sortTMRAlphabetically(filterTMRName(releasedUnits)), true));
+
+    if (!$('#results').hasClass('row')) {
+      $('#results').addClass('row');
+    }
+
     $("#results").unmark({
         done: function() {
             var textToSearch = $("#searchBox").val();
@@ -86,55 +101,102 @@ function showTMRAlphabeticalSort() {
 }
 
 function showHistory() {
-    beforeShow();
-    currentSort = showHistory;
-    $(".nav-tabs li.history").addClass("active");
-    // filter, sort and display the results
+  beforeShow();
+  currentSort = showHistory;
 
-    var html = "";
-    for (var dateIndex in lastItemReleases) {
-        var first = true;
-        for (var sourceIndex in lastItemReleases[dateIndex].sources) {
-            if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
-                if (first) {
-                    html += '<div class="date">' + lastItemReleases[dateIndex].date+'</div>';
-                    first = false;
-                }
-                var unitsTodisplay = [];
-                var unitNames = lastItemReleases[dateIndex].sources[sourceIndex].units;
-                for (var unitNameIndex = 0, len = unitNames.length; unitNameIndex < len; unitNameIndex++) {
-                    var unitName = unitNames[unitNameIndex];
-                    if (units[unitName]) {
-                        unitsTodisplay.push(units[unitName]);
-                    }
-                }
-                html += displayUnits(unitsTodisplay);
-            }
+  $(".nav-tabs .history").addClass("active");
+
+  if ($('#results').hasClass('row')) {
+    $('#results').removeClass('row');
+  }
+
+  // filter, sort and display the results
+  var html = "";
+
+  for (var dateIndex in lastItemReleases) {
+    var first = true;
+
+    for (var sourceIndex in lastItemReleases[dateIndex].sources) {
+      if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
+        if (first) {
+
+          html += '<div class="ffbe_text--title d-flex justify-content-between mb-3">';
+          html += '  <span class="date">' + lastItemReleases[dateIndex].date + '</span>';
+          html += '</div>';
+          html += '<div class="row">';
+          first = false;
         }
+
+        var unitsTodisplay = [];
+        var unitNames = lastItemReleases[dateIndex].sources[sourceIndex].units;
+        for (var unitNameIndex = 0, len = unitNames.length; unitNameIndex < len; unitNameIndex++) {
+          var unitName = unitNames[unitNameIndex];
+          if (units[unitName]) {
+            unitsTodisplay.push(units[unitName]);
+          }
+        }
+        html += displayUnits(unitsTodisplay);
+        html += '</div>';
+      }
     }
-    $("#results").html(html);
-    afterShow();
+  }
+
+
+  $("#results").html(html);
+
+  afterShow();
 }
 
 function afterShow() {
-    lazyLoader.update();
-    $(document).tooltip({
-        items: ".unit .tmr, .unit .stmr",
-        content: function() {
-            let element = $(this);
-            let unitDiv = element.closest('.unit');
-            let item;
-            if (element.is(".tmr")) {
-                item = tmrByUnitId[unitDiv.prop('classList')[1]];
-            } else {
-                item = stmrByUnitId[unitDiv.prop('classList')[1]];
-            }
-            return '<div class="table notSorted items results"><div class="tbody"><div class="tr">' +  displayItemLine(item) + '</div></div></div>';
-        },
-        open: function() {
-            lazyLoader.update();
-        }
+  var popTrigger = '[data-toggle="unittrust"]',
+      popClass   = 'unitTrustPopover',
+      popID      = 'unit',
+      popType    = 'type';
+
+
+  /* New Bootstrap Popover --------------------------------------------------- *\
+   * Expects the following data attributes:
+   * data-inventory (item.id)
+  \* ------------------------------------------------------------------------- */
+
+  $(popTrigger).popover({
+    html: true,
+    trigger: 'manual',
+    container: 'body',
+    placement: 'bottom',
+    title: "Item Info",
+    template: '<div class="popover ' + popClass + ' ffbe_theme--dark" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
+    content: function() {
+      var theItem     = $(this).data(popID),
+          theItemType = $(this).data(popType);
+
+      if (theItemType == 'TMR') {
+        return displayItemLine(tmrByUnitId[theItem], "", false);
+      } else {
+        return displayItemLine(stmrByUnitId[theItem], "", false);
+      }
+    },
+
+  // Show the Popover and hide the others
+  }).on("mouseenter", function () {
+    var _this = this;
+    $(this).popover("show");
+    $(this).siblings(".popover").on("mouseleave", function () {
+        $(_this).popover('hide');
     });
+
+  // Let the Popover linger when you hover (Time in MS)
+  }).on("mouseleave", function () {
+        var _this = this;
+        setTimeout(function () {
+            if (!$(".popover:hover").length) {
+                $(_this).popover("hide")
+            }
+        }, 100);
+
+  });
+
+  lazyLoader.update();
 }
 
 function showPullSimulator() {
@@ -194,64 +256,61 @@ function displayStats() {
     $(".stats .all .star7 .value").text(stats.all["7"].different);
     $(".stats .all .star7 .total").text(stats.all["7"].total);
     $(".stats .all .star7 .number").text("(" + stats.all["7"].number + ")");
-    
+
     $(".stats .all .star5 .value").text(stats.all["5"].different);
     $(".stats .all .star5 .total").text(stats.all["5"].total);
     $(".stats .all .star5 .number").text("(" + stats.all["5"].number + ")");
-    
+
     $(".stats .all .star4 .value").text(stats.all["4"].different);
     $(".stats .all .star4 .total").text(stats.all["4"].total);
     $(".stats .all .star4 .number").text("(" + stats.all["4"].number + ")");
-    
+
     $(".stats .all .star3 .value").text(stats.all["3"].different);
     $(".stats .all .star3 .total").text(stats.all["3"].total);
     $(".stats .all .star3 .number").text("(" + stats.all["3"].number + ")");
-    
+
     $(".stats .withoutTimeLimited .star7 .value").text(stats.all["7"].different - stats.timeLimited["7"].different);
     $(".stats .withoutTimeLimited .star7 .total").text(stats.all["7"].total - stats.timeLimited["7"].total);
     $(".stats .withoutTimeLimited .star7 .number").text("(" + (stats.all["7"].number - stats.timeLimited["7"].number) + ")");
-    
+
     $(".stats .withoutTimeLimited .star5 .value").text(stats.all["5"].different - stats.timeLimited["5"].different);
     $(".stats .withoutTimeLimited .star5 .total").text(stats.all["5"].total - stats.timeLimited["5"].total);
     $(".stats .withoutTimeLimited .star5 .number").text("(" + (stats.all["5"].number - stats.timeLimited["5"].number) + ")");
-    
+
     $(".stats .withoutTimeLimited .star4 .value").text(stats.all["4"].different - stats.timeLimited["4"].different);
     $(".stats .withoutTimeLimited .star4 .total").text(stats.all["4"].total - stats.timeLimited["4"].total);
     $(".stats .withoutTimeLimited .star4 .number").text("(" + (stats.all["4"].number - stats.timeLimited["4"].number) + ")");
-    
+
     $(".stats .withoutTimeLimited .star3 .value").text(stats.all["3"].different - stats.timeLimited["3"].different);
     $(".stats .withoutTimeLimited .star3 .total").text(stats.all["3"].total - stats.timeLimited["3"].total);
     $(".stats .withoutTimeLimited .star3 .number").text("(" + (stats.all["3"].number - stats.timeLimited["3"].number) + ")");
-    
+
     $(".stats .timeLimited .star7 .value").text(stats.timeLimited["7"].different);
     $(".stats .timeLimited .star7 .total").text(stats.timeLimited["7"].total);
     $(".stats .timeLimited .star7 .number").text("(" + stats.timeLimited["7"].number + ")");
-    
+
     $(".stats .timeLimited .star5 .value").text(stats.timeLimited["5"].different);
     $(".stats .timeLimited .star5 .total").text(stats.timeLimited["5"].total);
     $(".stats .timeLimited .star5 .number").text("(" + stats.timeLimited["5"].number + ")");
-    
+
     $(".stats .timeLimited .star4 .value").text(stats.timeLimited["4"].different);
     $(".stats .timeLimited .star4 .total").text(stats.timeLimited["4"].total);
     $(".stats .timeLimited .star4 .number").text("(" + stats.timeLimited["4"].number + ")");
-    
+
     $(".stats .timeLimited .star3 .value").text(stats.timeLimited["3"].different);
     $(".stats .timeLimited .star3 .total").text(stats.timeLimited["3"].total);
     $(".stats .timeLimited .star3 .number").text("(" + stats.timeLimited["3"].number + ")");
-    
-    $(".unitsSidebar .hidden").removeClass("hidden");
+
 }
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayUnits = function(units, useTmrName = false) {
     var html = '';
     if (units.length > 0) {
-        html = '<div class="unitList">';
         for (var index = 0, len = units.length; index < len; index++) {
             var unit = units[index];
             html += getUnitDisplay(unit, useTmrName);
         }
-        html += '</div>';
     } else {
         html = "<p>No "+ (useTmrName ? "TMR" : "units") +" found...</p>"
     }
@@ -266,67 +325,90 @@ function buildRarityID(min_rarity, max_rarity)
 }
 
 function displayUnitsByRarity(units, minRarity = 1) {
-    var lastMinRarity, lastMaxRarity;
-    var first = true;
+  var lastMinRarity, lastMaxRarity;
+  var first = true;
+  var html = '';
 
-    var html = '';
+  if (units.length > 0) {
+    var rarity_list = []; // will gather rarity to display a jump list later
 
-    if (units.length > 0) {
-        var rarity_list = []; // will gather rarity to display a jump list later
-        for (var index = 0, len = units.length; index < len; index++) {
-            var unit = units[index];
-            if (minRarity == 7) {
-                if (!ownedUnits[unit.id] || !ownedUnits[unit.id].sevenStar) {
-                    continue;
-                }
-            } else if (unit.min_rarity != 'NV' && unit.min_rarity < minRarity) {
-                continue;
-            }
-            var maxRarity = (unit.unreleased7Star ? 6 : unit.max_rarity);
-            if (first) {
-                html += '<div class="raritySeparator" id="' + buildRarityID(unit.min_rarity, maxRarity) + '">' + getRarity(unit.min_rarity, maxRarity) + "</div>";
-                html += '<div class="unitList">';
-                first = false;
-                rarity_list.push({'min_rarity': unit.min_rarity, "max_rarity": maxRarity});
-            } else {
-                if (maxRarity != lastMaxRarity || unit.min_rarity != lastMinRarity) {
-                    html += '</div>';
-                    html += '<div class="raritySeparator" id="' + buildRarityID(unit.min_rarity, maxRarity) + '">' + getRarity(unit.min_rarity, maxRarity) + "</div>";
-                    html += '<div class="unitList">';
-                    rarity_list.push(unit);
-                }
-            }
-            lastMaxRarity = maxRarity;
-            lastMinRarity = unit.min_rarity;
-            html += getUnitDisplay(unit);
+    for (var index = 0, len = units.length; index < len; index++) {
+      var unit = units[index];
+
+      if (minRarity == 7) {
+        if (!ownedUnits[unit.id] || !ownedUnits[unit.id].sevenStar) {
+          continue;
         }
+      } else if (unit.min_rarity != 'NV' && unit.min_rarity < minRarity) {
+        continue;
+      }
+
+      var maxRarity = (unit.unreleased7Star ? 6 : unit.max_rarity);
+
+      if (first) {
+
+        // Build  Unit Title.
+        html += '<div class="d-flex my-2 align-items-center" id="' + buildRarityID(unit.min_rarity, maxRarity) + '">';
+        html += '  <div class="ffbe_text--title flex-fill my-2"></div>';
+        html += '  <div class="px-4">' + getRarity(unit.min_rarity, maxRarity) + '</div>';
+        html += '  <div class="ffbe_text--title flex-fill my-2"></div>';
         html += '</div>';
-        
-        var rarity_jump_html = '';
-        if (rarity_list.length > 1) {
-            // Jump list display
-            rarity_jump_html = '<div class="rarityJumpList" data-html2canvas-ignore>';
-            rarity_jump_html += '<span>Jump to </span>';
-            // Loop from end to begin, to show smaller star first
-            // Also, do not show index 0 because it's the one just below, so don't need to jump...
-            for (index = 1, len = rarity_list.length; index < len; index++) {
-                rarity_jump_html += '<a class="rarityJump btn btn-default" href="#' + buildRarityID(rarity_list[index].min_rarity, rarity_list[index].max_rarity) + '">';
-                rarity_jump_html += getRarity(rarity_list[index].min_rarity, rarity_list[index].max_rarity) ;
-                rarity_jump_html += "</a>";
-            }
-            rarity_jump_html += '</div>';
+
+        html += '<div class="row unitList">';
+        first = false;
+        rarity_list.push({'min_rarity': unit.min_rarity, "max_rarity": maxRarity});
+      } else {
+        if (maxRarity != lastMaxRarity || unit.min_rarity != lastMinRarity) {
+          html += '</div>';
+
+        // Build  Unit Title.
+        html += '<div class="d-flex my-2 align-items-center" id="' + buildRarityID(unit.min_rarity, maxRarity) + '">';
+        html += '  <div class="ffbe_text--title flex-fill my-2"></div>';
+        html += '  <div class="px-4">' + getRarity(unit.min_rarity, maxRarity) + '</div>';
+        html += '  <div class="ffbe_text--title flex-fill my-2"></div>';
+        html += '</div>';
+
+          html += '<div class="row unitList">';
+          rarity_list.push(unit);
         }
-        html = rarity_jump_html + html;
-    } else {
-        html = "<p>No units found...</p>";
+      }
+
+      lastMaxRarity = maxRarity;
+      lastMinRarity = unit.min_rarity;
+      html += getUnitDisplay(unit);
+    }
+      html += '</div>';
+
+  var rarity_jump_html = '';
+
+  if (rarity_list.length > 1) {
+    var rarity_jump_btn = '';
+
+    // Jump list display
+    // Loop from end to begin, to show smaller star first
+    // Also, do not show index 0 because it's the one just below, so don't need to jump...
+    for (index = 1, len = rarity_list.length; index < len; index++) {
+      rarity_jump_btn += '<a class="rarityJump btn btn-primary btn-sm ml-1 mb-1" href="#' + buildRarityID(rarity_list[index].min_rarity, rarity_list[index].max_rarity) + '">' + getRarity(rarity_list[index].min_rarity, rarity_list[index].max_rarity) + "</a>";
     }
 
-    return html;
+    rarity_jump_html  = '<div class="d-flex justify-content-center align-items-center rarityJumpList" data-html2canvas-ignore>';
+    rarity_jump_html += '  <span class="pr-2">Jump to</span>';
+    rarity_jump_html += '  <div class="d-flex flex-wrap">' + rarity_jump_btn + '</div>';
+    rarity_jump_html += '</div>';
+  }
 
-};
+  html = rarity_jump_html + html;
+
+  } else {
+    html = "<p>No units found...</p>";
+  }
+
+  return html;
+
+}
 
 function getUnitImage(unit) {
-    var unitImage = '/img/units/unit_icon_' + unit.id.substr(0,7);
+    var unitImage = '/assets/game/units/unit_icon_' + unit.id.substr(0,7);
     var formToDisplay = unit.max_rarity;
     if (unit.max_rarity == 'NV' && unit.min_rarity != 'NV') {
         unitImage += '1';
@@ -348,116 +430,139 @@ function getUnitImage(unit) {
 
 function getUnitDisplay(unit, useTmrName = false) {
   var html = "";
-    if (!onlyShowOwnedUnits || ownedUnits[unit.id]) {
-        var is7Stars = ownedUnits[unit.id] && ownedUnits[unit.id].sevenStar;
-        html += '<div class="unit ' + unit.id;
-        if (ownedUnits[unit.id] && (ownedUnits[unit.id].number || ownedUnits[unit.id].sevenStar)) {
-            html += ' owned';
-        } else {
-            html += ' notOwned';
-        }
-        if (ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) {
-            html += ' tmrMoogles';
-        }
-        if (ownedUnits[unit.id] && ownedUnits[unit.id].farmable > 0) {
-            html += ' farmable';
-        }
-        if (ownedUnits[unit.id] && ownedUnits[unit.id].farmableStmr > 0) {
-            html += ' farmableStmr';
-        }
-        if (!unit.unreleased7Star && unit.max_rarity == 7 && ownedUnits[unit.id] && ownedUnits[unit.id].number >= 1) {
-            html += ' awakenable';
-        }
-        if (unit.summon_type === 'event') {
-            html += ' timeLimited';
-        }
+
+  if (!onlyShowOwnedUnits || ownedUnits[unit.id]) {
+    var is7Stars        = ownedUnits[unit.id] && ownedUnits[unit.id].sevenStar,
+        unitAffixes     = '',
+        unitCrystalType = '',
+        unitDisplayName = '',
+        unitNameIcon    = '';
+
+      if (ownedUnits[unit.id] && (ownedUnits[unit.id].number || ownedUnits[unit.id].sevenStar)) {
+        unitAffixes += ' owned';
+      } else {
+        unitAffixes += ' notOwned';
+      }
+
+      if (ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) {
+        unitAffixes += ' tmrMoogles';
+      }
+
+      if (ownedUnits[unit.id] && ownedUnits[unit.id].farmable > 0) {
+        unitAffixes += ' farmable';
+      }
+
+      if (ownedUnits[unit.id] && ownedUnits[unit.id].farmableStmr > 0) {
+        unitAffixes += ' farmableStmr';
+      }
+
+      if (!unit.unreleased7Star && unit.max_rarity == 7 && ownedUnits[unit.id] && ownedUnits[unit.id].number >= 1) {
+        unitAffixes += ' awakenable';
+      }
+
+      if (unit.summon_type === 'event') {
+        unitAffixes += ' timeLimited';
+      }
+
+      if (is7Stars) {
+        unitAffixes += ' sevenStars';
+      } else {
+        unitAffixes += ' notSevenStars';
+      }
+
+      if (unit.max_rarity == 7) {
+        unitAffixes += ' showStmr';
+      }
+
+      if (unit.min_rarity == 3) {
+        unitCrystalType = 'crystal-blueCrystal';
+      } else if (unit.min_rarity == 4) {
+        unitCrystalType = 'crystal-goldCrystal';
+      } else if (unit.min_rarity == 5) {
+        unitCrystalType = 'crystal-rainbowCrystal';
+      }
+
+      if (useTmrName) {
+        unitDisplayName = toLink(tmrByUnitId[unit.id].name);
+      } else {
+        unitDisplayName = toLink(unit.name, unit.name, true);
+      }
+
+      if (unit.summon_type === 'event') {
+        unitNameIcon = '<span class="fa fa-clock"></span>';
+      }
+
+      html += '<div class="col-6 col-sm-6 col-md-4 mb-4 unit ' + unit.id + unitAffixes + '" data-unit="' + unit.id + '">';
+      html += '  <div class="ffbe_content--well rounded border p-2 h-100">';
+      html += '    <div class="row align-items-center">';
+      html += '      <div class="col-12 col-md-2">';
+      html += '        <div class="form-row align-items-center justify-content-center">';
+      html += '          <div class="col-auto col-sm-12"><div class="d-flex align-items-center justify-content-sm-between"><i class="icon icon-xs crystal-sevenStarCrystal"></i><span class="ml-1 w-100 ownedNumber badge badge-success sevenStar">' + (ownedUnits[unit.id] ? (ownedUnits[unit.id].sevenStar || 0) : 0) + '</span></div></div>';
+      html += '          <div class="col-auto col-sm-12"><div class="d-flex align-items-center justify-content-sm-between my-0 my-sm-1"><i class="icon icon-xs ' + unitCrystalType + '"></i><span class="ml-1 w-100 ownedNumber base badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span></div></div>';
+      html += '          <div class="col-auto col-sm-12"><div class="d-flex align-items-center justify-content-sm-between"><i class="icon icon-xs crystal-tmr"></i><span class="ml-1 w-100 ownedNumber badge badge-success" data-toggle="tooltip" title="' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.map(p => p + '%').join(', ') : '') + '">' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.length : 0) + '</span></div></div>';
+      html += '        </div>';
+      html += '      </div>';
+      html += '      <div class="col-12 col-md justify-content-center">';
+      html += '        <div class="form-row align-items-center">';
+      html += '          <div class="col-auto"><img class="unitImage lazyload" data-src="' + getUnitImage(unit) + '"/></div>';
+      html += '          <div class="col">';
+      html += '            <div class="d-flex font-weight-bold unitName"><span class="mr-auto">' + unitDisplayName + '</span><span class="ml-auto">' + unitNameIcon + '</span></div>';
+      html += '            <div class="d-block unitRarity">' + getRarity(unit.min_rarity, (unit.unreleased7Star ? 6 : unit.max_rarity)) + '</div>';
+      html += '            <div class="d-block mt-1 text-sm">';
+      html += '              <div class="d-flex justify-content-center">';
+
+      if (readOnly) {
         if (is7Stars) {
-            html += ' sevenStars';
-        } else {
-            html += ' notSevenStars';
+          let farmedStmr = ownedUnits[unit.id] ? (ownedUnits[unit.id].farmedStmr || 0) : 0;
+          html += '  <div class="d-flex align-items-center mr-3 stmr" data-toggle="unittrust" data-type="STMR" id="STMR_' + unit.id + '" data-unit="' + unit.id + '">STMR<span class="ml-1 badge badge-success sevenStar">' + farmedStmr + '</span></div>';
         }
+
+        let farmedTmr = ownedUnits[unit.id] ? (ownedUnits[unit.id].farmed || 0) : 0;
+        html += '    <div class="d-flex align-items-center-sm tmr" data-toggle="unittrust" data-type="TMR" id="TMR_' + unit.id + '" data-unit="' + unit.id + '">TMR<span class="ml-1 badge badge-success">' + farmedTmr + '</span></div>';
+      } else {
+        if (tmrByUnitId[unit.id]) {
+          let farmedSTMR = stmrNumberByUnitId[unit.id] || 0;
+          let farmableSTMR = (ownedUnits[unit.id] ? (ownedUnits[unit.id].farmableStmr || 0) : 0);
+          html += '<div class="d-flex align-items-center mr-3 stmr trustCounter" data-toggle="unittrust" data-type="STMR" data-unit="' + unit.id + '">STMR<span class="ml-1 badge badge-success sevenStar"><span class="farmedSTMR">' + farmedSTMR + '</span>/<span class="totalSTMR">' + (farmedSTMR + farmableSTMR) + '</span></span></div>'
+          let farmedTMR = tmrNumberByUnitId[unit.id] || 0;
+          let farmableTMR = (ownedUnits[unit.id] ? (ownedUnits[unit.id].farmable || 0) : 0);
+          html += '<div class="d-flex align-items-center tmr trustCounter" data-toggle="unittrust" data-type="TMR" data-unit="' + unit.id + '">TMR<span class="ml-1 badge badge-success"><span class="farmedTMR">' + farmedTMR + '</span>/<span class="totalTMR">' + (farmedTMR + farmableTMR) + '</span></span></div>'
+        }
+      }
+
+      html += '               </div>';
+      html += '            </div>';
+      html += '          </div>';
+      html += '        </div>';
+      html += '      </div>';
+
+      if (!readOnly) {
+        html += '    <div class="col-12 col-md-3 actions">';
+        html += '      <div class="row no-gutters align-items-center mt-2 mt-md-0">';
+        html += '        <div class="col-auto col-md-12 d-flex align-items-center mr-auto">';
+        html += '          <button class="btn btn-xs btn-ghost w-100 mb-0 mb-md-1 mr-1 modifyCounterButton" onclick="event.stopPropagation();addToOwnedUnits(\'' + unit.id + '\')" data-toggle="tooltip" title="Add one ' + unit.name + ' to your collection" type="button"><span class="fa fa-fw fa-plus"></span></button>';
+        html += '          <button class="btn btn-xs btn-ghost w-100 mb-0 mb-md-1" onclick="event.stopPropagation();editUnit(\'' + unit.id + '\')" data-toggle="tooltip" title="Edit unit values" type="button"><span class="fa fa-fw fa-edit"></span></button>';
+        html += '        </div>';
+
+        html += '        <div class="col-auto col-md-12 d-flex align-items-center mx-auto">';
+        html += '          <button class="btn btn-xs btn-ghost w-100 mr-1 farmedButton tmr" onclick="event.stopPropagation();farmedTMR(' + unit.id + ')" data-toggle="tooltip" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will add 1 of this TMR to your inventory" type="button"><span class="fa fa-fw fa-star"></span></button>';
+        html += '          <button class="btn btn-xs btn-ghost w-100 farmedButton stmr" onclick="event.stopPropagation();farmedSTMR(' + unit.id + ')" data-toggle="tooltip" title="STMR Farmed ! Click here to indicate you farmed this STMR. It will add 1 of this STMR to your inventory" type="button"><span class="fa fa-hand-sparkles fa-fw"></span></button>';
+        html += '        </div>';
+
         if (unit.max_rarity == 7) {
-            html += ' showStmr';
-        } 
-        html += '"';
-        /*if (!is7Stars) {
-            html +=' onclick="addToOwnedUnits(\'' + unit.id + '\')"';    
-            html += ' title="Add one ' + unit.name + ' to your collection"';
-        }*/
-        html += '>';
-        html += '<div class="ownedNumbers">';
-        html += '<div class="sevenStarNumber"><i class="img img-crystal-sevenStarCrystal"></i><span class="ownedNumber badge badge-success sevenStar">' + (ownedUnits[unit.id] ? (ownedUnits[unit.id].sevenStar || 0) : 0) + '</span></div>';
-        html += '<div class="ownedNumberDiv">'
-        if (unit.min_rarity == 3) {
-            html += '<i class="img img-crystal-blueCrystal"></i>';
-        } else if (unit.min_rarity == 4) {
-            html += '<i class="img img-crystal-goldCrystal"></i>';
-        } else if (unit.min_rarity == 5) {
-            html += '<i class="img img-crystal-rainbowCrystal"></i>';
-        }
-        html += '<span class="ownedNumber base badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span></div>';
-        html += '<div class="tmrMoogles"><img src="img/units/unit_ills_904000103.png"></img><span class="ownedNumber badge badge-success" title="' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.map(p => p + '%').join(', ') : '') + '">' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.length : 0) + '</span></div>';
-        html += '</div>'    
-        
-        
-        html += '<div class="secondColumn">'
-        html += '<div class="imageAndName">'
-        html += '<div><img class="unitImage lazyload" data-src="' + getUnitImage(unit) + '"/></div>';
-        
-        html +='<div class="unitNameAndRarity">';
-        html +='<div class="unitName">';
-        if (useTmrName) {
-            html += toLink(tmrByUnitId[unit.id].name);
-        } else {
-            html += toLink(unit.name, unit.name, true);
-        }
-        if (unit.summon_type === 'event') {
-            html +='<span class="glyphicon glyphicon-time"/>';
-        }
-        html += '</div>';
-        
-        html += '<div class="unitRarity">'
-        html += getRarity(unit.min_rarity, (unit.unreleased7Star ? 6 : unit.max_rarity));
-        html += '</div>';
-        
-        html += '</div>'
-        html += '</div>' 
-
-        if (!readOnly) {
-            html += '<div class="actions">'
-            html += '<span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();addToOwnedUnits(\'' + unit.id + '\')" title="Add one ' + unit.name + ' to your collection"></span>'
-            html += '<img class="farmedButton tmr" onclick="event.stopPropagation();farmedTMR(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will add 1 of this TMR to your inventory"></img>';
-            html += '<img class="farmedButton stmr" onclick="event.stopPropagation();farmedSTMR(' + unit.id + ')" src="/img/units/unit_ills_906000105.png" title="STMR Farmed ! Click here to indicate you farmed this STMR. It will add 1 of this STMR to your inventory"></img>';
-            if (unit.max_rarity == 7) {
-                html += '<img class="awakenButton" onclick="event.stopPropagation();awaken(' + unit.id + ')" src="/img/icons/crystals/sevenStarCrystal.png" title="Awaken this unit !"></img>';
-            }
-            html += '<span class="glyphicon glyphicon-pencil" onclick="event.stopPropagation();editUnit(\'' + unit.id + '\')" title="Edit unit values"></span>'
-            html += '</div>';
+          html += '      <div class="col-auto col-md-12 d-flex align-items-center ml-auto">';
+          html += '        <button class="btn btn-xs btn-ghost btn-block awakenButton mt-0 mt-md-1" onclick="event.stopPropagation(); awaken(' + unit.id + ')"  data-toggle="tooltip" title="Awaken this unit !" type="button"><span class="fa fa-gem fa-fw"></span></button>';
+          html += '      </div>';
         }
 
-        html += '</div>';
-        
-        html += '<div class="thirdColumn">';
-        if (readOnly) {
-            if (is7Stars) {
-                let farmedStmr = ownedUnits[unit.id] ? (ownedUnits[unit.id].farmedStmr || 0) : 0;
-                html += '<div class="stmr">STMR <span class="badge badge-success sevenStar">' + farmedStmr + '</span></div>'
-            }
-            let farmedTmr = ownedUnits[unit.id] ? (ownedUnits[unit.id].farmed || 0) : 0;
-            html += '<div class="tmr">TMR <span class="badge badge-success">' + farmedTmr + '</span></div>'
-        } else {
-            if (tmrByUnitId[unit.id]) {
-                let farmedSTMR = stmrNumberByUnitId[unit.id] || 0;
-                let farmableSTMR = (ownedUnits[unit.id] ? (ownedUnits[unit.id].farmableStmr || 0) : 0);
-                html += '<div class="stmr trustCounter">STMR <span class="badge badge-success sevenStar"><span class="farmedSTMR">' + farmedSTMR + '</span>/<span class="totalSTMR">' + (farmedSTMR + farmableSTMR) + '</span></span></div>'
-                let farmedTMR = tmrNumberByUnitId[unit.id] || 0;
-                let farmableTMR = (ownedUnits[unit.id] ? (ownedUnits[unit.id].farmable || 0) : 0);
-                html += '<div class="tmr trustCounter">TMR <span class="badge badge-success"><span class="farmedTMR">' + farmedTMR + '</span>/<span class="totalTMR">' + (farmedTMR + farmableTMR) + '</span></span></div>'
-            }
-        }
-        html += '</div>';
-        
-        html += '</div>';
+        html += '      </div>';
+        html += '    </div>';
+      }
+
+      html += '    </div>';
+      html += '  </div>';
+      html += '</div>';
+
     }
     return html;
 }
@@ -549,7 +654,7 @@ function addToOwnedUnits(unitId) {
     if (!ownedUnits[unitId]) {
         ownedUnits[unitId] = {"number":0, "farmable":0};
     }
-    
+
     ownedUnits[unitId].number += 1;
     let ownedUnitsCount = ownedUnits[unitId].number + (ownedUnits[unitId].sevenStar || 0) * 2;
     if (!tmrNumberByUnitId[unitId] || (tmrNumberByUnitId[unitId] < ownedUnitsCount)) {
@@ -623,7 +728,7 @@ function farmedSTMR(unitId) {
     })
     Modal.show({
         title: 'Farmed ' + units[unitId].name + ' STMR',
-        body: '<p>How was it created ?</p>',
+        body: '<p>How was it created?</p>',
         withCancelButton: true,
         buttons: buttons
     });
@@ -657,7 +762,7 @@ function awaken(unitId) {
     } else {
         Modal.show({
             title: 'Awaken ' + units[unitId].name,
-            body: '<p>How to awaken ?</p>',
+            body: '<p>How to awaken?</p>',
             withCancelButton: true,
             buttons: [
                 {
@@ -667,7 +772,7 @@ function awaken(unitId) {
                         ownedUnits[unitId].number -= 2;
                         awakenFollowUp(unitId);
                     }
-                }, 
+                },
                 {
                     text: "Awaken using 1 unit and a prism",
                     className: "",
@@ -685,7 +790,7 @@ function awakenFollowUp(unitId) {
     if (ownedUnits[unitId].number < 1) {
         $(".unit." + unitId).removeClass("awakenable");
     }
-    
+
     if (!ownedUnits[unitId].sevenStar) {
         ownedUnits[unitId].sevenStar = 0;
         ownedUnits[unitId].farmableStmr = 0;
@@ -701,29 +806,29 @@ function editUnit(unitId) {
         ownedUnits[unitId] = {"number":0, "farmable":0, "sevenStar":0, "farmableStmr":0};
     }
     let form = '<form>' +
-      '<div class="form-group">' +
-        '<label for="ownedNumber">Owned number</label>' +
-        '<input type="number" class="form-control" id="ownedNumber" aria-describedby="emailHelp" placeholder="Enter owned number" value="' + ownedUnits[unitId].number + '">' +
+      '<div class="form-group form-row align-items-center">' +
+        '<label class="col-form-label col-4" for="ownedNumber">Owned number</label>' +
+        '<div class="col"><input type="number" class="form-control" id="ownedNumber" aria-describedby="emailHelp" placeholder="Enter owned number" value="' + ownedUnits[unitId].number + '"></div>' +
       '</div>'+
-      '<div class="form-group">' +
-        '<label for="farmableTMR">Number of TMR that can still be farmed</label>' +
-        '<input type="number" class="form-control" id="farmableTMR" aria-describedby="emailHelp" placeholder="Enter farmable TMR number" value="' + ownedUnits[unitId].farmable + '">' +
+      '<div class="form-group form-row align-items-center">' +
+        '<label class="col-form-label col-4"  for="farmableTMR">Number of TMR that can still be farmed</label>' +
+        '<div class="col"><input type="number" class="form-control" id="farmableTMR" aria-describedby="emailHelp" placeholder="Enter farmable TMR number" value="' + ownedUnits[unitId].farmable + '"></div>' +
       '</div>';
     let unit = units[unitId];
     if (unit.max_rarity == '7') {
-        form += '<div class="form-group">' +
-            '<label for="ownedSeventStarNumber">Owned 7* number</label>' +
-            '<input type="number" class="form-control" id="ownedSeventStarNumber" aria-describedby="emailHelp" placeholder="Enter owned number" value="' + (ownedUnits[unitId].sevenStar || 0) + '">' +
+        form += '<div class="form-group form-row align-items-center">' +
+            '<label class="col-form-label col-4"  for="ownedSeventStarNumber">Owned 7* number</label>' +
+            '<div class="col"><input type="number" class="form-control" id="ownedSeventStarNumber" aria-describedby="emailHelp" placeholder="Enter owned number" value="' + (ownedUnits[unitId].sevenStar || 0) + '"></div>' +
           '</div>'+
-          '<div class="form-group">' +
-            '<label for="farmableSTMR">Number of STMR that can still be farmed</label>' +
-            '<input type="number" class="form-control" id="farmableSTMR" aria-describedby="emailHelp" placeholder="Enter farmable STMR number" value="' + (ownedUnits[unitId].farmableStmr || 0) + '">' +
+          '<div class="form-group form-row align-items-center">' +
+            '<label class="col-form-label col-4"  for="farmableSTMR">Number of STMR that can still be farmed</label>' +
+            '<div class="col"><input type="number" class="form-control" id="farmableSTMR" aria-describedby="emailHelp" placeholder="Enter farmable STMR number" value="' + (ownedUnits[unitId].farmableStmr || 0) + '"></div>' +
           '</div>';
     }
     if (tmrByUnitId[unitId]) {
-        form += '<div class="form-group">' +
-            '<label for="tmrMoogles">TMR Moogles owned</label>' +
-            '<input type="text" class="form-control" id="tmrMoogles" aria-describedby="emailHelp" placeholder="Enter values of tmr moogles, separated by coma" value="' + (ownedUnits[unitId].tmrMoogles? ownedUnits[unitId].tmrMoogles.join(", ") : "") + '">' +
+        form += '<div class="form-group form-row align-items-center">' +
+            '<label class="col-form-label col-4"  for="tmrMoogles">TMR Moogles owned</label>' +
+            '<div class="col"><input type="text" class="form-control" id="tmrMoogles" aria-describedby="emailHelp" placeholder="Enter values of tmr moogles, separated by coma" value="' + (ownedUnits[unitId].tmrMoogles? ownedUnits[unitId].tmrMoogles.join(", ") : "") + '"></div>' +
             '</div>'
     }
     form += '</form>';
@@ -800,18 +905,18 @@ function savePublicLink(callback) {
             publicUnitcollection[unit.id] = publicUnit;
         }
     }
-    
+
     $.ajax({
         url: server + '/publicUnitCollection',
         method: 'PUT',
         data: JSON.stringify(publicUnitcollection),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function(data) { 
-            $.notify("Public link updated", "success"); 
+        success: function(data) {
+            $.notify("Public link updated", "success");
             savePublicLinkNeeded = false;
             userSettings.unitCollection = data.id;
-            if (callback) {callback(data.id)} 
+            if (callback) {callback(data.id)}
         },
         error: function() { $.notify("Error while updating public link", "error"); }
     });
@@ -1004,9 +1109,9 @@ function exportAsCsv() {
         var unit = sortedUnits[index];
         if (ownedUnits[unit.id]) {
             var maxRarity = (unit.unreleased7Star ? 6 : unit.max_rarity)
-            csv +=  "\"" + unit.id + "\";" + 
-                "\"" + unit.name + "\";" + 
-                unit.min_rarity + ';' + 
+            csv +=  "\"" + unit.id + "\";" +
+                "\"" + unit.name + "\";" +
+                unit.min_rarity + ';' +
                 maxRarity + ';' +
                 ownedUnits[unit.id].number + ';' +
                 (ownedUnits[unit.id].sevenStar || 0) + ';' +
@@ -1050,47 +1155,54 @@ function exportAsText() {
 }
 
 function importUnits() {
-    if (!baseUnitIdBySpecificRarityUnitId) {
-        baseUnitIdBySpecificRarityUnitId = {};
-        releasedUnits.forEach(unit => {
-            let unitIdBase = unit.id.substring(0,unit.id.length - 1);
-           for (i = parseInt(unit.min_rarity); i <= parseInt(unit.max_rarity); i++) {
-               baseUnitIdBySpecificRarityUnitId[unitIdBase + i] = unit.id;
-           }
-        });
-    }
-    if (!baseUnitIdByTmrId) {
-        baseUnitIdByTmrId = {};
-        data.forEach(equip => {
-            if (equip.tmrUnit) {
-                baseUnitIdByTmrId[equip.id] = equip.tmrUnit;
-            }
-        })
-    }
-    importedOwnedUnit = null;
-    Modal.show({
-        title: "Import unit collection",
-        body: '<p class="label label-danger">This feature is a Work in Progress. It will override your unit collection on FFBE Equip</p><br/><br/>' +
-              '<input type="file" id="importFile" name="importFile" onchange="treatImportFile"/>'+
-              '<p><a class="link" href="https://www.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/">Instructions to import your data directly from the game</a> ((require login to FFBE with Facebook or Google)</p><br>' +
-              '<p id="importSummary"></p>',
-        buttons: [{
-            text: "Import",
-            onClick: function() {
-                if (importedOwnedUnit) {
-                    ownedUnits = importedOwnedUnit;
-                    markSaveNeeded();
-                    saveUserData(false, true, false);
-                    savePublicLink();
-                    showRaritySort();
-                } else {
-                    Modal.show("Please select a file to import");
-                }
-                
-            }
-        }]
+  var bodyHTML  = '<div class="alert alert-info">This feature is a Work in Progress. It will override your unit collection on FFBE Equip!</div>';
+      bodyHTML += '<div class="custom-file mt-3 mb-2">';
+      bodyHTML += '  <input type="file" id="importFile" class="custom-file-input" name="importFile" onchange="treatImportFile"/>';
+      bodyHTML += '  <label class="custom-file-label" for="importFile">Choose file</label>';
+      bodyHTML += '</div>';
+      bodyHTML += '<div class="ffbe_content--well p-3 rounded border text-sm" id="importSummary"><a href="https://www.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/">Instructions to import your data directly from the game</a> (requires login to FFBE with Facebook or Google)</div>';
+
+  if (!baseUnitIdBySpecificRarityUnitId) {
+    baseUnitIdBySpecificRarityUnitId = {};
+    releasedUnits.forEach(unit => {
+      let unitIdBase = unit.id.substring(0,unit.id.length - 1);
+      for (i = parseInt(unit.min_rarity); i <= parseInt(unit.max_rarity); i++) {
+        baseUnitIdBySpecificRarityUnitId[unitIdBase + i] = unit.id;
+      }
     });
-    $('#importFile').change(treatImportFile);
+  }
+
+  if (!baseUnitIdByTmrId) {
+    baseUnitIdByTmrId = {};
+    data.forEach(equip => {
+      if (equip.tmrUnit) {
+        baseUnitIdByTmrId[equip.id] = equip.tmrUnit;
+      }
+    })
+  }
+
+  importedOwnedUnit = null;
+
+  Modal.show({
+    title: "Import unit collection",
+    body: bodyHTML,
+    buttons: [{
+      text: "Import",
+      onClick: function() {
+        if (importedOwnedUnit) {
+          ownedUnits = importedOwnedUnit;
+          markSaveNeeded();
+          saveUserData(false, true, false);
+          savePublicLink();
+          showRaritySort();
+        } else {
+          Modal.show("Please select a file to import");
+        }
+      }
+    }]
+  });
+
+  $('#importFile').change(treatImportFile);
 }
 
 let baseUnitIdBySpecificRarityUnitId = null;
@@ -1099,9 +1211,9 @@ let importedOwnedUnit;
 
 function treatImportFile(evt) {
     var f = evt.target.files[0]; // FileList object
-    
+
     var reader = new FileReader();
-    
+
     reader.onload = function(){
         try {
             let temporaryResult = JSON.parse(reader.result);
@@ -1172,10 +1284,10 @@ function treatImportFile(evt) {
         } catch(e) {
             Modal.showError('imported file is not in json format', e);
         }
-            
+
     };
     reader.readAsText(f);
-    
+
 }
 
 function onDataReady() {
@@ -1205,7 +1317,7 @@ function onDataReady() {
             showRaritySort();
             displayStats();
         }
-    } 
+    }
 }
 
 // will be called by common.js at page load
@@ -1214,7 +1326,7 @@ function startPage() {
         $('body').addClass("readOnly");
         readOnly = true;
     }
-    
+
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("units", true, function(unitResult) {
         units = unitResult;
@@ -1255,76 +1367,40 @@ function startPage() {
             savePublicLink();
         }
     });
-    
+
     $window.on('keyup', function (e) {
         // Reset search if escape is used
         if (e.keyCode === 27) {
             $("#searchBox").val('').trigger('input').focus();
         }
     });
-    
-    var $unitsSidebar = $('.unitsSidebar');
-    var $unitsSidebarInternal = $unitsSidebar.find('.unitsSidebarInternal');
-    var sidebarFixedWidthLimit = 768;
-
-    $window.on('scroll', $.debounce(50, function(){
-        // Detect when user scroll, and fix the sidebar to be always accessible
-        if ($(this).scrollTop() > $unitsSidebar.offset().top && $window.outerWidth() > sidebarFixedWidthLimit) {
-            if (!$unitsSidebarInternal.hasClass('fixed')) {
-                $unitsSidebarInternal.css('width', $unitsSidebar.outerWidth() + 'px');
-                $unitsSidebarInternal.addClass('fixed');
-            }
-        } else { 
-            if ($unitsSidebarInternal.hasClass('fixed')) {
-                $unitsSidebarInternal.css('width', '');
-                $unitsSidebarInternal.removeClass('fixed');
-            }
-        } 
-    }));
-    $window.on('resize', $.debounce(150, function(){
-        if ($unitsSidebarInternal.hasClass('fixed') && $window.outerWidth() <= sidebarFixedWidthLimit) {
-            $unitsSidebarInternal.css('width', '');
-            $unitsSidebarInternal.removeClass('fixed');
-        }
-    }));
-    $('.unitsSidebarButton').click(function() {
-        $unitsSidebar.toggleClass('collapsed');
-        if ($unitsSidebarInternal.hasClass('fixed')) {
-            $unitsSidebarInternal.css('width', $unitsSidebar.outerWidth() + 'px');
-        }
-    });
-    
-    // Start stats collapse for small screen
-    if ($window.outerWidth() < 990) {
-        $unitsSidebar.addClass("collapsed");
-    }
 
     $("#searchBox").on("input", $.debounce(300,updateResults));
-    
+
     $("#onlyOwnedUnits").on('input', function () {
         let checked = $("#onlyOwnedUnits").prop('checked');
         $(".onlySevenStarInoutGroup").toggleClass('hidden', !checked);
         if (!checked) {
             $("#onlySevenStar").prop('checked', false);
         }
-        $('body').toggleClass('onlyOwnedUnits', checked);
-        $('body').removeClass('onlySevenStar');
+        $('#results').toggleClass('onlyOwnedUnits', checked);
+        $('#results').removeClass('onlySevenStar');
     });
     $("#onlyTimeLimited").on('input', function () {
-        $('body').toggleClass('onlyTimeLimited', $("#onlyTimeLimited").prop('checked'));
+        $('#results').toggleClass('onlyTimeLimited', $("#onlyTimeLimited").prop('checked'));
     });
     $("#onlySevenStar").on('input', function () {
-        $('body').toggleClass('onlySevenStar', $("#onlySevenStar").prop('checked'));
+        $('#results').toggleClass('onlySevenStar', $("#onlySevenStar").prop('checked'));
     });
     $("#onlyTmrMoogles").on('input', function () {
-        $('body').toggleClass('onlyTmrMoogles', $("#onlyTmrMoogles").prop('checked'));
+        $('#results').toggleClass('onlyTmrMoogles', $("#onlyTmrMoogles").prop('checked'));
     });
-    $('body').toggleClass('onlyOwnedUnits', $("#onlyOwnedUnits").prop('checked'));
-    $('body').toggleClass('onlyTimeLimited', $("#onlyTimeLimited").prop('checked'));
+    $('#results').toggleClass('onlyOwnedUnits', $("#onlyOwnedUnits").prop('checked'));
+    $('#results').toggleClass('onlyTimeLimited', $("#onlyTimeLimited").prop('checked'));
     $(".onlySevenStarInoutGroup").toggleClass('hidden', !$("#onlyOwnedUnits").prop('checked'));
-    $('body').toggleClass('onlySevenStar', $("#onlySevenStar").prop('checked'));
-    $('body').toggleClass('onlyTmrMoogles', $("#onlyTmrMoogles").prop('checked'));
-    
+    $('#results').toggleClass('onlySevenStar', $("#onlySevenStar").prop('checked'));
+    $('#results').toggleClass('onlyTmrMoogles', $("#onlyTmrMoogles").prop('checked'));
+
 }
 
 // create new JJV environment
@@ -1445,6 +1521,6 @@ importValidator.addSchema('units', {
       }
     },
       required: ['id', 'level', 'tmr']
-    
+
   }
 });

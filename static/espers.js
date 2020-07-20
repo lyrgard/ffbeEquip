@@ -62,17 +62,17 @@ const importIdConversion = {
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#esper").removeClass("hidden");
-    $(".nav-tabs li").removeClass("active");
+    $(".nav-tabs a").removeClass("active");
     $("#noEsperMessage").addClass('hidden');
 }
 
 function showAll() {
     beforeShow();
-    $(".nav-tabs li.ALL").addClass("active");
+    $(".nav-tabs a.ALL").addClass("active");
     var $allEspers = $('#allEspers').show();
     $("#esper").hide();
     $("#toggleGrid").addClass('hidden');
-    
+
     // Reset sorting cols to first one
     $('#allEspers table thead th').removeClass('active desc').first().addClass('active');
 
@@ -94,28 +94,25 @@ function showAll() {
             html += '<tr data-esper="' + esper.name + '">';
 
             // First cell: image, name, points
-            html += "<td class='esperDesc index'>";
-            html += "<i class='img img-esper-" + escapedName +"'></i>";
-            html += "<div class='name'>" + esper.name + " <span class='rarity'>" + Array(esper.rarity+1).join("★") +"</span></div>";
-            html += "<div class='sp'>" + sp.used + " / "+ sp.available +"</div>";
-            html += "<span class='hidden sortValue'>" + index + "</span>";
-            html += "</td>";
-            
-            html += "<td class='level'>" + esper.level + "</td>";
+            html += '<td width="1"><i class="rounded icon icon-lg esper-' + escapedName + '"></i></td>';
+            html += '<td class="esperDesc index">';
+            html += '  <div class="d-block name">' + esper.name + ' <span class="rarity">' + Array(esper.rarity+1).join("★") + '</span></div>';
+            html += '  <div class="text-sm sp">' + sp.used + '<span class="text-muted mx-1">/</span>' + sp.available + '</div>';
+            html += '</td>';
+
+            html += '<td class="level" width="1">' + esper.level + '</td>';
+            let killerHtml = getKillerHtml(esper.killers);
 
             // Next cells: stats
-            html += "<td class='stats hp'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'hp') + "</span> ("+ esper.hp +")</td>";
-            html += "<td class='stats mp'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'mp') + "</span> ("+ esper.mp +")</td>";
-            html += "<td class='stats atk'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'atk') + "</span> ("+ esper.atk +")</td>";
-            html += "<td class='stats def'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'def') + "</span> ("+ esper.def +")</td>";
-            html += "<td class='stats mag'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'mag') + "</span> ("+ esper.mag +")</td>";
-            html += "<td class='stats spr'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'spr') + "</span> ("+ esper.spr +")</td>";
-            html += "<td class='resists'>" + getResistHtml(esper) + "</td>";
-            let killerHtml = getKillerHtml(esper.killers);
-            html += "<td class='killers'><div>" + killerHtml.physical + '</div><div>' + killerHtml.magical + "</div></td>";
-
-            html += "</tr>";
+            html += '<td class="stats hp"><span class="bonus sortValue d-block">' + calculateStatBonus(esper.name, 'hp') + '</span><span class="text-sm">' + esper.hp + '</span></td>';
+            html += '<td class="stats mp"><span class="bonus sortValue d-block">+' +calculateStatBonus(esper.name, 'mp') + '</span><span class="text-sm">'+ esper.mp +'</span></td>';
+            html += '<td class="stats atk"><span class="bonus sortValue d-block">+' +calculateStatBonus(esper.name, 'atk') + '</span><span class="text-sm">'+ esper.atk +'</span></td>';
+            html += '<td class="stats def"><span class="bonus sortValue d-block">+' +calculateStatBonus(esper.name, 'def') + '</span><span class="text-sm">'+ esper.def +'</span></td>';
+            html += '<td class="stats mag"><span class="bonus sortValue d-block">+' +calculateStatBonus(esper.name, 'mag') + '</span><span class="text-sm">'+ esper.mag +'</span></td>';
+            html += '<td class="stats spr"><span class="bonus sortValue d-block">+' +calculateStatBonus(esper.name, 'spr') + '</span><span class="text-sm">'+ esper.spr +'</span></td>';
+            html += '<td><div class="d-flex flex-wrap">' + getResistHtml(esper) + killerHtml.physical +  killerHtml.magical + '</div></td></tr>';
         }
+
         $allEspers.find("table tbody").html(html);
         $allEspers.find(".panel").show();
     }
@@ -127,10 +124,11 @@ function show(esperName) {
     $('#allEspers').hide();
     $("#esper").show();
     $('#toggleGrid').removeClass('hidden');
-    
+
     currentEsper = esperName;
     var escapedName = escapeName(esperName);
-    $(".nav-tabs li." + escapedName).addClass("active");
+    $(".nav-tabs a").removeClass("active");
+    $(".nav-tabs a." + escapedName).addClass("active");
     var esper;
     for (var index in espers) {
         if (espers[index].name == esperName) {
@@ -157,9 +155,8 @@ function show(esperName) {
             $("#esper .shareLink").removeClass("hidden");
             $(".stats").removeClass("invisible");
             $(".esperOtherStats").removeClass("invisible");
-            $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
             let killers = getKillerHtml(ownedEspers[currentEsper].killers);
-            $("#esperSkills").html('<div>' + killers.physical + '</div><div>' + killers.magical + '</div>');
+            $("#esperSkills").html(getResistHtml(ownedEspers[currentEsper]) + killers.physical + killers.magical);
         } else {
             $("#esper .levelLine").addClass("hidden");
             $("#esper .spLine").addClass("hidden");
@@ -182,7 +179,7 @@ function sortTableBy(colName)
 
     // Add active sort, and toggle asc/desc
     var isDescending = $th.filter('.'+colName).toggleClass('desc').addClass('active').hasClass('desc');
-    
+
     // Remove sorting on non active cols
     $th.not('.active').removeClass('desc');
 
@@ -217,7 +214,7 @@ function sortTableBy(colName)
         if (objA.value < objB.value) return isDescending ? 1 : -1;
         return 0;
     });
-    
+
     // Empty body and append each rows
     $tableBody.html('').append(function(){
         var html = '';
@@ -244,12 +241,12 @@ function showBoard(esperName, star) {
     var nodes = $("#grid li .hexagon");
     nodes.removeClass("hp mp atk def mag spr ability resist killer selected");
     $(".line").remove();
-    
+
     $("#grid,#gridTrimmer").removeClass("star1 star2 star3");
     gridContainer.removeClass("hidden");
-    
+
     var escapedName = escapeName(esperName);
-    $("#grid li.0_0 .hexagon").html('<i class="esperCenterIcon img img-esper-' + escapedName +'"></i>');
+    $("#grid li.0_0 .hexagon").html('<i class="esperCenterIcon icon esper-' + escapedName +'"></i>');
     $("#grid,#gridTrimmer").addClass("star" + star);
     var board = esperBoards[esperName];
     var rootNode = $("#grid li.0_0 .hexagon");
@@ -270,9 +267,9 @@ function setEsperLevel(level) {
 function updateSp() {
     var level = parseInt($("#level").val());
     var star = parseInt($("#esperStar").val());
-    
+
     var sp = calculateSp(level, star, currentEsper);
-    
+
     $(".spUsed").text(sp.used + " / " + sp.available);
     if (sp.used > sp.available) {
         $(".spUsed").addClass("error");
@@ -284,10 +281,10 @@ function updateSp() {
 function updateStats() {
     var level = parseInt($("#level").val());
     var star = parseInt($("#esperStar").val());
-    
+
     // Update esper stats
     addStats(level, star, currentEsper);
-    
+
     // Print all stats, with bonus
     for (var index = 0; index < baseStats.length; index++) {
         var baseStat = baseStats[index];
@@ -308,10 +305,10 @@ function addStats(level, star, esperName) {
     for (index = 0; index < baseStats.length; index++) {
         var minStat = board.stats[star][baseStats[index].toUpperCase()][0];
         var maxStatGain = board.stats[star][baseStats[index].toUpperCase()][1] - minStat;
-        
+
         ownedEsper[baseStats[index]] = Math.round(minStat + maxStatGain * statsProgressionByTypeAndRarity[board.statPattern[star]][star][level - 1]/100);
     }
-    
+
     for (index in board.nodes) {
         addStatsOfSelectedNodes(board.nodes[index], ownedEsper);
     }
@@ -359,11 +356,11 @@ function calculateSp(level, star, esperName)
     for (i = 0; i < level; i++) {
         availableSP += progression[i];
     }
-    
+
     for (var index in board.nodes) {
         usedSp += calculateUsedSpNode(board.nodes[index], selectedSkills);
     }
-    
+
     return {
         used: usedSp,
         available: availableSP
@@ -404,7 +401,7 @@ function showNode(node, parentNodeHtml, star, scale=1) {
             break;
         }
         if (node[percentValues[baseStats[statIndex]]]) {
-            nodeHtml.html('<span class="iconHolder"><img class="icon" src="/img/items/ability_77.png"></img></span><span class="text">' + baseStats[statIndex].toUpperCase() + ' + ' + node[percentValues[baseStats[statIndex]]] + '%</span><span class="cost">' + node.cost + ' SP</span>');
+            nodeHtml.html('<span class="iconHolder"><img src="/assets/game/items/ability_77.png"></span><span class="text">' + baseStats[statIndex].toUpperCase() + ' + ' + node[percentValues[baseStats[statIndex]]] + '%</span><span class="cost">' + node.cost + ' SP</span>');
             nodeHtml.addClass(baseStats[statIndex]);
             break;
         }
@@ -430,41 +427,41 @@ function showNode(node, parentNodeHtml, star, scale=1) {
         nodeHtml.addClass("killer");
     }
     if (node.esperStatsBonus) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_77.png"></img></span><span class="text">ST Reflection Boost<a href="http://exvius.gamepedia.com/ST_Reflection_Boost" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img src="/assets/game/items/ability_77.png"></span><span class="text">ST Reflection Boost<a href="http://exvius.gamepedia.com/ST_Reflection_Boost" target="_blank" rel="noreferrer"><span class="fa fa-external-link-alt wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
     if (node.lbPerTurn) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_91.png"></img></span><span class="text">+' + node.lbPerTurn.min + ' LS/turn<a href="http://exvius.gamepedia.com/Auto-Limit" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img src="/assets/game/items/ability_91.png"></span><span class="text">+' + node.lbPerTurn.min + ' LS/turn<a href="http://exvius.gamepedia.com/Auto-Limit" target="_blank" rel="noreferrer"><span class="fa fa-external-link-alt wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
     if (node.lbFillRate) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_78.png"></img></span><span class="text">+' + node.lbFillRate + '% LB fill rate</span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img src="/assets/game/items/ability_78.png"></span><span class="text">+' + node.lbFillRate + '% LB fill rate</span><span class="cost">' + node.cost+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
     if (node.lbDamage) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_78.png"></img></span><span class="text">+' + node.lbDamage + '% LB damage</span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img src="/assets/game/items/ability_78.png"></span><span class="text">+' + node.lbDamage + '% LB damage</span><span class="cost">' + node.cost+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
     if (node.evade && node.evade.physical) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_97.png"></img></span><span class="text">' + node.evade.physical + '% physical evasion<a href="http://exvius.gamepedia.com/Air_Step" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img src="/assets/game/items/ability_97.png"></span><span class="text">' + node.evade.physical + '% physical evasion<a href="http://exvius.gamepedia.com/Air_Step" target="_blank" rel="noreferrer"><span class="fa fa-external-link-alt wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
     if (node.evade && node.evade.magical) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_97.png"></img></span><span class="text">' + node.evade.magical + '% magical evasion<a href="http://exvius.gamepedia.com/Air_Wall" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img src="/assets/game/items/ability_97.png"></span><span class="text">' + node.evade.magical + '% magical evasion<a href="http://exvius.gamepedia.com/Air_Wall" target="_blank" rel="noreferrer"><span class="fa fa-external-link-alt wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
-    
+
     if (node.conditional) {
         var html = '';
         node.conditional.forEach(c => {
             if (c.equipedCondition && typeList.includes(c.equipedCondition)) {
-               html += '<span class="iconHolder"><img class="icon" src="/img/items/' + c.icon + '"></img></span><span class="text">'
+               html += '<span class="iconHolder"><img src="/assets/game/items/' + c.icon + '"></span><span class="text">'
                let first = true;
                baseStats.filter(s => c[s+'%']).forEach(s => {
                    if (first) {
@@ -498,7 +495,7 @@ function abilityIcon(text) {
         var token = vWithoutBrace.split("|");
         var result = "";
         if (token.length >= 2) {
-            result += "<img class='icon' src='/img/items/" + token[token.length - 1] + "'></img>"
+            result += "<img class='icon' src='/assets/game/items/" + token[token.length - 1] + "'>"
         }
         return result;
     });
@@ -511,7 +508,7 @@ function abilityName(text) {
         if (token.length == 3) {
             return toLink(token[1], token[0]);
         } else {
-            return toLink(token[0]);    
+            return toLink(token[0]);
         }
     });
 }
@@ -545,9 +542,8 @@ function selectNode(x,y) {
     }
     updateSp();
     updateStats();
-    $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
     let killers = getKillerHtml(ownedEspers[currentEsper].killers)
-    $("#esperSkills").html('<div>' + killers.physical + '</div><div>' + killers.magical + '</div>');
+    $("#esperSkills").html(getResistHtml(ownedEspers[currentEsper]) + killers.physical + killers.magical);
     prepareSave();
 }
 
@@ -652,7 +648,7 @@ function addKiller(esper, race, physicalPercent, magicalPercent) {
             break;
         }
     }
-    
+
     if (!killerData) {
         killerData = {"name":race};
         esper.killers.push(killerData);
@@ -749,8 +745,8 @@ function removeEsperStatsBonus(item, bonus) {
     for (var i = 0; i < baseStats.length; i++) {
         item.esperStatsBonus.all[baseStats[i]] -= bonus[baseStats[i]];
     }
-    if (item.esperStatsBonus.all.hp == 0 && item.esperStatsBonus.all.mp == 0 && item.esperStatsBonus.all.atk == 0 && 
-        item.esperStatsBonus.all.def == 0 && item.esperStatsBonus.all.mag == 0 && item.esperStatsBonus.all.spr == 0) 
+    if (item.esperStatsBonus.all.hp == 0 && item.esperStatsBonus.all.mp == 0 && item.esperStatsBonus.all.atk == 0 &&
+        item.esperStatsBonus.all.def == 0 && item.esperStatsBonus.all.mag == 0 && item.esperStatsBonus.all.spr == 0)
     {
         delete item.esperStatsBonus;
     }
@@ -789,7 +785,7 @@ function removeContional(esper, conditionals) {
             delete esper.conditional
         }
     }
-    
+
 }
 
 function onMouseOverNode(x,y) {
@@ -813,7 +809,7 @@ function findPathTo(x,y, fromNode, currentPath = []) {
             if (path) {
                 return path;
             }
-        }   
+        }
     } else {
         currentPath = currentPath.concat(fromNode);
         if (fromNode.position && fromNode.position[0] == x && fromNode.position[1] == y) {
@@ -838,29 +834,29 @@ function displayEspers() {
         ownedEspers = {};
         for (var index in espers) {
             ownedEspers[espers[index].name] = {
-                "name":espers[index].name, 
-                "id":espers[index].id, 
+                "name":espers[index].name,
+                "id":espers[index].id,
                 "rarity":espers[index].maxLevel,
                 "level": maxLevelByStar[espers[index].maxLevel],
-                "selectedSkills":[], 
+                "selectedSkills":[],
                 "resist":JSON.parse(JSON.stringify(esperBoards[espers[index].name].resist[espers[index].maxLevel]))};
         }
     }
     if (linkMode) {
         // init esper from link mode
-        
+
         if (typeof ownedEspers === "string") {
             var esper = espers.find(esper => esper.id.toUpperCase() == ownedEspers.replace("_", " ").toUpperCase());
             if (esper) {
                 ownedEspers = {};
                 ownedEspers[esper.name] = JSON.parse(JSON.stringify(esper));
                 ownedEspers[esper.name].rarity = esper.maxLevel;
-                ownedEspers[esper.name].level = maxLevelByStar[ownedEspers[esper.name].rarity] 
+                ownedEspers[esper.name].level = maxLevelByStar[ownedEspers[esper.name].rarity]
                 ownedEspers[esper.name].selectedSkills = [];
             } else {
             }
         }
-        
+
         var esperName = Object.keys(ownedEspers)[0];
         ownedEspers[esperName].resist = JSON.parse(JSON.stringify(esperBoards[esperName].resist[ownedEspers[esperName].rarity]));
         for (var i = 0, len = ownedEspers[esperName].selectedSkills.length; i < len; i++) {
@@ -871,20 +867,22 @@ function displayEspers() {
             }
         }
     }
-    
+
     if (!linkMode) {
         var tabs = "";
-        
-        tabs += "<li class='ALL' data-esper='ALL' title='Stats on all espers'><a><i class='img img-esper-ALL'></i></a></li>";
+
+        tabs += '<li class="nav-item"><a class="nav-link active ALL" data-esper="ALL" title="Stats on All Espers"><i class="icon icon-sm esper-ALL"></i></a></li>';
         for (var index = 0; index < espers.length; index++) {
             var escapedName = escapeName(espers[index].name);
             console.log(escapedName);
             var owned = ownedEspers[espers[index].name] ? true : false;
-            tabs += "<li class=\"esper " + escapedName + " " + (!owned ? 'notOwned' : '') +"\" "+
-                    "data-esper=\"" + espers[index].name + "\" "+
-                    "title=\"" + espers[index].name + (owned ? " (owned)" : " (not owned)") + "\"><a>";
-            tabs += "<i class='img img-esper-" + escapedName +"'></i>";
-            tabs += "</a></li>";
+
+            tabs += '<li class="nav-item">';
+            tabs += '  <a class="nav-link esper ' + escapedName + ' ' + (!owned ? "notOwned" : "") + '" data-esper="' + espers[index].name + '" title="' + espers[index].name + (owned ? " (owned)" : " (not owned)") + '">';
+            tabs += '    <i class="rounded icon icon-sm esper-' + escapedName + '"></i>';
+            tabs += '  </a>';
+            tabs += '</li>';
+
         }
         $("#espers #tabs").html(tabs);
     }
@@ -908,20 +906,20 @@ function displayEspers() {
         boardHtml += ' " onclick="selectNode(' + x + ',' + y + ')" onmouseover="onMouseOverNode(' + x + ',' + y + ')" onmouseout="onMouseOutNode()"></div></li>';
     }
     $("#grid").html(boardHtml);
-    
+
     $("#espers").removeClass("hidden");
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
     if (!logged && !linkMode) {
         $("#notLoginWarningMessage").removeClass("hidden");
     }
-    
+
     if (linkMode) {
         show(Object.keys(ownedEspers)[0]);
     } else {
         showAll();
     }
-    
+
 }
 
 function distance(x1, y1) {
@@ -948,7 +946,7 @@ function loadLink() {
     if (window.location.hash.length > 1) {
         console.log("Loading esper link");
         var hashValue = window.location.hash.substr(1);
-        
+
         if (decodeURI(hashValue).includes('|')) {
             let tokens = decodeURI(hashValue).split('|');
             let esperName = tokens[0].replace('_', ' ');
@@ -960,7 +958,7 @@ function loadLink() {
                 ownedEspers = {};
                 ownedEspers[esperName] = JSON.parse(JSON.stringify(esper));
                 ownedEspers[esperName].rarity = rarity;
-                ownedEspers[esperName].level = level; 
+                ownedEspers[esperName].level = level;
                 ownedEspers[esperName].selectedSkills = [];
                 let binary = hex2bin(board);
                 [...binary].forEach((char, index) => {
@@ -979,14 +977,14 @@ function loadLink() {
                 ownedEspers = JSON.parse(atob(hashValue));
             } catch (e) {
                 ownedEspers = hashValue;
-            }    
+            }
         }
-        
+
         $('.navbar').addClass("hidden");
         $("#header").addClass("hidden");
         linkMode = true;
         console.log("finished Loading esper link");
-    }    
+    }
 }
 
 function onLevelChange() {
@@ -1027,13 +1025,17 @@ function importEsper(esperName, rarity, level, board) {
 }
 
 function importEspers() {
+  var bodyHTML  = '<div class="alert alert-info">This feature is a Work in Progress. It will override your esper collection on FFBE Equip!</div>';
+      bodyHTML += '<div class="custom-file mt-3 mb-2">';
+      bodyHTML += '  <input type="file" id="importFile" class="custom-file-input" name="importFile" onchange="treatImportFile"/>';
+      bodyHTML += '  <label class="custom-file-label" for="importFile">Choose file</label>';
+      bodyHTML += '</div>';
+      bodyHTML += '<div class="ffbe_content--well p-3 rounded border text-sm" id="importSummary"><a href="https://www.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/">Instructions to import your data directly from the game</a> (requires login to FFBE with Facebook or Google)</div>';
+
     importedEspers = null;
     Modal.show({
         title: "Import espers",
-        body: '<p class="label label-danger">This feature is a Work in Progress. It will override your inventory on FFBE Equip</p><br/><br/>' +
-            '<input type="file" id="importFile" name="importFile" onchange="treatImportFile"/><br/>'+
-            '<p><a class="link" href="https://www.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/">Instructions to import your data directly from the game</a> (require login to FFBE with Facebook or Google)</p><br>' +
-            '<p id="importSummary"></p>',
+        body: bodyHTML,
         buttons: [{
             text: "Import",
             onClick: function() {
@@ -1042,7 +1044,7 @@ function importEspers() {
 
                     setTimeout(function() {
                         ownedEspers = {};
-                        $("#tabs li.esper").addClass("notOwned");
+                        $("#tabs a.esper").addClass("notOwned");
                         importedEspers.forEach(esperData => {
                             importEsper(importIdConversion[esperData.id], parseInt(esperData.rarity), parseInt(esperData.level), esperData.board);
                         });
@@ -1101,7 +1103,7 @@ function setEsperRarity(rarity) {
     showBoard(currentEsper, rarity);
     $(".stats").removeClass("invisible");
     $(".esperOtherStats").removeClass("invisible");
-    $("#tabs li."+currentEsper).removeClass("notOwned");
+    $("#tabs a."+currentEsper).removeClass("notOwned");
     $("#esper .shareLink").removeClass("hidden");
 }
 
@@ -1156,7 +1158,7 @@ function startPage() {
     });
 
     $("#results").addClass(server);
-    
+
     $window.on("beforeunload", function () {
         if  (saveNeeded) {
             return "Unsaved change exists !";
@@ -1172,7 +1174,7 @@ function startPage() {
             gridContainer.addClass("hidden");
             $(".stats").addClass("invisible");
             $(".esperOtherStats").addClass("invisible");
-            $("#tabs li."+currentEsper).addClass("notOwned");
+            $("#tabs a."+currentEsper).addClass("notOwned");
             $("#esper .shareLink").addClass("hidden");
         } else {
             setEsperRarity(parseInt(value));
@@ -1207,7 +1209,7 @@ function startPage() {
         } else {
             var $esper = $('#esper');
             var $pan = $esper.find('#panWrapper');
-            
+
             if ($esper.hasClass('viewingTrainingGrid')) {
                 currentScrollTop = $pan.scrollTop();
                 currentScrollLeft = $pan.scrollLeft();
@@ -1223,8 +1225,8 @@ function startPage() {
 
             if (currentScrollTop === null || currentScrollLeft === null) {
                 setCurrentScrollToCenter($pan);
-            } 
-            
+            }
+
             $esper.toggleClass('viewingTrainingGrid');
 
             $pan.scrollTop(currentScrollTop);
@@ -1236,7 +1238,7 @@ function startPage() {
     });
 
     /* Tabs esper selection */
-    $("#espers #tabs").on('click', 'li[data-esper]', function(e) {
+    $("#espers #tabs").on('click', 'a[data-esper]', function(e) {
         var $elem = $(this);
         var esperName = $elem.attr('data-esper');
         var $esper = $('#esper');
@@ -1258,7 +1260,7 @@ function startPage() {
 
         setTimeout(function() { setCurrentScrollToCenter($pan); }, 0);
     });
-    
+
     /* Esper selection in table */
     $("#allEspers table.allEspers").on('click', '.esperDesc', function(e) {
         var $tr = $(e.target).parents('tr[data-esper]');
@@ -1270,12 +1272,12 @@ function startPage() {
         // Simulate click
         $tab.find("a").click();
     });
-    
+
     $window.on('scroll', $.debounce(50, function(){
         if (!$('#esper').hasClass('viewingTrainingGrid')) {
             if ($(this).scrollTop() > $('#sp').offset().top) {
                 $('#spFixed').fadeIn();
-            } else { 
+            } else {
                 $('#spFixed').fadeOut();
             }
         }

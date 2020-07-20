@@ -5,9 +5,7 @@ var onlyShowOwnedUnits = false;
 var unitSearch = [];
 var releasedUnits;
 var dataById;
-
 var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "tankAbilities", "mitigation", "buffs"];
-
 var baseRarity;
 var maxRarity;
 var skillFilter;
@@ -20,11 +18,8 @@ var physicalKillers;
 var magicalKillers;
 var tankAbilities;
 var mitigation;
-
 var skillSearchMatcher;// = SkillSearchFormula.getMatcherFromFormula("lb");
-
 var fullyDisplayedUnits = [];
-
 var defaultFilter = {
     "baseRarity": [],
     "maxRarity": [],
@@ -43,140 +38,145 @@ var defaultFilter = {
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
-	
-	readFilterValues();
-	updateFilterHeadersDisplay();
-    updateHash();
-    
+  readFilterValues();
+  updateFilterHeadersDisplay();
+  updateHash();
 
-    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && buffs.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && mitigation.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0 && skillFilter.chainFamily == "none") {
 
+  if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && buffs.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && mitigation.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0 && skillFilter.chainFamily == "none") {
 		// Empty filters => no results
-        $("#results").html("");
-        $("#results").addClass("notSorted");
-        $("#resultNumber").html("Add filters to see results");
-        return;
+    $("#results").html("");
+    $("#results").addClass("notSorted");
+    $("#resultNumber").html("Add filters to see results");
+    return;
+  }
+
+  // filter, sort and display the results
+  displayUnits(sortUnits(filterUnits(unitSearch, onlyShowOwnedUnits, searchText, types, elements, ailments, physicalKillers, magicalKillers, breaks, baseRarity, maxRarity)));
+
+  // If the text search box was used, highlight the corresponding parts of the results
+  $("#results").unmark({
+    done: function() {
+      if (searchText && searchText.length != 0) {
+        getSearchTokens(searchText).forEach(function (token) {
+          $("#results").mark(token, {"separateWordSearch": false, "wildcards":"enabled"});
+        });
+      }
     }
-    
-	// filter, sort and display the results
-    displayUnits(sortUnits(filterUnits(unitSearch, onlyShowOwnedUnits, searchText, types, elements, ailments, physicalKillers, magicalKillers, breaks, baseRarity, maxRarity)));
-	
-	// If the text search box was used, highlight the corresponding parts of the results
-    $("#results").unmark({
-        done: function() {
-            if (searchText && searchText.length != 0) {
-                getSearchTokens(searchText).forEach(function (token) {
-                    
-                    $("#results").mark(token, {"separateWordSearch": false, "wildcards":"enabled"});
-                });
-            }
-        }
-    });
+  });
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
 var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = "", types = [], elements = [], ailments = [], physicalKillers = [], magicalKillers = [], breaks = [], baseRarity = [], maxRarity = []) {
-    var result = [];
-    for (var index = 0, len = searchUnits.length; index < len; index++) {
-        var unit = searchUnits[index];
-        if (releasedUnits[unit.id]) {
-            if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id] && (ownedUnits[unit.id].number > 0 || ownedUnits[unit.id].sevenStar > 0)) {
-                if (baseRarity.length == 0 || baseRarity.includes(unit.minRarity)) {
-                    if (maxRarity.length == 0 || maxRarity.includes(unit.maxRarity)) {
-                        if (skillFilter.chainFamily == 'none' || matchesSkill(unit)) {
-                            if (types.length == 0 || includeAll(unit.equip, types)) {
-                                if (matchesCriteria(elements, unit, "elementalResist")) {
-                                    if (matchesCriteria(buffs, unit, "statsBuff")) {
-                                        if (matchesCriteria(ailments, unit, "ailmentResist")) {
-                                            if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
-                                                if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
-                                                    if (matchesCriteria(imperils, unit, "imperil")) {
-                                                        if (matchesCriteria(breaks, unit, "break")) {
-                                                            if (matchesCriteria(imbues, unit, "imbue")) {
-                                                                if (matchesCriteria(tankAbilities, unit, null, true)) {
-                                                                    if (matchesCriteria(mitigation, unit, null, true)) {
-                                                                        if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
-                                                                            if (!skillSearchMatcher || matchesSkillSearch(skillSearchMatcher, units[unit.id]))
-                                                                            result.push({
-                                                                                "searchData": unit,
-                                                                                "unit": units[unit.id]
-                                                                            });
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
+  var result = [];
+
+  for (var index = 0, len = searchUnits.length; index < len; index++) {
+    var unit = searchUnits[index];
+
+    if (releasedUnits[unit.id]) {
+      if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id] && (ownedUnits[unit.id].number > 0 || ownedUnits[unit.id].sevenStar > 0)) {
+        if (baseRarity.length == 0 || baseRarity.includes(unit.minRarity)) {
+          if (maxRarity.length == 0 || maxRarity.includes(unit.maxRarity)) {
+            if (skillFilter.chainFamily == 'none' || matchesSkill(unit)) {
+              if (types.length == 0 || includeAll(unit.equip, types)) {
+                if (matchesCriteria(elements, unit, "elementalResist")) {
+                  if (matchesCriteria(buffs, unit, "statsBuff")) {
+                    if (matchesCriteria(ailments, unit, "ailmentResist")) {
+                      if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
+                        if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
+                          if (matchesCriteria(imperils, unit, "imperil")) {
+                            if (matchesCriteria(breaks, unit, "break")) {
+                              if (matchesCriteria(imbues, unit, "imbue")) {
+                                if (matchesCriteria(tankAbilities, unit, null, true)) {
+                                  if (matchesCriteria(mitigation, unit, null, true)) {
+                                    if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
+                                      if (!skillSearchMatcher || matchesSkillSearch(skillSearchMatcher, units[unit.id]))
+                                        result.push({
+                                          "searchData": unit,
+                                          "unit": units[unit.id]
+                                        });
+                                      }
                                     }
+                                  }
                                 }
+                              }
                             }
+                          }
                         }
+                      }
                     }
+                  }
                 }
+              }
             }
+          }
         }
+      }
     }
-    return result;
+
+  return result;
 }
 
 function matchesSkillSearch(skillSearch, unit) {
-    return skillSearch(unit.lb, 'lb')
-        || unit.passives.some(passive => skillSearch(passive, 'passive'))
-        || unit.actives.some(active => skillSearch(active, 'active'))
-        || unit.magics.some(magic => skillSearch(magic, 'magic'));
+  return skillSearch(unit.lb, 'lb')
+    || unit.passives.some(passive => skillSearch(passive, 'passive'))
+    || unit.actives.some(active => skillSearch(active, 'active'))
+    || unit.magics.some(magic => skillSearch(magic, 'magic'));
 }
 
 function matchesSkill(unit) {
-    let matches = matchesSkillCriteria(unit);
-    if (matches) {
-        if (skillFilter.multicastCount == 1) {
-            return true;
-        } else {
-            let unitWithSkill = units[unit.id];
-            let actives = unitWithSkill.actives.concat(unitWithSkill.passives);
-            let magics = units[unit.id].magics;
-            let chainingActives = unitWithSkill.actives.filter(skill => skill.chainFamily === skillFilter.chainFamily);
-            let chainingMagics = magics.filter(skill => skill.chainFamily === skillFilter.chainFamily);
-            for (let z = 0; z < actives.length; z++) {
-                let active = actives[z];
-                if (skillFilter.excludeUnlockedMulticast && active.unlockedBy) {
-                    let foundUnlockedByAutocastedTurn1 = false;
-                    unitWithSkill.passives.forEach(passive => {
-                       passive.effects.forEach(effect => {
-                           if (effect.effect && effect.effect.autoCastedSkill && active.unlockedBy.includes(effect.effect.autoCastedSkill.id)) {
-                               foundUnlockedByAutocastedTurn1 = true;
-                           }
-                       });
-                    });
-                    if (!foundUnlockedByAutocastedTurn1) {
-                        continue;
-                    }
-                }
-                for (let i = 0; i < active.effects.length; i++) {
-                    let effect = active.effects[i];
-                    if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === skillFilter.multicastCount) {
-                        let multicastableSkills = null;
-                        if (effect.effect.multicast.type == 'magic') {
-                            multicastableSkills = chainingMagics;
-                        } else if (effect.effect.multicast.type == 'blackMagic') {
-                            multicastableSkills = chainingMagics.filter(magic => magic.magic == "black");
-                        } else if (effect.effect.multicast.type == 'whiteMagic') {
-                            multicastableSkills = chainingMagics.filter(magic => magic.magic == "white");
-                        } else if (effect.effect.multicast.type == 'skills') {
-                            multicastableSkills = chainingActives.filter(skill => effect.effect.multicast.skills.map(skill => skill.id).includes(skill.id));
-                        }
-                        if (multicastableSkills && multicastableSkills.length > 0) {
-                            return true;
-                        }
-                    }
-                }
-            }
+  let matches = matchesSkillCriteria(unit);
+  if (matches) {
+    if (skillFilter.multicastCount == 1) {
+      return true;
+    } else {
+      let unitWithSkill = units[unit.id];
+      let actives = unitWithSkill.actives.concat(unitWithSkill.passives);
+      let magics = units[unit.id].magics;
+      let chainingActives = unitWithSkill.actives.filter(skill => skill.chainFamily === skillFilter.chainFamily);
+      let chainingMagics = magics.filter(skill => skill.chainFamily === skillFilter.chainFamily);
+
+      for (let z = 0; z < actives.length; z++) {
+        let active = actives[z];
+        if (skillFilter.excludeUnlockedMulticast && active.unlockedBy) {
+          let foundUnlockedByAutocastedTurn1 = false;
+          unitWithSkill.passives.forEach(passive => {
+            passive.effects.forEach(effect => {
+              if (effect.effect && effect.effect.autoCastedSkill && active.unlockedBy.includes(effect.effect.autoCastedSkill.id)) {
+                foundUnlockedByAutocastedTurn1 = true;
+              }
+            });
+          });
+
+          if (!foundUnlockedByAutocastedTurn1) {
+            continue;
+          }
         }
+
+        for (let i = 0; i < active.effects.length; i++) {
+          let effect = active.effects[i];
+          if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === skillFilter.multicastCount) {
+            let multicastableSkills = null;
+            if (effect.effect.multicast.type == 'magic') {
+              multicastableSkills = chainingMagics;
+            } else if (effect.effect.multicast.type == 'blackMagic') {
+              multicastableSkills = chainingMagics.filter(magic => magic.magic == "black");
+            } else if (effect.effect.multicast.type == 'whiteMagic') {
+              multicastableSkills = chainingMagics.filter(magic => magic.magic == "white");
+            } else if (effect.effect.multicast.type == 'skills') {
+              multicastableSkills = chainingActives.filter(skill => effect.effect.multicast.skills.map(skill => skill.id).includes(skill.id));
+            }
+
+            if (multicastableSkills && multicastableSkills.length > 0) {
+              return true;
+            }
+          }
+        }
+      }
     }
-    return false;
+  }
+
+  return false;
 }
 
 function matchesSkillCriteria(unit) {
@@ -215,7 +215,7 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
                         return true;
                     }
                 } else {
-                    return true;    
+                    return true;
                 }
             }
         } else {
@@ -237,7 +237,7 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
                                 return true;
                             }
                         } else {
-                            return true;    
+                            return true;
                         }
                     }
                 }
@@ -366,7 +366,7 @@ function sortUnits(units) {
                 return 1
             }
         }
-        
+
         return unit1.unit.name.localeCompare(unit2.unit.name);
     });
     return units;
@@ -382,7 +382,7 @@ function getValue(unit, type, filterValues, index) {
                 passive = passive[type];
             }
             if (passive && passive[filterValues.values[index]]) {
-                result = Math.max(result, passive[filterValues.values[index]]);  
+                result = Math.max(result, passive[filterValues.values[index]]);
             }
         } else {
             for (var j = filterValues.targetAreaTypes.length; j--;) {
@@ -411,11 +411,11 @@ var containAllKeyPositive = function(object, array, acceptZero = false) {
     }
     return true;
 };
-                
+
 // Read filter values into the corresponding variables
 var readFilterValues = function() {
 	searchText = $("#searchText").val().toLocaleLowerCase();
-    
+
     baseRarity = getSelectedValuesFor("baseRarity").map(i => parseInt(i));
     maxRarity = getSelectedValuesFor("maxRarity").map(i => parseInt(i));
 
@@ -432,55 +432,55 @@ var readFilterValues = function() {
     }
     skillFilter.targetAreaTypes = getSelectedValuesFor("chainTargetAreaTypes");
     skillFilter.skillTypes = getSelectedValuesFor("chainSkillTypes");
-    
+
     elements.values = getSelectedValuesFor("elements");
     elements.targetAreaTypes = getSelectedValuesFor("elementsTargetAreaTypes");
     elements.skillTypes = getSelectedValuesFor("elementsSkillTypes");
     elements.threshold = parseInt($('.elements .threshold input').val()) || 0;
-    
+
     buffs.values = getSelectedValuesFor("buffs");
     buffs.targetAreaTypes = getSelectedValuesFor("buffsTargetAreaTypes");
     buffs.skillTypes = getSelectedValuesFor("buffsSkillTypes");
     buffs.threshold = parseInt($('.buffs .threshold input').val()) || 0;
-    
+
     ailments.values = getSelectedValuesFor("ailments");
     ailments.targetAreaTypes = getSelectedValuesFor("ailmentsTargetAreaTypes");
     ailments.skillTypes = getSelectedValuesFor("ailmentsSkillTypes");
-    
+
     physicalKillers.values = getSelectedValuesFor("physicalKillers");
     physicalKillers.skillTypes = getSelectedValuesFor("killersSkillTypes");
     physicalKillers.targetAreaTypes = getSelectedValuesFor("killersTargetAreaTypes");
     physicalKillers.threshold = parseInt($('.killers .threshold input').val()) || 0;
-    
+
     magicalKillers.values = getSelectedValuesFor("magicalKillers");
     magicalKillers.skillTypes = physicalKillers.skillTypes;
     magicalKillers.targetAreaTypes = physicalKillers.targetAreaTypes;
     magicalKillers.threshold = parseInt($('.killers .threshold input').val()) || 0;
-    
+
     imperils.values = getSelectedValuesFor("imperils");
     imperils.targetAreaTypes = getSelectedValuesFor("imperilsTargetAreaTypes");
     imperils.skillTypes = getSelectedValuesFor("imperilsSkillTypes");
     imperils.threshold = parseInt($('.imperils .threshold input').val()) || 0;
-    
+
     breaks.values = getSelectedValuesFor("breaks").map(function(v){return v.replace('break_','');});
     breaks.targetAreaTypes = getSelectedValuesFor("breaksTargetAreaTypes");
     breaks.skillTypes = getSelectedValuesFor("breaksSkillTypes");
     breaks.threshold = parseInt($('.breaks .threshold input').val()) || 0;
-    
+
     imbues.values = getSelectedValuesFor("imbues");
     imbues.targetAreaTypes = getSelectedValuesFor("imbuesTargetAreaTypes");
     imbues.skillTypes = getSelectedValuesFor("imbuesSkillTypes");
-    
+
     tankAbilities.values = getSelectedValuesFor("tankAbilities");
     tankAbilities.skillTypes = getSelectedValuesFor("tankAbilitiesSkillTypes");
-    
+
     mitigation.values = getSelectedValuesFor("mitigation");
     mitigation.targetAreaTypes = getSelectedValuesFor("mitigationTargetAreaTypes");
     mitigation.skillTypes = getSelectedValuesFor("mitigationSkillTypes");
     mitigation.threshold = parseInt($('.mitigation .threshold input').val()) || 0;
 
     types = getSelectedValuesFor("types");
-    
+
     onlyShowOwnedUnits = $("#onlyShowOwnedUnits").prop('checked');
 }
 
@@ -489,18 +489,18 @@ var updateFilterHeadersDisplay = function() {
     $(".rarity .unselectAll").toggleClass("hidden", baseRarity.length == 0 && maxRarity.length == 0);
     $(".chainMulticastCountDiv, .chainFamily .filters").toggleClass("hidden", skillFilter.chainFamily == 'none');
     $(".excludeUnlockedMulticast").toggleClass("hidden", skillFilter.multicastCount === 1);
-    
 
-    $(".types .unselectAll").toggleClass("hidden", types.length == 0); 
-    $(".ailments .unselectAll").toggleClass("hidden", ailments.length == 0); 
-    $(".elements .unselectAll").toggleClass("hidden", elements.length == 0); 
-    $(".buffs .unselectAll").toggleClass("hidden", buffs.length == 0); 
-    $(".killers .unselectAll").toggleClass("hidden", physicalKillers.length + magicalKillers.length == 0); 
-    $(".imperils .unselectAll").toggleClass("hidden", imperils.length == 0); 
-    $(".breaks .unselectAll").toggleClass("hidden", breaks.length == 0); 
+
+    $(".types .unselectAll").toggleClass("hidden", types.length == 0);
+    $(".ailments .unselectAll").toggleClass("hidden", ailments.length == 0);
+    $(".elements .unselectAll").toggleClass("hidden", elements.length == 0);
+    $(".buffs .unselectAll").toggleClass("hidden", buffs.length == 0);
+    $(".killers .unselectAll").toggleClass("hidden", physicalKillers.length + magicalKillers.length == 0);
+    $(".imperils .unselectAll").toggleClass("hidden", imperils.length == 0);
+    $(".breaks .unselectAll").toggleClass("hidden", breaks.length == 0);
     $(".tankAbilities .unselectAll").toggleClass("hidden", tankAbilities.length == 0);
     $(".mitigation .unselectAll").toggleClass("hidden", mitigation.length == 0);
-    
+
     $(".elements .filters").toggleClass("hidden", elements.values.length == 0);
     $(".buffs .filters").toggleClass("hidden", buffs.values.length == 0);
     $(".ailments .filters").toggleClass("hidden", ailments.values.length == 0);
@@ -549,20 +549,21 @@ var displayUnits = function(units) {
         }
     });*/
     if (itemInventory) {
-        $("#results .thead .inventory").removeClass("hidden");
+        $("#results .inventory").removeClass("hidden");
     } else {
-        $("#results .thead .inventory").addClass("hidden");
+        $("#results .inventory").addClass("hidden");
     }
-    
+
 };
 
 function toogleAllSkillDisplay(unitId) {
-    if (fullyDisplayedUnits.includes(unitId)) {
-        fullyDisplayedUnits.splice(fullyDisplayedUnits.indexOf(unitId), 1);
-    } else {
-        fullyDisplayedUnits.push(unitId);
-    }
-    update();
+  if (fullyDisplayedUnits.includes(unitId)) {
+    fullyDisplayedUnits.splice(fullyDisplayedUnits.indexOf(unitId), 1);
+  } else {
+    fullyDisplayedUnits.push(unitId);
+  }
+
+  update();
 }
 
 function displayUnitsAsync(units, start, div) {
@@ -581,103 +582,115 @@ function displayUnitsAsync(units, start, div) {
 }
 
 function getUnitHtml(unitData) {
-    let html = '<div class="unit">';
-    html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id.substr(0, unitData.unit.id.length - 1) + unitData.unit.max_rarity + '.png"/></div>';
-    html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name, unitData.unit.name, true) + '</span>';
-    html += '<div class="killers">';
-    var killers = [];
-    for (var i = killerList.length; i--;) {
-        if (unitData.searchData.passives.physicalKillers && unitData.searchData.passives.physicalKillers[killerList[i]]) {
-            addToKiller(killers, {"name":killerList[i], "physical":unitData.searchData.passives.physicalKillers[killerList[i]]});
+  let html = '';
+  var killers = [];
+  var toggleSkillBtn = '';
+  var elementalResistHTML = '';
+  var ailmentResistancesHTML = '';
+
+  // Build Killers List
+  for (var i = killerList.length; i--;) {
+    if (unitData.searchData.passives.physicalKillers && unitData.searchData.passives.physicalKillers[killerList[i]]) {
+      addToKiller(killers, {"name":killerList[i], "physical":unitData.searchData.passives.physicalKillers[killerList[i]]});
+    }
+    if (unitData.searchData.passives.magicalKillers && unitData.searchData.passives.magicalKillers[killerList[i]]) {
+      addToKiller(killers, {"name":killerList[i], "magical":unitData.searchData.passives.magicalKillers[killerList[i]]});
+    }
+  }
+
+  var killersHtml = getKillerHtml(killers, physicalKillers.values, magicalKillers.values);
+
+  // Build Elemental Resist List
+
+  if (unitData.searchData.passives.elementalResist) {
+    for (var i = 0, len = elementList.length; i < len; i++) {
+      if (unitData.searchData.passives.elementalResist[elementList[i]]) {
+        elementalResistHTML+= '<span class="elementalResistance ' + elementList[i];
+        if (elements.values.includes(elementList[i])) {
+          elementalResistHTML+= " selected";
         }
-        if (unitData.searchData.passives.magicalKillers && unitData.searchData.passives.magicalKillers[killerList[i]]) {
-            addToKiller(killers, {"name":killerList[i], "magical":unitData.searchData.passives.magicalKillers[killerList[i]]});
+        elementalResistHTML+= '">';
+        elementalResistHTML+= '<i class="icon icon-sm element-' + elementList[i] + '"></i>';
+        elementalResistHTML+= unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
+      }
+    }
+  }
+
+  // Build Ailment Resist List
+  if (unitData.searchData.passives.ailmentResist) {
+    for (var i = 0, len = ailmentList.length; i < len; i++) {
+      if (unitData.searchData.passives.ailmentResist[ailmentList[i]]) {
+        ailmentResistancesHTML+= '<span class="ailmentResistance ' + ailmentList[i];
+        if (ailments.values.includes(ailmentList[i])) {
+          ailmentResistancesHTML+= " selected";
         }
+        ailmentResistancesHTML+= '">';
+        ailmentResistancesHTML+= '<i class="icon icon-sm ailment-' + ailmentList[i] + '"></i>';
+        ailmentResistancesHTML+= unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
+      }
     }
-    var killersHtml = getKillerHtml(killers, physicalKillers.values, magicalKillers.values);
-    html += killersHtml.physical;
-    html += killersHtml.magical;
+  }
+
+  if (fullyDisplayedUnits.includes(unitData.unit.id)) {
+    toggleSkillBtn = "fa-caret-right";
+  } else {
+    toggleSkillBtn = "fa-caret-left";
+  }
+
+  skillIdToDisplay = getSkillsToDisplay(unitData.unit);
+
+  html += '<div class="col-6 mb-2 unit" data-unit="' + unitData.unit.id + '">';
+  html += '  <div class="ffbe_content--well rounded border p-2 h-100">';
+  html += '    <div class="row">';
+  html += '      <div class="col-auto unitImage align-content-center"><img src="/assets/game/units/unit_icon_' + unitData.unit.id.substr(0, unitData.unit.id.length - 1) + unitData.unit.max_rarity + '.png"/></div>';
+  html += '      <div class="col">';
+  html += '        <div class="d-flex justify-content-between font-weight-bold">' + toLink(unitData.unit.name, unitData.unit.name, true) + '</div>';
+  html += '        <div class="d-flex flex-wrap mt-2">' + killersHtml.physical + killersHtml.magical + elementalResistHTML + ailmentResistancesHTML + '</div>';
+  html += '      </div>';
+  html += '      <div class="col-auto"><button type="button" class="h-100 btn btn-xs btn-ghost showAllSkills ml-auto" data-toggle="tooltip" title="Toggle Skill Display" onclick="toogleAllSkillDisplay(\'' + unitData.unit.id + '\')"><span class="fa fa-fw ' + toggleSkillBtn + '"></span></button></div>';
+  html += '    </div>';
+  html += '  </div>';
+  html += '  <div class="unit-skills ffbe_theme--dark" data-unit="' + unitData.unit.id + '">';
+
+  if (skillIdToDisplay.includes('lb')) {
+    html += '    <div class="lb skillGroup">';
+    html +=      getLbHtml(unitData.unit.lb, unitData.unit);
+    html += '    </div>';
+  }
+
+  let activesToDisplay = unitData.unit.actives.filter(active => skillIdToDisplay.includes(active.id));
+  if (activesToDisplay.length > 0) {
+    html += '<div class="actives skillGroup">';
+    activesToDisplay.forEach(active => html += getSkillHtml(active, unitData.unit));
     html += '</div>';
+  }
 
-    html += '<div class="elementalResistances">';
-    if (unitData.searchData.passives.elementalResist) {
-        for (var i = 0, len = elementList.length; i < len; i++) {
-            if (unitData.searchData.passives.elementalResist[elementList[i]]) {
-                html+= '<span class="elementalResistance ' + elementList[i];
-                if (elements.values.includes(elementList[i])) {
-                    html+= " selected";
-                }
-                html+= '">';
-                html+= '<i class="img img-element-' + elementList[i] + '"></i>';
-                html+= unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
-            }
-        }
-    }
+  let passivesToDisplay = unitData.unit.passives.filter(passive => skillIdToDisplay.includes(passive.id));
+  if (passivesToDisplay.length > 0) {
+    html += '<div class="passives skillGroup">';
+    passivesToDisplay.forEach(passive => html += getSkillHtml(passive, unitData.unit));
     html += '</div>';
+  }
 
-    html += '<div class="ailmentResistances">';
-    if (unitData.searchData.passives.ailmentResist) {
-        for (var i = 0, len = ailmentList.length; i < len; i++) {
-            if (unitData.searchData.passives.ailmentResist[ailmentList[i]]) {
-                html+= '<span class="ailmentResistance ' + ailmentList[i];
-                if (ailments.values.includes(ailmentList[i])) {
-                    html+= " selected";
-                }
-                html+= '">';
-                html+= '<i class="img img-ailment-' + ailmentList[i] + '"></i>';
-                html+= unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
-            }
-        }
-    }
+  let magicsToDisplay = unitData.unit.magics.filter(magic => skillIdToDisplay.includes(magic.id));
+  if (magicsToDisplay.length > 0) {
+    html += '<div class="magics skillGroup">';
+    magicsToDisplay.forEach(magic => html += getSkillHtml(magic, unitData.unit));
     html += '</div>';
-    html += '<span class="showAllSkills glyphicon '
-    if (fullyDisplayedUnits.includes(unitData.unit.id)) {
-        html += "glyphicon-chevron-up";
-    } else {
-        html += "glyphicon-chevron-down";
-    }
-    html += '" onclick="toogleAllSkillDisplay(\'' + unitData.unit.id + '\')"></span>';
+  }
 
-    skillIdToDisplay = getSkillsToDisplay(unitData.unit);
+  html += '</div>';
+  html += '</div>';
 
-    html += '<div class="lb">';
-    if (skillIdToDisplay.includes('lb')) {
-        html += getLbHtml(unitData.unit.lb, unitData.unit);
-    }
-    html += '</div>';
-
-    let activesToDisplay = unitData.unit.actives.filter(active => skillIdToDisplay.includes(active.id));
-    if (activesToDisplay.length > 0) {
-        html += '<div class="actives skillGroup">';
-        activesToDisplay.forEach(active => html += getSkillHtml(active, unitData.unit));
-        html += '</div>';
-    }
-    
-    let passivesToDisplay = unitData.unit.passives.filter(passive => skillIdToDisplay.includes(passive.id));
-    if (passivesToDisplay.length > 0) {
-        html += '<div class="passives skillGroup">';
-        passivesToDisplay.forEach(passive => html += getSkillHtml(passive, unitData.unit));
-        html += '</div>';
-    }
-
-    let magicsToDisplay = unitData.unit.magics.filter(magic => skillIdToDisplay.includes(magic.id));
-    if (magicsToDisplay.length > 0) {
-        html += '<div class="magics skillGroup">';
-        magicsToDisplay.forEach(magic => html += getSkillHtml(magic, unitData.unit));
-        html += '</div>';
-    }
-
-    html += '</div>';
-    html += '</div>';
-    return html;
+  return html;
 }
 
 function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills = []) {
     var html = '<div class="skill">';
-    html += '<div><img class="skillIcon" src="img/items/' + skill.icon + '"/></div>'
+    html += '<img class="skillIcon" src="/assets/game/items/' + skill.icon + '"/>'
     html += '<div class="nameAndEffects"><div class="nameLine"><div><span class="name">' + skill.name;
     if (!alreadyDisplayedSkills.includes(skill.id)) {
-        
+
         if (skill.equipedConditions) {
             html += '<span class="condition">' + getEquipedCondition(skill) + '</span>';
         }
@@ -694,10 +707,10 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
         html += getInnateElementsHtml(skill.effects).join('');
         html += getChainFamilyHtml(skill);
 
-        html += '</span></div><div class="spacer"></div>'
-        
+        html += '</span></div>'
+
         if (skill.lbCost) {
-            html += '<div class="lbCost">' + skill.lbCost + '<img class="lbCostImg" src="img/icons/lbShard.png" title="LB cost"/></div>';
+            html += '<div class="lbCost">' + skill.lbCost + '<img class="lbCostImg" src="/assets/game/icons/lbShard.png" title="LB cost"/></div>';
         }
         if (skill.mpCost) {
             html += '<div class="mpCost">' + skill.mpCost + '<span class="mpCostLabel">MP</span></div>';
@@ -705,7 +718,7 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
         if (rarity && level) {
             html += '<div class="rarityAndLevel"><span class="rarity">' + rarity + '★</span><span class="level">lvl ' + level + '</span></div>';
         }
-        
+
         html += '</div>';
         html += cooldownHtml;
         html += getWarningStrangeStatsUsed(skill.effects);
@@ -723,7 +736,7 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
     } else {
         html += '</span></div></div>';
     }
-    html += '</div></div>'; 
+    html += '</div></div>';
     return html;
 }
 
@@ -739,7 +752,7 @@ function getEffectHtml(effect, unit, alreadyDisplayedSkills, skillId) {
             html += '</div>';
         }
     } else if (effect.effect && effect.effect.allowUseOf) {
-        html += '<span class="effect">Allow use of ' + effect.effect.allowUseOf.map(eq => '<i class="img img-equipment-' + eq + '"></i>').join(", ") + '</span>';
+        html += '<span class="effect">Allow use of ' + effect.effect.allowUseOf.map(eq => '<i class="icon icon-sm equpment-' + eq + '"></i>').join(", ") + '</span>';
     } else if (effect.effect && effect.effect.counterSkill) {
         html += '<span class="effect">' + effect.effect.percent + '% chance to counter ' + effect.effect.counterType + ' attacks with :</span>';
         html += '<div class="subSkill">';
@@ -790,7 +803,7 @@ function getUnlockedByHtml(skillId, unlockerSkillIds, unit) {
                 skill.effects.forEach(effect => {
                     if (effect.effect && effect.effect.autoCastedSkill) {
                         if (effect.effect.autoCastedSkill.id === skillId) {
-                            html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Autocasted at start of battle by ' + skill.name + '</div>';
+                            html += '<div class="unlockedBy"><i class="fas fa-unlock-alt mr-1"></i>Autocasted at start of battle by ' + skill.name + '</div>';
                         }
                     }
                 });
@@ -802,7 +815,7 @@ function getUnlockedByHtml(skillId, unlockerSkillIds, unit) {
 
 function getIfUsedLastTurnHtml(skillId, ifUsedLastTurnSkills, unit) {
     let html = "";
-    html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>If used after ';
+    html += '<div class="unlockedBy"><i class="fas fa-unlock-alt mr-1"></i>If used after ';
     html += ifUsedLastTurnSkills.map(skill => skill.id).map(id => {
         let skills = unit.actives.filter(skill => skill.id == id);
         if (skills.length > 0) {
@@ -820,7 +833,7 @@ function addGetUnlockedBySkillHtml(skillId, unit, testedSkillEffects, testedSkil
     testedSkillEffects.forEach(effect => {
         if (effect.effect && effect.effect.gainSkills) {
             if (effect.effect.gainSkills.skills.map(skill => skill.id).includes(skillId)) {
-                html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Unlocked by ' + testedSkillName + ' for ';
+                html += '<div class="unlockedBy"><i class="fas fa-unlock-alt mr-1"></i>Unlocked by ' + testedSkillName + ' for ';
                 if (effect.effect.gainSkills.turns === 0) {
                     html += 'current turn';
                 } else {
@@ -847,7 +860,7 @@ function getInnateElementsHtml(effects) {
             }
         }
     });
-    return elements.map(element => '<i class="img img-element-'+ element + '"></i>');
+    return elements.map(element => '<i class="icon icon-sm element-'+ element + '"></i>');
 }
 
 function getDamageTypeHtml(effects) {
@@ -857,11 +870,11 @@ function getDamageTypeHtml(effects) {
             let damageType = "";
             let damage = effect.effect.damage;
             if (damage.mecanism === "physical") {
-               damageType = '<i class="img img-equipment-sword"></i>';
+               damageType = '<i class="icon icon-sm equipment-sword"></i>';
             } else if (damage.mecanism === "magical") {
-               damageType = '<i class="img img-equipment-rod"></i>';
+               damageType = '<i class="icon icon-sm equipment-rod"></i>';
             } else if (damage.mecanism === "hybrid") {
-               damageType = '<i class="img img-equipment-hybrid"></i>';
+               damageType = '<i class="icon icon-sm equipment-hybrid"></i>';
             }
             if (!damageTypes.includes(damageType)) {
                 damageTypes.push(damageType);
@@ -913,7 +926,7 @@ function getWarningStrangeStatsUsed(effects) {
 
 function getLbHtml(lb, unit) {
     var html = '<div class="skill">';
-    html += '<div><img class="skillIcon" src="img/icons/lb.png"/></div>'
+    html += '<img class="skillIcon" src="/assets/game/icons/lb.png"/>'
     html += '<div class="nameAndEffects"><span class="name">Limit Burst : ' + lb.name;
     html += getDamageTypeHtml(lb.maxEffects).join('');
     html += getInnateElementsHtml(lb.maxEffects).join('');
@@ -921,8 +934,7 @@ function getLbHtml(lb, unit) {
     html += '</span>';
     html += getWarningStrangeStatsUsed(lb.maxEffects);
     html += '<div class="subSkill">';
-    html += '<span class="case">Min :</span>'
-    html += '<div class="skill"><div class="nameAndEffects">';
+    html += '<div class="skill"><span class="case font-weight-bold mr-1">Min:</span><div class="nameAndEffects">';
     for (var j = 0, len = lb.minEffects.length; j < len; j++) {
         html += getEffectHtml(lb.minEffects[j], unit, [], "0");
         //html += '<span class="effect">' + getEffectDescription(lb.minEffects[j]) + '</span>';
@@ -930,16 +942,15 @@ function getLbHtml(lb, unit) {
     html += '</div></div>';
     html += '</div>';
     html += '<div class="subSkill">';
-    html += '<span class="case">Max :</span>'
-    html += '<div class="skill"><div class="nameAndEffects">';
+    html += '<div class="skill"><span class="case font-weight-bold mr-1">Max:</span><div class="nameAndEffects">';
     for (var j = 0, len = lb.maxEffects.length; j < len; j++) {
         html += getEffectHtml(lb.maxEffects[j], unit, [], "0");
         //html += '<span class="effect">' + getEffectDescription(lb.maxEffects[j]) + '</span>';
     }
     html += '</div></div>';
     html += '</div>';
-    
-    html += '</div></div>'; 
+
+    html += '</div></div>';
     return html;
 }
 
@@ -1000,7 +1011,7 @@ function getSkillsToDisplay(unit) {
                 skillsDisplayedForChain.push(active.id);
                 result.push(active.id);
             } else if (mustDisplaySkill(active, active.effects, "actives", active.name)) {
-                result.push(active.id);        
+                result.push(active.id);
             }  else if (skillSearchMatcher && skillSearchMatcher(active, 'active')) {
                 result.push(active.id);
             }
@@ -1013,7 +1024,7 @@ function getSkillsToDisplay(unit) {
                 }
                 result.push(magic.id);
             } else if (mustDisplaySkill(magic, magic.effects, "actives", magic.name)) {
-                result.push(magic.id);        
+                result.push(magic.id);
             }  else if (skillSearchMatcher && skillSearchMatcher(magic, 'magic')) {
                 result.push(magic.id);
             }
@@ -1023,12 +1034,12 @@ function getSkillsToDisplay(unit) {
                 Object.keys(multicastSkills).forEach(id => {
                    if (multicastSkills[id].includes(multicastedId) && !result.includes(id)) {
                        result.push(id);
-                   } 
+                   }
                 });
                 Object.keys(multicastMagic).forEach(id => {
                    if ((multicastMagic[id] === 'magic' || multicastMagic[id] === 'blackMagic' && multicastedId === 'black' || multicastMagic[id] === 'whiteMagic' && multicastedId === 'white') && !result.includes(id)) {
                        result.push(id);
-                   } 
+                   }
                 });
             });
         }
@@ -1183,7 +1194,7 @@ function afterDisplay() {
     } else {
         $("#results .thead .inventory").addClass("hidden");
     }
-    
+
 }
 
 // Unselect all values for a filter of the given type. if runUpdate = true, then call update() function
@@ -1207,7 +1218,7 @@ function inventoryLoaded() {
 }
 
 function notLoaded() {
-    
+
 }
 
 function initFilters() {
@@ -1217,7 +1228,7 @@ function initFilters() {
     } else {
         state = defaultFilter;
     }
-    
+
     if (state.searchText) {
         $("#searchText").val(state.searchText);
     }
@@ -1255,7 +1266,7 @@ function initFilters() {
         if (unitSearchFilters[i] == 'breaks') {
             select(unitSearchFilters[i], window[unitSearchFilters[i]].values.map(v => 'break_' + v));
         } else {
-            select(unitSearchFilters[i], window[unitSearchFilters[i]].values);    
+            select(unitSearchFilters[i], window[unitSearchFilters[i]].values);
         }
         select(unitSearchFilters[i] + "SkillTypes", window[unitSearchFilters[i]].skillTypes);
         select(unitSearchFilters[i] + "TargetAreaTypes", window[unitSearchFilters[i]].targetAreaTypes);
@@ -1265,7 +1276,7 @@ function initFilters() {
             $('.' + unitSearchFilters[i] + " .threshold input").val('');
         }
     }
-    
+
     select("killersSkillTypes", physicalKillers.skillTypes);
     select("killersTargetAreaTypes", physicalKillers.targetAreaTypes);
 }
@@ -1318,13 +1329,13 @@ function getSkillSearchText(skill) {
 
 function updateHash() {
     var state = {};
-    
+
     for (var i = unitSearchFilters.length; i--;) {
         if (window[unitSearchFilters[i]].values.length > 0) {
             state[unitSearchFilters[i]] = window[unitSearchFilters[i]];
         }
     }
-    
+
     if (searchText.length > 0) {
         state.searchText = searchText;
     }
@@ -1341,7 +1352,7 @@ function updateHash() {
         state.skillFilter = skillFilter;
     }
     state.fullyDisplayedUnits = fullyDisplayedUnits;
-    
+
     window.location.hash = '#' + window.btoa(JSON.stringify(state));
 }
 
@@ -1359,16 +1370,16 @@ function startPage() {
 	$(baseStats).each(function (index, value) {
         $("#baseStat_" + value).on("input", $.debounce(300,update));
     });
-    
+
     // Reset search if escape is used
     $(window).on('keyup', function (e) {
         if (e.keyCode === 27) {
             $("#searchText").val('').trigger('input').focus();
         }
     });
-    
+
     // Populates the various filters
-	
+
     // Rarity
     addTextChoicesTo("maxRarity",'checkbox',{'2★':'2', '3★':'3','4★':'4','5★':'5', '6★':'6', '7★':'7'});
     addTextChoicesTo("baseRarity",'checkbox',{'1★':'1','2★':'2', '3★':'3','4★':'4','5★':'5'});
@@ -1382,45 +1393,45 @@ function startPage() {
 	addIconChoicesTo("elements", elementList, "checkbox", "element", function(v){return ucFirst(v)+" resistance"});
     addTextChoicesTo("elementsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("elementsTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
-    
+
     // Buffs
 	addIconChoicesTo("buffs", ['atk', 'def', 'mag', 'spr'], "checkbox", "stat", function(v){return ucFirst(v)+" buff"});
     addTextChoicesTo("buffsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("buffsTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
-    
+
 	// Ailments
-    addIconChoicesTo("ailments", 
+    addIconChoicesTo("ailments",
                      ailmentList.concat("break_atk", "break_def", "break_mag", "break_spr"), "checkbox", "ailment",
                      function(v){return (v.indexOf('break') === 0 ? "Break " + v.replace('break_','').toUpperCase() : ucFirst(v))+" resistance"});
     addTextChoicesTo("ailmentsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("ailmentsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
-    
+
 	// Killers
 	addIconChoicesTo("physicalKillers", killerList, "checkbox", "killer-physical", function(v){return "Physical "+v+" killer"});
     addIconChoicesTo("magicalKillers", killerList, "checkbox", "killer-magical", function(v){return "Magical "+v+" killer"});
     addTextChoicesTo("killersSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     addTextChoicesTo("killersTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
-    
+
 	// Imperils
 	addIconChoicesTo("imperils", elementList, "checkbox", "element", function(v){return ucFirst(v)+" imperil"});
     addTextChoicesTo("imperilsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("imperilsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
-    
+
     // Breaks
-    addIconChoicesTo("breaks", ['break_atk', 'break_def', 'break_mag', 'break_spr'], "checkbox", "ailment", 
+    addIconChoicesTo("breaks", ['break_atk', 'break_def', 'break_mag', 'break_spr'], "checkbox", "ailment",
                      function(v){return v.replace('break_','').toUpperCase()+" break"});
     addTextChoicesTo("breaksSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("breaksTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
-    
+
     // Imbues
 	addIconChoicesTo("imbues", elementList, "checkbox", "element", function(v){return "Imbue "+v});
     addTextChoicesTo("imbuesSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb'});
     addTextChoicesTo("imbuesTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
-    
+
     // Tank abilities
     addIconChoicesTo("tankAbilities", ["drawAttacks", "stCover", "physicalAoeCover", "magicalAoeCover"], "checkbox", "tankAbilities", ["Draw Attacks", "ST Cover", "Physical AOE Cover", "Magical AOE Cover", "Mirage"]);
     addTextChoicesTo("tankAbilitiesSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
-    
+
 
     // Mitigation
     addIconChoicesTo("mitigation", ["globalMitigation", "magicalMitigation", "physicalMitigation", "mirage"], "checkbox", "mitigation", ["Mitigation", "Magic Mitigation", "Physical Mitigation"])
@@ -1429,19 +1440,19 @@ function startPage() {
 
     // Item types
     addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment", function(v){return typeListLitterals[v]});
-    
+
     $("#results").addClass(server);
-    
+
 	// Triggers on filter selection
 	$('.choice input').change($.debounce(300,update));
     $('.chainFamily select').change(update);
     $('.chainFamily input').change(update);
     $('.threshold input').on('input', $.debounce(300,update));
-    
-	
+
+
 	// Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,update));
-    
+
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("data", true, function(result) {
         data = result;
@@ -1450,9 +1461,9 @@ function startPage() {
         getStaticData("unitsWithSkill", false, function(result) {
             units = result;
             prepareUnitSearch();
-            getStaticData("unitSearch", false, function(result) {    
+            getStaticData("unitSearch", false, function(result) {
                 unitSearch = result;
-                getStaticData("releasedUnits", false, function(result) {    
+                getStaticData("releasedUnits", false, function(result) {
                     releasedUnits = result;
                     initFilters();
                     update();

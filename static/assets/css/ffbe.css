@@ -1,0 +1,36 @@
+/* --------------------------------------------------------------- *\
+   ffbe.css
+
+   Import wrapper for all CSS. Recommend minifying before
+   taking live.
+
+\* --------------------------------------------------------------- */
+
+/* External Dependencies */
+@import url("//fonts.googleapis.com/css2?family=Medula+One&display=swap");
+@import url("//stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css");
+@import url("//cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/css/select2.min.css");
+@import url("/assets/vendor/select2-bootstrap4/select2-bootstrap4.min.css");
+@import url("/assets/vendor/toast/toast.min.css");
+
+@import URL('ffbe.variables.css');
+@import URL('ffbe.structure.css');
+
+@import URL('components/text.css');
+@import URL('components/buttons.css');
+@import URL('components/forms.css');
+@import URL('components/tables.css');
+@import URL('components/alerts.css');
+@import URL('components/icons.css');
+@import URL('components/illustrations.css');
+
+@import URL('pages/contribute.css');
+@import URL('pages/encyclopedia.css');
+@import URL('pages/homepage.css');
+@import URL('pages/my-units.css');
+@import URL('pages/my-inventory.css');
+@import URL('pages/my-espers.css');
+@import URL('pages/unit-builder.css');
+@import URL('pages/unit-search.css');
+
+@import URL('ffbe.themes.css');

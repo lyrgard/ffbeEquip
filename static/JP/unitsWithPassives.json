@@ -5696,26 +5696,21 @@
 		"name":"Summer Fina & Lid",
 		"jpname":"フィーナ&リド2018夏",
 		"id":"100020505",
-		"braveShift":"100020527",
-		"exAwakening": [{"hp":624,"mp":34,"atk":16,"def":23,"mag":23,"spr":30},{"hp":480,"mp":26,"atk":12,"def":18,"mag":18,"spr":23},{"hp":336,"mp":18,"atk":8,"def":12,"mag":12,"spr":16}],
-		"max_rarity":"NV",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4800,"mp":260,"atk":121,"def":178,"mag":176,"spr":228},
-			"minStats":{"hp":1584,"mp":86,"atk":40,"def":59,"mag":58,"spr":75},
+			"maxStats":{"hp":4800,"mp":260,"atk":121,"def":178,"mag":176,"spr":208},
+			"minStats":{"hp":1584,"mp":86,"atk":40,"def":59,"mag":58,"spr":69},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe"],
-		"enhancementSkills":["アクアハント","らぶりーうぉーた","サンオイルで小麦肌","ビーチパラソル","極楽お昼寝","アクアヒール","沖までひと泳ぎ","砂浜でおいかけっこ"],
 		"enhancements": [
-			{"name":"夏の麦わら帽子","levels":[[],[{"spr%":20,"def%":20,"resist":[{"name":"light","percent":30}]}]]},
-			{"name":"サンオイルで小麦肌","levels":[[{"spr%":30,"def%":30,"mpRefresh":5}],[{"spr%":30,"def%":30,"mpRefresh":5,"resist":[{"name":"fire","percent":50}]}],[{"spr%":30,"def%":30,"mpRefresh":5,"resist":[{"name":"fire","percent":50},{"name":"charm","percent":100}]}]]},
-			{"name":"砂浜でおいかけっこ","levels":[[{"spr%":30,"def%":30,"mpRefresh":3}],[{"spr%":40,"def%":40,"mpRefresh":3}],[{"spr%":50,"def%":50,"mpRefresh":5}],[{"spr%":60,"def%":60,"mpRefresh":5}],[{"spr%":70,"def%":70,"mpRefresh":7}]]}
+			{"name":"夏の麦わら帽子","levels":[[],[{"spr%":20,"def%":20,"resist":[{"name":"light","percent":30}]}]]}
 		],
 		"skills": [
-			{"hp%":50, "mp%":60, "def%":30, "spr%":30, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50}]},
+			{"hp%":50, "mp%":40, "def%":60, "spr%":60, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50}], "mpRefresh":5},
 			{"equipedConditions":[["409027400","504229860"]]},
 			{"hp%":20, "levelCondition":115},
 			{"hp%":30, "mp%":30, "lbFillRate":100, "levelCondition":120}
@@ -5735,67 +5730,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe"],
-			"enhancementSkills":["アクアハント","らぶりーうぉーた","サンオイルで小麦肌","ビーチパラソル","極楽お昼寝","アクアヒール","沖までひと泳ぎ","砂浜でおいかけっこ"],
 		"enhancements": [
-			{"name":"夏の麦わら帽子","levels":[[],[{"spr%":20,"def%":20,"resist":[{"name":"light","percent":30}]}]]},
-			{"name":"サンオイルで小麦肌","levels":[[{"spr%":30,"def%":30,"mpRefresh":5}],[{"spr%":30,"def%":30,"mpRefresh":5,"resist":[{"name":"fire","percent":50}]}],[{"spr%":30,"def%":30,"mpRefresh":5,"resist":[{"name":"fire","percent":50},{"name":"charm","percent":100}]}]]}
+			{"name":"夏の麦わら帽子","levels":[[],[{"spr%":20,"def%":20,"resist":[{"name":"light","percent":30}]}]]}
 		],
 			"skills": [
-				{"hp%":50, "mp%":40, "def%":30, "spr%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50}]}
-			]
-		},
-		"7_form": {
-			"name":"Summer Fina & Lid",
-			"jpname":"フィーナ&リド2018夏",
-			"id":"100020505",
-			"sevenStarForm":true,
-			"max_rarity":"7",
-			"min_rarity":"5",
-			"sex":"female",
-			"stats": {
-				"maxStats":{"hp":4800,"mp":260,"atk":121,"def":178,"mag":176,"spr":208},
-				"minStats":{"hp":1584,"mp":86,"atk":40,"def":59,"mag":58,"spr":69},
-				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
-			},
-			"stats_pattern":4,
-			"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe"],
-			"enhancementSkills":["アクアハント","らぶりーうぉーた","サンオイルで小麦肌","ビーチパラソル","極楽お昼寝","アクアヒール","沖までひと泳ぎ","砂浜でおいかけっこ"],
-		"enhancements": [
-			{"name":"夏の麦わら帽子","levels":[[],[{"spr%":20,"def%":20,"resist":[{"name":"light","percent":30}]}]]},
-			{"name":"サンオイルで小麦肌","levels":[[{"spr%":30,"def%":30,"mpRefresh":5}],[{"spr%":30,"def%":30,"mpRefresh":5,"resist":[{"name":"fire","percent":50}]}],[{"spr%":30,"def%":30,"mpRefresh":5,"resist":[{"name":"fire","percent":50},{"name":"charm","percent":100}]}]]}
-		],
-			"skills": [
-				{"hp%":50, "mp%":40, "def%":30, "spr%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50}]},
-				{"equipedConditions":[["409027400","504229860"]]},
-				{"hp%":20, "levelCondition":115},
-				{"hp%":30, "mp%":30, "lbFillRate":100, "levelCondition":120}
+				{"hp%":50, "mp%":40, "def%":60, "spr%":60, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50}], "mpRefresh":5}
 			]
 		}
-	},
-	"100020527": {
-		"name":"フィーナ&リド2018夏 - Brave Shifted",
-		"jpname":"フィーナ&リド2018夏 - Brave Shifted",
-		"id":"100020527",
-		"braveShifted":true,
-		"exAwakening": [{"hp":624,"mp":34,"atk":16,"def":23,"mag":23,"spr":30},{"hp":480,"mp":26,"atk":12,"def":18,"mag":18,"spr":23},{"hp":336,"mp":18,"atk":8,"def":12,"mag":12,"spr":16}],
-		"max_rarity":"NV",
-		"min_rarity":"NV",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":4753,"mp":278,"atk":116,"def":174,"mag":184,"spr":231},
-			"minStats":{"hp":1568,"mp":92,"atk":38,"def":57,"mag":61,"spr":76},
-			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
-		},
-		"stats_pattern":4,
-		"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe"],
-		"enhancementSkills":["アクアヒール","サマースプラッシュ","サンシャインビーチ"],
-		"enhancements": [
-			{"name":"サンシャインビーチ","levels":[[{"atk%":50,"singleWielding":{"accuracy":25,"atk":50}}],[{"atk%":60,"singleWielding":{"accuracy":25,"atk":50}}],[{"atk%":70,"singleWielding":{"accuracy":25,"atk":100}}],[{"atk%":80,"singleWielding":{"accuracy":25,"atk":100}}],[{"atk%":90,"singleWielding":{"accuracy":25,"atk":100}}]]}
-		],
-		"skills": [
-			{"hp%":60, "mp%":80, "atk%":60, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"water","percent":50},{"name":"light","percent":50},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
-			{"hp%":50, "atk%":50, "def%":50, "mpRefresh":7, "equipedConditions":[["409027400","504229860"]]}
-		]
 	},
 	"100020605": {
 		"name":"Crimson",
@@ -5890,29 +5831,25 @@
 		"name":"Summer Folka & Citra",
 		"jpname":"フォルカ&シトラ2018夏",
 		"id":"100020905",
-		"braveShift":"100020927",
-		"exAwakening": [{"hp":576,"mp":36,"atk":14,"def":17,"mag":26,"spr":31},{"hp":443,"mp":27,"atk":11,"def":13,"mag":20,"spr":24},{"hp":310,"mp":19,"atk":8,"def":9,"mag":14,"spr":16}],
-		"max_rarity":"NV",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4430,"mp":274,"atk":108,"def":130,"mag":200,"spr":235},
-			"minStats":{"hp":1462,"mp":90,"atk":36,"def":43,"mag":66,"spr":78},
+			"maxStats":{"hp":4425,"mp":274,"atk":108,"def":130,"mag":200,"spr":214},
+			"minStats":{"hp":1460,"mp":90,"atk":36,"def":43,"mag":66,"spr":71},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["アンデッドサブマージ","デビルサブマージ","カーム&ダウン","サモン・スパークリングウェイブ","スピリットハイタイド","浜辺の淑女たち","ファビュラスシャイン","グラマラスウォール","サマービーナス"],
 		"enhancements": [
-			{"name":"陽光と海に癒されし夏","levels":[[],[{"spr%":30,"mag%":30,"def%":30,"lbDamage":50,"skillEnhancement":{"230070":10,"509351":5,"513122":5,"513123":5,"708644":10,"708645":10}},{"equipedConditions":["staff"],"mag%":40,"spr%":40}]]},
-			{"name":"浜辺の淑女たち","levels":[[{"mp%":20,"hp%":20,"evoMag":50,"lbFillRate":100,"levelCondition":120}],[{"spr%":40,"mag%":40,"mp%":20,"hp%":20,"evoMag":50,"lbFillRate":100,"levelCondition":120}],[{"spr%":40,"mag%":40,"mp%":20,"hp%":20,"evoMag":50,"lbFillRate":100,"replaceLb":{"name":"セクシーサマーバケーション","minEffects":[{"effect":{"damage":{"mecanism":"summonerSkill","damageType":"evoke","magCoef":49.1,"sprCoef":49.1,"magSplit":0.5,"sprSplit":0.5,"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic* water damage (EvoMAG * (24.55x MAG + 24.55x SPR)) to all enemies"},{"effect":{"imperil":{"water":91,"light":91},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water and Light by 91% for 5 turns to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Restore 140 MP to all allies"},{"effect":null,"desc":"Fill esper gauge by 5-6"}],"maxEffects":[{"effect":{"damage":{"mecanism":"summonerSkill","damageType":"evoke","magCoef":52,"sprCoef":52,"magSplit":0.5,"sprSplit":0.5,"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic* water damage (EvoMAG * (26x MAG + 26x SPR)) to all enemies"},{"effect":{"imperil":{"water":120,"light":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water and Light by 120% for 5 turns to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Restore 230 MP to all allies"},{"effect":null,"desc":"Fill esper gauge by 5-6"}],"frames":[64,110,256],"move":"walk"},"levelCondition":120}]]},
-			{"name":"サマービーナス","levels":[[{"def":30,"skillEnhancement":{"230062":8,"230063":8}}],[{"def":50,"skillEnhancement":{"230062":8,"230063":8}}],[{"def":70,"skillEnhancement":{"230062":9,"230063":9}}],[{"def":80,"skillEnhancement":{"230062":9,"230063":9}}],[{"def":100,"skillEnhancement":{"230062":10,"230063":10}}]]}
+			{"name":"陽光と海に癒されし夏","levels":[[],[{"spr%":30,"mag%":30,"def%":30,"lbDamage":50,"skillEnhancement":{"230069":5,"230070":10}},{"equipedConditions":["staff"],"mag%":40,"spr%":40}]]}
 		],
 		"skills": [
-			{"hp%":20, "mp%":20, "mag%":60, "spr%":60, "evoMag":80, "dualWielding":{"spr":50}, "resist":[{"name":"water","percent":50}], "mpRefresh":10, "special":["dualWield"]},
+			{"hp%":20, "mp%":20, "mag%":60, "spr%":60, "evoMag":80, "resist":[{"name":"water","percent":50}], "mpRefresh":10},
 			{"mag%":30, "spr%":30, "equipedConditions":["staff"]},
 			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "equipedConditions":[["311004500","504230131"]]},
-			{"mp%":20, "levelCondition":115}
+			{"mp%":20, "levelCondition":115},
+			{"hp%":20, "mp%":20, "evoMag":50, "lbFillRate":100, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Summer Folka & Citra",
@@ -5929,67 +5866,14 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["アンデッドサブマージ","デビルサブマージ","カーム&ダウン","サモン・スパークリングウェイブ","スピリットハイタイド","浜辺の淑女たち","ファビュラスシャイン","グラマラスウォール","サマービーナス"],
 		"enhancements": [
-			{"name":"陽光と海に癒されし夏","levels":[[],[{"spr%":30,"mag%":30,"def%":30,"lbDamage":50,"skillEnhancement":{"230070":10,"509351":5,"513122":5,"513123":5,"708644":10,"708645":10}},{"equipedConditions":["staff"],"mag%":40,"spr%":40}]]}
+			{"name":"陽光と海に癒されし夏","levels":[[],[{"spr%":30,"mag%":30,"def%":30,"lbDamage":50,"skillEnhancement":{"230069":5,"230070":10}},{"equipedConditions":["staff"],"mag%":40,"spr%":40}]]}
 		],
 			"skills": [
 				{"hp%":20, "mp%":20, "mag%":60, "spr%":60, "evoMag":80, "resist":[{"name":"water","percent":50}], "mpRefresh":10},
 				{"mag%":30, "spr%":30, "equipedConditions":["staff"]}
 			]
-		},
-		"7_form": {
-			"name":"Summer Folka & Citra",
-			"jpname":"フォルカ&シトラ2018夏",
-			"id":"100020905",
-			"sevenStarForm":true,
-			"max_rarity":"7",
-			"min_rarity":"5",
-			"sex":"female",
-			"stats": {
-				"maxStats":{"hp":4425,"mp":274,"atk":108,"def":130,"mag":200,"spr":214},
-				"minStats":{"hp":1460,"mp":90,"atk":36,"def":43,"mag":66,"spr":71},
-				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
-			},
-			"stats_pattern":4,
-			"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["アンデッドサブマージ","デビルサブマージ","カーム&ダウン","サモン・スパークリングウェイブ","スピリットハイタイド","浜辺の淑女たち","ファビュラスシャイン","グラマラスウォール","サマービーナス"],
-		"enhancements": [
-			{"name":"陽光と海に癒されし夏","levels":[[],[{"spr%":30,"mag%":30,"def%":30,"lbDamage":50,"skillEnhancement":{"230070":10,"509351":5,"513122":5,"513123":5,"708644":10,"708645":10}},{"equipedConditions":["staff"],"mag%":40,"spr%":40}]]},
-			{"name":"浜辺の淑女たち","levels":[[{"mp%":20,"hp%":20,"evoMag":50,"lbFillRate":100,"levelCondition":120}],[{"spr%":40,"mag%":40,"mp%":20,"hp%":20,"evoMag":50,"lbFillRate":100,"levelCondition":120}],[{"spr%":40,"mag%":40,"mp%":20,"hp%":20,"evoMag":50,"lbFillRate":100,"replaceLb":{"name":"セクシーサマーバケーション","minEffects":[{"effect":{"damage":{"mecanism":"summonerSkill","damageType":"evoke","magCoef":49.1,"sprCoef":49.1,"magSplit":0.5,"sprSplit":0.5,"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic* water damage (EvoMAG * (24.55x MAG + 24.55x SPR)) to all enemies"},{"effect":{"imperil":{"water":91,"light":91},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water and Light by 91% for 5 turns to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Restore 140 MP to all allies"},{"effect":null,"desc":"Fill esper gauge by 5-6"}],"maxEffects":[{"effect":{"damage":{"mecanism":"summonerSkill","damageType":"evoke","magCoef":52,"sprCoef":52,"magSplit":0.5,"sprSplit":0.5,"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic* water damage (EvoMAG * (26x MAG + 26x SPR)) to all enemies"},{"effect":{"imperil":{"water":120,"light":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water and Light by 120% for 5 turns to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Restore 230 MP to all allies"},{"effect":null,"desc":"Fill esper gauge by 5-6"}],"frames":[64,110,256],"move":"walk"},"levelCondition":120}]]}
-		],
-			"skills": [
-				{"hp%":20, "mp%":20, "mag%":60, "spr%":60, "evoMag":80, "resist":[{"name":"water","percent":50}], "mpRefresh":10},
-				{"mag%":30, "spr%":30, "equipedConditions":["staff"]},
-				{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "equipedConditions":[["311004500","504230131"]]},
-				{"mp%":20, "levelCondition":115}
-			]
 		}
-	},
-	"100020927": {
-		"name":"フォルカ&シトラ2018夏 - Brave Shifted",
-		"jpname":"フォルカ&シトラ2018夏 - Brave Shifted",
-		"id":"100020927",
-		"braveShifted":true,
-		"exAwakening": [{"hp":576,"mp":36,"atk":14,"def":17,"mag":26,"spr":31},{"hp":443,"mp":27,"atk":11,"def":13,"mag":20,"spr":24},{"hp":310,"mp":19,"atk":8,"def":9,"mag":14,"spr":16}],
-		"max_rarity":"NV",
-		"min_rarity":"NV",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":4582,"mp":288,"atk":107,"def":127,"mag":190,"spr":237},
-			"minStats":{"hp":1512,"mp":95,"atk":35,"def":42,"mag":63,"spr":78},
-			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
-		},
-		"stats_pattern":4,
-		"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["ファビュラスシャイン","サンシャインウェーブ","波乗りチョコボボート"],
-		"enhancements": [
-			{"name":"波乗りチョコボボート","levels":[[{"killers":[{"name":"undead","magical":50}],"dualWielding":{"spr":50}}],[{"killers":[{"name":"undead","magical":60}],"dualWielding":{"spr":50}}],[{"killers":[{"name":"undead","magical":70}],"dualWielding":{"spr":75}}],[{"killers":[{"name":"undead","magical":80}],"dualWielding":{"spr":75}}],[{"killers":[{"name":"undead","magical":100}],"dualWielding":{"spr":100}}]]}
-		],
-		"skills": [
-			{"hp%":80, "mp%":50, "def%":30, "spr%":180, "dualWielding":{"spr":50}, "mpRefresh":5, "lbDamage":50, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "special":["dualWield"]},
-			{"resist":[{"name":"water","percent":50},{"name":"light","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "equipedConditions":[["311004500","504230131"]]}
-		]
 	},
 	"100021203": {
 		"name":"Gudon of the Xi Star",
@@ -9613,90 +9497,6 @@
 			{"mag%":50, "equipedConditions":["rod"]},
 			{"lbDamage":25, "equipedConditions":[["504236720","310009000"]]}
 		]
-	},
-	"100031707": {
-		"name":"フィーナ&デイジー2020夏",
-		"jpname":"フィーナ&デイジー2020夏",
-		"id":"100031707",
-		"braveShift":"100031717",
-		"exAwakening": [{"hp":661,"mp":42,"atk":18,"def":22,"mag":22,"spr":61},{"hp":508,"mp":32,"atk":14,"def":17,"mag":17,"spr":47},{"hp":356,"mp":22,"atk":10,"def":12,"mag":12,"spr":33}],
-		"max_rarity":"NV",
-		"min_rarity":"NV",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":5084,"mp":320,"atk":140,"def":170,"mag":169,"spr":234},
-			"minStats":{"hp":1678,"mp":106,"atk":46,"def":56,"mag":56,"spr":77},
-			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
-		},
-		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","bow","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["オーシャンマジック","オーシャンズカット"],
-		"skills": [
-			{"hp%":150, "mp%":20, "def%":100, "spr%":160, "resist":[{"name":"water","percent":100},{"name":"light","percent":50},{"name":"dark","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "drawAttacks":50},
-			{"equipedConditions":[["504237240","403051400"]]}
-		]
-	},
-	"100031717": {
-		"name":"フィーナ&デイジー2020夏 - Brave Shifted",
-		"jpname":"フィーナ&デイジー2020夏 - Brave Shifted",
-		"id":"100031717",
-		"braveShifted":true,
-		"exAwakening": [{"hp":661,"mp":42,"atk":18,"def":22,"mag":22,"spr":61},{"hp":508,"mp":32,"atk":14,"def":17,"mag":17,"spr":47},{"hp":356,"mp":22,"atk":10,"def":12,"mag":12,"spr":33}],
-		"max_rarity":"NV",
-		"min_rarity":"NV",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":5150,"mp":316,"atk":163,"def":186,"mag":129,"spr":237},
-			"minStats":{"hp":1700,"mp":104,"atk":54,"def":61,"mag":43,"spr":78},
-			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
-		},
-		"stats_pattern":4,
-		"equip":["dagger","sword","staff","bow","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["情熱のビーチバレー","オーシャンズカット"],
-		"skills": [
-			{"hp%":150, "mp%":20, "def%":100, "spr%":160, "resist":[{"name":"water","percent":100},{"name":"fire","percent":100},{"name":"earth","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "drawAttacks":50},
-			{"equipedConditions":[["504237240","403051400"]]}
-		]
-	},
-	"100031805": {
-		"name":"ミヌール",
-		"jpname":"ミヌール",
-		"id":"100031805",
-		"max_rarity":"7",
-		"min_rarity":"5",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":4499,"mp":287,"atk":115,"def":151,"mag":218,"spr":208},
-			"minStats":{"hp":1485,"mp":95,"atk":38,"def":50,"mag":72,"spr":69},
-			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
-		},
-		"stats_pattern":4,
-		"equip":["dagger","staff","rod","throwing","hat","clothes","robe"],
-		"skills": [
-			{"hp%":20, "mp%":60, "def%":60, "mag%":160, "spr%":20, "singleWielding":{"mag":100}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"evade":{"physical":20}, "killers":[{"name":"human","magical":100}], "equipedConditions":[["405012300","504237242"]]},
-			{"def%":20, "levelCondition":115},
-			{"singleWielding":{"mag":100}, "drawAttacks":4, "skillEnhancement":{"237380":4}, "levelCondition":120}
-		],
-		"6_form": {
-			"name":"ミヌール",
-			"jpname":"ミヌール",
-			"id":"100031805",
-			"sixStarForm":true,
-			"max_rarity":"6",
-			"min_rarity":"5",
-			"sex":"female",
-			"stats": {
-				"maxStats":{"hp":3460,"mp":220,"atk":88,"def":116,"mag":167,"spr":160},
-				"minStats":{"hp":1142,"mp":73,"atk":29,"def":38,"mag":55,"spr":53},
-				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
-			},
-			"stats_pattern":1,
-			"equip":["dagger","staff","rod","throwing","hat","clothes","robe"],
-			"skills": [
-				{"hp%":20, "mp%":60, "def%":60, "mag%":160, "spr%":20, "singleWielding":{"mag":100}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
-			]
-		}
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -19526,7 +19326,7 @@
 		]
 	},
 	"254001505": {
-		"name":"Wild Card Ace",
+		"name":"Class Zero Ace",
 		"jpname":"0組の秀才エース",
 		"id":"254001505",
 		"max_rarity":"7",
@@ -19550,7 +19350,7 @@
 			{"evade":{"physical":20,"magical":50}, "skillEnhancement":{"234850":20,"234853":9,"234854":9,"511872":9,"511873":9}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Wild Card Ace",
+			"name":"Class Zero Ace",
 			"jpname":"0組の秀才エース",
 			"id":"254001505",
 			"sixStarForm":true,
@@ -19573,7 +19373,7 @@
 		}
 	},
 	"254001605": {
-		"name":"Benevolent Beauty Rem",
+		"name":"Beloved Girl Rem",
 		"jpname":"慈愛の少女レム",
 		"id":"254001605",
 		"max_rarity":"7",
@@ -19598,7 +19398,7 @@
 			{"mp%":40, "mag%":40, "spr%":30, "dualWielding":{"mag":50}, "skillEnhancement":{"234891":17,"234892":17,"234893":17,"234894":17,"234895":8,"234896":8,"234897":8,"511920":8,"511921":8}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Benevolent Beauty Rem",
+			"name":"Beloved Girl Rem",
 			"jpname":"慈愛の少女レム",
 			"id":"254001605",
 			"sixStarForm":true,
@@ -19766,7 +19566,7 @@
 		]
 	},
 	"254002105": {
-		"name":"Steadfast Soldier Machina",
+		"name":"Tenacious Warrior Machina",
 		"jpname":"不撓の戦士マキナ",
 		"id":"254002105",
 		"max_rarity":"7",
@@ -19791,7 +19591,7 @@
 			{"atk%":40, "def%":40, "skillEnhancement":{"234940":8,"234941":8,"234942":8,"234943":8,"234944":4}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Steadfast Soldier Machina",
+			"name":"Tenacious Warrior Machina",
 			"jpname":"不撓の戦士マキナ",
 			"id":"254002105",
 			"sixStarForm":true,
@@ -23570,7 +23370,7 @@
 		}
 	},
 	"339000205": {
-		"name":"Mont Leonis",
+		"name":"Mont",
 		"jpname":"モント",
 		"id":"339000205",
 		"max_rarity":"7",
@@ -23591,7 +23391,7 @@
 			{"atk%":50, "lbDamage":50, "skillEnhancement":{"235565":15,"235566":15,"235567":15,"512302":8,"512303":8}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Mont Leonis",
+			"name":"Mont",
 			"jpname":"モント",
 			"id":"339000205",
 			"sixStarForm":true,
@@ -23611,7 +23411,7 @@
 		}
 	},
 	"339000305": {
-		"name":"Sterne Leonis",
+		"name":"Sterne",
 		"jpname":"シュテル",
 		"id":"339000305",
 		"max_rarity":"7",
@@ -23632,7 +23432,7 @@
 			{"atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Sterne Leonis",
+			"name":"Sterne",
 			"jpname":"シュテル",
 			"id":"339000305",
 			"sixStarForm":true,

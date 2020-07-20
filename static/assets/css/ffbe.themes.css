@@ -1,0 +1,361 @@
+/* --------------------------------------------------------------- *\
+   ffbe.themes.css
+
+   CSS for specific changes between light / dark / game theme
+   beyond what already happens in ffbe.variables.css
+
+\* --------------------------------------------------------------- */
+
+hr,
+.border,
+.border-bottom,
+.border-top,
+.border-left,
+.border-right {
+  border-color: rgba(var(--btn_primary_3), 0.3) !important;
+}
+
+/* Content Box Coloring ------------------------------------------ */
+
+.ffbe_theme--dark .ffbe_content--box {
+	border-radius: 0.25rem;
+	box-shadow: 0 1rem 3rem rgba(0,0,0,0.15);
+	border: 1px solid rgb(var(--btn_primary_1));
+	background: linear-gradient(
+        rgba(var(--nav_bg_2), 0.7),
+        rgba(var(--nav_bg_2), 0.9)),
+        rgb(var(--btn_primary_3));
+}
+
+.ffbe_theme--game .ffbe_content--box {
+	border-radius: 0.25rem;
+	box-shadow: 0 1rem 3rem rgba(0,0,0,0.15);
+	border: 1px solid rgba(var(--btn_primary_3), 0.3);
+	background: linear-gradient(
+        rgba(var(--btn_primary_1), 0.1),
+        rgba(var(--btn_primary_1), 0.4)),
+        rgb(var(--nav_bg_1));
+}
+
+
+/* Game Borders on All the Things! ------------------------------- */
+
+.ffbe_theme--game .ffbe_footer,
+.ffbe_theme--game .ffbe_header--nav,
+.ffbe_theme--game .ffbe_content--box {
+    position: relative;
+}
+
+.ffbe_theme--game .ffbe_header--nav::before,
+.ffbe_theme--game .ffbe_footer::before,
+.ffbe_theme--game .ffbe_content--box::before {
+    pointer-events: none;
+    position: absolute;
+    content: "";
+}
+
+.ffbe_theme--game .ffbe_header--nav::before,
+.ffbe_theme--game .ffbe_footer::before {
+    width: 100%;
+    height: 30px;
+    left: 0;
+    top: -30px;
+    background: url('/assets/media/backgrounds/border-fill.png') bottom center repeat-x, linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0) 30px);
+}
+
+.ffbe_theme--game .ffbe_header--nav::before {
+    border-top: none;
+    top: -27px;
+}
+
+.ffbe_theme--game .list-group-item,
+.ffbe_theme--game .badge.badge-border,
+.ffbe_theme--game .btn:not(.btn-ghost),
+.ffbe_theme--game .ffbe_content--box::before,
+.ffbe_theme--game .nav-tabs .nav-link,
+.ffbe_theme--game .ffbe_text--title {
+    border: 1px solid rgb(var(--btn_border_3));
+    border-radius: 0.25rem;
+    border-right-color: rgb(var(--btn_border_2));
+    border-bottom-color: rgb(var(--btn_border_1));
+}
+
+.ffbe_theme--game .nav-tabs .nav-link {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0;
+}
+
+.ffbe_theme--game .nav-tabs .nav-link.active {
+    margin-bottom: -2px;
+    height: calc(100% + 1px);
+    z-index: 2;
+}
+
+.ffbe_theme--game .ffbe_content--box::before {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* List Group ---------------------------------------------------- */
+
+.ffbe_theme--dark .list-group-item {
+	border-color: rgba(var(--nav_bg_3), 0.85);
+	background:	rgba(var(--nav_bg_1),0.5);
+}
+
+.ffbe_theme--game .list-group-item {
+    margin-bottom: 2px;
+    text-shadow: 0 1px 1px rgb(0,0,0);
+	background:
+	    repeating-linear-gradient(
+	        rgba(var(--nav_bg_3),0),
+	        rgba(var(--nav_bg_3), 0) 2px,
+	        rgba(var(--nav_bg_3), 0.15) 2px,
+	        rgba(var(--nav_bg_3), 0.15) 4px),
+	    radial-gradient(circle at right,
+	        rgb(var(--btn_primary_1)),
+	        rgb(var(--btn_primary_2)) 50%);
+    box-shadow:
+        inset 0 0 1px 1px rgb(0,0,0),
+        inset 0 0 1px 2px rgb(var(--btn_primary_3), 0.95),
+        inset 0 0 14px 4px rgb(var(--btn_primary_3), 0.15);
+}
+
+.ffbe_theme--game .list-group .list-group-item:last-child {
+	margin-bottom: 0;
+}
+
+/* Dropdown Menu ------------------------------------------------- */
+
+.ffbe_theme--dark .dropdown-menu,
+.ffbe_theme--game .dropdown-menu {
+	color: rgb(var(--nav_link));
+	background:
+		linear-gradient(45deg,
+			rgb(var(--nav_dropdown_bg_hover)) 0,
+			rgb(var(--nav_bg_2)) 100% );
+}
+
+.ffbe_theme--dark .dropdown-item,
+.ffbe_theme--game .dropdown-item {
+	color: rgb(var(--nav_link));
+}
+
+.ffbe_theme--dark .dropdown-item:hover,
+.ffbe_theme--game .dropdown-item:hover {
+	color: rgb(var(--nav_dropdown_link_hover));
+	background: rgb(var(--nav_dropdown_bg_hover));
+}
+
+
+.ffbe_theme--dark .dropdown-menu,
+.ffbe_theme--dark .dropdown-divider,
+.ffbe_theme--game .dropdown-menu,
+.ffbe_theme--game .dropdown-divider {
+	border-color: rgb(var(--nav_dropdown_bg_hover));
+}
+
+/* Tabs ---------------------------------------------------------- */
+
+.ffbe_theme--dark .nav-tabs .nav-link. {
+	border-top: 0;
+	border-bottom: 0;
+}
+
+.ffbe_theme--dark .nav-tabs .nav-link.active::before,
+.ffbe_theme--dark .nav-tabs .nav-link.active:hover::before,
+.ffbe_theme--game .nav-tabs .nav-link.active::before,
+.ffbe_theme--game .nav-tabs .nav-link.active:hover::before {
+    border: none;
+}
+
+.ffbe_theme--dark .nav-tabs .nav-link.active {
+	color: var(--white);
+	background:
+		linear-gradient(
+			rgba(var(--btn_secondary_3), 0.9) 0,
+			rgba(var(--nav_bg_2), 0.7) 50%,
+			rgba(var(--nav_bg_2), 0.7) 80%),
+		rgb(var(--btn_primary_3));
+	text-shadow: 1px 1px 1px rgb(var(--btn_secondary_1));
+}
+
+
+.ffbe_theme--game .nav-tabs .nav-link.active {
+	color: var(--white);
+	background: linear-gradient(
+        rgb(var(--btn_secondary_3)) 0,
+        rgba(var(--btn_secondary_3), 0.9) 10%,
+        rgba(var(--nav_bg_2), 0.7) 50%,
+        rgba(var(--btn_primary_1), 0.1)),
+        rgb(var(--nav_bg_1));
+}
+
+
+.ffbe_theme--dark .nav-tabs .nav-link:not(.active),
+.ffbe_theme--game .nav-tabs .nav-link:not(.active) {
+    color: rgb(var(--nav_link_icon));
+	background:
+		linear-gradient(
+			rgba(var(--btn_primary_3), 0.4) 0,
+			rgba(var(--nav_bg_2), 0.5) 50%,
+			rgba(var(--nav_bg_2), 0) 90%);
+	text-shadow: 1px 1px 1px rgb(var(--btn_primary_2));
+}
+
+.ffbe_theme--game .nav-tabs .nav-link:not(.active) {
+    opacity: 0.75;
+}
+
+.ffbe_theme--dark .nav-tabs .nav-link:not(.active):hover,
+.ffbe_theme--game .nav-tabs .nav-link:not(.active):hover {
+	background:
+		linear-gradient(
+			rgba(var(--btn_primary_3), 0.9) 0,
+			rgba(var(--nav_bg_2), 0.7) 80%,
+			rgba(var(--nav_bg_2), 0.0) 100%);
+}
+
+.ffbe_theme--dark .nav-tabs .nav-link.active:hover {
+	background:
+		linear-gradient(
+			rgba(var(--btn_warning_3), 0.9) 0,
+			rgba(var(--nav_bg_2), 0.7) 50%,
+			rgba(var(--nav_bg_2), 0.7) 80%),
+		rgb(var(--btn_primary_3));
+}
+
+.ffbe_theme--game .nav-tabs .nav-link.active:hover {
+	color: var(--white);
+	background: linear-gradient(
+        rgb(var(--btn_warning_3)) 0,
+        rgba(var(--btn_warning_3), 0.9) 10%,
+        rgba(var(--nav_bg_2), 0.7) 50%,
+        rgba(var(--btn_primary_1), 0.1)),
+        rgb(var(--nav_bg_1));
+}
+
+/* Forms --------------------------------------------------------- */
+
+.ffbe_theme--dark .progress,
+.ffbe_theme--game .progress {
+	background: rgba(var(--nav_bg_2), 0.8);
+}
+
+/* Bootstrap Modal ----------------------------------------------- */
+
+.ffbe_theme--dark .modal-content {
+	background:	linear-gradient(rgba(var(--body_bg_1), 0.7), rgba(var(--body_bg_2), 0.9)), rgb(var(--body_bg_2));
+ 	box-shadow:
+		0 1px 2px   rgba(50,50,50, 0.02),
+		0 2px 4px   rgba(50,50,50, 0.04),
+		0 4px 8px   rgba(50,50,50, 0.08),
+		0 8px 16px  rgba(50,50,50, 0.12),
+		0 16px 32px rgba(50,50,50, 0.24),
+		0 32px 64px rgba(50,50,50, 0.36);
+    border: 2px solid rgb(var(--btn_border_3));
+    border-style: ridge;
+    border-radius: 0.75rem;
+    border-right-color: rgb(var(--btn_border_2));
+    border-bottom-color: rgb(var(--btn_border_1));
+}
+
+.ffbe_theme--dark .modal-content .ffbe_content--well {
+    color: rgb(var(--nav_link_icon));
+}
+
+.ffbe_theme--dark .modal-header,
+.ffbe_theme--dark .modal-body,
+.ffbe_theme--dark .modal-footer {
+    color: rgba(var(--btn_border_3),0.9);
+}
+
+.ffbe_theme--dark .modal-title {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.ffbe_theme--dark .modal-title {
+	font-family: 'Medula One', cursive;
+	font-size: 1.75rem;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px rgb(var(--btn_primary_2));
+	color: rgb(var(--nav_link));
+	padding: 0;
+	margin: 0;
+}
+
+.ffbe_theme--dark .modal-header {
+	color: rgb(var(--nav_link_icon));
+    border-radius: 0.75rem 0.7rem 0 0;
+}
+
+.ffbe_theme--dark .modal-footer {
+    border-radius: 0 0 0.75rem 0.7rem ;
+}
+
+.ffbe_theme--dark .modal-header .close {
+	color: rgb(var(--nav_link_icon));
+	text-shadow: none;
+}
+
+.ffbe_theme--dark .modal-header,
+.ffbe_theme--dark .modal-footer {
+	background:	linear-gradient(rgba(var(--nav_bg_2), 0.7), rgba(var(--nav_bg_2), 0.9)), rgb(var(--btn_primary_3));
+	border-color: rgba(var(--btn_border_1),0.2);
+}
+
+/* Bootstrap Popover --------------------------------------------- */
+
+.popover {
+	background:	linear-gradient(rgba(var(--body_bg_1), 0.7), rgba(var(--body_bg_2), 0.9)), rgb(var(--body_bg_2));
+    color: rgb(var(--body_text));
+    border: 1px solid rgb(var(--nav_bg_3));
+}
+
+.popover-header {
+	background:	linear-gradient(rgba(var(--nav_bg_2), 0.7), rgba(var(--nav_bg_2), 0.9)), rgb(var(--btn_primary_3));
+    border-bottom: 1px solid rgb(var(--nav_bg_3));
+}
+
+.popover-body {
+    color: rgb(var(--body_text));
+}
+
+.bs-popover-top > .arrow::after, .bs-popover-auto[x-placement^="top"] > .arrow::after {
+  border-top-color: rgb(var(--nav_bg_3));
+}
+
+.bs-popover-right > .arrow::after, .bs-popover-auto[x-placement^="right"] > .arrow::after {
+  border-right-color: rgb(var(--nav_bg_3));
+}
+
+
+.bs-popover-bottom > .arrow::before, .bs-popover-auto[x-placement^="bottom"] > .arrow::before {
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+}
+
+.bs-popover-bottom > .arrow::after, .bs-popover-auto[x-placement^="bottom"] > .arrow::after {
+  border-bottom-color: rgb(var(--nav_bg_3));
+}
+
+.bs-popover-bottom .popover-header::before, .bs-popover-auto[x-placement^="bottom"] .popover-header::before {
+  border-bottom: 1px solid rgb(var(--nav_bg_3));
+}
+
+.bs-popover-left > .arrow::before, .bs-popover-auto[x-placement^="left"] > .arrow::before {
+  border-left-color: rgba(0, 0, 0, 0.25);
+}
+
+.bs-popover-left > .arrow::after, .bs-popover-auto[x-placement^="left"] > .arrow::after {
+  border-left-color: rgb(var(--nav_bg_3));
+}
+
+
+
+
+

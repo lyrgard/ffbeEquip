@@ -1,0 +1,104 @@
+/* --------------------------------------------------------------- *\
+   ffbe.forms.css
+
+   CSS for Form Inputs
+
+\* --------------------------------------------------------------- */
+
+.col-form-label {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Allow form inputs to change colors on theme ------------------- */
+
+.form-control,
+.custom-select,
+.input-group-text,
+.custom-control-label::before,
+input[type=file],
+.custom-file-label,
+.select2-search--dropdown .select2-search__field,
+.select2-container--bootstrap4 .select2-selection--multiple .select2-selection__choice,
+.select2-container--bootstrap4 .select2-selection,
+.select2-container--bootstrap4.select2-container--disabled.select2-container--focus .select2-selection, .select2-container--bootstrap4.select2-container--disabled .select2-selection {
+	background: var(--form_bg);
+	border-color: var(--form_border);
+	color: var(--form_text);
+}
+
+.input-group-text {
+	background-color: var(--form_border);
+}
+
+.select2 { width: 100% !important; }
+
+.select2-container--bootstrap4 .select2-dropdown,
+.select2-container--bootstrap4 .select2-dropdown.select2-dropdown--above {
+	background: rgb(var(--body_bg_1));
+	border-color: var(--form_border);
+	color: var(--form_text);
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: var(--white);
+    border-color: var(--form_border);
+    background-color: rgb(var(--btn_primary_1));
+}
+
+.custom-switch .custom-control-input:checked~.custom-control-label::after {
+    background-color: var(--form_switch);
+}
+
+/* Apply Extra Border Shades to 'game' Theme --------------------- */
+
+.ffbe_theme--game .form-control,
+.ffbe_theme--game .custom-select,
+.ffbe_theme--game .input-group-text,
+.ffbe_theme--game .form-control:focus,
+.ffbe_theme--game .custom-select:focus,
+.ffbe_theme--game .input-group-text:focus,
+.ffbe_theme--game .custom-control-label::before,
+.ffbe_theme--game .select2-search--dropdown .select2-search__field,
+.ffbe_theme--game .select2-container--bootstrap4 .select2-selection--multiple .select2-selection__choice,
+.ffbe_theme--game .select2-container--bootstrap4 .select2-selection,
+.ffbe_theme--game .select2-container--bootstrap4.select2-container--disabled.select2-container--focus .select2-selection, .select2-container--bootstrap4.select2-container--disabled .select2-selection,
+.ffbe_theme--game .select2-container--bootstrap4 .select2-dropdown,
+.ffbe_theme--game .select2-container--bootstrap4 .select2-dropdown.select2-dropdown--above {
+    border-right-color: rgb(var(--btn_border_2));
+    border-bottom-color: rgb(var(--btn_border_3));
+}
+
+/* Create Outline around Focus Inputs ---------------------------- */
+
+.form-control:focus,
+.custom-select:focus,
+.custom-control-label:focus,
+.select2-container--bootstrap4 .select2-selection:focus {
+	border-color: var(--form_border);
+	background: var(--form_bg);
+    box-shadow: 0 0 0 3px rgba(var(--btn_primary_1),.65);
+}
+
+/* Modify Custom Select BG for 'dark' and 'game' ----------------- */
+
+.custom-select,
+.custom-select:focus,
+.custom-select:active {
+    background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+}
+
+.ffbe_theme--dark .custom-select,
+.ffbe_theme--dark .custom-select:focus,
+.ffbe_theme--dark .custom-select:active,
+.ffbe_theme--game .custom-select,
+.ffbe_theme--game .custom-select:focus,
+.ffbe_theme--game .custom-select:active  {
+	background: rgb(var(--body_bg_1)) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+}

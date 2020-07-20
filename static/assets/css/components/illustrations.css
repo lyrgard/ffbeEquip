@@ -1,0 +1,28 @@
+/* --------------------------------------------------------------- *\
+   ffbe.illustrations.css
+
+   All the fan art
+
+\* --------------------------------------------------------------- */
+
+/* Header Illustrations ------------------------------------------ */
+
+.art-Fina      .ffbe_header--art { background-image: var(--art_fina); }
+.art-Jake      .ffbe_header--art { background-image: var(--art_jake); }
+.art-Lasswell  .ffbe_header--art { background-image: var(--art_lasswell); }
+.art-Lid       .ffbe_header--art { background-image: var(--art_lid); }
+.art-Mog       .ffbe_header--art { background-image: var(--art_mog); }
+.art-Nichol    .ffbe_header--art { background-image: var(--art_nichol); }
+.art-Rain      .ffbe_header--art { background-image: var(--art_rain); }
+.art-Sakura    .ffbe_header--art { background-image: var(--art_sakura); }
+
+/* Positioning --------------------------------------------------- */
+
+.ffbe_header--tools .ffbe_header--art {
+    width: 200px;
+    height: 65px;
+    margin: -5px 0 -23px 0;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

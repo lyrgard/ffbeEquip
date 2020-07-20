@@ -1,515 +1,265 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/assets/css/ffbe.css">
+<link rel="icon" type="image/png" href="/assets/game/icons/equipments/heavyArmor.png">
+<title>FFBE Equip - Inventory</title>
+</head>
 
-        <title>FFBE Equip : Inventory</title>
-        <link rel="icon" type="image/png" href="img/icons/equipments/heavyArmor.png">
+<body class="ffbe_theme">
 
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="css-img/crystals.css">
-        <link rel="stylesheet" type="text/css" href="css-img/equipments.css">
-        <link rel="stylesheet" type="text/css" href="css-img/elements.css">
-        <link rel="stylesheet" type="text/css" href="css-img/ailments.css">
-        <link rel="stylesheet" type="text/css" href="css-img/sorts.css">
-        <link rel="stylesheet" type="text/css" href="css-img/tabs.css">
-        <link rel="stylesheet" type="text/css" href="css-img/killers.css">
-		<link rel="stylesheet" type="text/css" href="common.css">
-        <link rel="stylesheet" type="text/css" href="inventory.css">
-        <link rel="stylesheet" type="text/css" href="languages.css">
-        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" type="text/css" href="dark-mode.css"/>
-    </head>
-    <body class="dark">
-        <a href="#" id="scrollToTopButton" style="display: none;" title="Scroll back to the top"><span></span></a>
+<button id="scrollToTopButton"><span class="fa fa-caret-up fa-fw"></span></button>
 
-        <div id="header" class="headerJake">
-            <div class="headerContent">
-                <div class="headerTitle">
-                    Inventory
-                </div>
-                <div id="inventoryDiv" class="btn-group Inventoryloading" role="group">
-                    <button type="button" class="btn btn-default logOut" onclick="location.href='/googleOAuthLogout';">
-                        <span class="glyphicon glyphicon-off" title="logout"></span>
-                    </button>
-                    <button type="button" class="btn btn-default loadInventory" onclick="loadInventory()">
-                        Log in
-                    </button>
-                    <button type="button" class="btn btn-default inventoryStatus">
-                        <span class="status loading">Loading inventory</span>
-                        <span class="status loaded">Inventory loaded</span>
-                        <span class="status notLoaded">Inventory not loaded</span>
-                        <div class="loader"></div>
-                        <span class="label label-default unitsNumber">? units</span>
-                        <span class="label label-default itemsNumber">? items</span>
-                    </button>
-                </div>
-            </div>
-            <div class="navigationMenu">
-                <div class="desktop">
-                    <div class="menuLogo" onclick="window.location.href='/'" title="Return to homepage"></div>
-                    <a href="/" data-internal-link="/">Home</a>
-                    <a href="builder.html" data-internal-link="builder.html">Unit builder</a>
-                    <a href="encyclopedia.html" data-internal-link="encyclopedia.html">Encyclopedia</a>
-                    <a href="unitSearch.html" data-internal-link="unitSearch.html">Unit Search</a>
-                    <a class="active" href="inventory.html" data-internal-link="inventory.html">My inventory</a>
-                    <a href="units.html" data-internal-link="units.html">My units</a>
-                    <a href="espers.html" data-internal-link="espers.html">My Espers</a>
-                    <a href="contribute.html" data-internal-link="contribute.html">Contribute</a>
-                </div>
-                <div class="mobile">
-                    <div class="menuLogo dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-chevron-down"></span>
-                    </div>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="/" data-internal-link="/">
-                                <span class="glyphicon glyphicon-chevron-right"></span> Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="builder.html" data-internal-link="builder.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> Unit builder
-                            </a>
-                        </li>
-                        <li>
-                            <a href="encyclopedia.html" data-internal-link="encyclopedia.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> Encyclopedia
-                            </a>
-                        </li>
-                        <li>
-                            <a href="unitSearch.html" data-internal-link="unitSearch.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> Unit Search
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="inventory.html" data-internal-link="inventory.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> My inventory
-                            </a>
-                        </li>
-                        <li>
-                            <a href="units.html" data-internal-link="units.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> My units
-                            </a>
-                        </li>
-                        <li>
-                            <a href="espers.html" data-internal-link="espers.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> My Espers
-                            </a>
-                        </li>
-                        <li>
-                            <a href="contribute.html" data-internal-link="contribute.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> Contribute
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="headerTopButtons">
-                <div id="themeSelector">
-                    <span class="title">Theme :</span>
-                    <select class="form-control smallSelect">
-                        <option value="light">Light</option>
-                        <option value="dark">Dark</option>
-                    </select>
-                </div>
-                <div id="languages">
-                    <span class="lang lang-sm" lang="en" onclick="switchToLanguage('en')"></span>
-                    <span class="lang lang-sm" lang="zh" onclick="switchToLanguage('zh')"></span>
-                    <span class="lang lang-sm" lang="ko" onclick="switchToLanguage('ko')"></span>
-                    <span class="lang lang-sm" lang="fr" onclick="switchToLanguage('fr')"></span>
-                    <span class="lang lang-sm" lang="de" onclick="switchToLanguage('de')"></span>
-                    <span class="lang lang-sm" lang="es" onclick="switchToLanguage('es')"></span>
-                </div>
-                <div class="switchServer btn-group">
-                    <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
-                    <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
-                </div>
-            </div>
-            <div class="bannerBackground"></div>
-            <div class="bannerPicture"></div>
-            <div class="bannerPicturePerson"></div>
+<header class="ffbe_header art-Jake">
+  <div class="ffbe_header--tools d-flex justify-content-end align-items-center p-3">
+
+    <!-- Language Selection -->
+    <div class="mr-auto d-flex flex-shrink">
+      <div class="dropdown btn-group btn-group-sm hidden" id="languages">
+    		<button class="btn btn-primary dropdown-toggle" type="button" id="tools_language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-globe-europe fa-fw mr-1" data-fa-transform="grow-6"></span></button>
+     		<div class="dropdown-menu" aria-labelledby="tools_language">
+    			<button type="button" class="dropdown-item d-flex align-items-center" lang="en" onclick="switchToLanguage('en')"><img src="/assets/media/language/gb.svg" width="30" height="20" class="shadow-sm mr-2">English</button>
+    			<button type="button" class="dropdown-item d-flex align-items-center" lang="zh" onclick="switchToLanguage('zh')"><img src="/assets/media/language/zh.svg" width="30" height="20" class="shadow-sm mr-2">Chinese</button>
+    			<button type="button" class="dropdown-item d-flex align-items-center" lang="ko" onclick="switchToLanguage('ko')"><img src="/assets/media/language/ko.svg" width="30" height="20" class="shadow-sm mr-2">Korean</button>
+    			<button type="button" class="dropdown-item d-flex align-items-center" lang="fr" onclick="switchToLanguage('fr')"><img src="/assets/media/language/fr.svg" width="30" height="20" class="shadow-sm mr-2">French</button>
+    			<button type="button" class="dropdown-item d-flex align-items-center" lang="de" onclick="switchToLanguage('de')"><img src="/assets/media/language/de.svg" width="30" height="20" class="shadow-sm mr-2">German</button>
+    			<button type="button" class="dropdown-item d-flex align-items-center" lang="es" onclick="switchToLanguage('es')"><img src="/assets/media/language/es.svg" width="30" height="20" class="shadow-sm mr-2">Spanish</button>
+	  	  </div>
+	  	</div>
+      <div class="ffbe_header--art"></div>
+		</div>
+
+    <!-- Theme Selection -->
+		<div class="btn-group btn-group-sm btn-group-toggle mr-3 shadow" role="group" data-toggle="buttons" aria-label="Color Scheme" id="themeSelector">
+			<label for="light" class="btn btn-primary light"><input type="radio" name="tools_scheme" id="light" class="light" value="light">Light</label>
+			<label for="dark" class="btn btn-primary dark"><input type="radio" name="tools_scheme" id="dark" class="dark" value="dark">Dark</label>
+			<label for="game" class="btn btn-primary game"><input type="radio" name="tools_scheme" id="game" class="game" value="game">Game</label>
+	  </div>
+
+    <!-- Server Selection -->
+		<div class="btn-group btn-group-sm btn-group-toggle shadow switchServer" role="group" data-toggle="buttons" aria-label="Game Server" id="switchServer">
+   		<label for="GL" class="btn btn-primary active GL"><input type="radio" name="game_server" id="GL" class="GL" checked onclick="switchTo('GL')">GL</label>
+   		<label for="JP" class="btn btn-primary JP"><input type="radio" name="game_server" id="JP" class="JP" onclick="switchTo('JP')">JP</label>
+  	</div>
+	</div>
+
+	<nav class="navbar navbar-expand-xl ffbe_header--nav">
+  	<div class="navbar-brand ffbe_header--logo" onclick="window.location.href='/' + (server == 'GL' ? '' : '?server=' + server)"><img src="/assets/media/ffbe.jpg"></div>
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ffbe_header--nav" aria-controls="ffbe_header--nav" aria-expanded="false" aria-label="Toggle navigation"><span class="fas fa-bars fa-fw"></span></button>
+
+  	<div class="collapse navbar-collapse" id="ffbe_header--nav">
+    	<ul class="navbar-nav">
+      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link" href="builder.html" data-internal-link="builder.html"><span class="fas fa-tools fa-fw mr-2"></span>Unit Builder</a>
+      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link" href="unitSearch.html" data-internal-link="unitSearch.html"><span class="fas fa-search fa-fw mr-2"></span>Unit Search</a>
+      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link" href="encyclopedia.html" data-internal-link="encyclopedia.html"><span class="fas fa-book fa-fw mr-2"></span>Encyclopedia</a>
+      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link" href="contribute.html" data-internal-link="contribute.html"><span class="fas fa-hands-helping fa-fw mr-2"></span>Contribute</a>
+      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link" href="units.html" data-internal-link="units.html"><span class="fas fa-users fa-fw mr-2"></span>My Units</a>
+      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link active" href="inventory.html" data-internal-link="inventory.html"><span class="fas fa-boxes fa-fw mr-2"></span>My Inventory</a>
+      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link" href="espers.html" data-internal-link="espers.html"><span class="fas fa-dragon fa-fw mr-2"></span>My Espers</a>
+      </ul>
+
+    	<ul class="navbar-nav ffbe_header--oauth ml-auto">
+      <li class="nav-item ffbe_header--oauth d-flex ml-lg-auto" id="inventoryDiv">
+        <div class="flex-fill status align-content-center">
+          <div class="loader text-center"><span class="fas fa-fw fa-spinner fa-spin"></span></div>
+          <div class="loading">Loading Inventory</div>
+          <div class="loaded">Inventory Loaded</div>
+          <div class="notLoaded">Inventory Not loaded</div>
+          <div class="d-block">
+            <span class="badge badge-primary unitsNumber">? units</span>
+            <span class="badge badge-primary itemsNumber">? items</span>
+          </div>
         </div>
 
-        <div class="container-fluid">
-            <div id="pleaseWaitMessage" class="alert alert-info alert-inline" role="alert">
-                <span class="glyphicon glyphicon-info-sign"></span>
-                Please wait for your inventory to load
-            </div>
-            <div id="loginMessage" class="alert alert-danger alert-inline hidden" role="alert">
-                <span class="glyphicon glyphicon-alert"></span>
-                You need to be logged-in to manage your inventory
-            </div>
-            <div id="itemsWrapper" class="hidden">
-                <div class="itemsSidebar">
-                    <button class="itemsSidebarButton hidden" title="Toggle sidebar">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="collapsedHidden">Toggle stats</span>
-                    </button>
-                    <div class="stats hidden collapsedHidden">
-                        <div class="statsGroup statsGroupMateria">
-                            <table class="stats_materia"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-materia"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_dagger"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-dagger"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_sword"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-sword"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_greatSword"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-greatSword"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_katana"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-katana"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_staff"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-staff"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_rod"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-rod"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_bow"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-bow"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_axe"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-axe"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_hammer"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-hammer"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_spear"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-spear"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_harp"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-harp"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_whip"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-whip"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_throwing"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-throwing"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_gun"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-gun"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_mace"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-mace"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_fist"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-fist"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_lightShield"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-lightShield"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_heavyShield"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-heavyShield"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_hat"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-hat"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_helm"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-helm"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_clothes"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-clothes"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_lightArmor"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-lightArmor"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_heavyArmor"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-heavyArmor"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_robe"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-robe"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                        <div class="statsGroup">
-                            <table class="stats_accessory"><tbody><tr>
-                                <td class="itemType"><i class="img img-equipment-accessory"></i></td>
-                                <td class="value"></td>
-                                <td class="separator">/</td>
-                                <td class="total"></td>
-                                <td class="number"></td>
-                            </tr></tbody></table>
-                        </div>
-                    </div>
-                </div>
-                <div class="itemsContent">
-                    <div id="inventory">
-                        <div class="linkActions">
-                            <div id="exportLinks" class="dropdown action">
-                                <a class="dropdown-toggle link" type="button" data-toggle="dropdown">
-                                    <span class="glyphicon glyphicon-share-alt"></span>
-                                    <span class="text">
-                                        Export inventory<span class="caret"></span>
-                                    </span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="link" onclick="exportAsCsv()"><span class="glyphicon glyphicon-share-alt"></span>Export as CSV</a></li>
-                                    <li><a class="link" onclick="exportAsJson()"><span class="exportAsJson">{ }</span> Export as json</a></li>
-                                </ul>
-                            </div>
-                            <a id="importLink" class="link action" onclick="importInventory();">
-                                <span class="glyphicon glyphicon-save"></span>
-                                <span class="text hidden-xs hidden-sm">
-                                    Import inventory
-                                </span>
-                            </a>
-                            <a id="exportLink" class="link action" href="https://new.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/" target="_blank">
-                                <span class="glyphicon glyphicon-export"></span>
-                                <span class="text hidden-xs hidden-sm">
-                                        Export your data from the game
-                                    </span>
-                            </a>
-                        </div>
-                        
-                        
-                        <ul class="nav nav-tabs nav-tabs-img">
-                            <li class="equipment"  onclick="showEquipments()" title="Show all equipments">
-                                <a><i class='img img-tab-equipments tab'></i></a>
-                            </li>
-                            <li class="materia" onclick="showMateria()" title="Show all materia">
-                                <a><i class='img img-tab-materia tab'></i></a>
-                            </li>
-                            <li class="farmableStmr" onclick="showFarmableStmr()" title="Show obtainable STMR">
-                                <a><img src="/img/units/unit_ills_906000105.png"/></a>
-                            </li>
-                            <li class="sellableItems" onclick="showSellableItems()" title="Show sellable items">
-                                <a><img src="/img/icons/gil.png"/></a>
-                            </li>
-                            <li class="enhancementCandidates" onclick="showEnhancementCandidates()" title="Show enhancement candidates">
-                                <a><img src="/img/icons/dwarf.png"/></a>
-                            </li>
-                            <li class="history" onclick="showHistory()" title="Show inventory by events">
-                                <a><i class='img img-tab-history tab'></i></a>
-                            </li>
-                            <li class="settings" onclick="showSettings()" title="Show inventory tools">
-                                <a><i class='img img-tab-settings tab'></i></a>
-                            </li>
-                        </ul>
-                        
-                        <div id="tabsRightData" class='hidden-xs'>
-                            <span id="sortType"></span>
-                        </div>
-                        <div class="result-tab-pane">
-                            <div class="panel-body" style="padding:0;">
-                                <div class="col-xs-12">
-                                    <div class="searchHeader">
-                                        <input id="searchBox" type="text" class="form-control" placeholder="Enter item name or name of TMR's unit"/>
-                                        <div class="stmrMoogleAvailableDiv">
-                                            Available <div><img src="/img/units/unit_ills_906000105.png"></div>
-                                            <input id="stmrMoogleAvailable" type="number" min="0" step="50" value="0" class="form-control" placeholder="0"/>
-                                            %
-                                            
-                                            <div class="additionalFilters">
-                                                <label class="checkbox-label">
-                                                    <input id="onlyTimeLimited" type="checkbox" class="checkbox"><span></span>
-                                                    Only time limited units
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="sellableItemsHeader" class="hidden">
-                                            <div><i class="fas fa-exclamation-triangle"></i> This is a work in progress</div>
-                                            <div>It displays the items you own, that either can be bought in a shop, or for which you own at least X strictly better items</div>
-                                            <div>Hover on the second number to display the list of better owned items</div>
-                                            <div id="betterItemsNumberDiv"><span>Number of strictly better items required:</span><input id="betterItemsNumber" type="number" min="1" class="form-control" value="4"/></div>
-                                            <label class="checkbox-label">
-                                                <input id="includeRecipeItems" type="checkbox" class="checkbox"><span></span>
-                                                Include recipe items
-                                            </label>
-                                        </div>
-                                        <div class="enhancementCandidatesHeader" class="hidden">
-                                            <div><i class="fas fa-exclamation-triangle"></i> This is a work in progress</div>
-                                            <div>It displays the items you own, not enhanced, that have at most X strictly better item you own, that is, good candidates for Item World</div>
-                                            <div id="enhancementCandidatesSearchDepthDiv"><span>Number max of strictly better items:</span><input id="enhancementCandidatesSearchDepth" type="number" min="0" class="form-control" value="0"/></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="results" class="">
-                                </div>
-                                <div id="loadMore" class="hidden">
-                                    <div class="col-xs-12">
-                                        <button type="button" class="btn btn-primary" onclick="">
-                                            Load more...
-                                        </button>
-                                        <button type="button" class="btn btn-warning" onclick="">
-                                            Load All
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="itemEnhancement" class="hidden">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footerButtons">
-                <div>
-                    <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer">Send me a message on reddit</a>
-                    <a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer">Chat on FFBE Equip discord server</a>
-                    <a class="buttonLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer">See code on GitHub</a>
-                </div>
-                <div>
-                    <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer">Buy me a coffee</a>
-                    <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer">Become my patron on Patreon</a>
-                </div>
-                <div>
-                    <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP units and items images are a courtesy of EXVIUS DB</a>
-                </div>
-            </div>
+        <div class="flex-shrink logOut"><button type="button" class="btn btn-sm btn-danger btn-block h-100 logOut" onclick="unloadInventory()" data-toggle="tooltip" data-placement="top" title="Log Out"><span class="fa fa-power-off fa-fw"></span></button></div>
+        <div class="flex-shrink loadInventory" data-state="show"><button type="button" class="btn btn-sm btn-success btn-block h-100 loadInventory" onclick="loadInventory()" data-toggle="tooltip" data-placement="top" title="Log In"><span class="fa fa-lock-open fa-fw"></span></button></div>
+      </li>
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+<main class="ffbe_content container-fluid my-4">
+  <div id="pleaseWaitMessage" class="alert alert-info" role="alert">Please wait for your Inventory to load</div>
+  <div id="loginMessage" class="alert alert-danger hidden" role="alert">You need to be logged-in to manage your Inventory.</div>
+
+  <div id="itemsWrapper" class="hidden">
+    <div class="ffbe_content--well border p-3 rounded d-flex mb-4">
+      <div class="btn-group btn-group-sm mr-2">
+        <button class="btn btn-sm btn-primary dropdown-toggle" id="btn-weapon-stats" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Weapon Stats</button>
+        <div class="dropdown-menu px-2 stats" aria-labelledby="btn-weapon-stats">
+          <table class="table table-xs table-striped table-hover table-pill mb-0">
+          <tbody>
+            <tr class="stats_dagger"><td class="itemType"><i class="icon icon-sm equipment-dagger"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_sword"><td class="itemType"><i class="icon icon-sm equipment-sword"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_greatSword"><td class="itemType"><i class="icon icon-sm equipment-greatSword"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_katana"><td class="itemType"><i class="icon icon-sm equipment-katana"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_staff"><td class="itemType"><i class="icon icon-sm equipment-staff"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_rod"><td class="itemType"><i class="icon icon-sm equipment-rod"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_bow"><td class="itemType"><i class="icon icon-sm equipment-bow"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_axe"><td class="itemType"><i class="icon icon-sm equipment-axe"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_hammer"><td class="itemType"><i class="icon icon-sm equipment-hammer"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_spear"><td class="itemType"><i class="icon icon-sm equipment-spear"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_harp"><td class="itemType"><i class="icon icon-sm equipment-harp"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_whip"><td class="itemType"><i class="icon icon-sm equipment-whip"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_throwing"><td class="itemType"><i class="icon icon-sm equipment-throwing"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_gun"><td class="itemType"><i class="icon icon-sm equipment-gun"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_mace"><td class="itemType"><i class="icon icon-sm equipment-mace"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_fist"><td class="itemType"><i class="icon icon-sm equipment-fist"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+          </tbody>
+          </table>
         </div>
+      </div>
+
+      <div class="btn-group btn-group-sm">
+        <button class="btn btn-sm btn-primary dropdown-toggle" id="btn-armor-stats" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Armor Stats</button>
+        <div class="dropdown-menu px-2 stats" aria-labelledby="btn-armor-stats">
+          <table class="table table-xs table-striped table-hover table-pill mb-0">
+          <tbody>
+            <tr class="stats_lightShield"><td class="itemType"><i class="icon icon-sm equipment-lightShield"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_heavyShield"><td class="itemType"><i class="icon icon-sm equipment-heavyShield"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_hat"><td class="itemType"><i class="icon icon-sm equipment-hat"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_helm"><td class="itemType"><i class="icon icon-sm equipment-helm"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_clothes"><td class="itemType"><i class="icon icon-sm equipment-clothes"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_lightArmor"><td class="itemType"><i class="icon icon-sm equipment-lightArmor"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_heavyArmor"><td class="itemType"><i class="icon icon-sm equipment-heavyArmor"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_robe"><td class="itemType"><i class="icon icon-sm equipment-robe"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_accessory"><td class="itemType"><i class="icon icon-sm equipment-accessory"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+            <tr class="stats_materia"><td class="itemType"><i class="icon icon-sm equipment-materia"></i></td><td class="value"></td><td class="text-muted">/</td><td class="total"></td><td class="number"></td></tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="btn-group btn-group-sm ml-auto" id="exportLinks">
+        <button class="btn btn-sm btn-info dropdown-toggle" data-toggle="dropdown" id="btn-share-collection" aria-haspopup="true" aria-expanded="false"><span class="fa fa-share fa-fw mr-1"></span><span class="d-none d-md-inline">Share Collection</span></button>
+        <div class="dropdown-menu" aria-labelledby="btn-share-collection">
+          <a class="dropdown-item" onclick="exportAsCsv()"><span class="fa fa-file-csv fa-fw mr-1"></span>Export as CSV</a>
+          <a class="dropdown-item" onclick="exportAsJson()"><span class="fa fa-code fa-fw mr-1"></span>Export as JSON</a>
+        </div>
+      </div>
+
+      <button id="importLink" class="btn btn-sm btn-info mx-1" onclick="importInventory();"><span class="fa fa-file-import fa-fw mr-1"></span><span class="d-none d-md-inline">Import Inventory</span></button>
+      <a id="exportDataLink" class="btn btn-sm btn-info" href="https://reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/" target="_blank"><span class="fa fa-file-export fa-fw mr-1"></span><span class="d-none d-md-inline-block">Export Game Data</span></a>
+
+    </div>
+  </div>
+
+  <div class="itemsContent" id="inventory">
+    <ul id="tabs" class="nav nav-tabs mx-2">
+    <li class="nav-item"><button type="button" class="nav-link equipment" onclick="showEquipments()" data-toggle="tooltip" title="Show all equipments"><i class="icon icon-md tab-equipments"></i></button></li>
+    <li class="nav-item"><button type="button" class="nav-link materia" onclick="showMateria()" data-toggle="tooltip" title="Show all materia"><i class="icon icon-md tab-materia"></i></button></li>
+    <li class="nav-item"><button type="button" class="nav-link farmableStmr" onclick="showFarmableStmr()" data-toggle="tooltip" title="Show obtainable STMR"><i class="icon icon-md tab-stmr"></i></button></li>
+    <li class="nav-item"><button type="button" class="nav-link sellableItems" onclick="showSellableItems()" data-toggle="tooltip" title="Show sellable items"><i class="icon icon-md tab-gil"></i></button></li>
+    <li class="nav-item"><button type="button" class="nav-link enhancementCandidates" onclick="showEnhancementCandidates()" data-toggle="tooltip" title="Show enhancement candidates"><i class="icon icon-md tab-enhance"></i></button></li>
+    <li class="nav-item"><button type="button" class="nav-link history" onclick="showHistory()" data-toggle="tooltip" title="Show inventory by events"><i class="icon icon-md tab-history"></i></button></li>
+    <li class="nav-item"><button type="button" class="nav-link settings" onclick="showSettings()" data-toggle="tooltip" title="Show inventory tools"><i class="icon icon-md tab-settings"></i></button></li>
+    <li class="nav-item d-none d-md-flex ml-auto align-items-center" id="tabsRightData"><span class="text-muted text-sm" id="sortType"></span></li>
+    </ul>
+
+    <div class="tab-content ffbe_content--box p-3 result-tab-pane">
+      <div class="ffbe_content--well p-2 mb-3 rounded">
+        <div class="form-group form-row mb-0 align-items-center searchHeader">
+          <div class="col" id="searchBox"><input type="text" class="form-control" placeholder="Enter item name or name of TMR's unit"/></div>
+
+          <!-- STMR Moogle Wrapper -->
+          <div class="col-auto ml-auto stmrMoogleAvailableDiv hidden">
+            <div class="input-group">
+              <div class="input-group-prepend"><div class="input-group-text">Available <i class="icon icon-xs crystal-stmr"></i></div></div>
+              <input id="stmrMoogleAvailable" type="number" min="0" step="50" value="0" class="form-control" placeholder="0"/>
+              <div class="input-group-append rounded-right"><div class="input-group-text  rounded-right">%</div></div>
+              <div class="input-group-append additionalFilters">
+                <div class="input-group-text bg-none border-0 pr-0">
+                  <div class="custom-control custom-control-inline custom-switch">
+                    <input type="checkbox" id="onlyTimeLimited" name="onlyTimeLimited" class="custom-control-input">
+                    <label class="custom-control-label" for="onlyTimeLimited">Only time limited units</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sellable Items Wrapper -->
+          <div class="col sellableItemsHeader hidden">
+            <div class="form-row align-items-center">
+              <div class="col-7 col-md-8">
+                <h5 class="mb-1 px-2"><span class="fa fa-exclamation-triangle mr-2"></span>This is a Work in Progress</h5>
+                <p class="mb-0 px-2">It displays the items you own, that either can be bought in a shop, or for which you own at least X strictly better items. Click on the second number to display the list of better owned items.</p>
+              </div>
+
+              <div class="col-5 col-md-4">
+                <div class="ffbe_content--well p-3 border rounded">
+                  <div class="form-group form-row align-items-center mb-0">
+                    <label class="col-form-label col-12 col-md-5" for="betterItemsNumber">Number of strictly better items required</label>
+                    <div class="col" id="betterItemsNumberDiv">
+                      <input id="betterItemsNumber" type="number" min="1" class="form-control" value="4"/>
+
+                      <div class="custom-control custom-switch additionalFilters">
+                        <input type="checkbox" id="includeRecipeItems" name="includeRecipeItems" class="custom-control-input">
+                        <label class="custom-control-label" for="includeRecipeItems">Include Recipe Items</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enhancement Candidate Wrapper -->
+          <div class="col enhancementCandidatesHeader hidden">
+            <div class="form-row align-items-center">
+              <div class="col-7 col-md-8">
+                <h5 class="mb-1 px-2"><span class="fa fa-exclamation-triangle mr-2"></span>This is a Work in Progress</h5>
+                <p class="mb-0 px-2">It displays the items you own, not enhanced, that have at most X strictly better item you own, that is, good candidates for Item World.</p>
+              </div>
+
+              <div class="col-5 col-md-4">
+                <div class="ffbe_content--well p-3 border rounded">
+                  <div class="form-group form-row align-items-center mb-0">
+                    <label class="col-form-label col-12 col-md-5" for="betterItemsNumber">Number of strictly better items required</label>
+                    <div class="col" id="enhancementCandidatesSearchDepthDiv">
+                      <input id="enhancementCandidatesSearchDepth" type="number" min="1" class="form-control" value="0"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="results"></div>
+
+      <div id="loadMore" class="hidden">
+        <button type="button" class="btn btn-primary mr-1" onclick="">Load More...</button>
+        <button type="button" class="btn btn-warning" onclick="">Load All</button>
+      </div>
+
+      <div id="itemEnhancement" class="hidden">
+
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="ffbe_footer text-center">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6 col-sm-4 mb-2"><a class="d-block text-wrap-none" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer"><span class="fab fa-reddit fa-fw mr-1"></span>Send me a message on reddit</a></div>
+      <div class="col-6 col-sm-4 mb-2"><a class="d-block text-wrap-none" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer"><span class="fab fa-discord fa-fw mr-1"></span>Chat on FFBE Equip discord server</a></div>
+      <div class="col-6 col-sm-4 mb-2"><a class="d-block text-wrap-none" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer"><span class="fab fa-github fa-fw mr-1"></span>See code on GitHub</a></div>
+      <div class="col-6 col-sm-4 mb-2"><a class="d-block text-wrap-none" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer"><span class="fas fa-coffee fa-fw mr-1"></span>Buy me a coffee</a></div>
+      <div class="col-6 col-sm-4 mb-2"><a class="d-block text-wrap-none" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer"><span class="fab fa-patreon fa-fw mr-1"></span>Become my patron on Patreon</a></div>
+      <div class="col-6 col-sm-4 mb-2" data-server="JP"><a class="d-block text-wrap-none" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP Units & Item Images Courtesy of EXVIUS DB</a></div>
+    </div>
+  </div>
+</footer>
+
 
         <div class="modal fade" id="modifyEnhancementModal" role="dialog">
             <div class="modal-dialog modal-lg">
@@ -620,29 +370,32 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
-            </div>
-        </div>
-        <script src="https://kit.fontawesome.com/a68d75f74a.js" crossorigin="anonymous"></script>
-        <script src="lib/jquery-3.1.0.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"
-                integrity="sha384-xm3smXFeZSfehvsiwVXkVZQU/NWHntXE7a/CYQNE/fnBnZi01iu4DRiv+wObGSwn" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.15.0/lazyload.min.js"
-                integrity="sha384-eNkRPZsMXXue2PfnzB86JZZm8l6laWo6c2YuXambKDG9ko5QbTktAKCM7MIhZ7AO" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"
-                integrity="sha384-+pWnyi8LtZx+cgXfD2arWgUX7pHIaEL215cEPPk9WrsegNlgvDL9DNjaqsceQq6o" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
-        <script src="lib/notify.min.js"></script>
-        <script src="lib/FileSaver.min.js"></script>
-        <script src="lib/jjv.js"></script>
-        <script src="constants.js"></script>
-        <script src="common.js"></script>
-        <script src="builder/common.js"></script>
-        <script src="builder/treeComparator.js"></script>
-        <script src="builder/itemPool.js"></script>
-		<script src="inventory.js"></script>
-        <script src="googleAnalytics.js"></script>
-    </body>
+
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js" integrity="sha512-qiKM6FJbI5x5+GL5CEbAUK0suRhjXVMRXnH/XQJaaQ6iQPf05XxbFBE4jS6VJzPGIRg7xREZTrGJIZVk1MLclA==" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mark.js/8.9.1/jquery.mark.min.js" integrity="sha512-sbITXUVHWifz09tZXfL4b0CawrZJVuAUeVLvV3r04HMaBxgZM74j0CaKrPNtCBAHmgD3rhRfMiwmYad7x3FrhA==" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.1.0/lazyload.min.js" integrity="sha512-V3DZ9ZAJrv8ZYY5Zarlfjusec9J6S8htRT3bJDKTdEgq0g9OhbHQUjK+vsBkE6CH0J5VJtBCzPSXJ0ZCVpjPdQ==" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js" integrity="sha512-qoCTmFwBtCPvFhA+WAqatSOrghwpDhFHxwAGh+cppWonXbHA09nG1z5zi4/NGnp8dUhXiVrzA6EnKgJA+fyrpw==" crossorigin="anonymous"></script>
+<script src="/assets/vendor/toast/toast.min.js"></script>
+<script src="/assets/vendor/fontawesome/js/all.min.js" defer></script>
+<script src="/assets/vendor/googleAnalytics.js" defer></script>
+
+<script src="/lib/jquery.ba-throttle-debounce.min.js"></script>
+<script src="/lib/FileSaver.min.js"></script>
+<script src="/lib/html2canvas.min.js"></script>
+<script src="/lib/jjv.js"></script>
+<script src="/lib/virtualScroll.js"></script>
+
+<script src="/clientConfig"></script>
+<script src="/assets/scripts/constants.js"></script>
+<script src="/assets/scripts/common.js"></script>
+
+<script src="/assets/scripts/builder/common.js"></script>
+<script src="/assets/scripts/builder/treeComparator.js"></script>
+<script src="/assets/scripts/builder/itemPool.js"></script>
+<script src="/inventory.js"></script>
+
+</body>
 </html>
