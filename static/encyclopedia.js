@@ -46,12 +46,12 @@ var itemList;
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
-	
+
 	readFilterValues();
 	updateFilterHeadersDisplay();
     modifyFilterSummary();
     modifyUrl();
-    
+
     if (!onlyShowOwnedItems && stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && physicalKillers.length == 0 && magicalKillers.length == 0 && accessToRemove.length == 0 && additionalStat.length == 0) {
 		// Empty filters => no results
         $("#resultsContent").html("");
@@ -59,16 +59,16 @@ var update = function() {
         $("#resultNumber").html("Add filters to see results");
         return;
     }
-	
+
 	// If the result are to be sorted by a stat, display the stat column, else hide it.
     if (stat.length != 0) {
-        $("#statTitle").text(stat);    
+        $("#statTitle").text(stat);
         $("#results").removeClass("notSorted");
     } else {
         $("#results").addClass("notSorted");
     }
-    
-    
+
+
     var filters = [];
     if (stat.length > 0) filters.push({type: 'stat', value: stat});
     if (searchText) filters.push({type: 'text', value: searchText});
@@ -84,15 +84,15 @@ var update = function() {
     if (elements.length > 0) filters.push(convertValuesToFilter(elements, 'element', elementsAnd ? 'and' : 'or'));
     if (types.length > 0) filters.push(convertValuesToFilter(types, 'type'));
     if (onlyShowOwnedItems) filters.push({type: 'onlyOwned'});
-    
+
     let filter = andFilters(...filters);
-    
+
     let filteredItems = filterItems(data, filter, showNotReleasedYet);
     filteredItems.forEach(item => calculateValue(item, baseStat, stat, ailments, elements, killers));
-    
+
 	// filter, sort and display the results
     displayItems(sort(filteredItems));
-	
+
 	// If the text search box was used, highlight the corresponding parts of the results
     $("#results").unmark({
         done: function() {
@@ -120,11 +120,11 @@ var readFilterValues = function() {
 				baseStat=180;
 				$("#baseStat").attr("placeholder", 180);
 			}
-		}	
+		}
 	} else {
 		baseStat = 0;
 	}
-    
+
     types = getSelectedValuesFor("types");
     elements = getSelectedValuesFor("elements");
     ailments = getSelectedValuesFor("ailments");
@@ -147,11 +147,11 @@ var readFilterValues = function() {
 var updateFilterHeadersDisplay = function() {
 	$(filters).each(function(index, filter) {
 		// If filter has a value selected, display "unselect all" link
-        $("."+ filter + " .unselectAll").toggleClass("hidden", window[filter].length == 0); 
+        $("."+ filter + " .unselectAll").toggleClass("hidden", window[filter].length == 0);
 		// If filter has unit specific link and a unit is selected, display those links
-        $("."+ filter + " .forUnit").toggleClass("hidden", !selectedUnitId); 
+        $("."+ filter + " .forUnit").toggleClass("hidden", !selectedUnitId);
     });
-    $(".stat .unselectAll").toggleClass("hidden", stat.length == 0); 
+    $(".stat .unselectAll").toggleClass("hidden", stat.length == 0);
 }
 
 // Update the hash of the url to reflect the currently selected filter
@@ -204,21 +204,21 @@ var modifyFilterSummary = function() {
     var html = "";
     if (types.length != 0) {
         for (var index in types) {
-			html += '<i src="img img-equipment-' + types[index] + '"></i>';
+			html += '<i src="icon icon-sm equipment-' + types[index] + '"></i>';
         }
     }
     if (elements.length != 0) {
         for (var index in elements) {
-			html += '<i class="img img-element-' + elements[index] + '"></i>';
+			html += '<i class="icon icon-sm element-' + elements[index] + '"></i>';
         }
     }
     if (ailments.length != 0) {
         for (var index in ailments) {
-			html += '<i class="img img-ailment-' + ailments[index] + '"></i>';
+			html += '<i class="icon icon-sm ailment-' + ailments[index] + '"></i>';
         }
     }
     if (physicalKillers.length != 0 || magicalKillers.length != 0) {
-        html += '<img src="img/icons/killer.png"></img>';
+        html += '<img src="/assets/media/icons/killer.png"></img>';
     }
     $("#filterSummary").html(html);
 }
@@ -237,7 +237,7 @@ var displayItems = function(items) {
 
 function getItemsHtmls(items) {
     var htmls = [];
-    
+
     items.forEach(item => {
         htmls.push(getItemHtml(item));
     });
@@ -245,28 +245,38 @@ function getItemsHtmls(items) {
 }
 
 function getItemHtml(item) {
-    let html = '<div class="tr';
-    if (item.temp) {
-        html += ' userInputed';
-    }
-    html += '">';
-    html += displayItemLine(item);
-    if (itemInventory) {
-        html+= '<div class="td inventory ' + escapeName(item.id) + ' ' ;
-        if (!itemInventory[item.id]) {
-            html+= "notPossessed";
-        }
-        html += '">';
-        html += '<span class="number badge badge-success">';
-        if (itemInventory[item.id]) {
-            html += itemInventory[item.id];
-        }
-        html += '</span>';
+	let html = '',
+			htmlClass = '';
 
-        html += '</div>';
-    }
-    html += "</div>";
-    return html;
+	if (item.temp) {
+		htmlClass = ' userInputed';
+	}
+
+	if (itemInventory) {
+		if (!itemInventory[item.id]) {
+			htmlClass += " notPossessed";
+		}
+	}
+
+	html += '<div class="col-6 col-md-4 mb-2 bookItem ' + htmlClass + '">';
+	html += '  <div class="ffbe_content--well p-2 rounded border ">';
+	html += '    <div class="form-row align-items-center">';
+	html += '      <div class="col-auto">' + getImageHtml(item, "", false) + '</div>';
+	html += '      <div class="col align-self-center">' + getNameColumnHtml(item) + '</div>';
+
+	if (itemInventory) {
+		if (itemInventory[item.id]) {
+			html += '  <div class="col-auto inventory ' + escapeName(item.id) + '" data-item="' + escapeName(item.id) + '">';
+			html += '    <span class="number badge badge-secondary">' + itemInventory[item.id] + '</span>';
+	    html += '  </div>';
+		}
+	}
+
+	html += "    </div>";
+	html += "  </div>";
+	html += "</div>";
+
+	return html;
 }
 
 function afterDisplay() {
@@ -306,14 +316,14 @@ var displayUnitRarity = function(unit) {
     if (unit) {
         var rarity = unit.max_rarity;
 
-        rarityWrapper.show();
+        rarityWrapper.removeClass('hidden');
         rarityWrapper.empty();
 
         for (var i = 0; i < rarity; i++) {
-            rarityWrapper.append('<i class="rarity-star"></i>');
+            rarityWrapper.append('<span class="fa fa-fw fa-star"></span>');
         }
     } else {
-        rarityWrapper.hide();
+        rarityWrapper.addClass('hidden');
     }
 };
 
@@ -430,14 +440,14 @@ function populateUnitSelect() {
                 $(baseStats).each(function (index, stat) {
                     $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
                 });
-                $(".unit-image").html("<img src=\"img/units/unit_ills_" + selectedUnitData.id + ".png\"/>");
+                $(".unit-image").html('<img src="/assets/game/units/unit_ills_' + selectedUnitData.id + '.png" />').removeClass('hidden');
                 unselectAll("types", false);
             } else {
                 selectedUnitId = 0;
                 $(baseStats).each(function (index, stat) {
                     $("#baseStat_" + stat).val("");
 		      	});
-                $(".unit-image").html("");
+                $(".unit-image").html("").addClass('hidden');
             }
             displayUnitRarity(selectedUnitData);
         });
@@ -445,7 +455,7 @@ function populateUnitSelect() {
     });
     $('#unitsSelect').select2({
         placeholder: 'Select a unit...',
-        theme: 'bootstrap'
+        theme: 'bootstrap4'
     });
 }
 
@@ -457,7 +467,7 @@ function inventoryLoaded() {
 }
 
 function notLoaded() {
-    
+
 }
 
 function tryToLoadHash() {
@@ -513,7 +523,7 @@ function startPage() {
 	$(baseStats).each(function (index, value) {
         $("#baseStat_" + value).on("input", $.debounce(300,update));
 	});
-    
+
     // Reset search if escape is used
     $(window).on('keyup', function (e) {
         if (e.keyCode === 27) {
@@ -521,10 +531,10 @@ function startPage() {
         }
     });
     itemList = new VirtualScroll($('#resultsContent'), getItemHtml, 64);
-	
+
 	// Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,update));
-    
+
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("data", true, function(result) {
         data = result;
@@ -538,9 +548,9 @@ function startPage() {
             });
         });
     });
-	
+
 	// Populates the various filters
-	
+
 	// Desired Stats
 	//addTextChoicesTo("stats",'radio',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr', 'Evade':'evade', 'Inflict':'inflict', 'Resist':'resist'});
     addIconChoicesTo("stats", ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"], "radio", "sort", function(v){return "Show items having "+v.toUpperCase()+" stats";});
@@ -558,21 +568,21 @@ function startPage() {
 
     // Additional stat filter
     addIconChoicesTo("additionalStat", baseStats.concat("twoHanded"), "checkbox", "stat", function(v){return v.toUpperCase();});
-    
-	
+
+
     filterReady = true;
 	tryToLoadHash();
-    
+
     $("#results").addClass(server);
-    
+
 	// Triggers on filter selection
 	$('.choice input').change(update);
-    
+
     $(window).on("beforeunload", function () {
         if  (saveNeeded) {
             return "Unsaved change exists !"
         }
     });
-    
-    
+
+
 }

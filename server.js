@@ -48,11 +48,11 @@ app.use(cors(corsOptions));
 var cspDirectives = {
   defaultSrc: ["'none'"],
   scriptSrc: ["'self'", "'unsafe-inline'",
-    'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com', 'kit.fontawesome.com'],
+    'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'stackpath.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com', 'kit.fontawesome.com'],
   styleSrc: ["'self'", "'unsafe-inline'",
-    'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com'],
+    'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'stackpath.bootstrapcdn.com', 'cdn.jsdelivr.net', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com', 'fonts.googleapis.com'],
   imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequip.com'],
-  fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com', 'kit-free.fontawesome.com'],
+  fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com', 'kit-free.fontawesome.com', 'fonts.googleapis.com'],
   connectSrc: ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image'],
   mediaSrc: ["'none'"],
   objectSrc: ["'none'"],
@@ -93,7 +93,7 @@ if (config.isProd || process.env.DEV_USE_DIST === "yes") {
   }));
 }
 
-// Static middleware 
+// Static middleware
 // Serve static files directly
 // Cache related headers are disabled in dev
 app.use(express.static(path.join(__dirname, '/static/'), {

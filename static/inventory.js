@@ -25,30 +25,25 @@ function beforeShow(clearTabSelection = true) {
     $("#loadMore").addClass('hidden');
     $('.sellableItemsHeader').addClass('hidden');
     $('.enhancementCandidatesHeader').addClass('hidden');
-    
+
     // Hidden by default, enabled by materia and equipment tabs
     $("#searchBox").addClass("hidden");
     // Hidden by default, enabled by farmable stmr tab
     $('.searchHeader .stmrMoogleAvailableDiv').addClass("hidden");
 
     if(clearTabSelection) {
-        $(".nav-tabs li.equipment").removeClass("active");
-        $(".nav-tabs li.materia").removeClass("active");
-        $(".nav-tabs li.farmableStmr").removeClass("active");
-        $(".nav-tabs li.sellableItems").removeClass("active");
-        $(".nav-tabs li.enhancementCandidates").removeClass("active");
-        $(".nav-tabs li.history").removeClass("active");
-        $(".nav-tabs li.settings").removeClass("active");
+        $(".nav-tabs .nav-link").removeClass("active");
     }
 }
 
 function showMateria() {
     beforeShow();
-    
-    $(".nav-tabs li.materia").addClass("active");
+
+    $(".nav-tabs .materia").addClass("active");
     $("#sortType").text("Sorted by Name");
     $("#searchBox").val(materiaLastSearch);
     $("#searchBox").removeClass("hidden");
+    $("#results").addClass('row');
     // filter, sort and display the results
     showSearch();
     displayStats();
@@ -56,11 +51,13 @@ function showMateria() {
 
 function showEquipments() {
     beforeShow();
-    
-    $(".nav-tabs li.equipment").addClass("active");
+
+    $(".nav-tabs .equipment").addClass("active");
     $("#sortType").text("Sorted by Type (Strength)");
     $("#searchBox").val(equipmentLastSearch);
     $("#searchBox").removeClass("hidden");
+    $("#results").removeClass('row');
+
     // filter, sort and display the results
     showSearch();
     displayStats();
@@ -68,11 +65,13 @@ function showEquipments() {
 
 function showFarmableStmr() {
     beforeShow();
-    
-    $(".nav-tabs li.farmableStmr").addClass("active");
+
+    $(".nav-tabs .farmableStmr").addClass("active");
     $("#sortType").text("");
     $("#searchBox").val(farmableStmrLastSearch);
     $("#searchBox").removeClass("hidden");
+    $("#results").removeClass('row');
+
     // filter, sort and display the results
     showSearch();
     displayStats();
@@ -83,9 +82,11 @@ function showSellableItems() {
     $('body').addClass("computing");
     beforeShow();
     $('.sellableItemsHeader').removeClass('hidden');
-    
-    $(".nav-tabs li.sellableItems").addClass("active");
+
+    $(".nav-tabs .sellableItems").addClass("active");
     $("#sortType").text("");
+    $("#results").removeClass('row');
+
     // filter, sort and display the results
     showSearch();
     displayStats();
@@ -96,9 +97,11 @@ function showEnhancementCandidates() {
     $('body').addClass("computing");
     beforeShow();
     $('.enhancementCandidatesHeader').removeClass('hidden');
-    
-    $(".nav-tabs li.enhancementCandidates").addClass("active");
+
+    $(".nav-tabs .enhancementCandidates").addClass("active");
     $("#sortType").text("");
+    $("#results").removeClass('row');
+
     // filter, sort and display the results
     showSearch();
     displayStats();
@@ -106,10 +109,10 @@ function showEnhancementCandidates() {
 }
 
 function showSearch() {
-    
-    var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
-    var inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
-    let inEnhancementCandidates = $(".nav-tabs li.enhancementCandidates").hasClass("active");
+
+    var inEquipment = $(".nav-tabs .equipment").hasClass("active");
+    var inSellableItems = $(".nav-tabs .sellableItems").hasClass("active");
+    let inEnhancementCandidates = $(".nav-tabs .enhancementCandidates").hasClass("active");
 
     // filter, sort and display the results
     var textToSearch = $("#searchBox").val();
@@ -123,106 +126,147 @@ function showHistory() {
     displayId++;
     beforeShow();
 
-    $(".nav-tabs li.history").addClass("active");
+    $(".nav-tabs .history").addClass("active");
     $("#sortType").text("Sorted by release date");
-    
+
     var $resultDiv = $("#results").empty();
     displayId++;
     displayItemsByHistoryAsync(0, 4, displayId, $resultDiv);
 }
 
 function setTooltips() {
-    $(document).tooltip({
-        items: ".item .type",
-        content: function() {
-            let element = $(this);
-            let itemDiv = element.closest('.item');
-            let itemId = itemDiv.prop('classList')[4]
-            let item = itemsById[itemId];
-            
-            return '<div class="table notSorted items results"><div class="tbody"><div class="tr">' +  displayItemLine(item) + '</div></div></div>';
-        },
-        open: function() {
-            lazyLoader.update();
-        }
+  var popTrigger = '[data-toggle="inventory"]',
+      popClass   = 'inventoryPopover',
+      popID      = 'item';
+
+  /* New Bootstrap Popover --------------------------------------------------- *\
+   * Expects the following data attributes:
+   * data item (item.id)
+  \* ------------------------------------------------------------------------- */
+
+  $(popTrigger).popover({
+    html: true,
+    trigger: 'manual',
+    container: 'body',
+    placement: 'bottom',
+    title: "Item Info",
+    template: '<div class="popover ' + popClass + ' ffbe_theme--dark" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
+    content: function() {
+      var theItem = $(this).data(popID);
+      return displayItemLine(itemsById[theItem], "", false);
+    },
+
+  // Show the Popover and hide the others
+  }).on("mouseenter", function () {
+    var _this = this;
+    $(this).popover("show");
+    $(this).siblings(".popover").on("mouseleave", function () {
+        $(_this).popover('hide');
     });
+
+  // Let the Popover linger when you hover (Time in MS)
+  }).on("mouseleave", function () {
+        var _this = this;
+        setTimeout(function () {
+            if (!$(".popover:hover").length) {
+                $(_this).popover("hide")
+            }
+        }, 100);
+
+  });
 }
 
 function displayItemsByHistoryAsync(dateIndex, dateIndexMax, id, $resultDiv, $loadMore) {
-    if ($resultDiv == undefined) $resultDiv = $("#results");
-    if ($loadMore == undefined) $loadMore = $("#loadMore");
-    // Get current item release
-    var currentItemReleases = lastItemReleases[dateIndex];
-    // Hide LoadMore button
-    // Make sure max index is below length
-    dateIndexMax = Math.min(lastItemReleases.length, dateIndexMax);
-    
-    // Display date
-    var html = '<div class="col-xs-12 date">' + currentItemReleases.date+'</div>';
-    for (var sourceIndex in currentItemReleases.sources) {
-        var items = currentItemReleases.sources[sourceIndex].items;
-        if (currentItemReleases.sources[sourceIndex].type == "banner") {
-            // Display banner unit list
-            html += '<div class="col-xs-12 source">';
-            for (var unitIndex in currentItemReleases.sources[sourceIndex].units) {
-                if (currentItemReleases.sources[sourceIndex].units.length > 1 && unitIndex == currentItemReleases.sources[sourceIndex].units.length -1) {
-                    html += " and ";
-                } else if (unitIndex > 0) {
-                    html += ", ";
-                }
-                html += units[currentItemReleases.sources[sourceIndex].units[unitIndex]].name;
-            }
-            html += "</div>";
-        } else if (currentItemReleases.sources[sourceIndex].type == "event" || currentItemReleases.sources[sourceIndex].type == "storyPart") {
-            // Display event name
-            html += '<div class="col-xs-12 source">' + currentItemReleases.sources[sourceIndex].name + "</div>";
+  if ($resultDiv == undefined) $resultDiv = $("#results");
+  if ($loadMore == undefined) $loadMore = $("#loadMore");
+
+  // Get current item release
+  var currentItemReleases = lastItemReleases[dateIndex],
+      currentItemTitle = '';
+
+  // Hide LoadMore button
+  // Make sure max index is below length
+  dateIndexMax = Math.min(lastItemReleases.length, dateIndexMax);
+
+  for (var sourceIndex in currentItemReleases.sources) {
+    var items = currentItemReleases.sources[sourceIndex].items;
+
+    // Display banner unit list
+    if (currentItemReleases.sources[sourceIndex].type == "banner") {
+      for (var unitIndex in currentItemReleases.sources[sourceIndex].units) {
+        if (currentItemReleases.sources[sourceIndex].units.length > 1 && unitIndex == currentItemReleases.sources[sourceIndex].units.length -1) {
+          currentItemTitle += " and ";
+        } else if (unitIndex > 0) {
+          currentItemTitle += ", ";
         }
-        // Display items list
-        for (var index = 0; index < items.length; index++) {
-            if (items[index] === undefined) continue;
-            html += getItemDisplay(items[index]);
-        }
+
+        currentItemTitle += units[currentItemReleases.sources[sourceIndex].units[unitIndex]].name;
+      }
+
+    // Display event name
+    } else if (currentItemReleases.sources[sourceIndex].type == "event" || currentItemReleases.sources[sourceIndex].type == "storyPart") {
+      currentItemTitle = currentItemReleases.sources[sourceIndex].name;
     }
 
+    // Output the HTML
+    var html  = '<div class="ffbe_text--title d-flex justify-content-between mb-3">';
+        html += '  <span class="date">' + currentItemReleases.date + '</span>';
+        html += '  <span class="source">' + currentItemReleases.sources[sourceIndex].name + "</span>";
+        html += '</div>';
+        html += '<div class="row">';
+
+    for (var index = 0; index < items.length; index++) {
+      if (items[index] === undefined) continue;
+        html += getItemDisplay(items[index]);
+      }
+    }
+
+    html += '</div>';
+
     if (id == displayId) {
-        //Increment current date index
-        dateIndex++;
-        // Check if we are at the max and not at the end
-        if ((dateIndex === dateIndexMax) && (dateIndexMax !== lastItemReleases.length)) {
-            $loadMore.removeClass('hidden');
-            $loadMore.find('button.btn-primary').attr('onclick', "displayItemsByHistoryAsync("+dateIndex+", "+(dateIndex+10)+", "+id+")");
-            $loadMore.find('button.btn-warning').attr('onclick', "displayItemsByHistoryAsync("+dateIndex+", "+(lastItemReleases.length)+", "+id+")");
-        } else {
-            $loadMore.addClass('hidden');
-        }
-        // Add all items to the DOM
-        $resultDiv.append(html);
-        // Update lazyloader only for first and last run
-        if (dateIndex === 1 || dateIndex >= dateIndexMax) lazyLoader.update();
-        // Launch next run of type
-        if (dateIndex < dateIndexMax) {
-            setTimeout(displayItemsByHistoryAsync, 0, dateIndex, dateIndexMax, id, $resultDiv, $loadMore);
-        }
+      //Increment current date index
+      dateIndex++;
+
+      // Check if we are at the max and not at the end
+      if ((dateIndex === dateIndexMax) && (dateIndexMax !== lastItemReleases.length)) {
+        $loadMore.removeClass('hidden');
+        $loadMore.find('button.btn-primary').attr('onclick', "displayItemsByHistoryAsync("+dateIndex+", "+(dateIndex+10)+", "+id+")");
+        $loadMore.find('button.btn-warning').attr('onclick', "displayItemsByHistoryAsync("+dateIndex+", "+(lastItemReleases.length)+", "+id+")");
+      } else {
+        $loadMore.addClass('hidden');
+      }
+
+      // Add all items to the DOM
+      $resultDiv.append(html);
+
+      // Update lazyloader only for first and last run
+     if (dateIndex === 1 || dateIndex >= dateIndexMax) lazyLoader.update();
+
+      // Launch next run of type
+      if (dateIndex < dateIndexMax) {
+        setTimeout(displayItemsByHistoryAsync, 0, dateIndex, dateIndexMax, id, $resultDiv, $loadMore);
+      }
     }
 }
 
 function showSettings() {
-    beforeShow();
-    displayId++;
-    $(".nav-tabs li.settings").addClass("active");
-    $("#sortType").text("");
-    var html = "";
-    html += 
-        '<div class="col-xs-12 addAll">' +
-        '<div class="col-xs-12 source">Inventory Tools</div>' +
-        '<div class="col-x2-12 inventoryTools">' +
-        '<button class="btn btn-primary addAllButton" onclick="showAddAllToInventoryDialog()">Add All Equipment and Materia</button>';
-    if (itemsAddedWithAddAll.length > 0) {
-        html += '<button class="btn btn-warning" onclick="undoAddAllToInventory()">Undo Add All</button>';
-    }
-    html += '<button class="btn btn-danger removeAllButton" onclick="showRemoveAllToInventoryDialog()">Remove All Equipment and Materia</button>';
-    html += '</div></div>';
-    $("#results").html(html);
+  beforeShow();
+  displayId++;
+
+  $("#results").removeClass('row');
+  $(".nav-tabs .settings").addClass("active");
+  $("#sortType").text("");
+
+  var html  = '<h5 class="ffbe_text--title">Inventory Tools</h5>';
+      html += '<button class="btn btn-primary mr-2 addAllButton" onclick="showAddAllToInventoryDialog()" type="button">Add All Equipment and Materia</button>';
+
+  if (itemsAddedWithAddAll.length > 0) {
+      html += '<button class="btn btn-warning mr-2" onclick="undoAddAllToInventory()" type="button">Undo Add All</button>';
+  }
+
+  html += '<button class="btn btn-danger removeAllButton" onclick="showRemoveAllToInventoryDialog()" type="button">Remove All Equipment and Materia</button>';
+
+  $("#results").html(html);
 }
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
@@ -230,22 +274,22 @@ var displayItems = function(items, byType = false) {
     var resultDiv = $("#results");
     resultDiv.empty();
     displayId++;
-    var inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
-    let inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
-    let inEnhancementCandidates = $(".nav-tabs li.enhancementCandidates").hasClass("active");
+    var inFarmableStmr = $(".nav-tabs .farmableStmr").hasClass("active");
+    let inSellableItems = $(".nav-tabs .sellableItems").hasClass("active");
+    let inEnhancementCandidates = $(".nav-tabs .enhancementCandidates").hasClass("active");
     if (byType) {
         // Jump list display
-        htmlTypeJump = '<div class="typeJumpList" data-html2canvas-ignore>';
-        htmlTypeJump += '<span>Jump to </span>';
+        htmlTypeJump = '<div class="d-flex justify-content-center align-items-center typeJumpList" data-html2canvas-ignore>';
+        htmlTypeJump += '<span class="pr-2">Jump to </span><div class="d-flex flex-wrap">';
         var currentItemType = null;
         for (var index = 0, len = items.length; index < len; index++) {
             var itemType = items[index].type;
             if (itemType !== currentItemType) {
-                htmlTypeJump += '<a class="typeJump '+itemType+' disabled"><i class="img img-equipment-'+itemType+'"></i></a>';
+                htmlTypeJump += '<a class="typeJump '+itemType+' disabled"><i class="icon icon-sm equipment-'+itemType+'"></i></a>';
                 currentItemType = itemType;
             }
         }
-        htmlTypeJump += '</div>';
+        htmlTypeJump += '</div></div>';
         resultDiv.append(htmlTypeJump);
 
         displayItemsByTypeAsync(items, 0, resultDiv, displayId, resultDiv.find('.typeJumpList'), inFarmableStmr, inSellableItems, inEnhancementCandidates);
@@ -255,38 +299,46 @@ var displayItems = function(items, byType = false) {
 };
 
 function displayItemsByTypeAsync(items, start, div, id, jumpDiv, inFarmableStmr = false, inSellableItems = false, inEnhancementCandidates = false) {
-    // Set item type for this run and various useful vars
-    var currentItemType = items[start].type;
-    var currentItemTypeImgHtml = '<i class="img img-equipment-' + currentItemType + '"/>';
 
-    var html = '<div class="itemSeparator" id="' + currentItemType + '">' + currentItemTypeImgHtml + '</div>';
-    html += '<div class="itemList">';
-    for (var index = start, len = items.length; index < len; index++) {
-        var item = items[index];
-        if (item === undefined || (item.id != "9999999999" && item.access.includes("not released yet") && !itemInventory[item.id])) continue;
+  // Set item type for this run and various useful vars
+  var currentItemType = items[start].type,
+      itemList = '';
 
-        if (item.type === currentItemType) {
-            html += getItemDisplay(item, inFarmableStmr, inSellableItems, inEnhancementCandidates);
-        } else {
-            break;
-        }
+  for (var index = start, len = items.length; index < len; index++) {
+    var item = items[index];
+
+    if (item === undefined || (item.id != "9999999999" && item.access.includes("not released yet") && !itemInventory[item.id])) continue;
+
+    if (item.type === currentItemType) {
+      itemList += getItemDisplay(item, inFarmableStmr, inSellableItems, inEnhancementCandidates);
+    } else {
+      break;
     }
-    html += '</div>';
+  }
 
-    if (id == displayId) {
-        // Add all items to the DOM
-        div.append(html);
-        // Enable jumper
-        jumpDiv.find("a.typeJump." + currentItemType).attr('href', '#' + currentItemType).removeClass('disabled');
-        // Update lazyloader only for first and last run
-        if (start === 0 || index >= items.length) lazyLoader.update();
-        // Launch next run of type
-        if (index < items.length) {
-            setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv, inFarmableStmr, inSellableItems, inEnhancementCandidates);
-        } else {
-            setTooltips();
-        }
+  var html  = '<div class="d-flex my-2">';
+      html += '  <i class="mr-2 icon equipment-' + currentItemType + '" id="' + currentItemType + '"></i>';
+      html += '  <div class="ffbe_text--title flex-fill my-2"></div>';
+      html += '  <i class="ml-2 icon equipment-' + currentItemType + '"></i>';
+      html += '</div>';
+      html += '<div class="row itemList">';
+      html +=   itemList;
+      html += '</div>';
+
+  if (id == displayId) {
+    // Add all items to the DOM
+    div.append(html);
+    // Enable jumper
+    jumpDiv.find("a.typeJump." + currentItemType).attr('href', '#' + currentItemType).removeClass('disabled');
+    // Update lazyloader only for first and last run
+    if (start === 0 || index >= items.length) lazyLoader.update();
+    // Launch next run of type
+    if (index < items.length) {
+      setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv, inFarmableStmr, inSellableItems, inEnhancementCandidates);
+    } else {
+      setTooltips();
     }
+  }
 }
 
 function displayItemsAsync(items, start, div, id, showStmrRecipe = false, inSellableItems = false, max = 20) {
@@ -311,132 +363,163 @@ function displayItemsAsync(items, start, div, id, showStmrRecipe = false, inSell
     }
 }
 
-function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false, inEnhancementsCandidates = false)
-{
-    var html = "";
+function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false, inEnhancementsCandidates = false) {
+  var html       = '',
+      itemClass  = '',
+      itemScript = '';
+      itemTotal  = '';
+      itemSellIt = '';
+      btnToggle  = '';
+      btnAction  = '';
+      btnTMR     = '';
 
-    html += '<div class="col-xs-12 col-sm-6 col-lg-4 item ' + escapeName(item.id);
-    if (!itemInventory[item.id]) {
-        html += ' notOwned ';
-    }
-    if (item.tmrUnit && ownedUnits[item.tmrUnit] && ownedUnits[item.tmrUnit].farmable > 0) {
-        html += ' farmable';
-    }
-    if (itemInventory.enchantments[item.id] && (!inSellableItems || item.enchantments)) {
-        html += ' enhanced';
-    }
-    if (itemInventory.excludeFromExpeditions && itemInventory.excludeFromExpeditions.includes(item.id)) {
-        html += ' excludedFromExpeditions';
-    }
-    if (itemInventory[item.id] && item.maxNumber && itemInventory[item.id] > item.maxNumber) {
-        html += ' maxNumberOverflow';
-    }
-    if (inSellableItems ||inSellableItems) {
-        html += '">';
-    } else if (showStmrRecipe && item.stmrAccess) {
-        html += ' stmr">';
-    } else {
-        html += '" onclick="addToInventory(\'' + escapeQuote(item.id) + '\')">';
+
+  /* Build Class List */
+  if (!itemInventory[item.id]) { itemClass += ' notOwned '; }
+  if (item.tmrUnit && ownedUnits[item.tmrUnit] && ownedUnits[item.tmrUnit].farmable > 0) { itemClass += ' farmable'; }
+  if (itemInventory.enchantments[item.id] && (!inSellableItems || item.enchantments)) { itemClass += ' enhanced'; }
+  if (itemInventory.excludeFromExpeditions && itemInventory.excludeFromExpeditions.includes(item.id)) { itemClass += ' excludedFromExpeditions'; }
+  if (itemInventory[item.id] && item.maxNumber && itemInventory[item.id] > item.maxNumber) { html += ' maxNumberOverflow'; }
+
+  if (inSellableItems ||inSellableItems) {
+    // Do Nothing
+  } else if (showStmrRecipe && item.stmrAccess) {
+    itemClass += ' stmr">';
+  } else {
+    itemScript += ' onclick="addToInventory(\'' + escapeQuote(item.id) + '\')"';
+  }
+
+  /* You own this item! ------------------------------------------------- */
+  if (itemInventory) {
+
+    // Number You Own!
+    itemTotal = '<div class="number d-block badge badge-secondary mb-2">';
+
+    if (itemInventory[item.id]) {
+      if ((inSellableItems || inEnhancementsCandidates) && itemInventory.enchantments[item.id]) {
+        if (item.enhancements) {
+          itemTotal += '1';
+        } else {
+          itemTotal += itemInventory[item.id] - itemInventory.enchantments[item.id].length;
+        }
+      } else {
+        itemTotal += itemInventory[item.id];
+      }
+
     }
 
-    if (showStmrRecipe && item.stmrAccess) {
-        html += '<div class="wrapperForStmr">'
+    itemTotal += '</div>';
+
+    // Build the Buttons!
+    if (!inSellableItems && !inEnhancementsCandidates) {
+      btnToggle += '<button type="button" class="btn btn-xs btn-ghost w-100 mr-1" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item.id) + '\')"><div class="fa fa-fw fa-plus"></div></button>';
     }
-    if (itemInventory) {
-        html+= '<div class="td inventory">';
-        if (!inSellableItems && !inEnhancementsCandidates) {
-            html += '<span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item.id) + '\')" />';
-        }
-        html += '<span class="number badge badge-success">';
-        if (itemInventory[item.id]) {
-            if ((inSellableItems || inEnhancementsCandidates) && itemInventory.enchantments[item.id]) {
-                if (item.enhancements) {
-                    html += '1';
-                } else {
-                    html += itemInventory[item.id] - itemInventory.enchantments[item.id].length;
-                }
-            } else {
-                html += itemInventory[item.id];
-            }
-        }
-        html += '</span>';
-        if (!inSellableItems && !inEnhancementsCandidates) {
-            html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + item.id + '\');" />';
-            html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>';
-            if (weaponList.includes(item.type)) {
-                html += '<img class="itemWorldButton" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" src="/img/icons/dwarf.png" title="Open item management popup"></img>';
-            }
-            html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/icons/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
-        }   
-        html += '</div>';
+
+    if (!inSellableItems && !inEnhancementsCandidates) {
+      btnToggle += '<button type="button" class="btn btn-xs btn-ghost w-100" onclick="event.stopPropagation();removeFromInventory(\'' + item.id + '\');"><div class="fa fa-fw fa-minus" /></div></button>';
+      btnTMR += '<button type="button" class="btn btn-xs btn-ghost w-100" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" data-toggle="tooltip" title="Indicate You Farmed this TMR. It will decrease the number you can farm and increase the number you own this by 1"><div class="fa fa-fw fa-star"></div></button>';
+
+      if (weaponList.includes(item.type)) {
+        btnAction += '<button type="button" class="btn btn-xs btn-ghost w-100 mr-1" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" data-toggle="tooltip" title="Edit this Item"><div class="fa fa-fw fa-edit" /></div></button>';
+      }
+
+      btnAction += '<button type="button" class="btn btn-xs btn-ghost w-100" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" data-toggle="tooltip" title="Exclude this item from builds made for expeditions"><div class="fa fa-fw fa-ban" /></div></button>';
     }
-    if (inSellableItems) {
-        html += '<div class="td"><div class="sellableReasons">'
-        if (item.access.some(access => SELLABLE_ITEMS_ACCESS.includes(access))) {
-            if (item.access.includes("shop")) {
-                html += '<span class="betterItems" title="Can be bought in a shop"><i class="fas fa-shopping-cart"></i></span>';
-            } else {
-                html += '<span class="betterItems" title="Can be crafted"><i class="fas fa-scroll"></i></span>';
-            }
-        } 
-        if (betterItemsByIds[item.id] && !item.special) {
-            let betterItemsNumber = 0;
-            let betterItemsString = '';
-            Object.keys(betterItemsByIds[item.id]).forEach(id => {
-                let entry = betterItemsByIds[item.id][id];
-                betterItemsNumber += entry.available;
-                betterItemsString += ', ' + entry.name + ' x' + entry.available;
-            });
-            betterItemsString = betterItemsString.substr(2);
-            html += '<span class="betterItems" title="' + betterItemsString + '">' + betterItemsNumber + '<i class="fas fa-angle-double-up"></i></span>';
-        }
-        html += '</div></div>'
+  }
+
+  /* You should sell this item! ----------------------------------------- */
+
+  if (inSellableItems) {
+    itemSellIt = '<div class="d-block badge badge-warning">';
+
+    if (item.access.some(access => SELLABLE_ITEMS_ACCESS.includes(access))) {
+      if (item.access.includes("shop")) {
+        itemSellIt += '<span class="betterItems" title="Can be bought in a shop"><i class="fas fa-shopping-cart"></i></span>';
+      } else {
+        itemSellIt += '<span class="betterItems" title="Can be crafted"><i class="fas fa-scroll"></i></span>';
+      }
     }
-    
-    html += getImageHtml(item) + getNameColumnHtml(item);
-    
+
+    if (betterItemsByIds[item.id] && !item.special) {
+      let betterItemsNumber = 0;
+      let betterItemsString = '';
+
+      Object.keys(betterItemsByIds[item.id]).forEach(id => {
+        let entry = betterItemsByIds[item.id][id];
+        betterItemsNumber += entry.available;
+        betterItemsString +=  entry.name + ' (' + entry.available + ')<br />';
+      });
+
+      itemSellIt += '<div class="betterItems" data-toggle="popover" data-title="Better Equipment" data-content="' + betterItemsString + '">' + betterItemsNumber + '<i class="fas fa-angle-double-up ml-1"></i></div>';
+    }
+
+    itemSellIt += '</span></div>'
+  }
+
+  html  = '<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 item ' + itemClass + '" ' + itemScript + ' data-item="' + escapeName(item.id) + '">';
+  html += '  <div class="ffbe_content--well p-2 border rounded h-100">';
+  html += '    <div class="form-row align-items-center itemInventory">';
+  html += '      <div class="col-auto">' + itemTotal + itemSellIt + '</div>';
+  html += '      <div class="col-auto" data-toggle="inventory" data-item="' + escapeName(item.id) + '">' + getImageHtml(item) + '</div>';
+  html += '      <div class="col">' + getNameColumnHtml(item) + '</div>';
+  html += '      <div class="col-12 col-md-2">';
+  html += '        <div class="row no-gutters align-items-center mt-2 mt-md-0"">';
+  html += '          <div class="col-auto col-md-12 d-flex align-items-center mr-auto order-1 mb-1">' + btnToggle + '</div>';
+  html += '          <div class="col-auto col-md-12 d-flex align-items-center ml-auto order-md-2 mb-1">' + btnAction + '</div>';
+  html += '          <div class="col-auto col-md-12 d-flex align-items-center mx-auto order-2 order-md-3 mb-1">' + btnTMR + '</div>';
+  html += '        </div>';
+  html += '      </div>';
+  html += '    </div>';
+  html += '  </div>';
+  html += '</div>';
+
+  if (showStmrRecipe && item.stmrAccess) {
+    //html += '<div class="wrapperForStmr">'
+  }
+
+
+
+
     if (showStmrRecipe && item.stmrAccess) {
         html += "</div>";
-        
-        
+
+
         html += '<div class="stmrRecipe">'
-        html += '<div><img class="unitImage" src="/img/units/unit_icon_' + item.stmrUnit.substr(0, item.stmrUnit.length - 1) + 7 + '.png"/></div>';
+        html += '<div><img class="unitImage" src="/assets/game/units/unit_icon_' + item.stmrUnit.substr(0, item.stmrUnit.length - 1) + 7 + '.png"/></div>';
         html += '<div class="column">'
-        
+
         html += '<div class="unitName">' + toLink(units[item.stmrUnit].name) + '</div>';
-        
+
         html += '<div class="recipe">';
         if (item.stmrAccess.base == "sixStar") {
-            html += '<i class="img img-crystal-rainbowCrystal"></i><i class="img img-crystal-rainbowCrystal"></i> &rArr; <i class="img img-crystal-sevenStarCrystal"></i><div class="then">then</div>'
+            html += '<i class="icon crystal-rainbowCrystal"></i><i class="icon crystal-rainbowCrystal"></i> &rArr; <i class="icon crystal-sevenStarCrystal"></i><div class="then">then</div>'
         }
-        html += '<i class="img img-crystal-sevenStarCrystal"></i>'
+        html += '<i class="icon crystal-sevenStarCrystal"></i>'
         if (item.stmrAccess.sevenStar) {
-            html += ' + <i class="img img-crystal-sevenStarCrystal"></i>'
+            html += ' + <i class="icon crystal-sevenStarCrystal"></i>'
         }
         if (item.stmrAccess.sixStar) {
             html += ' + '
             for (let i = 0; i < item.stmrAccess.sixStar; i++) {
-                html += '<i class="img img-crystal-rainbowCrystal"></i>'
+                html += '<i class="icon crystal-rainbowCrystal"></i>'
             }
         }
         if (item.stmrAccess.stmrMoogle) {
-            html += ' + ' + item.stmrAccess.stmrMoogle + '% <div style="position:relative;"><img class="stmrMoogle" src="/img/units/unit_ills_906000105.png"></div>'
+            html += ' + ' + item.stmrAccess.stmrMoogle + '% <div style="position:relative;"><img class="stmrMoogle" src="/assets/game/units/unit_ills_906000105.png"></div>'
         }
         html += '</div>';
         html += '</div>';
         html += '</div>';
     }
-    
-    html += "</div>";
-    
-    
 
-    return html;
+
+
+  return html;
 }
 
 function excludeFromExpedition(id) {
     var idString = String(id);
-    var itemDiv = $(".item." + escapeName(id));
+    var itemDiv = ('.item[data-item="' + escapeName(id) + '"]');
     if (itemInventory.excludeFromExpeditions && itemInventory.excludeFromExpeditions.includes(idString)) {
         itemInventory.excludeFromExpeditions.splice(itemInventory.excludeFromExpeditions.indexOf(idString), 1);
         itemDiv.removeClass("excludedFromExpeditions");
@@ -460,7 +543,7 @@ function findInventoryItemById(id) {
 }
 
 function addToInventory(id, showAlert = true, force = false) {
-    var inventoryDiv = $(".item." + escapeName(id));
+    var inventoryDiv = $('.item[data-item="' + escapeName(id) + '"]');
     if(itemInventory[id]) {
         var item = findInventoryItemById(id);
         if (!force && item.maxNumber && itemInventory[id] >= item.maxNumber) {
@@ -491,85 +574,82 @@ function willSave() {
 }
 
 function showAddAllToInventoryDialog() {
-    Modal.show({
-        title: "Add all equipment and materia to inventory?",
-        body: "<p>This will add up to 2 of each equipment and 4 of each materia to your inventory.</p>"+
-              "<p><strong>Are you sure you want to continue?</strong></p>",
-        buttons: [{
-            text: "Add all items",
-            className: "btn-warning",
-            onClick: function() {
-                addAllToInventory(materia, 4);
-                addAllToInventory(equipments, 2);
-            }
-        }]
-    });
+  Modal.show({
+    title: "Add All",
+    body: '<div class="alert alert-danger mb-3">Are you sure you want to continue?</div><p class="mb-0">This will add up to 2 of each equipment and 4 of each materia to your inventory.</p>',
+    buttons: [{
+      text: "Add All Items",
+      className: "btn-warning",
+      onClick: function() {
+        addAllToInventory(materia, 4);
+        addAllToInventory(equipments, 2);
+      }
+    }]
+  });
 }
 
 function showRemoveAllToInventoryDialog() {
-    Modal.show({
-        title: "Remove all equipment and materia from inventory?",
-        body: "<p>This will empty your equipment and materia inventory (on this site).</p>"+
-              "<p><strong>This is not reversible</strong></p>" +
-              "<p><strong>Are you sure you want to continue?</strong></p>",
-        buttons: [{
-            text: "Empty inventory",
-            className: "btn-danger",
-            onClick: function() {
-                itemInventory = {
-                    enchantments: {}
-                };
-                updateUnitAndItemCount();
-                displayStats();
-                saveUserData(true, false, false);
-            }
-        }]
-    });
+  Modal.show({
+    title: "Clear Inventory",
+    body: '<div class="alert alert-danger mb-3">This is not reversible! Are you sure you want to continue?</div><p class="mb-0">This will empty your equipment and materia inventory (on this site).</p>',
+    buttons: [{
+      text: "Empty Inventory",
+      className: "btn-warning",
+      onClick: function() {
+        itemInventory = {
+          enchantments: {}
+        };
+        updateUnitAndItemCount();
+        displayStats();
+        saveUserData(true, false, false);
+      }
+    }]
+  });
 }
 
 var itemsAddedWithAddAll = [];
 
 function addAllToInventory(items, amount) {
-    var itemInventoryKeys = Object.keys(itemInventory);
-    for (var index in items) {
-        var item = items[index];
-        var key = escapeName(item.id);
-        for (var i = 0; i < amount; i++) {
-            if (addToInventory(key, false)) {
-                itemsAddedWithAddAll.push(key);
-            }
-        }
+  var itemInventoryKeys = Object.keys(itemInventory);
+  for (var index in items) {
+    var item = items[index];
+    var key = escapeName(item.id);
+    for (var i = 0; i < amount; i++) {
+      if (addToInventory(key, false)) {
+        itemsAddedWithAddAll.push(key);
+      }
     }
-    showSettings();
-    displayStats();
+  }
+  showSettings();
+  displayStats();
 }
 
 function undoAddAllToInventory() {
-    for (var index in itemsAddedWithAddAll) {
-        removeFromInventory(itemsAddedWithAddAll[index]);
-    }
-    itemsAddedWithAddAll = [];
-    showSettings();
-    displayStats();
+  for (var index in itemsAddedWithAddAll) {
+    removeFromInventory(itemsAddedWithAddAll[index]);
+  }
+  itemsAddedWithAddAll = [];
+  showSettings();
+  displayStats();
 }
 
 
 function removeFromInventory(id) {
-    if(itemInventory[id]) {
-        var inventoryDiv = $(".item." + escapeName(id));
-        if (itemInventory[id] == 1 ) {
-            delete itemInventory[id];
-            inventoryDiv.addClass('notOwned');
-            inventoryDiv.find(".number").text("");
-            updateUnitAndItemCount();
-        } else {
-            itemInventory[id] = itemInventory[id] - 1;
-            inventoryDiv.find(".number").text(itemInventory[id]);
-        }
-        mustSaveUnits = true;
-        willSave();
-        displayStats();
+  if(itemInventory[id]) {
+    var inventoryDiv = $('.item[data-item="' + escapeName(id) + '"]');
+    if (itemInventory[id] == 1 ) {
+      delete itemInventory[id];
+      inventoryDiv.addClass('notOwned');
+      inventoryDiv.find(".number").text("");
+      updateUnitAndItemCount();
+    } else {
+      itemInventory[id] = itemInventory[id] - 1;
+      inventoryDiv.find(".number").text(itemInventory[id]);
     }
+    mustSaveUnits = true;
+    willSave();
+    displayStats();
+  }
 }
 
 function farmedTMR(unitId) {
@@ -594,12 +674,12 @@ function farmedTMR(unitId) {
 
 function search(textToSearch) {
     let result = [];
-    let inEquipment = $(".nav-tabs li.equipment").hasClass("active");
-    let inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
-    let inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
-    let inEnhancementsCandidates = $(".nav-tabs li.enhancementCandidates").hasClass("active");
+    let inEquipment = $(".nav-tabs .equipment").hasClass("active");
+    let inFarmableStmr = $(".nav-tabs .farmableStmr").hasClass("active");
+    let inSellableItems = $(".nav-tabs .sellableItems").hasClass("active");
+    let inEnhancementsCandidates = $(".nav-tabs .enhancementCandidates").hasClass("active");
     let onlyTimeLimited = $('#onlyTimeLimited').prop('checked');
-    
+
     var itemsToSearch = [];
     if(inEquipment) {
         itemsToSearch = equipments;
@@ -633,7 +713,7 @@ function search(textToSearch) {
     } else {
         result = itemsToSearch;
     }
-    
+
     return result;
 }
 
@@ -650,7 +730,7 @@ function getEnhancementCandidates() {
         "imperils": {"fire": 0,"ice": 0,"lightning": 0,"water": 0,"earth": 0,"wind": 0,"light": 0,"dark": 0}
     }
     let involvedStats = baseStats.concat(["physicalKiller", "magicalKiller","meanDamageVariance", "evoMag", "jumpDamage", "lbDamage", "drawAttacks", "lbPerTurn", "evade.physical", "evade.magical", "mpRefresh"]).concat(ailmentList.map(a => 'resist|' + a + '.percent')).concat(elementList.map(e => 'resist|' + e + '.percent'));
-    
+
     let candidateItemIds = [];
     let baseItemsToSearchIn = equipments.filter(item => weaponList.includes(item.type) && itemInventory[item.id]);
     let itemEntriesToSearchIn = [];
@@ -689,7 +769,7 @@ function getEnhancementCandidates() {
             Object.keys(byTypeAndElements[type]).forEach(elements => treatTypeForEnhancementCandidates(byTypeAndElements[type][elements], involvedStats, enemyStats, candidateItemIds, searchDepth));
         }
     });
-    
+
     return itemEntriesToSearchIn.filter(entry => itemInventory[entry.item.id] && (entry.item.partialDualWield || (entry.item.special && entry.item.special.includes('dualWield')) || candidateItemIds.includes(entry.id))).map(entry => entry.item);
 }
 
@@ -706,7 +786,7 @@ function getSellableItems() {
         "imperils": {"fire": 0,"ice": 0,"lightning": 0,"water": 0,"earth": 0,"wind": 0,"light": 0,"dark": 0}
     }
     let involvedStats = baseStats.concat(["physicalKiller", "magicalKiller","meanDamageVariance", "evoMag", "jumpDamage", "lbDamage", "drawAttacks", "lbPerTurn", "evade.physical", "evade.magical", "mpRefresh"]).concat(ailmentList.map(a => 'resist|' + a + '.percent')).concat(elementList.map(e => 'resist|' + e + '.percent'));
-    
+
     let sellableItemIds = [];
     let baseItemsToSearchIn = equipments.concat(materia).filter(item => !item.exclusiveUnits && !item.equipedConditions && itemInventory[item.id]);
     let itemEntriesToSearchIn = [];
@@ -749,10 +829,10 @@ function getSellableItems() {
             }
         }
     });
-    
+
     let includeRecipeItems = $('#includeRecipeItems').prop('checked');
     let accessToDisplay = (includeRecipeItems ? SELLABLE_ITEMS_ACCESS : ["shop"]);
-    
+
     return itemEntriesToSearchIn.filter(entry => itemInventory[entry.item.id] && (entry.item.access.some(access => accessToDisplay.includes(access)) || !entry.item.partialDualWield && !entry.item.equipedConditions && !entry.item.allowUseOf && !entry.item.special && sellableItemIds.includes(entry.id))).map(entry => entry.item);
 }
 
@@ -769,7 +849,7 @@ function treatTypeForEnhancementCandidates(items, involvedStats, enemyStats, can
     itemPool.addItems(items);
     itemPool.prepare();
     let alreadyManagedGroupIds = [];
-    itemPool.keptItems.filter(ki => ki.active).forEach(group => {findEnhancementCandidates(itemPool, group, candidateItemIds, alreadyManagedGroupIds, searchDepth)});    
+    itemPool.keptItems.filter(ki => ki.active).forEach(group => {findEnhancementCandidates(itemPool, group, candidateItemIds, alreadyManagedGroupIds, searchDepth)});
 }
 
 function treatTypeForSellableItems(items, involvedStats, enemyStats, sellableItemIds, searchDepth) {
@@ -777,7 +857,7 @@ function treatTypeForSellableItems(items, involvedStats, enemyStats, sellableIte
     itemPool.addItems(items);
     itemPool.prepare();
     let alreadyManagedGroupIds = [];
-    itemPool.keptItems.filter(ki => ki.active).forEach(group => {findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds, searchDepth)});    
+    itemPool.keptItems.filter(ki => ki.active).forEach(group => {findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds, searchDepth)});
 }
 
 function getItemEntry(item, number, enhancements = "",additionalText = "") {
@@ -814,7 +894,7 @@ function findEnhancementCandidates(itemPool, group, candidateItemIds, alreadyMan
             if (!candidateItemIds.includes(id)) {
                 candidateItemIds.push(id);
             }
-        }) 
+        })
     }
     if (itemPool.lesserGroupsById[group.id]) {
         itemPool.lesserGroupsById[group.id].forEach(id => {
@@ -841,7 +921,7 @@ function findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroup
                 sellableItemIds.push(id);
                 betterItemsByIds[id] = betterItems;
             }
-        }) 
+        })
     }
     if (itemPool.lesserGroupsById[group.id]) {
         itemPool.lesserGroupsById[group.id].forEach(id => {
@@ -885,7 +965,7 @@ function keepOnlyOneOfEach(data) {
             tempResult[item.id] = item;
         }
     }
-    
+
     var result = [];
     for (var index in tempResult) {
         result.push(tempResult[index]);
@@ -963,7 +1043,7 @@ function sort(items) {
             var name2 = item2.jpname || item2.name;
 
             var result = compareName(name1, name2);
-            
+
             return result;
         } else {
             return type2 - type1;
@@ -993,7 +1073,7 @@ function compareName(name1, name2) {
                 if (result != 0) {
                     return result;
                 }
-            }   
+            }
         }
     }
     if (name1.length == name2.length) {
@@ -1036,7 +1116,7 @@ function showItemEnhancements(itemId) {
         var html = '<div class="btn" onclick="showEquipments()"><span class="glyphicon glyphicon-chevron-left"></span>Back to list</div>';
         if (notEnchantedCount > 0) {
             html += '<div><div class="col-xs-6 item">';
-            html += '<div class="td inventory"><span class="number badge badge-success">' + notEnchantedCount + '</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ')" src="/img/icons/dwarf.png" title="Open item management popup"></div>';
+            html += '<div class="td inventory"><span class="number badge badge-success">' + notEnchantedCount + '</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ')" src="/assets/game/icons/dwarf.png" title="Open item management popup"></div>';
             html += getImageHtml(item) + getNameColumnHtml(item);
             html += "</div></div>";
         }
@@ -1044,7 +1124,7 @@ function showItemEnhancements(itemId) {
             for (var i = 0, len = itemInventory.enchantments[itemId].length; i < len; i++) {
                 var enhancedItem = applyEnhancements(item, itemInventory.enchantments[itemId][i]);
                 html += '<div><div class="col-xs-6 item enhanced">';
-                html += '<div class="td inventory"><span class="number badge badge-success">1</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ', ' + i + ')" src="/img/icons/dwarf.png" title="Open item management popup"></div>';
+                html += '<div class="td inventory"><span class="number badge badge-success">1</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ', ' + i + ')" src="/assets/game/icons/dwarf.png" title="Open item management popup"></div>';
                 html += getImageHtml(enhancedItem) + getNameColumnHtml(enhancedItem);
                 html += "</div></div>";
             }
@@ -1061,13 +1141,13 @@ function showItemEnhancements(itemId) {
 }
 
 function modifyItemEnhancements(itemId, enhancementPos) {
-    
+
     currentEnhancementItemPos = enhancementPos;
     var popupAlreadyDisplayed = ($("#modifyEnhancementModal").data('bs.modal') || {}).isShown
     if (!popupAlreadyDisplayed) {
         $("#modifyEnhancementModal").modal();
     }
-    
+
     $("#modifyEnhancementModal .value").removeClass("selected");
     var item = currentEnhancementItem;
     if (typeof currentEnhancementItemPos != 'undefined') {
@@ -1115,9 +1195,9 @@ function toggleItemEnhancement(enhancement) {
         }
         if (enhancements.length == 3) {
             $.notify("No more than 3 item enhancements can be selected", "warning");
-            return;   
+            return;
         }
-        
+
         enhancements.push(enhancement);
     }
     modifyItemEnhancements(currentEnhancementItem.id, currentEnhancementItemPos);
@@ -1283,41 +1363,47 @@ function exportAsJson() {
         }
       }
     })
-    
+
     window.saveAs(new Blob([JSON.stringify(exportResult)], {type: "application/json;charset=utf-8"}), 'FFBE_Equip - Equipment.json');
 }
 
 function importInventory() {
-    if (!dataIds) {
-        dataIds = [];
-        data.forEach(item => {
-            if (!dataIds.includes(item.id)) {
-                dataIds.push(item.id)
-            }
-        });
-    }
-    importedOwnedUnit = null;
-    Modal.show({
-        title: "Import inventory",
-        body: '<p class="label label-danger">This feature is a Work in Progress. It will override your inventory on FFBE Equip</p><br/><br/>' +
-              '<input type="file" id="importFile" name="importFile" onchange="treatImportFile"/><br/>'+
-              '<p><a class="link" href="https://www.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/">Instructions to import your data directly from the game</a> (require login to FFBE with Facebook or Google)</p><br>' +
-              '<p id="importSummary"></p>',
-        buttons: [{
-            text: "Import",
-            onClick: function() {
-                if (importedItemInventory) {
-                    itemInventory = importedItemInventory;
-                    saveUserData(true, false, false);
-                    showEquipments();
-                } else {
-                    Modal.show("Please select a file to import");
-                }
-                
-            }
-        }]
+  var bodyHTML  = '<div class="alert alert-info">This feature is a Work in Progress. It will override your inventory on FFBE Equip!</div>';
+      bodyHTML += '<div class="custom-file mt-3 mb-2">';
+      bodyHTML += '  <input type="file" id="importFile" class="custom-file-input" name="importFile" onchange="treatImportFile"/>';
+      bodyHTML += '  <label class="custom-file-label" for="importFile">Choose file</label>';
+      bodyHTML += '</div>';
+      bodyHTML += '<div class="ffbe_content--well p-3 rounded border text-sm" id="importSummary"><a href="https://www.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/">Instructions to import your data directly from the game</a> (requires login to FFBE with Facebook or Google)</div>';
+
+  if (!dataIds) {
+    dataIds = [];
+    data.forEach(item => {
+      if (!dataIds.includes(item.id)) {
+        dataIds.push(item.id)
+      }
     });
-    $('#importFile').change(treatImportFile);
+  }
+
+  importedOwnedUnit = null;
+
+  Modal.show({
+    title: "Import inventory",
+    body: bodyHTML,
+    buttons: [{
+      text: "Import",
+      onClick: function() {
+        if (importedItemInventory) {
+          itemInventory = importedItemInventory;
+          saveUserData(true, false, false);
+          showEquipments();
+        } else {
+          Modal.show("Please select a file to import");
+        }
+      }
+    }]
+  });
+
+  $('#importFile').change(treatImportFile);
 }
 
 let dataIds = null;
@@ -1325,11 +1411,11 @@ let importedItemInventory;
 
 function treatImportFile(evt) {
     var f = evt.target.files[0]; // FileList object
-    
-    
-  
+
+
+
     var reader = new FileReader();
-    
+
     reader.onload = function(){
         try {
             let temporaryResult = JSON.parse(reader.result);
@@ -1356,7 +1442,7 @@ function treatImportFile(evt) {
                         importedItemInventory[item.id] = 0;
                     }
                     importedItemInventory[item.id] += parseInt(item.count);
-                    
+
                     if (item.enhancements) {
                         if (!importedItemInventory.enchantments[item.id]) {
                             importedItemInventory.enchantments[item.id] = [];
@@ -1369,60 +1455,60 @@ function treatImportFile(evt) {
         } catch(e) {
             Modal.showError('imported file is not in json format', e);
         }
-            
+
     };
     reader.readAsText(f);
-    
+
 }
 
 function displayStats() {
-    var stats = {};
+  var stats = {};
 
-    for (var index = 0, len = equipments.length; index < len; index++) {
-        var item = equipments[index];
+  for (var index = 0, len = equipments.length; index < len; index++) {
+    var item = equipments[index];
 
-        // Ini stats for item type if not existing
-        if (stats[item.type] === undefined) {
-                stats[item.type] = {
-                'different': 0,
-                'total': 0,
-                'number': 0
-            };
-        }
-        stats[item.type].total++;
-
-        if (itemInventory[item.id]) {
-            stats[item.type].different++;
-            stats[item.type].number += itemInventory[item.id];
-        }
-    }
-
-    // Add materia
-    stats['materia'] = {
+    // Ini stats for item type if not existing
+    if (stats[item.type] === undefined) {
+      stats[item.type] = {
         'different': 0,
         'total': 0,
         'number': 0
-    };
-    for (index = 0, len = materia.length; index < len; index++) {
-        var item = materia[index];
-
-        stats['materia'].total++;
-
-        if (itemInventory[item.id]) {
-            stats['materia'].different++;
-            stats['materia'].number += itemInventory[item.id];
-        }
+      };
     }
 
-    var $stats = $(".stats");
-    for (var statType in stats) {
-        var $item = $stats.find('.stats_' + statType);
-        $item.find(".value").text(stats[statType].different);
-        $item.find(".total").text(stats[statType].total);
-        $item.find(".number").text('(' + stats[statType].number + ')');
+    stats[item.type].total++;
+
+    if (itemInventory[item.id]) {
+      stats[item.type].different++;
+      stats[item.type].number += itemInventory[item.id];
     }
-    
-    $(".itemsSidebar .hidden").removeClass("hidden");
+  }
+
+  // Add materia
+  stats['materia'] = {
+    'different': 0,
+    'total': 0,
+    'number': 0
+  };
+
+  for (index = 0, len = materia.length; index < len; index++) {
+    var item = materia[index];
+
+    stats['materia'].total++;
+
+    if (itemInventory[item.id]) {
+      stats['materia'].different++;
+      stats['materia'].number += itemInventory[item.id];
+    }
+  }
+
+  var $stats = $(".stats");
+  for (var statType in stats) {
+    var $item = $stats.find('.stats_' + statType);
+    $item.find(".value").text(stats[statType].different);
+    $item.find(".total").text(stats[statType].total);
+    $item.find(".number").text('(' + stats[statType].number + ')');
+  }
 }
 
 // will be called by common.js at page load
@@ -1454,16 +1540,16 @@ function startPage() {
             });
         });
     });
-	
+
     $("#results").addClass(server);
-    
-	
+
+
     $window.on("beforeunload", function () {
         if  (saveNeeded) {
             return "Unsaved change exists !";
         }
     });
-    
+
     $window.on('keyup', function (e) {
         // Reset search if escape is used
         if (e.keyCode === 27) {
@@ -1471,22 +1557,15 @@ function startPage() {
         }
     });
 
-    $('.itemsSidebarButton').click(function() {
-        $('.itemsSidebar').toggleClass('collapsed');
-    });
-    
+
     $("#searchBox").on("input", $.debounce(300,showSearch));
     $("#stmrMoogleAvailable").on("input", $.debounce(300,showSearch));
     $('#onlyTimeLimited').on("input", showSearch);
     $('#betterItemsNumber').on("input", $.debounce(300,showSearch));
     $('#enhancementCandidatesSearchDepth').on("input", $.debounce(300,showSearch));
     $('#includeRecipeItems').on("input", showSearch);
-    
 
-    // Start stats collapse for small screen
-    if ($window.outerWidth() < 990) {
-        $(".itemsSidebar").addClass("collapsed");
-    }
+
 }
 
 // create new JJV environment

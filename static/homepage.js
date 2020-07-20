@@ -1,20 +1,20 @@
-
 // Discord widget JSON doesn't give the user's role
 // Hence the need to trace it manually...
-var DISCORD_USER_ADMIN = ['Lyrgard#1585'];
-var DISCORD_USER_KNOWLEDGEABLE = ['Darwe#7148', 'Spuuky#1546', 'tmtl#5880', 'Kujo#6865', 'sic#9510'];
-var DISCORD_USER_DEVS = ['Indigo#1164', 'biovenger#4295', 'Xist#5200'];
+var DISCORD_USER_ADMIN = ['Lyrgard#1585'],
+    DISCORD_USER_KNOWLEDGEABLE = ['Darwe#7148', 'Spuuky#1546', 'tmtl#5880', 'Kujo#6865', 'sic#9510'],
+    DISCORD_USER_DEVS = ['Indigo#1164', 'biovenger#4295', 'Xist#5200'];
 
+var tar_bgLandscape = '.ffbe_content--landscape',
+    tar_bgLandItem  = '.landscape-bg';
+
+/* Landscape Parallax Animation -------------------------------------------------------------------- */
 var handleBackgroundAnimation = function() {
-    
     var maxDeltaPx = 50;
-
     var layers = [
         /* .layer-1 do not move, so is not present */
-
         // Layer 2, moves not much
         {
-            $element: $('.mainmenu .layer-2'),
+            $element: $(tar_bgLandItem + '.bg-2'),
             scrollSpeedFactor: 0.15,
             mouseSpeedFactor: 0.02,
             translate: { x: 0, y: 0 },
@@ -24,7 +24,7 @@ var handleBackgroundAnimation = function() {
 
         // Layer 3, moves a little
         {
-            $element: $('.mainmenu .layer-3'),
+            $element: $(tar_bgLandItem + '.bg-3'),
             scrollSpeedFactor: 0.25,
             mouseSpeedFactor: 0.10,
             translate: { x: 0, y: 0 },
@@ -34,7 +34,7 @@ var handleBackgroundAnimation = function() {
 
         // Layer 4, moves the most
         {
-            $element: $('.mainmenu .layer-4'),
+            $element: $(tar_bgLandItem + '.bg-4'),
             scrollSpeedFactor: 0.35,
             mouseSpeedFactor: 0.30,
             translate: { x: 0, y: 0 },
@@ -42,8 +42,9 @@ var handleBackgroundAnimation = function() {
             size: { height: null, width: null}
         },
     ];
-    var backgroundWidth = $('.mainmenu').outerWidth(true);
-    var backgroundHeight = $('.mainmenu').outerHeight(true);
+
+    var backgroundWidth = $(tar_bgLandscape).outerWidth(true);
+    var backgroundHeight = $(tar_bgLandscape).outerHeight(true);
 
     // Bail! Background will be fixed
     if (backgroundWidth < 770) return;
@@ -51,8 +52,7 @@ var handleBackgroundAnimation = function() {
     var layerId;
     var maxLayers = layers.length;
     var scrollTop = 0;
-
-    var lastLayerVisibleYLimit = $('.mainmenu').next().position().top - ($('.mainmenu .layer-border').outerHeight(true) / 2);
+    var lastLayerVisibleYLimit = $(tar_bgLandscape).next().position().top - ($(tar_bgLandscape + ' .layer-border').outerHeight(true) / 2);
 
     var maxScrollPosition = layers[maxLayers-1].$element.position().top;
 
@@ -107,14 +107,14 @@ var handleBackgroundAnimation = function() {
 
     /* On mouse move, update mouse position */
     var pageX = 0, pageY = 0;
-    $('.mainmenu')[0].addEventListener('mousemove', $.throttle(25, function(e) {
+    $(tar_bgLandscape)[0].addEventListener('mousemove', $.throttle(25, function(e) {
         pageX = e.pageX;
         pageY = e.pageY;
         if (scrollTop < maxScrollPosition) {
             window.requestAnimationFrame(calculatePos);
         }
     }), false);
-    
+
     /* On scroll, update scroll position */
     document.addEventListener('scroll', $.throttle(25, function(e) {
         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -128,8 +128,8 @@ var handleBackgroundAnimation = function() {
 function startPage() {
     handleBackgroundAnimation();
 
-    $('.mainmenu').on('click', '.mainmenu-title,.mainmenu-illustration', function() {
-        var url = $(this).parent().attr('data-internal-link');
+    $(tar_bgLandscape).on('click', '.landscape-icon a', function() {
+        var url = $(this).data('internal-link');
         if (server != "GL") {
             url += "?server=" + server;
         }
@@ -146,49 +146,47 @@ function startPage() {
             .sort((tag1, tag2) => tag2.name.substr(tag2.name.length - 10, 10).localeCompare(tag1.name.substr(tag1.name.length - 10, 10)))
             .forEach(tag => {
             var tag_class = '';
-            var tag_icon = 'glyphicon-tag';
+            var tag_icon = 'fa-tag';
             var tag_type = 'Update';
             if (tag.name.startsWith("IMPROVEMENT_")) {
-                tag_icon = "glyphicon-wrench";
+                tag_icon = "fa-wrench";
                 tag_type = 'Improvement';
                 tag_class = 'improvement';
                 improvements++;
                 if (improvements > 4) return;
             } else if (tag.name.startsWith("FEATURE_")) {
-                tag_icon = "glyphicon-flash";
+                tag_icon = "fa-flash";
                 tag_type = 'New feature';
                 tag_class = 'feature';
                 features++;
                 if (features > 4) return;
             } else if (tag.name.startsWith("UPDATE_DATA")) {
-                tag_icon = "glyphicon-book";
+                tag_icon = "fa-book";
                 tag_type = 'Data update';
                 tag_class = 'dataUpdate';
                 dataUpdate++;
                 if (dataUpdate > 4) return;
             }
-            var html = '<div class="hidden tagline '+tag_class+' '+tag.commit.sha+'">';
-            html += "<div>";
-            html += "<span class='tagtype'><span class='glyphicon "+tag_icon+"'></span>"+tag_type+"</span>";
-            html += "<span class='tagauthor'></span>";
-            html += "<span class='tagdate'></span>";
-            html += "</div>";
-            html += "<div class='tagdesc'></div>";
-            html += '</div>';
-            $('#panel-github .panel-body').append(html);
+            var html  = '<li class="list-group-item d-flex align-items-center tagline '+tag_class+' '+tag.commit.sha+'">';
+                html += '  <span class="badge badge-ffbe badge-primary"><span class="fas '+tag_icon+' fa-fw mr-1"></span>'+tag_type+'</span>';
+                html += "  <p class='mx-2 my-0 text-muted text-sm'><span class='tagauthor'></span> <span class='tagdate'></span></p>";
+                html += "  <span class='ml-auto tagdesc'></span>";
+                html += '</li>';
+
+            $('#panel-github').append(html);
+
             $.get(tag.commit.url, function(commit) {
-                var $tagline = $('#panel-github .panel-body .'+commit.sha);
+                var $tagline = $('#panel-github .'+commit.sha);
                 var tagdate = new Date(commit.commit.author.date);
                 $tagline.find('.tagdate').html("on " + tagdate.toLocaleDateString("en-US", {weekday:'long', year:'numeric', month:'long', day:'numeric'}));
                 $tagline.find('.tagauthor').html("by " + ucFirst(commit.commit.author.name));
                 $tagline.find('.tagdesc').html(commit.commit.message.replace(/(?:\r\n|\r|\n)+/g, '<br>'));
-                $tagline.removeClass('hidden');
             }, 'json');
         })
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        $('#panel-github .panel-body').html("Error");
+        $('#panel-github').html("<li class='list-group-item'>Error</li>");
     });
-    
+
     $.get("https://discordapp.com/api/guilds/389844892853075969/widget.json", function(widget) {
         var adminsNb = 0, userNb = 0, knowledgeableNb = 0, devNb = 0, idleNb = 0;
         for (var id = 0; id < widget.members.length; id++) {
@@ -209,49 +207,50 @@ function startPage() {
             }
         }
         var html = '';
+
         if (adminsNb > 0) {
-            html += "<span class='discord-admin'>";
-            html += "<span class='glyphicon glyphicon-king'></span>";
-            html += adminsNb + " admin" + (adminsNb>1?'s':'');
-            html += "</span>";
+            html += "<li class='list-group-item d-flex align-items-center discord-admin'>";
+            html += "  <span class='badge badge-ffbe badge-success mr-2'><span class='fas fa-crown fa-fw'></span></span>";
+            html +=    adminsNb + " admin" + (adminsNb>1?'s':'');
+            html += "</li>";
         }
         if (knowledgeableNb > 0) {
-            html += "<span class='discord-knowledgeable'>";
-            html += "<span class='glyphicon glyphicon-education'></span>";
-            html += knowledgeableNb + " knowledgable user" + (knowledgeableNb>1?'s':'');
-            html += "</span>";
+            html += "<li class='list-group-item d-flex align-items-center discord-knowledgeable'>";
+            html += "  <span class='badge badge-ffbe badge-info mr-2'><span class='fas fa-book fa-fw'></span></span>";
+            html +=    knowledgeableNb + " knowledgable user" + (knowledgeableNb>1?'s':'');
+            html += "</li>";
         }
         if (devNb > 0) {
-            html += "<span class='discord-developer'>";
-            html += "<span class='glyphicon glyphicon-cog'></span>";
-            html += devNb + " developer" + (devNb>1?'s':'');
-            html += "</span>";
+            html += "<li class='list-group-item d-flex align-items-center discord-developer'>";
+            html += "  <span class='badge badge-ffbe badge-primary mr-2'><span class='fas fa-tools fa-fw'></span></span>";
+            html +=    devNb + " developer" + (devNb>1?'s':'');
+            html += "</li>";
         }
-        html += "<span class='discord-connected'>";
-        html += "<span class='glyphicon glyphicon-user'></span>";
-        html += userNb + " user" + (userNb>1?'s':'');
-        html += "</span>";
-        html += "<span class='discord-idle'>(and " + idleNb + " idle)</span>";
-        $('#panel-discord .panel-body').html(html);
+
+        html += "<li class='list-group-item d-flex align-items-center discord-connected'>";
+        html += "  <span class='badge badge-ffbe badge-primary mr-2'><span class='fas fa-user fa-fw'></span></span>";
+        html +=    userNb + " user" + (userNb>1?'s':'');
+        html += "  <span class='discord-idle ml-auto text-muted'>(and " + idleNb + " idle)</span>";
+        html += "</li>";
+        $('#panel-discord').html(html);
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        $('#panel-discord .panel-body').html("Error while loading list...");
+        $('#panel-discord').html("<li class='list-group-item'>Error</li>");
     });
 }
-  
+
 function inventoryLoaded() {
 }
 
 function notLoaded() {
 }
 
-/* 
+/*
  * The old start page was encyclopedia (named index.html)
- * 
+ *
  * To avoid breaking old link with search options
  * we redirect the user to the encyclopedia page if a hash is found
- * 
+ *
  */
 if (window.location.hash != '') {
     window.location.href = '/encyclopedia.html' + window.location.hash;
 }
-

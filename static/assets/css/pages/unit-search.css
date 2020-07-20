@@ -1,0 +1,98 @@
+/* --------------------------------------------------------------- *\
+   ffbe.page.search.css
+
+   CSS for 'Unit Search' tool
+
+\* --------------------------------------------------------------- */
+
+.unit-skills:empty {
+    display: none;
+}
+
+.unit-skills {
+    position: absolute;
+    right: 45px;
+    top: 5px;
+    z-index: 4;
+    width: calc(100% - 30px);
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+.unit-skills .skillGroup {
+	font-size: 0.875rem;
+	color: rgb(var(--nav_link_icon));
+	border: 1px solid rgba(var(--nav_bg_3), 0.85);
+	background:	linear-gradient(rgba(var(--nav_bg_2), 0.7), rgba(var(--nav_bg_2), 0.9)), rgb(var(--btn_primary_3));
+	border-radius: 0.25rem;
+	padding: 0.75rem;
+	margin-bottom: 0.25rem;
+ 	box-shadow:
+		0 1px 2px   rgba(50,50,50, 0.02),
+		0 4px 8px   rgba(50,50,50, 0.08),
+		0 16px 32px rgba(50,50,50, 0.24);
+}
+
+.unit-skills .skillIcon {
+	max-height: 50px;
+	flex: 0;
+}
+
+.unit-skills .nameAndEffects {
+	flex: 1;
+}
+
+.unit-skills .nameAndEffects .name {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.unit-skills .nameAndEffects .effect {
+	font-size: 0.75rem;
+	font-style: italic;
+}
+
+.unit-skills .nameAndEffects .effect  .icon {
+	display: inline-flex;
+	align-self: center;
+	vertical-align: middle;
+}
+
+.unit-skills .nameAndEffects .mpCost,
+.unit-skills .nameAndEffects .mpCostLabel {
+	font-weight: bold;
+}
+
+.unit-skills .skillGroup .skill {
+	display: flex;
+	padding: 0.5rem 0;
+	line-height: 1.25;
+}
+
+.unit-skills .skillGroup .subSkill {
+  display: flex;
+  background:	linear-gradient(rgba(var(--body_bg_1), 0.7), rgba(var(--body_bg_2), 0.9)), rgb(var(--body_bg_2));
+  border: 1px solid rgb(var(--nav_bg_3));
+  padding: 0.25rem 0.5rem;;
+  border-radius: 0.25rem;
+  font-size: 0.8rem
+}
+
+.unit-skills .skillGroup .subSkill .skill {
+	display: flex;
+	border: none;
+	padding: 0;
+	background: none;
+}
+
+.unitSearchResults .getKillerHtml,
+.unitSearchResults .elementalResistance,
+.unitSearchResults .ailmentResistance {
+	font-size: 0.75rem;
+  text-align: center;
+}
+
+.unitSearchResults .unit {
+  position: relative;
+}

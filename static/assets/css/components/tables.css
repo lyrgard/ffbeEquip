@@ -1,0 +1,115 @@
+/* --------------------------------------------------------------- *\
+   ffbe.tables.css
+
+   CSS for handling <table> data.
+
+\* --------------------------------------------------------------- */
+
+/* Basic Table Styles -------------------------------------------- */
+
+.table {
+    color: inherit;
+}
+
+.table thead td,
+.table thead th {
+    border-color: rgba(var(--nav_bg_3), 0.95);
+}
+
+.table thead {
+  background: repeating-linear-gradient(45deg, rgba(var(--btn_primary_3),0), rgba(var(--nav_bg_3), 0) 5px, rgba(var(--nav_bg_3), 0.15) 5px, rgba(var(--nav_bg_3), 0.15) 10px), linear-gradient(rgb(var(--nav_bg_2)), rgb(var(--nav_bg_1)));
+  box-shadow: 0 0.125rem .5rem rgba(0,0,0,.175), inset 0 0 3rem rgb(var(--btn_primary_3));
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+  color: var(--white);
+}
+
+.table tbody th,
+.table tbody td {
+    vertical-align: middle;
+}
+
+/* Table Sizing -------------------------------------------------- */
+
+.table.table-sm,
+.table.table-xs {
+    font-size: 0.875rem;
+}
+
+/* .table-hover -------------------------------------------------- */
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+	background:	rgba(var(--btn_primary_3), 0.25);
+  color: rgb(var(--body_text));
+}
+
+/* .table-striped ------------------------------------------------ */
+
+.table-striped tbody td {
+  border-color: rgb(var(--body_bg_2));
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background:	rgba(var(--body_bg_1), 0.25);
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+	background:	rgba(var(--body_bg_1), 0.5);
+}
+
+/* .table-pill --------------------------------------------------- */
+
+
+.table-pill {
+    border-collapse:separate;
+    border-spacing: 0 2px;
+}
+
+.table-pill th,
+.table-pill td {
+    border: none;
+}
+
+.table-pill tr {
+    margin-bottom: 1px;
+}
+
+.table-pill tr th:first-child,
+.table-pill tr td:first-child {
+    border-radius: 1rem 0 0 1rem;
+    padding-left: 1rem;
+}
+
+.table-pill tr th:last-child,
+.table-pill tr td:last-child {
+    border-radius: 0 1rem 1rem 0;
+    padding-right: 1rem;
+}
+
+.table-pill tr th:first-child:last-child,
+.table-pill tr td:first-child:last-child {
+    border-radius: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+.table-pill.table-xs tr th,
+.table-pill.table-xs tr td {
+    padding: .25rem;
+}
+
+.table-pill.table-xs tr th:first-child,
+.table-pill.table-xs tr td:first-child {
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.table-pill.table-xs tr th:last-child,
+.table-pill.table-xs tr td:last-child {
+    border-radius: 0 .5rem .5rem 0;
+}
+
+.table-pill.table-xs tr th:first-child:last-child,
+.table-pill.table-xs tr td:first-child:last-child {
+    border-radius: .5rem;
+}

@@ -1,0 +1,242 @@
+/* --------------------------------------------------------------- *\
+   ffbe.buttons.css
+
+   FFBE inspired themes for Bootstrap Button elements and other
+   actions.
+
+\* --------------------------------------------------------------- */
+
+/* Apply Colors to Buttons & Badge Components -------------------- */
+
+.btn,
+.badge {
+	--btn_1: 255,255,255;
+	--btn_2: 200,200,200;
+	--btn_3: 150,150,150;
+
+  box-sizing: border-box;
+	text-shadow: 1px 1px 1px rgb(var(--btn_2));
+	border-color: rgb(var(--btn_1));
+	background:
+		repeating-linear-gradient(45deg, rgba(var(--btn_3), 0) 0, rgba(var(--btn_3), 0) 2px, rgba(var(--btn_3), 0.1) 2px, rgba(var(--btn_3), 0.1) 4px),
+		repeating-linear-gradient(135deg, rgba(var(--btn_3), 0) 0, rgba(var(--btn_3), 0) 2px, rgba(var(--btn_3), 0.05) 2px, rgba(var(--btn_3), 0.05) 4px),
+		linear-gradient(rgb(var(--btn_1)) 0, rgb(var(--btn_2)) 100%);
+}
+
+.btn-primary, .btn-outline-primary, .badge-primary {
+	--btn_1: var(--btn_primary_1);
+	--btn_2: var(--btn_primary_2);
+	--btn_3: var(--btn_primary_3);
+}
+
+.btn-secondary, .btn-outline-secondary, .badge-secondary {
+	--btn_1: var(--btn_secondary_1);
+	--btn_2: var(--btn_secondary_2);
+	--btn_3: var(--btn_secondary_3);
+}
+
+.btn-info, .btn-outline-info, .badge-info {
+	--btn_1: var(--btn_info_1);
+	--btn_2: var(--btn_info_2);
+	--btn_3: var(--btn_info_3);
+}
+
+.btn-success, .btn-outline-success, .badge-success {
+	--btn_1: var(--btn_success_1);
+	--btn_2: var(--btn_success_2);
+	--btn_3: var(--btn_success_3);
+}
+
+.btn-warning, .btn-outline-warning, .badge-warning {
+	--btn_1: var(--btn_warning_1);
+	--btn_2: var(--btn_warning_2);
+	--btn_3: var(--btn_warning_3);
+}
+
+.btn-danger, .btn-outline-danger, .badge-danger {
+	--btn_1: var(--btn_danger_1);
+	--btn_2: var(--btn_danger_2);
+	--btn_3: var(--btn_danger_3);
+}
+
+.btn-dark, .btn-outline-dark, .badge-dark {
+	--btn_1: var(--btn_dark_1);
+	--btn_2: var(--btn_dark_2);
+	--btn_3: var(--btn_dark_3);
+}
+
+.btn-light, .btn-outline-light, .badge-light {
+	--btn_1: var(--btn_light_1);
+	--btn_2: var(--btn_light_2);
+	--btn_3: var(--btn_light_3);
+}
+
+/* Style Button on State Change ---------------------------------- */
+
+.btn,
+.btn-group {
+  --btn_shadow: 0 0 0 rgba(var(--btn_outline), 0);
+
+  box-shadow:
+    var(--btn_shadow),
+	  inset 0 0  1px 0   rgb(var(--btn_outline)),
+	  inset 0 0  0   2px rgba(var(--btn_3), 0.55),
+	  inset 0 0 10px 4px rgba(var(--btn_3), 0.15);
+}
+
+.btn.btn-shadow {
+  --btn_shadow: 0 .5rem 1rem rgba(var(--btn_outline), .15);
+}
+
+.btn.btn-shadow-sm {
+  --btn_shadow: 0 .125rem .25rem rgba(var(--btn_outline), .15);
+}
+
+.btn.btn-shadow-lg {
+  --btn_shadow: 0 1rem 3rem rgba(var(--btn_outline), .175);
+}
+
+.btn:not(:disabled):not(.disabled).active,
+.btn:not(:disabled):not(.disabled):active,
+.btn:not(:disabled):not(.disabled).active:focus,
+.btn:not(:disabled):not(.disabled):active:focus,
+.btn:not(:disabled):not(.disabled):focus,
+.btn:not(:disabled):not(.disabled).focus,
+.show>.btn.dropdown-toggle:focus {
+	z-index: 2;
+	box-shadow:
+	  var(--btn_shadow),
+	  0 0 0 2px rgb(var(--btn_3)),
+	  inset 0 0 5px 2px rgba(var(--btn_3), 0.85),
+	  inset 0 0 45px 2px rgba(var(--btn_3), 0.25);
+}
+
+/* Fixes for Button Group Component ------------------------------ */
+
+.btn-group .btn {
+	box-shadow:
+	  inset 0 0 1px 0 rgb(var(--btn_outline)),
+	  inset 0 0 0 2px rgba(var(--btn_3), 0.35);
+}
+
+/* Hover Effects for Button / Button Group ----------------------- */
+
+.btn:hover,
+.btn-group .btn:hover {
+	box-shadow:
+	  var(--btn_shadow),
+	  inset 0 0 1px 0 rgb(var(--btn_outline)),
+	  inset 0 0 0 2px rgba(var(--btn_3), 0.95),
+	  inset 0 0 10px 4px rgba(var(--btn_3), 0.65);
+}
+
+/* Fixes for btn-outline-* Versions ------------------------------ */
+
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-info,
+.btn-outline-success,
+.btn-outline-warning,
+.btn-outline-danger,
+.btn-outline-dark,
+.btn-outline-light {
+  border-color: rgb(var(--btn_1));
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover,
+.btn-outline-info:hover,
+.btn-outline-success:hover,
+.btn-outline-warning:hover,
+.btn-outline-danger:hover,
+.btn-outline-dark:hover,
+.btn-outline-light:hover {
+	background:
+		repeating-linear-gradient(45deg,
+		  rgba(var(--btn_3), 0)   0,
+		  rgba(var(--btn_3), 0)   2px,
+		  rgba(var(--btn_3), 0.1) 2px,
+		  rgba(var(--btn_3), 0.1) 4px),
+		repeating-linear-gradient(135deg,
+		  rgba(var(--btn_3), 0)    0,
+		  rgba(var(--btn_3), 0)    2px,
+		  rgba(var(--btn_3), 0.05) 2px,
+		  rgba(var(--btn_3), 0.05) 4px),
+		linear-gradient(
+		  rgb(var(--btn_1)) 0,
+		  rgb(var(--btn_2)) 100%);
+}
+
+/* Addition of .btn-ghost-* -------------------------------------- */
+
+.btn.btn-ghost {
+  color: inherit;
+  border-color: rgba(var(--body_bg_1), 0.8);
+	background: linear-gradient(rgb(var(--body_bg_2)) 0, rgb(var(--body_bg_1)) 100%);
+  box-shadow: none;
+}
+
+.btn.btn-ghost:hover {
+  color: var(--white);
+  border-color: rgb(var(--btn_primary_3));
+	background: linear-gradient(rgb(var(--btn_primary_1)) 0, rgb(var(--btn_primary_2)) 100%);
+}
+
+[data-toggle="collapse"] {
+  position: relative;
+}
+
+[data-toggle="collapse"][aria-expanded='false']:not(.navbar-toggler)::after,
+[data-toggle="collapse"][aria-expanded='true']:not(.navbar-toggler)::after {
+  content: "";
+  top: calc(50% - 1px);
+  position: absolute;
+  left: 0.5rem;
+}
+
+[data-toggle="collapse"][data-toggle-position="right"][aria-expanded='false']:not(.navbar-toggler)::after,
+[data-toggle="collapse"][data-toggle-position="right"][aria-expanded='true']:not(.navbar-toggler)::after {
+  right: 0.75rem;
+  left: initial;
+}
+
+[data-toggle="collapse"][aria-expanded='false']:not(.navbar-toggler)::after {
+  border-left: 0.25rem solid transparent;
+  border-right: 0.25rem solid transparent;
+  border-bottom: 0.25rem solid currentColor;
+}
+
+[data-toggle="collapse"][aria-expanded='true']:not(.navbar-toggler)::after {
+  border-left: 0.25rem solid transparent;
+  border-right: 0.25rem solid transparent;
+  border-top: 0.25rem solid currentColor;
+  border-bottom: none;
+}
+
+/* Addition of .btn-xs Sizing ------------------------------------ */
+
+.btn-xs {
+	font-size: 0.625rem;
+	padding: 0.125rem 0.5rem;
+}
+
+.btn-xs[data-toggle="collapse"][aria-expanded='false']:not(.navbar-toggler)::after,
+.btn-xs[data-toggle="collapse"][aria-expanded='true']:not(.navbar-toggler)::after {
+  left: 0.35rem;
+}
+
+.btn-xs[data-toggle="collapse"][data-toggle-position="right"][aria-expanded='false']:not(.navbar-toggler)::after,
+.btn-xs[data-toggle="collapse"][data-toggle-position="right"][aria-expanded='true']:not(.navbar-toggler)::after {
+  right: 0.35rem;
+  left: initial;
+}
+
+/* Hide <input> for Toggles -------------------------------------- */
+
+.btn-group-toggle input {
+  display: none;
+}
+

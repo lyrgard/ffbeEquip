@@ -1,0 +1,49 @@
+/* --------------------------------------------------------------- *\
+   ffbe.page.myinventory.css
+
+   CSS for 'My Inventory' tool
+
+\* --------------------------------------------------------------- */
+
+.weaponItemSeparator {
+    margin: 0;
+    padding: 0;
+}
+.weaponItemSeparator .icon {
+    margin: -10px;
+}
+
+.itemInventory .getImageHtml img {
+  max-height: 80px;
+}
+
+.itemInventory .number:empty {
+  display: none !important;
+}
+
+.itemInventory .getNameColumnHtml--Name a {
+  color: inherit;
+  margin-left: 4px;
+  font-size: 0.875rem;
+}
+
+.itemInventory .getNameColumnHtml--Details {
+  display: flex;
+  align-items: center;
+}
+
+.itemInventory .getStatDetail {
+  padding-left: 4px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.itemList .item.notOwned .ffbe_content--well { opacity: 0.5; }
+.itemList .item:not(.notOwned):not(.farmable):not(.enhanced) .ffbe_content--well { box-shadow: 0 0 0 3px rgba(var(--btn_success_3),0.75) }
+.itemList .item.farmable .ffbe_content--well { box-shadow: 0 0 0 3px rgba(var(--btn_primary_3),0.75) }
+.itemList .item.enhanced .ffbe_content--well { box-shadow: 0 0 0 3px rgba(var(--btn_danger_3),0.75) }
+
+.itemList .item.notOwned .ffbe_content--well:hover { opacity: 1; }
+.itemList .item:not(.notOwned):not(.farmable):not(.enhanced) .ffbe_content--well:hover { box-shadow: 0 0 0 1px rgba(var(--btn_success_3),0.75), 0 0 12px 6px rgba(var(--btn_success_3),0.25) }
+.itemList .item.farmable .ffbe_content--well:hover { box-shadow: 0 0 0 1px rgba(var(--btn_primary_3),0.75), 0 0 12px 6px rgba(var(--btn_primary_3),0.25) }
+.itemList .item.enhanced .ffbe_content--well:hover { box-shadow: 0 0 0 1px rgba(var(--btn_danger_3),0.75), 0 0 12px 6px rgba(var(--btn_danger_3),0.25) }

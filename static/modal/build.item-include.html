@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <button type="button" class="btn btn-secondary" id="backToAllItems" onclick="updateSearchResult();"><span class="fas fa-chevron-left"></span> Back to item list</button>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+</div>
+
+<div class="modal-body">
+
+  We are here!!!!
+
+  <div class="ffbe_content--box p-3">
+    <div class="input-group searchBoxAndSortDiv mb-2">
+      <input type="text" class="form-control" id="searchText">
+      <div class="input-group-append stat"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort</button><div class="dropdown-menu dropdown-menu-right justify-content-center text-center statChoice"></div></div>
+    </div>
+
+    <div id="options">
+      <div class="custom-control custom-control-inline custom-switch mb-0" id="onlyOwnedItems">
+        <input type="checkbox" class="custom-control-input" id="onlyOwnedItemsSelect">
+        <label class="custom-control-label" for="onlyOwnedItemsSelect">Only Show Owned Equipment</label>
+      </div>
+
+      <div class="custom-control custom-control-inline custom-switch mb-0" id="excludeNotReleasedYetOption">
+        <input type="checkbox" class="custom-control-input" id="excludeNotReleasedYetOptionSelect">
+        <label class="custom-control-label" for="excludeNotReleasedYetOptionSelect">Exclude Not Released Yet</label>
+      </div>
+    </div>
+  </div>
+
+  <ul class="d-flex justify-content-center align-items-center nav nav-tabs type my-3">
+
+  </ul>
+
+  <div id="results" class="notSorted items results">
+    <div class="row" id="fixItemResults">
+      <div id="resultsContent" class="tbody clusterize-content">
+        <div class="clusterize-no-data">No results…</div>
+      </div>
+    </div>
+  </div>
+
+  <a class="link customEnchantment" onclick="selectEnchantement();">Custom Enchantment<img src="/assets/media/icons/dwarf.png"/></a>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>

@@ -1,0 +1,431 @@
+/* --------------------------------------------------------------- *\
+   ffbe.page.builder.css
+
+   CSS for 'Builder' tool
+
+\* --------------------------------------------------------------- */
+
+/* Weapon & Armor Display ---------------------------------------- */
+
+.unitEquipable .weapons,
+.unitEquipable .armors {
+	cursor: pointer;
+}
+
+.unitEquipable .notEquipable,
+.unitEquipable .notEquipable {
+	opacity: 0.3;
+}
+
+.unitEquipable .icon:not(.boost) .boostArrow,
+.unitEquipable .icon:not(.banned) .banArrow {
+	display: none;
+}
+
+.unitEquipable .boost {
+	position: relative;
+}
+
+.unitEquipable .boostArrow {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	top: -1px;
+	right: -1px;
+	color: rgb(var(--btn_success_3));
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, .9));
+}
+
+.unitEquipable .banArrow {
+	width: 15px;
+	height: 15px;
+	margin: auto;
+	color: rgb(var(--btn_danger_3));
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, .9));
+}
+
+/* Equipment Slot Display ---------------------------------------- */
+
+.unitBuildItem .getImageHtml {
+	cursor: pointer;
+}
+
+.unitBuildItem .getImageHtml img {
+	max-height: 80px;
+}
+
+.unitBuildItem .getImageHtml .icon.icon-sm {
+	width: 60px;
+	height: 60px;
+	border-radius: 0.25rem;
+}
+
+.unitBuildItem .getNameColumnHtml--Name {
+	display: flex;
+	align-items: center;
+	font-weight: bold;
+}
+
+.unitBuildItem .getNameColumnHtml--Name a {
+	margin-left: auto;
+}
+
+.unitBuildItem .getNameColumnHtml--Name .rarity.itemRarity,
+.unitBuildItem .getNameColumnHtml--Name .rarity.itemLevel {
+	font-size: 0.75rem;
+	font-weight: normal;
+}
+
+.unitBuildItem .getNameColumnHtml--Name .rarity.itemLevel {
+	padding-left: 0.25rem;
+}
+
+.unitBuildItem .list-group.displayItemLine_Special {
+	margin: 0.25rem 0;
+}
+
+.unitBuildItem .list-group.displayItemLine_Special .list-group-item {
+	border: none;
+	background:	rgba(var(--body_bg_1), 0.85);
+	border-radius: 0.25rem;
+	margin-bottom: 1px;
+	padding: 0.25rem 0.5rem;
+	font-size: 0.875rem;
+}
+
+.unitBuildItem .list-group.displayItemLine_Special .list-group-item .getKillerHtml,
+.unitBuildItem .list-group.displayItemLine_Special .list-group-item .getElementHtml,
+.unitBuildItem .list-group.displayItemLine_Special .list-group-item .groupedByElementResist,
+.unitBuildItem .list-group.displayItemLine_Special .list-group-item .groupedByAilmentResist {
+	display: inline-flex;
+	align-items: center;
+	font-size: 0.875rem;
+}
+
+.unitBuildItem .getNameColumnHtml--Details,
+.unitBuildItem .getEnhancements,
+.unitBuildItem .displayItemLine_Access {
+	display: flex;
+	align-items: center;
+	margin-top: 2px;
+}
+
+.unitBuildItem .displayItemLine_Access {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	justify-content: space-between;
+}
+
+.unitBuildItem .displayItemLine_Access a {
+	margin-left: 0.25rem;
+}
+
+.unitBuildItem .getNameColumnHtml--Details .icon,
+.unitBuildItem .getEnhancements .icon {
+	margin-right: 0.25rem;
+	width: 22px;
+	height: 22px;
+}
+
+.unitBuildItem .getStatDetail,
+.unitBuildItem .getEnhancements {
+	text-transform: uppercase;
+	font-size: 0.75rem;
+}
+
+/* Bestiary ------------------------------------------------------ */
+
+.monsterBestiary {
+	cursor: pointer;
+}
+
+.monsterBestiary:hover {
+	background:	rgba(var(--btn_primary_1), 0.25);
+}
+
+.monsterBestiary .getNameColumnHtml--Name {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+}
+
+.monsterBestiary .getNameColumnHtml--Details {
+	text-transform: uppercase;
+	font-size: 0.75rem;
+	margin-bottom: 10px;
+}
+
+.monsterBestiary .getStatDetail,
+.monsterBestiary .getEnhancements {
+	text-transform: uppercase;
+	font-size: 0.75rem;
+}
+
+.ffbe_theme--dark .monsterBestiary .list-group-item {
+	border: none;
+	background:	none;
+	border-radius: 0;
+	margin-bottom: 1px;
+	padding: 0;
+	font-size: 0.875rem;
+}
+
+.monsterBestiary .list-group-item .getKillerHtml,
+.monsterBestiary .list-group-item .getElementHtml,
+.monsterBestiary .list-group-item .groupedByElementResist,
+.monsterBestiary .list-group-item .groupedByAilmentResist {
+	display: inline-flex;
+	align-items: center;
+	font-size: 0.875rem;
+}
+
+/* Item Modal ---------------------------------------------------- */
+
+.itemWrapper {
+	cursor: pointer;
+}
+
+.itemWrapper:hover {
+	background:	rgba(var(--btn_primary_1), 0.25);
+}
+
+.itemWrapper .displayItemLine_Image {
+	display: inline-flex;
+	margin-right: 0.5rem;
+}
+
+.itemWrapper .displayItemLine_Image img {
+	max-height: 75px;
+	border: 1px solid var(--form_border);
+	border-radius: 0.25rem;
+}
+
+.itemWrapper .displayItemLine_Name {
+	display: inline-flex;
+	flex-direction: column;
+}
+
+.itemWrapper .getNameColumnHtml--Name {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+}
+
+.itemWrapper .getNameColumnHtml--Details {
+	text-transform: uppercase;
+	font-size: 0.75rem;
+	margin-bottom: 10px;
+}
+
+.itemWrapper .getNameColumnHtml--Details,
+.itemWrapper .getEnhancements,
+.itemWrapper .displayItemLine_Access {
+	display: flex;
+	align-items: center;
+	margin-top: 2px;
+}
+
+.itemWrapper .displayItemLine_Access {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	justify-content: space-between;
+}
+
+.itemWrapper .displayItemLine_Access a {
+	margin-left: 0.25rem;
+}
+
+.itemWrapper .getNameColumnHtml--Details .icon,
+.itemWrapper .getEnhancements .icon {
+	margin-right: 0.25rem;
+	width: 22px;
+	height: 22px;
+}
+
+.ffbe_theme--dark .itemWrapper .list-group-item {
+	border: none;
+	background:	none;
+	border-radius: 0;
+	margin-bottom: 1px;
+	padding: 0;
+	font-size: 0.875rem;
+}
+
+.itemWrapper .list-group-item .getKillerHtml,
+.itemWrapper .list-group-item .getElementHtml,
+.itemWrapper .list-group-item .groupedByElementResist,
+.itemWrapper .list-group-item .groupedByAilmentResist {
+	display: inline-flex;
+	align-items: center;
+	font-size: 0.875rem;
+}
+
+/* Build in Progress --------------------------------------------- */
+
+.build_in_progress {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        rgba(var(--nav_bg_1),0),
+        rgba(var(--nav_bg_1),0.1) 25%,
+        rgba(var(--nav_bg_1),0.3) 50%,
+        rgba(var(--nav_bg_3),0.6) 75%,
+        rgba(var(--nav_bg_3),0.8) 100% );
+    z-index: 99;
+    top: 0;
+    left: 0;
+}
+
+.build_in_progress.hidden {
+    display: none;
+}
+
+.build_in_progress .build_animation {
+    width: 100%;
+    min-height: 300px;
+    background: url("/assets/media/backgrounds/build_bg.png") bottom 90px center no-repeat;
+}
+
+.build_in_progress .ffbe_content--box.build_actions {
+    width: auto;
+    display: flex;
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    margin: -10px auto 0 auto;
+    max-width: 25%;
+    min-width: 350px;
+    color: rgb(var(--nav_link_icon));
+    font-size: 0.875rem;
+    border-radius: 0.75rem;
+}
+
+.build_in_progress .progress {
+    border-radius: 0.2rem;
+}
+
+.build_animation--wrapper {
+    margin-left: -50px;
+}
+
+.build_animation--wrapper .animation_rain {
+    margin-left: -125px;
+}
+
+
+
+
+#trig_unitConfigCollapse .hidden + .btn {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+
+@media (min-width: 768px) {
+	.collapse.collapse-mobile:not(.hidden) {
+		display: block;
+		height: auto;
+	}
+}
+
+#unitTabs .nav-item {
+  position: relative;
+}
+
+#unitTabs .closeTab {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  border: 0;
+  padding: 2px 4px;
+  background: linear-gradient(rgb(var(--btn_danger_1)) 0%, rgb(var(--btn_danger_2)) 50%, rgb(var(--btn_danger_3)) 100%);
+  color: var(--white);
+  border-radius: 999px;
+  font-size: 0.625rem;
+}
+
+#unitTabs img {
+	max-height: 30px;
+	margin-right: 5px;
+}
+
+#unitTabs .nav-link {
+	display: flex;
+	align-items: center;
+}
+
+.unitRarity-star {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  background: url('/assets/media/star-rainbow.svg') center center no-repeat;
+  background-size: contain;
+  filter: drop-shadow( 1px 1px 1px rgba(0, 0, 0, .2));
+}
+
+.unitRarity-star.inactive {
+  background: url('/assets/media/star-gray.svg') center center no-repeat;
+  opacity: 0.5;
+}
+
+#fixItemModal .statChoice.dropdown-menu {
+    max-width: 150px;
+}
+
+#fixItemModal .statChoice.dropdown-menu .dropdown-item {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 50px;
+    max-width: 50px;
+    clear: none;
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+}
+
+#fixItemModal .type img {
+    max-height: 35px;
+}
+
+.selectSkillItem {
+	display: flex;
+	align-items: center;
+}
+
+.selectSkillItem .badge {
+    margin-left: auto;
+		text-shadow: none;
+    background: grey;
+    border-radius: 3px;
+    color: #fff;
+    font-size: .65em;
+    font-weight: 700;
+    opacity: .85;
+}
+
+.selectSkillItem .selectIcon {
+	max-width: 25px;
+}
+
+.select2-results__option[aria-disabled=true] {
+    opacity: 0.3;
+}
+
+.selectSkillItem .skillTag        { background: #6a991d; }
+.selectSkillItem .magicTag        { background: #008b8b;}
+.selectSkillItem .multicastTag    { background: #00f;}
+.selectSkillItem .notSupportedTag { background: grey;}
+.selectSkillItem .lbTag           { background: #723232;}
+.selectSkillItem .damageTag       { background: #b38900;}
+.selectSkillItem .statTag         { background: #2d89a0;}
+.selectSkillItem .upgradedSkillIcon {
+    color: #ff8c00;
+    font-weight: 700;
+    margin-top: -1px;
+    margin-left: 2px;
+}

@@ -1,0 +1,264 @@
+/* --------------------------------------------------------------- *\
+   ffbe.page.myunits.css
+
+   CSS for 'My Units' tool
+
+\* --------------------------------------------------------------- */
+
+/* Hide the Things! ---------------------------------------------- */
+
+.onlyOwnedUnits .unit.notOwned,
+.onlySevenStar .unit.notSevenStars,
+.onlyTimeLimited .unit:not(.timeLimited),
+.onlyTmrMoogles .unit:not(.tmrMoogles),
+.readOnly #exportLinks,
+.readOnly #header,
+.readOnly #loginMessage,
+.readOnly .navbar,
+.readOnly .notOwned .numberDiv,
+.awakenButton,
+.unit.notOwned .awakenButton,
+.unit:not(.showStmr) .trustCounter.stmr,
+.ownedNumbers .sevenStarNumber,
+.ownedNumbers .tmrMoogles {
+    display: none;
+}
+
+.readOnly .modifyCounterButton {
+    visibility: hidden
+}
+
+/* Show the Things! ---------------------------------------------- */
+
+.farmable .farmedButton.tmr, .farmableStmr .farmedButton.stmr ,
+.awakenable .awakenButton,
+.sevenStars .ownedNumbers .sevenStarNumber,
+.tmrMoogles .ownedNumbers .tmrMoogles {
+  display:block
+}
+
+
+/* Unit Wrapper Config ------------------------------------------- */
+
+.unitName { line-height: 1.1; }
+
+.unitName a {
+  color: inherit;
+  margin-left: 4px;
+  font-size: 0.875rem;
+}
+
+.unit .ffbe_content--well {
+  transition: box-shadow 0.25s ease-in-out;
+}
+
+.unit.notOwned .ffbe_content--well { opacity: 0.5; }
+.unit.owned .ffbe_content--well { box-shadow: 0 0 0 3px rgba(var(--btn_primary_3),0.75) }
+.unit.owned.sevenStars .ffbe_content--well { box-shadow: 0 0 0 3px rgba(var(--btn_success_3),0.75) }
+
+.unit.notOwned .ffbe_content--well:hover { opacity: 1; }
+.unit.owned .ffbe_content--well:hover { box-shadow: 0 0 0 1px rgba(var(--btn_primary_3),0.75), 0 0 12px 6px rgba(var(--btn_primary_3),0.25) }
+.unit.owned.sevenStars .ffbe_content--well:hover { box-shadow: 0 0 0 1px rgba(var(--btn_success_3),0.75), 0 0 12px 6px rgba(var(--btn_success_3),0.25) }
+
+.readOnly .unit { cursor: default; }
+.ownedNumbers .tmrMoogles .ownedNumber {
+    cursor:help
+}
+
+.items .tbody .tr .td, .results {
+    border-top:none !important
+}
+
+.unit .stmr,
+.unit .tmr {
+    cursor:help
+}
+
+/* Unit Wrapper Config ------------------------------------------- */
+
+.unitTrustPopover {
+  min-width: 300px;
+}
+
+.unitTrustPopover .popover-body {
+        padding: 0.25rem;
+}
+
+.popover {
+ 	box-shadow:
+		0 1px 2px   rgba(50,50,50, 0.02),
+		0 4px 8px   rgba(50,50,50, 0.08),
+		0 16px 32px rgba(50,50,50, 0.24);
+    border: none;
+}
+
+
+.popover-body .displayItemLine_Image {
+    text-align: center;
+    max-height: 75px;
+}
+
+.popover-body  .getImageHtml img {
+    max-width: 75px;
+}
+
+.popover-body .getNameColumnHtml--Name {
+    display: flex;
+    justify-content: space-between;
+	background: repeating-linear-gradient(45deg, rgba(var(--btn_primary_3),0), rgba(var(--nav_bg_3), 0) 5px, rgba(var(--nav_bg_3), 0.15) 5px, rgba(var(--nav_bg_3), 0.15) 10px), linear-gradient(rgb(var(--nav_bg_2)), rgb(var(--nav_bg_1)));
+	box-shadow: inset 0 0 3rem rgb(var(--btn_primary_3));
+    padding: 0.50rem 0.75rem;
+    border-radius: 0.25rem;
+    color: var(--white);
+    margin: 0.25rem 0;
+}
+
+.popover-body .getNameColumnHtml--Name a {
+    color: inherit;
+}
+
+.popover-body .getNameColumnHtml--Details {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.popover-body .getNameColumnHtml--Details .icon {
+    margin-right: 5px;
+}
+
+.popover-body .getStatDetail {
+    text-transform: uppercase;
+}
+
+.popover-body .getNameColumnHtml--Details {
+    border-radius: 0.25rem;
+    border: 1px solid rgba(var(--btn_primary_1),0.4);
+	background: linear-gradient(
+        rgba(var(--nav_bg_2), 0.7),
+        rgba(var(--nav_bg_2), 0.9)),
+        rgb(var(--btn_primary_3));
+
+    padding: 0.50rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.popover-body .displayItemLine_Access {
+    padding: 0.50rem 0.75rem;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    text-align: center;
+}
+
+.popover-body .displayItemLine_Access,
+.popover-body .displayItemLine_Access a {
+    color: rgb(var(--nav_link_icon));
+}
+
+.popover-body .getAccessHtml--Access,
+.popover-body .getAccessHtml--STMR,
+.popover-body .getAccessHtml--TMR {
+    margin-right: 0.25rem;
+}
+
+.popover-body .getAccessHtml--Access svg,
+.popover-body .getAccessHtml--STMR svg,
+.popover-body .getAccessHtml--TMR svg {
+    margin-left: 5px;
+}
+
+.popover-body .list-group-item {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.popover-body .list-group-item .groupedByAilmentResist,
+.popover-body .list-group-item .groupedByElementResist,
+.popover-body .list-group-item .getAilmentsHtml {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.popover-body .list-group-item .groupedByAilmentResist .text,
+.popover-body .list-group-item .groupedByElementResist .text {
+    padding: 0.125rem;
+}
+
+.popover-body .getAccessHtml--Access,
+.popover-body .getAccessHtml--STMR,
+.popover-body .getAccessHtml--TMR,
+.popover-body .list-group-item .getKillerHtml {
+    display: inline-flex;
+}
+
+.popover-body .list-group-item .getKillerHtml,
+.getEquipedConditionHtml {
+    align-items: center;
+}
+
+.popover-body .list-group-item .skill {
+    display: flex;
+}
+
+.getEquipedConditionHtml .icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/*
+<div class="list-group-item">
+    <span class="skill">
+        <img class="icon" src="/assets/game/items/global_ability_10023.png">
+        <span>Boundless Love</span><a href="http://exvius.gamepedia.com/Boundless_Love" target="_blank" rel="noreferrer">
+        <span class="fa fa-external-link-alt wikiLink"></span>
+        Increase healing power of items by 100% during battle
+    </span></div>
+<span class="skill">
+    <img class="icon" src="/assets/game/items/global_ability_10023.png"><span>Boundless Love</span><a href="http://exvius.gamepedia.com/Boundless_Love" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a>:Increase healing power of items by 100% during battle</span>
+<img class="icon" src="/assets/game/items/global_ability_10023.png">
+<span>Boundless Love</span>
+<a href="http://exvius.gamepedia.com/Boundless_Love" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a>
+:Increase healing power of items by 100% during battle
+<span class="skill"><img class="icon" src="/assets/game/items/global_ability_10023.png"><span>Boundless Love</span><a href="http://exvius.gamepedia.com/Boundless_Love" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a>:Increase healing power of items by 100% during battle</span>
+<div class="list-group-item"><span class="skill"><img class="icon" src="/assets/game/items/global_ability_10023.png"><span>Boundless Love</span><a href="http://exvius.gamepedia.com/Boundless_Love" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a>:Increase healing power of items by 100% during battle</span></div>
+
+*/
+
+/*
+<div class="displayItemLine_Image"><div class="getImageHtml"><img src="/assets/game/items/ability_77.png" class=""></div></div>
+<div class="getImageHtml"><img src="/assets/game/items/ability_77.png" class=""></div>
+<img src="/assets/game/items/ability_77.png" class="">
+<div class="getImageHtml"><img src="/assets/game/items/ability_77.png" class=""></div>
+<div class="displayItemLine_Image"><div class="getImageHtml"><img src="/assets/game/items/ability_77.png" class=""></div></div>
+<div class="displayItemLine_Name"><div class="getNameColumnHtml"><div class="itemName"><span>Acceptance</span><a href="http://exvius.gamepedia.com/Acceptance" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div><div class="detail"><i class="icon icon-sm equipment-materia miniIcon"></i><span class="hp"></span><span class="mp">mp+20%</span><span class="atk"></span><span class="def"></span><span class="mag">, mag+30%</span><span class="spr"></span></div></div></div>
+<div class="getNameColumnHtml"><div class="itemName"><span>Acceptance</span><a href="http://exvius.gamepedia.com/Acceptance" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div><div class="detail"><i class="icon icon-sm equipment-materia miniIcon"></i><span class="hp"></span><span class="mp">mp+20%</span><span class="atk"></span><span class="def"></span><span class="mag">, mag+30%</span><span class="spr"></span></div></div>
+<div class="itemName"><span>Acceptance</span><a href="http://exvius.gamepedia.com/Acceptance" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div>
+<div class="detail"><i class="icon icon-sm equipment-materia miniIcon"></i><span class="hp"></span><span class="mp">mp+20%</span><span class="atk"></span><span class="def"></span><span class="mag">, mag+30%</span><span class="spr"></span></div>
+<i class="icon icon-sm equipment-materia miniIcon"></i>
+<span class="hp"></span>
+<span class="mp">mp+20%</span>
+<span class="atk"></span>
+<span class="def"></span>
+<span class="mag">, mag+30%</span>
+<span class="spr"></span>
+<div class="detail"><i class="icon icon-sm equipment-materia miniIcon"></i><span class="hp"></span><span class="mp">mp+20%</span><span class="atk"></span><span class="def"></span><span class="mag">, mag+30%</span><span class="spr"></span></div>
+<div class="getNameColumnHtml"><div class="itemName"><span>Acceptance</span><a href="http://exvius.gamepedia.com/Acceptance" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div><div class="detail"><i class="icon icon-sm equipment-materia miniIcon"></i><span class="hp"></span><span class="mp">mp+20%</span><span class="atk"></span><span class="def"></span><span class="mag">, mag+30%</span><span class="spr"></span></div></div>
+<div class="displayItemLine_Name"><div class="getNameColumnHtml"><div class="itemName"><span>Acceptance</span><a href="http://exvius.gamepedia.com/Acceptance" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div><div class="detail"><i class="icon icon-sm equipment-materia miniIcon"></i><span class="hp"></span><span class="mp">mp+20%</span><span class="atk"></span><span class="def"></span><span class="mag">, mag+30%</span><span class="spr"></span></div></div></div>
+<div class="displayItemLine_Access"><div class="td access"><div class="access">TMR-5*</div><div class="unit"><span>Ace</span><a href="http://exvius.gamepedia.com/Ace" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div></div></div>
+<div class="td access"><div class="access">TMR-5*</div><div class="unit"><span>Ace</span><a href="http://exvius.gamepedia.com/Ace" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div></div>
+<div class="access">TMR-5*</div>
+<div class="unit"><span>Ace</span><a href="http://exvius.gamepedia.com/Ace" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div>
+<span>Ace</span>
+<a href="http://exvius.gamepedia.com/Ace" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a>
+<div class="unit"><span>Ace</span><a href="http://exvius.gamepedia.com/Ace" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div>
+<div class="td access"><div class="access">TMR-5*</div><div class="unit"><span>Ace</span><a href="http://exvius.gamepedia.com/Ace" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div></div>
+<div class="displayItemLine_Access"><div class="td access"><div class="access">TMR-5*</div><div class="unit"><span>Ace</span><a href="http://exvius.gamepedia.com/Ace" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div></div></div>
+<div class="popover-body"><div class="displayItemLine_Image"><div class="getImageHtml"><img src="/assets/game/items/ability_77.png" class=""></div></div><div class="displayItemLine_Name"><div class="getNameColumnHtml"><div class="itemName"><span>Acceptance</span><a href="http://exvius.gamepedia.com/Acceptance" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div><div class="detail"><i class="icon icon-sm equipment-materia miniIcon"></i><span class="hp"></span><span class="mp">mp+20%</span><span class="atk"></span><span class="def"></span><span class="mag">, mag+30%</span><span class="spr"></span></div></div></div><div class="displayItemLine_Access"><div class="td access"><div class="access">TMR-5*</div><div class="unit"><span>Ace</span><a href="http://exvius.gamepedia.com/Ace" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16 wikiLink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg><!-- <span class="fa fa-external-link-alt wikiLink"></span> --></a></div></div></div></div>
+
+*/
+
+

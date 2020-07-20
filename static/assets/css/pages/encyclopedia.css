@@ -1,0 +1,49 @@
+/* --------------------------------------------------------------- *\
+   ffbe.page.encyclopedia.css
+
+   CSS for 'Encyclopedia' tool
+
+\* --------------------------------------------------------------- */
+
+.bookItem .displayItemLine_Name,
+.bookItem .displayItemLine_Access,
+.bookItem .displayItemLine_Special,
+.bookItem .getNameColumnHtml--Details,
+.bookItem .getExclusiveUnitsHtml {
+	display: flex;
+}
+
+.bookItem .getImageHtml img {
+	max-height: 115px;
+	border: 1px solid var(--form_border);
+	border-radius: 0.25rem;
+	margin-right: 0.5rem;
+}
+
+.bookItem .getNameColumnHtml--Name .rarity {
+	margin-right: 5px;
+}
+.bookItem .getNameColumnHtml--Name svg {
+	margin-left: 5px;
+}
+
+.bookItem .getExclusiveUnitsHtml,
+.bookItem .getNameColumnHtml--Details {	
+	padding-top: 0.5rem;
+	align-items: center;
+}
+
+.bookItem .getNameColumnHtml--Details .getStatDetail {
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	line-height: 1.12;
+	padding-left: 0.25rem;
+
+}
+
+.bookItem .getExclusiveUnitsHtml,
+.bookItem .accessList {
+	padding-top: 0.5rem;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+}

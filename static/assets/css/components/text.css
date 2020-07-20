@@ -1,0 +1,62 @@
+/* --------------------------------------------------------------- *\
+   ffbe.text.css
+
+   CSS for handling typography.
+
+\* --------------------------------------------------------------- */
+
+/* Responsive Font Sizing ---------------------------------------- */
+
+@media (min-width: 0)      {
+	html, body { font-size: 80%; }
+	input, select { font-size: 85%; }
+	.form-label-group input:not(:placeholder-shown) ~ label { font-size: 70%; }
+}
+
+@media (min-width: 576px)  {
+	html, body { font-size: 85%; }
+	input, select { font-size: 90%; }
+	.form-label-group input:not(:placeholder-shown) ~ label { font-size: 75%; }
+}
+
+@media (min-width: 768px)  {
+	html, body { font-size: 90%; }
+	input, select { font-size: 95%; }
+	.form-label-group input:not(:placeholder-shown) ~ label { font-size: 80%; }
+}
+
+@media (min-width: 1200px) {
+	html, body { font-size: 100%; }
+	input, select { font-size: 100%; }
+	.form-label-group input:not(:placeholder-shown) ~ label { font-size: 90%; }
+}
+
+/* Class-based Text Sizing --------------------------------------- */
+
+.text-xs  { font-size: 70%;  }
+.text-sm  { font-size: 90%;  }
+.text-md  { font-size: 110%; }
+.text-lg  { font-size: 130%; }
+.text-xl  { font-size: 160%; }
+.text-xxl { font-size: 180%; }
+
+/* Custom Font --------------------------------------------------- */
+
+.ffbe_title {
+	font-family: 'Medula One', cursive;
+	text-transform: uppercase;
+}
+
+.ffbe_text--title {
+	background: repeating-linear-gradient(45deg, rgba(var(--btn_primary_3),0), rgba(var(--nav_bg_3), 0) 5px, rgba(var(--nav_bg_3), 0.15) 5px, rgba(var(--nav_bg_3), 0.15) 10px), linear-gradient(rgb(var(--nav_bg_2)), rgb(var(--nav_bg_1)));
+	box-shadow: 0 0.125rem .5rem rgba(0,0,0,.175), inset 0 0 3rem rgb(var(--btn_primary_3));
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    color: var(--white);
+}
+
+.ffbe_text--title svg,
+.ffbe_text--secondary {
+    color: rgb(var(--nav_link_icon));
+}
+
