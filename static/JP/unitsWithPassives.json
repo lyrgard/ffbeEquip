@@ -4257,24 +4257,27 @@
 		"name":"Nalu",
 		"jpname":"ナル",
 		"id":"100015405",
-		"max_rarity":"7",
+		"braveShift":"100015427",
+		"exAwakening": [{"hp":612,"mp":26,"atk":29,"def":23,"mag":19,"spr":22},{"hp":471,"mp":20,"atk":22,"def":18,"mag":15,"spr":17},{"hp":330,"mp":14,"atk":15,"def":12,"mag":10,"spr":12}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4708,"mp":194,"atk":199,"def":164,"mag":148,"spr":172},
-			"minStats":{"hp":1554,"mp":64,"atk":66,"def":54,"mag":49,"spr":57},
+			"maxStats":{"hp":4708,"mp":201,"atk":220,"def":175,"mag":148,"spr":172},
+			"minStats":{"hp":1554,"mp":66,"atk":73,"def":58,"mag":49,"spr":57},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
-		"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%"],
+		"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%","雷槍刺突","獣雷爪撃","クアールと心通わせる少女"],
 		"enhancements": [
 			{"name":"おそれしらず","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30,"mpRefresh":10}]]},
 			{"name":"狩猟技術","levels":[[{"atk%":30,"killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]}],[{"atk%":30,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}],[{"atk%":65,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}]]},
-			{"name":"精神+20%","levels":[[{"spr%":20,"levelCondition":115}],[{"spr%":30,"levelCondition":115}],[]]}
+			{"name":"精神+20%","levels":[[{"spr%":20,"levelCondition":115}],[{"spr%":30,"levelCondition":115}],[]]},
+			{"name":"クアールと心通わせる少女","levels":[[{"lbDamage":50,"skillEnhancement":{"226910":27,"226911":27,"226912":27,"226913":11,"236418":27,"507490":27,"707675":27,"707676":27,"707677":11,"707678":11}}],[{"lbDamage":50,"skillEnhancement":{"226910":34,"226911":34,"226912":34,"226913":15,"236418":34,"507490":34,"707675":34,"707676":34,"707677":15,"707678":15}}],[{"lbDamage":75,"skillEnhancement":{"226910":41,"226911":41,"226912":41,"226913":19,"236418":41,"507490":41,"707675":41,"707676":41,"707677":19,"707678":19}}],[{"lbDamage":75,"skillEnhancement":{"226910":48,"226911":48,"226912":48,"226913":23,"236418":48,"507490":48,"707675":48,"707676":48,"707677":23,"707678":23}}],[{"lbDamage":100,"skillEnhancement":{"226910":55,"226911":55,"226912":55,"226913":27,"236418":55,"507490":55,"707675":55,"707676":55,"707677":27,"707678":27}}]]}
 		],
 		"skills": [
-			{"hp%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"lightning","percent":30}]},
+			{"hp%":60, "mp%":30, "atk%":80, "singleWielding":{"accuracy":50,"atk":150}, "lbFillRate":100, "resist":[{"name":"lightning","percent":30}], "replaceLb":{"name":"獣往無尽","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":64.2},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (64.2x, ATK) to all enemies"},{"effect":{"imperil":{"lightning":120},"turns":4,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 120% for 4 turns to all enemies"},{"effect":{"statsBuff":{"atk":230,"mag":230},"turns":4,"area":"AOE","target":"ALLY"},"desc":"Increase ATK and MAG by 230% for 4 turns to all allies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":70},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (70x, ATK) to all enemies"},{"effect":{"imperil":{"lightning":120},"turns":4,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 120% for 4 turns to all enemies"},{"effect":{"statsBuff":{"atk":230,"mag":230},"turns":4,"area":"AOE","target":"ALLY"},"desc":"Increase ATK and MAG by 230% for 4 turns to all allies"}],"frames":[56,62,67,72,77,82,87,92,97,102,106,110,114,118,122,126,130,134,138,142,146,150,154],"move":"walk"}},
 			{"atk%":50, "equipedConditions":["spear"]},
 			{"atk%":25, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504226900","308003800"]]},
 			{"def%":30, "killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}], "levelCondition":110},
@@ -4295,7 +4298,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
-			"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%"],
+			"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%","雷槍刺突","獣雷爪撃","クアールと心通わせる少女"],
 		"enhancements": [
 			{"name":"おそれしらず","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30,"mpRefresh":10}]]},
 			{"name":"狩猟技術","levels":[[{"atk%":30,"killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]}],[{"atk%":30,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}],[{"atk%":65,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}]]}
@@ -4304,7 +4307,62 @@
 				{"hp%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"lightning","percent":30}]},
 				{"atk%":50, "equipedConditions":["spear"]}
 			]
+		},
+		"7_form": {
+			"name":"Nalu",
+			"jpname":"ナル",
+			"id":"100015405",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4708,"mp":194,"atk":199,"def":164,"mag":148,"spr":172},
+				"minStats":{"hp":1554,"mp":64,"atk":66,"def":54,"mag":49,"spr":57},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%","雷槍刺突","獣雷爪撃","クアールと心通わせる少女"],
+		"enhancements": [
+			{"name":"おそれしらず","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30,"mpRefresh":10}]]},
+			{"name":"狩猟技術","levels":[[{"atk%":30,"killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]}],[{"atk%":30,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}],[{"atk%":65,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}]]},
+			{"name":"精神+20%","levels":[[{"spr%":20,"levelCondition":115}],[{"spr%":30,"levelCondition":115}],[]]}
+		],
+			"skills": [
+				{"hp%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"lightning","percent":30}]},
+				{"atk%":50, "equipedConditions":["spear"]},
+				{"atk%":25, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504226900","308003800"]]},
+				{"def%":30, "killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}], "levelCondition":110},
+				{"skillEnhancement":{"226910":0.7,"226911":0.7,"226912":0.7,"226913":0.7,"507490":0.7,"707675":0.7,"707676":0.7,"707677":0.7,"707678":0.7}, "levelCondition":120}
+			]
 		}
+	},
+	"100015427": {
+		"name":"Nalu - Brave Shifted",
+		"jpname":"ナル - Brave Shifted",
+		"id":"100015427",
+		"braveShifted":true,
+		"exAwakening": [{"hp":612,"mp":26,"atk":29,"def":23,"mag":19,"spr":22},{"hp":471,"mp":20,"atk":22,"def":18,"mag":15,"spr":17},{"hp":330,"mp":14,"atk":15,"def":12,"mag":10,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4875,"mp":222,"atk":226,"def":174,"mag":143,"spr":169},
+			"minStats":{"hp":1609,"mp":73,"atk":75,"def":57,"mag":47,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["雷槍刺突","雷豹一突","噂のクアールライダー"],
+		"enhancements": [
+			{"name":"噂のクアールライダー","levels":[[{"atk":50,"killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]}],[{"atk":50,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}],[{"atk":75,"killers":[{"name":"beast","physical":100},{"name":"bug","physical":100},{"name":"plant","physical":100}]}],[{"atk":75,"killers":[{"name":"beast","physical":125},{"name":"bug","physical":125},{"name":"plant","physical":125}]}],[{"atk":100,"killers":[{"name":"beast","physical":150},{"name":"bug","physical":150},{"name":"plant","physical":150}]}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk%":150, "def%":30, "spr%":30, "singleWielding":{"accuracy":75,"atk":200}, "resist":[{"name":"lightning","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"stop","percent":100}], "mpRefresh":10, "lbDamage":100, "skillEnhancement":{"237500":5,"237501":5,"237502":5,"237503":5,"237504":5,"513181":5}},
+			{"lbFillRate":100, "equipedConditions":[["504226900","308003800"]]},
+			{"atk%":50, "equipedConditions":["spear",["504226900","308003800"]]}
+		]
 	},
 	"100015504": {
 		"name":"Pecciotta",
@@ -8900,7 +8958,7 @@
 		]
 	},
 	"100029905": {
-		"name":"Bahamut Dark Fina",
+		"name":"Umbral Dragon Dark Fina",
 		"jpname":"闇竜姫・魔人フィーナ",
 		"id":"100029905",
 		"max_rarity":"7",
@@ -8923,7 +8981,7 @@
 			{"mp%":30, "mag%":30, "killers":[{"name":"dragon","magical":150}], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Bahamut Dark Fina",
+			"name":"Umbral Dragon Dark Fina",
 			"jpname":"闇竜姫・魔人フィーナ",
 			"id":"100029905",
 			"sixStarForm":true,
@@ -8943,7 +9001,7 @@
 		}
 	},
 	"100030005": {
-		"name":"Lakshmi Lid",
+		"name":"Healing Avatar Lid",
 		"jpname":"癒神リド",
 		"id":"100030005",
 		"max_rarity":"7",
@@ -8964,7 +9022,7 @@
 			{"atk%":20, "def%":20, "spr%":20, "killers":[{"name":"machine","physical":50},{"name":"dragon","physical":50}], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Lakshmi Lid",
+			"name":"Healing Avatar Lid",
 			"jpname":"癒神リド",
 			"id":"100030005",
 			"sixStarForm":true,
@@ -8985,7 +9043,7 @@
 		}
 	},
 	"100030105": {
-		"name":"Phoenix Jake",
+		"name":"Flame of Rebirth Jake",
 		"jpname":"鳳凰ジェイク",
 		"id":"100030105",
 		"max_rarity":"7",
@@ -9006,7 +9064,7 @@
 			{"mp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"demon","physical":100},{"name":"dragon","physical":100},{"name":"undead","physical":100}], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Phoenix Jake",
+			"name":"Flame of Rebirth Jake",
 			"jpname":"鳳凰ジェイク",
 			"id":"100030105",
 			"sixStarForm":true,
@@ -9615,7 +9673,7 @@
 		]
 	},
 	"100031707": {
-		"name":"フィーナ&デイジー2020夏",
+		"name":"Summer Fina & Daisy",
 		"jpname":"フィーナ&デイジー2020夏",
 		"id":"100031707",
 		"braveShift":"100031717",
@@ -9637,7 +9695,7 @@
 		]
 	},
 	"100031717": {
-		"name":"フィーナ&デイジー2020夏 - Brave Shifted",
+		"name":"Summer Fina & Daisy - Brave Shifted",
 		"jpname":"フィーナ&デイジー2020夏 - Brave Shifted",
 		"id":"100031717",
 		"braveShifted":true,
@@ -9659,7 +9717,7 @@
 		]
 	},
 	"100031805": {
-		"name":"ミヌール",
+		"name":"Mineur",
 		"jpname":"ミヌール",
 		"id":"100031805",
 		"max_rarity":"7",
@@ -9679,7 +9737,7 @@
 			{"singleWielding":{"mag":100}, "drawAttacks":4, "skillEnhancement":{"237380":4}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"ミヌール",
+			"name":"Mineur",
 			"jpname":"ミヌール",
 			"id":"100031805",
 			"sixStarForm":true,
@@ -9695,6 +9753,136 @@
 			"equip":["dagger","staff","rod","throwing","hat","clothes","robe"],
 			"skills": [
 				{"hp%":20, "mp%":60, "def%":60, "mag%":160, "spr%":20, "singleWielding":{"mag":100}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
+			]
+		}
+	},
+	"100031907": {
+		"name":"Madam Edel -Neo Vision-",
+		"jpname":"マダム・エーデル-Neo Vision-",
+		"id":"100031907",
+		"braveShift":"100031917",
+		"exAwakening": [{"hp":617,"mp":33,"atk":60,"def":26,"mag":21,"spr":25},{"hp":475,"mp":25,"atk":46,"def":20,"mag":16,"spr":19},{"hp":332,"mp":18,"atk":32,"def":14,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4749,"mp":250,"atk":231,"def":198,"mag":163,"spr":190},
+			"minStats":{"hp":1567,"mp":83,"atk":76,"def":65,"mag":54,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["魔弾・ファストグロウ","遺跡探検号令"],
+		"skills": [
+			{"hp%":80, "mp%":90, "atk%":180, "def%":50, "spr%":50, "dualWielding":{"atk":150}, "lbFillRate":200, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"stone","physical":100}], "mpRefresh":12, "special":["dualWield"]},
+			{"lbDamage":50, "equipedConditions":[["504237400","309005700"]]}
+		]
+	},
+	"100031917": {
+		"name":"Madam Edel -Neo Vision- - Brave Shifted",
+		"jpname":"マダム・エーデル-Neo Vision- - Brave Shifted",
+		"id":"100031917",
+		"braveShifted":true,
+		"exAwakening": [{"hp":617,"mp":33,"atk":60,"def":26,"mag":21,"spr":25},{"hp":475,"mp":25,"atk":46,"def":20,"mag":16,"spr":19},{"hp":332,"mp":18,"atk":32,"def":14,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4806,"mp":230,"atk":233,"def":190,"mag":152,"spr":195},
+			"minStats":{"hp":1586,"mp":76,"atk":77,"def":63,"mag":50,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","gun","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["魔弾・ファストグロウ","魔拳・ファストダウン"],
+		"skills": [
+			{"hp%":90, "mp%":50, "atk%":200, "def%":70, "spr%":50, "dualWielding":{"atk":150}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"stop","percent":100}], "killers":[{"name":"demon","physical":150},{"name":"stone","physical":150}], "mpRefresh":7, "lbDamage":100, "special":["dualWield"]},
+			{"lbDamage":50, "equipedConditions":[["504237400","309005700"]]}
+		]
+	},
+	"100032005": {
+		"name":"Unmatched Strongman Elbis",
+		"jpname":"無敵の剛筋エルビス",
+		"id":"100032005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4855,"mp":242,"atk":206,"def":190,"mag":169,"spr":185},
+			"minStats":{"hp":1602,"mp":80,"atk":68,"def":63,"mag":56,"spr":61},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","mace","fist","hat","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":60, "mp%":20, "atk%":40, "def%":40, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30}], "killers":[{"name":"stone","physical":50}], "mpRefresh":7},
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"atk%":50, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504237402","303009000"]]},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "killers":[{"name":"stone","physical":50}], "lbDamage":100, "levelCondition":105},
+			{"def%":20, "levelCondition":115},
+			{"atk%":50, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"237421":5,"237422":5}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Unmatched Strongman Elbis",
+			"jpname":"無敵の剛筋エルビス",
+			"id":"100032005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3734,"mp":186,"atk":158,"def":146,"mag":130,"spr":142},
+				"minStats":{"hp":1232,"mp":61,"atk":52,"def":48,"mag":43,"spr":47},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","axe","hammer","mace","fist","hat","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":60, "mp%":20, "atk%":40, "def%":40, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30}], "killers":[{"name":"stone","physical":50}], "mpRefresh":7},
+				{"atk%":50, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
+	"100032105": {
+		"name":"Black Mage Lexa",
+		"jpname":"深碧の黒魔道士レキサ",
+		"id":"100032105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4651,"mp":284,"atk":132,"def":156,"mag":217,"spr":203},
+			"minStats":{"hp":1535,"mp":94,"atk":44,"def":51,"mag":72,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":60, "def%":30, "mag%":40, "spr%":40, "singleWielding":{"mag":50}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":30}], "killers":[{"name":"bird","magical":50},{"name":"stone","magical":50}], "mpRefresh":7, "skillEnhancement":{"20050":23,"20120":23,"20240":23,"20330":23,"20390":23}},
+			{"mag%":50, "equipedConditions":["rod"]},
+			{"singleWielding":{"mag":50}, "lbDamage":50, "equipedConditions":[["504237404","310009100"]]},
+			{"hp%":30, "mag%":50, "killers":[{"name":"bird","magical":50},{"name":"stone","magical":50}], "lbDamage":50, "levelCondition":105},
+			{"mp%":20, "levelCondition":115},
+			{"spr%":20, "singleWielding":{"mag":100}, "skillEnhancement":{"237441":2.5,"237442":2.5}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Black Mage Lexa",
+			"jpname":"深碧の黒魔道士レキサ",
+			"id":"100032105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3577,"mp":218,"atk":101,"def":120,"mag":166,"spr":156},
+				"minStats":{"hp":1180,"mp":72,"atk":33,"def":40,"mag":55,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":60, "def%":30, "mag%":40, "spr%":40, "singleWielding":{"mag":50}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":30}], "killers":[{"name":"bird","magical":50},{"name":"stone","magical":50}], "mpRefresh":7, "skillEnhancement":{"20050":23,"20120":23,"20240":23,"20330":23,"20390":23}},
+				{"mag%":50, "equipedConditions":["rod"]}
 			]
 		}
 	},

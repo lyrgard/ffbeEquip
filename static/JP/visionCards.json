@@ -70,7 +70,7 @@
 	{"atk":76, "conditional":[{"equipedConditions":["katana"],"atk%":100}]},
 	{"atk":82, "conditional":[{"equipedConditions":["katana"],"atk%":100}]},
 	{"atk":88, "conditional":[{"equipedConditions":["katana"],"atk%":100}]},
-	{"atk":100, "conditional":[{"equipedConditions":["katana"],"atk%":100},{"atk%":20,"exclusiveUnits":["100000315","100000337","100005905","100005927","100007705","100007727","100009105","100009127","100011705","100011727","100012405","100012427","100020505","100020527","100020905","100020927","100031007","100031017","100031507","100031517","100031607","100031617","100031707","100031717"]}]}
+	{"atk":100, "conditional":[{"equipedConditions":["katana"],"atk%":100},{"atk%":20,"exclusiveUnits":["100000315","100000337","100005905","100005927","100007705","100007727","100009105","100009127","100011705","100011727","100012405","100012427","100015405","100015427","100020505","100020527","100020905","100020927","100031007","100031017","100031507","100031517","100031607","100031617","100031707","100031717","100031907","100031917"]}]}
 ]},
 {"id":"100000701", "name":"感情なき賢者", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000701.png", "sortId":12, "levels":[
 	{"mag":40},
@@ -82,7 +82,7 @@
 	{"mag":76, "conditional":[{"equipedConditions":["rod"],"mag%":100}]},
 	{"mag":82, "conditional":[{"equipedConditions":["rod"],"mag%":100}]},
 	{"mag":88, "conditional":[{"equipedConditions":["rod"],"mag%":100}]},
-	{"mag":100, "conditional":[{"equipedConditions":["rod"],"mag%":100},{"mag%":30,"exclusiveUnits":["100000315","100000337","100005905","100005927","100007705","100007727","100009105","100009127","100011705","100011727","100012405","100012427","100020505","100020527","100020905","100020927","100031007","100031017","100031507","100031517","100031607","100031617","100031707","100031717"]}]}
+	{"mag":100, "conditional":[{"equipedConditions":["rod"],"mag%":100},{"mag%":30,"exclusiveUnits":["100000315","100000337","100005905","100005927","100007705","100007727","100009105","100009127","100011705","100011727","100012405","100012427","100015405","100015427","100020505","100020527","100020905","100020927","100031007","100031017","100031507","100031517","100031607","100031617","100031707","100031717","100031907","100031917"]}]}
 ]},
 {"id":"100000801", "name":"即席クアールライダー参上！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000801.png", "sortId":13, "levels":[
 	{"atk":50},
@@ -107,6 +107,18 @@
 	{"spr":71, "resist":[{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10},{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10}]},
 	{"spr":74, "resist":[{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10},{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10}]},
 	{"spr":80, "resist":[{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10},{"name":"ice","percent":10},{"name":"water","percent":10},{"name":"dark","percent":10},{"name":"ice","percent":20},{"name":"water","percent":20},{"name":"dark","percent":20}], "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}
+]},
+{"id":"100001101", "name":"マダムVS巨鳥ベンヌ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001101.png", "sortId":18, "levels":[
+	{"atk":40},
+	{"atk":46},
+	{"atk":52},
+	{"atk":58, "conditional":[{"equipedConditions":["fist"],"atk%":50}]},
+	{"atk":64, "conditional":[{"equipedConditions":["fist"],"atk%":50}]},
+	{"atk":70, "conditional":[{"equipedConditions":["fist"],"atk%":50}]},
+	{"atk":76, "conditional":[{"equipedConditions":["fist"],"atk%":100}]},
+	{"atk":82, "conditional":[{"equipedConditions":["fist"],"atk%":100}]},
+	{"atk":88, "conditional":[{"equipedConditions":["fist"],"atk%":100}]},
+	{"atk":100, "conditional":[{"equipedConditions":["fist"],"atk%":100},{"atk%":30,"exclusiveUnits":["100000315","100000337","100005905","100005927","100007705","100007727","100009105","100009127","100011705","100011727","100012405","100012427","100015405","100015427","100020505","100020527","100020905","100020927","100031007","100031017","100031507","100031517","100031607","100031617","100031707","100031717","100031907","100031917"]}]}
 ]},
 {"id":"100001501", "name":"夏のひとこま", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001501.png", "sortId":17, "levels":[
 	{"hp":400, "spr":40},

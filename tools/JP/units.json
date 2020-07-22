@@ -3061,17 +3061,19 @@
 		"name":"Nalu",
 		"jpname":"ナル",
 		"id":"100015405",
-		"max_rarity":"7",
+		"braveShift":"100015427",
+		"exAwakening": [{"hp":612,"mp":26,"atk":29,"def":23,"mag":19,"spr":22},{"hp":471,"mp":20,"atk":22,"def":18,"mag":15,"spr":17},{"hp":330,"mp":14,"atk":15,"def":12,"mag":10,"spr":12}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4708,"mp":194,"atk":199,"def":164,"mag":148,"spr":172},
-			"minStats":{"hp":1554,"mp":64,"atk":66,"def":54,"mag":49,"spr":57},
+			"maxStats":{"hp":4708,"mp":201,"atk":220,"def":175,"mag":148,"spr":172},
+			"minStats":{"hp":1554,"mp":66,"atk":73,"def":58,"mag":49,"spr":57},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
-		"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%"],
+		"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%","雷槍刺突","獣雷爪撃","クアールと心通わせる少女"],
 		"6_form": {
 			"name":"Nalu",
 			"jpname":"ナル",
@@ -3087,8 +3089,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
-			"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%"]
+			"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%","雷槍刺突","獣雷爪撃","クアールと心通わせる少女"]
+		},
+		"7_form": {
+			"name":"Nalu",
+			"jpname":"ナル",
+			"id":"100015405",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4708,"mp":194,"atk":199,"def":164,"mag":148,"spr":172},
+				"minStats":{"hp":1554,"mp":64,"atk":66,"def":54,"mag":49,"spr":57},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%","雷槍刺突","獣雷爪撃","クアールと心通わせる少女"]
 		}
+	},
+	"100015427": {
+		"name":"Nalu - Brave Shifted",
+		"jpname":"ナル - Brave Shifted",
+		"id":"100015427",
+		"braveShifted":true,
+		"exAwakening": [{"hp":612,"mp":26,"atk":29,"def":23,"mag":19,"spr":22},{"hp":471,"mp":20,"atk":22,"def":18,"mag":15,"spr":17},{"hp":330,"mp":14,"atk":15,"def":12,"mag":10,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4875,"mp":222,"atk":226,"def":174,"mag":143,"spr":169},
+			"minStats":{"hp":1609,"mp":73,"atk":75,"def":57,"mag":47,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["雷槍刺突","雷豹一突","噂のクアールライダー"]
 	},
 	"100015504": {
 		"name":"Pecciotta",
@@ -6860,7 +6897,7 @@
 		"enhancementSkills":["ブリザードデストラクション","氷闇の飛礫"]
 	},
 	"100031707": {
-		"name":"フィーナ&デイジー2020夏",
+		"name":"Summer Fina & Daisy",
 		"jpname":"フィーナ&デイジー2020夏",
 		"id":"100031707",
 		"braveShift":"100031717",
@@ -6878,7 +6915,7 @@
 		"enhancementSkills":["オーシャンマジック","オーシャンズカット"]
 	},
 	"100031717": {
-		"name":"フィーナ&デイジー2020夏 - Brave Shifted",
+		"name":"Summer Fina & Daisy - Brave Shifted",
 		"jpname":"フィーナ&デイジー2020夏 - Brave Shifted",
 		"id":"100031717",
 		"braveShifted":true,
@@ -6896,7 +6933,7 @@
 		"enhancementSkills":["情熱のビーチバレー","オーシャンズカット"]
 	},
 	"100031805": {
-		"name":"ミヌール",
+		"name":"Mineur",
 		"jpname":"ミヌール",
 		"id":"100031805",
 		"max_rarity":"7",
@@ -6910,7 +6947,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","throwing","hat","clothes","robe"],
 		"6_form": {
-			"name":"ミヌール",
+			"name":"Mineur",
 			"jpname":"ミヌール",
 			"id":"100031805",
 			"sixStarForm":true,
@@ -6924,6 +6961,104 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","throwing","hat","clothes","robe"]
+		}
+	},
+	"100031907": {
+		"name":"Madam Edel -Neo Vision-",
+		"jpname":"マダム・エーデル-Neo Vision-",
+		"id":"100031907",
+		"braveShift":"100031917",
+		"exAwakening": [{"hp":617,"mp":33,"atk":60,"def":26,"mag":21,"spr":25},{"hp":475,"mp":25,"atk":46,"def":20,"mag":16,"spr":19},{"hp":332,"mp":18,"atk":32,"def":14,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4749,"mp":250,"atk":231,"def":198,"mag":163,"spr":190},
+			"minStats":{"hp":1567,"mp":83,"atk":76,"def":65,"mag":54,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["魔弾・ファストグロウ","遺跡探検号令"]
+	},
+	"100031917": {
+		"name":"Madam Edel -Neo Vision- - Brave Shifted",
+		"jpname":"マダム・エーデル-Neo Vision- - Brave Shifted",
+		"id":"100031917",
+		"braveShifted":true,
+		"exAwakening": [{"hp":617,"mp":33,"atk":60,"def":26,"mag":21,"spr":25},{"hp":475,"mp":25,"atk":46,"def":20,"mag":16,"spr":19},{"hp":332,"mp":18,"atk":32,"def":14,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4806,"mp":230,"atk":233,"def":190,"mag":152,"spr":195},
+			"minStats":{"hp":1586,"mp":76,"atk":77,"def":63,"mag":50,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","gun","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["魔弾・ファストグロウ","魔拳・ファストダウン"]
+	},
+	"100032005": {
+		"name":"Unmatched Strongman Elbis",
+		"jpname":"無敵の剛筋エルビス",
+		"id":"100032005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4855,"mp":242,"atk":206,"def":190,"mag":169,"spr":185},
+			"minStats":{"hp":1602,"mp":80,"atk":68,"def":63,"mag":56,"spr":61},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","mace","fist","hat","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Unmatched Strongman Elbis",
+			"jpname":"無敵の剛筋エルビス",
+			"id":"100032005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3734,"mp":186,"atk":158,"def":146,"mag":130,"spr":142},
+				"minStats":{"hp":1232,"mp":61,"atk":52,"def":48,"mag":43,"spr":47},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","axe","hammer","mace","fist","hat","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"100032105": {
+		"name":"Black Mage Lexa",
+		"jpname":"深碧の黒魔道士レキサ",
+		"id":"100032105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4651,"mp":284,"atk":132,"def":156,"mag":217,"spr":203},
+			"minStats":{"hp":1535,"mp":94,"atk":44,"def":51,"mag":72,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"6_form": {
+			"name":"Black Mage Lexa",
+			"jpname":"深碧の黒魔道士レキサ",
+			"id":"100032105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3577,"mp":218,"atk":101,"def":120,"mag":166,"spr":156},
+				"minStats":{"hp":1180,"mp":72,"atk":33,"def":40,"mag":55,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","mace","hat","clothes","robe"]
 		}
 	},
 	"201000104": {
