@@ -6283,8 +6283,8 @@
 		}
 	},
 	"100024805": {
-		"name":"Fina & Dark Fina",
-		"wikiEntry":"フィーナ&魔人フィーナ",
+		"name":"Fina y Fina oscura",
+		"wikiEntry":"Fina_& Dark Fina",
 		"id":"100024805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6297,7 +6297,7 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"hp%":40, "mp%":70, "def%":20, "mag%":70, "spr%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":100}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"silence","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+			{"hp%":40, "mp%":70, "def%":20, "mag%":70, "spr%":50, "singleWielding":{"mag":50}, "dualWielding":{"mag":100}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"silence","percent":100},{"name":"charm","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":7, "skillEnhancement":{"231490":3,"231491":3,"231492":3,"510102":6}, "special":["dualWield"]},
 			{"mag%":30, "equipedConditions":["rod"]},
 			{"mag%":30, "equipedConditions":["whip"]},
 			{"mag%":50, "lbDamage":40, "equipedConditions":[["409031400","504231472"]]},
@@ -6306,8 +6306,8 @@
 			{"hp%":20, "def%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Fina & Dark Fina",
-			"wikiEntry":"フィーナ&魔人フィーナ",
+			"name":"Fina y Fina oscura",
+			"wikiEntry":"Fina_& Dark Fina",
 			"id":"100024805",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -6321,7 +6321,7 @@
 			"stats_pattern":1,
 			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
 			"skills": [
-				{"hp%":40, "mp%":70, "def%":20, "mag%":70, "spr%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":100}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"silence","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+				{"hp%":40, "mp%":70, "def%":20, "mag%":70, "spr%":50, "singleWielding":{"mag":50}, "dualWielding":{"mag":100}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"silence","percent":100},{"name":"charm","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":7, "skillEnhancement":{"231490":3,"231491":3,"231492":3,"510102":6}, "special":["dualWield"]},
 				{"mag%":30, "equipedConditions":["rod"]},
 				{"mag%":30, "equipedConditions":["whip"]}
 			]
@@ -7309,7 +7309,7 @@
 	},
 	"100028205": {
 		"name":"Zenaida",
-		"wikiEntry":"セナイダ",
+		"wikiEntry":"Zenaida",
 		"id":"100028205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7332,7 +7332,7 @@
 		],
 		"6_form": {
 			"name":"Zenaida",
-			"wikiEntry":"セナイダ",
+			"wikiEntry":"Zenaida",
 			"id":"100028205",
 			"sixStarForm":true,
 			"max_rarity":"7",
