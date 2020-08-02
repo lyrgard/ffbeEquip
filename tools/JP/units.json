@@ -15686,6 +15686,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ラックアップ","コンボプラス","ラストアルカナム","ストライクレイド","リミットアップツイン"],
 		"6_form": {
 			"name":"Sora",
 			"jpname":"ソラ",
@@ -15700,7 +15701,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["ラックアップ","コンボプラス","ラストアルカナム","ストライクレイド","リミットアップツイン"]
 		}
 	},
 	"335000205": {
@@ -15717,6 +15719,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["予兆・凶斬り","アサルトブレイク","コンティニュアムカット","バトルエキスパート","自らの闇を追う者"],
 		"6_form": {
 			"name":"Cloud (KH)",
 			"jpname":"クラウド(キングダム ハーツ)",
@@ -15731,7 +15734,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["予兆・凶斬り","アサルトブレイク","コンティニュアムカット","バトルエキスパート","自らの闇を追う者"]
 		}
 	},
 	"335000305": {
@@ -15748,6 +15752,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["正体不明の大剣豪","八刀一閃","闇に堕ちろ","黒の祝福","クラウドの闇"],
 		"6_form": {
 			"name":"Sephiroth (KH)",
 			"jpname":"セフィロス(キングダム ハーツ)",
@@ -15762,7 +15767,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["正体不明の大剣豪","八刀一閃","闇に堕ちろ","黒の祝福","クラウドの闇"]
 		}
 	},
 	"335000405": {
@@ -15779,6 +15785,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ダークメイルストロム","デュエルトリガー","闇に対抗する術","ダークオーラ","真に選ばれし者"],
 		"6_form": {
 			"name":"Riku",
 			"jpname":"リク",
@@ -15793,7 +15800,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["ダークメイルストロム","デュエルトリガー","闇に対抗する術","ダークオーラ","真に選ばれし者"]
 		}
 	},
 	"336000105": {
@@ -16443,6 +16451,145 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes"]
+		}
+	},
+	"340000107": {
+		"name":"Sora (KHIII)",
+		"jpname":"ソラ(KHIII)",
+		"id":"340000107",
+		"braveShift":"340000117",
+		"exAwakening": [{"hp":622,"mp":33,"atk":59,"def":25,"mag":21,"spr":23},{"hp":478,"mp":25,"atk":46,"def":19,"mag":16,"spr":18},{"hp":335,"mp":18,"atk":32,"def":13,"mag":11,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4781,"mp":300,"atk":208,"def":189,"mag":160,"spr":175},
+			"minStats":{"hp":1578,"mp":99,"atk":69,"def":62,"mag":53,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ラピッドスラッシュ","サンセットブライト"]
+	},
+	"340000117": {
+		"name":"Sora (KHIII) - Brave Shifted",
+		"jpname":"ソラ(KHIII) - Brave Shifted",
+		"id":"340000117",
+		"braveShifted":true,
+		"exAwakening": [{"hp":622,"mp":33,"atk":59,"def":25,"mag":21,"spr":23},{"hp":478,"mp":25,"atk":46,"def":19,"mag":16,"spr":18},{"hp":335,"mp":18,"atk":32,"def":13,"mag":11,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4831,"mp":300,"atk":250,"def":242,"mag":150,"spr":231},
+			"minStats":{"hp":1594,"mp":99,"atk":83,"def":80,"mag":50,"spr":76},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ラピッドスラッシュ","フィニッシュアーツ"]
+	},
+	"340000207": {
+		"name":"Riku (KHIII)",
+		"jpname":"リク(KHIII)",
+		"id":"340000207",
+		"braveShift":"340000217",
+		"exAwakening": [{"hp":623,"mp":32,"atk":59,"def":24,"mag":20,"spr":23},{"hp":479,"mp":24,"atk":46,"def":18,"mag":15,"spr":18},{"hp":335,"mp":17,"atk":32,"def":13,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4792,"mp":244,"atk":228,"def":184,"mag":152,"spr":180},
+			"minStats":{"hp":1581,"mp":81,"atk":75,"def":61,"mag":50,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ダークメイルストロム","シャドウストライク"]
+	},
+	"340000217": {
+		"name":"Riku (KHIII) - Brave Shifted",
+		"jpname":"リク(KHIII) - Brave Shifted",
+		"id":"340000217",
+		"braveShifted":true,
+		"exAwakening": [{"hp":623,"mp":32,"atk":59,"def":24,"mag":20,"spr":23},{"hp":479,"mp":24,"atk":46,"def":18,"mag":15,"spr":18},{"hp":335,"mp":17,"atk":32,"def":13,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4862,"mp":235,"atk":233,"def":195,"mag":141,"spr":169},
+			"minStats":{"hp":1604,"mp":78,"atk":77,"def":64,"mag":47,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ダークメイルストロム","ダークディバイド"]
+	},
+	"340000307": {
+		"name":"Kairi (KHIII)",
+		"jpname":"カイリ(KHIII)",
+		"id":"340000307",
+		"braveShift":"340000317",
+		"exAwakening": [{"hp":630,"mp":32,"atk":59,"def":23,"mag":20,"spr":24},{"hp":484,"mp":24,"atk":45,"def":18,"mag":16,"spr":19},{"hp":339,"mp":17,"atk":32,"def":12,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4843,"mp":243,"atk":227,"def":175,"mag":157,"spr":188},
+			"minStats":{"hp":1598,"mp":80,"atk":75,"def":58,"mag":52,"spr":62},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["ファイティングアップ","セイントシャワー"]
+	},
+	"340000317": {
+		"name":"Kairi (KHIII) - Brave Shifted",
+		"jpname":"カイリ(KHIII) - Brave Shifted",
+		"id":"340000317",
+		"braveShifted":true,
+		"exAwakening": [{"hp":630,"mp":32,"atk":59,"def":23,"mag":20,"spr":24},{"hp":484,"mp":24,"atk":45,"def":18,"mag":16,"spr":19},{"hp":339,"mp":17,"atk":32,"def":12,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4793,"mp":258,"atk":225,"def":170,"mag":170,"spr":190},
+			"minStats":{"hp":1582,"mp":85,"atk":74,"def":56,"mag":56,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["ファイティングアップ","ホーリーライト"]
+	},
+	"341000105": {
+		"name":"Young Xehanort (KHDR)",
+		"jpname":"少年ゼアノート(KHDR)",
+		"id":"341000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4893,"mp":246,"atk":209,"def":179,"mag":149,"spr":173},
+			"minStats":{"hp":1615,"mp":81,"atk":69,"def":59,"mag":49,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Young Xehanort (KHDR)",
+			"jpname":"少年ゼアノート(KHDR)",
+			"id":"341000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3763,"mp":189,"atk":160,"def":137,"mag":114,"spr":133},
+				"minStats":{"hp":1242,"mp":62,"atk":53,"def":45,"mag":38,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor"]
 		}
 	},
 	"401000104": {
