@@ -1521,6 +1521,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 35) {
         result = {"noUse":true};
         
+        // steal item (vaan lb)
+    } else if (rawEffect[2] == 37) {
+        result = {"noUse":true};
+        
         // Dualcast
     } else if (rawEffect[2] == 45) {
         return {
