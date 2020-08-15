@@ -2367,17 +2367,19 @@
 		"name":"Lotus Mage Fina",
 		"jpname":"白蓮の魔道士フィーナ",
 		"id":"100011805",
-		"max_rarity":"7",
+		"braveShift":"100011827",
+		"exAwakening": [{"hp":570,"mp":34,"atk":19,"def":21,"mag":24,"spr":28},{"hp":439,"mp":27,"atk":15,"def":17,"mag":18,"spr":21},{"hp":307,"mp":19,"atk":10,"def":12,"mag":13,"spr":15}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4388,"mp":265,"atk":145,"def":165,"mag":183,"spr":214},
-			"minStats":{"hp":1448,"mp":87,"atk":48,"def":54,"mag":60,"spr":71},
+			"maxStats":{"hp":4388,"mp":265,"atk":145,"def":165,"mag":183,"spr":213},
+			"minStats":{"hp":1448,"mp":87,"atk":48,"def":54,"mag":60,"spr":70},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
-		"enhancementSkills":["ホワイトロータス","シャイニングチアー","ディバインヴェール","セイクリッドバースト"],
+		"enhancementSkills":["ホワイトロータス","シャイニングチアー","ディバインヴェール","セイクリッドバースト","ヒールペトル","ロータスインプルーブ","ふたりの想い"],
 		"6_form": {
 			"name":"Lotus Mage Fina",
 			"jpname":"白蓮の魔道士フィーナ",
@@ -2393,8 +2395,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
-			"enhancementSkills":["ホワイトロータス","シャイニングチアー","ディバインヴェール","セイクリッドバースト"]
+			"enhancementSkills":["ホワイトロータス","シャイニングチアー","ディバインヴェール","セイクリッドバースト","ヒールペトル","ロータスインプルーブ","ふたりの想い"]
+		},
+		"7_form": {
+			"name":"Lotus Mage Fina",
+			"jpname":"白蓮の魔道士フィーナ",
+			"id":"100011805",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4388,"mp":265,"atk":145,"def":165,"mag":183,"spr":214},
+				"minStats":{"hp":1448,"mp":87,"atk":48,"def":54,"mag":60,"spr":71},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["ホワイトロータス","シャイニングチアー","ディバインヴェール","セイクリッドバースト","ヒールペトル","ロータスインプルーブ","ふたりの想い"]
 		}
+	},
+	"100011827": {
+		"name":"白蓮の魔道士フィーナ - Brave Shifted",
+		"jpname":"白蓮の魔道士フィーナ - Brave Shifted",
+		"id":"100011827",
+		"braveShifted":true,
+		"exAwakening": [{"hp":570,"mp":34,"atk":19,"def":21,"mag":24,"spr":28},{"hp":439,"mp":27,"atk":15,"def":17,"mag":18,"spr":21},{"hp":307,"mp":19,"atk":10,"def":12,"mag":13,"spr":15}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4388,"mp":265,"atk":143,"def":165,"mag":220,"spr":250},
+			"minStats":{"hp":1448,"mp":87,"atk":47,"def":54,"mag":73,"spr":83},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["bow","hat","clothes","robe"],
+		"enhancementSkills":["ヒールペトル","白蓮の護り","魔人の守護"]
 	},
 	"100011905": {
 		"name":"Heavenly Technician Lid",
@@ -4360,17 +4397,19 @@
 		"name":"Sacred Shield Charlotte",
 		"jpname":"聖盾の騎士シャルロット",
 		"id":"100021705",
-		"max_rarity":"7",
+		"braveShift":"100021727",
+		"exAwakening": [{"hp":651,"mp":29,"atk":22,"def":24,"mag":18,"spr":28},{"hp":501,"mp":22,"atk":17,"def":18,"mag":14,"spr":22},{"hp":351,"mp":16,"atk":12,"def":13,"mag":10,"spr":15}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":5011,"mp":225,"atk":167,"def":184,"mag":137,"spr":219},
-			"minStats":{"hp":1654,"mp":74,"atk":55,"def":61,"mag":45,"spr":72},
+			"maxStats":{"hp":5010,"mp":224,"atk":167,"def":184,"mag":136,"spr":218},
+			"minStats":{"hp":1653,"mp":74,"atk":55,"def":61,"mag":45,"spr":72},
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["不滅の忠義","ナイトオブナイツ","グランシェルトの光","誠光の騎士剣","氷晶の騎士剣"],
+		"enhancementSkills":["不滅の忠義","ナイトオブナイツ","グランシェルトの光","誠光の騎士剣","氷晶の騎士剣","聖盾のヴェール","阻魔の聖盾","グランシェルト国民の憧れ"],
 		"6_form": {
 			"name":"Sacred Shield Charlotte",
 			"jpname":"聖盾の騎士シャルロット",
@@ -4386,8 +4425,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["不滅の忠義","ナイトオブナイツ","グランシェルトの光","誠光の騎士剣","氷晶の騎士剣"]
+			"enhancementSkills":["不滅の忠義","ナイトオブナイツ","グランシェルトの光","誠光の騎士剣","氷晶の騎士剣","聖盾のヴェール","阻魔の聖盾","グランシェルト国民の憧れ"]
+		},
+		"7_form": {
+			"name":"Sacred Shield Charlotte",
+			"jpname":"聖盾の騎士シャルロット",
+			"id":"100021705",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":5011,"mp":225,"atk":167,"def":184,"mag":137,"spr":219},
+				"minStats":{"hp":1654,"mp":74,"atk":55,"def":61,"mag":45,"spr":72},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["不滅の忠義","ナイトオブナイツ","グランシェルトの光","誠光の騎士剣","氷晶の騎士剣","聖盾のヴェール","阻魔の聖盾","グランシェルト国民の憧れ"]
 		}
+	},
+	"100021727": {
+		"name":"聖盾の騎士シャルロット - Brave Shifted",
+		"jpname":"聖盾の騎士シャルロット - Brave Shifted",
+		"id":"100021727",
+		"braveShifted":true,
+		"exAwakening": [{"hp":651,"mp":29,"atk":22,"def":24,"mag":18,"spr":28},{"hp":501,"mp":22,"atk":17,"def":18,"mag":14,"spr":22},{"hp":351,"mp":16,"atk":12,"def":13,"mag":10,"spr":15}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5500,"mp":265,"atk":145,"def":183,"mag":130,"spr":270},
+			"minStats":{"hp":1815,"mp":87,"atk":48,"def":60,"mag":43,"spr":89},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["聖盾のヴェール","邪を阻む聖盾","凛とした女騎士"]
 	},
 	"100021803": {
 		"name":"Shepard",
@@ -7061,6 +7135,73 @@
 			"equip":["dagger","staff","rod","mace","hat","clothes","robe"]
 		}
 	},
+	"100032207": {
+		"name":"Physalis -Neo Vision-",
+		"jpname":"ファイサリス-Neo Vision-",
+		"id":"100032207",
+		"braveShift":"100032217",
+		"exAwakening": [{"hp":622,"mp":32,"atk":20,"def":24,"mag":60,"spr":25},{"hp":478,"mp":25,"atk":16,"def":19,"mag":46,"spr":19},{"hp":335,"mp":17,"atk":11,"def":13,"mag":32,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4784,"mp":249,"atk":155,"def":186,"mag":229,"spr":189},
+			"minStats":{"hp":1579,"mp":82,"atk":51,"def":61,"mag":76,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["F型最強アイス弾","F型最強ウィンド弾"]
+	},
+	"100032217": {
+		"name":"Physalis -Neo Vision- - Brave Shifted",
+		"jpname":"ファイサリス-Neo Vision- - Brave Shifted",
+		"id":"100032217",
+		"braveShifted":true,
+		"exAwakening": [{"hp":622,"mp":32,"atk":20,"def":24,"mag":60,"spr":25},{"hp":478,"mp":25,"atk":16,"def":19,"mag":46,"spr":19},{"hp":335,"mp":17,"atk":11,"def":13,"mag":32,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4677,"mp":284,"atk":150,"def":163,"mag":300,"spr":201},
+			"minStats":{"hp":1543,"mp":94,"atk":50,"def":54,"mag":99,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["F型最強アイス弾","F型最強ウォータ弾"]
+	},
+	"100032305": {
+		"name":"Knight Lawrence",
+		"jpname":"騎士団一の優男ローレンス",
+		"id":"100032305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5002,"mp":208,"atk":175,"def":212,"mag":145,"spr":200},
+			"minStats":{"hp":1651,"mp":69,"atk":58,"def":70,"mag":48,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","lightShield","hat","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Knight Lawrence",
+			"jpname":"騎士団一の優男ローレンス",
+			"id":"100032305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3847,"mp":160,"atk":134,"def":163,"mag":111,"spr":153},
+				"minStats":{"hp":1270,"mp":53,"atk":44,"def":54,"mag":37,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","lightShield","hat","clothes","lightArmor","heavyArmor"]
+		}
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -7123,6 +7264,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["ブレイブプレゼンスII","光は我らとともにII","我らの光を消せなどしない","インビンシブルシールド","時の鎖を断ち切る者"],
 		"6_form": {
 			"name":"Awakened Warrior of Light",
 			"jpname":"ウォーリア オブ ライト",
@@ -7137,7 +7279,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["ブレイブプレゼンスII","光は我らとともにII","我らの光を消せなどしない","インビンシブルシールド","時の鎖を断ち切る者"]
 		}
 	},
 	"201000505": {
@@ -10525,7 +10668,7 @@
 		"equip":["dagger","staff","rod","whip","lightShield","hat","clothes","robe"]
 	},
 	"209002105": {
-		"name":"Reaper Kuja",
+		"name":"Angel of Death Kuja",
 		"jpname":"美しき死神クジャ",
 		"id":"209002105",
 		"max_rarity":"7",
@@ -10539,7 +10682,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"Reaper Kuja",
+			"name":"Angel of Death Kuja",
 			"jpname":"美しき死神クジャ",
 			"id":"209002105",
 			"sixStarForm":true,
@@ -10587,7 +10730,7 @@
 		}
 	},
 	"209002305": {
-		"name":"Pluto Knight Zidane",
+		"name":"Knight of Pluto Zidane",
 		"jpname":"プルート隊ジタン",
 		"id":"209002305",
 		"max_rarity":"7",
@@ -10601,7 +10744,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","bow","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"6_form": {
-			"name":"Pluto Knight Zidane",
+			"name":"Knight of Pluto Zidane",
 			"jpname":"プルート隊ジタン",
 			"id":"209002305",
 			"sixStarForm":true,

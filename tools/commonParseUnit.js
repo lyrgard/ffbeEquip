@@ -1649,8 +1649,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             let skillsDesc = [];
             for (var i = 0, len = rawEffect[3][3].length; i < len; i++) {
                 var skill = skills[rawEffect[3][3][i]];
-                gainedEffect.multicast.skills.push({"id": rawEffect[3][3][i].toString(), "name":skill.name});
-                skillsDesc.push(skill.name + '(' + rawEffect[3][3][i].toString() + ')');
+                if (skill) {
+                    gainedEffect.multicast.skills.push({"id": rawEffect[3][3][i].toString(), "name": skill.name});
+                    skillsDesc.push(skill.name + '(' + rawEffect[3][3][i].toString() + ')');
+                }
             }
             var parsedSkill = {"name" : gainedSkill.name, "icon": gainedSkill.icon, "effects": [
                 {
