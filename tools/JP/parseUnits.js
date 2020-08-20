@@ -6,10 +6,6 @@ var commonParse = require('../commonParseUnit');
 filterGame = [];
 filterUnits = ["199000101", "256000301"]
 
-const braveAbilityIdsByUnitId = {
-    "207000305": ["236111", "236120", "236125", "236116", "236118", "236128"],
-    "207000505": ["236061", "236068", "236073", "236066", "236076"]
-}
 var enhancementsByUnitId = {};
 var glNameById = {};
 var dev = false;

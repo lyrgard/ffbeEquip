@@ -125,6 +125,7 @@ getData('units.json', function (units) {
                                                     for (languageId = 0; languageId < languages.length; languageId++) {
 
                                                         var unitsOut = {};
+                                                        manageNV(units);
                                                         unitIds.forEach(unitId => {
                                                             var unitIn = units[unitId];
                                                             var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, latentSkillsByUnitId);
@@ -169,6 +170,57 @@ getData('units.json', function (units) {
         });
     });
 });
+
+function manageNV(units) {
+    const braveShiftUnitIdByBaseUnitId = [];
+    const baseUnitIdByNVUnitId = {};
+    for (var unitId in units) {
+        const unitIn = units[unitId];
+        if (unitIn.skills) {
+            unitIn.skills
+                .filter(skill => skill.brave_ability)
+                .forEach(skill => {
+                    skill.rarity = "NV"
+                    skill.level = 0
+                });
+        }
+        if (unitIn.base_id) {
+            unitIn.rarity_max = 'NV';
+            unitIn.rarity_min = 'NV';
+            unitIn.entries[unitId].rarity = 'NV';
+            if (unitIn.base_id != unitId)  {
+                braveShiftUnitIdByBaseUnitId.push({baseUnitId: unitIn.base_id, braveShiftedUnitId: unitId});
+            } else {
+                unitIn.nv_upgrade = unitIn.entries[unitId].nv_upgrade;
+            }
+        }
+        if (unitIn.rarity_max == 7) {
+            const baseUnitId = unitId.substr(0, unitId.length -1);
+            nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
+            if (nvIds.length) {
+                unitIn.rarity_max = 'NV';
+                unitIn.entries[nvIds[0]].rarity = 'NV';
+                baseUnitIdByNVUnitId[nvIds[0]] = unitId;
+                unitIn.nv_upgrade = unitIn.entries[nvIds[0]].nv_upgrade;
+            }
+            if (unitIn.rarity_min == 7) {
+                unitIn.rarity_max = 'NV';
+                unitIn.rarity_min = 'NV';
+                Object.values(unitIn.entries).forEach(e => e.rarity = 'NV');
+                //baseUnitIdByNVUnitId[nvIds[0]] = unitId;
+                unitIn.nv_upgrade = Object.values(unitIn.entries)[0].nv_upgrade;
+            }
+        }
+    }
+    braveShiftUnitIdByBaseUnitId.forEach(data => {
+        let baseId = data.baseUnitId;
+        if (!units[data.baseUnitId] && baseUnitIdByNVUnitId[data.baseUnitId]) {
+            baseId = baseUnitIdByNVUnitId[data.baseUnitId];
+        }
+        units[baseId].braveShiftedUnitId = data.braveShiftedUnitId;
+        units[data.braveShiftedUnitId].nv_upgrade = units[baseId].nv_upgrade;
+    });
+}
 
 function getJPUnitData(glUnitIds, callback) {
     fs.readFile('../../static/JP/units.json', function (err, content) {
@@ -277,7 +329,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
     }
     
     if (!unitData) {
-        console.log(unitData);
+        console.log(unitIn);
     }
     
     for (var statIndex in commonParse.stats) {
@@ -339,12 +391,33 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
     if (!dev && languageId == 0 && jpUnits) {
         verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     }
-    
-    if (maxRarity == 7) {
+
+    if ((maxRarity == 7 || maxRarity == 'NV') && unitIn.rarity_min != 'NV') {
         data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, null, latentSkillsByUnitId, 6).data;
+    }
+    if (maxRarity == 'NV' && unitIn.rarity_min != 'NV') {
+        data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, null, latentSkillsByUnitId, 7).data;
+    }
+
+    if (maxRarity == 'NV' && unitIn.nv_upgrade) {
+        data.equip.push("visionCard");
+        data.exAwakenings = [
+            lowerCaseKeys(unitIn.nv_upgrade[0].stats),
+            lowerCaseKeys(unitIn.nv_upgrade[1].stats),
+            lowerCaseKeys(unitIn.nv_upgrade[2].stats),
+        ]
     }
     
     return unit;
+}
+
+function lowerCaseKeys(obj) {
+    Object.keys(obj).forEach(key => {
+        const value = obj[key];
+        delete obj[key];
+        obj[key.toLowerCase()] = value;
+    });
+    return obj;
 }
 
 

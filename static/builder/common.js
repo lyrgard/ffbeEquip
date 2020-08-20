@@ -1324,11 +1324,7 @@ function getStatBonusCap(stat) {
         case 'lbPerTurn':
             return 12;
         case 'tdh':
-            if (server == 'JP') {
-                return 400;
-            } else {
-                return 300;
-            }
+            return 400;
         case 'tdw':
             return 200;
         case 'jumpDamage':

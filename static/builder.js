@@ -1505,6 +1505,8 @@ function updateUnitLevelDisplay() {
             } else {
                 $("#unitExAwakeningLevel select").val("0");
             }
+        } else {
+            $("#unitExAwakeningLevel").addClass("hidden");
         }
     } else {
         $("#unitLevel").addClass("hidden");
@@ -2236,7 +2238,7 @@ function adaptEsperMasteryToBuild() {
 function removeFixedItemAt(slot) {
     builds[currentUnitIndex].fixedItems[slot] = null;
     var equip = builds[currentUnitIndex].getCurrentUnitEquip();
-    for (var index = 0; index < 10; index++) {
+    for (var index = 0; index < 11; index++) {
         var item = builds[currentUnitIndex].fixedItems[index];
         if (item && !item.placeHolder) {
             if (!equip.includes(item.type)) {
@@ -2255,7 +2257,7 @@ function removeItemAt(slot) {
     builds[currentUnitIndex].build[slot] = null;
     builds[currentUnitIndex].prepareEquipable();
     
-    for (var index = 0; index < 10; index ++) {
+    for (var index = 0; index < 11; index ++) {
         var item = builds[currentUnitIndex].build[index];
         if (item && !item.placeHolder) {
             if (!builds[currentUnitIndex].equipable[index].includes(item.type)) {
@@ -3136,7 +3138,7 @@ async function loadStateHashAndBuild(data, importMode = false) {
         
         if (unit.esperId) {
             if (unit.esper) {
-                fixItem(getEsperItem(unit.esper), 10, undefined, unit.esperPinned);
+                fixItem(getEsperItem(unit.esper), 11, undefined, unit.esperPinned);
             } else if (dataVersion >= 2) {
                 fixItem(unit.esperId, -1, undefined, unit.esperPinned);
             } else {
@@ -3562,8 +3564,8 @@ function getItemLineAsText(prefix, slot, buildIndex = currentUnitIndex) {
                         if (builds[buildIndex].build[i].esperStatsBonus.all) {
                             statBonusCoef += builds[buildIndex].build[i].esperStatsBonus.all["hp"] / 100;
                         }
-                        if (builds[buildIndex].build[10] && builds[buildIndex].build[i].esperStatsBonus[builds[buildIndex].build[10].id]) {
-                            statBonusCoef += builds[buildIndex].build[i].esperStatsBonus[builds[buildIndex].build[10].id]["hp"] / 100;
+                        if (builds[buildIndex].build[11] && builds[buildIndex].build[i].esperStatsBonus[builds[buildIndex].build[11].id]) {
+                            statBonusCoef += builds[buildIndex].build[i].esperStatsBonus[builds[buildIndex].build[11].id]["hp"] / 100;
                         }
                     }
                 }

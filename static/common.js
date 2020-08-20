@@ -1194,7 +1194,20 @@ var sort = function(items, unitId) {
             var typeIndex1 = typeListWithEsper.indexOf(item1.type);
             var typeIndex2 = typeListWithEsper.indexOf(item2.type);
             if (typeIndex1 == typeIndex2) {
-                return item1.name.localeCompare(item2.name);
+                if (item1.name) {
+                    if (item2.name) {
+                        return item1.name.localeCompare(item2.name);
+                    } else {
+                        return -1;
+                    }
+                } else {
+                    if (item2.name) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                }
+
             } else {
                 return typeIndex1 - typeIndex2;
             }
