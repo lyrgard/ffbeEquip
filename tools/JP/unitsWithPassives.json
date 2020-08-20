@@ -119,7 +119,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
+		"equip":["staff","rod","whip","mace","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["リタリエイト","アルテマ","ディストピア","土のクリスタルに眠りし者","クレイスカージ","ソーサリーウィップ"],
 		"enhancements": [
 			{"name":"レインへの想い","levels":[[],[{"mag%":50,"mp%":20,"hp%":20,"mpRefresh":7,"resist":[{"name":"wind","percent":30},{"name":"earth","percent":30}]}]]},
@@ -217,7 +217,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
+		"equip":["staff","rod","whip","mace","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["ソーサリーウィップ","ブリーズチェイン","解放されし魔人の力"],
 		"enhancements": [
 			{"name":"解放されし魔人の力","levels":[[{"mag%":30,"mpRefresh":5}],[{"mag%":50,"mpRefresh":8}],[{"mag%":70,"mpRefresh":8}],[{"mag%":90,"mpRefresh":10}],[{"mag%":100,"mpRefresh":10}]]}
@@ -1322,7 +1322,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["リカバリーオイル","アナリシス","パイルドライバー","パイルドライバー・改","アームリヴァンプ","ジェイクとの絆【アイリーン】"],
 		"enhancements": [
 			{"name":"アナリシス","levels":[[{"atk%":30,"killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}]}],[{"atk%":30,"hp%":20,"killers":[{"name":"machine","physical":75},{"name":"stone","physical":75}]}],[{"atk%":30,"hp%":20,"killers":[{"name":"machine","physical":75},{"name":"stone","physical":75}]},{"equipedConditions":["spear"],"atk%":50}]]},
@@ -1399,7 +1399,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["パイルドライバー・改","マントルドライバー","武器専門のエンジニア"],
 		"enhancements": [
 			{"name":"武器専門のエンジニア","levels":[[{"killers":[{"name":"machine","physical":25},{"name":"stone","physical":25}],"lbDamage":50}],[{"killers":[{"name":"machine","physical":25},{"name":"stone","physical":25}],"lbDamage":75}],[{"killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}],"lbDamage":75}],[{"killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}],"lbDamage":100}],[{"killers":[{"name":"machine","physical":75},{"name":"stone","physical":75}],"lbDamage":100}]]}
@@ -1900,7 +1900,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["常闇","インパクト","暗黒の罪科","暗黒の刃","怨讐の闇刃・改","晦冥の罪科","英傑のオーラ"],
 		"enhancements": [
 			{"name":"パラデイアの英雄【常闇】","levels":[[],[{"spr%":40,"def%":40,"atk%":40,"mp%":40,"killers":[{"name":"beast","physical":75},{"name":"human","physical":75},{"name":"dragon","physical":75}],"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":50},"mpRefresh":5}]]},
@@ -1993,7 +1993,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","fist","heavyShield","helm","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","fist","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["怨讐の闇刃・改","修羅の獄剣","六盟傑のリーダー"],
 		"enhancements": [
 			{"name":"六盟傑のリーダー","levels":[[{"lbDamage":50,"mpRefresh":5}],[{"lbDamage":75,"mpRefresh":5}],[{"lbDamage":100,"mpRefresh":10}],[{"lbDamage":125,"mpRefresh":10}],[{"lbDamage":150,"mpRefresh":10}]]}
@@ -2343,7 +2343,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["双剣将軍","アーマーイレイサー","アームズイレイサー","フルブレイク改","入魂の一刃","滅閃一刃","騎士団との絆【ロレーヌ】"],
 		"enhancements": [
 			{"name":"双剣将軍","levels":[[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30,"mp%":20,"hp%":20}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":60,"mp%":20,"hp%":20}]]},
@@ -2429,7 +2429,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["滅閃一刃","双剣舞","蒼月の心得"],
 		"enhancements": [
 			{"name":"蒼月の心得","levels":[[{"atk":420,"killers":[{"name":"aquatic","physical":50},{"name":"stone","physical":50},{"name":"undead","physical":50}]}],[{"atk":440,"killers":[{"name":"aquatic","physical":50},{"name":"stone","physical":50},{"name":"undead","physical":50}]}],[{"atk":460,"killers":[{"name":"aquatic","physical":75},{"name":"stone","physical":75},{"name":"undead","physical":75}]}],[{"atk":480,"killers":[{"name":"aquatic","physical":75},{"name":"stone","physical":75},{"name":"undead","physical":75}]}],[{"atk":500,"killers":[{"name":"aquatic","physical":100},{"name":"stone","physical":100},{"name":"undead","physical":100}]}]]}
@@ -3118,7 +3118,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["秘刀の継承者","紫電一閃・醒","絶・明鏡","MP+20%","烈魂の刃","紫電一閃・大悟","技に込めた思い"],
 		"enhancements": [
 			{"name":"忘れがたき師の教え","levels":[[],[{"atk%":40,"dualWielding":{"atk":50},"skillEnhancement":{"200320":4,"205550":4,"218260":4,"227561":4,"508001":4,"707725":4,"707726":4}}]]},
@@ -3215,7 +3215,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["烈魂の刃","雪華終焉・改","星を導く者"],
 		"enhancements": [
 			{"name":"星を導く者","levels":[[{"atk%":40,"lbPerTurn":{"min":6,"max":6}}],[{"atk%":60,"lbPerTurn":{"min":8,"max":8}}],[{"atk%":80,"lbPerTurn":{"min":10,"max":10}}],[{"atk%":90,"lbPerTurn":{"min":11,"max":11}}],[{"atk%":100,"lbPerTurn":{"min":12,"max":12}}]]}
@@ -3240,7 +3240,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["ホワイトロータス","シャイニングチアー","ディバインヴェール","セイクリッドバースト","ヒールペトル","ロータスインプルーブ","ふたりの想い"],
 		"enhancements": [
 			{"name":"たくされた想い","levels":[[],[{"resist":[{"name":"earth","percent":30},{"name":"dark","percent":30}],"mpRefresh":5}]]},
@@ -3340,7 +3340,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["bow","hat","clothes","robe"],
+		"equip":["bow","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["ヒールペトル","白蓮の護り","魔人の守護"],
 		"enhancements": [
 			{"name":"魔人の守護","levels":[[{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]}],[{"resist":[{"name":"fire","percent":60},{"name":"ice","percent":60},{"name":"lightning","percent":60},{"name":"water","percent":60},{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"light","percent":60},{"name":"dark","percent":60}]}],[{"resist":[{"name":"fire","percent":75},{"name":"ice","percent":75},{"name":"lightning","percent":75},{"name":"water","percent":75},{"name":"wind","percent":75},{"name":"earth","percent":75},{"name":"light","percent":75},{"name":"dark","percent":75}]}],[{"resist":[{"name":"fire","percent":85},{"name":"ice","percent":85},{"name":"lightning","percent":85},{"name":"water","percent":85},{"name":"wind","percent":85},{"name":"earth","percent":85},{"name":"light","percent":85},{"name":"dark","percent":85}]}],[{"resist":[{"name":"fire","percent":100},{"name":"ice","percent":100},{"name":"lightning","percent":100},{"name":"water","percent":100},{"name":"wind","percent":100},{"name":"earth","percent":100},{"name":"light","percent":100},{"name":"dark","percent":100}]}]]}
@@ -3540,7 +3540,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
+		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["迅・終の轟雷","防御結界","ロッドの極意","迅・レブルインテンション","神鳴り","魔昇光","迅・雷の一閃","桜雲の賢者"],
 		"enhancements": [
 			{"name":"賢者の秘技","levels":[[],[{"mag%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":5,"max":5},"lbDamage":30,"mpRefresh":5}]]},
@@ -3625,7 +3625,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
+		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["魔昇光","迅・桜雷レブルインテンション","黒衣の賢者"],
 		"enhancements": [
 			{"name":"黒衣の賢者","levels":[[{"resist":[{"name":"lightning","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}],"killers":[{"name":"beast","magical":50},{"name":"aquatic","magical":50},{"name":"undead","magical":50}]}],[{"resist":[{"name":"lightning","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"beast","magical":50},{"name":"aquatic","magical":50},{"name":"undead","magical":50}]}],[{"resist":[{"name":"lightning","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}],"killers":[{"name":"beast","magical":75},{"name":"aquatic","magical":75},{"name":"undead","magical":75}]}],[{"resist":[{"name":"lightning","percent":40},{"name":"light","percent":40},{"name":"dark","percent":40}],"killers":[{"name":"beast","magical":75},{"name":"aquatic","magical":75},{"name":"undead","magical":75}]}],[{"resist":[{"name":"lightning","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"killers":[{"name":"beast","magical":100},{"name":"aquatic","magical":100},{"name":"undead","magical":100}]}]]}
@@ -4332,7 +4332,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%","雷槍刺突","獣雷爪撃","クアールと心通わせる少女"],
 		"enhancements": [
 			{"name":"おそれしらず","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30,"mpRefresh":10}]]},
@@ -4417,7 +4417,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["雷槍刺突","雷豹一突","噂のクアールライダー"],
 		"enhancements": [
 			{"name":"噂のクアールライダー","levels":[[{"atk":50,"killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]}],[{"atk":50,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}],[{"atk":75,"killers":[{"name":"beast","physical":100},{"name":"bug","physical":100},{"name":"plant","physical":100}]}],[{"atk":75,"killers":[{"name":"beast","physical":125},{"name":"bug","physical":125},{"name":"plant","physical":125}]}],[{"atk":100,"killers":[{"name":"beast","physical":150},{"name":"bug","physical":150},{"name":"plant","physical":150}]}]]}
@@ -5829,7 +5829,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe"],
+		"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["アクアハント","らぶりーうぉーた","サンオイルで小麦肌","ビーチパラソル","極楽お昼寝","アクアヒール","沖までひと泳ぎ","砂浜でおいかけっこ"],
 		"enhancements": [
 			{"name":"夏の麦わら帽子","levels":[[],[{"spr%":20,"def%":20,"resist":[{"name":"light","percent":30}]}]]},
@@ -5909,7 +5909,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe"],
+		"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["アクアヒール","サマースプラッシュ","サンシャインビーチ"],
 		"enhancements": [
 			{"name":"サンシャインビーチ","levels":[[{"atk%":50,"singleWielding":{"accuracy":25,"atk":50}}],[{"atk%":60,"singleWielding":{"accuracy":25,"atk":50}}],[{"atk%":70,"singleWielding":{"accuracy":25,"atk":100}}],[{"atk%":80,"singleWielding":{"accuracy":25,"atk":100}}],[{"atk%":90,"singleWielding":{"accuracy":25,"atk":100}}]]}
@@ -6023,7 +6023,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
+		"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["アンデッドサブマージ","デビルサブマージ","カーム&ダウン","サモン・スパークリングウェイブ","スピリットハイタイド","浜辺の淑女たち","ファビュラスシャイン","グラマラスウォール","サマービーナス"],
 		"enhancements": [
 			{"name":"陽光と海に癒されし夏","levels":[[],[{"spr%":30,"mag%":30,"def%":30,"lbDamage":50,"skillEnhancement":{"230070":10,"509351":5,"513122":5,"513123":5,"708644":10,"708645":10}},{"equipedConditions":["staff"],"mag%":40,"spr%":40}]]},
@@ -6103,7 +6103,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
+		"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["ファビュラスシャイン","サンシャインウェーブ","波乗りチョコボボート"],
 		"enhancements": [
 			{"name":"波乗りチョコボボート","levels":[[{"killers":[{"name":"undead","magical":50}],"dualWielding":{"spr":50}}],[{"killers":[{"name":"undead","magical":60}],"dualWielding":{"spr":50}}],[{"killers":[{"name":"undead","magical":70}],"dualWielding":{"spr":75}}],[{"killers":[{"name":"undead","magical":80}],"dualWielding":{"spr":75}}],[{"killers":[{"name":"undead","magical":100}],"dualWielding":{"spr":100}}]]}
@@ -6205,7 +6205,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["不滅の忠義","ナイトオブナイツ","グランシェルトの光","誠光の騎士剣","氷晶の騎士剣","聖盾のヴェール","阻魔の聖盾","グランシェルト国民の憧れ"],
 		"enhancements": [
 			{"name":"不滅の忠義","levels":[[{"lbPerTurn":{"min":2,"max":2},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}],"spr%":30,"atk%":30,"hp%":30,"skillEnhancement":{"509432":7.5,"509433":7.5}}]]},
@@ -6288,7 +6288,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["聖盾のヴェール","邪を阻む聖盾","凛とした女騎士"],
 		"enhancements": [
 			{"name":"凛とした女騎士","levels":[[{"killers":[{"name":"demon","physical":10},{"name":"undead","physical":10}],"resist":[{"name":"ice","percent":20},{"name":"light","percent":20}]}],[{"killers":[{"name":"demon","physical":20},{"name":"undead","physical":20}],"resist":[{"name":"ice","percent":40},{"name":"light","percent":40}]}],[{"killers":[{"name":"demon","physical":30},{"name":"undead","physical":30}],"resist":[{"name":"ice","percent":60},{"name":"light","percent":60}]}],[{"killers":[{"name":"demon","physical":40},{"name":"undead","physical":40}],"resist":[{"name":"ice","percent":80},{"name":"light","percent":80}]}],[{"killers":[{"name":"demon","physical":50},{"name":"undead","physical":50}],"resist":[{"name":"ice","percent":100},{"name":"light","percent":100}]}]]}
@@ -9512,7 +9512,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","hammer","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","hammer","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["ライジングセイバー","アストラルエッジ"],
 		"skills": [
 			{"hp%":70, "mp%":50, "atk%":180, "def%":50, "spr%":50, "singleWielding":{"accuracy":50,"atk":200}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":100}], "killers":[{"name":"beast","physical":150},{"name":"human","physical":50}], "mpRefresh":7},
@@ -9534,7 +9534,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["アッシュブレイド","アストラルエッジ"],
 		"skills": [
 			{"hp%":50, "mp%":70, "atk%":180, "def%":50, "spr%":50, "singleWielding":{"accuracy":50,"atk":200}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"human","physical":150}], "mpRefresh":7, "lbDamage":50},
@@ -9718,7 +9718,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"],
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["壊刀・裂氷河","覇刀・国崩し"],
 		"skills": [
 			{"hp%":20, "mp%":30, "atk%":130, "def%":90, "spr%":80, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"ice","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"dragon","physical":100}], "mpRefresh":7},
@@ -9741,7 +9741,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor"],
+		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["懲刀・悪因果","覇刀・国崩し"],
 		"skills": [
 			{"hp%":20, "mp%":50, "atk%":150, "def%":70, "spr%":60, "dualWielding":{"atk":100}, "resist":[{"name":"ice","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":150}], "mpRefresh":7, "special":["dualWield"]},
@@ -9764,7 +9764,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"equip":["dagger","staff","rod","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["暗黒の光束","氷闇の飛礫"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":30, "mag%":150, "spr%":80, "singleWielding":{"mag":200}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","magical":50}], "mpRefresh":10, "lbDamage":50},
@@ -9787,7 +9787,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","harp","whip","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"equip":["dagger","staff","rod","harp","whip","mace","lightShield","hat","helm","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["ブリザードデストラクション","氷闇の飛礫"],
 		"skills": [
 			{"hp%":60, "mp%":80, "def%":50, "mag%":150, "spr%":30, "singleWielding":{"mag":200}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","magical":50}], "mpRefresh":10, "lbDamage":50},
@@ -9810,7 +9810,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","bow","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"equip":["dagger","sword","staff","rod","bow","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["オーシャンマジック","オーシャンズカット"],
 		"skills": [
 			{"hp%":150, "mp%":20, "def%":100, "spr%":160, "resist":[{"name":"water","percent":100},{"name":"light","percent":50},{"name":"dark","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "drawAttacks":50},
@@ -9832,7 +9832,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","bow","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"equip":["dagger","sword","staff","bow","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["情熱のビーチバレー","オーシャンズカット"],
 		"skills": [
 			{"hp%":150, "mp%":20, "def%":100, "spr%":160, "resist":[{"name":"water","percent":100},{"name":"fire","percent":100},{"name":"earth","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "drawAttacks":50},
@@ -9894,7 +9894,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["魔弾・ファストグロウ","遺跡探検号令"],
 		"skills": [
 			{"hp%":80, "mp%":90, "atk%":180, "def%":50, "spr%":50, "dualWielding":{"atk":150}, "lbFillRate":200, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"stone","physical":100}], "mpRefresh":12, "special":["dualWield"]},
@@ -9916,7 +9916,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","gun","fist","hat","clothes","lightArmor"],
+		"equip":["dagger","gun","fist","hat","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["魔弾・ファストグロウ","魔拳・ファストダウン"],
 		"skills": [
 			{"hp%":90, "mp%":50, "atk%":200, "def%":70, "spr%":50, "dualWielding":{"atk":150}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"stop","percent":100}], "killers":[{"name":"demon","physical":150},{"name":"stone","physical":150}], "mpRefresh":7, "lbDamage":100, "special":["dualWield"]},
@@ -10024,7 +10024,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor"],
+		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["F型最強アイス弾","F型最強ウィンド弾"],
 		"skills": [
 			{"hp%":50, "mp%":30, "mag%":140, "spr%":20, "evade":{"physical":10}, "dualWielding":{"mag":150}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"spirit","magical":150},{"name":"demon","magical":75}], "mpRefresh":5, "lbDamage":200, "special":["dualWield"]},
@@ -10047,7 +10047,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor"],
+		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["F型最強アイス弾","F型最強ウォータ弾"],
 		"skills": [
 			{"hp%":30, "mp%":50, "mag%":140, "spr%":20, "dualWielding":{"mag":200}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"spirit","magical":150},{"name":"demon","magical":100}], "mpRefresh":10, "lbDamage":200, "special":["dualWield"]},
@@ -10399,7 +10399,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","hat","clothes","robe"],
+		"equip":["staff","rod","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["地獄の業火","わたしは死なん！","君臨","私にひざまずけ","レッドソウル","世界征服を企む暴君"],
 		"enhancements": [
 			{"name":"パンデモニウムの主","levels":[[],[{"mag%":80,"hp%":20,"skillEnhancement":{"204980":7.5,"702710":7.5,"702720":7.5}}]]},
@@ -10479,7 +10479,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","whip","hat","clothes","robe"],
+		"equip":["staff","rod","whip","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["私にひざまずけ","地獄の業火","バリアボム","我が支配を受け入れよ"],
 		"enhancements": [
 			{"name":"我が支配を受け入れよ","levels":[[{"killers":[{"name":"human","magical":100}],"skillEnhancement":{"204980":23.5,"702710":23.5,"702720":23.5}}],[{"killers":[{"name":"human","magical":125}],"skillEnhancement":{"204980":28.5,"702710":28.5,"702720":28.5}}],[{"killers":[{"name":"human","magical":150}],"skillEnhancement":{"204980":31.5,"702710":31.5,"702720":31.5}}],[{"killers":[{"name":"human","magical":175}],"skillEnhancement":{"204980":34.5,"702710":34.5,"702720":34.5}}],[{"killers":[{"name":"human","magical":200}],"skillEnhancement":{"204980":37.5,"702710":37.5,"702720":37.5}}]]}
@@ -10629,7 +10629,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["皇帝を継ぐ者","ダークフロウ","黒き執行者","ダークナイトジャッジ","闇の先を見据える眼","闇に染まれ","ダークコラプションII","野心の新皇帝"],
 		"enhancements": [
 			{"name":"先制闇技","levels":[[],[{"mp%":30,"skillEnhancement":{"231185":1,"509920":1}}]]},
@@ -10721,7 +10721,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["闇に染まれ","ブラッディダーク","闇騎士の力"],
 		"enhancements": [
 			{"name":"闇騎士の力","levels":[[{"resist":[{"name":"dark","percent":25}],"mpRefresh":5}],[{"resist":[{"name":"dark","percent":50}],"mpRefresh":5}],[{"resist":[{"name":"dark","percent":75}],"mpRefresh":7}],[{"resist":[{"name":"dark","percent":100}],"mpRefresh":7}],[{"mpRefresh":10}]]}
@@ -10746,7 +10746,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe"],
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["ソードファイター","ブラッドウェポン"],
 		"skills": [
 			{"hp%":90, "mp%":70, "atk%":90, "def%":60, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":200}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":25},{"name":"human","physical":25},{"name":"stone","physical":25},{"name":"plant","physical":25},{"name":"beast","physical":100}], "mpRefresh":10, "skillEnhancement":{"237097":5,"237098":5,"237099":5,"237100":5,"237101":5,"237107":5,"237108":5,"237109":5,"237110":5,"237111":5,"512971":5,"512972":5,"512973":5,"512974":5,"512975":5,"512979":5,"512981":5}, "special":["dualWield"]},
@@ -10771,7 +10771,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe"],
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["ソードファイター","エンパイアリベリオン"],
 		"skills": [
 			{"hp%":90, "mp%":60, "atk%":100, "def%":50, "spr%":70, "singleWielding":{"accuracy":50,"atk":200}, "dualWielding":{"atk":100}, "lbFillRate":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":25},{"name":"machine","physical":25},{"name":"dragon","physical":25},{"name":"bug","physical":25},{"name":"bird","physical":100}], "mpRefresh":10, "lbDamage":50, "skillEnhancement":{"237097":5,"237098":5,"237099":5,"237100":5,"237101":5,"237107":5,"237108":5,"237109":5,"237110":5,"237111":5,"512971":5,"512972":5,"512973":5,"512974":5,"512975":5,"512977":35,"512979":5,"512981":5}, "special":["dualWield"]},
@@ -13440,7 +13440,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン","ソニックインパクト","バスターエンド","ティファとの約束"],
 		"enhancements": [
 			{"name":"俺は、俺の現実を生きる","levels":[[],[{"lbPerTurn":{"min":5,"max":5},"lbDamage":150,"replaceLb":{"name":"超究武神覇斬","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":24.1,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (24.1x * 2 = 48.2x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":27,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (27x * 2 = 54x, ATK) to one enemy (ignore cover)"}],"frames":[188,206,222,254,270,282,304,326,342,356,388,406,418,448,550],"move":"walk"}}]]},
@@ -13520,7 +13520,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["ソニックインパクト","ラッシュストライク","幻想との決別"],
 		"enhancements": [
 			{"name":"幻想との決別","levels":[[{"lbDamage":50}],[{"lbDamage":60}],[{"lbDamage":70}],[{"lbDamage":85}],[{"lbDamage":100}]]}
@@ -13566,7 +13566,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%","メテオクラッシャー","フィーバータイム","クラウドとの約束"],
 		"enhancements": [
 			{"name":"名物\"コスモキャニオン\"を一杯","levels":[[],[{"mp%":30,"hp%":30,"resist":[{"name":"water","percent":50}]}]]},
@@ -13651,7 +13651,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["メテオクラッシャー","ザンガン流精神統一","スラムの心得"],
 		"enhancements": [
 			{"name":"スラムの心得","levels":[[{"killers":[{"name":"aquatic","physical":100},{"name":"human","physical":100}]}],[{"killers":[{"name":"aquatic","physical":125},{"name":"human","physical":125}]}],[{"killers":[{"name":"aquatic","physical":150},{"name":"human","physical":150}]}],[{"killers":[{"name":"aquatic","physical":175},{"name":"human","physical":175}]}],[{"killers":[{"name":"aquatic","physical":200},{"name":"human","physical":200}]}]]}
@@ -13724,7 +13724,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
+		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes","visionCard"],
 		"enhancementSkills":["気高き心","シャドウチャージ","ストームチャージ","ブレイズチャージ","アースレイヴ","オーバーハウル","スピリットオブセト","星を守りし一族","キラースレイヴ","ハイスピードファング","星命学の知識"],
 		"enhancements": [
 			{"name":"一族の生き残り","levels":[[],[{"spr%":60,"lbPerTurn":{"min":3,"max":3}}]]},
@@ -13807,7 +13807,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
+		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes","visionCard"],
 		"enhancementSkills":["キラースレイヴ","ハウリングフレイム","戦士の咆哮"],
 		"enhancements": [
 			{"name":"戦士の咆哮","levels":[[{"lbDamage":150,"mpRefresh":20}],[{"lbDamage":150,"mpRefresh":30}],[{"lbDamage":175,"mpRefresh":40}],[{"lbDamage":175,"mpRefresh":45}],[{"lbDamage":200,"mpRefresh":50}]]}
@@ -14307,7 +14307,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["ブレイバー","バーストスラッシュ"],
 		"skills": [
 			{"hp%":100, "mp%":70, "atk%":180, "def%":80, "mag%":30, "spr%":50, "singleWielding":{"accuracy":50,"atk":200}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":100},{"name":"machine","physical":100}], "mpRefresh":5, "lbDamage":100, "skillEnhancement":{"236002":15,"236003":15,"236004":15,"236006":20,"236007":20,"236008":20}},
@@ -14329,7 +14329,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["ブレイバー","スピンスラッシュ"],
 		"skills": [
 			{"hp%":90, "mp%":50, "atk%":160, "def%":70, "mag%":30, "spr%":60, "dualWielding":{"atk":150}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":100},{"name":"machine","physical":100}], "mpRefresh":5, "lbDamage":50, "skillEnhancement":{"236002":15,"236003":15,"236004":15,"236006":20,"236007":20,"236008":20}, "special":["dualWield"]},
@@ -14397,7 +14397,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","bow","mace","hat","clothes","robe"],
+		"equip":["staff","rod","bow","mace","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["テンペスト","光の盾"],
 		"skills": [
 			{"hp%":70, "mp%":100, "def%":30, "mag%":60, "spr%":170, "singleWielding":{"mag":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"demon","magical":75}], "mpRefresh":10},
@@ -14419,7 +14419,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","bow","mace","hat","clothes","robe"],
+		"equip":["staff","rod","bow","mace","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["テンペスト","ジャッジメントレイ"],
 		"skills": [
 			{"hp%":80, "mp%":70, "def%":40, "mag%":170, "spr%":90, "singleWielding":{"mag":200}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"demon","magical":150}], "mpRefresh":5, "lbDamage":50, "skillEnhancement":{"236432":5,"236433":5,"236434":5,"236435":5,"236436":5}},
@@ -16659,7 +16659,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
+		"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット","プレパレーションガン","フリーダムバレット・単射","空賊の義侠心"],
 		"enhancements": [
 			{"name":"過去に背を向けた空賊","levels":[[],[{"atk%":50,"mp%":30,"hp%":50,"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":70},"skillEnhancement":{"209240":20,"209250":20,"209260":20,"209270":20,"209280":20,"501160":20,"507940":20,"705270":20,"705280":20,"705290":20,"705300":20}}]]},
@@ -16744,7 +16744,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
+		"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["プレパレーションガン","フリーダムバレット・連射","空賊の射撃術"],
 		"enhancements": [
 			{"name":"空賊の射撃術","levels":[[{"atk%":30,"killers":[{"name":"beast","physical":50}],"skillEnhancement":{"501160":20}}],[{"atk%":40,"killers":[{"name":"beast","physical":70}],"skillEnhancement":{"501160":25}}],[{"atk%":50,"killers":[{"name":"beast","physical":80}],"skillEnhancement":{"501160":30}}],[{"atk%":60,"killers":[{"name":"beast","physical":90}],"skillEnhancement":{"501160":32.5}}],[{"atk%":70,"killers":[{"name":"beast","physical":100}],"skillEnhancement":{"501160":35}}]]}
@@ -17170,7 +17170,7 @@
 		]
 	},
 	"212001905": {
-		"name":"Princess Ashe",
+		"name":"Dethroned Heroine Ashe",
 		"jpname":"亡国の聖女アーシェ",
 		"id":"212001905",
 		"max_rarity":"7",
@@ -17201,7 +17201,7 @@
 			{"mp%":40, "def%":40, "mag%":50, "spr%":40, "singleWielding":{"mag":100}, "skillEnhancement":{"235610":5,"235611":5,"235612":5,"235613":5,"235616":5,"235617":5,"235618":5,"235619":5,"235620":5,"235621":5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Princess Ashe",
+			"name":"Dethroned Heroine Ashe",
 			"jpname":"亡国の聖女アーシェ",
 			"id":"212001905",
 			"sixStarForm":true,
@@ -17313,7 +17313,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["センテンス","ジャッジディフェンス"],
 		"skills": [
 			{"hp%":30, "mp%":80, "atk%":50, "def%":30, "spr%":20, "dualWielding":{"def":50}, "lbFillRate":100, "resist":[{"name":"dark","percent":50},{"name":"fire","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":10, "drawAttacks":70, "special":["dualWield"]},
@@ -17345,7 +17345,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["センテンス","アグレッサー"],
 		"skills": [
 			{"hp%":50, "mp%":80, "atk%":20, "def%":20, "dualWielding":{"def":50}, "lbFillRate":100, "resist":[{"name":"dark","percent":30},{"name":"fire","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"human","physical":150}], "mpRefresh":10, "lbDamage":100, "drawAttacks":70, "special":["dualWield"]},
@@ -24145,7 +24145,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["ラピッドスラッシュ","サンセットブライト"],
 		"skills": [
 			{"hp%":70, "mp%":60, "atk%":160, "def%":50, "mag%":30, "spr%":50, "evade":{"physical":50}, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":150}, "improvedDW":true, "lbFillRate":200, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"spirit","physical":150,"magical":150}], "mpRefresh":7, "special":["dualWield"]},
@@ -24167,7 +24167,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["sword","greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["ラピッドスラッシュ","フィニッシュアーツ"],
 		"skills": [
 			{"hp%":80, "mp%":70, "atk%":180, "def%":60, "mag%":80, "spr%":60, "evade":{"physical":30}, "singleWielding":{"accuracy":50,"atk":200}, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":200, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"human","physical":150,"magical":150}], "mpRefresh":7, "special":["dualWield"]},
@@ -24189,7 +24189,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["ダークメイルストロム","シャドウストライク"],
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":180, "def%":50, "spr%":40, "dualWielding":{"atk":100}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":150}], "mpRefresh":5, "lbDamage":50, "special":["dualWield"]},
@@ -24211,7 +24211,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["ダークメイルストロム","ダークディバイド"],
 		"skills": [
 			{"hp%":30, "mp%":80, "atk%":200, "def%":20, "dualWielding":{"atk":100}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"spirit","physical":150}], "mpRefresh":5, "lbDamage":150, "special":["dualWield"]},
@@ -24233,7 +24233,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","hat","clothes","lightArmor","robe"],
+		"equip":["sword","greatSword","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["ファイティングアップ","セイントシャワー"],
 		"skills": [
 			{"hp%":80, "mp%":80, "atk%":140, "def%":50, "mag%":30, "spr%":70, "singleWielding":{"accuracy":50,"atk":100}, "lbFillRate":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"light","percent":30},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"human","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100}], "mpRefresh":7, "lbDamage":50},
@@ -24255,7 +24255,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","hat","clothes","lightArmor","robe"],
+		"equip":["sword","greatSword","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["ファイティングアップ","ホーリーライト"],
 		"skills": [
 			{"hp%":60, "mp%":100, "atk%":100, "def%":50, "mag%":30, "spr%":140, "singleWielding":{"accuracy":25,"atk":50}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"light","percent":30},{"name":"stop","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":22, "lbDamage":50, "skillEnhancement":{"237672":5,"513231":5}},

@@ -52,7 +52,7 @@ class BuildOptimizer {
         for (var index = 0, len = combinationsNumber; index < len; index++) {
 
             var dataWithdConditionItems = {}
-            for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
+            for (var slotIndex = 0; slotIndex < 11; slotIndex++) {
                 if (typeCombinations[index].combination[slotIndex] && !dataWithdConditionItems[typeCombinations[index].combination[slotIndex]]) {
                     dataWithdConditionItems[typeCombinations[index].combination[slotIndex]] = this.selectItems(typeCombinations[index].combination[slotIndex], typeCombinations[index].combination, typeCombinations[index].fixedItems, typeCombinations[index].forcedItems, this.dataWithCondition);
                 }
@@ -359,9 +359,9 @@ class BuildOptimizer {
             return; // don't accept null second hand in DW builds
         }
         build[index] = item;
-        if (index == 9) {
-            for (var fixedItemIndex = 0; fixedItemIndex < 10; fixedItemIndex++) {
-                if (fixedItems[fixedItemIndex] && (!this.allItemVersions[fixedItems[fixedItemIndex].id] || this.allItemVersions[fixedItems[fixedItemIndex].id].length > 1 || fixedItems[fixedItemIndex].access.includes("Conditions not met"))) {
+        if (index == 10) {
+            for (var fixedItemIndex = 0; fixedItemIndex < 11; fixedItemIndex++) {
+                if (fixedItems[fixedItemIndex] && fixedItems[fixedItemIndex].type != "unavailable" && (!this.allItemVersions[fixedItems[fixedItemIndex].id] || this.allItemVersions[fixedItems[fixedItemIndex].id].length > 1 || fixedItems[fixedItemIndex].access.includes("Conditions not met"))) {
                     build[fixedItemIndex] = findBestItemVersion(build, fixedItems[fixedItemIndex], this.allItemVersions, this._unitBuild.unit);
                 }
             }
@@ -383,8 +383,8 @@ class BuildOptimizer {
                     }
                 }
             }
-            if (fixedItems[10]) {
-                this.tryEsper(build, fixedItems[10], fixedItems);
+            if (fixedItems[11]) {
+                this.tryEsper(build, fixedItems[11], fixedItems);
             } else {
                 if (this.selectedEspers.length > 0) {
                     for (var esperIndex = 0, len = this.selectedEspers.length; esperIndex < len; esperIndex++) {
@@ -400,7 +400,7 @@ class BuildOptimizer {
     }
 
     tryEsper(build, esper, fixedItems) {
-        build[10] = esper;
+        build[11] = esper;
         
         var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
         if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == -1) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {

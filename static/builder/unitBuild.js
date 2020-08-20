@@ -132,7 +132,7 @@ class UnitBuild {
     }   
     
     prepareEquipable(ignoreSlot = -1) {
-        this.equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"],["esper"]];
+        this.equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"],[],["esper"]];
         if (this.unit) {
             var equip = this.getCurrentUnitEquip();
             for (var equipIndex = 0, len = equip.length; equipIndex < len; equipIndex++) {
@@ -152,6 +152,9 @@ class UnitBuild {
             var partialDualWield = this.getPartialDualWield() || [];
             if (partialDualWield.length > 0 && this.build[0] && partialDualWield.includes(this.build[0].type)) {
                 this.equipable[1] = partialDualWield.concat(this.equipable[1]);
+            }
+            if (equip.includes("visionCard")) {
+                this.equipable[10] = ["visionCard"];
             }
         }
         this.desirableItemIds = [];

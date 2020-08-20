@@ -676,8 +676,10 @@ function getFixedItemItemSlot(item, equipable, fixedItems) {
         } else {
             return 9;
         }
-    } else if (item.type == "esper") {
+    } else if (item.type == "visionCard") {
         return 10;
+    } else if (item.type == "esper") {
+        return 11;
     }
     return slot;
 }
@@ -693,7 +695,7 @@ function logBuild(build, value) {
     var html = "";
     readItemsExcludeInclude();
 
-    for (var index = 0; index < 11; index++) {
+    for (var index = 0; index < 12; index++) {
         redrawBuildLine(index);          
     }
 
@@ -1022,6 +1024,9 @@ function getSlotIcon(index) {
             icon += "materia";
             break;
         case 10:
+            icon += "visionCard";
+            break;
+        case 11:
             icon += "esper";
             break;
     }
@@ -1048,6 +1053,8 @@ function getSlotName(index) {
         case 9:
             return "Materia";
         case 10:
+            return "Vision Card";
+        case 11:
             return "Esper";
     }
 }
@@ -1287,6 +1294,9 @@ function onUnitChange() {
                     for (var i = 4 - unitData.materiaSlots; i --;) {
                         fixItem("unavailable", 9 - i);
                     }
+                }
+                if (!unitData.equip.includes("visionCard")) {
+                    fixItem("unavailable", 10);
                 }
 
                 $(".panel.unit").removeClass("hidden");
@@ -1644,7 +1654,7 @@ function reinitBuilds() {
     for (var i = builds.length; i-- > 1; ) {
         closeTab(i);
     }
-    builds[0] = new UnitBuild(null, [null, null, null, null, null, null, null, null,null,null,null], {});
+    builds[0] = new UnitBuild(null, [null, null, null, null, null, null, null, null,null,null,null,null], {});
     builds[0].monsterAttackFormula = monsterAttackFormula;
     loadBuild(0);
     $(".panel.goal .goalLine").addClass("hidden");
@@ -1652,7 +1662,7 @@ function reinitBuilds() {
 }
 
 function reinitBuild(buildIndex) {
-    builds[buildIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null,null,null,null], {});
+    builds[buildIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null,null,null,null,null], {});
     builds[buildIndex].monsterAttackFormula = monsterAttackFormula;
     readGoal(buildIndex);
 }
@@ -2177,8 +2187,8 @@ function fixItem(key, slotParam = -1, enhancements, pinItem = true) {
             builds[currentUnitIndex].fixedItems[slot] = null;
         }
         builds[currentUnitIndex].build[slot] = item;
-        if (slot < 10) {
-            for (var index = 0; index < 10; index++) {
+        if (slot < 11) {
+            for (var index = 0; index < 11; index++) {
                 if (index != slot) {
                     var itemTmp = builds[currentUnitIndex].build[index];
                     if (itemTmp  && !itemTmp.placeHolder && index != slot) {
@@ -2200,9 +2210,9 @@ function fixItem(key, slotParam = -1, enhancements, pinItem = true) {
 }
 
 function adaptEsperMasteryToBuild() {
-    if (builds[currentUnitIndex].build[10]) {
+    if (builds[currentUnitIndex].build[11]) {
       
-        esper = getEsperItem(builds[currentUnitIndex].build[10].originalEsper);
+        esper = getEsperItem(builds[currentUnitIndex].build[11].originalEsper);
         let typeCombination = [];
         builds[currentUnitIndex].build.forEach(i => {
             if (i && i.type && !typeCombination.includes(i.type)) {
@@ -2219,7 +2229,7 @@ function adaptEsperMasteryToBuild() {
                }) 
             });
         }
-        builds[currentUnitIndex].build[10] = esper;
+        builds[currentUnitIndex].build[11] = esper;
     }
 }
 
@@ -2286,7 +2296,7 @@ function includeItem(itemId) {
 }
 
 function recalculateApplicableSkills() {
-    builds[currentUnitIndex].build = builds[currentUnitIndex].build.slice(0,11);
+    builds[currentUnitIndex].build = builds[currentUnitIndex].build.slice(0,12);
     for (var skillIndex = builds[currentUnitIndex].unit.skills.length; skillIndex--;) {
         var skill = builds[currentUnitIndex].unit.skills[skillIndex];
         if (areConditionOK(skill, builds[currentUnitIndex].build, builds[currentUnitIndex]._level)) {
@@ -2637,7 +2647,7 @@ function getStateHash(onlyCurrent = true) {
 
             unit.items = [];
             // first fix allow Use of items
-            for (var index = 0; index < 10; index++) {
+            for (var index = 0; index < 11; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && item.allowUseOf) {
                     unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null, icon:item.icon, name:item.name});
@@ -2645,7 +2655,7 @@ function getStateHash(onlyCurrent = true) {
                 }
             }
             // first fix dual wield items
-            for (var index = 0; index < 10; index++) {
+            for (var index = 0; index < 11; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !item.allowUseOf && hasDualWieldOrPartialDualWield(item)) {
                     unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null, icon:item.icon, name:item.name});
@@ -2653,7 +2663,7 @@ function getStateHash(onlyCurrent = true) {
                 }
             }
             // then others items
-            for (var index = 0; index < 10; index++) {
+            for (var index = 0; index < 11; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
                     unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null, icon:item.icon, name:item.name});
@@ -2663,18 +2673,18 @@ function getStateHash(onlyCurrent = true) {
                     unit.items.push({slot:index, id:item.type, pinned: false});
                 }
             }
-            if (build.build[10]) {
-                unit.esperId = build.build[10].name;
-                unit.esperPinned = (build.fixedItems[10] != null);
-                if (build.build[10].originalEsper.selectedSkills) {
-                    unit.esper = JSON.parse(JSON.stringify(build.build[10].originalEsper));
+            if (build.build[11]) {
+                unit.esperId = build.build[11].name;
+                unit.esperPinned = (build.fixedItems[11] != null);
+                if (build.build[11].originalEsper.selectedSkills) {
+                    unit.esper = JSON.parse(JSON.stringify(build.build[11].originalEsper));
                     delete unit.esper.buildLink;
                     delete unit.esper.selectedSkills;
                     delete unit.esper.maxLevel;
                     if (!unit.esper.resist) {
                         unit.esper.resist = [];
                     }
-                    unit.esper.buildLink = getEsperLink(build.build[10].originalEsper);
+                    unit.esper.buildLink = getEsperLink(build.build[11].originalEsper);
                 }
             }
 
@@ -3272,7 +3282,8 @@ function getBuildAsText(buildIndex) {
         getItemLineAsText("Materia 2", 7, buildIndex) +
         getItemLineAsText("Materia 3", 8, buildIndex) +
         getItemLineAsText("Materia 4", 9, buildIndex) +
-        getItemLineAsText("Esper", 10, buildIndex) +
+        getItemLineAsText("Vision Card", 10, buildIndex) +
+        getItemLineAsText("Esper", 11, buildIndex) +
         getBuildStatsAsText(buildIndex);
     return text;
 }
@@ -4101,11 +4112,11 @@ function exportUnitForCombat() {
         mpRefresh:calculateStatValue(unitBuild.build, "mpRefresh", unitBuild).total,
         dualWielding: unitBuild.build[0] && unitBuild.build[1] && weaponList.includes(unitBuild.build[0].type) && weaponList.includes(unitBuild.build[1].type),
         guts: unitBuild.build.filter(i => i && i.guts).map(i => i.guts),
-        autoCastedSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.autoCastedSkills).reduce((acc, item) => acc = acc.concat(item.autoCastedSkills), []),
-        counterSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.counterSkills).reduce((acc, item) => acc = acc.concat(item.counterSkills), []),
-        startOfTurnSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.startOfTurnSkills).reduce((acc, item) => acc.concat(item.startOfTurnSkills), []),
+        autoCastedSkills:unitBuild.build.filter((item, index) => item && index < 12 && item.autoCastedSkills).reduce((acc, item) => acc = acc.concat(item.autoCastedSkills), []),
+        counterSkills:unitBuild.build.filter((item, index) => item && index < 12 && item.counterSkills).reduce((acc, item) => acc = acc.concat(item.counterSkills), []),
+        startOfTurnSkills:unitBuild.build.filter((item, index) => item && index < 12 && item.startOfTurnSkills).reduce((acc, item) => acc.concat(item.startOfTurnSkills), []),
     }
-    unit.skills = unitBuild.build.filter((item, index) => item && index < 11 && item.skills).reduce((acc, item) => acc = acc.concat(item.skills), []);
+    unit.skills = unitBuild.build.filter((item, index) => item && index < 12 && item.skills).reduce((acc, item) => acc = acc.concat(item.skills), []);
     unit.skills = unit.skills.concat(unitWithSkills.actives).concat(unitWithSkills.magics);
     baseStats.forEach(stat => {
         unit[stat] = {};
@@ -4266,8 +4277,12 @@ function startPage() {
     
     getStaticData("data", true, function(result) {
         data = result;
-        dataStorage.setData(data);
-        waitingCallbackKeyReady("data");
+        getStaticData("visionCards", false, function(cards) {
+            addCardsToData(cards, data);
+            dataStorage.setData(data);
+            waitingCallbackKeyReady("data");
+        });
+
     });
     getStaticData("unitsWithPassives", true, function(result) {
         units = result;
@@ -4309,7 +4324,7 @@ function startPage() {
     $(".includedItemNumber").html(itemsToInclude.length);
 
 
-    builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null], null);
+    builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null, null], null);
     builds[currentUnitIndex].monsterAttackFormula = monsterAttackFormula;
 
     $("#normalGoalChoice").on("select2:select", function() {
@@ -4426,6 +4441,8 @@ function startPage() {
     $(".chainMultiplier input").change($.debounce(300,onGoalChange));
     $("#forcedElements input").change($.debounce(300,onGoalChange));
     $("#ailmentImunities input").change($.debounce(300,onGoalChange));
+    $("#defaultVisionCardLevel").change(() => dataStorage.defaultVisionCardLevel = $("#defaultVisionCardLevel").val());
+    dataStorage.defaultVisionCardLevel = $("#defaultVisionCardLevel").val();
     
     if (window !== window.parent) {
         window.addEventListener("message", handleExternalControl);

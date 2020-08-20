@@ -1,5 +1,5 @@
 FFBEEquipBuildAsImage = {
-    unitLineHeight:235,
+    unitLineHeight:267,
     ffbeEquipUrl: "https://ffbeEquip.com",
     drawTeam: function(canvas, data) {
         canvas.height = FFBEEquipBuildAsImage.unitLineHeight * data.units.length;
@@ -16,15 +16,15 @@ FFBEEquipBuildAsImage = {
 
     drawBuild: function(ctx, unit, unitLine = 0) {
 
-        let grd = ctx.createLinearGradient(0, 0, 900, 235);
+        let grd = ctx.createLinearGradient(0, 0, 900, FFBEEquipBuildAsImage.unitLineHeight);
         grd.addColorStop(0, "#0000b2");
         grd.addColorStop(1, "#00002d");
 
         // Fill with gradient
         ctx.fillStyle = grd;
-        ctx.fillRect(4, 4 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 726, 226);
+        ctx.fillRect(4, 4 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 726, 258);
 
-        FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/box.png', 0, 0 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 730, 235);
+        FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/box.png', 0, 0 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 730, 267);
 
         let unitId = unit.id;
         let iconId = unitId.substr(0,unitId.length-1) + (unit.rarity == 'NV' ? '7' : unit.rarity);
@@ -92,16 +92,6 @@ FFBEEquipBuildAsImage = {
                     column = 0;
                 }
             });
-
-
-
-            if (unit.esperId) {
-                FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/espers/${unit.esperId}.jpg`, x + 205, y, 50, 50, 1, true);
-                FFBEEquipBuildAsImage.drawText(ctx, unit.esperId.replace('_', ' '), 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
-            } else {
-                FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/espers/ALL.png`, x + 205, y, 50, 50);
-                FFBEEquipBuildAsImage.drawText(ctx, 'No esper', 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
-            }
             
             ctx.textBaseline = "bottom";
             let additionalValues = [
@@ -135,29 +125,37 @@ FFBEEquipBuildAsImage = {
                     }
                 }
             });
-            
         });
 
-        let x = 375;
+        let x = 355;
         let y = 5 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
 
         unit.items.forEach((item, index) => {
             if (item) {
                 let line = Math.floor(item.slot / 2);
                 let column = item.slot % 2;
-                FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/items/${item.icon}`, x + column * 170, y + line * 30, 40, 40);
+                FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/items/${item.icon}`, x + column * 180, y + line * 30, 40, 40);
                 let color = 'white';
                 if (unit.itemEnchantments[index]) {
                     color = '#e74c3c';
                 }
-                FFBEEquipBuildAsImage.drawText(ctx, item.name, 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130, color);
+                FFBEEquipBuildAsImage.drawText(ctx, item.name, 'bold', 12, 'start', 'middle', x + 40 + column * 180, y + line * 30 + 20, 130, color);
             }
         });
+        let line = 5;
+        let column = 1;
+        if (unit.esperId) {
+            FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/espers/${unit.esperId}.jpg`, x + column * 180 + 5, y + line * 30 + 5, 30, 30, 1, true);
+            FFBEEquipBuildAsImage.drawText(ctx, unit.esperId.replace('_', ' '), 'bold', 12, 'start', 'middle', x + 40 + column * 180, y + line * 30 + 20, 130);
+        } else {
+            FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/espers/ALL.png`, x + 205, y, 40, 40);
+            FFBEEquipBuildAsImage.drawText(ctx, 'No esper', 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
+        }
 
         let red ='#ff0000';
         let green ='#00ff00';
         x=10;
-        y=164 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
+        y=196 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
         ['fire','ice','lightning','water','wind','earth','light','dark'].forEach((element, index) => {
             let savedX = x;
             let savedY = y;
@@ -183,7 +181,7 @@ FFBEEquipBuildAsImage = {
             });
         });
         x=10;
-        y=196 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
+        y=228 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
         ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death', "charm", "stop"].forEach((ailment, index) => {
             let savedX = x;
             let savedY = y;
@@ -211,7 +209,7 @@ FFBEEquipBuildAsImage = {
         let races = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];
 
         x = 355;
-        y = 164 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
+        y = 196 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
         races.forEach((race, index) => {
             let savedX = x;
             let savedY = y;
@@ -233,7 +231,7 @@ FFBEEquipBuildAsImage = {
         });
 
         x = 355;
-        y = 196 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
+        y = 228 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
         races.forEach((race, index) => {
             let savedX = x;
             let savedY = y;

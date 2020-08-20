@@ -24,12 +24,14 @@ class DataStorage {
         this.availableTmr;
         this.availableStmr;
         this.defaultWeaponEnhancement = null;
+        this.defaultVisionCardLevel = 10;
     }
     
     setData(data) {
         this.data = data ? data : [];
         this.prepareAllItemsVersion();
     }
+
     
     setDefaultWeaponEnhancement(defaultWeaponEnhancement) {
         this.defaultWeaponEnhancement = defaultWeaponEnhancement;
@@ -607,6 +609,9 @@ class DataStorage {
                     if (this.exludeEventEquipment && item.access.every(a => a.endsWith("event"))) {
                         return {"total":0,"available":0,"totalOwnedNumber":0};
                     }
+                }
+                if (item.type === 'visionCard' && item.level != this.defaultVisionCardLevel) {
+                    return {"total":0,"available":0,"totalOwnedNumber":0};
                 }
                 number = 4;
                 if (item.maxNumber) {

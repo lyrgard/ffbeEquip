@@ -2356,6 +2356,49 @@ function bin2hex(bin) {
     return bin.match(/.{4}/g).map(bin4Char => parseInt(bin4Char, 2).toString(16)).join('');
 }
 
+function addCardsToData(cards, data) {
+    Object.keys(cards).forEach(cardId => {
+        let card = cards[cardId];
+        for (let level = 0; level < card.levels.length; level++) {
+            let cardInstance = combineTwoItems(card, card.levels[level]);
+            cardInstance.id = cardInstance.id + '-' + (level + 1);
+            cardInstance.level = level + 1;
+            let conditionals = card.levels[level].conditional || [];
+            computeConditionalCombinations(cardInstance, conditionals, (card) => {
+                data.push(card);
+            });
+        }
+    });
+}
+
+function computeConditionalCombinations(item, conditionals, onCombinationFound,index = 0) {
+    if (index === conditionals.length) {
+        onCombinationFound(item);
+    } else {
+        // First try without that condition
+        computeConditionalCombinations(item, conditionals, onCombinationFound, index + 1);
+        // Then with the condition
+        item = combineTwoItems(item, conditionals[index]);
+
+        if (conditionals[index].equipedConditions) {
+            if (!item.equipedConditions) item.equipedConditions = [];
+            item.equipedConditions = item.equipedConditions.concat(conditionals[index].equipedConditions).filter((c, i, a) => a.indexOf(c) === i);
+            if (!isEquipedConditionViable(item.equipedConditions)) {
+                return;
+            }
+        }
+        if (conditionals[index].exclusiveUnits) {
+            item.exclusiveUnits = conditionals[index].exclusiveUnits;
+        }
+        computeConditionalCombinations(item, conditionals, onCombinationFound, index + 1);
+    }
+}
+
+function isEquipedConditionViable(equipedConditions) {
+    // TODO
+    return true;
+}
+
 $(function() {
     $.notify.defaults({"globalPosition":"bottom right"});
     try {

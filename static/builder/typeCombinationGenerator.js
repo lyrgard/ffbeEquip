@@ -59,7 +59,7 @@ class TypeCombinationGenerator {
             baseForcedItems = [forcedItem];
         }
 
-        var typeCombination = [null, null, null, null, null, null, null, null, null, null];
+        var typeCombination = [null, null, null, null, null, null, null, null, null, null, null];
         this.buildTypeCombination(0,typeCombination, combinations, baseForcedItems);
         this.unitBuild.build.splice(0, 11, ...(this.unitBuild.fixedItems));
         
@@ -67,7 +67,7 @@ class TypeCombinationGenerator {
             && !this.unitBuild.build[1] 
             && this.unitBuild.unit.skills.some(skill => skill.equipedConditions && skill.equipedConditions.includes("unarmed"))) {
             // If no weapons are pinned and the unit has an "unarmed" passive, try combinations without weapons
-            this.buildTypeCombination(2,[null, null, null, null, null, null, null, null, null, null], combinations, baseForcedItems);
+            this.buildTypeCombination(2,[null, null, null, null, null, null, null, null, null, null, null], combinations, baseForcedItems);
         }
 
         var unitPartialDualWield = this.unitBuild.getPartialDualWield();
@@ -353,7 +353,7 @@ class TypeCombinationGenerator {
             }
         }
         typeCombination[index] = type;
-        if (index == 9) {
+        if (index == 10) {
             combinations.push({"combination": typeCombination.slice(), "fixedItems": this.unitBuild.fixedItems.slice(), "forcedItems": forcedItems.map(i => i.id)});
         } else {
             this.buildTypeCombination(index+1, typeCombination, combinations, forcedItems);

@@ -1525,7 +1525,7 @@ function getEsperItem(esper) {
     return item;
 }
 
-var simpleAddCombineProperties = ["hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","accuracy","jumpDamage","lbFillRate","mpRefresh"];
+var simpleAddCombineProperties = ["hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","accuracy","jumpDamage","lbFillRate","mpRefresh", "lbDamage"];
 
 function combineTwoItems(item1, item2) {
     var sum = JSON.parse(JSON.stringify(item1));

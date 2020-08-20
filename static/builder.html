@@ -991,6 +991,20 @@
                             <label class="checkbox-label"><input id="excludeSTMR" type="checkbox" class="checkbox"/><span></span>Exclude STMR</label>
                             <label class="checkbox-label"><input id="excludeNotReleasedYet" type="checkbox" checked="true" class="checkbox"><span></span>Exclude unreleased equipment</label>
                             <div id="defaultWeaponEnhancement" class="item">Weapon enhancement : <span class="display"></span><button class="btn btn-default" onclick="modifyDefaultWeaponEnhancement()">Set default</button></div>
+                            <div id="defaultVisionCardLevelDiv" >Default Vision Card level :
+                                <select id="defaultVisionCardLevel">
+                                    <option value="1">Lvl 1</option>
+                                    <option value="2">Lvl 2</option>
+                                    <option value="3">Lvl 3</option>
+                                    <option value="4">Lvl 4</option>
+                                    <option value="5">Lvl 5</option>
+                                    <option value="6">Lvl 6</option>
+                                    <option value="7">Lvl 7</option>
+                                    <option value="8">Lvl 8</option>
+                                    <option value="9">Lvl 9</option>
+                                    <option value="10" selected="selected">Lvl 10</option>
+                                </select>
+                            </div>
 
                             <div class="itemInclusionDiv">
                                 <div><a class="link" onclick="displayEquipableItemList(ClickBehaviors.INCLUDE);">Select items to include</a></div>
@@ -1160,6 +1174,7 @@
                                 </div>
                                 <div class="line">
                                     <div class='buildLine buildLine_10'></div>
+                                    <div class='buildLine buildLine_11'></div>
                                 </div>
                             </div>
                         </div>
