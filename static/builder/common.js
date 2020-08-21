@@ -1190,8 +1190,8 @@ function getEsperStatBonus(itemAndPassives, stat, esper) {
 function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignoreBuffs = false) {
     var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, true);
     var esperStatBonus = 1;
-    if (itemAndPassives[10]) {
-        esperStatBonus = getEsperStatBonus(itemAndPassives, stat, itemAndPassives[10]);
+    if (itemAndPassives[11]) {
+        esperStatBonus = getEsperStatBonus(itemAndPassives, stat, itemAndPassives[11]);
     }
     var calculatedValue = 0   
     var currentPercentIncrease = {"value":0};
@@ -1226,10 +1226,10 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
         if (itemAndPassives[equipedIndex]) {
             var equipmentStatBonusToApply = 1;
-            if (equipedIndex < 10) {
+            if (equipedIndex < 11) {
                 equipmentStatBonusToApply = equipmentStatBonus;
             }
-            if (equipedIndex == 10) {
+            if (equipedIndex == 11) {
                 equipmentStatBonusToApply = esperStatBonus;
             }
             if ("evade.magical" == stat) {
@@ -1398,7 +1398,7 @@ function isEquipedConditionOK(equiped, condition) {
                 return true;
             }
         } else if (typeList.includes(condition)) {
-            for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
+            for (var equipedIndex = 0; equipedIndex < 11; equipedIndex++) {
                 if (equiped[equipedIndex] && equiped[equipedIndex].type == condition) {
                     return true;
                 }
@@ -1408,7 +1408,7 @@ function isEquipedConditionOK(equiped, condition) {
                 return true;
             }
         } else {
-            for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
+            for (var equipedIndex = 0; equipedIndex < 11; equipedIndex++) {
                 if (equiped[equipedIndex] && equiped[equipedIndex].id == condition) {
                     return true;
                 }

@@ -705,8 +705,8 @@ class DataStorage {
                         }
                     }
                 }
-                if (build[10]) {
-                    this.alreadyUsedEspers.push(build[10].id);
+                if (build[11]) {
+                    this.alreadyUsedEspers.push(build[11].id);
                 }
             } else {
                 for (var index = 0; index < 10; index++) {
@@ -730,8 +730,8 @@ class DataStorage {
                         }   
                     }
                 }
-                if (builds[i].build[10]) {
-                    this.alreadyUsedEspers.push(builds[i].build[10].id);
+                if (builds[i].build[11]) {
+                    this.alreadyUsedEspers.push(builds[i].build[11].id);
                 }
             }
         }

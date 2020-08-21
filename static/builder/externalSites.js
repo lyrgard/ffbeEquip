@@ -10,14 +10,14 @@ class Piramidata {
             "&potdef=" + unitBuild.baseValues.def.pots +
             "&potmag=" + unitBuild.baseValues.mag.pots +
             "&potspr=" + unitBuild.baseValues.spr.pots;
-        if (unitBuild.build[10]) {
+        if (unitBuild.build[11]) {
             link += "&espername=" + encodeURIComponent(Piramidata.getEsperName(unitBuild)) + 
-                "&esperhp=" + unitBuild.build[10].hp * 100 + 
-                "&espermp=" + unitBuild.build[10].mp  * 100+
-                "&esperatk=" + unitBuild.build[10].atk  * 100+
-                "&esperdef=" + unitBuild.build[10].def  * 100+
-                "&espermag=" + unitBuild.build[10].mag  * 100+
-                "&esperspr=" + unitBuild.build[10].spr * 100;
+                "&esperhp=" + unitBuild.build[11].hp * 100 + 
+                "&espermp=" + unitBuild.build[11].mp  * 100+
+                "&esperatk=" + unitBuild.build[11].atk  * 100+
+                "&esperdef=" + unitBuild.build[11].def  * 100+
+                "&espermag=" + unitBuild.build[11].mag  * 100+
+                "&esperspr=" + unitBuild.build[11].spr * 100;
         } else {
             link += "&esperhp=0&espermp=0&esperatk=0&esperdef=0&espermag=0&esperspr=0";
         }
@@ -57,9 +57,9 @@ class Piramidata {
     }
 
     static getEsperName(unitBuild) {
-        if (unitBuild.build[10]) {
-            var result = unitBuild.build[10].name + " ";
-            for (var i = 0; i < unitBuild.build[10].maxLevel; i++) {
+        if (unitBuild.build[11]) {
+            var result = unitBuild.build[11].name + " ";
+            for (var i = 0; i < unitBuild.build[11].maxLevel; i++) {
                 result += "★";
             }
             return result;

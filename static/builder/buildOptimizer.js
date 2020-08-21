@@ -71,7 +71,7 @@ class BuildOptimizer {
                 this.selectedEspers = [];
             }
             
-            var build = [null, null, null, null, null, null, null, null, null, null,null].concat(applicableSkills);
+            var build = [null, null, null, null, null, null, null, null, null, null,null, null].concat(applicableSkills);
             this.findBestBuildForCombination(0, build, typeCombinations[index].combination, dataWithdConditionItems, typeCombinations[index].fixedItems, this.getElementBasedSkills(), this.getItemBasedSkills());
         }
         this.buildCounterUpdateCallback(this.buildCounter);
