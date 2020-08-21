@@ -131,7 +131,7 @@ FFBEEquipBuildAsImage = {
         let y = 5 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
 
         unit.items.forEach((item, index) => {
-            if (item) {
+            if (item && item.id != 'unavailable') {
                 let line = Math.floor(item.slot / 2);
                 let column = item.slot % 2;
                 FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/items/${item.icon}`, x + column * 180, y + line * 30, 40, 40);

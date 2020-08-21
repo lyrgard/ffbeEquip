@@ -2671,7 +2671,7 @@ function getStateHash(onlyCurrent = true) {
                     unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null, icon:item.icon, name:item.name});
                     addEnhancementsIfAny(item, unit);
                 }
-                if (item && item.placeHolder) {
+                if (item && item.placeHolder && item.type != "unavailable") {
                     unit.items.push({slot:index, id:item.type, pinned: false});
                 }
             }
