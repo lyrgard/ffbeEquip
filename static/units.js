@@ -13,6 +13,10 @@ var onlyShowOwnedUnits = false;
 var onlyShow7Star = false;
 var showNumberTMRFarmed = false;
 var readOnly;
+var unitsToIgnoreForImport = {
+    'GL': ["207000317"],
+    'JP': []
+}
 
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
@@ -1054,9 +1058,11 @@ function importUnits() {
         baseUnitIdBySpecificRarityUnitId = {};
         releasedUnits.forEach(unit => {
             let unitIdBase = unit.id.substring(0,unit.id.length - 1);
-           for (i = parseInt(unit.min_rarity); i <= parseInt(unit.max_rarity); i++) {
+            let minRarity = unit.min_rarity === 'NV' ? 7: unit.min_rarity;
+            let maxRarity = unit.max_rarity === 'NV' ? 7: unit.max_rarity;
+            for (i = minRarity; i <= maxRarity; i++) {
                baseUnitIdBySpecificRarityUnitId[unitIdBase + i] = unit.id;
-           }
+            }
         });
     }
     if (!baseUnitIdByTmrId) {
@@ -1118,7 +1124,7 @@ function treatImportFile(evt) {
                     Modal.showMessage("unit doesn't have id : " + JSON.stringify(unit));
                     importedOwnedUnit = null;
                     return;
-                } else {
+                } else if (!unitsToIgnoreForImport[server].includes(unit.id)) {
                     if (unit.id == '904000115' && unit.tmr < 1000) {
                         let baseUnitId = baseUnitIdByTmrId[unit.tmrId]
                         if (baseUnitId) {
@@ -1143,27 +1149,28 @@ function treatImportFile(evt) {
                     } else if (!unit.id.startsWith('9')) {
                         let baseUnitId = baseUnitIdBySpecificRarityUnitId[unit.id];
                         if (!baseUnitId) {
-                            Modal.showMessage('unknown unit id : ' + unit.id);
-                            importedOwnedUnit = null;
+                            Modal.showMessage('unknown unit id : ' + unit.id + '. FFBE Equip data probably was not updated yet. Ignoring this unit.');
+                            //importedOwnedUnit = null;
                             return;
-                        }
-                        if (!importedOwnedUnit[baseUnitId]) {
-                            importedOwnedUnit[baseUnitId] = {"number":0,"farmable":0,"sevenStar":0,"farmableStmr":0};
-                        }
-                        if (unit.tmr < 1000) {
-                            importedOwnedUnit[baseUnitId].farmable++;
-                        }
-                        if (unit.id.endsWith("7")) {
-                            if (!importedOwnedUnit[baseUnitId].sevenStar) {
-                                importedOwnedUnit[baseUnitId].sevenStar = 0;
-                                importedOwnedUnit[baseUnitId].farmableStmr = 0;
-                            }
-                            importedOwnedUnit[baseUnitId].sevenStar++;
-                            if (unit.stmr < 1000) {
-                                importedOwnedUnit[baseUnitId].farmableStmr++;
-                            }
                         } else {
-                          importedOwnedUnit[baseUnitId].number++;
+                            if (!importedOwnedUnit[baseUnitId]) {
+                                importedOwnedUnit[baseUnitId] = {"number":0,"farmable":0,"sevenStar":0,"farmableStmr":0};
+                            }
+                            if (unit.tmr < 1000) {
+                                importedOwnedUnit[baseUnitId].farmable++;
+                            }
+                            if (unit.id.endsWith("7")) {
+                                if (!importedOwnedUnit[baseUnitId].sevenStar) {
+                                    importedOwnedUnit[baseUnitId].sevenStar = 0;
+                                    importedOwnedUnit[baseUnitId].farmableStmr = 0;
+                                }
+                                importedOwnedUnit[baseUnitId].sevenStar++;
+                                if (unit.stmr < 1000) {
+                                    importedOwnedUnit[baseUnitId].farmableStmr++;
+                                }
+                            } else {
+                                importedOwnedUnit[baseUnitId].number++;
+                            }
                         }
                     }
                 }

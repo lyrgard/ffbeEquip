@@ -798,7 +798,7 @@ function logBuild(build, value) {
         $("#resultStats .lbFillRate .value").addClass("statToMaximize");
     }
 
-    if (!value) {
+    if (!value && builds[currentUnitIndex].formula) {
         value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula, goalVariation, useNewJpDamageFormula, false, true);
     }
     
@@ -828,12 +828,14 @@ function logBuild(build, value) {
     
     var formulaIsOneSkill = false;
     var skillName;
-    if (builds[currentUnitIndex].formula.type == "skill") {
-        formulaIsOneSkill = true;
-        skillName = builds[currentUnitIndex].formula.name;
-    } else if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.formula.type == "skill") {
-        formulaIsOneSkill = true;
-        skillName = builds[currentUnitIndex].formula.formula.name;
+    if (builds[currentUnitIndex].formula) {
+        if (builds[currentUnitIndex].formula) {
+            formulaIsOneSkill = true;
+            skillName = builds[currentUnitIndex].formula.name;
+        } else if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.formula.type == "skill") {
+            formulaIsOneSkill = true;
+            skillName = builds[currentUnitIndex].formula.formula.name;
+        }
     }
     
     if (!formulaIsOneSkill) {
@@ -858,7 +860,7 @@ function logBuild(build, value) {
             $("#resultStats .healingResult .calcValue").html(getValueWithVariationHtml(healingResult));
         }
     }
-    if (formulaIsOneSkill || (value[goalVariation] != physicalDamageResult[goalVariation] && value[goalVariation] != magicalDamageResult[goalVariation] && value[goalVariation] != hybridDamageResult[goalVariation] && value[goalVariation] != healingResult[goalVariation])) {
+    if (formulaIsOneSkill || (value && value[goalVariation] != physicalDamageResult[goalVariation] && value[goalVariation] != magicalDamageResult[goalVariation] && value[goalVariation] != hybridDamageResult[goalVariation] && value[goalVariation] != healingResult[goalVariation])) {
         $("#resultStats .buildResult").removeClass("hidden");
         $("#resultStats .buildResult .calcValue").html(getValueWithVariationHtml(value));
         if (formulaIsOneSkill) {
