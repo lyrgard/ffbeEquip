@@ -697,6 +697,9 @@ var toHtml = function(text) {
 
 // Return the wiki url corresponding to the name
 var toUrl = function(name) {
+    if (!name) {
+        return "";
+    }
     let link = wikiBaseUrl + encodeURIComponent(name.replace(/ /g, '_'));
     if (server == 'JP') {
         link += '/JP';

@@ -1171,7 +1171,7 @@ function goalSelectTemplate(state) {
     } else if (state.id.startsWith("SKILL_")) {
         var skill = getSkillFromId(state.id.substr(6), unitWithSkills);
         if (skill) {
-            html = '<img class="selectIcon" src="img/items/' + skill.icon + '"> ' + state.text;
+            html = '<img class="selectIcon" src="img/items/' + skill.icon + '"><span class="name">' + state.text + '</span>';
             
             
             if (skill.ifUsedLastTurn) {
