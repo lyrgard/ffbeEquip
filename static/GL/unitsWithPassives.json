@@ -7799,6 +7799,7 @@
 	"100031007": {
 		"name":"Rain -Neo Vision-",
 		"id":"100031007",
+		"braveShift":"100031017",
 		"exAwakening": [{"hp":633,"mp":32,"atk":59,"def":23,"mag":20,"spr":23},{"hp":487,"mp":25,"atk":45,"def":18,"mag":16,"spr":18},{"hp":341,"mp":17,"atk":32,"def":12,"mag":11,"spr":13}],
 		"max_rarity":"NV",
 		"min_rarity":"NV",
@@ -7822,6 +7823,8 @@
 	"100031017": {
 		"name":"Rain -Neo Vision- - Brave Shifted",
 		"id":"100031017",
+		"braveShifted":true,
+		"exAwakening": [{"hp":633,"mp":32,"atk":59,"def":23,"mag":20,"spr":23},{"hp":487,"mp":25,"atk":45,"def":18,"mag":16,"spr":18},{"hp":341,"mp":17,"atk":32,"def":12,"mag":11,"spr":13}],
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -7831,7 +7834,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["アッシュブレイド","アストラルエッジ"],
 		"skills": [
 			{"hp%":50, "mp%":70, "atk%":180, "def%":50, "spr%":50, "singleWielding":{"accuracy":50,"atk":200}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"human","physical":150}], "mpRefresh":7, "lbDamage":50},
@@ -10538,6 +10541,7 @@
 	"207000305": {
 		"name":"Tifa",
 		"id":"207000305",
+		"braveShift":"207000327",
 		"exAwakening": [{"hp":618,"mp":31,"atk":27,"def":22,"mag":20,"spr":24},{"hp":475,"mp":24,"atk":21,"def":17,"mag":16,"spr":19},{"hp":333,"mp":17,"atk":14,"def":12,"mag":11,"spr":13}],
 		"max_rarity":"NV",
 		"min_rarity":"5",
@@ -10591,8 +10595,10 @@
 		}
 	},
 	"207000327": {
-		"name":"Tifa",
+		"name":"Tifa - Brave Shifted",
 		"id":"207000327",
+		"braveShifted":true,
+		"exAwakening": [{"hp":618,"mp":31,"atk":27,"def":22,"mag":20,"spr":24},{"hp":475,"mp":24,"atk":21,"def":17,"mag":16,"spr":19},{"hp":333,"mp":17,"atk":14,"def":12,"mag":11,"spr":13}],
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -10602,7 +10608,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["Meteor Crusher","Concentration","Lessons for Life on the Ground Floor"],
 		"enhancements": [
 			{"name":"Lessons for Life on the Ground Floor","levels":[[{"killers":[{"name":"aquatic","physical":100},{"name":"human","physical":100}]}],[{"killers":[{"name":"aquatic","physical":125},{"name":"human","physical":125}]}],[{"killers":[{"name":"aquatic","physical":150},{"name":"human","physical":150}]}],[{"killers":[{"name":"aquatic","physical":175},{"name":"human","physical":175}]}],[{"killers":[{"name":"aquatic","physical":200},{"name":"human","physical":200}]}]]}
@@ -11064,6 +11070,7 @@
 	"207002007": {
 		"name":"Cloud (FFVII REMAKE)",
 		"id":"207002007",
+		"braveShift":"207002017",
 		"exAwakening": [{"hp":633,"mp":33,"atk":61,"def":23,"mag":21,"spr":23},{"hp":487,"mp":25,"atk":47,"def":17,"mag":16,"spr":18},{"hp":341,"mp":18,"atk":33,"def":12,"mag":11,"spr":13}],
 		"max_rarity":"NV",
 		"min_rarity":"NV",
@@ -11082,8 +11089,10 @@
 		]
 	},
 	"207002017": {
-		"name":"Cloud (FFVII REMAKE)",
+		"name":"Cloud (FFVII REMAKE) - Brave Shifted",
 		"id":"207002017",
+		"braveShifted":true,
+		"exAwakening": [{"hp":633,"mp":33,"atk":61,"def":23,"mag":21,"spr":23},{"hp":487,"mp":25,"atk":47,"def":17,"mag":16,"spr":18},{"hp":341,"mp":18,"atk":33,"def":12,"mag":11,"spr":13}],
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -11093,7 +11102,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Braver (FFVII REMAKE)","Spinning Slash (FFVII REMAKE)"],
 		"skills": [
 			{"hp%":90, "mp%":50, "atk%":160, "def%":70, "mag%":30, "spr%":60, "dualWielding":{"atk":150}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":100},{"name":"machine","physical":100}], "mpRefresh":5, "lbDamage":50, "skillEnhancement":{"236002":15,"236003":15,"236004":15,"236006":20,"236007":20,"236008":20}, "special":["dualWield"]},

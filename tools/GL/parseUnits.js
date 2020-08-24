@@ -209,6 +209,12 @@ function manageNV(units) {
                 Object.values(unitIn.entries).forEach(e => e.rarity = 'NV');
                 //baseUnitIdByNVUnitId[nvIds[0]] = unitId;
                 unitIn.nv_upgrade = Object.values(unitIn.entries)[0].nv_upgrade;
+                let potentialBaseUnits = Object.keys(units).filter(k => units[k].name === unitIn.name && k < unitId).sort();
+                if (potentialBaseUnits.length) {
+                    baseUnitIdByNVUnitId[unitId] = potentialBaseUnits[0];
+                    braveShiftUnitIdByBaseUnitId.push({baseUnitId: potentialBaseUnits[0], braveShiftedUnitId: unitId});
+                    unitIn.base_id = potentialBaseUnits[0];
+                }
             }
         }
     }
@@ -399,6 +405,12 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
         data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, null, latentSkillsByUnitId, 7).data;
     }
 
+    if (unitIn.braveShiftedUnitId && maxRarity == 'NV') {
+        data["braveShift"] = unitIn.braveShiftedUnitId;
+    }
+    if (unitIn.base_id != unitId) {
+        data["braveShifted"] = unitIn.base_id;
+    }
     if (maxRarity == 'NV' && unitIn.nv_upgrade) {
         data.equip.push("visionCard");
         data.exAwakenings = [
