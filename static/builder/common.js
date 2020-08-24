@@ -1199,6 +1199,9 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     var buffValue = 0
     if (baseStats.includes(stat)) {
         baseValue = unitBuild.baseValues[stat].total;
+        if (itemAndPassives[10] && itemAndPassives[10][stat]) {
+            baseValue += itemAndPassives[10][stat];
+        }
         if (!ignoreBuffs) {
             if (stat === 'hp') {
                 buffValue = unitBuild.baseValues[stat].buff;   
@@ -1233,12 +1236,12 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
                 equipmentStatBonusToApply = esperStatBonus;
             }
             if ("evade.magical" == stat) {
-                calculatedValue = Math.max(calculatedValue, calculateStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat, notStackableSkillsAlreadyUsed));
+                calculatedValue = Math.max(calculatedValue, calculateStateValueForIndex(itemAndPassives, equipedIndex, baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat, notStackableSkillsAlreadyUsed));
             } else if (equipedIndex < 2 && "atk" == stat) {
                 calculatedValue += calculatePercentStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, stat, notStackableSkillsAlreadyUsed);    
-                calculatedValue += calculateFlatStateValueForIndex(itemAndPassives[equipedIndex], equipmentStatBonus - 1, stat);
+                calculatedValue += calculateFlatStateValueForIndex(itemAndPassives, equipedIndex, equipmentStatBonus - 1, stat);
             } else {
-                calculatedValue += calculateStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat, notStackableSkillsAlreadyUsed);    
+                calculatedValue += calculateStateValueForIndex(itemAndPassives, equipedIndex, baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat, notStackableSkillsAlreadyUsed);
             }
             if (itemAndPassives[equipedIndex].notStackableSkills) {
                 for (var skillId in itemAndPassives[equipedIndex].notStackableSkills) {
@@ -1261,8 +1264,8 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     
     if ("atk" == stat) {
         var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value}; 
-        var right = calculateFlatStateValueForIndex(itemAndPassives[0], 1, stat);
-        var left = calculateFlatStateValueForIndex(itemAndPassives[1], 1, stat);
+        var right = calculateFlatStateValueForIndex(itemAndPassives, 0, 1, stat);
+        var left = calculateFlatStateValueForIndex(itemAndPassives, 1, 1, stat);
         if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
             result.right = Math.floor(calculatedValue + right);
             result.left = Math.floor(calculatedValue + left);
@@ -1288,7 +1291,8 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     }
 }
  
-function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, equipmentStatBonus, stat, notStackableSkillsAlreadyUsed) {
+function calculateStateValueForIndex(items, index, baseValue, currentPercentIncrease, equipmentStatBonus, stat, notStackableSkillsAlreadyUsed) {
+    let item = items[index];
     if (item) {
         if (stat == "lbPerTurn") {
             var value = 0;
@@ -1303,7 +1307,12 @@ function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, eq
             }
             return value;
         } else {
-            var value = getValue(item, stat, notStackableSkillsAlreadyUsed);
+            let value;
+            if (index === 10 && baseStats.includes(stat)) {
+                value = 0; // Vision Card flat stats are added to the base value directly earlier in the calculation
+            } else {
+                value = getValue(item, stat, notStackableSkillsAlreadyUsed);
+            }
             if (item[percentValues[stat]]) {
                 var itemPercentValue = getValue(item, percentValues[stat], notStackableSkillsAlreadyUsed);
                 var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(getStatBonusCap(stat) - currentPercentIncrease.value, 0));
@@ -1335,9 +1344,12 @@ function getStatBonusCap(stat) {
 }
 
 
-function calculateFlatStateValueForIndex(item, equipmentStatBonus, stat) {
-    if (item && item[stat]) {
-        return item[stat] * equipmentStatBonus;
+function calculateFlatStateValueForIndex(items, index, equipmentStatBonus, stat) {
+    if (index === 10) {
+        return 0; // Vision Card flat stats are added to the base value directly earlier in the calculation
+    }
+    if (items[index] && items[index][stat]) {
+        return items[index][stat] * equipmentStatBonus;
     }
     return 0;
 }
