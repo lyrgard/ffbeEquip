@@ -12,7 +12,7 @@
 	{"spr":74, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10}]},
 	{"spr":80, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"light","percent":10},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"light","percent":20}]}
 ]},
-{"id":"100000201", "name":"天翔ける騎士たち", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000201.png", "sortId":3, "levels":[
+{"id":"100000201", "name":"Knights who Soar the Skies", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000201.png", "sortId":3, "levels":[
 	{"atk":35, "def":35},
 	{"atk":36, "def":36},
 	{"atk":38, "def":38},
@@ -24,7 +24,7 @@
 	{"atk":47, "atk%":20, "def":47, "def%":20, "resist":[{"name":"wind","percent":30}]},
 	{"atk":50, "atk%":20, "def":50, "def%":20, "resist":[{"name":"wind","percent":30}]}
 ]},
-{"id":"100000301", "name":"水の巫女と水神", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000301.png", "sortId":4, "levels":[
+{"id":"100000301", "name":"The Water God and Priestess", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000301.png", "sortId":4, "levels":[
 	{"spr":20},
 	{"spr":22},
 	{"spr":24},
@@ -36,7 +36,7 @@
 	{"spr":36, "esperStatsBonus":{"Leviathan":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}},
 	{"spr":40, "spr%":30, "esperStatsBonus":{"Leviathan":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}}
 ]},
-{"id":"100000401", "name":"報復の鉄槌", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000401.png", "sortId":5, "levels":[
+{"id":"100000401", "name":"A Vengeful Blow", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000401.png", "sortId":5, "levels":[
 	{"atk":45},
 	{"atk":46},
 	{"atk":48},
@@ -180,7 +180,19 @@
 	{"atk":82, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
 	{"atk":90, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40},{"exclusiveUnits":["202000505","202000527","202001705","202001727","202001907","202001917"]}]}
 ]},
-{"id":"207000101", "name":"真夜中の疾走", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
+{"id":"203000101", "name":"クリスタルの啓示", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_203000101.png", "sortId":25, "levels":[
+	{"atk":40},
+	{"atk":44},
+	{"atk":48},
+	{"atk":52, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":15},{"equipedConditions":["katana"],"atk%":15}]},
+	{"atk":56, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":15},{"equipedConditions":["katana"],"atk%":15}]},
+	{"atk":60, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":15},{"equipedConditions":["katana"],"atk%":15}]},
+	{"atk":64, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
+	{"atk":68, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
+	{"atk":72, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
+	{"atk":80, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30},{"atk%":20,"def%":20,"mag%":20,"spr%":20,"exclusiveUnits":["203001305","203001327","203001405","203001427","203004207","203004217"]},{"resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}],"exclusiveUnits":["203001305","203001327","203001405","203001427","203004207","203004217"]}]}
+]},
+{"id":"207000101", "name":"Mad Dash", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
 	{"atk":40},
 	{"atk":46},
 	{"atk":52},
@@ -264,7 +276,7 @@
 	{"atk":64, "atk%":40, "spr":79, "spr%":40},
 	{"atk":72, "atk%":40, "spr":88, "spr%":40, "conditional":[{"atk%":30,"spr%":30,"exclusiveUnits":["340000107","340000117","340000207","340000217","340000307","340000317"]},{"resist":[{"name":"light","percent":50}],"exclusiveUnits":["340000107","340000117","340000207","340000217","340000307","340000317"]}]}
 ]},
-{"id":"900020101", "name":"メタルジャボテン見参！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_900020101.png", "sortId":6, "levels":[
+{"id":"900020101", "name":"Metal Gigantuar's Here!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_900020101.png", "sortId":6, "levels":[
 	{"hp":10, "mp":10}
 ]}
 ]

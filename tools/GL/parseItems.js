@@ -183,6 +183,7 @@ var languageId;
 let skillNameTrads;
 let skillDescTrads;
 var nvUnitIdsByGameId = {};
+let alreadyKnownVisionCardNames = {};
 
 
 function getData(filename, callback) {
@@ -235,139 +236,142 @@ getData('equipment.json', function (items) {
                                 var oldItems = JSON.parse(content);
                                 fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
                                     releasedUnits = JSON.parse(content);
-                                    request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_ABILITY_NAME.json', function (error, response, body) {
-                                        if (!error && response.statusCode == 200) {
-                                            skillNameTrads = JSON.parse(body);
-                                            request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_MAGIC_NAME.json', function (error, response, body) {
-                                                if (!error && response.statusCode == 200) {
-                                                    let magicNameTrads = JSON.parse(body);
-                                                    Object.keys(magicNameTrads).forEach(skillId => {
-                                                        skillNameTrads[skillId] = magicNameTrads[skillId];
-                                                    });
-                                                    request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_ABILITY_SHORTDESCRIPTION.json', function (error, response, body) {
-                                                        if (!error && response.statusCode == 200) {
-                                                            skillDescTrads = JSON.parse(body);
-                                                            request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_MAGIC_SHORTDESCRIPTION.json', function (error, response, body) {
-                                                                if (!error && response.statusCode == 200) {
-                                                                    let magicDescTrads = JSON.parse(body);
-                                                                    fs.readFile('../../static/JP/data.json', function (err, content) {
-                                                                        var jpItems = JSON.parse(content);
-                                                                        fs.readFile('../../static/JP/units.json', function (err, content) {
-                                                                            var jpUnits = JSON.parse(content);
-                                                                            Object.keys(magicDescTrads).forEach(skillId => {
-                                                                                skillDescTrads[skillId] = magicDescTrads[skillId];
-                                                                            });
+                                    fs.readFile('../../static/GL/visionCards.json', function (err, content) {
+                                        JSON.parse(content).filter(vc => vc.name).forEach(vc => alreadyKnownVisionCardNames[vc.id] = vc.name);
+                                        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_ABILITY_NAME.json', function (error, response, body) {
+                                            if (!error && response.statusCode == 200) {
+                                                skillNameTrads = JSON.parse(body);
+                                                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_MAGIC_NAME.json', function (error, response, body) {
+                                                    if (!error && response.statusCode == 200) {
+                                                        let magicNameTrads = JSON.parse(body);
+                                                        Object.keys(magicNameTrads).forEach(skillId => {
+                                                            skillNameTrads[skillId] = magicNameTrads[skillId];
+                                                        });
+                                                        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_ABILITY_SHORTDESCRIPTION.json', function (error, response, body) {
+                                                            if (!error && response.statusCode == 200) {
+                                                                skillDescTrads = JSON.parse(body);
+                                                                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_MAGIC_SHORTDESCRIPTION.json', function (error, response, body) {
+                                                                    if (!error && response.statusCode == 200) {
+                                                                        let magicDescTrads = JSON.parse(body);
+                                                                        fs.readFile('../../static/JP/data.json', function (err, content) {
+                                                                            var jpItems = JSON.parse(content);
+                                                                            fs.readFile('../../static/JP/units.json', function (err, content) {
+                                                                                var jpUnits = JSON.parse(content);
+                                                                                Object.keys(magicDescTrads).forEach(skillId => {
+                                                                                    skillDescTrads[skillId] = magicDescTrads[skillId];
+                                                                                });
 
-                                                                            for (var index in oldItems) {
-                                                                                oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
-                                                                                if (oldItems[index].eventName) {
-                                                                                    oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
-                                                                                } else if (oldItems[index].eventNames) {
-                                                                                    oldItemsEventById[oldItems[index].id] = oldItems[index].eventNames;
-                                                                                }
-                                                                                if (oldItems[index].maxNumber) {
-                                                                                    oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
-                                                                                }
-                                                                                if (oldItems[index].wikiEntry) {
-                                                                                    oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
-                                                                                }
-                                                                            }
-
-                                                                            Object.keys(units).forEach(unitId => {
-                                                                                let unit = units[unitId];
-                                                                                if (unit.game_id && unit.skills && unit.skills.some(s => s.brave_ability)) {
-                                                                                    if (!nvUnitIdsByGameId[unit.game_id]) nvUnitIdsByGameId[unit.game_id] = [];
-                                                                                    nvUnitIdsByGameId[unit.game_id].push(unitId);
-                                                                                }
-                                                                            });
-
-
-                                                                            for (languageId = 0; languageId < languages.length; languageId++) {
-
-                                                                                for (var unitIndex in units) {
-                                                                                    var unit = units[unitIndex];
-                                                                                    if (!unit.names) {
-                                                                                        continue;
+                                                                                for (var index in oldItems) {
+                                                                                    oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
+                                                                                    if (oldItems[index].eventName) {
+                                                                                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                                                                                    } else if (oldItems[index].eventNames) {
+                                                                                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventNames;
                                                                                     }
-                                                                                    unitNamesById[unitIndex] = {
-                                                                                        "name": unit.names[languageId],
-                                                                                        "minRarity": unit.rarity_min,
-                                                                                        "maxRarity": unit.rarity_max
-                                                                                    };
-
-                                                                                    if (unit.TMR && !unitIdByTmrId[unit.TMR[1]]) {
-                                                                                        unitIdByTmrId[unit.TMR[1]] = unitIndex;
+                                                                                    if (oldItems[index].maxNumber) {
+                                                                                        oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
                                                                                     }
-                                                                                    if (unit.sTMR && !unitIdBySTmrId[unit.sTMR[1]]) {
-                                                                                        unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
+                                                                                    if (oldItems[index].wikiEntry) {
+                                                                                        oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
                                                                                     }
                                                                                 }
 
-
-                                                                                var result = {"items": []};
-                                                                                for (var itemId in items) {
-                                                                                    if (!jpExclusiveItemIds.includes(itemId)) {
-                                                                                        treatItem(items, itemId, result, skills);
+                                                                                Object.keys(units).forEach(unitId => {
+                                                                                    let unit = units[unitId];
+                                                                                    if (unit.game_id && unit.skills && unit.skills.some(s => s.brave_ability)) {
+                                                                                        if (!nvUnitIdsByGameId[unit.game_id]) nvUnitIdsByGameId[unit.game_id] = [];
+                                                                                        nvUnitIdsByGameId[unit.game_id].push(unitId);
                                                                                     }
-                                                                                }
-                                                                                for (var materiaId in materias) {
-                                                                                    if (!jpExclusiveItemIds.includes(materiaId)) {
-                                                                                        treatItem(materias, materiaId, result, skills);
-                                                                                    }
-                                                                                }
-                                                                                console.log(skillNotIdentifiedNumber);
-                                                                                console.log(result.items.length);
+                                                                                });
 
 
-                                                                                let glItemIds = result.items.map(item => item.id);
+                                                                                for (languageId = 0; languageId < languages.length; languageId++) {
 
-
-
-                                                                                jpItems
-                                                                                    .filter(item => !glItemIds.includes(item.id) && !jpExclusiveItemIds.includes(item.id))
-                                                                                    .forEach(item => {
-                                                                                    if (item.type == 'materia' && (!item.special || !item.special.includes('notStackable'))) {
-                                                                                        if (!item.special) {
-                                                                                            item.special = [];
+                                                                                    for (var unitIndex in units) {
+                                                                                        var unit = units[unitIndex];
+                                                                                        if (!unit.names) {
+                                                                                            continue;
                                                                                         }
-                                                                                        item.special.push('notStackable');
+                                                                                        unitNamesById[unitIndex] = {
+                                                                                            "name": unit.names[languageId],
+                                                                                            "minRarity": unit.rarity_min,
+                                                                                            "maxRarity": unit.rarity_max
+                                                                                        };
+
+                                                                                        if (unit.TMR && !unitIdByTmrId[unit.TMR[1]]) {
+                                                                                            unitIdByTmrId[unit.TMR[1]] = unitIndex;
+                                                                                        }
+                                                                                        if (unit.sTMR && !unitIdBySTmrId[unit.sTMR[1]]) {
+                                                                                            unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
+                                                                                        }
                                                                                     }
-                                                                                    item.access.push('not released yet');
 
-                                                                                    result.items.push(item);
-                                                                                });
 
-                                                                                result.items.forEach(item => {
-                                                                                    if (item.access.includes("unknown") && !item.access.includes("not released yet")) {
-                                                                                        item.access.push("not released yet")
+                                                                                    var result = {"items": []};
+                                                                                    for (var itemId in items) {
+                                                                                        if (!jpExclusiveItemIds.includes(itemId)) {
+                                                                                            treatItem(items, itemId, result, skills);
+                                                                                        }
                                                                                     }
+                                                                                    for (var materiaId in materias) {
+                                                                                        if (!jpExclusiveItemIds.includes(materiaId)) {
+                                                                                            treatItem(materias, materiaId, result, skills);
+                                                                                        }
+                                                                                    }
+                                                                                    console.log(skillNotIdentifiedNumber);
+                                                                                    console.log(result.items.length);
+
+
+                                                                                    let glItemIds = result.items.map(item => item.id);
+
+
+
+                                                                                    jpItems
+                                                                                        .filter(item => !glItemIds.includes(item.id) && !jpExclusiveItemIds.includes(item.id))
+                                                                                        .forEach(item => {
+                                                                                        if (item.type == 'materia' && (!item.special || !item.special.includes('notStackable'))) {
+                                                                                            if (!item.special) {
+                                                                                                item.special = [];
+                                                                                            }
+                                                                                            item.special.push('notStackable');
+                                                                                        }
+                                                                                        item.access.push('not released yet');
+
+                                                                                        result.items.push(item);
+                                                                                    });
+
+                                                                                    result.items.forEach(item => {
+                                                                                        if (item.access.includes("unknown") && !item.access.includes("not released yet")) {
+                                                                                            item.access.push("not released yet")
+                                                                                        }
+                                                                                    });
+
+                                                                                    var filename = 'data.json';
+                                                                                    if (languageId != 0) {
+                                                                                        filename = 'data_' + languages[languageId] + '.json';
+                                                                                    }
+                                                                                    fs.writeFileSync(filename, formatOutput(result.items));
+                                                                                    cards = [];
+                                                                                    for (visionCardId in visionCards) {
+                                                                                        cards.push(treatVisionCard(visionCards[visionCardId], visionCardId, skills));
+                                                                                    }
+                                                                                    fs.writeFileSync('visionCards.json', formatVisionCards(cards));
+
+                                                                                }
+                                                                                Object.keys(notParsedSkillType).forEach(key => {
+                                                                                    console.log(key + ' - ' + notParsedSkillType[key].length + ' - ' + notParsedSkillType[key]);
                                                                                 });
-
-                                                                                var filename = 'data.json';
-                                                                                if (languageId != 0) {
-                                                                                    filename = 'data_' + languages[languageId] + '.json';
-                                                                                }
-                                                                                fs.writeFileSync(filename, formatOutput(result.items));
-                                                                                cards = [];
-                                                                                for (visionCardId in visionCards) {
-                                                                                    cards.push(treatVisionCard(visionCards[visionCardId], visionCardId, skills));
-                                                                                }
-                                                                                fs.writeFileSync('visionCards.json', formatVisionCards(cards));
-
-                                                                            }
-                                                                            Object.keys(notParsedSkillType).forEach(key => {
-                                                                                console.log(key + ' - ' + notParsedSkillType[key].length + ' - ' + notParsedSkillType[key]);
+                                                                                console.log(Math.round(Object.keys(notParsedSkillType).reduce((acc, key) => acc + notParsedSkillType[key].length, 0)));
                                                                             });
-                                                                            console.log(Math.round(Object.keys(notParsedSkillType).reduce((acc, key) => acc + notParsedSkillType[key].length, 0)));
                                                                         });
-                                                                    });
-                                                                }
-                                                            });
-                                                        }
-                                                    });
-                                                }
-                                            });
-                                        }
+                                                                    }
+                                                                });
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        });
                                     });
                                 });
                             });
@@ -518,6 +522,9 @@ function treatVisionCard(visionCard, visionCardId, skills) {
     let card = {};
     card.id = visionCardId;
     card.name = visionCard.name;
+    if (!card.name && alreadyKnownVisionCardNames[visionCardId]) {
+        card.name = alreadyKnownVisionCardNames[visionCardId];
+    }
     card.type = 'visionCard';
     card.icon = 'vc_vignette_item_icon_' + visionCardId + '.png';
     verifyImage(card.icon);
