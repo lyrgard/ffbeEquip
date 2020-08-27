@@ -7,7 +7,7 @@ const uuidV1 = require('uuid/v1');
 const unAuthenticatedRoute = express.Router();
 const authenticatedRoute = express.Router();
 
-const idSchema = Joi.string().regex(/^([0-9]{9,10}(-[0-9]{1,2})?$|dagger|sword|greatSword|katana|staff|rod|bow|axe|hammer|spear|harp|whip|throwing|gun|mace|fist|lightShield|heavyShield|hat|helm|clothes|lightArmor|heavyArmor|robe|accessory|materia|unavailable)$/, 'id');
+const idSchema = Joi.string().regex(/^([0-9]{9,10}(-[0-9]{1,2})?$|dagger|sword|greatSword|katana|staff|rod|bow|axe|hammer|spear|harp|whip|throwing|gun|mace|fist|lightShield|heavyShield|hat|helm|clothes|lightArmor|heavyArmor|robe|accessory|materia|visionCard|unavailable)$/, 'id');
 const itemSlotSchema = {
     slot:Joi.number().min(0).max(10),
     id:idSchema,
