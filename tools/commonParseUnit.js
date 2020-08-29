@@ -1474,6 +1474,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 17) {
         result = {"noUse":true};
 
+        // recover mp (over time) - quick blooming soul
+    } else if (rawEffect[2] == 30) {
+        result = {"noUse":true};
+
        //Global mitigation
     } else if (rawEffect[2] == 101) {
         result = {"noUse":true, "globalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};

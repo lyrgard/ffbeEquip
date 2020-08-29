@@ -79,6 +79,10 @@
     background-color: white;
 }
 
+.item.notOwned .number {
+    display: none;
+}
+
 .item.notOwned.stmr {
     background-color: #f5fcff;
 }

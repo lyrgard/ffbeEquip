@@ -1702,6 +1702,7 @@ function applyEnhancements(item, enhancements) {
                 result = combineTwoItems(result, enhancementValue);
             }
         }
+        result.originalItem = item;
         return result;
     } else {
         return item;
