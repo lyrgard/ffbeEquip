@@ -79,9 +79,10 @@
     background-color: white;
 }
 
-.item.notOwned .number {
+.item.notOwned .number, .item.notOwned .glyphicon-minus {
     display: none;
 }
+
 
 .item.notOwned.stmr {
     background-color: #f5fcff;
@@ -369,7 +370,7 @@
     width: 50px;
 }
 
-.item .glyphicon-plus, .item .glyphicon-minus {
+.item .glyphicon-plus, .item .glyphicon-minus, .item .vcLevelUp, .item .vcLevelDown {
     width: 20px;
     height: 20px;
     text-align: center;
@@ -518,7 +519,11 @@ a#exportLinks:hover {
     text-decoration: none;
 }
 
-
+.item .vcLevelChange {
+    position: absolute;
+    bottom: 5px;
+    right: 38px;
+}
 
 @media (min-width: 991px) {
     

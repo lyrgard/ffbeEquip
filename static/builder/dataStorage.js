@@ -643,9 +643,21 @@ class DataStorage {
         if (this.onlyUseOwnedItemsAvailableForExpeditions && this.itemInventory.excludeFromExpeditions.includes(item.id)) {
             return {"total":0,"available":0,"totalOwnedNumber":0}
         }
-        if (this.itemInventory[item.id]) {
-            totalNumber = this.itemInventory[item.id];
+        if (item.type == 'visionCard') {
+            let indexOfDash = item.id.indexOf('-');
+            let baseId = item.id.substr(0, indexOfDash);
+            let level = item.id.substr(indexOfDash + 1);
+            if (itemInventory.visionCardsLevels[baseId]) {
+                totalNumber = itemInventory.visionCardsLevels[baseId].filter(l => l == level).length;
+            } else if (itemInventory[baseId]) {
+                totalNumber = itemInventory[baseId];
+            }
+        } else {
+            if (this.itemInventory[item.id]) {
+                totalNumber = this.itemInventory[item.id];
+            }
         }
+
         totalOwnedNumber = totalNumber;
         if (this.includeTMROfOwnedUnits) {
             if (item.tmrUnit && ownedUnits[item.tmrUnit]) {

@@ -353,7 +353,9 @@ getData('equipment.json', function (items) {
                                                                                     fs.writeFileSync(filename, formatOutput(result.items));
                                                                                     cards = [];
                                                                                     for (visionCardId in visionCards) {
-                                                                                        cards.push(treatVisionCard(visionCards[visionCardId], visionCardId, skills));
+                                                                                        if (visionCards[visionCardId].name) {
+                                                                                            cards.push(treatVisionCard(visionCards[visionCardId], visionCardId, skills));
+                                                                                        }
                                                                                     }
                                                                                     fs.writeFileSync('visionCards.json', formatVisionCards(cards));
 

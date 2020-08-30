@@ -6,6 +6,7 @@ let itemsById = {};
 var stmrs = [];
 var lastItemReleases;
 var units;
+var visionCards;
 
 var currentEnhancementItem;
 var currentEnhancementItemPos;
@@ -365,6 +366,11 @@ function getItemDisplay(itemEntry, showStmrRecipe = false, inSellableItems = fal
             html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/icons/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
         }   
         html += '</div>';
+        if (itemEntry.owned && itemEntry.visionCard && itemEntry.visionCard.levels.length > 1) {
+
+            html += '<span class="vcLevelChange"><span class="vcLevelUp glyphicon glyphicon-arrow-up" onclick="event.stopPropagation();increaseVisionCardLevel(\'' + itemEntry.id + '\');" />';
+            html += '<span class="vcLevelDown glyphicon glyphicon-arrow-down" onclick="event.stopPropagation();decreaseVisionCardLevel(\'' + itemEntry.id + '\');" /></span>';
+        }
     }
     if (inSellableItems) {
         html += '<div class="td"><div class="sellableReasons">'
@@ -430,6 +436,43 @@ function getItemDisplay(itemEntry, showStmrRecipe = false, inSellableItems = fal
     return html;
 }
 
+function increaseVisionCardLevel(itemEntryId) {
+    var itemEntry = equipments.filter(ie => ie.id === itemEntryId)[0];
+    let currentLevel = itemEntry.item.level;
+    let vc = itemEntry.visionCard;
+    if (currentLevel < vc.levels.length) {
+        itemEntry.item.level++;
+        itemInventory.visionCardsLevels[itemEntry.item.id][itemEntry.enhancementPos] = itemEntry.item.level;
+
+        var inventoryDiv = $(".item." + itemEntry.id);
+        let inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
+        let inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
+        let inEnhancementsCandidates = $(".nav-tabs li.enhancementCandidates").hasClass("active");
+        let html = getItemDisplay(itemEntry, inFarmableStmr, inSellableItems, inEnhancementsCandidates);
+        inventoryDiv.replaceWith(html);
+        lazyLoader.update();
+        willSave();
+    }
+}
+
+function decreaseVisionCardLevel(itemEntryId) {
+    var itemEntry = equipments.filter(ie => ie.id === itemEntryId)[0];
+    let currentLevel = itemEntry.item.level;
+    if (currentLevel > 1) {
+        itemEntry.item.level--;
+        itemInventory.visionCardsLevels[itemEntry.item.id][itemEntry.enhancementPos] = itemEntry.item.level;
+
+        var inventoryDiv = $(".item." + itemEntry.id);
+        let inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
+        let inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
+        let inEnhancementsCandidates = $(".nav-tabs li.enhancementCandidates").hasClass("active");
+        let html = getItemDisplay(itemEntry, inFarmableStmr, inSellableItems, inEnhancementsCandidates);
+        inventoryDiv.replaceWith(html);
+        lazyLoader.update();
+        willSave();
+    }
+}
+
 function excludeFromExpedition(id) {
     var idString = String(id);
     var itemDiv = $(".item." + escapeName(id));
@@ -467,9 +510,18 @@ function addToInventory(itemEntryId, showAlert = true, force = false) {
             return false;
         } else {
             itemInventory[itemId] = itemInventory[itemId] + 1;
+            if (itemEntry.visionCard && itemEntry.visionCard.levels.length > 1) {
+                if (!itemInventory.visionCardsLevels[itemEntry.item.id]) {
+                    itemInventory.visionCardsLevels[itemEntry.item.id] = [];
+                }
+                itemInventory.visionCardsLevels[itemEntry.item.id].push(1);
+            }
         }
     } else {
         itemInventory[itemId] = 1;
+        if (itemEntry.visionCard && itemEntry.visionCard.levels.length > 1) {
+            itemInventory.visionCardsLevels[itemEntry.item.id] = [1];
+        }
         updateUnitAndItemCount();
     }
 
@@ -496,12 +548,34 @@ function addToInventory(itemEntryId, showAlert = true, force = false) {
             lazyLoader.update();
         }
     }
+    if (itemEntry.visionCard && itemEntry.visionCard.levels.length > 1) {
+        let vc = itemEntry.visionCard;
+        itemEntry = getItemEntry(getCardInstance(itemEntry.visionCard, 1), 0, false, itemInventory.visionCardsLevels[itemEntry.item.id] - 1);
+        itemEntry.visionCard = vc;
+        equipments.push(itemEntry);
 
-    itemEntry.ownedNumber++;
+        let inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
+        let inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
+        let inEnhancementsCandidates = $(".nav-tabs li.enhancementCandidates").hasClass("active");
+        let html = getItemDisplay(itemEntry, inFarmableStmr, inSellableItems, inEnhancementsCandidates)
+        let previousInventoryDiv = $(".item." + itemEntries[itemEntries.length - 1].id);
+        previousInventoryDiv.after(html);
+        if (!itemEntries[itemEntries.length - 1].owned) {
+            previousInventoryDiv.remove();
+            equipments = equipments.filter(ie => ie.id != itemEntries[itemEntries.length - 1].id);
+        }
+        lazyLoader.update();
+    }
+
+    if (itemEntry.ownedNumber) {
+        itemEntry.ownedNumber++;
+    } else {
+        itemEntry.ownedNumber = 1;
+    }
     itemEntry.owned = true;
     var inventoryDiv = $(".item." + itemEntry.id);
     inventoryDiv.removeClass('notOwned');
-    inventoryDiv.find(".number").text(itemInventory[itemId] - (itemInventory.enchantments[itemId] || []).length);
+    inventoryDiv.find(".number").text(itemEntry.ownedNumber);
 
 
     willSave();
@@ -589,12 +663,19 @@ function removeFromInventory(itemEntryId) {
             if (itemInventory.enchantments[itemId]) {
                 delete itemInventory.enchantments[itemId];
             }
+            if (itemInventory.visionCardsLevels[itemId]) {
+                delete itemInventory.visionCardsLevels[itemId];
+            }
             updateUnitAndItemCount();
         } else {
             itemInventory[itemId] = itemInventory[itemId] - 1;
             if (itemEntry.enhanced) {
                 itemInventory.enchantments[itemId].splice(itemEntry.enhancementPos, 1);
                 equipments.filter(ie => ie.item.id === itemId && ie.enhanced && ie.enhancementPos > itemEntry.enhancementPos).forEach(ie => ie.enhancementPos--);
+            }
+            if (itemEntry.visionCard && itemEntry.visionCard.levels.length > 1) {
+                itemInventory.visionCardsLevels[itemId].splice(itemEntry.enhancementPos, 1);
+                equipments.filter(ie => ie.item.id === itemId && ie.enhancementPos > itemEntry.enhancementPos).forEach(ie => ie.enhancementPos--);
             }
         }
 
@@ -612,6 +693,7 @@ function removeFromInventory(itemEntryId) {
                 let itemEntries = equipments.concat(materia).filter(ie => ie.item.id === itemId);
                 let previousInventoryDiv = $(".item." + itemEntries[itemEntries.length - 1].id);
                 previousInventoryDiv.after(html);
+                lazyLoader.update();
                 if (itemEntry.item.type === "materia") {
                     materia.push(itemEntry);
                 } else {
@@ -620,6 +702,31 @@ function removeFromInventory(itemEntryId) {
             }
             equipments = equipments.filter(e => e.id != itemEntryId);
             inventoryDiv.remove(); // remove enhanced version.
+        } else if (itemEntry.visionCard) {
+            if (itemEntry.visionCard.levels.length > 1) {
+                if (!itemInventory[itemId]) {
+                    // Need to add back a basic version of the card, not owned
+                    let newItemEntry = getItemEntry(getCardInstance(itemEntry.visionCard, 1), 0);
+                    newItemEntry.visionCard = itemEntry.visionCard;
+
+                    let inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
+                    let inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
+                    let inEnhancementsCandidates = $(".nav-tabs li.enhancementCandidates").hasClass("active");
+                    let html = getItemDisplay(newItemEntry, inFarmableStmr, inSellableItems, inEnhancementsCandidates);
+
+                    let itemEntries = equipments.concat(materia).filter(ie => ie.item.id === itemId);
+                    let previousInventoryDiv = $(".item." + itemEntries[itemEntries.length - 1].id);
+                    previousInventoryDiv.after(html);
+                    equipments.push(newItemEntry);
+                }
+                equipments = equipments.filter(e => e.id != itemEntryId);
+                inventoryDiv.remove(); // remove card
+            } else {
+                if (!itemInventory[itemId]) {
+                    inventoryDiv.addClass('notOwned');
+                }
+                inventoryDiv.find(".number").text(itemInventory[itemId]);
+            }
         } else {
             let newNumber = (itemInventory[itemId] || 0) - (itemInventory.enchantments[itemId] || []).length;
             inventoryDiv.find(".number").text(newNumber);
@@ -1451,6 +1558,39 @@ function getItemsEntries(items) {
     return items.map(i => getItemEntries(i)).flat();
 }
 
+function getVisionCardsEntries(visionCards) {
+    let result = [];
+    visionCards.forEach(vc => {
+        if (itemInventory[vc.id]) {
+            if (vc.levels.length === 1) {
+                let cardInstance = getCardInstance(vc, 1);
+                let itemEntry = getItemEntry(cardInstance, itemInventory[vc.id]);
+                itemEntry.visionCard = vc;
+                result.push(itemEntry);
+            } else {
+                itemInventory.visionCardsLevels[vc.id].forEach((level, index) => {
+                    let cardInstance = getCardInstance(vc, level);
+                    let itemEntry = getItemEntry(cardInstance, itemInventory[vc.id], false, index);
+                    itemEntry.visionCard = vc;
+                    result.push(itemEntry);
+                });
+            }
+        } else {
+            let cardInstance = getCardInstance(vc, 1);
+            let itemEntry = getItemEntry(cardInstance, 0);
+            itemEntry.visionCard = vc;
+            result.push(itemEntry);
+        }
+    });
+    return result;
+}
+
+function getCardInstance(vc, level) {
+    let cardInstance = combineTwoItems(vc, vc.levels[level - 1]);
+    cardInstance.level = level;
+    return cardInstance;
+}
+
 let itemEntryId = 0;
 function getItemEntries(item) {
 
@@ -1475,7 +1615,7 @@ function getItemEntry(item, number, enhanced = false, enhancementPos = 0) {
         "defenseValue":0,
         "mpValue":0,
         "available":number,
-        "owned": true,
+        "owned": number > 0,
         "ownedNumber": number,
         "id": (itemEntryId++) + '',
         "enhanced": enhanced,
@@ -1501,8 +1641,10 @@ function notLoaded() {
 }
 
 function prepareData() {
-    equipments = getItemsEntries(keepOnlyOneOfEach(data.filter(d => d.type != "materia")));
+    equipments = getItemsEntries(keepOnlyOneOfEach(data.filter(d => d.type != "materia")))
+        .concat(getVisionCardsEntries(visionCards));
     materia = getItemsEntries(keepOnlyOneOfEach(data.filter(d => d.type == "materia")));
+
     showEquipments();
 
     getStaticData("lastItemReleases", false, function(result) {
@@ -1528,10 +1670,13 @@ function startPage() {
         data = result;
         getStaticData("units", true, function(unitResult) {
             units = unitResult;
-            prepareSearch(data);
-            if (itemInventory) {
-                prepareData();
-            }
+            getStaticData("visionCards", false, function(visionCardsResult) {
+                visionCards = visionCardsResult;
+                prepareSearch(data);
+                if (itemInventory) {
+                    prepareData();
+                }
+            });
         });
     });
 	

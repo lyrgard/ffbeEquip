@@ -2459,6 +2459,9 @@ $(function() {
             if (!itemInventory.enchantments) {
                 itemInventory.enchantments = {};
             }
+            if (!itemInventory.visionCardsLevels) {
+                itemInventory.visionCardsLevels = {};
+            }
             adaptItemInventoryForMultipleRareEnchantments();
             sanitizeItemInventory();
             onUnitsOrInventoryLoaded();
