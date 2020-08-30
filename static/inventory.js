@@ -587,7 +587,7 @@ function willSave() {
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
     saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits, false);
-    
+
     $(".saveInventory").removeClass("hidden");
 }
 
@@ -1556,7 +1556,7 @@ function displayStats() {
 }
 
 function getItemsEntries(items) {
-    return items.map(i => getItemEntries(i)).flat();
+    return items.map(i => getItemEntries(i)).reduce((acc, ar) => acc.concat(ar), []);
 }
 
 function getVisionCardsEntries(visionCards) {
