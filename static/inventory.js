@@ -587,6 +587,7 @@ function willSave() {
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
     saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits, false);
+    
     $(".saveInventory").removeClass("hidden");
 }
 
