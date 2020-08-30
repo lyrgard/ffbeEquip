@@ -25,7 +25,8 @@ var accessListFilters = [
     { icon: 'chocobo', value: 'chocobo', tooltip: 'items exchanged with fat chocobo or mother chocobo' },
     { icon: 'trial', value: 'trial', tooltip: 'items from trial rewards' },
     { icon: 'unitExclusive', value: 'unitExclusive', tooltip: 'items having an ability exclusive to a specific unit' },
-    { icon: 'premium', value: 'premium', tooltip: 'items from premium (paid) bundles' }
+    { icon: 'premium', value: 'premium', tooltip: 'items from premium (paid) bundles' },
+    { icon: 'darkVision', value: 'darkVision', tooltip: 'items from Dark Vision' }
 ];
 
 var stat;

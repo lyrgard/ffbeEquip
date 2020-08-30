@@ -1286,6 +1286,13 @@ function prepareSearch(data) {
     }
 }
 
+function prepareVisionCardSearch(vc) {
+    vc.searchString = vc.name;
+    if (vc.jpname) {
+        vc.searchString += "|" + vc.jpname;
+    }
+}
+
 function prepareLastItemReleases() {
     var unitsToSearch = [];
     var eventsToSearch = [];
@@ -1589,6 +1596,7 @@ function getVisionCardsEntries(visionCards) {
 function getCardInstance(vc, level) {
     let cardInstance = combineTwoItems(vc, vc.levels[level - 1]);
     cardInstance.level = level;
+    prepareVisionCardSearch(cardInstance);
     return cardInstance;
 }
 
