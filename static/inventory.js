@@ -1442,6 +1442,7 @@ function importInventory() {
                 if (importedItemInventory) {
                     itemInventory = importedItemInventory;
                     saveUserData(true, false, false);
+                    updateData();
                     showEquipments();
                 } else {
                     Modal.show("Please select a file to import");
@@ -1474,28 +1475,47 @@ function treatImportFile(evt) {
                 return;
             }
             importedItemInventory = {"enchantments":{}};
+            let visionCardIds = visionCards.map(vc => vc.id);
             temporaryResult.forEach(item => {
                 if (!item.id) {
                     Modal.showMessage("item doesn't have id : " + JSON.stringify(item));
                     importedOwnedUnit = null;
                     return;
                 } else {
-                    if (!dataIds.includes(item.id)) {
+                    if (dataIds.includes(item.id)) {
+                        if (!importedItemInventory[item.id]) {
+                            importedItemInventory[item.id] = 0;
+                        }
+                        importedItemInventory[item.id] += parseInt(item.count);
+
+                        if (item.enhancements) {
+                            if (!importedItemInventory.enchantments[item.id]) {
+                                importedItemInventory.enchantments[item.id] = [];
+                            }
+                            importedItemInventory.enchantments[item.id].push(item.enhancements.map(e => itemEnhancementBySkillId[e]));
+                        }
+                    } else if (visionCardIds.includes(item.id)) {
+                        if (!importedItemInventory[item.id]) {
+                            importedItemInventory[item.id] = 0;
+                        }
+                        importedItemInventory[item.id] += parseInt(item.count);
+                        let vc = visionCards.find(vc => vc.id == item.id);
+                        if (vc.levels.length > 1) {
+                            if (!importedItemInventory.visionCardsLevels) {
+                                importedItemInventory.visionCardsLevels = {};
+                            }
+                            if (!importedItemInventory.visionCardsLevels[item.id]) {
+                                importedItemInventory.visionCardsLevels[item.id] = [];
+                            }
+                            importedItemInventory.visionCardsLevels[item.id].push(item.level);
+                        }
+
+                    } else {
                         Modal.showMessage('unknown item id : ' + item.id);
                         importedOwnedUnit = null;
                         return;
                     }
-                    if (!importedItemInventory[item.id]) {
-                        importedItemInventory[item.id] = 0;
-                    }
-                    importedItemInventory[item.id] += parseInt(item.count);
-                    
-                    if (item.enhancements) {
-                        if (!importedItemInventory.enchantments[item.id]) {
-                            importedItemInventory.enchantments[item.id] = [];
-                        }
-                        importedItemInventory.enchantments[item.id].push(item.enhancements.map(e => itemEnhancementBySkillId[e]));
-                    }
+
                 }
             });
             $('#importSummary').text('Items to import : ' + Object.keys(importedItemInventory).length);
@@ -1650,10 +1670,7 @@ function notLoaded() {
 }
 
 function prepareData() {
-    equipments = getItemsEntries(keepOnlyOneOfEach(data.filter(d => d.type != "materia")))
-        .concat(getVisionCardsEntries(visionCards));
-    materia = getItemsEntries(keepOnlyOneOfEach(data.filter(d => d.type == "materia")));
-
+    updateData();
     showEquipments();
 
     getStaticData("lastItemReleases", false, function(result) {
@@ -1667,6 +1684,12 @@ function prepareData() {
             }
         }
     });
+}
+
+function updateData() {
+    equipments = getItemsEntries(keepOnlyOneOfEach(data.filter(d => d.type != "materia")))
+        .concat(getVisionCardsEntries(visionCards));
+    materia = getItemsEntries(keepOnlyOneOfEach(data.filter(d => d.type == "materia")));
 }
 
 // will be called by common.js at page load
