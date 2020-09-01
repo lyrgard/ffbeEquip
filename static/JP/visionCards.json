@@ -48,7 +48,7 @@
 	{"atk":57, "resist":[{"name":"dark","percent":30}]},
 	{"atk":60, "atk%":30, "resist":[{"name":"dark","percent":30}]}
 ]},
-{"id":"100000501", "name":"世界を変えるために", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000501.png", "sortId":9, "levels":[
+{"id":"100000501", "name":"In Order to Change the World", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000501.png", "sortId":9, "levels":[
 	{"atk":40},
 	{"atk":46},
 	{"atk":52},
@@ -191,6 +191,18 @@
 	{"atk":68, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
 	{"atk":72, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
 	{"atk":80, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30},{"atk%":20,"def%":20,"mag%":20,"spr%":20,"exclusiveUnits":["203001305","203001327","203001405","203001427","203004207","203004217"]},{"resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}],"exclusiveUnits":["203001305","203001327","203001405","203001427","203004207","203004217"]}]}
+]},
+{"id":"206000101", "name":"幻獣を求めて", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000101.png", "sortId":26, "levels":[
+	{"mag":50},
+	{"mag":55},
+	{"mag":60},
+	{"mag":65, "conditional":[{"equipedConditions":["sword"],"mag%":50}]},
+	{"mag":70, "conditional":[{"equipedConditions":["sword"],"mag%":50}]},
+	{"mag":75, "conditional":[{"equipedConditions":["sword"],"mag%":50}]},
+	{"mag":80, "conditional":[{"equipedConditions":["sword"],"mag%":100}]},
+	{"mag":85, "conditional":[{"equipedConditions":["sword"],"mag%":100}]},
+	{"mag":90, "conditional":[{"equipedConditions":["sword"],"mag%":100}]},
+	{"mag":100, "conditional":[{"equipedConditions":["sword"],"mag%":100},{"mag%":20,"exclusiveUnits":["206002305","206002327","206002405","206002427","206002507","206002517"]},{"evokeDamageBoost":{"all":30},"exclusiveUnits":["206002305","206002327","206002405","206002427","206002507","206002517"]}]}
 ]},
 {"id":"207000101", "name":"Mad Dash", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
 	{"atk":40},
