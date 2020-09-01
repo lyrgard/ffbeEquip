@@ -831,6 +831,22 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         var lbDamage = rawEffect[3][0];
         addStat(item, "lbDamage", lbDamage);
 
+    // boost evoke damage
+    } else if (rawEffect[2] == 64) {
+        let esperName;
+        if (rawEffect[3][1] === 0) {
+            esperName = 'all';
+        } else {
+            esperName = espersById[rawEffect[3][1]];
+        }
+        if (!item.evokeDamageBoost) {
+            item.evokeDamageBoost = {};
+        }
+        if (!item.evokeDamageBoost[esperName]) {
+            item.evokeDamageBoost[esperName] = 0;
+        }
+        item.evokeDamageBoost[esperName] += rawEffect[3][0];
+        
     // Draw attacks
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 24) {
         var drawAttacks = rawEffect[3][0];
@@ -1041,7 +1057,7 @@ function addLbPerTurn(item, min, max) {
     item.lbPerTurn.max += max;
 }
 
-const itemProperties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills","rarity", "conditional"];
+const itemProperties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks", "evokeDamageBoost","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills","rarity", "conditional"];
 function formatOutput(items) {
     var result = "[\n";
     var first = true;
