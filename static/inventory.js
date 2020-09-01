@@ -342,13 +342,13 @@ function getItemDisplay(itemEntry, showStmrRecipe = false, inSellableItems = fal
     }
     if (inSellableItems ||inSellableItems) {
         html += '">';
-    } else if (showStmrRecipe && item.stmrAccess) {
+    } else if (showStmrRecipe && itemEntry.stmrAccess) {
         html += ' stmr">';
     } else {
         html += '" onclick="addToInventory(\'' + itemEntry.id + '\')">';
     }
 
-    if (showStmrRecipe && item.stmrAccess) {
+    if (showStmrRecipe && itemEntry.stmrAccess) {
         html += '<div class="wrapperForStmr">'
     }
     if (itemInventory) {
@@ -397,7 +397,7 @@ function getItemDisplay(itemEntry, showStmrRecipe = false, inSellableItems = fal
     
     html += getImageHtml(item) + getNameColumnHtml(item);
     
-    if (showStmrRecipe && item.stmrAccess) {
+    if (showStmrRecipe && itemEntry.stmrAccess) {
         html += "</div>";
         
         
@@ -408,21 +408,21 @@ function getItemDisplay(itemEntry, showStmrRecipe = false, inSellableItems = fal
         html += '<div class="unitName">' + toLink(units[item.stmrUnit].name) + '</div>';
         
         html += '<div class="recipe">';
-        if (item.stmrAccess.base == "sixStar") {
+        if (itemEntry.stmrAccess.base == "sixStar") {
             html += '<i class="img img-crystal-rainbowCrystal"></i><i class="img img-crystal-rainbowCrystal"></i> &rArr; <i class="img img-crystal-sevenStarCrystal"></i><div class="then">then</div>'
         }
         html += '<i class="img img-crystal-sevenStarCrystal"></i>'
-        if (item.stmrAccess.sevenStar) {
+        if (itemEntry.stmrAccess.sevenStar) {
             html += ' + <i class="img img-crystal-sevenStarCrystal"></i>'
         }
-        if (item.stmrAccess.sixStar) {
+        if (itemEntry.stmrAccess.sixStar) {
             html += ' + '
-            for (let i = 0; i < item.stmrAccess.sixStar; i++) {
+            for (let i = 0; i < itemEntry.stmrAccess.sixStar; i++) {
                 html += '<i class="img img-crystal-rainbowCrystal"></i>'
             }
         }
-        if (item.stmrAccess.stmrMoogle) {
-            html += ' + ' + item.stmrAccess.stmrMoogle + '% <div style="position:relative;"><img class="stmrMoogle" src="/img/units/unit_ills_906000105.png"></div>'
+        if (itemEntry.stmrAccess.stmrMoogle) {
+            html += ' + ' + itemEntry.stmrAccess.stmrMoogle + '% <div style="position:relative;"><img class="stmrMoogle" src="/img/units/unit_ills_906000105.png"></div>'
         }
         html += '</div>';
         html += '</div>';
@@ -1036,6 +1036,7 @@ function keepOnlyStmrs() {
         return itemEntry.item.stmrUnit && ownedUnits[itemEntry.item.stmrUnit] && (ownedUnits[itemEntry.item.stmrUnit].farmableStmr > 0 || ownedUnits[itemEntry.item.stmrUnit].number >= 2)
     });
     stmrs = stmrs.concat(materia.filter(itemEntry => itemEntry.item.stmrUnit && ownedUnits[itemEntry.item.stmrUnit] && (ownedUnits[itemEntry.item.stmrUnit].farmableStmr > 0 || ownedUnits[itemEntry.item.stmrUnit].number >= 2)));
+    stmrs = stmrs.map(s => getItemEntry(s.item.originalItem || s.item, itemInventory[s.item.id] || 0));
     stmrs.forEach(stmr => {
         stmr.stmrAccess = {
             'base':"",
