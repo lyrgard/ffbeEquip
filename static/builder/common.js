@@ -1338,6 +1338,10 @@ function getStatBonusCap(stat) {
             return 200;
         case 'jumpDamage':
             return 800;
+        case 'evoMag':
+            return 300;
+        case 'evokeDamageBoost':
+            return 300;
         default:
             return 400;
     }
