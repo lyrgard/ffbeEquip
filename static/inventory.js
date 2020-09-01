@@ -138,14 +138,23 @@ function setTooltips() {
         content: function() {
             let element = $(this);
             let itemDiv = element.closest('.item');
-            let itemId;
+            let itemIds = [];
             for (let i = 0; i < itemDiv.prop('classList').length; i++) {
                 if (!isNaN(itemDiv.prop('classList')[i])) {
-                    itemId = itemDiv.prop('classList')[i];
-                    break;
+                    itemIds.push(itemDiv.prop('classList')[i]);
                 }
             }
-            let item = equipments.concat(materia).filter(i => i.id === itemId)[0].item;
+
+            let allItems = equipments.concat(materia);
+            let item;
+            itemEntryMatches = allItems.filter(i => i.id === itemIds[0]);
+            if (itemEntryMatches.length > 0) {
+                item = itemEntryMatches[0].item;
+            } else {
+                let itemEntry = allItems.filter(i => i.item.id === itemIds[1])[0];
+                item = itemEntry.item.originalItem || itemEntry.item;
+            }
+
             
             return '<div class="table notSorted items results"><div class="tbody"><div class="tr">' +  displayItemLine(item) + '</div></div></div>';
         },
