@@ -1570,6 +1570,14 @@ function combineTwoItems(item1, item2) {
             addKiller(sum, item2.killers[index].name, item2.killers[index].physical, item2.killers[index].magical);
         }
     }
+    if (item2.evokeDamageBoost) {
+        if (!sum.evokeDamageBoost) {
+            sum.evokeDamageBoost = {};
+        }
+        Object.keys(item2.evokeDamageBoost).forEach(esperName => {
+            addToStat(sum.evokeDamageBoost, esperName, item2.evokeDamageBoost[esperName]);
+        });
+    }
     if (item2.special) {
         if (!sum.special) {
             sum.special = [];
