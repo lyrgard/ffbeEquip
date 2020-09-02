@@ -7,13 +7,25 @@ const uuidV1 = require('uuid/v1');
 const unAuthenticatedRoute = express.Router();
 const authenticatedRoute = express.Router();
 
-const idSchema = Joi.string().regex(/^([0-9]{9,10}(-[0-9]{1,2})?$|dagger|sword|greatSword|katana|staff|rod|bow|axe|hammer|spear|harp|whip|throwing|gun|mace|fist|lightShield|heavyShield|hat|helm|clothes|lightArmor|heavyArmor|robe|accessory|materia|visionCard|unavailable)$/, 'id');
+const idSchema = Joi.string().regex(/^([0-9]{9,10}$|dagger|sword|greatSword|katana|staff|rod|bow|axe|hammer|spear|harp|whip|throwing|gun|mace|fist|lightShield|heavyShield|hat|helm|clothes|lightArmor|heavyArmor|robe|accessory|materia|visionCard|unavailable)$/, 'id');
 const itemSlotSchema = {
     slot:Joi.number().min(0).max(10),
     id:idSchema,
     pinned:Joi.boolean(),
     icon:Joi.string().max(50),
-    name:Joi.string().max(300)
+    name:Joi.string().max(300),
+    type:Joi.string().regex(/^(dagger|sword|greatSword|katana|staff|rod|bow|axe|hammer|spear|harp|whip|throwing|gun|mace|fist)$/),
+    hp:Joi.number().min(0).max(10000),
+    mp:Joi.number().min(0).max(10000),
+    atk:Joi.number().min(0).max(1000),
+    def:Joi.number().min(0).max(1000),
+    mag:Joi.number().min(0).max(1000),
+    spr:Joi.number().min(0).max(1000),
+    damageVariance:Joi.object().keys({
+        min:Joi.number().min(0).max(100),
+        max:Joi.number().min(0).max(1000)
+    }),
+    level:Joi.number().min(1).max(10)
 };
 const elementsSchema = [
     Joi.string().valid('fire'),
