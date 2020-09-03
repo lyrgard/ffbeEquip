@@ -6158,7 +6158,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor"],
-		"enhancementSkills":["Lance","Fin Briar","Legend Killer"]
+		"enhancementSkills":["Lance","Fynn Briar","Legend Killer"]
 	},
 	"202000203": {
 		"name":"Maria",
@@ -7890,34 +7890,54 @@
 		"name":"Cloud",
 		"wikiEntry":"Cloud",
 		"id":"207000105",
-		"max_rarity":"7",
+		"braveShift":"207000127",
+		"exAwakening": [{"hp":627,"mp":27,"atk":29,"def":25,"mag":23,"spr":23},{"hp":483,"mp":21,"atk":22,"def":19,"mag":18,"spr":18},{"hp":338,"mp":15,"atk":16,"def":13,"mag":12,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4825,"mp":208,"atk":204,"def":190,"mag":176,"spr":180},
-			"minStats":{"hp":1592,"mp":69,"atk":67,"def":63,"mag":58,"spr":59},
+			"maxStats":{"hp":4825,"mp":208,"atk":224,"def":190,"mag":176,"spr":180},
+			"minStats":{"hp":1592,"mp":69,"atk":74,"def":63,"mag":58,"spr":59},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["SOLDIER 1st Class","Climhazzard","Jenova Cells","Fighting Instinct","Aggression"],
+		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["SOLDIER 1st Class","Climhazzard","Jenova Cells","Fighting Instinct","Aggression","Sonic Impact","Buster End","Promise With Tifa"],
 		"6_form": {
 			"name":"Cloud",
 			"wikiEntry":"Cloud",
 			"id":"207000105",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
-				"maxStats":{"hp":3712,"mp":165,"atk":160,"def":120,"mag":136,"spr":129},
-				"minStats":{"hp":1225,"mp":54,"atk":53,"def":40,"mag":45,"spr":43},
-				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+				"maxStats":{"hp":4825,"mp":208,"atk":204,"def":190,"mag":176,"spr":180},
+				"minStats":{"hp":1592,"mp":69,"atk":67,"def":63,"mag":58,"spr":59},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 			},
-			"stats_pattern":1,
+			"stats_pattern":4,
 			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["SOLDIER 1st Class","Climhazzard","Jenova Cells","Fighting Instinct","Aggression"]
+			"enhancementSkills":["SOLDIER 1st Class","Climhazzard","Jenova Cells","Fighting Instinct","Aggression","Sonic Impact","Buster End","Promise With Tifa"]
 		}
+	},
+	"207000127": {
+		"name":"Cloud - Brave Shifted",
+		"wikiEntry":"Cloud",
+		"id":"207000127",
+		"braveShifted":true,
+		"exAwakening": [{"hp":627,"mp":27,"atk":29,"def":25,"mag":23,"spr":23},{"hp":483,"mp":21,"atk":22,"def":19,"mag":18,"spr":18},{"hp":338,"mp":15,"atk":16,"def":13,"mag":12,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4866,"mp":206,"atk":228,"def":197,"mag":168,"spr":174},
+			"minStats":{"hp":1606,"mp":68,"atk":75,"def":65,"mag":55,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Sonic Impact","Rushed Strike","No More Illusions"]
 	},
 	"207000204": {
 		"name":"Barret",
@@ -8022,32 +8042,54 @@
 		"name":"Rouge XIII",
 		"wikiEntry":"Red_XIII",
 		"id":"207000505",
-		"max_rarity":"7",
+		"braveShift":"207000527",
+		"exAwakening": [{"hp":638,"mp":28,"atk":28,"def":22,"mag":20,"spr":23},{"hp":490,"mp":21,"atk":23,"def":17,"mag":15,"spr":18},{"hp":343,"mp":15,"atk":15,"def":12,"mag":11,"spr":12}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4896,"mp":197,"atk":219,"def":173,"mag":152,"spr":181},
-			"minStats":{"hp":1616,"mp":65,"atk":72,"def":57,"mag":50,"spr":60},
+			"maxStats":{"hp":4904,"mp":212,"atk":219,"def":173,"mag":152,"spr":178},
+			"minStats":{"hp":1618,"mp":70,"atk":72,"def":57,"mag":50,"spr":59},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
+		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes","visionCard"],
+		"enhancementSkills":["Killer Rave","High Speed Fang","Planet's Wisdom"],
 		"6_form": {
 			"name":"Rouge XIII",
 			"wikiEntry":"Red_XIII",
 			"id":"207000505",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
-				"maxStats":{"hp":3766,"mp":151,"atk":168,"def":133,"mag":116,"spr":139},
-				"minStats":{"hp":1243,"mp":50,"atk":55,"def":44,"mag":38,"spr":46},
-				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+				"maxStats":{"hp":4896,"mp":197,"atk":219,"def":173,"mag":152,"spr":181},
+				"minStats":{"hp":1616,"mp":65,"atk":72,"def":57,"mag":50,"spr":60},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 			},
-			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"]
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
+			"enhancementSkills":["Killer Rave","High Speed Fang","Planet's Wisdom"]
 		}
+	},
+	"207000527": {
+		"name":"Rouge XIII - Brave Shifted",
+		"wikiEntry":"Red_XIII",
+		"id":"207000527",
+		"braveShifted":true,
+		"exAwakening": [{"hp":638,"mp":28,"atk":28,"def":22,"mag":20,"spr":23},{"hp":490,"mp":21,"atk":23,"def":17,"mag":15,"spr":18},{"hp":343,"mp":15,"atk":15,"def":12,"mag":11,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4895,"mp":209,"atk":219,"def":170,"mag":155,"spr":181},
+			"minStats":{"hp":1615,"mp":69,"atk":72,"def":56,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes","visionCard"],
+		"enhancementSkills":["Killer Rave","Howling Flame","Warrior's Cry"]
 	},
 	"207000605": {
 		"name":"Yuffie",
@@ -8188,6 +8230,37 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"207001205": {
+		"name":"Rufus Shinra (FFVII REMAKE)",
+		"wikiEntry":"Rufus_Shinra (FFVII REMAKE)",
+		"id":"207001205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4877,"mp":244,"atk":207,"def":173,"mag":160,"spr":197},
+			"minStats":{"hp":1609,"mp":81,"atk":68,"def":57,"mag":53,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Rufus Shinra (FFVII REMAKE)",
+			"wikiEntry":"Rufus_Shinra (FFVII REMAKE)",
+			"id":"207001205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3751,"mp":187,"atk":159,"def":133,"mag":123,"spr":151},
+				"minStats":{"hp":1238,"mp":62,"atk":52,"def":44,"mag":41,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"]
 		}
 	},
 	"207001305": {
@@ -8395,6 +8468,42 @@
 			"stats_pattern":1,
 			"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
+	},
+	"207002207": {
+		"name":"Aerith (FFVII REMAKE)",
+		"wikiEntry":"Aerith_(FFVII REMAKE)",
+		"id":"207002207",
+		"braveShift":"207002217",
+		"exAwakening": [{"hp":621,"mp":35,"atk":18,"def":22,"mag":23,"spr":31},{"hp":478,"mp":27,"atk":14,"def":17,"mag":17,"spr":24},{"hp":335,"mp":19,"atk":10,"def":12,"mag":12,"spr":17}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4780,"mp":269,"atk":140,"def":171,"mag":174,"spr":242},
+			"minStats":{"hp":1577,"mp":89,"atk":46,"def":56,"mag":57,"spr":80},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Tempest (FFVII REMAKE)","Lustrous Shield"]
+	},
+	"207002217": {
+		"name":"Aerith (FFVII REMAKE) - Brave Shifted",
+		"wikiEntry":"Aerith_(FFVII REMAKE)",
+		"id":"207002217",
+		"braveShifted":true,
+		"exAwakening": [{"hp":621,"mp":35,"atk":18,"def":22,"mag":23,"spr":31},{"hp":478,"mp":27,"atk":14,"def":17,"mag":17,"spr":24},{"hp":335,"mp":19,"atk":10,"def":12,"mag":12,"spr":17}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4597,"mp":279,"atk":141,"def":147,"mag":242,"spr":208},
+			"minStats":{"hp":1517,"mp":92,"atk":47,"def":49,"mag":80,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Tempest (FFVII REMAKE)","Ray of Judgment"]
 	},
 	"208000105": {
 		"name":"Squall",
@@ -16976,8 +17085,8 @@
   "100031405":{"name":"ダンディな獣人ペツォッタ","jpname":"ダンディな獣人ペツォッタ","id":"100031405","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4912,"mp":245,"atk":205,"def":191,"mag":167,"spr":180},"minStats":{"hp":1621,"mp":81,"atk":68,"def":63,"mag":55,"spr":59},"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}},"stats_pattern":4,"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"],"6_form":{"name":"ダンディな獣人ペツォッタ","jpname":"ダンディな獣人ペツォッタ","id":"100031405","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3778,"mp":188,"atk":157,"def":146,"mag":128,"spr":138},"minStats":{"hp":1247,"mp":62,"atk":52,"def":48,"mag":42,"spr":46},"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}},"stats_pattern":1,"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"]}},
   "100031507":{"name":"Awakened Genius Akstar","jpname":"目覚めし臥竜アクスター","id":"100031507","braveShift":"100031517","exAwakening":[{"hp":639,"mp":32,"atk":59,"def":25,"mag":19,"spr":25},{"hp":491,"mp":25,"atk":46,"def":19,"mag":15,"spr":19},{"hp":344,"mp":17,"atk":32,"def":13,"mag":10,"spr":13}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4912,"mp":245,"atk":228,"def":192,"mag":146,"spr":189},"minStats":{"hp":1621,"mp":81,"atk":75,"def":63,"mag":48,"spr":62},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"],"enhancementSkills":["壊刀・裂氷河","覇刀・国崩し"]},
   "100031517":{"name":"Awakened Genius Akstar - Brave Shifted","jpname":"目覚めし臥竜アクスター - Brave Shifted","id":"100031517","braveShifted":true,"exAwakening":[{"hp":639,"mp":32,"atk":59,"def":25,"mag":19,"spr":25},{"hp":491,"mp":25,"atk":46,"def":19,"mag":15,"spr":19},{"hp":344,"mp":17,"atk":32,"def":13,"mag":10,"spr":13}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4883,"mp":258,"atk":233,"def":177,"mag":147,"spr":180},"minStats":{"hp":1611,"mp":85,"atk":77,"def":58,"mag":49,"spr":59},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","visionCard"],"enhancementSkills":["懲刀・悪因果","覇刀・国崩し"]},
-  "100031607":{"name":"Sol - Neo Vision-","jpname":"ソル-Neo Vision-","id":"100031607","braveShift":"100031617","exAwakening":[{"hp":591,"mp":38,"atk":18,"def":19,"mag":63,"spr":27},{"hp":454,"mp":29,"atk":14,"def":15,"mag":48,"spr":21},{"hp":318,"mp":20,"atk":9,"def":10,"mag":34,"spr":14}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4544,"mp":289,"atk":135,"def":147,"mag":242,"spr":207},"minStats":{"hp":1500,"mp":95,"atk":45,"def":49,"mag":80,"spr":68},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["暗黒の光束","氷闇の飛礫"]},
-  "100031617":{"name":"Sol - Neo Vision- - Brave Shifted","jpname":"ソル-Neo Vision- - Brave Shifted","id":"100031617","braveShifted":true,"exAwakening":[{"hp":591,"mp":38,"atk":18,"def":19,"mag":63,"spr":27},{"hp":454,"mp":29,"atk":14,"def":15,"mag":48,"spr":21},{"hp":318,"mp":20,"atk":9,"def":10,"mag":34,"spr":14}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4494,"mp":281,"atk":135,"def":143,"mag":243,"spr":202},"minStats":{"hp":1483,"mp":93,"atk":45,"def":47,"mag":80,"spr":67},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","whip","mace","lightShield","hat","helm","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["ブリザードデストラクション","氷闇の飛礫"]},
+  "100031607":{"name":"Sol -Neo Vision-","jpname":"ソル-Neo Vision-","id":"100031607","braveShift":"100031617","exAwakening":[{"hp":591,"mp":38,"atk":18,"def":19,"mag":63,"spr":27},{"hp":454,"mp":29,"atk":14,"def":15,"mag":48,"spr":21},{"hp":318,"mp":20,"atk":9,"def":10,"mag":34,"spr":14}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4544,"mp":289,"atk":135,"def":147,"mag":242,"spr":207},"minStats":{"hp":1500,"mp":95,"atk":45,"def":49,"mag":80,"spr":68},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["暗黒の光束","氷闇の飛礫"]},
+  "100031617":{"name":"Sol -Neo Vision- - Brave Shifted","jpname":"ソル-Neo Vision- - Brave Shifted","id":"100031617","braveShifted":true,"exAwakening":[{"hp":591,"mp":38,"atk":18,"def":19,"mag":63,"spr":27},{"hp":454,"mp":29,"atk":14,"def":15,"mag":48,"spr":21},{"hp":318,"mp":20,"atk":9,"def":10,"mag":34,"spr":14}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4494,"mp":281,"atk":135,"def":143,"mag":243,"spr":202},"minStats":{"hp":1483,"mp":93,"atk":45,"def":47,"mag":80,"spr":67},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","whip","mace","lightShield","hat","helm","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["ブリザードデストラクション","氷闇の飛礫"]},
   "100031707":{"name":"Summer Fina & Daisy","jpname":"フィーナ&デイジー2020夏","id":"100031707","braveShift":"100031717","exAwakening":[{"hp":661,"mp":42,"atk":18,"def":22,"mag":22,"spr":61},{"hp":508,"mp":32,"atk":14,"def":17,"mag":17,"spr":47},{"hp":356,"mp":22,"atk":10,"def":12,"mag":12,"spr":33}],"max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5084,"mp":320,"atk":140,"def":170,"mag":169,"spr":234},"minStats":{"hp":1678,"mp":106,"atk":46,"def":56,"mag":56,"spr":77},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","bow","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["オーシャンマジック","オーシャンズカット"]},
   "100031717":{"name":"Summer Fina & Daisy - Brave Shifted","jpname":"フィーナ&デイジー2020夏 - Brave Shifted","id":"100031717","braveShifted":true,"exAwakening":[{"hp":661,"mp":42,"atk":18,"def":22,"mag":22,"spr":61},{"hp":508,"mp":32,"atk":14,"def":17,"mag":17,"spr":47},{"hp":356,"mp":22,"atk":10,"def":12,"mag":12,"spr":33}],"max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5150,"mp":316,"atk":163,"def":186,"mag":129,"spr":237},"minStats":{"hp":1700,"mp":104,"atk":54,"def":61,"mag":43,"spr":78},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","staff","bow","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["情熱のビーチバレー","オーシャンズカット"]},
   "100031805":{"name":"Mineur","jpname":"ミヌール","id":"100031805","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4499,"mp":287,"atk":115,"def":151,"mag":218,"spr":208},"minStats":{"hp":1485,"mp":95,"atk":38,"def":50,"mag":72,"spr":69},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","throwing","hat","clothes","robe"],"6_form":{"name":"Mineur","jpname":"ミヌール","id":"100031805","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3460,"mp":220,"atk":88,"def":116,"mag":167,"spr":160},"minStats":{"hp":1142,"mp":73,"atk":29,"def":38,"mag":55,"spr":53},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}},"stats_pattern":1,"equip":["dagger","staff","rod","throwing","hat","clothes","robe"]}},
@@ -17003,11 +17112,12 @@
   "204001904":{"name":"Barbariccia","jpname":"バルバリシア","id":"204001904","max_rarity":"6","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":3450,"mp":190,"atk":110,"def":118,"mag":152,"spr":143},"minStats":{"hp":1139,"mp":63,"atk":36,"def":39,"mag":50,"spr":47},"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}},"stats_pattern":1,"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"]},
   "204002003":{"name":"Scarmiglione","jpname":"スカルミリョーネ","id":"204002003","max_rarity":"5","min_rarity":"3","sex":"male","stats":{"maxStats":{"hp":2964,"mp":111,"atk":121,"def":119,"mag":85,"spr":81},"minStats":{"hp":978,"mp":37,"atk":40,"def":39,"mag":28,"spr":27},"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}},"stats_pattern":1,"equip":["dagger","sword","katana","throwing","fist","hat","clothes","lightArmor","robe"]},
   "204002104":{"name":"Cagnazzo","jpname":"カイナッツォ","id":"204002104","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3901,"mp":145,"atk":120,"def":146,"mag":105,"spr":124},"minStats":{"hp":1287,"mp":48,"atk":40,"def":48,"mag":35,"spr":41},"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}},"stats_pattern":1,"equip":["fist","helm","lightArmor","heavyArmor"]},
-  "207000127":{"name":"クラウド - Brave Shifted","jpname":"クラウド - Brave Shifted","id":"207000127","braveShifted":true,"exAwakening":[{"hp":627,"mp":27,"atk":29,"def":25,"mag":23,"spr":23},{"hp":483,"mp":21,"atk":22,"def":19,"mag":18,"spr":18},{"hp":338,"mp":15,"atk":16,"def":13,"mag":12,"spr":13}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4866,"mp":206,"atk":228,"def":197,"mag":168,"spr":174},"minStats":{"hp":1606,"mp":68,"atk":75,"def":65,"mag":55,"spr":57},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["ソニックインパクト","ラッシュストライク","幻想との決別"]},
-  "207000527":{"name":"Red XIII - Brave Shifted","jpname":"レッドXIII - Brave Shifted","id":"207000527","braveShifted":true,"exAwakening":[{"hp":638,"mp":28,"atk":28,"def":22,"mag":20,"spr":23},{"hp":490,"mp":21,"atk":23,"def":17,"mag":15,"spr":18},{"hp":343,"mp":15,"atk":15,"def":12,"mag":11,"spr":12}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4895,"mp":209,"atk":219,"def":170,"mag":155,"spr":181},"minStats":{"hp":1615,"mp":69,"atk":72,"def":56,"mag":51,"spr":60},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes","visionCard"],"enhancementSkills":["キラースレイヴ","ハウリングフレイム","戦士の咆哮"]},
-  "207001205":{"name":"Rufus Shinra","jpname":"ルーファウス神羅(FFVII REMAKE)","id":"207001205","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4877,"mp":244,"atk":207,"def":173,"mag":160,"spr":197},"minStats":{"hp":1609,"mp":81,"atk":68,"def":57,"mag":53,"spr":65},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"],"6_form":{"name":"Rufus Shinra","jpname":"ルーファウス神羅(FFVII REMAKE)","id":"207001205","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3751,"mp":187,"atk":159,"def":133,"mag":123,"spr":151},"minStats":{"hp":1238,"mp":62,"atk":52,"def":44,"mag":41,"spr":50},"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}},"stats_pattern":1,"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"]}},
-  "207002207":{"name":"Aerith (FFVII REMAKE)","jpname":"エアリス(FFVII REMAKE)","id":"207002207","braveShift":"207002217","exAwakening":[{"hp":621,"mp":35,"atk":18,"def":22,"mag":23,"spr":31},{"hp":478,"mp":27,"atk":14,"def":17,"mag":17,"spr":24},{"hp":335,"mp":19,"atk":10,"def":12,"mag":12,"spr":17}],"max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4780,"mp":269,"atk":140,"def":171,"mag":174,"spr":242},"minStats":{"hp":1577,"mp":89,"atk":46,"def":56,"mag":57,"spr":80},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}},"stats_pattern":4,"equip":["staff","rod","bow","mace","hat","clothes","robe","visionCard"],"enhancementSkills":["テンペスト","光の盾"]},
-  "207002217":{"name":"Aerith (FFVII REMAKE) - Brave Shifted","jpname":"エアリス(FFVII REMAKE) - Brave Shifted","id":"207002217","braveShifted":true,"exAwakening":[{"hp":621,"mp":35,"atk":18,"def":22,"mag":23,"spr":31},{"hp":478,"mp":27,"atk":14,"def":17,"mag":17,"spr":24},{"hp":335,"mp":19,"atk":10,"def":12,"mag":12,"spr":17}],"max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4597,"mp":279,"atk":141,"def":147,"mag":242,"spr":208},"minStats":{"hp":1517,"mp":92,"atk":47,"def":49,"mag":80,"spr":69},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}},"stats_pattern":4,"equip":["staff","rod","bow","mace","hat","clothes","robe","visionCard"],"enhancementSkills":["テンペスト","ジャッジメントレイ"]},
+  "206000905":{"name":"Strago","jpname":"ストラゴス","id":"206000905","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4341,"mp":246,"atk":114,"def":148,"mag":232,"spr":210},"minStats":{"hp":1433,"mp":81,"atk":38,"def":49,"mag":77,"spr":69},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","rod","mace","hat","clothes","robe"],"6_form":{"name":"Strago","jpname":"ストラゴス","id":"206000905","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3339,"mp":189,"atk":87,"def":113,"mag":178,"spr":161},"minStats":{"hp":1102,"mp":62,"atk":29,"def":37,"mag":59,"spr":53},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}},"stats_pattern":1,"equip":["dagger","rod","mace","hat","clothes","robe"]}},
+  "206001005":{"name":"Relm","jpname":"リルム","id":"206001005","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4216,"mp":272,"atk":168,"def":156,"mag":236,"spr":197},"minStats":{"hp":1391,"mp":90,"atk":55,"def":51,"mag":78,"spr":65},"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}},"stats_pattern":4,"equip":["dagger","rod","mace","hat","clothes","robe"],"6_form":{"name":"Relm","jpname":"リルム","id":"206001005","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3243,"mp":209,"atk":129,"def":120,"mag":181,"spr":151},"minStats":{"hp":1070,"mp":69,"atk":43,"def":40,"mag":60,"spr":50},"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}},"stats_pattern":1,"equip":["dagger","rod","mace","hat","clothes","robe"]}},
+  "206002327":{"name":"大魔導士ケフカ - Brave Shifted","jpname":"大魔導士ケフカ - Brave Shifted","id":"206002327","braveShifted":true,"exAwakening":[{"hp":609,"mp":37,"atk":20,"def":20,"mag":31,"spr":26},{"hp":468,"mp":28,"atk":15,"def":15,"mag":23,"spr":20},{"hp":328,"mp":20,"atk":10,"def":10,"mag":16,"spr":14}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4689,"mp":288,"atk":154,"def":154,"mag":239,"spr":207},"minStats":{"hp":1547,"mp":95,"atk":51,"def":51,"mag":79,"spr":68},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","mace","hat","clothes","robe","visionCard"],"enhancementSkills":["シンジラレナーイ！！！","もりもりサンダガ","神と恐れられる男"]},
+  "206002427":{"name":"アサシン シャドウ - Brave Shifted","jpname":"アサシン シャドウ - Brave Shifted","id":"206002427","braveShifted":true,"exAwakening":[{"hp":628,"mp":27,"atk":29,"def":25,"mag":24,"spr":24},{"hp":483,"mp":21,"atk":22,"def":19,"mag":18,"spr":18},{"hp":338,"mp":15,"atk":16,"def":13,"mag":13,"spr":13}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4237,"mp":213,"atk":241,"def":151,"mag":142,"spr":174},"minStats":{"hp":1398,"mp":70,"atk":80,"def":50,"mag":47,"spr":57},"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}},"stats_pattern":4,"equip":["dagger","sword","katana","throwing","fist","hat","helm","clothes","lightArmor","visionCard"],"enhancementSkills":["シャドウスタブ","アサシンの歩法","誘引刃"]},
+  "206002507":{"name":"Terra -Neo Vision-","jpname":"ティナ-Neo Vision-","id":"206002507","braveShift":"206002517","exAwakening":[{"hp":579,"mp":33,"atk":21,"def":21,"mag":60,"spr":24},{"hp":445,"mp":25,"atk":16,"def":16,"mag":46,"spr":19},{"hp":311,"mp":18,"atk":11,"def":11,"mag":32,"spr":13}],"max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4455,"mp":258,"atk":168,"def":167,"mag":233,"spr":191},"minStats":{"hp":1470,"mp":85,"atk":55,"def":55,"mag":77,"spr":63},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","gun","mace","lightShield","hat","clothes","robe","visionCard"],"enhancementSkills":["魔導力解放","ファイガ【VI】"]},
+  "206002517":{"name":"Terra -Neo Vision- - Brave Shifted","jpname":"ティナ-Neo Vision- - Brave Shifted","id":"206002517","braveShifted":true,"exAwakening":[{"hp":579,"mp":33,"atk":21,"def":21,"mag":60,"spr":24},{"hp":445,"mp":25,"atk":16,"def":16,"mag":46,"spr":19},{"hp":311,"mp":18,"atk":11,"def":11,"mag":32,"spr":13}],"max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4575,"mp":296,"atk":168,"def":177,"mag":270,"spr":216},"minStats":{"hp":1510,"mp":98,"atk":55,"def":58,"mag":89,"spr":71},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","gun","mace","lightShield","hat","clothes","robe","visionCard"],"enhancementSkills":["魔導力解放","ケイオスウェイヴ"]},
   "212000527":{"name":"バルフレア - Brave Shifted","jpname":"バルフレア - Brave Shifted","id":"212000527","braveShifted":true,"exAwakening":[{"hp":621,"mp":30,"atk":29,"def":22,"mag":19,"spr":24},{"hp":478,"mp":23,"atk":23,"def":17,"mag":15,"spr":18},{"hp":334,"mp":16,"atk":16,"def":12,"mag":10,"spr":13}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4835,"mp":228,"atk":229,"def":165,"mag":146,"spr":189},"minStats":{"hp":1596,"mp":75,"atk":76,"def":54,"mag":48,"spr":62},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor","visionCard"],"enhancementSkills":["プレパレーションガン","フリーダムバレット・連射","空賊の射撃術"]},
   "212002207":{"name":"Gabranth -Neo Vision-","jpname":"ガブラス-Neo Vision-","id":"212002207","braveShift":"212002217","exAwakening":[{"hp":653,"mp":27,"atk":22,"def":62,"mag":15,"spr":25},{"hp":502,"mp":21,"atk":17,"def":48,"mag":12,"spr":20},{"hp":352,"mp":15,"atk":12,"def":33,"mag":8,"spr":14}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5023,"mp":209,"atk":170,"def":239,"mag":119,"spr":195},"minStats":{"hp":1658,"mp":69,"atk":56,"def":79,"mag":39,"spr":64},"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["センテンス","ジャッジディフェンス"]},
   "212002217":{"name":"Gabranth -Neo Vision- - Brave Shifted","jpname":"ガブラス-Neo Vision- - Brave Shifted","id":"212002217","braveShifted":true,"exAwakening":[{"hp":653,"mp":27,"atk":22,"def":62,"mag":15,"spr":25},{"hp":502,"mp":21,"atk":17,"def":48,"mag":12,"spr":20},{"hp":352,"mp":15,"atk":12,"def":33,"mag":8,"spr":14}],"max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5000,"mp":215,"atk":179,"def":236,"mag":130,"spr":192},"minStats":{"hp":1650,"mp":71,"atk":59,"def":78,"mag":43,"spr":63},"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["センテンス","アグレッサー"]},
