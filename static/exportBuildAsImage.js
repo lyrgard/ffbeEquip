@@ -148,8 +148,8 @@ FFBEEquipBuildAsImage = {
             FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/espers/${unit.esperId}.jpg`, x + column * 180 + 5, y + line * 30 + 5, 30, 30, 1, true);
             FFBEEquipBuildAsImage.drawText(ctx, unit.esperId.replace('_', ' '), 'bold', 12, 'start', 'middle', x + 40 + column * 180, y + line * 30 + 20, 130);
         } else {
-            FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/espers/ALL.png`, x + 205, y, 40, 40);
-            FFBEEquipBuildAsImage.drawText(ctx, 'No esper', 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
+            FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/espers/ALL.png`, x + column * 180 + 5, y + line * 30 + 5, 30, 30, 1, true);
+            FFBEEquipBuildAsImage.drawText(ctx, 'No esper', 'bold', 12, 'start', 'middle', x + 40 + column * 180, y + line * 30 + 20, 130);
         }
 
         let red ='#ff0000';

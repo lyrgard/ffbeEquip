@@ -504,12 +504,19 @@
     margin-left: 3px;
 }
 
-.ownedNumbers .sevenStarNumber {
+.ownedNumbers .sevenStarNumber, .ownedNumbers .NVNumber {
     display: none;
 }
 
-.sevenStars .ownedNumbers .sevenStarNumber {
+.sevenStars .ownedNumbers .sevenStarNumber,
+.NV .ownedNumbers .NVNumber,
+.NVA .ownedNumbers .NVNumber
+{
     display: block;
+}
+
+.NV .ownedNumbers .ownedNumberDiv {
+    display: none;
 }
 
 .ownedNumbers .tmrMoogles {
