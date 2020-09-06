@@ -14,7 +14,7 @@ const itemSlotSchema = {
     pinned:Joi.boolean(),
     icon:Joi.string().max(50),
     name:Joi.string().max(300),
-    type:Joi.string().regex(/^(dagger|sword|greatSword|katana|staff|rod|bow|axe|hammer|spear|harp|whip|throwing|gun|mace|fist)$/),
+    type:Joi.string().regex(/^(dagger|sword|greatSword|katana|staff|rod|bow|axe|hammer|spear|harp|whip|throwing|gun|mace|fist|lightShield|heavyShield)$/),
     hp:Joi.number().min(0).max(10000),
     mp:Joi.number().min(0).max(10000),
     atk:Joi.number().min(0).max(1000),
