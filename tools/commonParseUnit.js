@@ -434,6 +434,14 @@ function addEffectsToEffectList(effectList, effects) {
             if (effect.improvedDW) {
                 effectList[0].improvedDW = true;
             }
+            if (effect.evokeDamageBoost) {
+                if (!effectList[0].evokeDamageBoost) {
+                    effectList[0].evokeDamageBoost = {}
+                }
+                Object.keys(effect.evokeDamageBoost).forEach(esperName => {
+                    addToStat(effectList[0].evokeDamageBoost, esperName, effect.evokeDamageBoost[esperName]);
+                });
+            }
             const simpleValues = ["evoMag", "accuracy", "jumpDamage","lbFillRate", "mpRefresh", "lbDamage"];
             for (var i = simpleValues.length; i--;) {
                 if (effect[simpleValues[i]]) {
@@ -789,6 +797,24 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 21) {
         var evoMag = rawEffect[3][0];
         addToStat(result, "evoMag", evoMag);
+        return [result];
+
+    // +evoke damage boost
+    } else if (rawEffect[2] == 64) {
+        let esperName;
+        if (rawEffect[3][1] === 0) {
+            esperName = 'all';
+        } else {
+            esperName = espersById[rawEffect[3][1]];
+        }
+        if (!result.evokeDamageBoost) {
+            result.evokeDamageBoost = {};
+        }
+        if (!result.evokeDamageBoost[esperName]) {
+            result.evokeDamageBoost[esperName] = 0;
+        }
+        result.evokeDamageBoost[esperName] += rawEffect[3][0];
+
         return [result];
 
     // +Stats from espers boost
@@ -1984,7 +2010,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","improvedDW","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding","improvedDW","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";

@@ -1338,6 +1338,10 @@ function getStatBonusCap(stat) {
             return 200;
         case 'jumpDamage':
             return 800;
+        case 'evoMag':
+            return 300;
+        case 'evokeDamageBoost':
+            return 300;
         default:
             return 400;
     }
@@ -1565,6 +1569,14 @@ function combineTwoItems(item1, item2) {
         for (var index = item2.killers.length; index--;) {
             addKiller(sum, item2.killers[index].name, item2.killers[index].physical, item2.killers[index].magical);
         }
+    }
+    if (item2.evokeDamageBoost) {
+        if (!sum.evokeDamageBoost) {
+            sum.evokeDamageBoost = {};
+        }
+        Object.keys(item2.evokeDamageBoost).forEach(esperName => {
+            addToStat(sum.evokeDamageBoost, esperName, item2.evokeDamageBoost[esperName]);
+        });
     }
     if (item2.special) {
         if (!sum.special) {

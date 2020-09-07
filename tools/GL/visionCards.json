@@ -58,7 +58,31 @@
 	{"atk":76, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
 	{"atk":82, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
 	{"atk":88, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
-	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"atk%":100},{"atk%":30,"exclusiveUnits":["207000305","207000327","207002007","207002017"]}]}
+	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"atk%":100},{"atk%":30,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207002007","207002017","207002207","207002217"]}]}
+]},
+{"id":"207000201", "name":"Scorpion Sentinel Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000201.png", "sortId":7, "levels":[
+	{"def":20},
+	{"def":24},
+	{"def":28},
+	{"def":32},
+	{"def":36},
+	{"def":40},
+	{"def":44},
+	{"def":48},
+	{"def":52},
+	{"def":60, "def%":20}
+]},
+{"id":"207000301", "name":"Planet's Whisper", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000301.png", "sortId":10, "levels":[
+	{"mag":40, "spr":40},
+	{"mag":42, "spr":42},
+	{"mag":45, "spr":45},
+	{"mag":47, "spr":47, "conditional":[{"equipedConditions":["rod"],"mag%":25,"spr%":25}]},
+	{"mag":50, "spr":50, "conditional":[{"equipedConditions":["rod"],"mag%":25,"spr%":25}]},
+	{"mag":52, "spr":52, "conditional":[{"equipedConditions":["rod"],"mag%":25,"spr%":25}]},
+	{"mag":55, "spr":55, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
+	{"mag":57, "spr":57, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
+	{"mag":60, "spr":60, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
+	{"mag":65, "spr":65, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50},{"mag%":20,"spr%":20,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207002007","207002017","207002207","207002217"]}]}
 ]},
 {"id":"401000301", "name":"4th Anniversary Celebration", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000301.png", "sortId":9001, "levels":[
 	{"hp":100, "mp":50},

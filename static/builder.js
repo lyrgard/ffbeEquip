@@ -1562,7 +1562,7 @@ function updateUnitStats() {
                 $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].baseValues[stat].pots);
                 $(".unitStats .stat." + stat + " .buff input").val(builds[currentUnitIndex].baseValues[stat].buff);
             } else {
-                $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[stat]);
+                $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5);
             }
             updatePotStyle(stat);
         } else {
@@ -2654,7 +2654,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 11; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && item.allowUseOf) {
-                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null, icon:item.icon, name:item.name});
+                    unit.items.push(getItemDataForStateHash(build, index));
                     addEnhancementsIfAny(item, unit);
                 }
             }
@@ -2662,7 +2662,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 11; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !item.allowUseOf && hasDualWieldOrPartialDualWield(item)) {
-                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null, icon:item.icon, name:item.name});
+                    unit.items.push(getItemDataForStateHash(build, index));
                     addEnhancementsIfAny(item, unit);
                 }
             }
@@ -2670,7 +2670,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 11; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
-                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null, icon:item.icon, name:item.name});
+                    unit.items.push(getItemDataForStateHash(build, index));
                     addEnhancementsIfAny(item, unit);
                 }
                 if (item && item.placeHolder) {
@@ -2797,6 +2797,35 @@ function getStateHash(onlyCurrent = true) {
     data.useNewJpDamageFormula = $("#useNewJpDamageFormula").prop("checked");
     
     return data;
+}
+
+function getItemDataForStateHash(unitBuild, index) {
+    let item = unitBuild.build[index];
+    let itemData = {slot:index, id:item.id, pinned: unitBuild.fixedItems[index] != null, icon:item.icon, name:item.name}
+    if (index === 0 || index === 1) {
+        itemData.type = item.type;
+        if (weaponList.includes(itemData.type)) {
+            itemData.atk = item.atk || 0;
+            if (item.damageVariance) {
+                itemData.damageVariance = {
+                    min: item.damageVariance.min,
+                    max: item.damageVariance.max
+                };
+            } else {
+                itemData.damageVariance = {
+                    min: weaponBaseDamageVariance[item.type].min,
+                    max: weaponBaseDamageVariance[item.type].max
+                };
+            }
+        }
+    } else if (index === 10) {
+        itemData.id = item.id.split('-')[0];
+        baseStats.forEach(stat => {
+            itemData[stat] = unitBuild.build[index][stat] || 0;
+        });
+        itemData.level = item.level;
+    }
+    return itemData;
 }
 
 function addEnhancementsIfAny(item, unit) {
@@ -3129,6 +3158,9 @@ async function loadStateHashAndBuild(data, importMode = false) {
                 if (unit.items[index]) {
                     var itemId = dataVersion >= 1 ? unit.items[index].id : unit.items[index];
                     var itemSlot = dataVersion >= 1 ? unit.items[index].slot : -1;
+                    if (itemSlot === 10 && unit.items[index].level) {
+                        itemId = itemId + '-' + unit.items[index].level;
+                    }
                     if (dataVersion >= 2) {
                         fixItem(itemId, itemSlot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined), unit.items[index].pinned);
                     } else {

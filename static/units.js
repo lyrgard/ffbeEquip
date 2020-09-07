@@ -353,9 +353,11 @@ function getUnitImage(unit) {
 function getUnitDisplay(unit, useTmrName = false) {
   var html = "";
     if (!onlyShowOwnedUnits || ownedUnits[unit.id]) {
-        var is7Stars = ownedUnits[unit.id] && ownedUnits[unit.id].sevenStar;
+        let is7Stars = unit.min_rarity !== 'NV' && ownedUnits[unit.id] && ownedUnits[unit.id].sevenStar;
+        let isNV = unit.min_rarity === 'NV';
+        let isNVA = unit.max_rarity === 'NV' && unit.min_rarity !== 'NV' && ownedUnits[unit.id] && ownedUnits[unit.id].nv;
         html += '<div class="unit ' + unit.id;
-        if (ownedUnits[unit.id] && (ownedUnits[unit.id].number || ownedUnits[unit.id].sevenStar)) {
+        if (ownedUnits[unit.id] && (ownedUnits[unit.id].number || ownedUnits[unit.id].sevenStar || ownedUnits[unit.id].nv)) {
             html += ' owned';
         } else {
             html += ' notOwned';
@@ -380,6 +382,16 @@ function getUnitDisplay(unit, useTmrName = false) {
         } else {
             html += ' notSevenStars';
         }
+        if (isNV) {
+            html += ' NV';
+        } else {
+            html += ' notNV';
+        }
+        if (isNVA) {
+            html += ' NVA';
+        } else {
+            html += ' notNVA';
+        }
         if (unit.max_rarity == 7) {
             html += ' showStmr';
         } 
@@ -390,6 +402,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         }*/
         html += '>';
         html += '<div class="ownedNumbers">';
+        html += '<div class="NVNumber"><i class="img img-crystal-NV"></i><span class="ownedNumber badge badge-success NV">' + (ownedUnits[unit.id] ? (ownedUnits[unit.id].nv || 0) : 0) + '</span></div>';
         html += '<div class="sevenStarNumber"><i class="img img-crystal-sevenStarCrystal"></i><span class="ownedNumber badge badge-success sevenStar">' + (ownedUnits[unit.id] ? (ownedUnits[unit.id].sevenStar || 0) : 0) + '</span></div>';
         html += '<div class="ownedNumberDiv">'
         if (unit.min_rarity == 3) {
@@ -528,7 +541,7 @@ function updateUnitDisplay(unitId) {
 function getRarity(minRarity, maxRarity) {
     let nv = false;
     if (minRarity == 'NV') {
-        minRarity = 7;
+        return '<i class="img img-crystal-NV"></i>';
     }
     if (maxRarity == 'NV') {
         nv = true;
@@ -542,7 +555,7 @@ function getRarity(minRarity, maxRarity) {
         html += '☆';
     }
     if (nv) {
-        html += '<img src="img/icons/NV.png">'
+        html += '<i class="img img-crystal-NV"></i>'
     }
     return html;
 }
@@ -968,6 +981,12 @@ function prepareData() {
             }
         }
     }
+    // Object.keys(ownedUnits).forEach(unitId => {
+    //     if (units[unitId].min_rarity === 'NV' && ownedUnits[unitId].sevenStar) {
+    //         ownedUnits[unitId].nv = ownedUnits[unitId].sevenStar;
+    //         ownedUnits[unitId].sevenStar = 0;
+    //     }
+    // });
 }
 
 function exportAsImage(minRarity = 1) {
@@ -1148,6 +1167,14 @@ function treatImportFile(evt) {
                         }
                     } else if (!unit.id.startsWith('9')) {
                         let baseUnitId = baseUnitIdBySpecificRarityUnitId[unit.id];
+                        let NVA = false;
+                        if (!baseUnitId) {
+                            // Try for NVA
+                            if (unit.id.endsWith("17")) {
+                                baseUnitId = baseUnitIdBySpecificRarityUnitId[unit.id.substr(0, unit.id.length - 2) + "07"];
+                                NVA = true;
+                            }
+                        }
                         if (!baseUnitId) {
                             Modal.showMessage('unknown unit id : ' + unit.id + '. FFBE Equip data probably was not updated yet. Ignoring this unit.');
                             //importedOwnedUnit = null;
@@ -1159,7 +1186,12 @@ function treatImportFile(evt) {
                             if (unit.tmr < 1000) {
                                 importedOwnedUnit[baseUnitId].farmable++;
                             }
-                            if (unit.id.endsWith("7")) {
+                            if (NVA || units[baseUnitId].min_rarity === 'NV') {
+                                if (!importedOwnedUnit[baseUnitId].nv) {
+                                    importedOwnedUnit[baseUnitId].nv = 0;
+                                }
+                                importedOwnedUnit[baseUnitId].nv++;
+                            } else if (unit.id.endsWith("7")) {
                                 if (!importedOwnedUnit[baseUnitId].sevenStar) {
                                     importedOwnedUnit[baseUnitId].sevenStar = 0;
                                     importedOwnedUnit[baseUnitId].farmableStmr = 0;
