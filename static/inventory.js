@@ -1606,6 +1606,9 @@ function getVisionCardsEntries(visionCards) {
                 itemEntry.visionCard = vc;
                 result.push(itemEntry);
             } else {
+                if (!itemInventory.visionCardsLevels[vc.id]) {
+                    itemInventory.visionCardsLevels[vc.id] = Array.from({length: itemInventory[vc.id]}, () => 1);
+                }
                 itemInventory.visionCardsLevels[vc.id].forEach((level, index) => {
                     let cardInstance = getCardInstance(vc, level);
                     let itemEntry = getItemEntry(cardInstance, itemInventory[vc.id], false, index);
