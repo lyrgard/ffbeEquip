@@ -2653,17 +2653,19 @@
 		"name":"Kunshira",
 		"jpname":"クンシラ",
 		"id":"100012605",
-		"max_rarity":"7",
+		"braveShift":"100012627",
+		"exAwakening": [{"hp":588,"mp":28,"atk":27,"def":22,"mag":28,"spr":21},{"hp":452,"mp":22,"atk":20,"def":17,"mag":21,"spr":16},{"hp":317,"mp":15,"atk":14,"def":11,"mag":15,"spr":11}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4529,"mp":222,"atk":190,"def":171,"mag":198,"spr":169},
-			"minStats":{"hp":1495,"mp":73,"atk":63,"def":56,"mag":65,"spr":56},
+			"maxStats":{"hp":4529,"mp":222,"atk":209,"def":171,"mag":218,"spr":169},
+			"minStats":{"hp":1495,"mp":73,"atk":69,"def":56,"mag":72,"spr":56},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["シビラ族の技能","ナトラ王の側近","魔操剣"],
+		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["シビラ族の技能","ナトラ王の側近","魔操剣","水光の強魔剣舞","火風の強魔剣舞","平和を望む心"],
 		"6_form": {
 			"name":"Kunshira",
 			"jpname":"クンシラ",
@@ -2679,8 +2681,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["シビラ族の技能","ナトラ王の側近","魔操剣"]
+			"enhancementSkills":["シビラ族の技能","ナトラ王の側近","魔操剣","水光の強魔剣舞","火風の強魔剣舞","平和を望む心"]
+		},
+		"7_form": {
+			"name":"Kunshira",
+			"jpname":"クンシラ",
+			"id":"100012605",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4529,"mp":222,"atk":190,"def":171,"mag":198,"spr":169},
+				"minStats":{"hp":1495,"mp":73,"atk":63,"def":56,"mag":65,"spr":56},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["シビラ族の技能","ナトラ王の側近","魔操剣","水光の強魔剣舞","火風の強魔剣舞","平和を望む心"]
 		}
+	},
+	"100012627": {
+		"name":"クンシラ - Brave Shifted",
+		"jpname":"クンシラ - Brave Shifted",
+		"id":"100012627",
+		"braveShifted":true,
+		"exAwakening": [{"hp":588,"mp":28,"atk":27,"def":22,"mag":28,"spr":21},{"hp":452,"mp":22,"atk":20,"def":17,"mag":21,"spr":16},{"hp":317,"mp":15,"atk":14,"def":11,"mag":15,"spr":11}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4529,"mp":244,"atk":224,"def":171,"mag":234,"spr":181},
+			"minStats":{"hp":1495,"mp":81,"atk":74,"def":56,"mag":77,"spr":60},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["水光の強魔剣舞","魔力操作環の新たな力","魔奪の剣舞"]
 	},
 	"100012704": {
 		"name":"Wadow",
@@ -3552,17 +3589,19 @@
 		"name":"Yuraisha",
 		"jpname":"ユライシャ",
 		"id":"100017605",
-		"max_rarity":"7",
+		"braveShift":"100017627",
+		"exAwakening": [{"hp":581,"mp":32,"atk":17,"def":20,"mag":25,"spr":29},{"hp":447,"mp":25,"atk":13,"def":15,"mag":19,"spr":22},{"hp":312,"mp":17,"atk":9,"def":11,"mag":13,"spr":15}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4470,"mp":250,"atk":135,"def":159,"mag":197,"spr":206},
-			"minStats":{"hp":1475,"mp":83,"atk":45,"def":52,"mag":65,"spr":68},
+			"maxStats":{"hp":4470,"mp":250,"atk":135,"def":159,"mag":197,"spr":227},
+			"minStats":{"hp":1475,"mp":83,"atk":45,"def":52,"mag":65,"spr":75},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["断刃の法","断魔の法","王族の威徳","獣撃法","祓魔法","ヘスの母"],
+		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["断刃の法","断魔の法","王族の威徳","祓魔法","獣撃法","ヘスの母","守護堅壁の法","四元素結界","アルドールに立ち向かいし者"],
 		"6_form": {
 			"name":"Yuraisha",
 			"jpname":"ユライシャ",
@@ -3578,8 +3617,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["断刃の法","断魔の法","王族の威徳","獣撃法","祓魔法","ヘスの母"]
+			"enhancementSkills":["断刃の法","断魔の法","王族の威徳","祓魔法","獣撃法","ヘスの母","守護堅壁の法","四元素結界","アルドールに立ち向かいし者"]
+		},
+		"7_form": {
+			"name":"Yuraisha",
+			"jpname":"ユライシャ",
+			"id":"100017605",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4470,"mp":250,"atk":135,"def":159,"mag":197,"spr":206},
+				"minStats":{"hp":1475,"mp":83,"atk":45,"def":52,"mag":65,"spr":68},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["断刃の法","断魔の法","王族の威徳","祓魔法","獣撃法","ヘスの母","守護堅壁の法","四元素結界","アルドールに立ち向かいし者"]
 		}
+	},
+	"100017627": {
+		"name":"ユライシャ - Brave Shifted",
+		"jpname":"ユライシャ - Brave Shifted",
+		"id":"100017627",
+		"braveShifted":true,
+		"exAwakening": [{"hp":581,"mp":32,"atk":17,"def":20,"mag":25,"spr":29},{"hp":447,"mp":25,"atk":13,"def":15,"mag":19,"spr":22},{"hp":312,"mp":17,"atk":9,"def":11,"mag":13,"spr":15}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4694,"mp":287,"atk":135,"def":167,"mag":197,"spr":272},
+			"minStats":{"hp":1549,"mp":95,"atk":45,"def":55,"mag":65,"spr":90},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["守護堅壁の法","ヘスを導きし者","復魔活性の法"]
 	},
 	"100017704": {
 		"name":"Franis",
@@ -4362,6 +4436,37 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+	},
+	"100021405": {
+		"name":"紫紺の八賢者ローウェン",
+		"jpname":"紫紺の八賢者ローウェン",
+		"id":"100021405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4911,"mp":226,"atk":144,"def":183,"mag":210,"spr":172},
+			"minStats":{"hp":1621,"mp":75,"atk":48,"def":60,"mag":69,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"紫紺の八賢者ローウェン",
+			"jpname":"紫紺の八賢者ローウェン",
+			"id":"100021405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3777,"mp":173,"atk":110,"def":140,"mag":161,"spr":132},
+				"minStats":{"hp":1246,"mp":57,"atk":36,"def":46,"mag":53,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
 	},
 	"100021504": {
 		"name":"Amber",
@@ -7202,6 +7307,42 @@
 			"equip":["dagger","sword","lightShield","hat","clothes","lightArmor","heavyArmor"]
 		}
 	},
+	"100032607": {
+		"name":"ラスウェル-Neo Vision-",
+		"jpname":"ラスウェル-Neo Vision-",
+		"id":"100032607",
+		"braveShift":"100032617",
+		"exAwakening": [{"hp":607,"mp":33,"atk":58,"def":28,"mag":21,"spr":24},{"hp":467,"mp":25,"atk":45,"def":22,"mag":16,"spr":19},{"hp":327,"mp":17,"atk":31,"def":15,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4676,"mp":257,"atk":255,"def":223,"mag":164,"spr":191},
+			"minStats":{"hp":1543,"mp":85,"atk":84,"def":74,"mag":54,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["明鏡・蒼穹","氷河断刃"]
+	},
+	"100032617": {
+		"name":"ラスウェル-Neo Vision- - Brave Shifted",
+		"jpname":"ラスウェル-Neo Vision- - Brave Shifted",
+		"id":"100032617",
+		"braveShifted":true,
+		"exAwakening": [{"hp":607,"mp":33,"atk":58,"def":28,"mag":21,"spr":24},{"hp":467,"mp":25,"atk":45,"def":22,"mag":16,"spr":19},{"hp":327,"mp":17,"atk":31,"def":15,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5144,"mp":283,"atk":218,"def":201,"mag":270,"spr":172},
+			"minStats":{"hp":1698,"mp":93,"atk":72,"def":66,"mag":89,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["絶魔剣","明鏡・蒼穹"]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -9423,6 +9564,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","gun","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["ケイオスフレアII","ケイオスウィンド","ケイオスライト","魔導力完全解放","ライオットソード","愛を知った少女"],
 		"6_form": {
 			"name":"Magitek Warrior Terra",
 			"jpname":"魔導戦士ティナ",
@@ -9437,7 +9579,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","gun","mace","lightShield","hat","clothes","robe"]
+			"equip":["dagger","sword","staff","rod","gun","mace","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["ケイオスフレアII","ケイオスウィンド","ケイオスライト","魔導力完全解放","ライオットソード","愛を知った少女"]
 		}
 	},
 	"206002205": {
@@ -9454,6 +9597,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["インヒビットスロー","テクニカルハンド","フォアストールスロー","俺が必ず守ってやる！","ど・ろ・ぼ・う？","勇敢な冒険家"],
 		"6_form": {
 			"name":"Adventurer Locke",
 			"jpname":"冒険者ロック",
@@ -9468,7 +9612,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["インヒビットスロー","テクニカルハンド","フォアストールスロー","俺が必ず守ってやる！","ど・ろ・ぼ・う？","勇敢な冒険家"]
 		}
 	},
 	"206002305": {
@@ -9700,7 +9845,7 @@
 		}
 	},
 	"207000127": {
-		"name":"クラウド - Brave Shifted",
+		"name":"Cloud - Brave Shifted",
 		"jpname":"クラウド - Brave Shifted",
 		"id":"207000127",
 		"braveShifted":true,
@@ -10053,7 +10198,7 @@
 		}
 	},
 	"207001205": {
-		"name":"Rufus Shinra",
+		"name":"Rufus Shinra (FFVII REMAKE)",
 		"jpname":"ルーファウス神羅(FFVII REMAKE)",
 		"id":"207001205",
 		"max_rarity":"7",
@@ -10067,7 +10212,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"],
 		"6_form": {
-			"name":"Rufus Shinra",
+			"name":"Rufus Shinra (FFVII REMAKE)",
 			"jpname":"ルーファウス神羅(FFVII REMAKE)",
 			"id":"207001205",
 			"sixStarForm":true,

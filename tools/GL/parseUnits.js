@@ -116,7 +116,7 @@ getData('units.json', function (units) {
                                             let unitIds = [];
                                             for (var unitId in units) {
                                                 var unitIn = units[unitId];
-                                                if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name && !filterUnits.includes(unitId)) {
+                                                if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && !unitId.startsWith("7") && unitIn.name && !filterUnits.includes(unitId)) {
                                                     unitIds.push(unitId);
                                                 }
                                             }
@@ -300,8 +300,8 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
     var unitStats = {"minStats":{}, "maxStats":{}, "pots":{}};
     
     var unreleased7Star = false;
-    
-    if (jpUnits && unitIn["rarity_max"] == 6 && unitIn.skills && unitIn.skills[unitIn.skills.length - 1].rarity == 7) {
+
+    if (jpUnits && unitIn["rarity_max"] == 6 && unitIn.skills && unitIn.skills.length && unitIn.skills[unitIn.skills.length - 1].rarity == 7) {
         var maxRarityInGLData = 0;
         for (entryId in unitIn.entries) {
             if (unitIn.entries[entryId].rarity > maxRarityInGLData) {
@@ -402,7 +402,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
         data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, null, latentSkillsByUnitId, 6).data;
     }
     if (maxRarity == 'NV' && unitIn.rarity_min != 'NV') {
-        data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, null, latentSkillsByUnitId, 7).data;
+        data["7_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, null, latentSkillsByUnitId, 7).data;
     }
 
     if (unitIn.braveShiftedUnitId && maxRarity == 'NV') {
