@@ -525,6 +525,10 @@ a#exportLinks:hover {
     right: 38px;
 }
 
+.item.notOwned .vcLevelChange {
+    display: none;
+}
+
 @media (min-width: 991px) {
     
     .stats .statsGroup.statsGroupMateria {

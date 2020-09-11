@@ -375,7 +375,7 @@ function getItemDisplay(itemEntry, showStmrRecipe = false, inSellableItems = fal
             html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/icons/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
         }   
         html += '</div>';
-        if (itemEntry.owned && itemEntry.visionCard && itemEntry.visionCard.levels.length > 1) {
+        if (itemEntry.visionCard && itemEntry.visionCard.levels.length > 1) {
 
             html += '<span class="vcLevelChange"><span class="vcLevelUp glyphicon glyphicon-arrow-up" onclick="event.stopPropagation();increaseVisionCardLevel(\'' + itemEntry.id + '\');" />';
             html += '<span class="vcLevelDown glyphicon glyphicon-arrow-down" onclick="event.stopPropagation();decreaseVisionCardLevel(\'' + itemEntry.id + '\');" /></span>';
