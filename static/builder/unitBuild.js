@@ -22,7 +22,7 @@ const statProgression = [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 82, 84, 86, 88,
 
 class UnitBuild {
 
-    constructor(unit, fixedItems, baseValues) {
+    constructor(unit, fixedItems, baseValues, braveShifted = false) {
         this.unit = unit;
         this.fixedItems = fixedItems;
         this.build = fixedItems.slice();
@@ -50,6 +50,7 @@ class UnitBuild {
         this._bannedEquipableTypes = [];
         this._monsterAttackFormula = null;
         this._exAwakeningLevel = 0;
+        this.braveShifted = braveShifted;
     }
     
     getPartialDualWield() {
