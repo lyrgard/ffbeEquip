@@ -1345,13 +1345,15 @@ function onUnitChange() {
 
 function initUnitEnhancementLevel(unitData, sameUnit = false) {
     unitData.enhancementLevels = [];
-    for (var i = unitData.enhancements.length; i--;) {
-        var enhancementLevel = unitData.enhancements[i].levels.length - 1;
-        if (sameUnit && $("#enhancement_" + i).val()) {
-            enhancementLevel = $("#enhancement_" + i).val();
+    if (unitData.enhancements) {
+        for (var i = unitData.enhancements.length; i--;) {
+            var enhancementLevel = unitData.enhancements[i].levels.length - 1;
+            if (sameUnit && $("#enhancement_" + i).val()) {
+                enhancementLevel = $("#enhancement_" + i).val();
+            }
+            unitData.skills = unitData.skills.concat(unitData.enhancements[i].levels[enhancementLevel]);
+            unitData.enhancementLevels[i] = enhancementLevel;
         }
-        unitData.skills = unitData.skills.concat(unitData.enhancements[i].levels[enhancementLevel]);
-        unitData.enhancementLevels[i] = enhancementLevel;
     }
 }
 
