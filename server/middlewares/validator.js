@@ -10,7 +10,7 @@ const buildErrorString = (err, prop) => {
 };
 
 const validator = prop => (schema, opts) => (req, res, next) => {
-  const { error, value } = Joi.validate(req[prop], schema, opts);
+  const { error, value } = schema.validate(req[prop], opts);
 
   if (error) {
     return next(Boom.badRequest(buildErrorString(error, prop)));
