@@ -681,6 +681,27 @@ i.img.img-slot-hand.leftHand {
     margin-left: -10px;
 }
 
+#unitTabs .braveShiftButton {
+    display: none;
+    position: absolute;
+    right: 4px;
+    bottom: -3px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#unitTabs .braveShiftButton:hover {
+    opacity: 1;
+}
+
+#unitTabs .braveShiftButton img {
+    width: 36px;
+}
+
+#unitTabs .braveShift .braveShiftButton {
+    display: block;
+}
+
 #help ul {
     list-style-type: initial;
     margin-left: 25px;

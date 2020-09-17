@@ -20,9 +20,9 @@ class DataStorage {
         this.alreadyUsedItems = {};
         this.unstackablePinnedItems = [];
         this.alreadyUsedEspers = [];
-        this.itemInventory;
-        this.availableTmr;
-        this.availableStmr;
+        this.itemInventory = null;
+        this.availableTmr = null;
+        this.availableStmr = null;
         this.defaultWeaponEnhancement = null;
         this.defaultVisionCardLevel = 10;
     }
@@ -49,7 +49,7 @@ class DataStorage {
                 item.damageVariance.avg = (item.damageVariance.min + item.damageVariance.max) / 2;
                 item.meanDamageVariance = item.damageVariance.avg;
             }
-            if (item.id != currentId) {
+            if (item.id !== currentId) {
                 if (currentItemVersions.length > 1 || (currentItemVersions.length == 1 && currentItemVersions[0].equipedConditions)) {
                     this.itemWithVariation[currentId] = currentItemVersions;
                 }
@@ -96,7 +96,7 @@ class DataStorage {
     
     addDesirableElementsFromFormula(formula) {
         var elements = [];
-        if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.elements) {
+        if (builds[currentUnitIndex].formula.type === "condition" && builds[currentUnitIndex].formula.elements) {
             for (var i = builds[currentUnitIndex].formula.elements.length; i--;) {
                 if (!this.desirableElements.includes(builds[currentUnitIndex].formula.elements[i])) {
                     this.desirableElements.push(builds[currentUnitIndex].formula.elements[i]);
@@ -107,15 +107,15 @@ class DataStorage {
     }
     
     addDesirableElementsFromImperilInFormula(formula) {
-        if (formula.type == "multicast") {
+        if (formula.type === "multicast") {
             for (var i = formula.skills.length; i--;) {
                 this.addDesirableElementsFromImperilInFormula(formula.skills[i]);
             }
-        } else if (formula.type == "skill") {
+        } else if (formula.type === "skill") {
             this.addDesirableElementsFromImperilInFormula(formula.value);
-        } else if (formula.type == "imperil") {
+        } else if (formula.type === "imperil") {
             var elements = Object.keys(formula.value);
-            if (elements.length == 8) {
+            if (elements.length === 8) {
                 // Full imperil, ignore it
             } else {
                 for (var i = elements.length; i--;) {
@@ -124,10 +124,10 @@ class DataStorage {
                     }
                 }
             }
-        } else if (formula.type == "condition") {
+        } else if (formula.type === "condition") {
             this.addDesirableElementsFromImperilInFormula(formula.formula);    
             this.addDesirableElementsFromImperilInFormula(formula.condition);
-        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "chainMultiplier" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "value" && formula.type != "damage" && formula.type != "heal" && formula.type != "killers" && formula.type != "skillEnhancement" && formula.type != "mitigation" && formula.type != "berserk") {
+        } else if (formula.type !== "elementCondition" &&  formula.type !== "constant" && formula.type !== "chainMultiplier" && formula.type !== "break" && formula.type !== "imbue" && formula.type !== "statsBuff" && formula.type !== "value" && formula.type !== "damage" && formula.type !== "heal" && formula.type !== "killers" && formula.type !== "skillEnhancement" && formula.type !== "mitigation" && formula.type !== "berserk") {
             this.addDesirableElementsFromImperilInFormula(formula.value1);
             this.addDesirableElementsFromImperilInFormula(formula.value2);
         }

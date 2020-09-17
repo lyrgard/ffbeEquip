@@ -1,6 +1,7 @@
 importScripts('../constants.js');
 importScripts('../formula.js');
 importScripts('common.js');
+importScripts('unitShift.js');
 importScripts('unitBuild.js');
 importScripts('treeComparator.js');
 importScripts('esperTreeComparator.js');    

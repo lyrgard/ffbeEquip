@@ -2,10 +2,20 @@ FFBEEquipBuildAsImage = {
     unitLineHeight:267,
     ffbeEquipUrl: "https://ffbeEquip.com",
     drawTeam: function(canvas, data) {
-        canvas.height = FFBEEquipBuildAsImage.unitLineHeight * data.units.length;
+        let lineNumber = data.units.map(u => u.braveShiftedUnit ? 2 : 1).reduce((acc, v) => acc + v, 0);
+        canvas.height = FFBEEquipBuildAsImage.unitLineHeight * lineNumber;
         let ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        data.units.forEach((unit, index) => FFBEEquipBuildAsImage.drawBuild(ctx, unit, index));
+
+        let lineIndex = 0;
+        data.units.forEach(unit => {
+            FFBEEquipBuildAsImage.drawBuild(ctx, unit, lineIndex);
+            lineIndex++;
+            if (unit.braveShiftedUnit) {
+                FFBEEquipBuildAsImage.drawBuild(ctx, unit.braveShiftedUnit, lineIndex, true);
+                lineIndex++;
+            }
+        });
         
         ctx.fillStyle = 'white';
         ctx.textAlign = "start"
@@ -14,7 +24,7 @@ FFBEEquipBuildAsImage = {
     },
 
 
-    drawBuild: function(ctx, unit, unitLine = 0) {
+    drawBuild: function(ctx, unit, unitLine = 0, braveShifted = false) {
 
         let grd = ctx.createLinearGradient(0, 0, 900, FFBEEquipBuildAsImage.unitLineHeight);
         grd.addColorStop(0, "#0000b2");
@@ -24,7 +34,11 @@ FFBEEquipBuildAsImage = {
         ctx.fillStyle = grd;
         ctx.fillRect(4, 4 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 726, 258);
 
-        FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/box.png', 0, 0 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 730, 267);
+        FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/box.png', 0, 0 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 730, 267, 1, false, () => {
+            if (braveShifted) {
+                FFBEEquipBuildAsImage.drawBraveShiftSeparator(ctx, unitLine);
+            }
+        });
 
         let unitId = unit.id;
         let iconId = unitId.substr(0,unitId.length-1) + (unit.rarity == 'NV' ? '7' : unit.rarity);
@@ -251,6 +265,10 @@ FFBEEquipBuildAsImage = {
                 }
             });
         });
+    },
+
+    drawBraveShiftSeparator: function(ctx, lineIndex) {
+        FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/icons/braveShift.png', 5, -8 + lineIndex * FFBEEquipBuildAsImage.unitLineHeight, 62, 34);
     },
 
     drawImage: function(ctx, imageUrl, x, y, w, h, alpha = 1, rounded = false, callback) {

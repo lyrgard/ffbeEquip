@@ -167,7 +167,7 @@ const config = readJson(CONFIG_FILE);
 config.env = process.env.NODE_ENV || config.env;
 config.port = process.env.PORT || config.port;
 
-const validation = Joi.validate(config, configSchema);
+const validation = configSchema.validate(config);
 
 if (require.main === module && validation.error) {
   setupConfig(config).then((newConfig) => {

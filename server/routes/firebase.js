@@ -155,117 +155,119 @@ const calculatedValuesBaseStatsSchema = Joi.object().keys({
     bonus:Joi.number().integer(),
     flatStatBonus:Joi.number().integer(),
 });
+const unitSchema = Joi.object().keys({
+    id: idSchema.required(),
+    name: Joi.string().max(100).required(),
+    rarity: Joi.number().allow(1, 2, 3, 4, 5, 6, 7, 'NV'),
+    enhancementLevels: Joi.array().items(Joi.number().min(0).max(10)).max(30),
+    goal: Joi.string().max(200).required(),
+    innateElements: Joi.array().items(...elementsSchema),
+    items: Joi.array().items(itemSlotSchema).max(11),
+    itemEnchantments: Joi.array().items(Joi.allow(null), Joi.array().items(...itemEnchantmentsSchema).max(3)).max(11),
+    esperId: Joi.string().max(50),
+    esperPinned: Joi.boolean(),
+    esper: esperSchema,
+    pots: Joi.object().keys({
+        hp: Joi.number().min(0).max(5000),
+        mp: Joi.number().min(0).max(1000),
+        atk: Joi.number().min(0).max(99),
+        def: Joi.number().min(0).max(99),
+        mag: Joi.number().min(0).max(99),
+        spr: Joi.number().min(0).max(99),
+    }),
+    maxPots: Joi.object().keys({
+        hp: Joi.number().min(0).max(5000),
+        mp: Joi.number().min(0).max(1000),
+        atk: Joi.number().min(0).max(99),
+        def: Joi.number().min(0).max(99),
+        mag: Joi.number().min(0).max(99),
+        spr: Joi.number().min(0).max(99),
+    }),
+    buffs: Joi.object().keys({
+        hp: Joi.number().min(0).max(10000),
+        mp: Joi.number().min(0).max(600),
+        atk: Joi.number().min(0).max(600),
+        def: Joi.number().min(0).max(600),
+        mag: Joi.number().min(0).max(600),
+        spr: Joi.number().min(0).max(600),
+        lbFillRate: Joi.number().min(0).max(600),
+        mitigation: Joi.object().keys({
+            global: Joi.number().min(0).max(100),
+            physical: Joi.number().min(0).max(100),
+            magical: Joi.number().min(0).max(100)
+        }),
+        drawAttacks: Joi.number().min(0).max(600),
+        lbDamage: Joi.number().min(0).max(600),
+        killers: Joi.array().max(12).items(
+            Joi.object().keys({
+                name: racesSchema,
+                physical: Joi.number().min(0).max(300),
+                magical: Joi.number().min(0).max(300),
+            })
+        ),
+    }),
+    lbShardsPerTurn: Joi.number().min(0).max(100),
+    stack: Joi.number().min(0).max(99),
+    level: Joi.number().min(0).max(120),
+    exAwakening: Joi.number().min(0).max(3),
+    braveShiftedUnit: Joi.link('#unitSchema'),
+    calculatedValues: Joi.object().keys({
+        hp: calculatedValuesBaseStatsSchema,
+        mp: calculatedValuesBaseStatsSchema,
+        atk: calculatedValuesBaseStatsSchema,
+        def: calculatedValuesBaseStatsSchema,
+        mag: calculatedValuesBaseStatsSchema,
+        spr: calculatedValuesBaseStatsSchema,
+        physicalEvasion: Joi.object().keys({value: Joi.number().integer()}),
+        magicalEvasion: Joi.object().keys({value: Joi.number().integer()}),
+        drawAttacks: Joi.object().keys({value: Joi.number().integer()}),
+        lbDamage: Joi.object().keys({value: Joi.number().integer()}),
+        mpRefresh: Joi.object().keys({value: Joi.number().integer()}),
+        lbFillRate: Joi.object().keys({value: Joi.number().integer()}),
+        lbPerTurn: Joi.object().keys({value: Joi.number()}),
+        jumpDamage: Joi.object().keys({value: Joi.number().integer()}),
+        elementResists: Joi.object().keys({
+            fire: Joi.number().integer(),
+            ice: Joi.number().integer(),
+            water: Joi.number().integer(),
+            lightning: Joi.number().integer(),
+            earth: Joi.number().integer(),
+            wind: Joi.number().integer(),
+            light: Joi.number().integer(),
+            dark: Joi.number().integer(),
+        }),
+        ailmentResists: Joi.object().keys({
+            poison: Joi.number().integer(),
+            blind: Joi.number().integer(),
+            sleep: Joi.number().integer(),
+            silence: Joi.number().integer(),
+            paralysis: Joi.number().integer(),
+            confuse: Joi.number().integer(),
+            disease: Joi.number().integer(),
+            petrification: Joi.number().integer(),
+            death: Joi.number().integer(),
+            charm: Joi.number().integer(),
+            stop: Joi.number().integer(),
+        }),
+        killers: Joi.object().keys({
+            aquatic: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+            beast: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+            bird: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+            bug: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+            demon: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+            dragon: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+            human: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+            machine: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+            plant: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+            undead: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+            stone: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+            spirit: Joi.object().keys({physical: Joi.number().integer(), magical: Joi.number().integer()}),
+        }),
+    })
+}).id('unitSchema');
 const partyBuildSchema = Joi.object().keys({
     version: Joi.number().min(0),
-    units: Joi.array().items(Joi.object().keys({
-        id: idSchema.required(),
-        name: Joi.string().max(100).required(),
-        rarity: Joi.number().allow(1, 2, 3, 4, 5, 6, 7, 'NV'),
-        enhancementLevels: Joi.array().items(Joi.number().min(0).max(10)).max(30),
-        goal: Joi.string().max(200).required(),
-        innateElements: Joi.array().items(elementsSchema),
-        items: Joi.array().items(itemSlotSchema).max(11),
-        itemEnchantments: Joi.array().items([Joi.allow(null), Joi.array().items(itemEnchantmentsSchema).max(3)]).max(11),
-        esperId: Joi.string().max(50),
-        esperPinned: Joi.boolean(),
-        esper:esperSchema,
-        pots: Joi.object().keys({
-            hp: Joi.number().min(0).max(5000),
-            mp: Joi.number().min(0).max(1000),
-            atk: Joi.number().min(0).max(99),
-            def: Joi.number().min(0).max(99),
-            mag: Joi.number().min(0).max(99),
-            spr: Joi.number().min(0).max(99),
-        }),
-        maxPots: Joi.object().keys({
-            hp: Joi.number().min(0).max(5000),
-            mp: Joi.number().min(0).max(1000),
-            atk: Joi.number().min(0).max(99),
-            def: Joi.number().min(0).max(99),
-            mag: Joi.number().min(0).max(99),
-            spr: Joi.number().min(0).max(99),
-        }),
-        buffs: Joi.object().keys({
-            hp: Joi.number().min(0).max(10000),
-            mp: Joi.number().min(0).max(600),
-            atk: Joi.number().min(0).max(600),
-            def: Joi.number().min(0).max(600),
-            mag: Joi.number().min(0).max(600),
-            spr: Joi.number().min(0).max(600),
-            lbFillRate: Joi.number().min(0).max(600),
-            mitigation: Joi.object().keys({
-                global: Joi.number().min(0).max(100),
-                physical: Joi.number().min(0).max(100),
-                magical: Joi.number().min(0).max(100)
-            }),
-            drawAttacks: Joi.number().min(0).max(600),
-            lbDamage: Joi.number().min(0).max(600),
-            killers:Joi.array().max(12).items(
-                Joi.object().keys({
-                    name:racesSchema,
-                    physical:Joi.number().min(0).max(300),
-                    magical:Joi.number().min(0).max(300),
-                })
-            ),
-        }),
-        lbShardsPerTurn: Joi.number().min(0).max(100),
-        stack: Joi.number().min(0).max(99),
-        level: Joi.number().min(0).max(120),
-        exAwakening:Joi.number().min(0).max(3),
-        calculatedValues: Joi.object().keys({
-            hp:calculatedValuesBaseStatsSchema,
-            mp:calculatedValuesBaseStatsSchema,
-            atk:calculatedValuesBaseStatsSchema,
-            def:calculatedValuesBaseStatsSchema,
-            mag:calculatedValuesBaseStatsSchema,
-            spr:calculatedValuesBaseStatsSchema,
-            physicalEvasion: Joi.object().keys({value:Joi.number().integer()}),
-            magicalEvasion: Joi.object().keys({value:Joi.number().integer()}),
-            drawAttacks: Joi.object().keys({value:Joi.number().integer()}),
-            lbDamage: Joi.object().keys({value:Joi.number().integer()}),
-            mpRefresh: Joi.object().keys({value:Joi.number().integer()}),
-            lbFillRate: Joi.object().keys({value:Joi.number().integer()}),
-            lbPerTurn: Joi.object().keys({value:Joi.number()}),
-            jumpDamage: Joi.object().keys({value:Joi.number().integer()}),
-            elementResists: Joi.object().keys({
-                fire:Joi.number().integer(),
-                ice:Joi.number().integer(),
-                water:Joi.number().integer(),
-                lightning:Joi.number().integer(),
-                earth:Joi.number().integer(),
-                wind:Joi.number().integer(),
-                light:Joi.number().integer(),
-                dark:Joi.number().integer(),
-            }),
-            ailmentResists: Joi.object().keys({
-                poison:Joi.number().integer(),
-                blind:Joi.number().integer(),
-                sleep:Joi.number().integer(),
-                silence:Joi.number().integer(),
-                paralysis:Joi.number().integer(),
-                confuse:Joi.number().integer(),
-                disease:Joi.number().integer(),
-                petrification:Joi.number().integer(),
-                death:Joi.number().integer(),
-                charm:Joi.number().integer(),
-                stop:Joi.number().integer(),
-            }),
-            killers:Joi.object().keys({
-                aquatic:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-                beast:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-                bird:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-                bug:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-                demon:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-                dragon:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-                human:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-                machine:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-                plant:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-                undead:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-                stone:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-                spirit:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
-            }),
-        }),
-    })).required(),
+    units: Joi.array().items(unitSchema).required(),
     "monster":Joi.object().keys({
         "races": Joi.array().items(
             Joi.string().valid('aquatic'),
@@ -328,7 +330,7 @@ const partyBuildSchema = Joi.object().keys({
     "useNewJpDamageFormula": Joi.boolean().required(),
     "itemSelector": Joi.object().keys({
         "mainSelector":[Joi.string().valid("all"),Joi.string().valid("owned"), Joi.string().valid("ownedAvailableForExpedition"), Joi.string().valid("shopRecipe")],
-        "additionalFilters": Joi.array().max(10).items([
+        "additionalFilters": Joi.array().max(10).items(
             Joi.string().valid("includeEasilyObtainableItems"),
             Joi.string().valid("includeChocoboItems"),
             Joi.string().valid("includeTMROfOwnedUnits"),
@@ -339,7 +341,7 @@ const partyBuildSchema = Joi.object().keys({
             Joi.string().valid("excludeTMR5"),
             Joi.string().valid("excludeSTMR"),
             Joi.string().valid("excludeNotReleasedYet")
-        ])
+        )
     })
 });
 
@@ -347,7 +349,7 @@ unAuthenticatedRoute.post('/partyBuild', async (req, res) => {
   const data = req.body;
 
     
-  const { error, value } = Joi.validate(data, partyBuildSchema);
+  const { error, value } = partyBuildSchema.validate(data);
 
   var id = uuidV1();
 
