@@ -268,7 +268,7 @@ FFBEEquipBuildAsImage = {
     },
 
     drawBraveShiftSeparator: function(ctx, lineIndex) {
-        FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/icons/braveShift.png', 5, -8 + lineIndex * FFBEEquipBuildAsImage.unitLineHeight, 62, 34);
+        FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/icons/braveShift_small.png', 5, -6 + lineIndex * FFBEEquipBuildAsImage.unitLineHeight, 66, 12);
     },
 
     drawImage: function(ctx, imageUrl, x, y, w, h, alpha = 1, rounded = false, callback) {
