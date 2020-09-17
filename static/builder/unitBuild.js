@@ -456,6 +456,14 @@ class UnitBuild {
         return this.unitShift.fixedItems;
     }
 
+    set fixedItems(fixedItems) {
+        this.unitShift.fixedItems = fixedItems;
+        if (this._braveShift) {
+            this._braveShift.fixedItems[10] = fixedItems[10];
+            this._braveShift.fixedItems[11] = fixedItems[11];
+        }
+    }
+
     get baseValues() {
         return this.unitShift.baseValues;
     }
@@ -513,5 +521,9 @@ class UnitBuild {
 
     get equipable() {
         return this.unitShift.equipable;
+    }
+
+    set equipable(equipable) {
+        this.unitShift.equipable = equipable;
     }
 }
