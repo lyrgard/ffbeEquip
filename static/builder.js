@@ -1267,9 +1267,9 @@ function onUnitChange() {
             if (selectedUnitData) {
                 let unitWithSkills = await ensureInitUnitWithSkills(unitWithSkillsId);
                 if (selectedUnitData.braveShift || selectedUnitData.braveShifted) {
-                    $("#unitTabs .tab_" + currentUnitIndex).addClass("braveShift");
+                    $(".panel.unit").addClass("braveShift");
                 } else {
-                    $("#unitTabs .tab_" + currentUnitIndex).removeClass("braveShift");
+                    $(".panel.unit").removeClass("braveShift");;
                 }
                 $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_icon_" + iconId + ".png\"/>" + selectedUnitData.name);
                 var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.sixStarForm == selectedUnitData.sixStarForm);
@@ -1741,13 +1741,10 @@ function loadBuild(buildIndex) {
 function addNewUnit(focusUnitSelect = true) {
     $("#unitTabs li").removeClass("active");
     let newId = builds.length;
-    var newTab = $('<li class="active tab_' + newId + '"><a href="#">Select unit</a><span class="closeTab glyphicon glyphicon-remove" onclick="closeTab()"></span><span class="braveShiftButton"><img src="img/icons/braveShift.png"/></span></li>');
+    var newTab = $('<li class="active tab_' + newId + '"><a href="#">Select unit</a><span class="closeTab glyphicon glyphicon-remove" onclick="closeTab()"></span></li>');
     $("#unitTabs .tab_" + (newId - 1)).after(newTab);
     newTab.click(function() {
         selectUnitTab(newId);
-    });
-    $("#unitTabs .tab_" + newId + " .braveShiftButton").click(function() {
-        braveShift(newId);
     });
     builds.push(null);
     reinitBuild(builds.length - 1);
@@ -1768,6 +1765,11 @@ function selectUnitTab(index) {
     $("#unitTabs li").removeClass("active");
     $("#unitTabs .tab_" + index).addClass("active");
     loadBuild(index);
+    if (builds[index].unit.braveShift || builds[index].unit.braveShifted) {
+        $(".panel.unit").addClass("braveShift");
+    } else {
+        $(".panel.unit").removeClass("braveShift");;
+    }
 }
 
 function closeTab(index = currentUnitIndex) {
@@ -1775,9 +1777,6 @@ function closeTab(index = currentUnitIndex) {
     $("#unitTabs .tab_" + index).remove();
     for (var i = index + 1; i < builds.length; i++) {
         let newId = i-1;
-        $("#unitTabs .tab_" + i + " .braveShiftButton").off('click').click(function() {
-            braveShift(newId);
-        });
         $("#unitTabs .tab_" + i).removeClass("tab_" + i).addClass("tab_" + newId).off('click').click(function() {
             selectUnitTab(newId);
         });
@@ -4537,9 +4536,9 @@ function startPage() {
             if (builds[currentUnitIndex].unit.braveShifted) {
                 braveShift(currentUnitIndex);
             }
-            $("#unitTabs .tab_" + currentUnitIndex).removeClass("braveShift");
+            $(".panel.unit").removeClass("braveShift");
         } else {
-            $("#unitTabs .tab_" + currentUnitIndex).addClass("braveShift");
+            $(".panel.unit").addClass("braveShift");
         }
         updateUnitStats();
         logCurrentBuild();
