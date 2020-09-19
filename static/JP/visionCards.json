@@ -226,7 +226,19 @@
 	{"mag":80, "conditional":[{"equipedConditions":["sword"],"mag%":100}]},
 	{"mag":85, "conditional":[{"equipedConditions":["sword"],"mag%":100}]},
 	{"mag":90, "conditional":[{"equipedConditions":["sword"],"mag%":100}]},
-	{"mag":100, "conditional":[{"equipedConditions":["sword"],"mag%":100},{"mag%":20,"exclusiveUnits":["206002305","206002327","206002405","206002427","206002507","206002517"]},{"evokeDamageBoost":{"all":30},"exclusiveUnits":["206002305","206002327","206002405","206002427","206002507","206002517"]}]}
+	{"mag":100, "conditional":[{"equipedConditions":["sword"],"mag%":100},{"mag%":20,"exclusiveUnits":["206001905","206001927","206002005","206002027","206002305","206002327","206002405","206002427","206002507","206002517","206002607","206002617"]},{"evokeDamageBoost":{"all":30},"exclusiveUnits":["206001905","206001927","206002005","206002027","206002305","206002327","206002405","206002427","206002507","206002517","206002607","206002617"]}]}
+]},
+{"id":"206000201", "name":"別離と再起", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000201.png", "sortId":29, "levels":[
+	{"atk":50},
+	{"atk":55},
+	{"atk":60},
+	{"atk":65, "conditional":[{"equipedConditions":["throwing"],"atk%":50}]},
+	{"atk":70, "conditional":[{"equipedConditions":["throwing"],"atk%":50}]},
+	{"atk":75, "conditional":[{"equipedConditions":["throwing"],"atk%":50}]},
+	{"atk":80, "conditional":[{"equipedConditions":["throwing"],"atk%":100}]},
+	{"atk":85, "conditional":[{"equipedConditions":["throwing"],"atk%":100}]},
+	{"atk":90, "conditional":[{"equipedConditions":["throwing"],"atk%":100}]},
+	{"atk":100, "conditional":[{"equipedConditions":["throwing"],"atk%":100},{"evade":{"physical":20},"exclusiveUnits":["206001905","206001927","206002005","206002027","206002305","206002327","206002405","206002427","206002507","206002517","206002607","206002617"]}]}
 ]},
 {"id":"207000101", "name":"Mad Dash", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
 	{"atk":40},

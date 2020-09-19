@@ -13627,23 +13627,26 @@
 		"name":"King Edgar of Figaro",
 		"jpname":"フィガロの王エドガー",
 		"id":"206001905",
-		"max_rarity":"7",
+		"braveShift":"206001927",
+		"exAwakening": [{"hp":606,"mp":29,"atk":28,"def":23,"mag":18,"spr":24},{"hp":466,"mp":22,"atk":22,"def":17,"mag":14,"spr":19},{"hp":326,"mp":15,"atk":15,"def":12,"mag":9,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4668,"mp":227,"atk":202,"def":179,"mag":142,"spr":190},
-			"minStats":{"hp":1540,"mp":75,"atk":67,"def":59,"mag":47,"spr":63},
+			"maxStats":{"hp":4668,"mp":227,"atk":223,"def":179,"mag":142,"spr":190},
+			"minStats":{"hp":1540,"mp":75,"atk":74,"def":59,"mag":47,"spr":63},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["ウイークメーカー・水","ウイークメーカー・土","ブラボー フィガロ！","ロイヤルショック","ヘンな武器開発","エドガー・ロニ・フィガロ"],
+		"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["ウイークメーカー・土","ウイークメーカー・水","ブラボー フィガロ！","ロイヤルショック","ヘンな武器開発","マシーナリーの本領","シザーズクリッパー","ミラクルブラスト","エドガー・ロニ・フィガロ"],
 		"enhancements": [
 			{"name":"辣腕の国王","levels":[[],[{"spr%":30,"def%":30,"hp%":30,"dualWielding":{"atk":20},"singleWielding":{"accuracy":25,"atk":50}}]]},
+			{"name":"マシーナリーの本領","levels":[[{"lbPerTurn":{"min":3,"max":3},"lbFillRate":100}],[{"lbPerTurn":{"min":4,"max":4},"lbFillRate":100}],[{"lbPerTurn":{"min":5,"max":5},"lbFillRate":150}],[{"lbPerTurn":{"min":6,"max":6},"lbFillRate":150}],[{"lbPerTurn":{"min":7,"max":7},"lbFillRate":200}]]},
 			{"name":"エドガー・ロニ・フィガロ","levels":[[{"spr%":20,"def%":20,"atk%":40,"hp%":20,"lbPerTurn":{"min":1,"max":1},"levelCondition":120}],[{"spr%":20,"def%":20,"atk%":80,"hp%":20,"lbPerTurn":{"min":1,"max":1},"levelCondition":120}],[{"spr%":20,"def%":20,"atk%":80,"hp%":20,"lbPerTurn":{"min":1,"max":1},"lbDamage":100,"levelCondition":120}]]}
 		],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":80, "def%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "lbFillRate":50, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":20, "mp%":20, "atk%":80, "def%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "improvedDW":true, "lbFillRate":50, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":5, "lbDamage":100, "special":["dualWield"]},
 			{"lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"machine","physical":100}], "equipedConditions":[["504229930","409027900"]]},
 			{"skillEnhancement":{"229940":1.5,"229943":1.5,"229944":0.75,"229945":1.5,"229948":1.5,"509283":1.5,"509284":0.75,"509287":0.75,"512512":0.75,"512513":0.75}, "levelCondition":110},
 			{"mp%":20, "levelCondition":115}
@@ -13663,32 +13666,87 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["ウイークメーカー・水","ウイークメーカー・土","ブラボー フィガロ！","ロイヤルショック","ヘンな武器開発","エドガー・ロニ・フィガロ"],
+			"enhancementSkills":["ウイークメーカー・土","ウイークメーカー・水","ブラボー フィガロ！","ロイヤルショック","ヘンな武器開発","マシーナリーの本領","シザーズクリッパー","ミラクルブラスト","エドガー・ロニ・フィガロ"],
 		"enhancements": [
 			{"name":"辣腕の国王","levels":[[],[{"spr%":30,"def%":30,"hp%":30,"dualWielding":{"atk":20},"singleWielding":{"accuracy":25,"atk":50}}]]}
 		],
 			"skills": [
 				{"hp%":20, "mp%":20, "atk%":80, "def%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "lbFillRate":50, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":5, "special":["dualWield"]}
 			]
+		},
+		"7_form": {
+			"name":"King Edgar of Figaro",
+			"jpname":"フィガロの王エドガー",
+			"id":"206001905",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4668,"mp":227,"atk":202,"def":179,"mag":142,"spr":190},
+				"minStats":{"hp":1540,"mp":75,"atk":67,"def":59,"mag":47,"spr":63},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["ウイークメーカー・土","ウイークメーカー・水","ブラボー フィガロ！","ロイヤルショック","ヘンな武器開発","マシーナリーの本領","シザーズクリッパー","ミラクルブラスト","エドガー・ロニ・フィガロ"],
+		"enhancements": [
+			{"name":"辣腕の国王","levels":[[],[{"spr%":30,"def%":30,"hp%":30,"dualWielding":{"atk":20},"singleWielding":{"accuracy":25,"atk":50}}]]},
+			{"name":"エドガー・ロニ・フィガロ","levels":[[{"spr%":20,"def%":20,"atk%":40,"hp%":20,"lbPerTurn":{"min":1,"max":1},"levelCondition":120}],[{"spr%":20,"def%":20,"atk%":80,"hp%":20,"lbPerTurn":{"min":1,"max":1},"levelCondition":120}],[{"spr%":20,"def%":20,"atk%":80,"hp%":20,"lbPerTurn":{"min":1,"max":1},"lbDamage":100,"levelCondition":120}]]}
+		],
+			"skills": [
+				{"hp%":20, "mp%":20, "atk%":80, "def%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "lbFillRate":50, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":5, "special":["dualWield"]},
+				{"lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"machine","physical":100}], "equipedConditions":[["504229930","409027900"]]},
+				{"skillEnhancement":{"229940":1.5,"229943":1.5,"229944":0.75,"229945":1.5,"229948":1.5,"509283":1.5,"509284":0.75,"509287":0.75,"512512":0.75,"512513":0.75}, "levelCondition":110},
+				{"mp%":20, "levelCondition":115}
+			]
 		}
+	},
+	"206001927": {
+		"name":"King Edgar of Figaro - Brave Shifted",
+		"jpname":"フィガロの王エドガー - Brave Shifted",
+		"id":"206001927",
+		"braveShifted":"206001917",
+		"exAwakening": [{"hp":606,"mp":29,"atk":28,"def":23,"mag":18,"spr":24},{"hp":466,"mp":22,"atk":22,"def":17,"mag":14,"spr":19},{"hp":326,"mp":15,"atk":15,"def":12,"mag":9,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5602,"mp":205,"atk":243,"def":162,"mag":128,"spr":228},
+			"minStats":{"hp":1849,"mp":68,"atk":80,"def":53,"mag":42,"spr":75},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["シザーズクリッパー","フィガロジャンプ","竜騎士の資質"],
+		"enhancements": [
+			{"name":"竜騎士の資質","levels":[[{"atk":100,"jumpDamage":250}],[{"atk":125,"jumpDamage":250}],[{"atk":150,"jumpDamage":300}],[{"atk":175,"jumpDamage":300}],[{"atk":200,"jumpDamage":350}]]}
+		],
+		"skills": [
+			{"hp%":70, "mp%":20, "atk%":180, "def%":50, "spr%":80, "dualWielding":{"atk":150}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"bird","physical":100},{"name":"machine","physical":200}], "mpRefresh":5, "lbDamage":100, "special":["dualWield"]},
+			{"jumpDamage":100, "equipedConditions":[["504229930","409027900"]]}
+		]
 	},
 	"206002005": {
 		"name":"Monk Sabin of Kolts",
 		"jpname":"コルツの格闘家マッシュ",
 		"id":"206002005",
-		"max_rarity":"7",
+		"braveShift":"206002027",
+		"exAwakening": [{"hp":762,"mp":26,"atk":26,"def":20,"mag":16,"spr":25},{"hp":586,"mp":20,"atk":20,"def":16,"mag":12,"spr":19},{"hp":410,"mp":14,"atk":14,"def":11,"mag":9,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4903,"mp":203,"atk":207,"def":161,"mag":129,"spr":196},
-			"minStats":{"hp":1618,"mp":67,"atk":68,"def":53,"mag":43,"spr":65},
+			"maxStats":{"hp":5864,"mp":203,"atk":207,"def":161,"mag":129,"spr":196},
+			"minStats":{"hp":1935,"mp":67,"atk":68,"def":53,"mag":43,"spr":65},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","マッシュ・レネ・フィガロ"],
+		"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","頼れる熱血漢","マッシュ・レネ・フィガロ","かばう・物理","活心術"],
 		"enhancements": [
 			{"name":"ダンカン仕込みの気合","levels":[[],[{"atk%":30,"mp%":30}]]},
+			{"name":"頼れる熱血漢","levels":[[{"atk":100,"hp":3000}],[{"atk":100,"hp":4000}],[{"atk":125,"hp":5000}],[{"atk":125,"hp":6000}],[{"atk":150,"hp":7000}]]},
 			{"name":"マッシュ・レネ・フィガロ","levels":[[{"spr%":20,"atk%":40,"mp%":20,"hp%":20,"mpRefresh":5,"levelCondition":120}],[{"spr%":20,"atk%":60,"mp%":20,"hp%":20,"mpRefresh":5,"lbDamage":50,"levelCondition":120}],[{"spr%":20,"atk%":60,"mp%":20,"hp%":20,"mpRefresh":5,"lbDamage":50,"singleWielding":{"accuracy":25,"atk":50},"lbPerTurn":{"min":6,"max":6},"levelCondition":120}]]}
 		],
 		"skills": [
@@ -13714,7 +13772,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","マッシュ・レネ・フィガロ"],
+			"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","頼れる熱血漢","マッシュ・レネ・フィガロ","かばう・物理","活心術"],
 		"enhancements": [
 			{"name":"ダンカン仕込みの気合","levels":[[],[{"atk%":30,"mp%":30}]]}
 		],
@@ -13723,7 +13781,62 @@
 				{"atk%":200, "equipedConditions":["unarmed"]},
 				{"atk%":50, "equipedConditions":["fist"]}
 			]
+		},
+		"7_form": {
+			"name":"Monk Sabin of Kolts",
+			"jpname":"コルツの格闘家マッシュ",
+			"id":"206002005",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4903,"mp":203,"atk":207,"def":161,"mag":129,"spr":196},
+				"minStats":{"hp":1618,"mp":67,"atk":68,"def":53,"mag":43,"spr":65},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","頼れる熱血漢","マッシュ・レネ・フィガロ","かばう・物理","活心術"],
+		"enhancements": [
+			{"name":"ダンカン仕込みの気合","levels":[[],[{"atk%":30,"mp%":30}]]},
+			{"name":"マッシュ・レネ・フィガロ","levels":[[{"spr%":20,"atk%":40,"mp%":20,"hp%":20,"mpRefresh":5,"levelCondition":120}],[{"spr%":20,"atk%":60,"mp%":20,"hp%":20,"mpRefresh":5,"lbDamage":50,"levelCondition":120}],[{"spr%":20,"atk%":60,"mp%":20,"hp%":20,"mpRefresh":5,"lbDamage":50,"singleWielding":{"accuracy":25,"atk":50},"lbPerTurn":{"min":6,"max":6},"levelCondition":120}]]}
+		],
+			"skills": [
+				{"hp%":50, "mp%":20, "atk%":30, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "skillEnhancement":{"200200":1.5}},
+				{"atk%":200, "equipedConditions":["unarmed"]},
+				{"atk%":50, "equipedConditions":["fist"]},
+				{"atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"229977":1.5,"708493":1.5,"708494":1.5}, "equipedConditions":[["504229931","409028000"]]},
+				{"skillEnhancement":{"200200":1.5,"229970":0.75,"229971":0.75,"229972":0.75,"229973":1.5,"229974":1.5,"229977":0.75,"509302":1.5,"512518":1.5,"512519":1.5,"708493":0.75,"708494":0.75,"708495":1.5,"708496":1.5,"708497":1.5,"708498":1.5}, "levelCondition":110},
+				{"def%":20, "levelCondition":115}
+			]
 		}
+	},
+	"206002027": {
+		"name":"Monk Sabin of Kolts - Brave Shifted",
+		"jpname":"コルツの格闘家マッシュ - Brave Shifted",
+		"id":"206002027",
+		"braveShifted":"206002017",
+		"exAwakening": [{"hp":762,"mp":26,"atk":26,"def":20,"mag":16,"spr":25},{"hp":586,"mp":20,"atk":20,"def":16,"mag":12,"spr":19},{"hp":410,"mp":14,"atk":14,"def":11,"mag":9,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6110,"mp":249,"atk":166,"def":129,"mag":243,"spr":157},
+			"minStats":{"hp":2016,"mp":82,"atk":55,"def":43,"mag":80,"spr":52},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hammer","spear","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["活心術","オーラキャノン改","正義の熱血漢"],
+		"enhancements": [
+			{"name":"正義の熱血漢","levels":[[{"mag":400,"hp":3000}],[{"mag":400,"hp":4000}],[{"mag":450,"hp":5000}],[{"mag":450,"hp":6000}],[{"mag":500,"hp":7000}]]}
+		],
+		"skills": [
+			{"hp%":70, "mp%":70, "def%":20, "mag%":150, "spr%":100, "dualWielding":{"mag":150}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":10, "lbDamage":100, "special":["dualWield"]},
+			{"mag":500, "spr":200, "equipedConditions":[["504229931","409028000"]]},
+			{"mag%":100, "equipedConditions":["fist"]}
+		]
 	},
 	"206002105": {
 		"name":"Magitek Warrior Terra",
@@ -14089,6 +14202,98 @@
 			{"hp%":50, "mp%":90, "def%":20, "mag%":200, "spr%":50, "evoMag":240, "evokeDamageBoost":{"all":60}, "singleWielding":{"mag":200}, "dualWielding":{"mag":150}, "improvedDW":true, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50}], "killers":[{"name":"aquatic","magical":150},{"name":"dragon","magical":150}], "mpRefresh":10, "lbDamage":75, "esperStatsBonus":{"all":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}, "special":["dualWield"]},
 			{"evade":{"physical":30}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "equipedConditions":[["504238050","302013200"]]}
 		]
+	},
+	"206002607": {
+		"name":"Lock -Neo Vision-",
+		"jpname":"ロック-Neo Vision-",
+		"id":"206002607",
+		"braveShift":"206002617",
+		"exAwakening": [{"hp":630,"mp":31,"atk":60,"def":22,"mag":17,"spr":22},{"hp":484,"mp":24,"atk":46,"def":17,"mag":13,"spr":17},{"hp":339,"mp":16,"atk":32,"def":12,"mag":9,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4847,"mp":240,"atk":232,"def":173,"mag":132,"spr":173},
+			"minStats":{"hp":1600,"mp":79,"atk":77,"def":57,"mag":44,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["レビテト【Ⅵ】","フルブレイクチェイン"],
+		"skills": [
+			{"hp%":70, "mp%":50, "atk%":200, "def%":50, "spr%":50, "evade":{"physical":10}, "dualWielding":{"atk":150}, "improvedDW":true, "lbFillRate":150, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"dragon","physical":100}], "mpRefresh":7, "drawAttacks":50, "special":["dualWield"]},
+			{"evade":{"physical":30}, "lbPerTurn":{"min":4,"max":4}, "equipedConditions":[["315024200","504238390"]]},
+			{"resist":[{"name":"water","percent":30}], "equipedConditions":["dagger"]}
+		]
+	},
+	"206002617": {
+		"name":"Lock -Neo Vision- - Brave Shifted",
+		"jpname":"ロック-Neo Vision- - Brave Shifted",
+		"id":"206002617",
+		"braveShifted":"206002607",
+		"exAwakening": [{"hp":630,"mp":31,"atk":60,"def":22,"mag":17,"spr":22},{"hp":484,"mp":24,"atk":46,"def":17,"mag":13,"spr":17},{"hp":339,"mp":16,"atk":32,"def":12,"mag":9,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5169,"mp":248,"atk":255,"def":181,"mag":136,"spr":181},
+			"minStats":{"hp":1706,"mp":82,"atk":84,"def":60,"mag":45,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["レビテト【Ⅵ】","ファイアエッジ"],
+		"skills": [
+			{"hp%":70, "mp%":50, "atk%":200, "def%":50, "spr%":50, "dualWielding":{"atk":150}, "improvedDW":true, "lbFillRate":150, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":150}], "mpRefresh":7, "lbDamage":50, "esperStatsBonus":{"Phoenix":{"hp":150,"mp":150,"atk":150,"def":150,"mag":150,"spr":150}}, "special":["dualWield"]},
+			{"evade":{"physical":30}, "lbPerTurn":{"min":4,"max":4}, "equipedConditions":[["315024200","504238390"]]},
+			{"resist":[{"name":"fire","percent":30}], "equipedConditions":["throwing"]}
+		]
+	},
+	"206002705": {
+		"name":"Gambler Setzer",
+		"jpname":"空駆けるギャンブラー セッツァー",
+		"id":"206002705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4600,"mp":227,"atk":222,"def":151,"mag":124,"spr":232},
+			"minStats":{"hp":1518,"mp":75,"atk":73,"def":50,"mag":41,"spr":77},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","hat","helm","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"人生とは運命を切り開く賭けの連続","levels":[[],[{"skillEnhancement":{"238530":15},"lbDamage":50}]]}
+		],
+		"skills": [
+			{"hp%":50, "mp%":40, "def%":40, "spr%":180, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":30},{"name":"earth","percent":30}], "mpRefresh":7},
+			{"killers":[{"name":"bird","physical":150},{"name":"demon","physical":150}], "equipedConditions":[["315024300","504238392"]]},
+			{"dualWielding":{"spr":150}, "special":["dualWield"], "levelCondition":110},
+			{"spr%":20, "levelCondition":115}
+		],
+		"6_form": {
+			"name":"Gambler Setzer",
+			"jpname":"空駆けるギャンブラー セッツァー",
+			"id":"206002705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3538,"mp":174,"atk":170,"def":116,"mag":95,"spr":178},
+				"minStats":{"hp":1168,"mp":57,"atk":56,"def":38,"mag":31,"spr":59},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","throwing","hat","helm","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"人生とは運命を切り開く賭けの連続","levels":[[],[{"skillEnhancement":{"238530":15},"lbDamage":50}]]}
+		],
+			"skills": [
+				{"hp%":50, "mp%":40, "def%":40, "spr%":180, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":30},{"name":"earth","percent":30}], "mpRefresh":7}
+			]
+		}
 	},
 	"207000105": {
 		"name":"Cloud",
