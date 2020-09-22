@@ -1411,7 +1411,13 @@ function updateGoal() {
             }
         } else {
             if (!builds[currentUnitIndex].goal) {
-                choiceSelect.val("physicalDamage");
+                if (builds[currentUnitIndex].unit.stats.pots.mag > builds[currentUnitIndex].unit.stats.pots.atk) {
+                    choiceSelect.val("magicalDamage");
+                } else if (hasMulticast(unitWithSkills)) {
+                    choiceSelect.val("physicalDamageMultiCast");
+                } else {
+                    choiceSelect.val("physicalDamage");
+                }
             } else if (builds[currentUnitIndex].goal != 'custom') {
                 choiceSelect.val(builds[currentUnitIndex].goal);    
             } else {
