@@ -34,6 +34,7 @@ function getData(filename, callback) {
             if (!error && response.statusCode == 200) {
                 console.log(filename + " downloaded");
                 var result = JSON.parse(body);
+                fs.writeFileSync('./sources/' + filename, body);
                 callback(result);
             } else {
                 console.log(error);
