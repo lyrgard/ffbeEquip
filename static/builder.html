@@ -215,7 +215,7 @@
                                     <div id="simpleConditionsList" class="collapse">
                                         <div class="section chainMultiplier">
                                             <span class="title">Chain Mult.</span>
-                                            <input type="text" class="choice form-control">
+                                            <input type="text" class="choice form-control" placeholder="MAX">
                                             <span class="chainMultComments">
                                                 <div>('MAX' for max chain multiplier)</div>
                                                 <div class="ffbeChainLink">(calculate it on <a href="https://ffbe-chain.com/" target="_blank">FFBE-Chain</a>)</div>
@@ -323,6 +323,7 @@
                                 </div>
                                 <a id="unitLink" class="hidden" target="_blank" rel="noreferrer">Unit info</a>
                                 <span class="potSwitcher btn btn-default" onclick="switchPots()">pots</span>
+                                <span class="braveShiftButton" onclick="braveShift(currentUnitIndex)"><img src="img/icons/braveShift.png"/></span>
                             </div>
                         </form>
                     </div>
@@ -1743,6 +1744,7 @@
         <script src="builder/common.js"></script>
         <script src="lib/FileSaver.min.js"></script>
         <script src="formula.js"></script>
+        <script src="builder/unitShift.js"></script>
         <script src="builder/unitBuild.js"></script>
         <script src="builder/dataStorage.js"></script>
         <script src="builder/bestiary.js"></script>

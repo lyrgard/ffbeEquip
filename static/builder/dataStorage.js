@@ -20,9 +20,9 @@ class DataStorage {
         this.alreadyUsedItems = {};
         this.unstackablePinnedItems = [];
         this.alreadyUsedEspers = [];
-        this.itemInventory;
-        this.availableTmr;
-        this.availableStmr;
+        this.itemInventory = null;
+        this.availableTmr = null;
+        this.availableStmr = null;
         this.defaultWeaponEnhancement = null;
         this.defaultVisionCardLevel = 10;
     }
@@ -49,7 +49,7 @@ class DataStorage {
                 item.damageVariance.avg = (item.damageVariance.min + item.damageVariance.max) / 2;
                 item.meanDamageVariance = item.damageVariance.avg;
             }
-            if (item.id != currentId) {
+            if (item.id !== currentId) {
                 if (currentItemVersions.length > 1 || (currentItemVersions.length == 1 && currentItemVersions[0].equipedConditions)) {
                     this.itemWithVariation[currentId] = currentItemVersions;
                 }
@@ -96,7 +96,7 @@ class DataStorage {
     
     addDesirableElementsFromFormula(formula) {
         var elements = [];
-        if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.elements) {
+        if (builds[currentUnitIndex].formula.type === "condition" && builds[currentUnitIndex].formula.elements) {
             for (var i = builds[currentUnitIndex].formula.elements.length; i--;) {
                 if (!this.desirableElements.includes(builds[currentUnitIndex].formula.elements[i])) {
                     this.desirableElements.push(builds[currentUnitIndex].formula.elements[i]);
@@ -107,15 +107,15 @@ class DataStorage {
     }
     
     addDesirableElementsFromImperilInFormula(formula) {
-        if (formula.type == "multicast") {
+        if (formula.type === "multicast") {
             for (var i = formula.skills.length; i--;) {
                 this.addDesirableElementsFromImperilInFormula(formula.skills[i]);
             }
-        } else if (formula.type == "skill") {
+        } else if (formula.type === "skill") {
             this.addDesirableElementsFromImperilInFormula(formula.value);
-        } else if (formula.type == "imperil") {
+        } else if (formula.type === "imperil") {
             var elements = Object.keys(formula.value);
-            if (elements.length == 8) {
+            if (elements.length === 8) {
                 // Full imperil, ignore it
             } else {
                 for (var i = elements.length; i--;) {
@@ -124,10 +124,10 @@ class DataStorage {
                     }
                 }
             }
-        } else if (formula.type == "condition") {
+        } else if (formula.type === "condition") {
             this.addDesirableElementsFromImperilInFormula(formula.formula);    
             this.addDesirableElementsFromImperilInFormula(formula.condition);
-        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "chainMultiplier" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "value" && formula.type != "damage" && formula.type != "heal" && formula.type != "killers" && formula.type != "skillEnhancement" && formula.type != "mitigation" && formula.type != "berserk") {
+        } else if (formula.type !== "elementCondition" &&  formula.type !== "constant" && formula.type !== "chainMultiplier" && formula.type !== "break" && formula.type !== "imbue" && formula.type !== "statsBuff" && formula.type !== "value" && formula.type !== "damage" && formula.type !== "heal" && formula.type !== "killers" && formula.type !== "skillEnhancement" && formula.type !== "mitigation" && formula.type !== "berserk") {
             this.addDesirableElementsFromImperilInFormula(formula.value1);
             this.addDesirableElementsFromImperilInFormula(formula.value2);
         }
@@ -700,25 +700,26 @@ class DataStorage {
         this.alreadyUsedEspers = [];
         for (var i = 0, len = builds.length; i < len; i++) {
             if (i != currentUnitIndex) {
-                var build = builds[i].build;
-                for (var j = 0, len2 = build.length; j < len2; j++) {
-                    var item = build[j];
-                    if (item) {
-                        if (this.alreadyUsedItems[item.id]) {
-                            this.alreadyUsedItems[item.id]++;
+                let unitItems = this.getUnitItems(builds[i]);
+
+                Object.keys(unitItems).forEach(id => {
+                    if (id !== 'enhancements') {
+                        if (this.alreadyUsedItems[id]) {
+                            this.alreadyUsedItems[id] += unitItems[id];
                         } else {
-                            this.alreadyUsedItems[item.id] = 1;
-                        }
-                        if (item.enhancements) {
-                            if (!this.alreadyUsedItems.enhancements[item.id]) {
-                                this.alreadyUsedItems.enhancements[item.id] = [];
-                            }
-                            this.alreadyUsedItems.enhancements[item.id].push(item.enhancements);
+                            this.alreadyUsedItems[id] = unitItems[id];
                         }
                     }
-                }
-                if (build[11]) {
-                    this.alreadyUsedEspers.push(build[11].id);
+                });
+                Object.keys(unitItems.enhancements).forEach(id => {
+                    if (!this.alreadyUsedItems.enhancements[id]) {
+                        this.alreadyUsedItems.enhancements[id] = [];
+                    }
+                    this.alreadyUsedItems.enhancements[id] = this.alreadyUsedItems.enhancements[id].concat(unitItems.enhancements[id]);
+                });
+
+                if (builds[i].build[11]) {
+                    this.alreadyUsedEspers.push(builds[i].build[11].id);
                 }
             } else {
                 for (var index = 0; index < 10; index++) {
@@ -742,10 +743,70 @@ class DataStorage {
                         }   
                     }
                 }
-                if (builds[i].build[11]) {
+                if (builds[i].fixedItems[11]) {
                     this.alreadyUsedEspers.push(builds[i].build[11].id);
                 }
             }
         }
+    }
+
+    getUnitItems(unitBuild) {
+        let usedItems = {"enhancements":{}};
+        for (let i = 0; i <= 10; i++) {
+            if (unitBuild.build[i]) {
+                let item = unitBuild.build[i];
+                if (usedItems[item.id]) {
+                    usedItems[item.id]++;
+                } else {
+                    usedItems[item.id] = 1;
+                }
+                if (item.enhancements) {
+                    if (!usedItems.enhancements[item.id]) {
+                        usedItems.enhancements[item.id] = [];
+                    }
+                    usedItems.enhancements[item.id].push(item.enhancements);
+                }
+            }
+        }
+        if (unitBuild.hasBraveShift()) {
+            let build = unitBuild._braveShift.build;
+            let braveShiftUsedItems = {};
+            let braveShiftUsedItemsEnhancements = {};
+            for (let i = 0; i <= 10; i++) {
+                if (build[i]) {
+                    let item = build[i];
+
+                    if (braveShiftUsedItems[item.id]) {
+                        braveShiftUsedItems[item.id]++;
+                    } else {
+                        braveShiftUsedItems[item.id] = 1;
+                    }
+                    if (item.enhancements) {
+                        if (!braveShiftUsedItemsEnhancements[item.id]) {
+                            braveShiftUsedItemsEnhancements[item.id] = [];
+                        }
+                        braveShiftUsedItemsEnhancements[item.id].push(item.enhancements);
+                    }
+                }
+            }
+            Object.keys(braveShiftUsedItems).forEach(k => {
+                 usedItems[k] = Math.max(usedItems[k] | 0, braveShiftUsedItems[k] | 0);
+            });
+            Object.keys(braveShiftUsedItemsEnhancements).forEach(k => {
+                if (!usedItems.enhancements[k]) {
+                    usedItems.enhancements[k] = [];
+                }
+                let temp = usedItems.enhancements[k].map(e => JSON.stringify(e));
+                braveShiftUsedItemsEnhancements[k].forEach(e => {
+                    let foundIndex = temp.indexOf(JSON.stringify(e));
+                    if (foundIndex >= 0) {
+                        temp.splice(foundIndex, 1);
+                    } else {
+                        usedItems.enhancements[k].push(e);
+                    }
+                });
+            });
+        }
+        return usedItems;
     }
 }

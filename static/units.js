@@ -14,7 +14,7 @@ var onlyShow7Star = false;
 var showNumberTMRFarmed = false;
 var readOnly;
 var unitsToIgnoreForImport = {
-    'GL': ["207000317"],
+    'GL': [],
     'JP': []
 }
 
@@ -264,13 +264,13 @@ var displayUnits = function(units, useTmrName = false) {
 
 };
 
-function buildRarityID(min_rarity, max_rarity)
+function buildRarityID(min_rarity, max_rarity, soon = false)
 {
-    return "rarity-" + min_rarity + "-of-" + max_rarity;
+    return "rarity-" + min_rarity + "-of-" + max_rarity + (soon ? '_soon' : '');
 }
 
-function displayUnitsByRarity(units, minRarity = 1) {
-    var lastMinRarity, lastMaxRarity;
+function displayUnitsByRarity(units, minRarity = 1, soon) {
+    var lastMinRarity, lastMaxRarity, lastSoonNVA;
     var first = true;
 
     var html = '';
@@ -293,15 +293,16 @@ function displayUnitsByRarity(units, minRarity = 1) {
                 first = false;
                 rarity_list.push({'min_rarity': unit.min_rarity, "max_rarity": maxRarity});
             } else {
-                if (maxRarity != lastMaxRarity || unit.min_rarity != lastMinRarity) {
+                if (maxRarity != lastMaxRarity || unit.min_rarity != lastMinRarity || isSoonNVA(unit) != lastSoonNVA) {
                     html += '</div>';
-                    html += '<div class="raritySeparator" id="' + buildRarityID(unit.min_rarity, maxRarity) + '">' + getRarity(unit.min_rarity, maxRarity) + "</div>";
+                    html += '<div class="raritySeparator" id="' + buildRarityID(unit.min_rarity, maxRarity, isSoonNVA(unit)) + '">' + getRarity(unit.min_rarity, maxRarity, isSoonNVA(unit)) + "</div>";
                     html += '<div class="unitList">';
                     rarity_list.push(unit);
                 }
             }
             lastMaxRarity = maxRarity;
             lastMinRarity = unit.min_rarity;
+            lastSoonNVA = isSoonNVA(unit);
             html += getUnitDisplay(unit);
         }
         html += '</div>';
@@ -314,8 +315,8 @@ function displayUnitsByRarity(units, minRarity = 1) {
             // Loop from end to begin, to show smaller star first
             // Also, do not show index 0 because it's the one just below, so don't need to jump...
             for (index = 1, len = rarity_list.length; index < len; index++) {
-                rarity_jump_html += '<a class="rarityJump btn btn-default" href="#' + buildRarityID(rarity_list[index].min_rarity, rarity_list[index].max_rarity) + '">';
-                rarity_jump_html += getRarity(rarity_list[index].min_rarity, rarity_list[index].max_rarity) ;
+                rarity_jump_html += '<a class="rarityJump btn btn-default" href="#' + buildRarityID(rarity_list[index].min_rarity, rarity_list[index].max_rarity, isSoonNVA(rarity_list[index])) + '">';
+                rarity_jump_html += getRarity(rarity_list[index].min_rarity, rarity_list[index].max_rarity, isSoonNVA(rarity_list[index])) ;
                 rarity_jump_html += "</a>";
             }
             rarity_jump_html += '</div>';
@@ -392,7 +393,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         } else {
             html += ' notNVA';
         }
-        if (unit.max_rarity == 7) {
+        if (unit.max_rarity == 7 || unit.max_rarity == 'NV') {
             html += ' showStmr';
         } 
         html += '"';
@@ -538,24 +539,24 @@ function updateUnitDisplay(unitId) {
 
 }
 
-function getRarity(minRarity, maxRarity) {
+function getRarity(minRarity, maxRarity, soon = false) {
     let nv = false;
     if (minRarity == 'NV') {
         return '<i class="img img-crystal-NV"></i>';
     }
-    if (maxRarity == 'NV') {
-        nv = true;
-        maxRarity = 7;
-    }
     var html = '';
-    for (var rarityIndex = 0; rarityIndex < minRarity; rarityIndex++ ) {
-        html += '★';
+    if (maxRarity == 'NV') {
+        html = '<i class="img img-crystal-NVA"></i>'
+    } else {
+        for (var rarityIndex = 0; rarityIndex < minRarity; rarityIndex++ ) {
+            html += '★';
+        }
+        for (var rarityIndex = 0; rarityIndex < (maxRarity - minRarity); rarityIndex++ ) {
+            html += '☆';
+        }
     }
-    for (var rarityIndex = 0; rarityIndex < (maxRarity - minRarity); rarityIndex++ ) {
-        html += '☆';
-    }
-    if (nv) {
-        html += '<i class="img img-crystal-NV"></i>'
+    if (soon) {
+        html += ' (soon)';
     }
     return html;
 }
@@ -917,7 +918,13 @@ function sortByRarity(units) {
     var unitsToSort = Object.values(units).slice();
     return unitsToSort.sort(function (unit1, unit2){
         var maxRarity1 = unit1.max_rarity == 'NV' ? 8 : unit1.max_rarity;
-        var maxRarity2 = unit2.max_rarity == 'NV' ? 8 : unit2.max_rarity
+        var maxRarity2 = unit2.max_rarity == 'NV' ? 8 : unit2.max_rarity;
+        if (maxRarity1 == 8 && !unit1.braveShift) {
+            maxRarity1 = 7.5;
+        }
+        if (maxRarity2 == 8 && !unit2.braveShift) {
+            maxRarity2 = 7.5;
+        }
         if (maxRarity1 == 7 && unit1.unreleased7Star) {
             maxRarity1 = 6;
         }
@@ -936,6 +943,18 @@ function sortByRarity(units) {
             return maxRarity2 - maxRarity1;
         }
     });
+}
+
+function isNV(unit) {
+    return unit.max_rarity === 'NV' && unit.min_rarity === 'NV'
+}
+
+function isNVA(unit) {
+    return unit.max_rarity === 'NV' && unit.min_rarity !== 'NV' && unit.braveShift;
+}
+
+function isSoonNVA(unit) {
+    return unit.max_rarity === 'NV' && unit.min_rarity !== 'NV' && !unit.braveShift;
 }
 
 function sortByBaseRarity(units) {

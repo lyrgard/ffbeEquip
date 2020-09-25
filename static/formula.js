@@ -919,6 +919,19 @@ function multicaEffectMatch(multicastEffect, skills) {
     return false;
 }
 
+function hasMulticast(unit) {
+    var actives = unit.actives;
+    for (var i = actives.length; i--;) {
+        var skill = actives[i];
+        for (var j = skill.effects.length; j--;) {
+            if (skill.effects[j].effect && skill.effects[j].effect.multicast) {
+                return true
+            }
+        }
+    }
+    return false;
+}
+
 
 function hasStack(formula) { 
     if (!formula) {
