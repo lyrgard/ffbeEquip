@@ -435,7 +435,7 @@ function readChainMultiplier() {
             return parseFloat(stringValue) || 1;
         }
     } else {
-        return 'MAX';
+        return 1;
     }
 }
 
@@ -3316,7 +3316,9 @@ function updateSimpleConditionsFromFormula(buildIndex) {
         }
         select("simpleConditionVarious", simpleConditions.various);
         let chainMultiplier = getChainMultiplier(formula);
-        $(".goal .chainMultiplier input").val(chainMultiplier);
+        if (chainMultiplier != 1) {
+            $(".goal .chainMultiplier input").val(chainMultiplier);
+        }
         if (chainMultiplier != 1 || simpleConditions.ailmentImunity.length > 0 || Object.keys(simpleConditions.elementalResist).length > 0 || simpleConditions.forcedElements.length > 0 || simpleConditions.various.length > 0 ) {
             $("#simpleConditionsButton").attr("aria-expanded", "true");
             $("#simpleConditionsList").addClass("in");
