@@ -4870,6 +4870,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["情の力を信じる王","氷炎滅却刃","完全覚醒【ヘス王】","終・明鏡","ヘスの英雄王"],
 		"6_form": {
 			"name":"Hess King Lasswell",
 			"jpname":"ヘス王ラスウェル",
@@ -4884,7 +4885,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["情の力を信じる王","氷炎滅却刃","完全覚醒【ヘス王】","終・明鏡","ヘスの英雄王"]
 		}
 	},
 	"100023205": {
@@ -4901,6 +4903,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["グランシェルト騎士剣技【レイン】","ソウルブラッド","完全覚醒【アルドール王】","アルドールの英雄王"],
 		"6_form": {
 			"name":"Aldore King Rain",
 			"jpname":"アルドール王レイン",
@@ -4915,7 +4918,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["グランシェルト騎士剣技【レイン】","ソウルブラッド","完全覚醒【アルドール王】","アルドールの英雄王"]
 		}
 	},
 	"100023305": {
@@ -5267,17 +5271,19 @@
 		"name":"Fina & Dark Fina",
 		"jpname":"フィーナ&魔人フィーナ",
 		"id":"100024805",
-		"max_rarity":"7",
+		"braveShift":"100024827",
+		"exAwakening": [{"hp":605,"mp":36,"atk":20,"def":21,"mag":29,"spr":26},{"hp":465,"mp":28,"atk":15,"def":16,"mag":23,"spr":20},{"hp":325,"mp":19,"atk":11,"def":11,"mag":16,"spr":14}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4656,"mp":284,"atk":158,"def":166,"mag":219,"spr":207},
-			"minStats":{"hp":1536,"mp":94,"atk":52,"def":55,"mag":72,"spr":68},
+			"maxStats":{"hp":4656,"mp":284,"atk":158,"def":166,"mag":230,"spr":207},
+			"minStats":{"hp":1536,"mp":94,"atk":52,"def":55,"mag":76,"spr":68},
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
-		"enhancementSkills":["アースグレア","シャイニングアロー","アビサルスラッシュ","ルインディザスター","白蓮と白百合の花"],
+		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["アースグレア","シャイニングアロー","アビサルスラッシュ","ルインディザスター","白蓮と白百合の花","マギアヤード","アースウィップ","深いところで繋がるもの"],
 		"6_form": {
 			"name":"Fina & Dark Fina",
 			"jpname":"フィーナ&魔人フィーナ",
@@ -5293,24 +5299,61 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
-			"enhancementSkills":["アースグレア","シャイニングアロー","アビサルスラッシュ","ルインディザスター","白蓮と白百合の花"]
+			"enhancementSkills":["アースグレア","シャイニングアロー","アビサルスラッシュ","ルインディザスター","白蓮と白百合の花","マギアヤード","アースウィップ","深いところで繋がるもの"]
+		},
+		"7_form": {
+			"name":"Fina & Dark Fina",
+			"jpname":"フィーナ&魔人フィーナ",
+			"id":"100024805",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4656,"mp":284,"atk":158,"def":166,"mag":219,"spr":207},
+				"minStats":{"hp":1536,"mp":94,"atk":52,"def":55,"mag":72,"spr":68},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["アースグレア","シャイニングアロー","アビサルスラッシュ","ルインディザスター","白蓮と白百合の花","マギアヤード","アースウィップ","深いところで繋がるもの"]
 		}
+	},
+	"100024827": {
+		"name":"フィーナ&魔人フィーナ - Brave Shifted",
+		"jpname":"フィーナ&魔人フィーナ - Brave Shifted",
+		"id":"100024827",
+		"braveShifted":"100024817",
+		"exAwakening": [{"hp":605,"mp":36,"atk":20,"def":21,"mag":29,"spr":26},{"hp":465,"mp":28,"atk":15,"def":16,"mag":23,"spr":20},{"hp":325,"mp":19,"atk":11,"def":11,"mag":16,"spr":14}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4191,"mp":313,"atk":143,"def":150,"mag":241,"spr":228},
+			"minStats":{"hp":1383,"mp":103,"atk":47,"def":50,"mag":80,"spr":75},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["マギアヤード","アースアロー","恋敵は自分自身"]
 	},
 	"100024905": {
 		"name":"Lid & Jake",
 		"jpname":"リド&ジェイク",
 		"id":"100024905",
-		"max_rarity":"7",
+		"braveShift":"100024927",
+		"exAwakening": [{"hp":630,"mp":34,"atk":29,"def":24,"mag":22,"spr":25},{"hp":485,"mp":26,"atk":22,"def":18,"mag":17,"spr":19},{"hp":339,"mp":18,"atk":15,"def":13,"mag":12,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"other",
 		"stats": {
-			"maxStats":{"hp":4802,"mp":262,"atk":207,"def":180,"mag":169,"spr":185},
-			"minStats":{"hp":1585,"mp":86,"atk":68,"def":59,"mag":56,"spr":61},
+			"maxStats":{"hp":4850,"mp":264,"atk":227,"def":188,"mag":175,"spr":196},
+			"minStats":{"hp":1601,"mp":87,"atk":75,"def":62,"mag":58,"spr":65},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
-		"enhancementSkills":["フィジカルディゾルバー","サイコディゾルバー","リンクシュート","ストラクトブレイカー","武器に込めた愛"],
+		"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["フィジカルディゾルバー","サイコディゾルバー","リンクシュート","ストラクトブレイカー","武器に込めた愛","アタックギミック","メカボストライク","リドの機転"],
 		"6_form": {
 			"name":"Lid & Jake",
 			"jpname":"リド&ジェイク",
@@ -5326,8 +5369,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
-			"enhancementSkills":["フィジカルディゾルバー","サイコディゾルバー","リンクシュート","ストラクトブレイカー","武器に込めた愛"]
+			"enhancementSkills":["フィジカルディゾルバー","サイコディゾルバー","リンクシュート","ストラクトブレイカー","武器に込めた愛","アタックギミック","メカボストライク","リドの機転"]
+		},
+		"7_form": {
+			"name":"Lid & Jake",
+			"jpname":"リド&ジェイク",
+			"id":"100024905",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":4802,"mp":262,"atk":207,"def":180,"mag":169,"spr":185},
+				"minStats":{"hp":1585,"mp":86,"atk":68,"def":59,"mag":56,"spr":61},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
+			"enhancementSkills":["フィジカルディゾルバー","サイコディゾルバー","リンクシュート","ストラクトブレイカー","武器に込めた愛","アタックギミック","メカボストライク","リドの機転"]
 		}
+	},
+	"100024927": {
+		"name":"リド&ジェイク - Brave Shifted",
+		"jpname":"リド&ジェイク - Brave Shifted",
+		"id":"100024927",
+		"braveShifted":"100024917",
+		"exAwakening": [{"hp":630,"mp":34,"atk":29,"def":24,"mag":22,"spr":25},{"hp":485,"mp":26,"atk":22,"def":18,"mag":17,"spr":19},{"hp":339,"mp":18,"atk":15,"def":13,"mag":12,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4964,"mp":279,"atk":241,"def":206,"mag":173,"spr":186},
+			"minStats":{"hp":1638,"mp":92,"atk":80,"def":68,"mag":57,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["アタックギミック","エレクトロシュート","ジェイクの眼識"]
 	},
 	"100025004": {
 		"name":"Rowen",
@@ -7342,6 +7420,114 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["絶魔剣","明鏡・蒼穹"]
+	},
+	"100032707": {
+		"name":"Rain & Fina",
+		"jpname":"レイン&フィーナ",
+		"id":"100032707",
+		"braveShift":"100032717",
+		"exAwakening": [{"hp":650,"mp":36,"atk":66,"def":29,"mag":24,"spr":25},{"hp":500,"mp":27,"atk":50,"def":22,"mag":18,"spr":19},{"hp":350,"mp":19,"atk":35,"def":15,"mag":12,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":278,"atk":254,"def":226,"mag":185,"spr":193},
+			"minStats":{"hp":1650,"mp":92,"atk":84,"def":75,"mag":61,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ブレイズアローセイバー","デスペルアロー"]
+	},
+	"100032717": {
+		"name":"Rain & Fina - Brave Shifted",
+		"jpname":"レイン&フィーナ - Brave Shifted",
+		"id":"100032717",
+		"braveShifted":"100032707",
+		"exAwakening": [{"hp":650,"mp":36,"atk":66,"def":29,"mag":24,"spr":25},{"hp":500,"mp":27,"atk":50,"def":22,"mag":18,"spr":19},{"hp":350,"mp":19,"atk":35,"def":15,"mag":12,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4760,"mp":288,"atk":227,"def":172,"mag":268,"spr":248},
+			"minStats":{"hp":1571,"mp":95,"atk":75,"def":57,"mag":88,"spr":82},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","rod","bow","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["シャインタッグマギア","デスペルアロー"]
+	},
+	"100032807": {
+		"name":"Lasswell & Raegen",
+		"jpname":"ラスウェル&レーゲン",
+		"id":"100032807",
+		"braveShift":"100032817",
+		"exAwakening": [{"hp":649,"mp":36,"atk":66,"def":28,"mag":24,"spr":24},{"hp":499,"mp":28,"atk":51,"def":22,"mag":19,"spr":19},{"hp":349,"mp":19,"atk":35,"def":15,"mag":13,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4998,"mp":281,"atk":255,"def":223,"mag":191,"spr":191},
+			"minStats":{"hp":1649,"mp":93,"atk":84,"def":74,"mag":63,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","spear","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["蒼き氷の刃","火氷の蒼刃"]
+	},
+	"100032817": {
+		"name":"Lasswell & Raegen - Brave Shifted",
+		"jpname":"ラスウェル&レーゲン - Brave Shifted",
+		"id":"100032817",
+		"braveShifted":"100032807",
+		"exAwakening": [{"hp":649,"mp":36,"atk":66,"def":28,"mag":24,"spr":24},{"hp":499,"mp":28,"atk":51,"def":22,"mag":19,"spr":19},{"hp":349,"mp":19,"atk":35,"def":15,"mag":13,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5117,"mp":286,"atk":251,"def":205,"mag":191,"spr":185},
+			"minStats":{"hp":1689,"mp":94,"atk":83,"def":68,"mag":63,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["火焔ノ双剣","火氷の蒼刃"]
+	},
+	"100032907": {
+		"name":"Charlotte & Physalis",
+		"jpname":"シャルロット&ファイサリス",
+		"id":"100032907",
+		"braveShift":"100032917",
+		"exAwakening": [{"hp":637,"mp":28,"atk":52,"def":21,"mag":18,"spr":23},{"hp":490,"mp":22,"atk":40,"def":16,"mag":14,"spr":17},{"hp":343,"mp":15,"atk":28,"def":11,"mag":10,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4906,"mp":221,"atk":201,"def":163,"mag":146,"spr":177},
+			"minStats":{"hp":1619,"mp":73,"atk":66,"def":54,"mag":48,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["廉潔なる騎士剣","シールドシャワーショット"]
+	},
+	"100032917": {
+		"name":"Charlotte & Physalis - Brave Shifted",
+		"jpname":"シャルロット&ファイサリス - Brave Shifted",
+		"id":"100032917",
+		"braveShifted":"100032907",
+		"exAwakening": [{"hp":637,"mp":28,"atk":52,"def":21,"mag":18,"spr":23},{"hp":490,"mp":22,"atk":40,"def":16,"mag":14,"spr":17},{"hp":343,"mp":15,"atk":28,"def":11,"mag":10,"spr":12}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4416,"mp":244,"atk":222,"def":147,"mag":132,"spr":195},
+			"minStats":{"hp":1457,"mp":81,"atk":73,"def":49,"mag":44,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","gun","mace","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["廉潔なる騎士剣","チェインパニッシュ"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
