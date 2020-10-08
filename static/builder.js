@@ -2755,7 +2755,7 @@ function getUnitStateFromUnitBuild(build, braveShifted = false) {
     if (build._level) {
         unit.level = build._level;
     }
-    if (build._exAwakeningLevel) {
+    if (build._exAwakeningLevel && build._exAwakeningLevel >= 0 ) {
         unit.exAwakening = build._exAwakeningLevel;
     }
     unit.calculatedValues = {

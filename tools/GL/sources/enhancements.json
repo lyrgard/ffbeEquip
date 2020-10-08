@@ -12693,7 +12693,7 @@
             "description": {
                 "0": "Adds chance of escaping death when HP is above a certain point",
                 "4": " Chance, dem Tod zu entkommen, wenn die LP über einer bestimmten Stufe sind.",
-                "5": "Posibilita evitar caer K.O. cuando la VIT baja a cierto punto",
+                "5": "Posibilita evitar caer K.O. cuando la VIT está por encima de cierto nivel",
                 "3": "Ajoute une chance d'échapper à la mort lorsque les PV descendent en dessous d'un certain seuil",
                 "6": "Menambahkan peluang untuk menghindari K.O. 1 kali ketika HP lebih dari batas tertentu",
                 "2": "HP가 일정량 이상일 때, 일정 확률로 전투불능 상태 견딤",
@@ -12715,7 +12715,7 @@
                 "270000900": 1
             }
         },
-        "units": [202000505],
+        "units": [202000505, 202000527],
         "strings": {
             "names": {
                 "0": "Fire From Below",
@@ -12753,7 +12753,7 @@
                 "270001000": 1
             }
         },
-        "units": [202000505],
+        "units": [202000505, 202000527],
         "strings": {
             "names": {
                 "0": "Fire From Below",
@@ -12804,7 +12804,7 @@
             },
             "description": {
                 "0": "Boosts MAG increased turns (great)",
-                "4": "Erhöht Anzahl der Runden m. aktiver MAG-Erhöhung  (sehr hoch)",
+                "4": "Erhöht Anzahl der Runden mit aktiver MAG-Erhöhung  (sehr hoch)",
                 "5": "Aumento de MAG durante más turnos (muchísimo)",
                 "3": "Augmente le nombre de tours de l'augmentation de la MAGIE (super)",
                 "6": "Menambah durasi efek peningkatan MAG (sangat besar)",
@@ -12843,7 +12843,7 @@
             "description": {
                 "0": "Boosts MAG increase (great)<br>Reduce SPR for all enemies",
                 "4": "Steigert MAG-Erhöhung (sehr hoch)<br>Verringert PSY für alle Gegner",
-                "5": "Mayor aumento de MAG (muchísimo)<br>Reduce el ESP de todos los aliados",
+                "5": "Mayor aumento de MAG (muchísimo)<br>Reduce el ESP de todos los enemigos",
                 "3": "Amplifie l'augmentation de la MAGIE (super)<br>Réduit la PSY de tous les alliés",
                 "6": "Menambah jumlah peningkatan MAG (sangat besar)<br>Mengurangi SPR semua musuh",
                 "2": "마력 상승량 상승(특대)<br>적 전체의 정신력 감소",
@@ -12953,7 +12953,7 @@
             "description": {
                 "0": "Boosts silence and confusion resistance",
                 "4": "Erhöht Resistenz gegen Stumm und Konfus",
-                "5": "Mayor aumento de resistencia al silencio y confusión",
+                "5": "Aumento de resistencia al silencio y confusión",
                 "3": "Augmente la résistance à silence et confusion",
                 "6": "Meningkatkan resistansi status silence dan confuse",
                 "2": "침묵과 혼란 저항력 상승",
@@ -15525,9 +15525,9 @@
             },
             "description": {
                 "0": "Boosts LB gauge fill rate ",
-                "4": "Verstärkt den Effekt von Limit-Steinen",
+                "4": "Limitmeter füllt sich schneller",
                 "5": "Las piedras de estallido recuperarán más EL",
-                "3": "Augmente le taux de remplissages des pierres de limite",
+                "3": "Augmente le taux de remplissage de la jauge de limite",
                 "6": "Meningkatkan kecepatan pengisian bar LB ",
                 "2": "LB 게이지 효율 증가",
                 "7": "\u001aเพิ่มค่า\u001a \u001aFill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a",
@@ -62206,7 +62206,7 @@
         "strings": {
             "names": {
                 "0": "Brilliance",
-                "4": "Brillianz",
+                "4": "Brillanz",
                 "5": "Resplandor",
                 "3": "Illumination",
                 "6": "Brilliance",
@@ -70497,7 +70497,7 @@
         }
     },
     "300000147": {
-        "name": null,
+        "name": "Piledriver+",
         "skill_id_old": 236600,
         "skill_id_new": 236601,
         "cost": {
@@ -70509,12 +70509,30 @@
         },
         "units": [100005905, 100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Piledriver+",
+                "4": "Ramme +",
+                "5": "Martinete+",
+                "3": "Sonnette +",
+                "6": "Piledriver+",
+                "2": "개량형 항타기",
+                "7": "Piledriver\u001a+\u001a",
+                "1": "打樁機・改"
+            },
+            "description": {
+                "0": "4400%",
+                "4": "4400%",
+                "5": "4400%",
+                "3": "4400 %",
+                "6": "4400%",
+                "2": "4400%",
+                "7": "\u001a4400%",
+                "1": "4400%"
+            }
         }
     },
     "300000148": {
-        "name": null,
+        "name": "Piledriver+",
         "skill_id_old": 236601,
         "skill_id_new": 236602,
         "cost": {
@@ -70527,12 +70545,30 @@
         },
         "units": [100005905, 100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Piledriver+",
+                "4": "Ramme +",
+                "5": "Martinete+",
+                "3": "Sonnette +",
+                "6": "Piledriver+",
+                "2": "개량형 항타기",
+                "7": "Piledriver\u001a+\u001a",
+                "1": "打樁機・改"
+            },
+            "description": {
+                "0": "5250%",
+                "4": "5250%",
+                "5": "5250%",
+                "3": "5250 %",
+                "6": "5250%",
+                "2": "5250%",
+                "7": "\u001a5250%",
+                "1": "5250%"
+            }
         }
     },
     "300000149": {
-        "name": null,
+        "name": "Piledriver+",
         "skill_id_old": 236602,
         "skill_id_new": 236603,
         "cost": {
@@ -70546,12 +70582,30 @@
         },
         "units": [100005905, 100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Piledriver+",
+                "4": "Ramme +",
+                "5": "Martinete+",
+                "3": "Sonnette +",
+                "6": "Piledriver+",
+                "2": "개량형 항타기",
+                "7": "Piledriver\u001a+\u001a",
+                "1": "打樁機・改"
+            },
+            "description": {
+                "0": "6000%",
+                "4": "6000%",
+                "5": "6000%",
+                "3": "6000 %",
+                "6": "6000%",
+                "2": "6000%",
+                "7": "\u001a6000%",
+                "1": "6000%"
+            }
         }
     },
     "300000150": {
-        "name": null,
+        "name": "Piledriver+",
         "skill_id_old": 236603,
         "skill_id_new": 236604,
         "cost": {
@@ -70565,12 +70619,30 @@
         },
         "units": [100005905, 100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Piledriver+",
+                "4": "Ramme +",
+                "5": "Martinete+",
+                "3": "Sonnette +",
+                "6": "Piledriver+",
+                "2": "개량형 항타기",
+                "7": "Piledriver\u001a+\u001a",
+                "1": "打樁機・改"
+            },
+            "description": {
+                "0": "6600%",
+                "4": "6600%",
+                "5": "6600%",
+                "3": "6600 %",
+                "6": "6600%",
+                "2": "6600%",
+                "7": "\u001a6600%",
+                "1": "6600%"
+            }
         }
     },
     "300000151": {
-        "name": null,
+        "name": "Revamped Arms",
         "skill_id_old": 236606,
         "skill_id_new": 236607,
         "cost": {
@@ -70582,12 +70654,30 @@
         },
         "units": [100005905],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Revamped Arms",
+                "4": "Aufpolierte Waffen",
+                "5": "Armas renovadas",
+                "3": "Réarmement",
+                "6": "Perombakan Senjata",
+                "2": "개조 무기",
+                "7": "ปรับปรุง\u001aอาวุธ\u001aใหม่\u001a",
+                "1": "武器翻新"
+            },
+            "description": {
+                "0": "85%",
+                "4": "um 85%",
+                "5": "85%",
+                "3": "85 %",
+                "6": "85%",
+                "2": "85%",
+                "7": "\u001a85%",
+                "1": "85%"
+            }
         }
     },
     "300000152": {
-        "name": null,
+        "name": "Revamped Arms",
         "skill_id_old": 236607,
         "skill_id_new": 236608,
         "cost": {
@@ -70600,12 +70690,30 @@
         },
         "units": [100005905],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Revamped Arms",
+                "4": "Aufpolierte Waffen",
+                "5": "Armas renovadas",
+                "3": "Réarmement",
+                "6": "Perombakan Senjata",
+                "2": "개조 무기",
+                "7": "ปรับปรุง\u001aอาวุธ\u001aใหม่\u001a",
+                "1": "武器翻新"
+            },
+            "description": {
+                "0": "90%",
+                "4": "um 90%",
+                "5": "90%",
+                "3": "90 %",
+                "6": "90%",
+                "2": "90%",
+                "7": "\u001a90%",
+                "1": "90%"
+            }
         }
     },
     "300000153": {
-        "name": null,
+        "name": "Revamped Arms",
         "skill_id_old": 236608,
         "skill_id_new": 236609,
         "cost": {
@@ -70619,12 +70727,30 @@
         },
         "units": [100005905],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Revamped Arms",
+                "4": "Aufpolierte Waffen",
+                "5": "Armas renovadas",
+                "3": "Réarmement",
+                "6": "Perombakan Senjata",
+                "2": "개조 무기",
+                "7": "ปรับปรุง\u001aอาวุธ\u001aใหม่\u001a",
+                "1": "武器翻新"
+            },
+            "description": {
+                "0": "95%",
+                "4": "um 95%",
+                "5": "95%",
+                "3": "95 %",
+                "6": "95%",
+                "2": "95%",
+                "7": "\u001a95%",
+                "1": "95%"
+            }
         }
     },
     "300000154": {
-        "name": null,
+        "name": "Revamped Arms",
         "skill_id_old": 236609,
         "skill_id_new": 236610,
         "cost": {
@@ -70638,12 +70764,30 @@
         },
         "units": [100005905],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Revamped Arms",
+                "4": "Aufpolierte Waffen",
+                "5": "Armas renovadas",
+                "3": "Réarmement",
+                "6": "Perombakan Senjata",
+                "2": "개조 무기",
+                "7": "ปรับปรุง\u001aอาวุธ\u001aใหม่\u001a",
+                "1": "武器翻新"
+            },
+            "description": {
+                "0": "230%",
+                "4": "um 100%",
+                "5": "230%",
+                "3": "230 %",
+                "6": "230%",
+                "2": "230%",
+                "7": "\u001a230%",
+                "1": "230%"
+            }
         }
     },
     "300000155": {
-        "name": null,
+        "name": "Bond with Jake (Aileen)",
         "skill_id_old": 236612,
         "skill_id_new": 236613,
         "cost": {
@@ -70655,12 +70799,30 @@
         },
         "units": [100005905],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Bond with Jake (Aileen)",
+                "4": "Verbindung mit Jake (Aileen)",
+                "5": "Unión con Jake (Aileen)",
+                "3": "Lien avec Jake (Aileen)",
+                "6": "Ikatan dengan Jake (Aileen)",
+                "2": "제이크와의 인연(아이린)",
+                "7": "สายสัมพันธ์\u001aกับ\u001a \u001aJake\u001a \u001a(\u001aAileen\u001a)\u001a",
+                "1": "與傑科的羈絆(艾琳)"
+            },
+            "description": {
+                "0": "400",
+                "4": "um 400",
+                "5": "400",
+                "3": "400",
+                "6": "400",
+                "2": "400",
+                "7": "\u001a400\u001a",
+                "1": "400"
+            }
         }
     },
     "300000156": {
-        "name": null,
+        "name": "Bond with Jake (Aileen)",
         "skill_id_old": 236613,
         "skill_id_new": 236614,
         "cost": {
@@ -70673,12 +70835,30 @@
         },
         "units": [100005905],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Bond with Jake (Aileen)",
+                "4": "Verbindung mit Jake (Aileen)",
+                "5": "Unión con Jake (Aileen)",
+                "3": "Lien avec Jake (Aileen)",
+                "6": "Ikatan dengan Jake (Aileen)",
+                "2": "제이크와의 인연(아이린)",
+                "7": "สายสัมพันธ์\u001aกับ\u001a \u001aJake\u001a \u001a(\u001aAileen\u001a)\u001a",
+                "1": "與傑科的羈絆(艾琳)"
+            },
+            "description": {
+                "0": "600",
+                "4": "um 600",
+                "5": "600",
+                "3": "600",
+                "6": "600",
+                "2": "600",
+                "7": "\u001a600\u001a",
+                "1": "600"
+            }
         }
     },
     "300000157": {
-        "name": null,
+        "name": "Bond with Jake (Aileen)",
         "skill_id_old": 236614,
         "skill_id_new": 236615,
         "cost": {
@@ -70692,12 +70872,30 @@
         },
         "units": [100005905],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Bond with Jake (Aileen)",
+                "4": "Verbindung mit Jake (Aileen)",
+                "5": "Unión con Jake (Aileen)",
+                "3": "Lien avec Jake (Aileen)",
+                "6": "Ikatan dengan Jake (Aileen)",
+                "2": "제이크와의 인연(아이린)",
+                "7": "สายสัมพันธ์\u001aกับ\u001a \u001aJake\u001a \u001a(\u001aAileen\u001a)\u001a",
+                "1": "與傑科的羈絆(艾琳)"
+            },
+            "description": {
+                "0": "800",
+                "4": "um 800",
+                "5": "800",
+                "3": "800",
+                "6": "800",
+                "2": "800",
+                "7": "\u001a800\u001a",
+                "1": "800"
+            }
         }
     },
     "300000158": {
-        "name": null,
+        "name": "Bond with Jake (Aileen)",
         "skill_id_old": 236615,
         "skill_id_new": 236616,
         "cost": {
@@ -70711,12 +70909,30 @@
         },
         "units": [100005905],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Bond with Jake (Aileen)",
+                "4": "Verbindung mit Jake (Aileen)",
+                "5": "Unión con Jake (Aileen)",
+                "3": "Lien avec Jake (Aileen)",
+                "6": "Ikatan dengan Jake (Aileen)",
+                "2": "제이크와의 인연(아이린)",
+                "7": "สายสัมพันธ์\u001aกับ\u001a \u001aJake\u001a \u001a(\u001aAileen\u001a)\u001a",
+                "1": "與傑科的羈絆(艾琳)"
+            },
+            "description": {
+                "0": "1000",
+                "4": "um 1000",
+                "5": "1000",
+                "3": "1000",
+                "6": "1000",
+                "2": "1000",
+                "7": "\u001a1000\u001a",
+                "1": "1000"
+            }
         }
     },
     "300000159": {
-        "name": null,
+        "name": "Mantle Driver",
         "skill_id_old": 236618,
         "skill_id_new": 236619,
         "cost": {
@@ -70728,12 +70944,30 @@
         },
         "units": [100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Mantle Driver",
+                "4": "Treibende Hülle",
+                "5": "Perforamanto",
+                "3": "Perforation tectonique",
+                "6": "Mantle Driver",
+                "2": "맨틀 드라이버",
+                "7": "Mantle\u001a \u001aDriver\u001a",
+                "1": "地幔驅動"
+            },
+            "description": {
+                "0": "4000%",
+                "4": "4000%",
+                "5": "4000%",
+                "3": "4000 %",
+                "6": "4000%",
+                "2": "4000%",
+                "7": "\u001a4000%",
+                "1": "4000%"
+            }
         }
     },
     "300000160": {
-        "name": null,
+        "name": "Mantle Driver",
         "skill_id_old": 236619,
         "skill_id_new": 236620,
         "cost": {
@@ -70746,12 +70980,30 @@
         },
         "units": [100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Mantle Driver",
+                "4": "Treibende Hülle",
+                "5": "Perforamanto",
+                "3": "Perforation tectonique",
+                "6": "Mantle Driver",
+                "2": "맨틀 드라이버",
+                "7": "Mantle\u001a \u001aDriver\u001a",
+                "1": "地幔驅動"
+            },
+            "description": {
+                "0": "3500%",
+                "4": "3500%",
+                "5": "3500%",
+                "3": "3500 %",
+                "6": "3500%",
+                "2": "3500%",
+                "7": "\u001a3500%",
+                "1": "3500%"
+            }
         }
     },
     "300000161": {
-        "name": null,
+        "name": "Mantle Driver",
         "skill_id_old": 236620,
         "skill_id_new": 236621,
         "cost": {
@@ -70765,12 +71017,30 @@
         },
         "units": [100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Mantle Driver",
+                "4": "Treibende Hülle",
+                "5": "Perforamanto",
+                "3": "Perforation tectonique",
+                "6": "Mantle Driver",
+                "2": "맨틀 드라이버",
+                "7": "Mantle\u001a \u001aDriver\u001a",
+                "1": "地幔驅動"
+            },
+            "description": {
+                "0": "3000%",
+                "4": "3000%",
+                "5": "3000%",
+                "3": "3000 %",
+                "6": "3000%",
+                "2": "3000%",
+                "7": "\u001a3000%",
+                "1": "3000%"
+            }
         }
     },
     "300000162": {
-        "name": null,
+        "name": "Mantle Driver",
         "skill_id_old": 236621,
         "skill_id_new": 236622,
         "cost": {
@@ -70784,12 +71054,30 @@
         },
         "units": [100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Mantle Driver",
+                "4": "Treibende Hülle",
+                "5": "Perforamanto",
+                "3": "Perforation tectonique",
+                "6": "Mantle Driver",
+                "2": "맨틀 드라이버",
+                "7": "Mantle\u001a \u001aDriver\u001a",
+                "1": "地幔驅動"
+            },
+            "description": {
+                "0": "2500%",
+                "4": "2500%",
+                "5": "2500%",
+                "3": "2500 %",
+                "6": "2500%",
+                "2": "2500%",
+                "7": "\u001a2500%",
+                "1": "2500%"
+            }
         }
     },
     "300000163": {
-        "name": null,
+        "name": "Expert Weapon Engineer",
         "skill_id_old": 236628,
         "skill_id_new": 236629,
         "cost": {
@@ -70801,12 +71089,30 @@
         },
         "units": [100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Expert Weapon Engineer",
+                "4": "Profi-Waffenschmiedin",
+                "5": "Ingeniera experta en armas",
+                "3": "Experte en armes : ingénieure",
+                "6": "Insinyur Spesialis Senjata",
+                "2": "무기 전문 엔지니어",
+                "7": "ยอด\u001aวิศวกร\u001aออกแบบ\u001aอาวุธ\u001a",
+                "1": "專攻武器的工程師"
+            },
+            "description": {
+                "0": "75%",
+                "4": "um 75%",
+                "5": "75%",
+                "3": "75 %",
+                "6": "75%",
+                "2": "75%",
+                "7": "\u001a75%",
+                "1": "75%"
+            }
         }
     },
     "300000164": {
-        "name": null,
+        "name": "Expert Weapon Engineer",
         "skill_id_old": 236629,
         "skill_id_new": 236630,
         "cost": {
@@ -70819,12 +71125,30 @@
         },
         "units": [100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Expert Weapon Engineer",
+                "4": "Profi-Waffenschmiedin",
+                "5": "Ingeniera experta en armas",
+                "3": "Experte en armes : ingénieure",
+                "6": "Insinyur Spesialis Senjata",
+                "2": "무기 전문 엔지니어",
+                "7": "ยอด\u001aวิศวกร\u001aออกแบบ\u001aอาวุธ\u001a",
+                "1": "專攻武器的工程師"
+            },
+            "description": {
+                "0": "50%",
+                "4": "um 75%",
+                "5": "50%",
+                "3": "50 %",
+                "6": "50%",
+                "2": "50%",
+                "7": "\u001a50%",
+                "1": "50%"
+            }
         }
     },
     "300000165": {
-        "name": null,
+        "name": "Expert Weapon Engineer",
         "skill_id_old": 236630,
         "skill_id_new": 236631,
         "cost": {
@@ -70838,12 +71162,30 @@
         },
         "units": [100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Expert Weapon Engineer",
+                "4": "Profi-Waffenschmiedin",
+                "5": "Ingeniera experta en armas",
+                "3": "Experte en armes : ingénieure",
+                "6": "Insinyur Spesialis Senjata",
+                "2": "무기 전문 엔지니어",
+                "7": "ยอด\u001aวิศวกร\u001aออกแบบ\u001aอาวุธ\u001a",
+                "1": "專攻武器的工程師"
+            },
+            "description": {
+                "0": "100%",
+                "4": "um 100%",
+                "5": "100%",
+                "3": "100 %",
+                "6": "100%",
+                "2": "100%",
+                "7": "\u001a100%",
+                "1": "100%"
+            }
         }
     },
     "300000166": {
-        "name": null,
+        "name": "Expert Weapon Engineer",
         "skill_id_old": 236631,
         "skill_id_new": 236632,
         "cost": {
@@ -70857,8 +71199,26 @@
         },
         "units": [100005927],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Expert Weapon Engineer",
+                "4": "Profi-Waffenschmiedin",
+                "5": "Ingeniera experta en armas",
+                "3": "Experte en armes : ingénieure",
+                "6": "Insinyur Spesialis Senjata",
+                "2": "무기 전문 엔지니어",
+                "7": "ยอด\u001aวิศวกร\u001aออกแบบ\u001aอาวุธ\u001a",
+                "1": "專攻武器的工程師"
+            },
+            "description": {
+                "0": "75%",
+                "4": "um 100%",
+                "5": "75%",
+                "3": "75 %",
+                "6": "75%",
+                "2": "75%",
+                "7": "\u001a75%",
+                "1": "75%"
+            }
         }
     },
     "300000167": {
@@ -74421,7 +74781,7 @@
         }
     },
     "300000291": {
-        "name": null,
+        "name": "Sword Fighter",
         "skill_id_old": 237081,
         "skill_id_new": 237082,
         "cost": {
@@ -74433,12 +74793,30 @@
         },
         "units": [202001907, 202001917],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Sword Fighter",
+                "4": "Schwertkämpfer",
+                "5": "Guerrero espadachín",
+                "3": "Épéiste",
+                "6": "Sword Fighter",
+                "2": "소드 파이터",
+                "7": "นัก\u001aสู้\u001aผู้ใช้\u001aดาบ\u001a",
+                "1": "劍鬥者"
+            },
+            "description": {
+                "0": "5300%",
+                "4": "5300%",
+                "5": "5300%",
+                "3": "5300 %",
+                "6": "5300%",
+                "2": "5300%",
+                "7": "\u001a5300%",
+                "1": "5300%"
+            }
         }
     },
     "300000292": {
-        "name": null,
+        "name": "Sword Fighter",
         "skill_id_old": 237082,
         "skill_id_new": 237083,
         "cost": {
@@ -74451,12 +74829,30 @@
         },
         "units": [202001907, 202001917],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Sword Fighter",
+                "4": "Schwertkämpfer",
+                "5": "Guerrero espadachín",
+                "3": "Épéiste",
+                "6": "Sword Fighter",
+                "2": "소드 파이터",
+                "7": "นัก\u001aสู้\u001aผู้ใช้\u001aดาบ\u001a",
+                "1": "劍鬥者"
+            },
+            "description": {
+                "0": "5800%",
+                "4": "5800%",
+                "5": "5800%",
+                "3": "5800 %",
+                "6": "5800%",
+                "2": "5800%",
+                "7": "\u001a5800%",
+                "1": "5800%"
+            }
         }
     },
     "300000293": {
-        "name": null,
+        "name": "Sword Fighter",
         "skill_id_old": 237083,
         "skill_id_new": 237084,
         "cost": {
@@ -74470,12 +74866,30 @@
         },
         "units": [202001907, 202001917],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Sword Fighter",
+                "4": "Schwertkämpfer",
+                "5": "Guerrero espadachín",
+                "3": "Épéiste",
+                "6": "Sword Fighter",
+                "2": "소드 파이터",
+                "7": "นัก\u001aสู้\u001aผู้ใช้\u001aดาบ\u001a",
+                "1": "劍鬥者"
+            },
+            "description": {
+                "0": "6400%",
+                "4": "6400%",
+                "5": "6400%",
+                "3": "6400 %",
+                "6": "6400%",
+                "2": "6400%",
+                "7": "\u001a6400%",
+                "1": "6400%"
+            }
         }
     },
     "300000294": {
-        "name": null,
+        "name": "Sword Fighter",
         "skill_id_old": 237084,
         "skill_id_new": 237085,
         "cost": {
@@ -74489,12 +74903,30 @@
         },
         "units": [202001907, 202001917],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Sword Fighter",
+                "4": "Schwertkämpfer",
+                "5": "Guerrero espadachín",
+                "3": "Épéiste",
+                "6": "Sword Fighter",
+                "2": "소드 파이터",
+                "7": "นัก\u001aสู้\u001aผู้ใช้\u001aดาบ\u001a",
+                "1": "劍鬥者"
+            },
+            "description": {
+                "0": "6700%",
+                "4": "6700%",
+                "5": "6700%",
+                "3": "6700 %",
+                "6": "6700%",
+                "2": "6700%",
+                "7": "\u001a6700%",
+                "1": "6700%"
+            }
         }
     },
     "300000295": {
-        "name": null,
+        "name": "Blood Weapon (Firion -Neo Vision-)",
         "skill_id_old": 237097,
         "skill_id_new": 237098,
         "cost": {
@@ -74506,12 +74938,30 @@
         },
         "units": [202001907],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Blood Weapon (Firion -Neo Vision-)",
+                "4": "Blutwaffe (Firion -Neo-Vision-)",
+                "5": "Arma de sangre (Firion -NeoVisión-)",
+                "3": "Arme sanguinaire (Firion [Néo-vision])",
+                "6": "Blood Weapon (Firion -Neo Vision-)",
+                "2": "블러드 웨폰(프리오닐 -네오 비전-)",
+                "7": "Blood\u001a \u001aWeapon\u001a \u001a(\u001aFirion\u001a \u001a-Neo\u001a \u001aVision-\u001a)\u001a",
+                "1": "嗜血武裝(弗利奧尼爾-Neo Vision-)"
+            },
+            "description": {
+                "0": "5700%",
+                "4": "5700%",
+                "5": "5700%",
+                "3": "5700 %",
+                "6": "5700%",
+                "2": "5700%",
+                "7": "\u001a5700%",
+                "1": "5700%"
+            }
         }
     },
     "300000296": {
-        "name": null,
+        "name": "Blood Weapon (Firion -Neo Vision-)",
         "skill_id_old": 237098,
         "skill_id_new": 237099,
         "cost": {
@@ -74524,12 +74974,30 @@
         },
         "units": [202001907],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Blood Weapon (Firion -Neo Vision-)",
+                "4": "Blutwaffe (Firion -Neo-Vision-)",
+                "5": "Arma de sangre (Firion -NeoVisión-)",
+                "3": "Arme sanguinaire (Firion [Néo-vision])",
+                "6": "Blood Weapon (Firion -Neo Vision-)",
+                "2": "블러드 웨폰(프리오닐 -네오 비전-)",
+                "7": "Blood\u001a \u001aWeapon\u001a \u001a(\u001aFirion\u001a \u001a-Neo\u001a \u001aVision-\u001a)\u001a",
+                "1": "嗜血武裝(弗利奧尼爾-Neo Vision-)"
+            },
+            "description": {
+                "0": "6300%",
+                "4": "6300%",
+                "5": "6300%",
+                "3": "6300 %",
+                "6": "6300%",
+                "2": "6300%",
+                "7": "\u001a6300%",
+                "1": "6300%"
+            }
         }
     },
     "300000297": {
-        "name": null,
+        "name": "Blood Weapon (Firion -Neo Vision-)",
         "skill_id_old": 237099,
         "skill_id_new": 237100,
         "cost": {
@@ -74543,12 +75011,30 @@
         },
         "units": [202001907],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Blood Weapon (Firion -Neo Vision-)",
+                "4": "Blutwaffe (Firion -Neo-Vision-)",
+                "5": "Arma de sangre (Firion -NeoVisión-)",
+                "3": "Arme sanguinaire (Firion [Néo-vision])",
+                "6": "Blood Weapon (Firion -Neo Vision-)",
+                "2": "블러드 웨폰(프리오닐 -네오 비전-)",
+                "7": "Blood\u001a \u001aWeapon\u001a \u001a(\u001aFirion\u001a \u001a-Neo\u001a \u001aVision-\u001a)\u001a",
+                "1": "嗜血武裝(弗利奧尼爾-Neo Vision-)"
+            },
+            "description": {
+                "0": "7000%",
+                "4": "7000%",
+                "5": "7000%",
+                "3": "7000 %",
+                "6": "7000%",
+                "2": "7000%",
+                "7": "\u001a7000%",
+                "1": "7000%"
+            }
         }
     },
     "300000298": {
-        "name": null,
+        "name": "Blood Weapon (Firion -Neo Vision-)",
         "skill_id_old": 237100,
         "skill_id_new": 237101,
         "cost": {
@@ -74562,12 +75048,30 @@
         },
         "units": [202001907],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Blood Weapon (Firion -Neo Vision-)",
+                "4": "Blutwaffe (Firion -Neo-Vision-)",
+                "5": "Arma de sangre (Firion -NeoVisión-)",
+                "3": "Arme sanguinaire (Firion [Néo-vision])",
+                "6": "Blood Weapon (Firion -Neo Vision-)",
+                "2": "블러드 웨폰(프리오닐 -네오 비전-)",
+                "7": "Blood\u001a \u001aWeapon\u001a \u001a(\u001aFirion\u001a \u001a-Neo\u001a \u001aVision-\u001a)\u001a",
+                "1": "嗜血武裝(弗利奧尼爾-Neo Vision-)"
+            },
+            "description": {
+                "0": "7600%",
+                "4": "7600%",
+                "5": "7600%",
+                "3": "7600 %",
+                "6": "7600%",
+                "2": "7600%",
+                "7": "\u001a7600%",
+                "1": "7600%"
+            }
         }
     },
     "300000299": {
-        "name": null,
+        "name": "Rebellion Against the Empire",
         "skill_id_old": 237107,
         "skill_id_new": 237108,
         "cost": {
@@ -74579,12 +75083,30 @@
         },
         "units": [202001917],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Rebellion Against the Empire",
+                "4": "Widerstand gegen das Imperium",
+                "5": "Rebelión contra el Imperio",
+                "3": "Révolte contre l'Empire",
+                "6": "Pemberontakan terhadap Kekaisaran",
+                "2": "엠파이어 리벨리온",
+                "7": "ก่อ\u001aกบฏ\u001aต้าน\u001aจักรวรรดิ\u001a",
+                "1": "帝國反叛者"
+            },
+            "description": {
+                "0": "5500%",
+                "4": "5500%",
+                "5": "5500%",
+                "3": "5500 %",
+                "6": "5500%",
+                "2": "5500%",
+                "7": "\u001a5500%",
+                "1": "5500%"
+            }
         }
     },
     "300000300": {
-        "name": null,
+        "name": "Rebellion Against the Empire",
         "skill_id_old": 237108,
         "skill_id_new": 237109,
         "cost": {
@@ -74597,12 +75119,30 @@
         },
         "units": [202001917],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Rebellion Against the Empire",
+                "4": "Widerstand gegen das Imperium",
+                "5": "Rebelión contra el Imperio",
+                "3": "Révolte contre l'Empire",
+                "6": "Pemberontakan terhadap Kekaisaran",
+                "2": "엠파이어 리벨리온",
+                "7": "ก่อ\u001aกบฏ\u001aต้าน\u001aจักรวรรดิ\u001a",
+                "1": "帝國反叛者"
+            },
+            "description": {
+                "0": "6100%",
+                "4": "6100%",
+                "5": "6100%",
+                "3": "6100 %",
+                "6": "6100%",
+                "2": "6100%",
+                "7": "\u001a6100%",
+                "1": "6100%"
+            }
         }
     },
     "300000301": {
-        "name": null,
+        "name": "Rebellion Against the Empire",
         "skill_id_old": 237109,
         "skill_id_new": 237110,
         "cost": {
@@ -74616,12 +75156,30 @@
         },
         "units": [202001917],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Rebellion Against the Empire",
+                "4": "Widerstand gegen das Imperium",
+                "5": "Rebelión contra el Imperio",
+                "3": "Révolte contre l'Empire",
+                "6": "Pemberontakan terhadap Kekaisaran",
+                "2": "엠파이어 리벨리온",
+                "7": "ก่อ\u001aกบฏ\u001aต้าน\u001aจักรวรรดิ\u001a",
+                "1": "帝國反叛者"
+            },
+            "description": {
+                "0": "6700%",
+                "4": "6700%",
+                "5": "6700%",
+                "3": "6700 %",
+                "6": "6700%",
+                "2": "6700%",
+                "7": "\u001a6700%",
+                "1": "6700%"
+            }
         }
     },
     "300000302": {
-        "name": null,
+        "name": "Rebellion Against the Empire",
         "skill_id_old": 237110,
         "skill_id_new": 237111,
         "cost": {
@@ -74635,12 +75193,30 @@
         },
         "units": [202001917],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Rebellion Against the Empire",
+                "4": "Widerstand gegen das Imperium",
+                "5": "Rebelión contra el Imperio",
+                "3": "Révolte contre l'Empire",
+                "6": "Pemberontakan terhadap Kekaisaran",
+                "2": "엠파이어 리벨리온",
+                "7": "ก่อ\u001aกบฏ\u001aต้าน\u001aจักรวรรดิ\u001a",
+                "1": "帝國反叛者"
+            },
+            "description": {
+                "0": "7000%",
+                "4": "7000%",
+                "5": "7000%",
+                "3": "7000 %",
+                "6": "7000%",
+                "2": "7000%",
+                "7": "\u001a7000%",
+                "1": "7000%"
+            }
         }
     },
     "300000303": {
-        "name": null,
+        "name": "Kneel Before Me",
         "skill_id_old": 237160,
         "skill_id_new": 237161,
         "cost": {
@@ -74652,12 +75228,30 @@
         },
         "units": [202000505, 202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Kneel Before Me",
+                "4": "Knie nieder",
+                "5": "Arrodíllate ante mí",
+                "3": "À genoux !",
+                "6": "Bersujudlah di Hadapan Saya",
+                "2": "내 앞에 무릎 꿇어라",
+                "7": "จง\u001aคุกเข่า\u001aเบื้องหน้า\u001aข้า\u001a",
+                "1": "向我跪拜"
+            },
+            "description": {
+                "0": "65%",
+                "4": "um 65%",
+                "5": "65%",
+                "3": "65 %",
+                "6": "65%",
+                "2": "65%",
+                "7": "\u001a65%",
+                "1": "65%"
+            }
         }
     },
     "300000304": {
-        "name": null,
+        "name": "Kneel Before Me",
         "skill_id_old": 237161,
         "skill_id_new": 237162,
         "cost": {
@@ -74670,12 +75264,30 @@
         },
         "units": [202000505, 202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Kneel Before Me",
+                "4": "Knie nieder",
+                "5": "Arrodíllate ante mí",
+                "3": "À genoux !",
+                "6": "Bersujudlah di Hadapan Saya",
+                "2": "내 앞에 무릎 꿇어라",
+                "7": "จง\u001aคุกเข่า\u001aเบื้องหน้า\u001aข้า\u001a",
+                "1": "向我跪拜"
+            },
+            "description": {
+                "0": "20%",
+                "4": "um 20%",
+                "5": "20%",
+                "3": "20 %",
+                "6": "20%",
+                "2": "20%",
+                "7": "\u001a20%",
+                "1": "20%"
+            }
         }
     },
     "300000305": {
-        "name": null,
+        "name": "Kneel Before Me",
         "skill_id_old": 237162,
         "skill_id_new": 237163,
         "cost": {
@@ -74689,12 +75301,30 @@
         },
         "units": [202000505, 202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Kneel Before Me",
+                "4": "Knie nieder",
+                "5": "Arrodíllate ante mí",
+                "3": "À genoux !",
+                "6": "Bersujudlah di Hadapan Saya",
+                "2": "내 앞에 무릎 꿇어라",
+                "7": "จง\u001aคุกเข่า\u001aเบื้องหน้า\u001aข้า\u001a",
+                "1": "向我跪拜"
+            },
+            "description": {
+                "0": "280%",
+                "4": "um 280%",
+                "5": "280%",
+                "3": "280 %",
+                "6": "280%",
+                "2": "280%",
+                "7": "\u001a280%",
+                "1": "280%"
+            }
         }
     },
     "300000306": {
-        "name": null,
+        "name": "Kneel Before Me",
         "skill_id_old": 237163,
         "skill_id_new": 237164,
         "cost": {
@@ -74708,12 +75338,30 @@
         },
         "units": [202000505, 202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Kneel Before Me",
+                "4": "Knie nieder",
+                "5": "Arrodíllate ante mí",
+                "3": "À genoux !",
+                "6": "Bersujudlah di Hadapan Saya",
+                "2": "내 앞에 무릎 꿇어라",
+                "7": "จง\u001aคุกเข่า\u001aเบื้องหน้า\u001aข้า\u001a",
+                "1": "向我跪拜"
+            },
+            "description": {
+                "0": "10%",
+                "4": "um 10%",
+                "5": "10%",
+                "3": "10 %",
+                "6": "10%",
+                "2": "10%",
+                "7": "\u001a10%",
+                "1": "10%"
+            }
         }
     },
     "300000307": {
-        "name": null,
+        "name": "Red Soul",
         "skill_id_old": 237167,
         "skill_id_new": 237168,
         "cost": {
@@ -74725,12 +75373,30 @@
         },
         "units": [202000505],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Red Soul",
+                "4": "Blutgeist",
+                "5": "Alma roja",
+                "3": "Vociféreur",
+                "6": "Roh Merah",
+                "2": "레드 소울",
+                "7": "วิญญาณ\u001aสีแดง\u001a",
+                "1": "赤魂"
+            },
+            "description": {
+                "0": "6500%",
+                "4": "6500%",
+                "5": "6500%",
+                "3": "6500 %",
+                "6": "6500%",
+                "2": "6500%",
+                "7": "\u001a6500%",
+                "1": "6500%"
+            }
         }
     },
     "300000308": {
-        "name": null,
+        "name": "Red Soul",
         "skill_id_old": 237168,
         "skill_id_new": 237169,
         "cost": {
@@ -74743,12 +75409,30 @@
         },
         "units": [202000505],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Red Soul",
+                "4": "Blutgeist",
+                "5": "Alma roja",
+                "3": "Vociféreur",
+                "6": "Roh Merah",
+                "2": "레드 소울",
+                "7": "วิญญาณ\u001aสีแดง\u001a",
+                "1": "赤魂"
+            },
+            "description": {
+                "0": "6800%",
+                "4": "6800%",
+                "5": "6800%",
+                "3": "6800 %",
+                "6": "6800%",
+                "2": "6800%",
+                "7": "\u001a6800%",
+                "1": "6800%"
+            }
         }
     },
     "300000309": {
-        "name": null,
+        "name": "Red Soul",
         "skill_id_old": 237169,
         "skill_id_new": 237170,
         "cost": {
@@ -74762,12 +75446,30 @@
         },
         "units": [202000505],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Red Soul",
+                "4": "Blutgeist",
+                "5": "Alma roja",
+                "3": "Vociféreur",
+                "6": "Roh Merah",
+                "2": "레드 소울",
+                "7": "วิญญาณ\u001aสีแดง\u001a",
+                "1": "赤魂"
+            },
+            "description": {
+                "0": "7100%",
+                "4": "7100%",
+                "5": "7100%",
+                "3": "7100 %",
+                "6": "7100%",
+                "2": "7100%",
+                "7": "\u001a7100%",
+                "1": "7100%"
+            }
         }
     },
     "300000310": {
-        "name": null,
+        "name": "Red Soul",
         "skill_id_old": 237170,
         "skill_id_new": 237171,
         "cost": {
@@ -74781,12 +75483,30 @@
         },
         "units": [202000505],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Red Soul",
+                "4": "Blutgeist",
+                "5": "Alma roja",
+                "3": "Vociféreur",
+                "6": "Roh Merah",
+                "2": "레드 소울",
+                "7": "วิญญาณ\u001aสีแดง\u001a",
+                "1": "赤魂"
+            },
+            "description": {
+                "0": "7500%",
+                "4": "7500%",
+                "5": "7500%",
+                "3": "7500 %",
+                "6": "7500%",
+                "2": "7500%",
+                "7": "\u001a7500%",
+                "1": "7500%"
+            }
         }
     },
     "300000311": {
-        "name": null,
+        "name": "Conquesting Tyrant",
         "skill_id_old": 237174,
         "skill_id_new": 237175,
         "cost": {
@@ -74798,12 +75518,30 @@
         },
         "units": [202000505],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Conquesting Tyrant",
+                "4": "Weltherrschaft anstrebender Tyrann",
+                "5": "Tirano conquistador",
+                "3": "Tyran conquéreur",
+                "6": "Tiran Penakluk",
+                "2": "세계 정복을 꾀하는 폭군",
+                "7": "ทรราช\u001aพิชิต\u001aโลก\u001a",
+                "1": "企圖征服世界的暴君"
+            },
+            "description": {
+                "0": "1850%",
+                "4": "um 1850%",
+                "5": "1850%",
+                "3": "1850 %",
+                "6": "1850%",
+                "2": "1850%",
+                "7": "\u001a1850%",
+                "1": "1850%"
+            }
         }
     },
     "300000312": {
-        "name": null,
+        "name": "Conquesting Tyrant",
         "skill_id_old": 237175,
         "skill_id_new": 237176,
         "cost": {
@@ -74816,12 +75554,30 @@
         },
         "units": [202000505],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Conquesting Tyrant",
+                "4": "Weltherrschaft anstrebender Tyrann",
+                "5": "Tirano conquistador",
+                "3": "Tyran conquéreur",
+                "6": "Tiran Penakluk",
+                "2": "세계 정복을 꾀하는 폭군",
+                "7": "ทรราช\u001aพิชิต\u001aโลก\u001a",
+                "1": "企圖征服世界的暴君"
+            },
+            "description": {
+                "0": "150",
+                "4": "um 150",
+                "5": "150",
+                "3": "150",
+                "6": "150",
+                "2": "150",
+                "7": "\u001a150\u001a",
+                "1": "150"
+            }
         }
     },
     "300000313": {
-        "name": null,
+        "name": "Conquesting Tyrant",
         "skill_id_old": 237176,
         "skill_id_new": 237177,
         "cost": {
@@ -74835,12 +75591,30 @@
         },
         "units": [202000505],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Conquesting Tyrant",
+                "4": "Weltherrschaft anstrebender Tyrann",
+                "5": "Tirano conquistador",
+                "3": "Tyran conquéreur",
+                "6": "Tiran Penakluk",
+                "2": "세계 정복을 꾀하는 폭군",
+                "7": "ทรราช\u001aพิชิต\u001aโลก\u001a",
+                "1": "企圖征服世界的暴君"
+            },
+            "description": {
+                "0": "2450%",
+                "4": "um 2450%",
+                "5": "2450%",
+                "3": "2450 %",
+                "6": "2450%",
+                "2": "2450%",
+                "7": "\u001a2450%",
+                "1": "2450%"
+            }
         }
     },
     "300000314": {
-        "name": null,
+        "name": "Conquesting Tyrant",
         "skill_id_old": 237177,
         "skill_id_new": 237178,
         "cost": {
@@ -74854,12 +75628,30 @@
         },
         "units": [202000505],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Conquesting Tyrant",
+                "4": "Weltherrschaft anstrebender Tyrann",
+                "5": "Tirano conquistador",
+                "3": "Tyran conquéreur",
+                "6": "Tiran Penakluk",
+                "2": "세계 정복을 꾀하는 폭군",
+                "7": "ทรราช\u001aพิชิต\u001aโลก\u001a",
+                "1": "企圖征服世界的暴君"
+            },
+            "description": {
+                "0": "200",
+                "4": "um 200",
+                "5": "200",
+                "3": "200",
+                "6": "200",
+                "2": "200",
+                "7": "\u001a200\u001a",
+                "1": "200"
+            }
         }
     },
     "300000315": {
-        "name": null,
+        "name": "Barrier Bomb",
         "skill_id_old": 237180,
         "skill_id_new": 237181,
         "cost": {
@@ -74871,12 +75663,30 @@
         },
         "units": [202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Barrier Bomb",
+                "4": "Barrieren-Bombe",
+                "5": "Barrera bom",
+                "3": "Bombe barrière",
+                "6": "Bom Barier",
+                "2": "배리어 봄",
+                "7": "ระเบิด\u001aบาเรีย\u001a",
+                "1": "屏障爆彈"
+            },
+            "description": {
+                "0": "6800%",
+                "4": "6800%",
+                "5": "6800%",
+                "3": "6800 %",
+                "6": "6800%",
+                "2": "6800%",
+                "7": "\u001a6800%",
+                "1": "6800%"
+            }
         }
     },
     "300000316": {
-        "name": null,
+        "name": "Barrier Bomb",
         "skill_id_old": 237181,
         "skill_id_new": 237182,
         "cost": {
@@ -74889,12 +75699,30 @@
         },
         "units": [202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Barrier Bomb",
+                "4": "Barrieren-Bombe",
+                "5": "Barrera bom",
+                "3": "Bombe barrière",
+                "6": "Bom Barier",
+                "2": "배리어 봄",
+                "7": "ระเบิด\u001aบาเรีย\u001a",
+                "1": "屏障爆彈"
+            },
+            "description": {
+                "0": "7200%",
+                "4": "7200%",
+                "5": "7200%",
+                "3": "7200 %",
+                "6": "7200%",
+                "2": "7200%",
+                "7": "\u001a7200%",
+                "1": "7200%"
+            }
         }
     },
     "300000317": {
-        "name": null,
+        "name": "Barrier Bomb",
         "skill_id_old": 237182,
         "skill_id_new": 237183,
         "cost": {
@@ -74908,12 +75736,30 @@
         },
         "units": [202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Barrier Bomb",
+                "4": "Barrieren-Bombe",
+                "5": "Barrera bom",
+                "3": "Bombe barrière",
+                "6": "Bom Barier",
+                "2": "배리어 봄",
+                "7": "ระเบิด\u001aบาเรีย\u001a",
+                "1": "屏障爆彈"
+            },
+            "description": {
+                "0": "7500%",
+                "4": "7500%",
+                "5": "7500%",
+                "3": "7500 %",
+                "6": "7500%",
+                "2": "7500%",
+                "7": "\u001a7500%",
+                "1": "7500%"
+            }
         }
     },
     "300000318": {
-        "name": null,
+        "name": "Barrier Bomb",
         "skill_id_old": 237183,
         "skill_id_new": 237184,
         "cost": {
@@ -74927,12 +75773,30 @@
         },
         "units": [202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Barrier Bomb",
+                "4": "Barrieren-Bombe",
+                "5": "Barrera bom",
+                "3": "Bombe barrière",
+                "6": "Bom Barier",
+                "2": "배리어 봄",
+                "7": "ระเบิด\u001aบาเรีย\u001a",
+                "1": "屏障爆彈"
+            },
+            "description": {
+                "0": "7800%",
+                "4": "7800%",
+                "5": "7800%",
+                "3": "7800 %",
+                "6": "7800%",
+                "2": "7800%",
+                "7": "\u001a7800%",
+                "1": "7800%"
+            }
         }
     },
     "300000319": {
-        "name": null,
+        "name": "All You Hold Dear Shall be Mine",
         "skill_id_old": 237187,
         "skill_id_new": 237188,
         "cost": {
@@ -74944,12 +75808,30 @@
         },
         "units": [202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "All You Hold Dear Shall be Mine",
+                "4": "Ich werde dir alles nehmen",
+                "5": "Todo lo que os es preciado será mío",
+                "3": "Je m'emparerai de tout ce qui vous est cher !",
+                "6": "Semua yang kau sayangi akan jadi milik saya",
+                "2": "내 지배를 받아들여라",
+                "7": "ทุกสิ่ง\u001aที่\u001aเจ้า\u001aรัก\u001aจะ\u001aตกเป็นของ\u001aข้า\u001a",
+                "1": "接受我的統治吧"
+            },
+            "description": {
+                "0": "125%",
+                "4": "um 125%",
+                "5": "125%",
+                "3": "125 %",
+                "6": "125%",
+                "2": "125%",
+                "7": "\u001a125%",
+                "1": "125%"
+            }
         }
     },
     "300000320": {
-        "name": null,
+        "name": "All You Hold Dear Shall be Mine",
         "skill_id_old": 237188,
         "skill_id_new": 237189,
         "cost": {
@@ -74962,12 +75844,30 @@
         },
         "units": [202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "All You Hold Dear Shall be Mine",
+                "4": "Ich werde dir alles nehmen",
+                "5": "Todo lo que os es preciado será mío",
+                "3": "Je m'emparerai de tout ce qui vous est cher !",
+                "6": "Semua yang kau sayangi akan jadi milik saya",
+                "2": "내 지배를 받아들여라",
+                "7": "ทุกสิ่ง\u001aที่\u001aเจ้า\u001aรัก\u001aจะ\u001aตกเป็นของ\u001aข้า\u001a",
+                "1": "接受我的統治吧"
+            },
+            "description": {
+                "0": "150%",
+                "4": "um 150%",
+                "5": "150%",
+                "3": "150 %",
+                "6": "150%",
+                "2": "150%",
+                "7": "\u001a150%",
+                "1": "150%"
+            }
         }
     },
     "300000321": {
-        "name": null,
+        "name": "All You Hold Dear Shall be Mine",
         "skill_id_old": 237189,
         "skill_id_new": 237190,
         "cost": {
@@ -74981,12 +75881,30 @@
         },
         "units": [202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "All You Hold Dear Shall be Mine",
+                "4": "Ich werde dir alles nehmen",
+                "5": "Todo lo que os es preciado será mío",
+                "3": "Je m'emparerai de tout ce qui vous est cher !",
+                "6": "Semua yang kau sayangi akan jadi milik saya",
+                "2": "내 지배를 받아들여라",
+                "7": "ทุกสิ่ง\u001aที่\u001aเจ้า\u001aรัก\u001aจะ\u001aตกเป็นของ\u001aข้า\u001a",
+                "1": "接受我的統治吧"
+            },
+            "description": {
+                "0": "175%",
+                "4": "um 175%",
+                "5": "175%",
+                "3": "175 %",
+                "6": "175%)<br>Meningkatkan damage ability tertentu (Api dari Dasar: <color=0:255:0>3450%",
+                "2": "175%",
+                "7": "\u001a175%",
+                "1": "175%"
+            }
         }
     },
     "300000322": {
-        "name": null,
+        "name": "All You Hold Dear Shall be Mine",
         "skill_id_old": 237190,
         "skill_id_new": 237191,
         "cost": {
@@ -75000,12 +75918,30 @@
         },
         "units": [202000527],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "All You Hold Dear Shall be Mine",
+                "4": "Ich werde dir alles nehmen",
+                "5": "Todo lo que os es preciado será mío",
+                "3": "Je m'emparerai de tout ce qui vous est cher !",
+                "6": "Semua yang kau sayangi akan jadi milik saya",
+                "2": "내 지배를 받아들여라",
+                "7": "ทุกสิ่ง\u001aที่\u001aเจ้า\u001aรัก\u001aจะ\u001aตกเป็นของ\u001aข้า\u001a",
+                "1": "接受我的統治吧"
+            },
+            "description": {
+                "0": "200%",
+                "4": "um 200%",
+                "5": "200%",
+                "3": "200 %",
+                "6": "200%)<br>Meningkatkan damage ability tertentu (Api dari Dasar: <color=0:255:0>3750%",
+                "2": "200%",
+                "7": "\u001a200%",
+                "1": "200%"
+            }
         }
     },
     "300000323": {
-        "name": null,
+        "name": "Tainted by Darkness",
         "skill_id_old": 237200,
         "skill_id_new": 237201,
         "cost": {
@@ -75015,14 +75951,32 @@
                 "271001700": 8
             }
         },
-        "units": [202001705, 202001717],
+        "units": [202001705, 202001727],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Tainted by Darkness",
+                "4": "Verdorben durch die Dunkelheit",
+                "5": "Manchado de oscuridad",
+                "3": "Corrompu par les ténèbres",
+                "6": "Ternodai Kegelapan",
+                "2": "어둠에 물들어라",
+                "7": "แปดเปื้อน\u001aด้วย\u001aความมืด\u001a",
+                "1": "浸染黑暗"
+            },
+            "description": {
+                "0": "4400%",
+                "4": "4400%",
+                "5": "4400%",
+                "3": "4400 %",
+                "6": "4400%",
+                "2": "4400%",
+                "7": "\u001a4400%",
+                "1": "4400%"
+            }
         }
     },
     "300000324": {
-        "name": null,
+        "name": "Tainted by Darkness",
         "skill_id_old": 237201,
         "skill_id_new": 237202,
         "cost": {
@@ -75033,14 +75987,32 @@
                 "260000070": 10
             }
         },
-        "units": [202001705, 202001717],
+        "units": [202001705, 202001727],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Tainted by Darkness",
+                "4": "Verdorben durch die Dunkelheit",
+                "5": "Manchado de oscuridad",
+                "3": "Corrompu par les ténèbres",
+                "6": "Ternodai Kegelapan",
+                "2": "어둠에 물들어라",
+                "7": "แปดเปื้อน\u001aด้วย\u001aความมืด\u001a",
+                "1": "浸染黑暗"
+            },
+            "description": {
+                "0": "5000%",
+                "4": "5000%",
+                "5": "5000%",
+                "3": "5000 %",
+                "6": "5000%",
+                "2": "5000%",
+                "7": "\u001a5000%",
+                "1": "5000%"
+            }
         }
     },
     "300000325": {
-        "name": null,
+        "name": "Tainted by Darkness",
         "skill_id_old": 237202,
         "skill_id_new": 237203,
         "cost": {
@@ -75052,14 +76024,32 @@
                 "260000070": 15
             }
         },
-        "units": [202001705, 202001717],
+        "units": [202001705, 202001727],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Tainted by Darkness",
+                "4": "Verdorben durch die Dunkelheit",
+                "5": "Manchado de oscuridad",
+                "3": "Corrompu par les ténèbres",
+                "6": "Ternodai Kegelapan",
+                "2": "어둠에 물들어라",
+                "7": "แปดเปื้อน\u001aด้วย\u001aความมืด\u001a",
+                "1": "浸染黑暗"
+            },
+            "description": {
+                "0": "5600%",
+                "4": "5600%",
+                "5": "5600%",
+                "3": "5600 %",
+                "6": "5600%",
+                "2": "5600%",
+                "7": "\u001a5600%",
+                "1": "5600%"
+            }
         }
     },
     "300000326": {
-        "name": null,
+        "name": "Tainted by Darkness",
         "skill_id_old": 237203,
         "skill_id_new": 237204,
         "cost": {
@@ -75071,14 +76061,32 @@
                 "260000070": 20
             }
         },
-        "units": [202001705, 202001717],
+        "units": [202001705, 202001727],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Tainted by Darkness",
+                "4": "Verdorben durch die Dunkelheit",
+                "5": "Manchado de oscuridad",
+                "3": "Corrompu par les ténèbres",
+                "6": "Ternodai Kegelapan",
+                "2": "어둠에 물들어라",
+                "7": "แปดเปื้อน\u001aด้วย\u001aความมืด\u001a",
+                "1": "浸染黑暗"
+            },
+            "description": {
+                "0": "6400%",
+                "4": "6400%",
+                "5": "6400%",
+                "3": "6400 %",
+                "6": "6400%",
+                "2": "6400%",
+                "7": "\u001a6400%",
+                "1": "6400%"
+            }
         }
     },
     "300000327": {
-        "name": null,
+        "name": "Dark Corruption II",
         "skill_id_old": 237208,
         "skill_id_new": 237209,
         "cost": {
@@ -75090,12 +76098,30 @@
         },
         "units": [202001705],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Dark Corruption II",
+                "4": "Dunkle Korruption II",
+                "5": "Corrupción oscura II",
+                "3": "Corruption des ténèbres II",
+                "6": "Korupsi Kegelapan II",
+                "2": "다크 커럽션 II",
+                "7": "การ\u001aครอบงำ\u001aแห่ง\u001aความมืด\u001a \u001aII\u001a",
+                "1": "黑暗侵蝕II"
+            },
+            "description": {
+                "0": "6000%",
+                "4": "6000%",
+                "5": "6000%",
+                "3": "6000 %",
+                "6": "6000%",
+                "2": "6000%",
+                "7": "\u001a6000%",
+                "1": "6000%"
+            }
         }
     },
     "300000328": {
-        "name": null,
+        "name": "Dark Corruption II",
         "skill_id_old": 237209,
         "skill_id_new": 237210,
         "cost": {
@@ -75108,12 +76134,30 @@
         },
         "units": [202001705],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Dark Corruption II",
+                "4": "Dunkle Korruption II",
+                "5": "Corrupción oscura II",
+                "3": "Corruption des ténèbres II",
+                "6": "Korupsi Kegelapan II",
+                "2": "다크 커럽션 II",
+                "7": "การ\u001aครอบงำ\u001aแห่ง\u001aความมืด\u001a \u001aII\u001a",
+                "1": "黑暗侵蝕II"
+            },
+            "description": {
+                "0": "6900%",
+                "4": "6900%",
+                "5": "6900%",
+                "3": "6900 %",
+                "6": "6900%",
+                "2": "6900%",
+                "7": "\u001a6900%",
+                "1": "6900%"
+            }
         }
     },
     "300000329": {
-        "name": null,
+        "name": "Dark Corruption II",
         "skill_id_old": 237210,
         "skill_id_new": 237211,
         "cost": {
@@ -75127,12 +76171,30 @@
         },
         "units": [202001705],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Dark Corruption II",
+                "4": "Dunkle Korruption II",
+                "5": "Corrupción oscura II",
+                "3": "Corruption des ténèbres II",
+                "6": "Korupsi Kegelapan II",
+                "2": "다크 커럽션 II",
+                "7": "การ\u001aครอบงำ\u001aแห่ง\u001aความมืด\u001a \u001aII\u001a",
+                "1": "黑暗侵蝕II"
+            },
+            "description": {
+                "0": "8000%",
+                "4": "8000%",
+                "5": "8000%",
+                "3": "8000 %",
+                "6": "8000%",
+                "2": "8000%",
+                "7": "\u001a8000%",
+                "1": "8000%"
+            }
         }
     },
     "300000330": {
-        "name": null,
+        "name": "Dark Corruption II",
         "skill_id_old": 237211,
         "skill_id_new": 237212,
         "cost": {
@@ -75146,12 +76208,30 @@
         },
         "units": [202001705],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Dark Corruption II",
+                "4": "Dunkle Korruption II",
+                "5": "Corrupción oscura II",
+                "3": "Corruption des ténèbres II",
+                "6": "Korupsi Kegelapan II",
+                "2": "다크 커럽션 II",
+                "7": "การ\u001aครอบงำ\u001aแห่ง\u001aความมืด\u001a \u001aII\u001a",
+                "1": "黑暗侵蝕II"
+            },
+            "description": {
+                "0": "8700%",
+                "4": "8700%",
+                "5": "8700%",
+                "3": "8700 %",
+                "6": "8700%",
+                "2": "8700%",
+                "7": "\u001a8700%",
+                "1": "8700%"
+            }
         }
     },
     "300000331": {
-        "name": null,
+        "name": "Ambition of the New Emperor",
         "skill_id_old": 237215,
         "skill_id_new": 237216,
         "cost": {
@@ -75163,12 +76243,30 @@
         },
         "units": [202001705],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Ambition of the New Emperor",
+                "4": "Streben des neuen Kaisers",
+                "5": "La ambición del nuevo Emperador",
+                "3": "Ambition du nouvel Empereur",
+                "6": "Ambisi Kaisar Baru",
+                "2": "야심에 찬 신황제",
+                "7": "จักรพรรดิ\u001aใหม่\u001aใจ\u001aทะเยอทะยาน\u001a",
+                "1": "野心勃勃的新皇帝"
+            },
+            "description": {
+                "0": "200%",
+                "4": "um 200%",
+                "5": "400%",
+                "3": "200 %",
+                "6": "200%",
+                "2": "200%",
+                "7": "\u001a200%",
+                "1": "200%"
+            }
         }
     },
     "300000332": {
-        "name": null,
+        "name": "Ambition of the New Emperor",
         "skill_id_old": 237216,
         "skill_id_new": 237217,
         "cost": {
@@ -75181,12 +76279,30 @@
         },
         "units": [202001705],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Ambition of the New Emperor",
+                "4": "Streben des neuen Kaisers",
+                "5": "La ambición del nuevo Emperador",
+                "3": "Ambition du nouvel Empereur",
+                "6": "Ambisi Kaisar Baru",
+                "2": "야심에 찬 신황제",
+                "7": "จักรพรรดิ\u001aใหม่\u001aใจ\u001aทะเยอทะยาน\u001a",
+                "1": "野心勃勃的新皇帝"
+            },
+            "description": {
+                "0": "1000",
+                "4": "um 1000",
+                "5": "1000",
+                "3": "1000",
+                "6": "1000",
+                "2": "1000",
+                "7": "\u001a1000\u001a",
+                "1": "1000"
+            }
         }
     },
     "300000333": {
-        "name": null,
+        "name": "Ambition of the New Emperor",
         "skill_id_old": 237217,
         "skill_id_new": 237218,
         "cost": {
@@ -75200,12 +76316,30 @@
         },
         "units": [202001705],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Ambition of the New Emperor",
+                "4": "Streben des neuen Kaisers",
+                "5": "La ambición del nuevo Emperador",
+                "3": "Ambition du nouvel Empereur",
+                "6": "Ambisi Kaisar Baru",
+                "2": "야심에 찬 신황제",
+                "7": "จักรพรรดิ\u001aใหม่\u001aใจ\u001aทะเยอทะยาน\u001a",
+                "1": "野心勃勃的新皇帝"
+            },
+            "description": {
+                "0": "400%",
+                "4": "um 400%",
+                "5": "400%",
+                "3": "400 %",
+                "6": "400%)<br>Meningkatkan damage ability tertentu (Vanishing Blade, Pedang Pengabdi Kegelapan, Phantom II: <color=0:255:0>1900%)<br>Meningkatkan damage ability tertentu (Penjara Kegelapan: <color=0:255:0>4100%",
+                "2": "400%",
+                "7": "\u001a400%",
+                "1": "400%"
+            }
         }
     },
     "300000334": {
-        "name": null,
+        "name": "Ambition of the New Emperor",
         "skill_id_old": 237218,
         "skill_id_new": 237219,
         "cost": {
@@ -75219,12 +76353,30 @@
         },
         "units": [202001705],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Ambition of the New Emperor",
+                "4": "Streben des neuen Kaisers",
+                "5": "La ambición del nuevo Emperador",
+                "3": "Ambition du nouvel Empereur",
+                "6": "Ambisi Kaisar Baru",
+                "2": "야심에 찬 신황제",
+                "7": "จักรพรรดิ\u001aใหม่\u001aใจ\u001aทะเยอทะยาน\u001a",
+                "1": "野心勃勃的新皇帝"
+            },
+            "description": {
+                "0": "1500",
+                "4": "um 1500",
+                "5": "1500",
+                "3": "1500",
+                "6": "1500",
+                "2": "1500",
+                "7": "\u001a1500\u001a",
+                "1": "1500"
+            }
         }
     },
     "300000335": {
-        "name": null,
+        "name": "Bloody Darkness",
         "skill_id_old": 237220,
         "skill_id_new": 237221,
         "cost": {
@@ -75236,12 +76388,30 @@
         },
         "units": [202001727],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Bloody Darkness",
+                "4": "Blutgetränkte Dunkelheit",
+                "5": "Oscuridad sangrienta",
+                "3": "Ténèbres ensanglantées",
+                "6": "Bloody Darkness",
+                "2": "블러디 다크",
+                "7": "ความมืด\u001aชุ่ม\u001aโลหิต\u001a",
+                "1": "血腥黑暗"
+            },
+            "description": {
+                "0": "6400%",
+                "4": "6400%",
+                "5": "6400%",
+                "3": "6400 %",
+                "6": "6400%",
+                "2": "6400%",
+                "7": "\u001a6400%",
+                "1": "6400%"
+            }
         }
     },
     "300000336": {
-        "name": null,
+        "name": "Bloody Darkness",
         "skill_id_old": 237221,
         "skill_id_new": 237222,
         "cost": {
@@ -75254,12 +76424,30 @@
         },
         "units": [202001727],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Bloody Darkness",
+                "4": "Blutgetränkte Dunkelheit",
+                "5": "Oscuridad sangrienta",
+                "3": "Ténèbres ensanglantées",
+                "6": "Bloody Darkness",
+                "2": "블러디 다크",
+                "7": "ความมืด\u001aชุ่ม\u001aโลหิต\u001a",
+                "1": "血腥黑暗"
+            },
+            "description": {
+                "0": "7300%",
+                "4": "7300%",
+                "5": "7300%",
+                "3": "7300 %",
+                "6": "7300%",
+                "2": "7300%",
+                "7": "\u001a7300%",
+                "1": "7300%"
+            }
         }
     },
     "300000337": {
-        "name": null,
+        "name": "Bloody Darkness",
         "skill_id_old": 237222,
         "skill_id_new": 237223,
         "cost": {
@@ -75273,12 +76461,30 @@
         },
         "units": [202001727],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Bloody Darkness",
+                "4": "Blutgetränkte Dunkelheit",
+                "5": "Oscuridad sangrienta",
+                "3": "Ténèbres ensanglantées",
+                "6": "Bloody Darkness",
+                "2": "블러디 다크",
+                "7": "ความมืด\u001aชุ่ม\u001aโลหิต\u001a",
+                "1": "血腥黑暗"
+            },
+            "description": {
+                "0": "8200%",
+                "4": "8200%",
+                "5": "8200%",
+                "3": "8200 %",
+                "6": "8200%",
+                "2": "8200%",
+                "7": "\u001a8200%",
+                "1": "8200%"
+            }
         }
     },
     "300000338": {
-        "name": null,
+        "name": "Bloody Darkness",
         "skill_id_old": 237223,
         "skill_id_new": 237224,
         "cost": {
@@ -75292,12 +76498,30 @@
         },
         "units": [202001727],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Bloody Darkness",
+                "4": "Blutgetränkte Dunkelheit",
+                "5": "Oscuridad sangrienta",
+                "3": "Ténèbres ensanglantées",
+                "6": "Bloody Darkness",
+                "2": "블러디 다크",
+                "7": "ความมืด\u001aชุ่ม\u001aโลหิต\u001a",
+                "1": "血腥黑暗"
+            },
+            "description": {
+                "0": "9100%",
+                "4": "9100%",
+                "5": "9100%",
+                "3": "9100 %",
+                "6": "9100%",
+                "2": "9100%",
+                "7": "\u001a9100%",
+                "1": "9100%"
+            }
         }
     },
     "300000339": {
-        "name": null,
+        "name": "Power of the Dark Knight",
         "skill_id_old": 237228,
         "skill_id_new": 237229,
         "cost": {
@@ -75309,12 +76533,30 @@
         },
         "units": [202001727],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Power of the Dark Knight",
+                "4": "Macht des Dunkelritters",
+                "5": "Poder del Caballero Negro",
+                "3": "Pouvoir du chevalier noir",
+                "6": "Kekuatan Kesatria Gelap",
+                "2": "다크 나이트의 힘",
+                "7": "พลัง\u001aอัศวิน\u001aดำ\u001a",
+                "1": "暗騎士之力"
+            },
+            "description": {
+                "0": "50%",
+                "4": "um 50%",
+                "5": "50%",
+                "3": "50 %",
+                "6": "50%",
+                "2": "50%",
+                "7": "\u001a50%",
+                "1": "50%"
+            }
         }
     },
     "300000340": {
-        "name": null,
+        "name": "Power of the Dark Knight",
         "skill_id_old": 237229,
         "skill_id_new": 237230,
         "cost": {
@@ -75327,12 +76569,30 @@
         },
         "units": [202001727],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Power of the Dark Knight",
+                "4": "Macht des Dunkelritters",
+                "5": "Poder del Caballero Negro",
+                "3": "Pouvoir du chevalier noir",
+                "6": "Kekuatan Kesatria Gelap",
+                "2": "다크 나이트의 힘",
+                "7": "พลัง\u001aอัศวิน\u001aดำ\u001a",
+                "1": "暗騎士之力"
+            },
+            "description": {
+                "0": "75%",
+                "4": "um 75%",
+                "5": "75%",
+                "3": "75 %",
+                "6": "75%",
+                "2": "75%",
+                "7": "\u001a75%",
+                "1": "75%"
+            }
         }
     },
     "300000341": {
-        "name": null,
+        "name": "Power of the Dark Knight",
         "skill_id_old": 237230,
         "skill_id_new": 237231,
         "cost": {
@@ -75346,12 +76606,30 @@
         },
         "units": [202001727],
         "strings": {
-            "names": [null],
-            "description": [null]
+            "names": {
+                "0": "Power of the Dark Knight",
+                "4": "Macht des Dunkelritters",
+                "5": "Poder del Caballero Negro",
+                "3": "Pouvoir du chevalier noir",
+                "6": "Kekuatan Kesatria Gelap",
+                "2": "다크 나이트의 힘",
+                "7": "พลัง\u001aอัศวิน\u001aดำ\u001a",
+                "1": "暗騎士之力"
+            },
+            "description": {
+                "0": "100%",
+                "4": "um 100%",
+                "5": "100%",
+                "3": "100 %",
+                "6": "100%",
+                "2": "100%",
+                "7": "\u001a100%",
+                "1": "100%"
+            }
         }
     },
     "300000342": {
-        "name": null,
+        "name": "Power of the Dark Knight",
         "skill_id_old": 237231,
         "skill_id_new": 237232,
         "cost": {
@@ -75364,6 +76642,4112 @@
             }
         },
         "units": [202001727],
+        "strings": {
+            "names": {
+                "0": "Power of the Dark Knight",
+                "4": "Macht des Dunkelritters",
+                "5": "Poder del Caballero Negro",
+                "3": "Pouvoir du chevalier noir",
+                "6": "Kekuatan Kesatria Gelap",
+                "2": "다크 나이트의 힘",
+                "7": "พลัง\u001aอัศวิน\u001aดำ\u001a",
+                "1": "暗騎士之力"
+            },
+            "description": {
+                "0": "Converts dark damage received to HP restoration",
+                "4": "Regeneriert LP in Höhe des erlittenen Dunkelschadens",
+                "5": "Convierte el daño de oscuridad recibido en VIT",
+                "3": "Convertit les dégâts de ténèbres subis en PV",
+                "6": "Menyerap damage kegelapan yang diterima untuk memulihkan HP",
+                "2": "어둠속성 피해를 받으면 회복치로 변환",
+                "7": "\u001aเปลี่ยน\u001aความเสียหาย\u001aธาตุ\u001aมืด\u001aที่\u001aได้รับ\u001aไป\u001aฟื้นฟู\u001aค่า\u001a \u001aHP\u001a \u001a",
+                "1": "將受到的暗屬性攻擊轉換為HP恢復值"
+            }
+        }
+    },
+    "300000343": {
+        "name": null,
+        "skill_id_old": 237260,
+        "skill_id_new": 237261,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 20,
+                "271001100": 10
+            }
+        },
+        "units": [100031707, 100031717],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000344": {
+        "name": null,
+        "skill_id_old": 237261,
+        "skill_id_new": 237262,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 30,
+                "271001100": 20,
+                "260000080": 10
+            }
+        },
+        "units": [100031707, 100031717],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000345": {
+        "name": null,
+        "skill_id_old": 237262,
+        "skill_id_new": 237263,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271001000": 50,
+                "271001100": 30,
+                "271001200": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100031707, 100031717],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000346": {
+        "name": null,
+        "skill_id_old": 237263,
+        "skill_id_new": 237264,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271001000": 100,
+                "271001100": 50,
+                "271001200": 10,
+                "260000080": 30
+            }
+        },
+        "units": [100031707, 100031717],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000347": {
+        "name": null,
+        "skill_id_old": 237278,
+        "skill_id_new": 237279,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 20,
+                "271000800": 10
+            }
+        },
+        "units": [100031707],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000348": {
+        "name": null,
+        "skill_id_old": 237279,
+        "skill_id_new": 237280,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 30,
+                "271000800": 20,
+                "260000080": 10
+            }
+        },
+        "units": [100031707],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000349": {
+        "name": null,
+        "skill_id_old": 237280,
+        "skill_id_new": 237281,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000700": 50,
+                "271000800": 30,
+                "271000900": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100031707],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000350": {
+        "name": null,
+        "skill_id_old": 237281,
+        "skill_id_new": 237282,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000700": 100,
+                "271000800": 50,
+                "271000900": 10,
+                "260000080": 30
+            }
+        },
+        "units": [100031707],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000351": {
+        "name": null,
+        "skill_id_old": 237290,
+        "skill_id_new": 237291,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 20,
+                "271000500": 10
+            }
+        },
+        "units": [100031717],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000352": {
+        "name": null,
+        "skill_id_old": 237291,
+        "skill_id_new": 237292,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 30,
+                "271000500": 20,
+                "260000080": 10
+            }
+        },
+        "units": [100031717],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000353": {
+        "name": null,
+        "skill_id_old": 237292,
+        "skill_id_new": 237293,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000400": 50,
+                "271000500": 30,
+                "271000600": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100031717],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000354": {
+        "name": null,
+        "skill_id_old": 237293,
+        "skill_id_new": 237294,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000400": 100,
+                "271000500": 50,
+                "271000600": 10,
+                "260000080": 30
+            }
+        },
+        "units": [100031717],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000355": {
+        "name": null,
+        "skill_id_old": 237340,
+        "skill_id_new": 237341,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 15,
+                "271001100": 8
+            }
+        },
+        "units": [100020505, 100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000356": {
+        "name": null,
+        "skill_id_old": 237341,
+        "skill_id_new": 237342,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 20,
+                "271001100": 15,
+                "260000080": 10
+            }
+        },
+        "units": [100020505, 100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000357": {
+        "name": null,
+        "skill_id_old": 237342,
+        "skill_id_new": 237343,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 35,
+                "271001100": 22,
+                "271001200": 3,
+                "260000080": 15
+            }
+        },
+        "units": [100020505, 100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000358": {
+        "name": null,
+        "skill_id_old": 237343,
+        "skill_id_new": 237344,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001000": 75,
+                "271001100": 37,
+                "271001200": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100020505, 100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000359": {
+        "name": null,
+        "skill_id_old": 237347,
+        "skill_id_new": 237348,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001300": 15,
+                "271001400": 8
+            }
+        },
+        "units": [100020505],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000360": {
+        "name": null,
+        "skill_id_old": 237348,
+        "skill_id_new": 237349,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001300": 20,
+                "271001400": 15,
+                "260000080": 10
+            }
+        },
+        "units": [100020505],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000361": {
+        "name": null,
+        "skill_id_old": 237349,
+        "skill_id_new": 237350,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001300": 35,
+                "271001400": 22,
+                "271001500": 3,
+                "260000080": 15
+            }
+        },
+        "units": [100020505],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000362": {
+        "name": null,
+        "skill_id_old": 237350,
+        "skill_id_new": 237351,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001300": 75,
+                "271001400": 37,
+                "271001500": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100020505],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000363": {
+        "name": null,
+        "skill_id_old": 237353,
+        "skill_id_new": 237354,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 15,
+                "271001700": 8
+            }
+        },
+        "units": [100020505],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000364": {
+        "name": null,
+        "skill_id_old": 237354,
+        "skill_id_new": 237355,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 20,
+                "271001700": 15,
+                "260000080": 10
+            }
+        },
+        "units": [100020505],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000365": {
+        "name": null,
+        "skill_id_old": 237355,
+        "skill_id_new": 237356,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001600": 35,
+                "271001700": 22,
+                "271001800": 3,
+                "260000080": 15
+            }
+        },
+        "units": [100020505],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000366": {
+        "name": null,
+        "skill_id_old": 237356,
+        "skill_id_new": 237357,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001600": 75,
+                "271001700": 37,
+                "271001800": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100020505],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000367": {
+        "name": null,
+        "skill_id_old": 237358,
+        "skill_id_new": 237359,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 15,
+                "271000800": 8
+            }
+        },
+        "units": [100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000368": {
+        "name": null,
+        "skill_id_old": 237359,
+        "skill_id_new": 237360,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 20,
+                "271000800": 15,
+                "260000080": 10
+            }
+        },
+        "units": [100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000369": {
+        "name": null,
+        "skill_id_old": 237360,
+        "skill_id_new": 237361,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 35,
+                "271000800": 22,
+                "271000900": 3,
+                "260000080": 15
+            }
+        },
+        "units": [100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000370": {
+        "name": null,
+        "skill_id_old": 237361,
+        "skill_id_new": 237362,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000700": 75,
+                "271000800": 37,
+                "271000900": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000371": {
+        "name": null,
+        "skill_id_old": 237366,
+        "skill_id_new": 237367,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 15,
+                "271000200": 8
+            }
+        },
+        "units": [100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000372": {
+        "name": null,
+        "skill_id_old": 237367,
+        "skill_id_new": 237368,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 20,
+                "271000200": 15,
+                "260000080": 10
+            }
+        },
+        "units": [100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000373": {
+        "name": null,
+        "skill_id_old": 237368,
+        "skill_id_new": 237369,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 35,
+                "271000200": 22,
+                "271000300": 3,
+                "260000080": 15
+            }
+        },
+        "units": [100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000374": {
+        "name": null,
+        "skill_id_old": 237369,
+        "skill_id_new": 237370,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000100": 75,
+                "271000200": 37,
+                "271000300": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100020527],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000375": {
+        "name": null,
+        "skill_id_old": 237300,
+        "skill_id_new": 237301,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000400": 15,
+                "271000500": 8
+            }
+        },
+        "units": [100020905, 100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000376": {
+        "name": null,
+        "skill_id_old": 237301,
+        "skill_id_new": 237302,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000400": 20,
+                "271000500": 15,
+                "260000080": 10
+            }
+        },
+        "units": [100020905, 100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000377": {
+        "name": null,
+        "skill_id_old": 237302,
+        "skill_id_new": 237303,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 35,
+                "271000500": 22,
+                "271000600": 3,
+                "260000080": 15
+            }
+        },
+        "units": [100020905, 100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000378": {
+        "name": null,
+        "skill_id_old": 237303,
+        "skill_id_new": 237304,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000400": 75,
+                "271000500": 37,
+                "271000600": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100020905, 100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000379": {
+        "name": null,
+        "skill_id_old": 237307,
+        "skill_id_new": 237308,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 15,
+                "271001700": 8
+            }
+        },
+        "units": [100020905],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000380": {
+        "name": null,
+        "skill_id_old": 237308,
+        "skill_id_new": 237309,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 20,
+                "271001700": 15,
+                "260000080": 10
+            }
+        },
+        "units": [100020905],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000381": {
+        "name": null,
+        "skill_id_old": 237309,
+        "skill_id_new": 237310,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001600": 35,
+                "271001700": 22,
+                "271001800": 3,
+                "260000080": 15
+            }
+        },
+        "units": [100020905],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000382": {
+        "name": null,
+        "skill_id_old": 237310,
+        "skill_id_new": 237311,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001600": 75,
+                "271001700": 37,
+                "271001800": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100020905],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000383": {
+        "name": null,
+        "skill_id_old": 237314,
+        "skill_id_new": 237315,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 15,
+                "271000200": 8
+            }
+        },
+        "units": [100020905],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000384": {
+        "name": null,
+        "skill_id_old": 237315,
+        "skill_id_new": 237316,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 20,
+                "271000200": 15,
+                "260000080": 10
+            }
+        },
+        "units": [100020905],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000385": {
+        "name": null,
+        "skill_id_old": 237316,
+        "skill_id_new": 237317,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 35,
+                "271000200": 22,
+                "271000300": 3,
+                "260000080": 15
+            }
+        },
+        "units": [100020905],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000386": {
+        "name": null,
+        "skill_id_old": 237317,
+        "skill_id_new": 237318,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000100": 75,
+                "271000200": 37,
+                "271000300": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100020905],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000387": {
+        "name": null,
+        "skill_id_old": 237319,
+        "skill_id_new": 237320,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 15,
+                "271000800": 8
+            }
+        },
+        "units": [100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000388": {
+        "name": null,
+        "skill_id_old": 237320,
+        "skill_id_new": 237321,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 20,
+                "271000800": 15,
+                "260000080": 10
+            }
+        },
+        "units": [100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000389": {
+        "name": null,
+        "skill_id_old": 237321,
+        "skill_id_new": 237322,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 35,
+                "271000800": 22,
+                "271000900": 3,
+                "260000080": 15
+            }
+        },
+        "units": [100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000390": {
+        "name": null,
+        "skill_id_old": 237322,
+        "skill_id_new": 237323,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000700": 75,
+                "271000800": 37,
+                "271000900": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000391": {
+        "name": null,
+        "skill_id_old": 237327,
+        "skill_id_new": 237328,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001300": 15,
+                "271001400": 8
+            }
+        },
+        "units": [100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000392": {
+        "name": null,
+        "skill_id_old": 237328,
+        "skill_id_new": 237329,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001300": 20,
+                "271001400": 15,
+                "260000080": 10
+            }
+        },
+        "units": [100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000393": {
+        "name": null,
+        "skill_id_old": 237329,
+        "skill_id_new": 237330,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001300": 35,
+                "271001400": 22,
+                "271001500": 3,
+                "260000080": 15
+            }
+        },
+        "units": [100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000394": {
+        "name": null,
+        "skill_id_old": 237330,
+        "skill_id_new": 237331,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001300": 75,
+                "271001400": 37,
+                "271001500": 5,
+                "260000080": 20
+            }
+        },
+        "units": [100020927],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000395": {
+        "name": null,
+        "skill_id_old": 237462,
+        "skill_id_new": 237463,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001300": 20,
+                "271001400": 10
+            }
+        },
+        "units": [100031907, 100031917],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000396": {
+        "name": null,
+        "skill_id_old": 237463,
+        "skill_id_new": 237464,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001300": 30,
+                "271001400": 20,
+                "260000090": 10
+            }
+        },
+        "units": [100031907, 100031917],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000397": {
+        "name": null,
+        "skill_id_old": 237464,
+        "skill_id_new": 237465,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271001300": 50,
+                "271001400": 30,
+                "271001500": 5,
+                "260000090": 20
+            }
+        },
+        "units": [100031907, 100031917],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000398": {
+        "name": null,
+        "skill_id_old": 237465,
+        "skill_id_new": 237466,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271001300": 100,
+                "271001400": 50,
+                "271001500": 10,
+                "260000090": 30
+            }
+        },
+        "units": [100031907, 100031917],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000399": {
+        "name": null,
+        "skill_id_old": 237476,
+        "skill_id_new": 237477,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 20,
+                "271000800": 10
+            }
+        },
+        "units": [100031907],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000400": {
+        "name": null,
+        "skill_id_old": 237477,
+        "skill_id_new": 237478,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 30,
+                "271000800": 20,
+                "260000090": 10
+            }
+        },
+        "units": [100031907],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000401": {
+        "name": null,
+        "skill_id_old": 237478,
+        "skill_id_new": 237479,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000700": 50,
+                "271000800": 30,
+                "271000900": 5,
+                "260000090": 20
+            }
+        },
+        "units": [100031907],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000402": {
+        "name": null,
+        "skill_id_old": 237479,
+        "skill_id_new": 237480,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000700": 100,
+                "271000800": 50,
+                "271000900": 10,
+                "260000090": 30
+            }
+        },
+        "units": [100031907],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000403": {
+        "name": null,
+        "skill_id_old": 237486,
+        "skill_id_new": 237487,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 20,
+                "271001100": 10
+            }
+        },
+        "units": [100031917],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000404": {
+        "name": null,
+        "skill_id_old": 237487,
+        "skill_id_new": 237488,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 30,
+                "271001100": 20,
+                "260000090": 10
+            }
+        },
+        "units": [100031917],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000405": {
+        "name": null,
+        "skill_id_old": 237488,
+        "skill_id_new": 237489,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271001000": 50,
+                "271001100": 30,
+                "271001200": 5,
+                "260000090": 20
+            }
+        },
+        "units": [100031917],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000406": {
+        "name": null,
+        "skill_id_old": 237489,
+        "skill_id_new": 237490,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271001000": 100,
+                "271001100": 50,
+                "271001200": 10,
+                "260000090": 30
+            }
+        },
+        "units": [100031917],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000407": {
+        "name": null,
+        "skill_id_old": 237500,
+        "skill_id_new": 237501,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000400": 15,
+                "271000500": 8
+            }
+        },
+        "units": [100015405, 100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000408": {
+        "name": null,
+        "skill_id_old": 237501,
+        "skill_id_new": 237502,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000400": 20,
+                "271000500": 15,
+                "260000090": 10
+            }
+        },
+        "units": [100015405, 100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000409": {
+        "name": null,
+        "skill_id_old": 237502,
+        "skill_id_new": 237503,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 35,
+                "271000500": 22,
+                "271000600": 3,
+                "260000090": 15
+            }
+        },
+        "units": [100015405, 100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000410": {
+        "name": null,
+        "skill_id_old": 237503,
+        "skill_id_new": 237504,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000400": 75,
+                "271000500": 37,
+                "271000600": 5,
+                "260000090": 20
+            }
+        },
+        "units": [100015405, 100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000411": {
+        "name": null,
+        "skill_id_old": 237509,
+        "skill_id_new": 237510,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 15,
+                "271001700": 8
+            }
+        },
+        "units": [100015405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000412": {
+        "name": null,
+        "skill_id_old": 237510,
+        "skill_id_new": 237511,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 20,
+                "271001700": 15,
+                "260000090": 10
+            }
+        },
+        "units": [100015405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000413": {
+        "name": null,
+        "skill_id_old": 237511,
+        "skill_id_new": 237512,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001600": 35,
+                "271001700": 22,
+                "271001800": 3,
+                "260000090": 15
+            }
+        },
+        "units": [100015405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000414": {
+        "name": null,
+        "skill_id_old": 237512,
+        "skill_id_new": 237513,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001600": 75,
+                "271001700": 37,
+                "271001800": 5,
+                "260000090": 20
+            }
+        },
+        "units": [100015405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000415": {
+        "name": null,
+        "skill_id_old": 237516,
+        "skill_id_new": 237517,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 15,
+                "271000800": 8
+            }
+        },
+        "units": [100015405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000416": {
+        "name": null,
+        "skill_id_old": 237517,
+        "skill_id_new": 237518,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 20,
+                "271000800": 15,
+                "260000090": 10
+            }
+        },
+        "units": [100015405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000417": {
+        "name": null,
+        "skill_id_old": 237518,
+        "skill_id_new": 237519,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 35,
+                "271000800": 22,
+                "271000900": 3,
+                "260000090": 15
+            }
+        },
+        "units": [100015405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000418": {
+        "name": null,
+        "skill_id_old": 237519,
+        "skill_id_new": 237520,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000700": 75,
+                "271000800": 37,
+                "271000900": 5,
+                "260000090": 20
+            }
+        },
+        "units": [100015405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000419": {
+        "name": null,
+        "skill_id_old": 237522,
+        "skill_id_new": 237523,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001300": 15,
+                "271001400": 8
+            }
+        },
+        "units": [100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000420": {
+        "name": null,
+        "skill_id_old": 237523,
+        "skill_id_new": 237524,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001300": 20,
+                "271001400": 15,
+                "260000090": 10
+            }
+        },
+        "units": [100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000421": {
+        "name": null,
+        "skill_id_old": 237524,
+        "skill_id_new": 237525,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001300": 35,
+                "271001400": 22,
+                "271001500": 3,
+                "260000090": 15
+            }
+        },
+        "units": [100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000422": {
+        "name": null,
+        "skill_id_old": 237525,
+        "skill_id_new": 237526,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001300": 75,
+                "271001400": 37,
+                "271001500": 5,
+                "260000090": 20
+            }
+        },
+        "units": [100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000423": {
+        "name": null,
+        "skill_id_old": 237530,
+        "skill_id_new": 237531,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 15,
+                "271001100": 8
+            }
+        },
+        "units": [100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000424": {
+        "name": null,
+        "skill_id_old": 237531,
+        "skill_id_new": 237532,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 20,
+                "271001100": 15,
+                "260000090": 10
+            }
+        },
+        "units": [100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000425": {
+        "name": null,
+        "skill_id_old": 237532,
+        "skill_id_new": 237533,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 35,
+                "271001100": 22,
+                "271001200": 3,
+                "260000090": 15
+            }
+        },
+        "units": [100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000426": {
+        "name": null,
+        "skill_id_old": 237533,
+        "skill_id_new": 237534,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001000": 75,
+                "271001100": 37,
+                "271001200": 5,
+                "260000090": 20
+            }
+        },
+        "units": [100015427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000427": {
+        "name": null,
+        "skill_id_old": 237592,
+        "skill_id_new": 237593,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 20,
+                "271000200": 10
+            }
+        },
+        "units": [340000107, 340000117],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000428": {
+        "name": null,
+        "skill_id_old": 237593,
+        "skill_id_new": 237594,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 30,
+                "271000200": 20,
+                "260000100": 10
+            }
+        },
+        "units": [340000107, 340000117],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000429": {
+        "name": null,
+        "skill_id_old": 237594,
+        "skill_id_new": 237595,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000100": 50,
+                "271000200": 30,
+                "271000300": 5,
+                "260000100": 20
+            }
+        },
+        "units": [340000107, 340000117],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000430": {
+        "name": null,
+        "skill_id_old": 237595,
+        "skill_id_new": 237596,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000100": 100,
+                "271000200": 50,
+                "271000300": 10,
+                "260000100": 30
+            }
+        },
+        "units": [340000107, 340000117],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000431": {
+        "name": null,
+        "skill_id_old": 237607,
+        "skill_id_new": 237608,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 20,
+                "271000500": 10
+            }
+        },
+        "units": [340000107],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000432": {
+        "name": null,
+        "skill_id_old": 237608,
+        "skill_id_new": 237609,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 30,
+                "271000500": 20,
+                "260000100": 10
+            }
+        },
+        "units": [340000107],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000433": {
+        "name": null,
+        "skill_id_old": 237609,
+        "skill_id_new": 237610,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000400": 50,
+                "271000500": 30,
+                "271000600": 5,
+                "260000100": 20
+            }
+        },
+        "units": [340000107],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000434": {
+        "name": null,
+        "skill_id_old": 237610,
+        "skill_id_new": 237611,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000400": 100,
+                "271000500": 50,
+                "271000600": 10,
+                "260000100": 30
+            }
+        },
+        "units": [340000107],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000435": {
+        "name": null,
+        "skill_id_old": 237618,
+        "skill_id_new": 237619,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001300": 20,
+                "271001400": 10
+            }
+        },
+        "units": [340000117],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000436": {
+        "name": null,
+        "skill_id_old": 237619,
+        "skill_id_new": 237620,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001300": 30,
+                "271001400": 20,
+                "260000100": 10
+            }
+        },
+        "units": [340000117],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000437": {
+        "name": null,
+        "skill_id_old": 237620,
+        "skill_id_new": 237621,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271001300": 50,
+                "271001400": 30,
+                "271001500": 5,
+                "260000100": 20
+            }
+        },
+        "units": [340000117],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000438": {
+        "name": null,
+        "skill_id_old": 237621,
+        "skill_id_new": 237622,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271001300": 100,
+                "271001400": 50,
+                "271001500": 10,
+                "260000100": 30
+            }
+        },
+        "units": [340000117],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000439": {
+        "name": null,
+        "skill_id_old": 237631,
+        "skill_id_new": 237632,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001600": 20,
+                "271001700": 10
+            }
+        },
+        "units": [340000207, 340000217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000440": {
+        "name": null,
+        "skill_id_old": 237632,
+        "skill_id_new": 237633,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001600": 30,
+                "271001700": 20,
+                "260000100": 10
+            }
+        },
+        "units": [340000207, 340000217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000441": {
+        "name": null,
+        "skill_id_old": 237633,
+        "skill_id_new": 237634,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271001600": 50,
+                "271001700": 30,
+                "271001800": 5,
+                "260000100": 20
+            }
+        },
+        "units": [340000207, 340000217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000442": {
+        "name": null,
+        "skill_id_old": 237634,
+        "skill_id_new": 237635,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271001600": 100,
+                "271001700": 50,
+                "271001800": 10,
+                "260000100": 30
+            }
+        },
+        "units": [340000207, 340000217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000443": {
+        "name": null,
+        "skill_id_old": 237644,
+        "skill_id_new": 237645,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 20,
+                "271000800": 10
+            }
+        },
+        "units": [340000207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000444": {
+        "name": null,
+        "skill_id_old": 237645,
+        "skill_id_new": 237646,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 30,
+                "271000800": 20,
+                "260000100": 10
+            }
+        },
+        "units": [340000207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000445": {
+        "name": null,
+        "skill_id_old": 237646,
+        "skill_id_new": 237647,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000700": 50,
+                "271000800": 30,
+                "271000900": 5,
+                "260000100": 20
+            }
+        },
+        "units": [340000207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000446": {
+        "name": null,
+        "skill_id_old": 237647,
+        "skill_id_new": 237648,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000700": 100,
+                "271000800": 50,
+                "271000900": 10,
+                "260000100": 30
+            }
+        },
+        "units": [340000207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000447": {
+        "name": null,
+        "skill_id_old": 237653,
+        "skill_id_new": 237654,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 20,
+                "271001100": 10
+            }
+        },
+        "units": [340000217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000448": {
+        "name": null,
+        "skill_id_old": 237654,
+        "skill_id_new": 237655,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 30,
+                "271001100": 20,
+                "260000100": 10
+            }
+        },
+        "units": [340000217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000449": {
+        "name": null,
+        "skill_id_old": 237655,
+        "skill_id_new": 237656,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271001000": 50,
+                "271001100": 30,
+                "271001200": 5,
+                "260000100": 20
+            }
+        },
+        "units": [340000217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000450": {
+        "name": null,
+        "skill_id_old": 237656,
+        "skill_id_new": 237657,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271001000": 100,
+                "271001100": 50,
+                "271001200": 10,
+                "260000100": 30
+            }
+        },
+        "units": [340000217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000451": {
+        "name": null,
+        "skill_id_old": 237673,
+        "skill_id_new": 237674,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001300": 20,
+                "271001400": 10
+            }
+        },
+        "units": [340000307, 340000317],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000452": {
+        "name": null,
+        "skill_id_old": 237674,
+        "skill_id_new": 237675,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001300": 30,
+                "271001400": 20,
+                "260000100": 10
+            }
+        },
+        "units": [340000307, 340000317],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000453": {
+        "name": null,
+        "skill_id_old": 237675,
+        "skill_id_new": 237676,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271001300": 50,
+                "271001400": 30,
+                "271001500": 5,
+                "260000100": 20
+            }
+        },
+        "units": [340000307, 340000317],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000454": {
+        "name": null,
+        "skill_id_old": 237676,
+        "skill_id_new": 237677,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271001300": 100,
+                "271001400": 50,
+                "271001500": 10,
+                "260000100": 30
+            }
+        },
+        "units": [340000307, 340000317],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000455": {
+        "name": null,
+        "skill_id_old": 237688,
+        "skill_id_new": 237689,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 20,
+                "271000200": 10
+            }
+        },
+        "units": [340000307],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000456": {
+        "name": null,
+        "skill_id_old": 237689,
+        "skill_id_new": 237690,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 30,
+                "271000200": 20,
+                "260000100": 10
+            }
+        },
+        "units": [340000307],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000457": {
+        "name": null,
+        "skill_id_old": 237690,
+        "skill_id_new": 237691,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000100": 50,
+                "271000200": 30,
+                "271000300": 5,
+                "260000100": 20
+            }
+        },
+        "units": [340000307],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000458": {
+        "name": null,
+        "skill_id_old": 237691,
+        "skill_id_new": 237692,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000100": 100,
+                "271000200": 50,
+                "271000300": 10,
+                "260000100": 30
+            }
+        },
+        "units": [340000307],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000459": {
+        "name": null,
+        "skill_id_old": 237699,
+        "skill_id_new": 237700,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001600": 20,
+                "271001700": 10
+            }
+        },
+        "units": [340000317],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000460": {
+        "name": null,
+        "skill_id_old": 237700,
+        "skill_id_new": 237701,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001600": 30,
+                "271001700": 20,
+                "260000100": 10
+            }
+        },
+        "units": [340000317],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000461": {
+        "name": null,
+        "skill_id_old": 237701,
+        "skill_id_new": 237702,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271001600": 50,
+                "271001700": 30,
+                "271001800": 5,
+                "260000100": 20
+            }
+        },
+        "units": [340000317],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000462": {
+        "name": null,
+        "skill_id_old": 237702,
+        "skill_id_new": 237703,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271001600": 100,
+                "271001700": 50,
+                "271001800": 10,
+                "260000100": 30
+            }
+        },
+        "units": [340000317],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000463": {
+        "name": null,
+        "skill_id_old": 237820,
+        "skill_id_new": 237821,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 20,
+                "271000800": 10
+            }
+        },
+        "units": [100032207, 100032217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000464": {
+        "name": null,
+        "skill_id_old": 237821,
+        "skill_id_new": 237822,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 30,
+                "271000800": 20,
+                "260000110": 10
+            }
+        },
+        "units": [100032207, 100032217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000465": {
+        "name": null,
+        "skill_id_old": 237822,
+        "skill_id_new": 237823,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000700": 50,
+                "271000800": 30,
+                "271000900": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100032207, 100032217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000466": {
+        "name": null,
+        "skill_id_old": 237823,
+        "skill_id_new": 237824,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000700": 100,
+                "271000800": 50,
+                "271000900": 10,
+                "260000110": 30
+            }
+        },
+        "units": [100032207, 100032217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000467": {
+        "name": null,
+        "skill_id_old": 237834,
+        "skill_id_new": 237835,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 20,
+                "271000500": 10
+            }
+        },
+        "units": [100032207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000468": {
+        "name": null,
+        "skill_id_old": 237835,
+        "skill_id_new": 237836,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 30,
+                "271000500": 20,
+                "260000110": 10
+            }
+        },
+        "units": [100032207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000469": {
+        "name": null,
+        "skill_id_old": 237836,
+        "skill_id_new": 237837,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000400": 50,
+                "271000500": 30,
+                "271000600": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100032207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000470": {
+        "name": null,
+        "skill_id_old": 237837,
+        "skill_id_new": 237838,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000400": 100,
+                "271000500": 50,
+                "271000600": 10,
+                "260000110": 30
+            }
+        },
+        "units": [100032207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000471": {
+        "name": null,
+        "skill_id_old": 237845,
+        "skill_id_new": 237846,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 20,
+                "271001100": 10
+            }
+        },
+        "units": [100032217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000472": {
+        "name": null,
+        "skill_id_old": 237846,
+        "skill_id_new": 237847,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 30,
+                "271001100": 20,
+                "260000110": 10
+            }
+        },
+        "units": [100032217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000473": {
+        "name": null,
+        "skill_id_old": 237847,
+        "skill_id_new": 237848,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271001000": 50,
+                "271001100": 30,
+                "271001200": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100032217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000474": {
+        "name": null,
+        "skill_id_old": 237848,
+        "skill_id_new": 237849,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271001000": 100,
+                "271001100": 50,
+                "271001200": 10,
+                "260000110": 30
+            }
+        },
+        "units": [100032217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000475": {
+        "name": null,
+        "skill_id_old": 237780,
+        "skill_id_new": 237781,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000400": 15,
+                "271000500": 8
+            }
+        },
+        "units": [100021705, 100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000476": {
+        "name": null,
+        "skill_id_old": 237781,
+        "skill_id_new": 237782,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000400": 20,
+                "271000500": 15,
+                "260000110": 10
+            }
+        },
+        "units": [100021705, 100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000477": {
+        "name": null,
+        "skill_id_old": 237782,
+        "skill_id_new": 237783,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 35,
+                "271000500": 22,
+                "271000600": 3,
+                "260000110": 15
+            }
+        },
+        "units": [100021705, 100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000478": {
+        "name": null,
+        "skill_id_old": 237783,
+        "skill_id_new": 237784,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000400": 75,
+                "271000500": 37,
+                "271000600": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100021705, 100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000479": {
+        "name": null,
+        "skill_id_old": 237787,
+        "skill_id_new": 237788,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 15,
+                "271000800": 8
+            }
+        },
+        "units": [100021705],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000480": {
+        "name": null,
+        "skill_id_old": 237788,
+        "skill_id_new": 237789,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 20,
+                "271000800": 15,
+                "260000110": 10
+            }
+        },
+        "units": [100021705],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000481": {
+        "name": null,
+        "skill_id_old": 237789,
+        "skill_id_new": 237790,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 35,
+                "271000800": 22,
+                "271000900": 3,
+                "260000110": 15
+            }
+        },
+        "units": [100021705],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000482": {
+        "name": null,
+        "skill_id_old": 237790,
+        "skill_id_new": 237791,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000700": 75,
+                "271000800": 37,
+                "271000900": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100021705],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000483": {
+        "name": null,
+        "skill_id_old": 237793,
+        "skill_id_new": 237794,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 15,
+                "271001100": 8
+            }
+        },
+        "units": [100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000484": {
+        "name": null,
+        "skill_id_old": 237794,
+        "skill_id_new": 237795,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 20,
+                "271001100": 15,
+                "260000110": 10
+            }
+        },
+        "units": [100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000485": {
+        "name": null,
+        "skill_id_old": 237795,
+        "skill_id_new": 237796,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 35,
+                "271001100": 22,
+                "271001200": 3,
+                "260000110": 15
+            }
+        },
+        "units": [100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000486": {
+        "name": null,
+        "skill_id_old": 237796,
+        "skill_id_new": 237797,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001000": 75,
+                "271001100": 37,
+                "271001200": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000487": {
+        "name": null,
+        "skill_id_old": 237801,
+        "skill_id_new": 237802,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 15,
+                "271001700": 8
+            }
+        },
+        "units": [100021705],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000488": {
+        "name": null,
+        "skill_id_old": 237802,
+        "skill_id_new": 237803,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 20,
+                "271001700": 15,
+                "260000110": 10
+            }
+        },
+        "units": [100021705],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000489": {
+        "name": null,
+        "skill_id_old": 237803,
+        "skill_id_new": 237804,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001600": 35,
+                "271001700": 22,
+                "271001800": 3,
+                "260000110": 15
+            }
+        },
+        "units": [100021705],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000490": {
+        "name": null,
+        "skill_id_old": 237804,
+        "skill_id_new": 237805,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001600": 75,
+                "271001700": 37,
+                "271001800": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100021705],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000491": {
+        "name": null,
+        "skill_id_old": 237807,
+        "skill_id_new": 237808,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 15,
+                "271000200": 8
+            }
+        },
+        "units": [100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000492": {
+        "name": null,
+        "skill_id_old": 237808,
+        "skill_id_new": 237809,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 20,
+                "271000200": 15,
+                "260000110": 10
+            }
+        },
+        "units": [100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000493": {
+        "name": null,
+        "skill_id_old": 237809,
+        "skill_id_new": 237810,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 35,
+                "271000200": 22,
+                "271000300": 3,
+                "260000110": 15
+            }
+        },
+        "units": [100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000494": {
+        "name": null,
+        "skill_id_old": 237810,
+        "skill_id_new": 237811,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000100": 75,
+                "271000200": 37,
+                "271000300": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100021727],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000495": {
+        "name": null,
+        "skill_id_old": 237740,
+        "skill_id_new": 237741,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001300": 15,
+                "271001400": 8
+            }
+        },
+        "units": [100011805, 100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000496": {
+        "name": null,
+        "skill_id_old": 237741,
+        "skill_id_new": 237742,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001300": 20,
+                "271001400": 15,
+                "260000110": 10
+            }
+        },
+        "units": [100011805, 100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000497": {
+        "name": null,
+        "skill_id_old": 237742,
+        "skill_id_new": 237743,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001300": 35,
+                "271001400": 22,
+                "271001500": 3,
+                "260000110": 15
+            }
+        },
+        "units": [100011805, 100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000498": {
+        "name": null,
+        "skill_id_old": 237743,
+        "skill_id_new": 237744,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001300": 75,
+                "271001400": 37,
+                "271001500": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100011805, 100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000499": {
+        "name": null,
+        "skill_id_old": 237745,
+        "skill_id_new": 237746,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 15,
+                "271001100": 8
+            }
+        },
+        "units": [100011805],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000500": {
+        "name": null,
+        "skill_id_old": 237746,
+        "skill_id_new": 237747,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 20,
+                "271001100": 15,
+                "260000110": 10
+            }
+        },
+        "units": [100011805],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000501": {
+        "name": null,
+        "skill_id_old": 237747,
+        "skill_id_new": 237748,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 35,
+                "271001100": 22,
+                "271001200": 3,
+                "260000110": 15
+            }
+        },
+        "units": [100011805],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000502": {
+        "name": null,
+        "skill_id_old": 237748,
+        "skill_id_new": 237749,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001000": 75,
+                "271001100": 37,
+                "271001200": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100011805],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000503": {
+        "name": null,
+        "skill_id_old": 237752,
+        "skill_id_new": 237753,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 15,
+                "271001700": 8
+            }
+        },
+        "units": [100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000504": {
+        "name": null,
+        "skill_id_old": 237753,
+        "skill_id_new": 237754,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 20,
+                "271001700": 15,
+                "260000110": 10
+            }
+        },
+        "units": [100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000505": {
+        "name": null,
+        "skill_id_old": 237754,
+        "skill_id_new": 237755,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001600": 35,
+                "271001700": 22,
+                "271001800": 3,
+                "260000110": 15
+            }
+        },
+        "units": [100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000506": {
+        "name": null,
+        "skill_id_old": 237755,
+        "skill_id_new": 237756,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001600": 75,
+                "271001700": 37,
+                "271001800": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000507": {
+        "name": null,
+        "skill_id_old": 237760,
+        "skill_id_new": 237761,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 15,
+                "271000200": 8
+            }
+        },
+        "units": [100011805],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000508": {
+        "name": null,
+        "skill_id_old": 237761,
+        "skill_id_new": 237762,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 20,
+                "271000200": 15,
+                "260000110": 10
+            }
+        },
+        "units": [100011805],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000509": {
+        "name": null,
+        "skill_id_old": 237762,
+        "skill_id_new": 237763,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 35,
+                "271000200": 22,
+                "271000300": 3,
+                "260000110": 15
+            }
+        },
+        "units": [100011805],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000510": {
+        "name": null,
+        "skill_id_old": 237763,
+        "skill_id_new": 237764,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000100": 75,
+                "271000200": 37,
+                "271000300": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100011805],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000511": {
+        "name": null,
+        "skill_id_old": 237765,
+        "skill_id_new": 237766,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 15,
+                "271000800": 8
+            }
+        },
+        "units": [100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000512": {
+        "name": null,
+        "skill_id_old": 237766,
+        "skill_id_new": 237767,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 20,
+                "271000800": 15,
+                "260000110": 10
+            }
+        },
+        "units": [100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000513": {
+        "name": null,
+        "skill_id_old": 237767,
+        "skill_id_new": 237768,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 35,
+                "271000800": 22,
+                "271000900": 3,
+                "260000110": 15
+            }
+        },
+        "units": [100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000514": {
+        "name": null,
+        "skill_id_old": 237768,
+        "skill_id_new": 237769,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000700": 75,
+                "271000800": 37,
+                "271000900": 5,
+                "260000110": 20
+            }
+        },
+        "units": [100011827],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000515": {
+        "name": null,
+        "skill_id_old": 237900,
+        "skill_id_new": 237901,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 20,
+                "271000500": 10
+            }
+        },
+        "units": [203004207, 203004217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000516": {
+        "name": null,
+        "skill_id_old": 237901,
+        "skill_id_new": 237902,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 30,
+                "271000500": 20,
+                "260000120": 10
+            }
+        },
+        "units": [203004207, 203004217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000517": {
+        "name": null,
+        "skill_id_old": 237902,
+        "skill_id_new": 237903,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000400": 50,
+                "271000500": 30,
+                "271000600": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203004207, 203004217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000518": {
+        "name": null,
+        "skill_id_old": 237903,
+        "skill_id_new": 237904,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000400": 100,
+                "271000500": 50,
+                "271000600": 10,
+                "260000120": 30
+            }
+        },
+        "units": [203004207, 203004217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000519": {
+        "name": null,
+        "skill_id_old": 237916,
+        "skill_id_new": 237917,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 20,
+                "271000800": 10
+            }
+        },
+        "units": [203004207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000520": {
+        "name": null,
+        "skill_id_old": 237917,
+        "skill_id_new": 237918,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 30,
+                "271000800": 20,
+                "260000120": 10
+            }
+        },
+        "units": [203004207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000521": {
+        "name": null,
+        "skill_id_old": 237918,
+        "skill_id_new": 237919,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000700": 50,
+                "271000800": 30,
+                "271000900": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203004207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000522": {
+        "name": null,
+        "skill_id_old": 237919,
+        "skill_id_new": 237920,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000700": 100,
+                "271000800": 50,
+                "271000900": 10,
+                "260000120": 30
+            }
+        },
+        "units": [203004207],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000523": {
+        "name": null,
+        "skill_id_old": 237926,
+        "skill_id_new": 237927,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 20,
+                "271000200": 10
+            }
+        },
+        "units": [203004217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000524": {
+        "name": null,
+        "skill_id_old": 237927,
+        "skill_id_new": 237928,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 30,
+                "271000200": 20,
+                "260000120": 10
+            }
+        },
+        "units": [203004217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000525": {
+        "name": null,
+        "skill_id_old": 237928,
+        "skill_id_new": 237929,
+        "cost": {
+            "gil": 200000,
+            "materials": {
+                "271000100": 50,
+                "271000200": 30,
+                "271000300": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203004217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000526": {
+        "name": null,
+        "skill_id_old": 237929,
+        "skill_id_new": 237930,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "271000100": 100,
+                "271000200": 50,
+                "271000300": 10,
+                "260000120": 30
+            }
+        },
+        "units": [203004217],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000527": {
+        "name": null,
+        "skill_id_old": 237940,
+        "skill_id_new": 237941,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 15,
+                "271001700": 8
+            }
+        },
+        "units": [203001405, 203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000528": {
+        "name": null,
+        "skill_id_old": 237941,
+        "skill_id_new": 237942,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 20,
+                "271001700": 15,
+                "260000120": 10
+            }
+        },
+        "units": [203001405, 203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000529": {
+        "name": null,
+        "skill_id_old": 237942,
+        "skill_id_new": 237943,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001600": 35,
+                "271001700": 22,
+                "271001800": 3,
+                "260000120": 15
+            }
+        },
+        "units": [203001405, 203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000530": {
+        "name": null,
+        "skill_id_old": 237943,
+        "skill_id_new": 237944,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001600": 75,
+                "271001700": 37,
+                "271001800": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203001405, 203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000531": {
+        "name": null,
+        "skill_id_old": 237946,
+        "skill_id_new": 237947,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 15,
+                "271000800": 8
+            }
+        },
+        "units": [203001405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000532": {
+        "name": null,
+        "skill_id_old": 237947,
+        "skill_id_new": 237948,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000700": 20,
+                "271000800": 15,
+                "260000120": 10
+            }
+        },
+        "units": [203001405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000533": {
+        "name": null,
+        "skill_id_old": 237948,
+        "skill_id_new": 237949,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000700": 35,
+                "271000800": 22,
+                "271000900": 3,
+                "260000120": 15
+            }
+        },
+        "units": [203001405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000534": {
+        "name": null,
+        "skill_id_old": 237949,
+        "skill_id_new": 237950,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000700": 75,
+                "271000800": 37,
+                "271000900": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203001405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000535": {
+        "name": null,
+        "skill_id_old": 237954,
+        "skill_id_new": 237955,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 15,
+                "271000200": 8
+            }
+        },
+        "units": [203001405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000536": {
+        "name": null,
+        "skill_id_old": 237955,
+        "skill_id_new": 237956,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 20,
+                "271000200": 15,
+                "260000120": 10
+            }
+        },
+        "units": [203001405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000537": {
+        "name": null,
+        "skill_id_old": 237956,
+        "skill_id_new": 237957,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 35,
+                "271000200": 22,
+                "271000300": 3,
+                "260000120": 15
+            }
+        },
+        "units": [203001405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000538": {
+        "name": null,
+        "skill_id_old": 237957,
+        "skill_id_new": 237958,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000100": 75,
+                "271000200": 37,
+                "271000300": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203001405],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000539": {
+        "name": null,
+        "skill_id_old": 237960,
+        "skill_id_new": 237961,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 15,
+                "271001100": 8
+            }
+        },
+        "units": [203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000540": {
+        "name": null,
+        "skill_id_old": 237961,
+        "skill_id_new": 237962,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 20,
+                "271001100": 15,
+                "260000120": 10
+            }
+        },
+        "units": [203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000541": {
+        "name": null,
+        "skill_id_old": 237962,
+        "skill_id_new": 237963,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 35,
+                "271001100": 22,
+                "271001200": 3,
+                "260000120": 15
+            }
+        },
+        "units": [203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000542": {
+        "name": null,
+        "skill_id_old": 237963,
+        "skill_id_new": 237964,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001000": 75,
+                "271001100": 37,
+                "271001200": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000543": {
+        "name": null,
+        "skill_id_old": 237970,
+        "skill_id_new": 237971,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000400": 15,
+                "271000500": 8
+            }
+        },
+        "units": [203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000544": {
+        "name": null,
+        "skill_id_old": 237971,
+        "skill_id_new": 237972,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000400": 20,
+                "271000500": 15,
+                "260000120": 10
+            }
+        },
+        "units": [203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000545": {
+        "name": null,
+        "skill_id_old": 237972,
+        "skill_id_new": 237973,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 35,
+                "271000500": 22,
+                "271000600": 3,
+                "260000120": 15
+            }
+        },
+        "units": [203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000546": {
+        "name": null,
+        "skill_id_old": 237973,
+        "skill_id_new": 237974,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000400": 75,
+                "271000500": 37,
+                "271000600": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203001427],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000547": {
+        "name": null,
+        "skill_id_old": 237980,
+        "skill_id_new": 237981,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001300": 15,
+                "271001400": 8
+            }
+        },
+        "units": [203001305, 203001327],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000548": {
+        "name": null,
+        "skill_id_old": 237981,
+        "skill_id_new": 237982,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001300": 20,
+                "271001400": 15,
+                "260000120": 10
+            }
+        },
+        "units": [203001305, 203001327],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000549": {
+        "name": null,
+        "skill_id_old": 237982,
+        "skill_id_new": 237983,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001300": 35,
+                "271001400": 22,
+                "271001500": 3,
+                "260000120": 15
+            }
+        },
+        "units": [203001305, 203001327],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000550": {
+        "name": null,
+        "skill_id_old": 237983,
+        "skill_id_new": 237984,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001300": 75,
+                "271001400": 37,
+                "271001500": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203001305, 203001327],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000551": {
+        "name": null,
+        "skill_id_old": 237989,
+        "skill_id_new": 237990,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 15,
+                "271000200": 8
+            }
+        },
+        "units": [203001305],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000552": {
+        "name": null,
+        "skill_id_old": 237990,
+        "skill_id_new": 237991,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000100": 20,
+                "271000200": 15,
+                "260000120": 10
+            }
+        },
+        "units": [203001305],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000553": {
+        "name": null,
+        "skill_id_old": 237991,
+        "skill_id_new": 237992,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000100": 35,
+                "271000200": 22,
+                "271000300": 3,
+                "260000120": 15
+            }
+        },
+        "units": [203001305],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000554": {
+        "name": null,
+        "skill_id_old": 237992,
+        "skill_id_new": 237993,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000100": 75,
+                "271000200": 37,
+                "271000300": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203001305],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000555": {
+        "name": null,
+        "skill_id_old": 237998,
+        "skill_id_new": 237999,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000400": 15,
+                "271000500": 8
+            }
+        },
+        "units": [203001305],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000556": {
+        "name": null,
+        "skill_id_old": 237999,
+        "skill_id_new": 238000,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271000400": 20,
+                "271000500": 15,
+                "260000120": 10
+            }
+        },
+        "units": [203001305],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000557": {
+        "name": null,
+        "skill_id_old": 238000,
+        "skill_id_new": 238001,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271000400": 35,
+                "271000500": 22,
+                "271000600": 3,
+                "260000120": 15
+            }
+        },
+        "units": [203001305],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000558": {
+        "name": null,
+        "skill_id_old": 238001,
+        "skill_id_new": 238002,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271000400": 75,
+                "271000500": 37,
+                "271000600": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203001305],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000559": {
+        "name": null,
+        "skill_id_old": 238003,
+        "skill_id_new": 238004,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 15,
+                "271001100": 8
+            }
+        },
+        "units": [203001327],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000560": {
+        "name": null,
+        "skill_id_old": 238004,
+        "skill_id_new": 238005,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001000": 20,
+                "271001100": 15,
+                "260000120": 10
+            }
+        },
+        "units": [203001327],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000561": {
+        "name": null,
+        "skill_id_old": 238005,
+        "skill_id_new": 238006,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001000": 35,
+                "271001100": 22,
+                "271001200": 3,
+                "260000120": 15
+            }
+        },
+        "units": [203001327],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000562": {
+        "name": null,
+        "skill_id_old": 238006,
+        "skill_id_new": 238007,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001000": 75,
+                "271001100": 37,
+                "271001200": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203001327],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000563": {
+        "name": null,
+        "skill_id_old": 238012,
+        "skill_id_new": 238013,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 15,
+                "271001700": 8
+            }
+        },
+        "units": [203001327],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000564": {
+        "name": null,
+        "skill_id_old": 238013,
+        "skill_id_new": 238014,
+        "cost": {
+            "gil": 100000,
+            "materials": {
+                "271001600": 20,
+                "271001700": 15,
+                "260000120": 10
+            }
+        },
+        "units": [203001327],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000565": {
+        "name": null,
+        "skill_id_old": 238014,
+        "skill_id_new": 238015,
+        "cost": {
+            "gil": 150000,
+            "materials": {
+                "271001600": 35,
+                "271001700": 22,
+                "271001800": 3,
+                "260000120": 15
+            }
+        },
+        "units": [203001327],
+        "strings": {
+            "names": [null],
+            "description": [null]
+        }
+    },
+    "300000566": {
+        "name": null,
+        "skill_id_old": 238015,
+        "skill_id_new": 238016,
+        "cost": {
+            "gil": 300000,
+            "materials": {
+                "271001600": 75,
+                "271001700": 37,
+                "271001800": 5,
+                "260000120": 20
+            }
+        },
+        "units": [203001327],
         "strings": {
             "names": [null],
             "description": [null]

@@ -5275,7 +5275,7 @@
                 "6": "Menambahkan peluang untuk menyerang balik musuh ketika menerima serangan fisik.",
                 "2": "물리 공격을 받으면 일정 확률로 반격합니다.",
                 "7": "เพิ่ม\u001aโอกาส\u001aโจมตี\u001aสวน\u001aกลับ\u001aเมื่อ\u001aได้รับ\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001a",
-                "1": "受到物理攻擊時一定機率進行反擊。"
+                "1": "受到物理攻擊時一定機率發動反擊。"
             }
         }
     },
@@ -9939,7 +9939,7 @@
                 "6": "Meningkatkan peluang untuk menghindari beberapa serangan fisik dan menambahkan peluang untuk menyerang balik musuh ketika menerima serangan fisik.",
                 "2": "일정 확률로 물리 공격을 회피하고, 반격합니다.",
                 "7": "เพิ่ม\u001aโอกาส\u001aหลบ\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001aและ\u001aเพิ่ม\u001aโอกาส\u001aโจมตี\u001aสวน\u001aกลับ\u001a",
-                "1": "一定機率閃避物理攻擊並進行反擊。"
+                "1": "一定機率閃避物理攻擊並發動反擊。"
             }
         }
     },
@@ -19501,7 +19501,7 @@
             "names": {
                 "0": "Corrupt Emperor",
                 "4": "Der Peiniger",
-                "5": "c",
+                "5": "Emperador corrupto",
                 "3": "Empereur corrompu",
                 "6": "Kaisar Tak Bermoral",
                 "2": "배덕의 황제",
@@ -24416,7 +24416,7 @@
                 "6": "Meningkatkan ATK dan MAG sebanyak 40%, serta meningkatkan ATK dan MAG perlengkapan ketika 2 senjata satu tangan digunakan. Tidak dapat ditumpuk.",
                 "2": "공격력과 마력이 40% 상승하고, 한손용 무기 2개 장착 시 장비의 공격력과 마력이 상승합니다.(중복 장착 불가)",
                 "7": "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001a40% + เพิ่มค่า ATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
-                "1": "提高20%攻擊並提高50%魔力，裝備2把單手武器時武具攻擊提升。 [無法重複裝備]"
+                "1": "提高40%攻擊魔力，以及裝備2把單手武器時武具攻擊提升。[無法重複裝備]"
             }
         }
     },
@@ -35317,7 +35317,7 @@
                 "5": "Aumenta los PM un 50% y probabilidad de activar Contraéter al recibir un ataque físico o mágico (no acumulable)",
                 "3": "Augmente les PM de 50 % et confère une chance d'activer Éther-riposte en subissant une attaque physique ou magique (non cumulable)",
                 "6": "Meningkatkan MP sebanyak 50% dan peluang untuk mengaktifkan Ether Counter ketika menerima serangan fisik atau magic (Tidak dapat ditumpuk)",
-                "2": "MP 50% 상승+물리, 마법 공격을 받으면 일정 확률로 에테르 카운터' 발동 (중복 장착 불가)",
+                "2": "MP 50% 상승+물리, 마법 공격을 받으면 일정 확률로 '에테르 카운터' 발동 (중복 장착 불가)",
                 "7": "เพิ่มค่า\u001a \u001aMP\u001a \u001a50% + มีโอกาสใช้งาน Ability\u001a \u001aEther\u001a \u001aCounter\u001a \u001aเมื่อ\u001aได้รับ\u001aความเสียหาย\u001aทางกายภาพ\u001aหรือ\u001aพลัง\u001aเวทย์\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
                 "1": "提高50%MP+受到物理、魔法攻擊時一定機率發動「以太反擊」[無法重複裝備]"
             },
@@ -35365,7 +35365,16 @@
                 "7": "เพิ่มค่า\u001a \u001aDEF\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aHP\u001a \u001a10% \u001aเมื่อ\u001aสวม\u001aหมวก\u001aเกราะ\u001aหรือ\u001aชุด\u001aเกราะ\u001aหนัก\u001a",
                 "1": "提高40%防禦+裝備頭盔重鎧甲時提高10%HP"
             },
-            "desc_long": [null]
+            "desc_long": {
+                "0": "Boosts DEF by 40%, and boosts HP by 10% when equipped with a helm or heavy armor.",
+                "4": "Erhöht ABW um 40% und erhöht LP 10%, wenn mit einem Helm oder einer schweren Rüstung ausgerüstet.",
+                "5": "Aumenta la DEF un 40%, y aumenta la VIT un 10% al llevar casco o armadura pesada.",
+                "3": "Augmente la DEF de 40 % et augmente les PV de 10 % quand une armure lourde ou un casque est équipé.",
+                "6": "Meningkatkan DEF sebanyak 40% dan meningkatkan HP sebanyak 10% ketika helm atau armor kelas berat digunakan.",
+                "2": "방어력이 40% 상승하고, 투구 또는 중갑 장착 시 HP가 10% 상승합니다.",
+                "7": "เพิ่มค่า\u001a \u001aDEF\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aHP\u001a \u001a10% \u001aเมื่อ\u001aสวม\u001aหมวก\u001aเกราะ\u001aหรือ\u001aชุด\u001aเกราะ\u001aหนัก\u001a",
+                "1": "提高40%防禦，並且裝備頭盔重鎧甲時提高10%HP。"
+            }
         }
     },
     "504236895": {
@@ -35400,16 +35409,269 @@
                 "7": "เพิ่มค่า\u001a \u001aHP\u001a \u001a15%,\u001a \u001aMP\u001a \u001a30% \u001aและ\u001a \u001aSPR\u001a \u001a10%",
                 "1": "提高15%HP、30%MP、10%精神"
             },
-            "desc_long": [null]
+            "desc_long": {
+                "0": "Boosts HP by 15%, MP by 30%, and SPR by 10%.",
+                "4": "Erhöht LP um 15%, MP um 30% und PSY um 10%.",
+                "5": "Aumenta la VIT un 15%, los PM un 30% y el ESP un 10%.",
+                "3": "Augmente les PV de 15 %, les PM de 30 % et la PSY de 10 %.",
+                "6": "Meningkatkan HP sebanyak 15%, MP sebanyak 30%, dan SPR sebanyak 10%.",
+                "2": "HP가 15%, MP가 30%, 정신력이 10% 상승합니다.",
+                "7": "เพิ่มค่า\u001a \u001aHP\u001a \u001a15%,\u001a \u001aMP\u001a \u001a30% \u001aและ\u001a \u001aSPR\u001a \u001a10%",
+                "1": "提高15%HP、30%MP、10%精神。"
+            }
         }
     },
     "504237060": {
-        "name": "のばらの義士",
+        "name": "Thorns of the Rose",
         "compendium_id": 1179,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237060],
-        "effects": ["Grants 'のばらの義士' passive."],
+        "effects": ["Grants 'Thorns of the Rose' passive."],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_95.png",
+        "strings": {
+            "names": {
+                "0": "Thorns of the Rose",
+                "4": "Rose der Gerechtigkeit",
+                "5": "La rosa de la justicia",
+                "3": "Rose de la justice",
+                "6": "Mawar Keadilan",
+                "2": "들장미의 열사",
+                "7": "กุหลาบ\u001aป่า\u001aผู้\u001aเที่ยงธรรม\u001a",
+                "1": "野玫瑰義士"
+            },
+            "desc_short": {
+                "0": "Boost ATK by 30% when equipped with a sword, axe, or spear, and boost ATK by 60% when equipped with a bow (Not stackable)",
+                "4": "Erhöht ANG um 30%, wenn mit einem Schwert, einer Axt oder einem Speer ausgerüstet, und erhöht ANG um 60%, wenn mit einem Bogen ausgerüstet (Nicht stapelbar).",
+                "5": "Aumenta el ATQ un 30% al llevar espada, hacha o lanza, y lo aumenta un 60% al llevar arco (no acumulable)",
+                "3": "Augmente l'ATT de 30 % quand une épée, une hache ou une lance est équipée, et augmente l'ATT de 60 % quand un arc est équipé (non cumulable)",
+                "6": "Meningkatkan ATK sebanyak 30% ketika pedang, kapak, atau tombak digunakan, dan meningkatkan ATK sebanyak 60% ketika busur digunakan (Tidak dapat ditumpuk)",
+                "2": "검, 도끼 또는 창 장착 시 공격력 30% 상승+활 장착 시 공격력 60% 상승 (중복 장착 불가)",
+                "7": "เพิ่มค่า\u001a \u001aATK\u001a \u001a30% เมื่อถือดาบ, ขวานหรือหอก + เพิ่มค่า ATK\u001a \u001a60% \u001aเมื่อ\u001aถือ\u001aธนู\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
+                "1": "裝備劍斧長槍時提高30%攻擊+裝備弓時提高60%攻擊[無法重複裝備]"
+            },
+            "desc_long": {
+                "0": "Boosts ATK by 30% when equipped with a sword, axe, or spear, and boosts ATK by 60% when equipped with a bow. Not stackable.",
+                "4": "Erhöht ANG um 30%, wenn mit einem Schwert, einer Axt oder einem Speer ausgerüstet und erhöht ANG um 60%, wenn mit einem Bogen ausgerüstet (Nicht stapelbar).",
+                "5": "Aumenta el ATQ un 30% al llevar espada, hacha o lanza, y lo aumenta un 60% al llevar arco. No acumulable.",
+                "3": "Augmente l'ATT de 30 % quand une épée, une hache ou une lance est équipée, et augmente l'ATT de 60 % quand un arc est équipé. Non cumulable.",
+                "6": "Meningkatkan ATK sebanyak 30% ketika pedang, kapak, atau tombak digunakan, dan meningkatkan ATK sebanyak 60% ketika busur digunakan. Tidak dapat ditumpuk.",
+                "2": "검, 도끼 또는 창 장착 시 공격력이 30% 상승하고, 활 장착 시 공격력이 60% 상승합니다. (중복 장착 불가)",
+                "7": "เพิ่มค่า\u001a \u001aATK\u001a \u001a30% เมื่อถือดาบ, ขวานหรือหอก + เพิ่มค่า ATK\u001a \u001a60% \u001aเมื่อ\u001aถือ\u001aธนู\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
+                "1": "裝備劍斧長槍時提高30%攻擊，並且裝備弓時提高60%攻擊。[無法重複裝備]"
+            }
+        }
+    },
+    "504237063": {
+        "name": "Determined to Defeat the Empire",
+        "compendium_id": 1180,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237063],
+        "effects": ["Grants 'Determined to Defeat the Empire' passive."],
+        "unique": true,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_19.png",
+        "strings": {
+            "names": {
+                "0": "Determined to Defeat the Empire",
+                "4": "Entschlossen, das Imperium zu besiegen",
+                "5": "Decidida a derrotar al Imperio",
+                "3": "Détermination face à l'Empire",
+                "6": "Tekad untuk Mengalahkan Kekaisaran",
+                "2": "제국을 이기겠다는 의지",
+                "7": "มุ่งมั่น\u001aพิชิต\u001aจักรวรรดิ\u001a",
+                "1": "擊敗帝國的意志"
+            },
+            "desc_short": {
+                "0": "Boost DEF and SPR by 40%, nullify poison, blind, sleep, silence, paralysis, confusion, disease, and stone, and boost LB gauge fill rate (Not stackable)",
+                "4": "Erhöht ABW und PSY um 40%, annulliert Gift, Blind, Schlaf, Stille, Lähmung, Konfus, Virus sowie Stein und Limitmeter füllt sich schneller (Nicht stapelbar).",
+                "5": "Aumenta la DEF y el ESP un 40%, anula veneno, ceguera, sueño, silencio, parálisis, confusión, enfermedad y piedra, y la barra de EL se rellena más rápido (no acumulable)",
+                "3": "Augmente la DEF et la PSY de 40 %, annule poison, cécité, sommeil, silence, paralysie, confusion, maladie et pétrification, et augmente le taux de remplissage de la limite (non cumulable)",
+                "6": "Meningkatkan DEF dan SPR sebanyak 40%, menihilkan status poison, blind, sleep, silence, paralyze, confuse, disease, dan petrify, serta meningkatkan kecepatan pengisian bar LB (Tidak dapat ditumpuk)",
+                "2": "방어력과 정신력 40% 상승+독, 암흑, 수면, 침묵, 마비, 혼란, 질병, 석화 무효화+LB 게이지 효율 상승 (중복 장착 불가)",
+                "7": "เพิ่มค่า\u001a \u001aDEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a40% + ยกเลิกสถานะ Poison\u001a,\u001a \u001aBlind\u001a,\u001a \u001aSleep\u001a,\u001a \u001aSilence\u001a,\u001a \u001aParalyze\u001a,\u001a \u001aConfuse\u001a,\u001a \u001aDisease\u001a \u001aและ\u001a \u001aStone\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aFill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
+                "1": "提高40%防禦精神+中毒失明睡眠沉默麻痺混亂生病石化無效+提高極限技石對極限技槽的增加量[無法重複裝備]"
+            },
+            "desc_long": {
+                "0": "Boosts DEF and SPR by 40%, nullifies poison, blind, sleep, silence, paralysis, confusion, disease, and stone, and boosts LB gauge fill rate. Not stackable.",
+                "4": "Erhöht ABW und PSY um 40%, annulliert Gift, Blind, Schlaf, Stille, Lähmung, Konfus, Virus sowie Stein und Limitmeter füllt sich schneller (Nicht stapelbar).",
+                "5": "Aumenta la DEF y el ESP un 40%, anula veneno, ceguera, sueño, silencio, parálisis, confusión, enfermedad y piedra, y la barra de EL se rellena más rápido. No acumulable.",
+                "3": "Augmente la DEF et la PSY de 40 %, annule poison, cécité, sommeil, silence, paralysie, confusion, maladie et pétrification, et augmente le taux de remplissage de la limite. Non cumulable.",
+                "6": "Meningkatkan DEF dan SPR sebanyak 40%, menihilkan status poison, blind, sleep, silence, paralyze, confuse, disease, dan petrify, serta meningkatkan kecepatan pengisian bar LB. Tidak dapat ditumpuk.",
+                "2": "방어력과 정신력이 40% 상승하고, 독, 암흑, 수면, 침묵, 마비, 혼란, 질병, 석화을 무효화하며, LB 게이지 효율이 상승합니다. (중복 장착 불가)",
+                "7": "เพิ่มค่า\u001a \u001aDEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a40% + ยกเลิกสถานะ Poison\u001a,\u001a \u001aBlind\u001a,\u001a \u001aSleep\u001a,\u001a \u001aSilence\u001a,\u001a \u001aParalyze\u001a,\u001a \u001aConfuse\u001a,\u001a \u001aDisease\u001a \u001aและ\u001a \u001aStone\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aFill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
+                "1": "提高40%防禦精神，並且中毒失明睡眠沉默麻痺混亂生病石化無效，以及提高極限技石對極限技槽的增加量。[無法重複裝備]"
+            }
+        }
+    },
+    "504237065": {
+        "name": "Ultimate Seeker of Magic",
+        "compendium_id": 1181,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237065],
+        "effects": ["Grants 'Ultimate Seeker of Magic' passive."],
+        "unique": true,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_95.png",
+        "strings": {
+            "names": {
+                "0": "Ultimate Seeker of Magic",
+                "4": "Sucher der ultimativen Magie",
+                "5": "Inquisidor de magia definitivo",
+                "3": "En quête de la magie ultime",
+                "6": "Pencari Magic Terkuat",
+                "2": "궁극 마법의 구도자",
+                "7": "ผู้\u001aเสาะหา\u001aเวทย์\u001aสุดขั้ว\u001a",
+                "1": "究極魔法的求道者"
+            },
+            "desc_short": {
+                "0": "Boost MP and SPR by 20%, fill LB gauge every turn, and boost SPR by 30% when equipped with a staff (Not stackable)",
+                "4": "Erhöht MP sowie PSY um 20%, füllt jede Runde Limitmeter und erhöht PSY um 30%, wenn mit einer Rute ausgerüstet (Nicht stapelbar).",
+                "5": "Aumenta los PM y el ESP un 20%, rellena la barra de EL cada turno, y aumenta el ESP un 30% al llevar bastón (no acumulable)",
+                "3": "Augmente les PM et la PSY de 20 %, remplit la jauge de limite à chaque tour, et augmente la PSY de 30 % quand un bâton est équipé (non cumulable)",
+                "6": "Meningkatkan MP dan SPR sebanyak 20%, mengisi bar LB setiap giliran, dan meningkatkan SPR sebanyak 30% ketika staff digunakan (Tidak dapat ditumpuk)",
+                "2": "MP와 정신력 20% 상승+매 턴마다 LB 게이지 증가+지팡이 장착 시 정신력 30% 상승 (중복 장착 불가)",
+                "7": "เพิ่มค่า\u001a \u001aMP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a20% + เติม LB Gauge\u001a \u001aทุก\u001aเทิร์น\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aSPR\u001a \u001a30% \u001aเมื่อ\u001aถือ\u001aไม้เท้า\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
+                "1": "提高20%MP精神+每回合增加極限技槽+裝備手杖時提高30%精神[無法重複裝備]"
+            },
+            "desc_long": {
+                "0": "Boosts MP and SPR by 20%, fills LB gauge every turn, and boosts SPR by 30% when equipped with a staff. Not stackable.",
+                "4": "Erhöht MP sowie PSY um 20%, füllt jede Runde Limitmeter und erhöht PSY um 30%, wenn mit einer Rute ausgerüstet (Nicht stapelbar).",
+                "5": "Aumenta los PM y el ESP un 20%, rellena la barra de EL cada turno, y aumenta el ESP un 30% al llevar bastón. No acumulable.",
+                "3": "Augmente les PM et la PSY de 20 %, remplit la jauge de limite à chaque tour, et augmente la PSY de 30 % quand un bâton est équipé. Non cumulable.",
+                "6": "Meningkatkan MP dan SPR sebanyak 20%, mengisi bar LB setiap giliran, dan meningkatkan SPR sebanyak 30% ketika staff digunakan.",
+                "2": "MP와 정신력이 20% 상승하고, 매 턴마다 LB 게이지가 증가하며, 지팡이 장착 시 정신력이 30% 상승합니다. (중복 장착 불가)",
+                "7": "เพิ่มค่า\u001a \u001aMP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a20% + เติม LB Gauge\u001a \u001aทุก\u001aเทิร์น\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aSPR\u001a \u001a30% \u001aเมื่อ\u001aถือ\u001aไม้เท้า\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
+                "1": "提高20%MP精神，並且每回合增加極限技槽，以及裝備手杖時提高30%精神。[無法重複裝備]"
+            }
+        }
+    },
+    "504237067": {
+        "name": "Rebel's Volition",
+        "compendium_id": 1182,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237067],
+        "effects": ["Grants 'Rebel's Volition' passive."],
+        "unique": true,
+        "price_buy": 50000,
+        "price_sell": 5000,
+        "icon": "ability_95.png",
+        "strings": {
+            "names": {
+                "0": "Rebel's Volition",
+                "4": "Willenskraft der Rebellen",
+                "5": "Voluntad rebelde",
+                "3": "Volonté de rebelle",
+                "6": "Kehendak Pemberontak",
+                "2": "반란군의 의지",
+                "7": "เจตนารมณ์\u001aกองทัพ\u001aกบฏ\u001a",
+                "1": "反叛軍的意志"
+            },
+            "desc_short": {
+                "0": "Boost ATK and SPR by 40% when equipped with a bow (Not stackable)",
+                "4": "Erhöht ANG sowie PSY um 40%, wenn mit einem Bogen ausgerüstet.",
+                "5": "Aumenta el ATQ y el ESP un 40% al llevar arco (nicht stapelbar).",
+                "3": "Augmente l'ATT et la PSY de 40 % quand un arc est équipé (non cumulable)",
+                "6": "Meningkatkan ATK dan SPR sebanyak 40% ketika busur digunakan (Tidak dapat ditumpuk)",
+                "2": "활 장착 시 공격력과 정신력 40% 상승 (중복 장착 불가)",
+                "7": "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aSPR\u001a \u001a40% \u001aเมื่อ\u001aถือ\u001aธนู\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
+                "1": "裝備弓時提高40%攻擊精神 [無法重複裝備]"
+            },
+            "desc_long": {
+                "0": "Boosts ATK and SPR by 40% when equipped with a bow.  Not stackable.",
+                "4": "Erhöht ANG sowie PSY um 40%, wenn mit einem Bogen ausgerüstet. Nicht stapelbar.",
+                "5": "Aumenta el ATQ y el ESP un 40% al llevar arco. No acumulable.",
+                "3": "Augmente l'ATT et la PSY de 40 % quand un arc est équipé. Non cumulable.",
+                "6": "Meningkatkan ATK dan SPR sebanyak 40% ketika busur digunakan. Tidak dapat ditumpuk.",
+                "2": "활을 장착하면 공격력과 정신력이 40% 상승합니다. (중복 장착 불가)",
+                "7": "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aSPR\u001a \u001a40% \u001aเมื่อ\u001aถือ\u001aธนู\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
+                "1": "裝備弓時提高40%攻擊精神。[無法重複裝備]"
+            }
+        }
+    },
+    "504237240": {
+        "name": "海で遊ぼう！",
+        "compendium_id": 1183,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237240],
+        "effects": ["Grants '海で遊ぼう！' passive."],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_18.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237242": {
+        "name": "パズル同好会メンバー",
+        "compendium_id": 1184,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237242],
+        "effects": ["Grants 'パズル同好会メンバー' passive."],
+        "unique": false,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_76.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237246": {
+        "name": "スプーキーブレイカー",
+        "compendium_id": 1185,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237246],
+        "effects": ["Grants 'スプーキーブレイカー' passive."],
+        "unique": false,
+        "price_buy": 15000,
+        "price_sell": 1500,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237400": {
+        "name": "煌技の基礎",
+        "compendium_id": 1186,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237400],
+        "effects": ["Grants '煌技の基礎' passive."],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_72.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237402": {
+        "name": "炎のパワフルバトラー",
+        "compendium_id": 1187,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237402],
+        "effects": ["Grants '炎のパワフルバトラー' passive."],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
@@ -35420,33 +35682,16 @@
             "desc_long": [null]
         }
     },
-    "504237063": {
-        "name": "帝国に打ち勝つ意志",
-        "compendium_id": 1180,
+    "504237404": {
+        "name": "風を連れた女執事",
+        "compendium_id": 1188,
         "compendium_shown": true,
         "unit_restriction": null,
-        "skills": [237063],
-        "effects": ["Grants '帝国に打ち勝つ意志' passive."],
+        "skills": [237404],
+        "effects": ["Grants '風を連れた女執事' passive."],
         "unique": false,
-        "price_buy": 200000,
-        "price_sell": 20000,
-        "icon": "ability_19.png",
-        "strings": {
-            "names": [null],
-            "desc_short": [null],
-            "desc_long": [null]
-        }
-    },
-    "504237065": {
-        "name": "究極魔法の求道者",
-        "compendium_id": 1181,
-        "compendium_shown": true,
-        "unit_restriction": null,
-        "skills": [237065],
-        "effects": ["Grants '究極魔法の求道者' passive."],
-        "unique": false,
-        "price_buy": 200000,
-        "price_sell": 20000,
+        "price_buy": 100000,
+        "price_sell": 10000,
         "icon": "ability_95.png",
         "strings": {
             "names": [null],
@@ -35454,17 +35699,357 @@
             "desc_long": [null]
         }
     },
-    "504237067": {
-        "name": "反乱軍の意志",
-        "compendium_id": 1182,
+    "504237410": {
+        "name": "おんねんが渦巻く",
+        "compendium_id": 1191,
         "compendium_shown": true,
         "unit_restriction": null,
-        "skills": [237067],
-        "effects": ["Grants '反乱軍の意志' passive."],
+        "skills": [237410],
+        "effects": ["Grants 'おんねんが渦巻く' ability."],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_43.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237411": {
+        "name": "うらみのパワー",
+        "compendium_id": 1192,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237411],
+        "effects": ["Grants 'うらみのパワー' passive."],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_95.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237412": {
+        "name": "浪漫を求める者",
+        "compendium_id": 1189,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237412],
+        "effects": ["Grants '浪漫を求める者' passive."],
         "unique": false,
         "price_buy": 50000,
         "price_sell": 5000,
         "icon": "ability_95.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237413": {
+        "name": "ストーンスクワッシュ",
+        "compendium_id": 1190,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237413],
+        "effects": ["Grants 'ストーンスクワッシュ' passive."],
+        "unique": false,
+        "price_buy": 50000,
+        "price_sell": 5000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237541": {
+        "name": "光の守護者【ソラ】",
+        "compendium_id": 1193,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237541],
+        "effects": ["Grants '光の守護者【ソラ】' passive."],
+        "unique": false,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237543": {
+        "name": "光の守護者【リク】",
+        "compendium_id": 1194,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237543],
+        "effects": ["Grants '光の守護者【リク】' passive."],
+        "unique": false,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_72.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237545": {
+        "name": "光の守護者【カイリ】",
+        "compendium_id": 1195,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237545],
+        "effects": ["Grants '光の守護者【カイリ】' passive."],
+        "unique": false,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_91.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237547": {
+        "name": "好奇心旺盛な少年",
+        "compendium_id": 1196,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237547],
+        "effects": ["Grants '好奇心旺盛な少年' passive."],
+        "unique": false,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_9.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237549": {
+        "name": "オートバーサク",
+        "compendium_id": 1197,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237549],
+        "effects": ["Grants 'オートバーサク' passive."],
+        "unique": false,
+        "price_buy": 15000,
+        "price_sell": 1500,
+        "icon": "ability_41.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237710": {
+        "name": "火氷防衛陣",
+        "compendium_id": 1198,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237710],
+        "effects": ["Grants '火氷防衛陣' passive."],
+        "unique": false,
+        "price_buy": 8000,
+        "price_sell": 800,
+        "icon": "ability_9.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237711": {
+        "name": "風土防衛陣",
+        "compendium_id": 1199,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237711],
+        "effects": ["Grants '風土防衛陣' passive."],
+        "unique": false,
+        "price_buy": 8000,
+        "price_sell": 800,
+        "icon": "ability_9.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237712": {
+        "name": "雷水防衛陣",
+        "compendium_id": 1200,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237712],
+        "effects": ["Grants '雷水防衛陣' passive."],
+        "unique": false,
+        "price_buy": 8000,
+        "price_sell": 800,
+        "icon": "ability_9.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237713": {
+        "name": "光闇防衛陣",
+        "compendium_id": 1201,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237713],
+        "effects": ["Grants '光闇防衛陣' passive."],
+        "unique": false,
+        "price_buy": 8000,
+        "price_sell": 800,
+        "icon": "ability_9.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237720": {
+        "name": "敏腕新人ガンナー",
+        "compendium_id": 1202,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237720],
+        "effects": ["Grants '敏腕新人ガンナー' passive."],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_95.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237721": {
+        "name": "砂嵐を耐える盾技",
+        "compendium_id": 1203,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237721],
+        "effects": ["Grants '砂嵐を耐える盾技' passive."],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_95.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237725": {
+        "name": "グランシェルトの新人騎士",
+        "compendium_id": 1204,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237725],
+        "effects": ["Grants 'グランシェルトの新人騎士' passive."],
+        "unique": false,
+        "price_buy": 15000,
+        "price_sell": 1500,
+        "icon": "ability_95.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237880": {
+        "name": "風のクリスタルに選ばれし者",
+        "compendium_id": 1205,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237880],
+        "effects": ["Grants '風のクリスタルに選ばれし者' passive."],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237882": {
+        "name": "黒魔道師の心得",
+        "compendium_id": 1206,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237882],
+        "effects": ["Grants '黒魔道師の心得' passive."],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_95.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237887": {
+        "name": "ツインソードの使い手",
+        "compendium_id": 1207,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237887],
+        "effects": ["Grants 'ツインソードの使い手' passive."],
+        "unique": false,
+        "price_buy": 50000,
+        "price_sell": 5000,
+        "icon": "ability_72.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237888": {
+        "name": "託された光",
+        "compendium_id": 1208,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237888],
+        "effects": ["Grants '託された光' passive."],
+        "unique": false,
+        "price_buy": 50000,
+        "price_sell": 5000,
+        "icon": "ability_9.png",
+        "strings": {
+            "names": [null],
+            "desc_short": [null],
+            "desc_long": [null]
+        }
+    },
+    "504237889": {
+        "name": "死霊の恐怖に打ち勝つ者",
+        "compendium_id": 1209,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [237889],
+        "effects": ["Grants '死霊の恐怖に打ち勝つ者' passive."],
+        "unique": false,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_79.png",
         "strings": {
             "names": [null],
             "desc_short": [null],
@@ -39082,7 +39667,7 @@
         "strings": {
             "names": {
                 "0": "Grim Brilliance",
-                "4": "Grimmige Brillianz",
+                "4": "Grimmige Brillanz",
                 "5": "Destello sombrío",
                 "3": "Sombre éclat",
                 "6": "Sinar Kelam",
@@ -39104,7 +39689,7 @@
                 "0": "Boosts HP and MP by 20%, and boosts equipment MAG and equipment SPR when a single weapon is equipped in both hands. Not Stackable.",
                 "4": "Erhöht LP und MP um 20% und erhöht Ausrüstung-MAG und Ausrüstung-PSY wenn eine einzelne Waffe in beiden Händen ausgerüstet ist. Nicht stapelbar.",
                 "5": "Aumenta la VIT y los PM un 20%, y aumenta MAG y el ESP del equipo al llevar una sola arma en las dos manos (no acumulable).",
-                "3": "Augmente les PV et PM de 20%, et la MAGIE et la PSY de l'équipement lorsqu'une arme est tenue avec les deux mains. Non cumulable.",
+                "3": "Augmente les PV et PM de 20%, et la MAGIE et la PSY de l'équipement quand une arme est tenue avec les deux mains. Non cumulable.",
                 "6": "Meningkatkan HP dan MP sebanyak 20%, serta meningkatkan MAG dan SPR perlengkapan ketika 1 senjata digunakan dengan kedua tangan. Tidak dapat ditumpuk.",
                 "2": "HP와 MP가 20% 상승하고, 양손의 장비가 무기 1개일 경우 장비의 마력과 정신력이 상승합니다. (중복 장착 불가)",
                 "7": "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a20% + เพิ่มค่า MAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
