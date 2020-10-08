@@ -1652,7 +1652,7 @@ function updateUnitStats() {
         $(".buildLinks").removeClass("hidden");
         $("#buildResult").removeClass("hidden");
         
-        $("#unitLink").prop("href",toUrl((builds[currentUnitIndex].unit.wikiEntry ? builds[currentUnitIndex].unit.wikiEntry : builds[currentUnitIndex].unit.name)));
+        $("#unitLink").prop("href",builds[currentUnitIndex].unit.wikiEntry ? toUrl(builds[currentUnitIndex].unit.wikiEntry) : toUnitUrl(builds[currentUnitIndex].unit));
         $("#unitLink").removeClass("hidden");
     } else {
         $("#unitTabs .tab_" + currentUnitIndex + " a").html("Select unit");

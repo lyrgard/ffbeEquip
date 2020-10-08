@@ -305,7 +305,16 @@ function getExclusiveUnitsHtml(item) {
 }
 
 function toUnitLink(unit) {
-    return '<a href="' + toUrl(unit.name) + '" target="_blank" class="unitLink" rel="noreferrer" onclick="event.stopPropagation();" title="' + unit.name + '"><img src="' + getMaxRarityUnitIcon(unit) + '"/></a>'
+
+    return '<a href="' + toUnitUrl(unit) + '" target="_blank" class="unitLink" rel="noreferrer" onclick="event.stopPropagation();" title="' + unit.name + '"><img src="' + getMaxRarityUnitIcon(unit) + '"/></a>'
+}
+
+function toUnitUrl(unit) {
+    let name = unit.name;
+    if (unit.name.endsWith(" BS")) {
+        name = name.substr(0, name.length - 3) + '#Brave_Shift';
+    }
+    return toUrl(name);
 }
 
 function getMaxRarityUnitIcon(unit) {
