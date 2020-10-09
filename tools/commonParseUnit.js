@@ -2107,7 +2107,7 @@ function formatSimpleOutput(units) {
 }
 
 function getUnitBasicInfo(unit, prefix = "", form = null) {
-    var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name.replace(/"/g, '\\"').replace(/ - Brave Shifted/g, "") + (unit.braveShifted ? " BS" : '') + "\",";
+    var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name.replace(/"/g, '\\"').replace(/ - Brave Shifted/g, "").replace(/ BS$/g, "") + (unit.braveShifted ? " BS" : '') + "\",";
     if (unit.jpname) {
         result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname.replace(/"/g, '\\"').replace(/ - Brave Shifted/g, "") + (unit.braveShifted ? " BS" : '') + "\",";
     }
