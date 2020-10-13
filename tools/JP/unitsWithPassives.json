@@ -8634,18 +8634,24 @@
 		"name":"Untamed Wolf Edel",
 		"jpname":"魔狼マダム・エーデル",
 		"id":"100027805",
-		"max_rarity":"7",
+		"braveShift":"100027827",
+		"exAwakening": [{"hp":625,"mp":32,"atk":30,"def":25,"mag":18,"spr":24},{"hp":481,"mp":24,"atk":23,"def":19,"mag":14,"spr":18},{"hp":336,"mp":17,"atk":16,"def":13,"mag":10,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4812,"mp":248,"atk":210,"def":194,"mag":146,"spr":188},
-			"minStats":{"hp":1588,"mp":82,"atk":69,"def":64,"mag":48,"spr":62},
+			"maxStats":{"hp":4812,"mp":248,"atk":231,"def":194,"mag":146,"spr":188},
+			"minStats":{"hp":1588,"mp":82,"atk":76,"def":64,"mag":48,"spr":62},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["フェンリルとの盟約"],
+		"enhancements": [
+			{"name":"フェンリルとの盟約","levels":[[{"atk":400,"skillEnhancement":{"233673":10,"233674":10,"233681":5,"510954":10}}],[{"atk":425,"skillEnhancement":{"233673":10,"233674":10,"233681":5,"510954":10}}],[{"atk":450,"skillEnhancement":{"233673":15,"233674":15,"233681":7.5,"510954":15}}],[{"atk":475,"skillEnhancement":{"233673":15,"233674":15,"233681":7.5,"510954":15}}],[{"atk":500,"skillEnhancement":{"233673":20,"233674":20,"233681":10,"510954":20}}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":80, "def%":30, "dualWielding":{"atk":50}, "improvedDW":true, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"dark","percent":50},{"name":"charm","percent":100}], "killers":[{"name":"beast","physical":50}], "mpRefresh":7, "esperStatsBonus":{"Fenrir":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "special":["dualWield"]},
+			{"hp%":20, "mp%":20, "atk%":80, "def%":30, "dualWielding":{"atk":50}, "improvedDW":true, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"dark","percent":50},{"name":"charm","percent":100}], "killers":[{"name":"beast","physical":50}], "mpRefresh":7, "lbDamage":150, "esperStatsBonus":{"Fenrir":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "special":["dualWield"]},
 			{"hp%":20, "mp%":20, "equipedConditions":["gun"]},
 			{"spr%":20, "equipedConditions":["fist"]},
 			{"atk%":30, "def%":30, "spr%":30, "dualWielding":{"atk":50}, "killers":[{"name":"beast","physical":50}], "equipedConditions":[["403049800","504233569"]]},
@@ -8667,12 +8673,63 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["フェンリルとの盟約"],
 			"skills": [
 				{"hp%":20, "mp%":20, "atk%":80, "def%":30, "dualWielding":{"atk":50}, "improvedDW":true, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"dark","percent":50},{"name":"charm","percent":100}], "killers":[{"name":"beast","physical":50}], "mpRefresh":7, "esperStatsBonus":{"Fenrir":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "special":["dualWield"]},
 				{"hp%":20, "mp%":20, "equipedConditions":["gun"]},
 				{"spr%":20, "equipedConditions":["fist"]}
 			]
+		},
+		"7_form": {
+			"name":"Untamed Wolf Edel",
+			"jpname":"魔狼マダム・エーデル",
+			"id":"100027805",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4812,"mp":248,"atk":210,"def":194,"mag":146,"spr":188},
+				"minStats":{"hp":1588,"mp":82,"atk":69,"def":64,"mag":48,"spr":62},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["フェンリルとの盟約"],
+			"skills": [
+				{"hp%":20, "mp%":20, "atk%":80, "def%":30, "dualWielding":{"atk":50}, "improvedDW":true, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"dark","percent":50},{"name":"charm","percent":100}], "killers":[{"name":"beast","physical":50}], "mpRefresh":7, "esperStatsBonus":{"Fenrir":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "special":["dualWield"]},
+				{"hp%":20, "mp%":20, "equipedConditions":["gun"]},
+				{"spr%":20, "equipedConditions":["fist"]},
+				{"atk%":30, "def%":30, "spr%":30, "dualWielding":{"atk":50}, "killers":[{"name":"beast","physical":50}], "equipedConditions":[["403049800","504233569"]]},
+				{"hp%":20, "levelCondition":115},
+				{"atk%":50, "killers":[{"name":"beast","physical":50}], "levelCondition":120}
+			]
 		}
+	},
+	"100027827": {
+		"name":"Untamed Wolf Edel BS",
+		"jpname":"魔狼マダム・エーデル BS",
+		"id":"100027827",
+		"braveShifted":"100027805",
+		"exAwakening": [{"hp":625,"mp":32,"atk":30,"def":25,"mag":18,"spr":24},{"hp":481,"mp":24,"atk":23,"def":19,"mag":14,"spr":18},{"hp":336,"mp":17,"atk":16,"def":13,"mag":10,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5294,"mp":273,"atk":189,"def":175,"mag":234,"spr":170},
+			"minStats":{"hp":1747,"mp":90,"atk":62,"def":58,"mag":77,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","rod","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["煌技・風魔尾弾","魔狼の魔力"],
+		"enhancements": [
+			{"name":"魔狼の魔力","levels":[[{"mag":300}],[{"mag":350}],[{"mag":400}],[{"mag":450}],[{"mag":500}]]}
+		],
+		"skills": [
+			{"hp%":70, "mp%":60, "mag%":190, "evoMag":140, "evokeDamageBoost":{"all":30}, "dualWielding":{"mag":150}, "improvedDW":true, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"dark","percent":50}], "mpRefresh":7, "lbDamage":150, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "special":["dualWield"]},
+			{"mag":500, "equipedConditions":[["403049800","504233569"]]}
+		]
 	},
 	"100027905": {
 		"name":"Four Winds Physalis",

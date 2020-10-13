@@ -6077,16 +6077,19 @@
 		"name":"Untamed Wolf Edel",
 		"jpname":"魔狼マダム・エーデル",
 		"id":"100027805",
-		"max_rarity":"7",
+		"braveShift":"100027827",
+		"exAwakening": [{"hp":625,"mp":32,"atk":30,"def":25,"mag":18,"spr":24},{"hp":481,"mp":24,"atk":23,"def":19,"mag":14,"spr":18},{"hp":336,"mp":17,"atk":16,"def":13,"mag":10,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4812,"mp":248,"atk":210,"def":194,"mag":146,"spr":188},
-			"minStats":{"hp":1588,"mp":82,"atk":69,"def":64,"mag":48,"spr":62},
+			"maxStats":{"hp":4812,"mp":248,"atk":231,"def":194,"mag":146,"spr":188},
+			"minStats":{"hp":1588,"mp":82,"atk":76,"def":64,"mag":48,"spr":62},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["フェンリルとの盟約"],
 		"6_form": {
 			"name":"Untamed Wolf Edel",
 			"jpname":"魔狼マダム・エーデル",
@@ -6101,8 +6104,44 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["フェンリルとの盟約"]
+		},
+		"7_form": {
+			"name":"Untamed Wolf Edel",
+			"jpname":"魔狼マダム・エーデル",
+			"id":"100027805",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4812,"mp":248,"atk":210,"def":194,"mag":146,"spr":188},
+				"minStats":{"hp":1588,"mp":82,"atk":69,"def":64,"mag":48,"spr":62},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["フェンリルとの盟約"]
 		}
+	},
+	"100027827": {
+		"name":"Untamed Wolf Edel BS",
+		"jpname":"魔狼マダム・エーデル BS",
+		"id":"100027827",
+		"braveShifted":"100027805",
+		"exAwakening": [{"hp":625,"mp":32,"atk":30,"def":25,"mag":18,"spr":24},{"hp":481,"mp":24,"atk":23,"def":19,"mag":14,"spr":18},{"hp":336,"mp":17,"atk":16,"def":13,"mag":10,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5294,"mp":273,"atk":189,"def":175,"mag":234,"spr":170},
+			"minStats":{"hp":1747,"mp":90,"atk":62,"def":58,"mag":77,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","rod","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["煌技・風魔尾弾","魔狼の魔力"]
 	},
 	"100027905": {
 		"name":"Four Winds Physalis",
