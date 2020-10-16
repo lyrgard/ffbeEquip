@@ -3886,6 +3886,28 @@
         "effects_raw": [[1, 2, 3, [130,  0,  0,  0,  -1,  1,  0]]],
         "requirements": null
     },
+    "30219": {
+        "name": "ブレイブ(セフィロス用 覚醒)",
+        "icon": "ability_77.png",
+        "compendium_id": 223,
+        "rarity": 4,
+        "cost": {},
+        "magic_type": "Green",
+        "is_sealable": false,
+        "is_reflectable": false,
+        "in_exploration": false,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[120]],
+        "effect_frames": [[40,  40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": ["Light"],
+        "effects": ["Increase ATK by 230% for this fight to one ally"],
+        "effects_raw": [[1, 2, 3, [230,  0,  0,  0,  -1,  1,  0]]],
+        "requirements": null
+    },
     "30220": {
         "name": "Faith",
         "icon": "ability_77.png",

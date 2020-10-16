@@ -435,7 +435,7 @@ function readChainMultiplier() {
             return parseFloat(stringValue) || 1;
         }
     } else {
-        return 'MAX';
+        return 1;
     }
 }
 
@@ -1652,7 +1652,7 @@ function updateUnitStats() {
         $(".buildLinks").removeClass("hidden");
         $("#buildResult").removeClass("hidden");
         
-        $("#unitLink").prop("href",toUrl((builds[currentUnitIndex].unit.wikiEntry ? builds[currentUnitIndex].unit.wikiEntry : builds[currentUnitIndex].unit.name)));
+        $("#unitLink").prop("href",builds[currentUnitIndex].unit.wikiEntry ? toUrl(builds[currentUnitIndex].unit.wikiEntry) : toUnitUrl(builds[currentUnitIndex].unit));
         $("#unitLink").removeClass("hidden");
     } else {
         $("#unitTabs .tab_" + currentUnitIndex + " a").html("Select unit");
@@ -2755,7 +2755,7 @@ function getUnitStateFromUnitBuild(build, braveShifted = false) {
     if (build._level) {
         unit.level = build._level;
     }
-    if (build._exAwakeningLevel) {
+    if (build._exAwakeningLevel && build._exAwakeningLevel >= 0 ) {
         unit.exAwakening = build._exAwakeningLevel;
     }
     unit.calculatedValues = {
@@ -3316,7 +3316,9 @@ function updateSimpleConditionsFromFormula(buildIndex) {
         }
         select("simpleConditionVarious", simpleConditions.various);
         let chainMultiplier = getChainMultiplier(formula);
-        $(".goal .chainMultiplier input").val(chainMultiplier);
+        if (chainMultiplier != 1) {
+            $(".goal .chainMultiplier input").val(chainMultiplier);
+        }
         if (chainMultiplier != 1 || simpleConditions.ailmentImunity.length > 0 || Object.keys(simpleConditions.elementalResist).length > 0 || simpleConditions.forcedElements.length > 0 || simpleConditions.various.length > 0 ) {
             $("#simpleConditionsButton").attr("aria-expanded", "true");
             $("#simpleConditionsList").addClass("in");

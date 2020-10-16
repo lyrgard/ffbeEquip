@@ -416,8 +416,8 @@ var containAllKeyPositive = function(object, array, acceptZero = false) {
 var readFilterValues = function() {
 	searchText = $("#searchText").val().toLocaleLowerCase();
     
-    baseRarity = getSelectedValuesFor("baseRarity").map(i => parseInt(i));
-    maxRarity = getSelectedValuesFor("maxRarity").map(i => parseInt(i));
+    baseRarity = getSelectedValuesFor("baseRarity");
+    maxRarity = getSelectedValuesFor("maxRarity");
 
     skillFilter.chainFamily = $('#chainFamily').val();
     if (skillFilter.chainFamily === 'none') {
@@ -582,7 +582,7 @@ function displayUnitsAsync(units, start, div) {
 
 function getUnitHtml(unitData) {
     let html = '<div class="unit">';
-    html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id.substr(0, unitData.unit.id.length - 1) + unitData.unit.max_rarity + '.png"/></div>';
+    html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id.substr(0, unitData.unit.id.length - 1) + (unitData.unit.max_rarity === 'NV' ? '7' : unitData.unit.max_rarity) + '.png"/></div>';
     html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name, unitData.unit.name, true) + '</span>';
     html += '<div class="killers">';
     var killers = [];
@@ -708,6 +708,13 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
         
         html += '</div>';
         html += cooldownHtml;
+        if (skill.maxCastPerBattle) {
+            html += '<span class="effect">' + skill.maxCastPerBattle + ' use(s) per battle';
+            if (skill.noMulticast) {
+                html += ', unique selection on multicast';
+            }
+            html += '</span>';
+        }
         html += getWarningStrangeStatsUsed(skill.effects);
         if (topLevelSkill && skill.unlockedBy) {
             html += getUnlockedByHtml(skill.id, skill.unlockedBy, unit);
@@ -1370,8 +1377,8 @@ function startPage() {
     // Populates the various filters
 	
     // Rarity
-    addTextChoicesTo("maxRarity",'checkbox',{'2★':'2', '3★':'3','4★':'4','5★':'5', '6★':'6', '7★':'7'});
-    addTextChoicesTo("baseRarity",'checkbox',{'1★':'1','2★':'2', '3★':'3','4★':'4','5★':'5'});
+    addTextChoicesTo("maxRarity",'checkbox',{'2★':'2', '3★':'3','4★':'4','5★':'5', '6★':'6', '7★':'7', 'NV':'NV'});
+    addTextChoicesTo("baseRarity",'checkbox',{'1★':'1','2★':'2', '3★':'3','4★':'4','5★':'5', 'NV':'NV'});
 
     // Chaining skill
     populateSkillChain();

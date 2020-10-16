@@ -17,6 +17,7 @@ function getData(filename, callback) {
             if (!error && response.statusCode == 200) {
                 console.log(filename + " downloaded");
                 var result = JSON.parse(body);
+                fs.writeFileSync('./sources/' + filename, body);
                 callback(result);
             } else {
                 console.log(error);
@@ -105,6 +106,7 @@ function manageNV(units) {
     const braveShiftUnitIdByBaseUnitId = [];
     const baseUnitIdByNVUnitId = {};
     for (var unitId in units) {
+        if (unitId.startsWith("7")) continue;
         const unitIn = units[unitId];
         if (unitIn.skills) {
             unitIn.skills
@@ -124,7 +126,10 @@ function manageNV(units) {
                 unitIn.nv_upgrade = unitIn.entries[unitId].nv_upgrade;
             }
         }
-        if (unitIn.rarity_max == 7) {
+        if (unitId == "100011727") {
+            console.log("PG Lasswell BS", unitIn.name, unitIn);
+        }
+        if (unitIn.rarity_max == 7 || unitIn.rarity_max == 'NV') {
             const baseUnitId = unitId.substr(0, unitId.length -1);
             nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
             if (nvIds.length) {
@@ -132,6 +137,22 @@ function manageNV(units) {
                 unitIn.entries[nvIds[0]].rarity = 'NV';
                 baseUnitIdByNVUnitId[nvIds[0]] = unitId;
                 unitIn.nv_upgrade = unitIn.entries[nvIds[0]].nv_upgrade;
+            }
+            if (unitIn.rarity_min == 7 || unitIn.rarity_min == 'NV') {
+                unitIn.rarity_max = 'NV';
+                unitIn.rarity_min = 'NV';
+                Object.values(unitIn.entries).forEach(e => e.rarity = 'NV');
+                //baseUnitIdByNVUnitId[nvIds[0]] = unitId;
+                unitIn.nv_upgrade = Object.values(unitIn.entries)[0].nv_upgrade;
+                let potentialBaseUnits = Object.keys(units).filter(k => !k.startsWith("7")).filter(k => units[k].name === unitIn.name && k < unitId).sort();
+                if (unitId == "100011727") {
+                    console.log("PG Lasswell BS", potentialBaseUnits);
+                }
+                if (potentialBaseUnits.length) {
+                    baseUnitIdByNVUnitId[unitId] = potentialBaseUnits[0];
+                    braveShiftUnitIdByBaseUnitId.push({baseUnitId: potentialBaseUnits[0], braveShiftedUnitId: unitId});
+                    unitIn.base_id = potentialBaseUnits[0];
+                }
             }
         }
     }

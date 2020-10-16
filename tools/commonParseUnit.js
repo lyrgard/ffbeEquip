@@ -1089,6 +1089,18 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
 
 function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) {
     var skill = {"id": skillId , "name" : skillIn.name, "icon": skillIn.icon, "effects": []};
+    if (skillIn["effects_raw"][0][2] === 157) {
+        skill.maxCastPerBattle = skillIn["effects_raw"][0][3][2];
+        if (!skillIn["effects_raw"][0][3][7]) {
+            skill.noMulticast = true;
+        }
+        skillId = skillIn["effects_raw"][0][3][0];
+        if (!skills[skillId]) {
+            console.log(skillIn);
+        }
+        skillIn = skills[skillId];
+
+    }
     if (skillIn.type == "MAGIC") {
         skill.magic = skillIn.magic_type.toLocaleLowerCase();
     }
@@ -1758,8 +1770,13 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         skillIds.forEach(enhancedSkillId => result.skillEnhancement[enhancedSkillId] = increase);
         result.turn = rawEffect[3][4];
         return result;
+
+
+    // Grandis ability
+    } else if (rawEffect[2] == 157) {
+
     }
-    
+
     if (result && result.damage) {
         if (skillIn.attack_type) {
             result.damage.mecanism = skillIn.attack_type.toLocaleLowerCase();    
@@ -2107,9 +2124,9 @@ function formatSimpleOutput(units) {
 }
 
 function getUnitBasicInfo(unit, prefix = "", form = null) {
-    var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name.replace(/"/g, '\\"') + (unit.braveShifted && !unit.name.endsWith("- Brave Shifted") ? " - Brave Shifted" : '') + "\",";
+    var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name.replace(/"/g, '\\"').replace(/ - Brave Shifted/g, "").replace(/ BS$/g, "") + (unit.braveShifted ? " BS" : '') + "\",";
     if (unit.jpname) {
-        result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname.replace(/"/g, '\\"') + (unit.braveShifted ? " - Brave Shifted" : '') + "\",";
+        result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname.replace(/"/g, '\\"').replace(/ - Brave Shifted/g, "") + (unit.braveShifted ? " BS" : '') + "\",";
     }
     if (unit.wikiEntry) {
         result += "\n" + prefix + "\t\t\"wikiEntry\":\"" + unit.wikiEntry + "\",";
@@ -2168,8 +2185,8 @@ function formatForSearch(units) {
             var unitOut = {"passives":{}, "actives":{"SELF":{}, "ST":{},"AOE":{}}, "lb":{"SELF":{}, "ST":{},"AOE":{}}, "counter":{"SELF":{}, "ST":{},"AOE":{}}};
             unitOut.equip = unit.equip;
             unitOut.id = unit.id;
-            unitOut.minRarity = unit.min_rarity;
-            unitOut.maxRarity = unit.max_rarity;
+            unitOut.minRarity = unit.min_rarity.toString();
+            unitOut.maxRarity = unit.max_rarity.toString();
             
             
             if (unit.innates.resist) {
