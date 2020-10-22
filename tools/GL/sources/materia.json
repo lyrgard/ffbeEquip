@@ -38168,7 +38168,7 @@
                 "1": "魔法聖殿"
             },
             "desc_short": {
-                "0": "Boost SPR by 15% and all elemental resistances by 25%, and fill LB gauge every turn",
+                "0": "Boost SPR by 15% and fire, ice, lightning, water, wind, earth, light, and dark resistance by 25%, and fill LB gauge every turn",
                 "4": "Erhöht PSY um 15%, sowie alle Elementarresistenzen um 25%. Limitmeter füllt sich jede Runde eines Kampfes.",
                 "5": "Aumenta el ESP un 15% y la res. a todos los elementos un 25%, la barra de EL se llena cada turno",
                 "3": "Augmente la PSY de 15 %, toutes les résistances élémentaires de 25 %, et remplit la jauge de limite à chaque tour",
@@ -38178,7 +38178,7 @@
                 "1": "提高15%精神+提高25%全屬性耐性+每回合自動增加極限技槽"
             },
             "desc_long": {
-                "0": "Boosts SPR by 15% and all elemental resistances by 25%, and fills the limit burst gauge every turn.",
+                "0": "Boosts SPR by 15% and fire, ice, lightning, water, wind, earth, light, and dark resistance by 25%, and fills the limit burst gauge every turn.",
                 "4": "Erhöht PSY um 15%, sowie alle Elementarresistenzen um 25%. Limitmeter füllt sich jede Runde eines Kampfes.",
                 "5": "Aumenta el ESP un 15% y la resistencia a todos los elementos un 25%, la barra de EL se llena cada turno durante el combate.",
                 "3": "Augmente la PSY de 15%, toutes les résistances élémentaires de 25% et la jauge de limite à chaque tour en combat.",
@@ -42655,6 +42655,50 @@
                 "2": "양손의 장비가 무기 1개일 경우 장비의 공격력과 마력이 상승합니다. (중복 장착 불가)",
                 "7": "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aใช้\u001aมือ\u001aทั้งสอง\u001aข้าง\u001aถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
                 "1": "雙手只裝備1把武器時武具攻擊魔力提升。[無法重複裝備]"
+            }
+        }
+    },
+    "1500000138": {
+        "name": "Mystical Aura",
+        "compendium_id": 90139,
+        "compendium_shown": true,
+        "unit_restriction": null,
+        "skills": [914378],
+        "effects": ["Grants 'Mystical Aura' passive."],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_92.png",
+        "strings": {
+            "names": {
+                "0": "Mystical Aura",
+                "4": "Mystische Aura",
+                "5": "Aura mística",
+                "3": "Aura mystique",
+                "6": "Aura Mistis",
+                "2": "신령한 기운",
+                "7": "รัศมี\u001aลี้ลับ\u001a",
+                "1": "神秘光環"
+            },
+            "desc_short": {
+                "0": "Boost MAG by 60% and restore MP every turn (Not stackable)",
+                "4": "Erhöht MAG um 60% und regeneriert jede Runde MP (Nicht stapelbar).",
+                "5": "Aumenta la MAG un 60% y recupera PM cada turno (no acumulable)",
+                "3": "Augmente la MAGIE de 60 % et restaure les PM à chaque tour (non cumulable)",
+                "6": "Meningkatkan MAG sebanyak 60% dan memulihkan MP setiap giliran (Tidak dapat ditumpuk)",
+                "2": "마력 60% 상승+매 턴마다 MP 회복 (중복 장착 불가)",
+                "7": "เพิ่มค่า\u001a \u001aMAG\u001a \u001a60% \u001a+\u001a \u001aฟื้นฟู\u001a \u001aMP\u001a \u001aทุก\u001aเทิร์น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
+                "1": "提高60%魔力+每回合恢復MP[無法重複裝備]"
+            },
+            "desc_long": {
+                "0": "Boosts MAG by 60% and restores MP every turn. Not stackable.",
+                "4": "Erhöht MAG um 60% und regeneriert jede Runde MP. Nicht stapelbar.",
+                "5": "Aumenta la MAG un 60% y recupera PM cada turno. No acumulable.",
+                "3": "Augmente la MAGIE de 60 % et restaure les PM à chaque tour. Non cumulable.",
+                "6": "Meningkatkan MAG sebanyak 60% dan memulihkan MP setiap giliran. Tidak dapat ditumpuk.",
+                "2": "마력이 60% 상승하고, 매 턴마다 MP를 회복합니다. (중복 장착 불가)",
+                "7": "เพิ่มค่า\u001a \u001aMAG\u001a \u001a60% \u001a+\u001a \u001aฟื้นฟู\u001a \u001aMP\u001a \u001aทุก\u001aเทิร์น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a",
+                "1": "提高60%魔力，以及每回合恢復MP。[無法重複裝備]"
             }
         }
     }
