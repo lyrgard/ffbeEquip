@@ -147,8 +147,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         }
         // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
         var level;
-        if (unitBuild._level) {
-            level = unitBuild._level;
+        if (unitBuild.level) {
+            level = unitBuild.level;
         } else {
             if (unitBuild.unit.sixStarForm) {
                 level = 100;
@@ -583,8 +583,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
 
             // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
             var level;
-            if (unitBuild._level) {
-                level = unitBuild._level;
+            if (unitBuild.level) {
+                level = unitBuild.level;
             } else {
                 if (unitBuild.unit.sixStarForm) {
                     level = 100;

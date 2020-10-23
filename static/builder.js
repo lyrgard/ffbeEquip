@@ -246,7 +246,7 @@ function optimize() {
             "server": server,
             "espers":espersToSend,
             "unit":builds[currentUnitIndex].unit,
-            "level":builds[currentUnitIndex]._level,
+            "level":builds[currentUnitIndex].level,
             "exAwakeningLevel": builds[currentUnitIndex]._exAwakeningLevel,
             "fixedItems":builds[currentUnitIndex].fixedItems, 
             "baseValues":builds[currentUnitIndex].baseValues,
@@ -1274,7 +1274,7 @@ function onUnitChange() {
                 $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_icon_" + iconId + ".png\"/>" + selectedUnitData.name);
                 var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.sixStarForm == selectedUnitData.sixStarForm);
                 var oldValues = builds[currentUnitIndex].baseValues;
-                var oldLevel = builds[currentUnitIndex]._level;
+                var oldLevel = builds[currentUnitIndex].level;
 
                 reinitBuild(currentUnitIndex);
                 var unitData = selectedUnitData;
@@ -1285,7 +1285,7 @@ function onUnitChange() {
                 builds[currentUnitIndex].setUnit(unitData);
                 if(sameUnit) {
                     builds[currentUnitIndex].baseValues = oldValues;
-                    builds[currentUnitIndex].setLevel(oldLevel);
+                    builds[currentUnitIndex].level = oldLevel;
                 }
                 let braveShiftedUnitBuild = null;
                 if (unitData.braveShift && units[unitData.braveShift]) {
@@ -1524,11 +1524,11 @@ function updateSkillSelectOptions(skillSelect) {
 function updateUnitLevelDisplay() {
     if (builds[currentUnitIndex].unit && (builds[currentUnitIndex].unit.max_rarity == 7 || builds[currentUnitIndex].unit.max_rarity == 'NV') && !builds[currentUnitIndex].unit.sixStarForm) {
         $("#unitLevel").removeClass("hidden");
-        if (builds[currentUnitIndex]._level) {
-            $("#unitLevel select").val(builds[currentUnitIndex]._level.toString());
+        if (builds[currentUnitIndex].level) {
+            $("#unitLevel select").val(builds[currentUnitIndex].level.toString());
         } else {
             $("#unitLevel select").val("120");
-            builds[currentUnitIndex].setLevel(120);    
+            builds[currentUnitIndex].level = 120;
         }
         if (builds[currentUnitIndex].unit.max_rarity == 'NV' && !builds[currentUnitIndex].unit.sevenStarForm) {
             $("#unitExAwakeningLevel").removeClass("hidden");
@@ -2352,7 +2352,7 @@ function recalculateApplicableSkills() {
     builds[currentUnitIndex].build = builds[currentUnitIndex].build.slice(0,12);
     for (var skillIndex = builds[currentUnitIndex].unit.skills.length; skillIndex--;) {
         var skill = builds[currentUnitIndex].unit.skills[skillIndex];
-        if (areConditionOK(skill, builds[currentUnitIndex].build, builds[currentUnitIndex]._level)) {
+        if (areConditionOK(skill, builds[currentUnitIndex].build, builds[currentUnitIndex].level)) {
             builds[currentUnitIndex].build.push(skill);
         }
     }
@@ -2752,8 +2752,8 @@ function getUnitStateFromUnitBuild(build, braveShifted = false) {
     if (build.baseValues.currentStack) {
         unit.stack = build.baseValues.currentStack;
     }
-    if (build._level) {
-        unit.level = build._level;
+    if (build.level) {
+        unit.level = build.level;
     }
     if (build._exAwakeningLevel && build._exAwakeningLevel >= 0 ) {
         unit.exAwakening = build._exAwakeningLevel;
@@ -3085,7 +3085,7 @@ async function loadUnitFromStateHash(unit, dataVersion) {
 
     if (unit.level) {
         $("#unitLevel select").val(unit.level);
-        builds[currentUnitIndex].setLevel(unit.level);
+        builds[currentUnitIndex].level = unit.level;
         updateUnitStats();
         recalculateApplicableSkills();
     }
@@ -4530,7 +4530,7 @@ function startPage() {
     });
 
     $("#unitLevel select").change(function() {
-        builds[currentUnitIndex].setLevel($("#unitLevel select").val());
+        builds[currentUnitIndex].level = $("#unitLevel select").val();
         updateUnitStats();
         recalculateApplicableSkills();
         logCurrentBuild();

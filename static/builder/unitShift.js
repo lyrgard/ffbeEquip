@@ -16,6 +16,7 @@ class UnitShift {
         this.freeSlots = 0;
         this._tdwCap = null;
         this._bannedEquipableTypes = [];
+        this._level = 0;
         if (this.unit) {
             this.stats = this.unit.stats.maxStats;
         } else {
