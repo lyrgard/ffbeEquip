@@ -25,7 +25,7 @@ onmessage = function(event) {
         case "setData":
             var unitBuild = new UnitBuild(messageData.unit, messageData.fixedItems, messageData.baseValues);
             server = messageData.server;
-            unitBuild.setLevel(messageData.level);
+            unitBuild.level = messageData.level;
             unitBuild.setExAwakeningLevel(messageData.exAwakeningLevel);
             unitBuild.innateElements = messageData.innateElements;
             unitBuild.monsterAttackFormula = messageData.monsterAttackFormula;
