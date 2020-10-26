@@ -5593,6 +5593,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
+		"enhancementSkills":["迅・強化魔法陣【獣】","迅・強化魔法陣【水棲】","迅・強化魔法陣【死霊】","迅・解呪の爽雲","迅・大神鳴り","迅・桜雲の守り","黒猫"],
 		"6_form": {
 			"name":"Sakura of the Delta Star",
 			"jpname":"四闘星のサクラ",
@@ -5607,7 +5608,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"]
+			"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
+			"enhancementSkills":["迅・強化魔法陣【獣】","迅・強化魔法陣【水棲】","迅・強化魔法陣【死霊】","迅・解呪の爽雲","迅・大神鳴り","迅・桜雲の守り","黒猫"]
 		}
 	},
 	"100025905": {
@@ -5624,6 +5626,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["抗魔の陣","抗攻の陣","水刃計　改","士魂勇躍の陣　改","若きカリスマ司令官"],
 		"6_form": {
 			"name":"Nichol of the Epsilon Star",
 			"jpname":"五闘星のニコル",
@@ -5638,7 +5641,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["抗魔の陣","抗攻の陣","水刃計　改","士魂勇躍の陣　改","若きカリスマ司令官"]
 		}
 	},
 	"100026004": {
@@ -5860,16 +5864,19 @@
 		"name":"Infernal Fire Rain",
 		"jpname":"炎獄レイン",
 		"id":"100027105",
-		"max_rarity":"7",
+		"braveShift":"100027127",
+		"exAwakening": [{"hp":648,"mp":34,"atk":31,"def":25,"mag":19,"spr":25},{"hp":499,"mp":26,"atk":24,"def":19,"mag":15,"spr":19},{"hp":349,"mp":18,"atk":17,"def":13,"mag":10,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4950,"mp":245,"atk":212,"def":190,"mag":151,"spr":190},
-			"minStats":{"hp":1634,"mp":81,"atk":70,"def":63,"mag":50,"spr":63},
+			"maxStats":{"hp":4990,"mp":262,"atk":245,"def":196,"mag":151,"spr":195},
+			"minStats":{"hp":1647,"mp":86,"atk":81,"def":65,"mag":50,"spr":64},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["イフリートとの盟約"],
 		"6_form": {
 			"name":"Infernal Fire Rain",
 			"jpname":"炎獄レイン",
@@ -5884,23 +5891,62 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["イフリートとの盟約"]
+		},
+		"7_form": {
+			"name":"Infernal Fire Rain",
+			"jpname":"炎獄レイン",
+			"id":"100027105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4950,"mp":245,"atk":212,"def":190,"mag":151,"spr":190},
+				"minStats":{"hp":1634,"mp":81,"atk":70,"def":63,"mag":50,"spr":63},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["イフリートとの盟約"]
 		}
+	},
+	"100027127": {
+		"name":"炎獄レイン BS",
+		"jpname":"炎獄レイン BS",
+		"id":"100027127",
+		"braveShifted":"100027105",
+		"exAwakening": [{"hp":648,"mp":34,"atk":31,"def":25,"mag":19,"spr":25},{"hp":499,"mp":26,"atk":24,"def":19,"mag":15,"spr":19},{"hp":349,"mp":18,"atk":17,"def":13,"mag":10,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4820,"mp":278,"atk":212,"def":191,"mag":257,"spr":234},
+			"minStats":{"hp":1591,"mp":92,"atk":70,"def":63,"mag":85,"spr":77},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","staff","rod","mace","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["フレイムサモン","炎獣の魔力"]
 	},
 	"100027205": {
 		"name":"Draconian Princess Fina",
 		"jpname":"竜姫フィーナ",
 		"id":"100027205",
-		"max_rarity":"7",
+		"braveShift":"100027227",
+		"exAwakening": [{"hp":598,"mp":34,"atk":21,"def":22,"mag":31,"spr":25},{"hp":460,"mp":26,"atk":16,"def":17,"mag":23,"spr":19},{"hp":322,"mp":18,"atk":11,"def":11,"mag":16,"spr":13}],
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4602,"mp":265,"atk":163,"def":171,"mag":217,"spr":194},
-			"minStats":{"hp":1519,"mp":87,"atk":54,"def":56,"mag":72,"spr":64},
-			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			"maxStats":{"hp":4602,"mp":265,"atk":163,"def":171,"mag":239,"spr":194},
+			"minStats":{"hp":1519,"mp":87,"atk":54,"def":56,"mag":79,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["バハムートとの盟約"],
 		"6_form": {
 			"name":"Draconian Princess Fina",
 			"jpname":"竜姫フィーナ",
@@ -5915,8 +5961,44 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"]
+			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["バハムートとの盟約"]
+		},
+		"7_form": {
+			"name":"Draconian Princess Fina",
+			"jpname":"竜姫フィーナ",
+			"id":"100027205",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4602,"mp":265,"atk":163,"def":171,"mag":217,"spr":194},
+				"minStats":{"hp":1519,"mp":87,"atk":54,"def":56,"mag":72,"spr":64},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["バハムートとの盟約"]
 		}
+	},
+	"100027227": {
+		"name":"竜姫フィーナ BS",
+		"jpname":"竜姫フィーナ BS",
+		"id":"100027227",
+		"braveShifted":"100027205",
+		"exAwakening": [{"hp":598,"mp":34,"atk":21,"def":22,"mag":31,"spr":25},{"hp":460,"mp":26,"atk":16,"def":17,"mag":23,"spr":19},{"hp":322,"mp":18,"atk":11,"def":11,"mag":16,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4910,"mp":280,"atk":163,"def":171,"mag":265,"spr":194},
+			"minStats":{"hp":1620,"mp":92,"atk":54,"def":56,"mag":87,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["ピュアマギアサモン","大好きな旅を共に"]
 	},
 	"100027305": {
 		"name":"Dark Spirit Sol",
@@ -7296,7 +7378,7 @@
 		"enhancementSkills":["魔弾・ファストグロウ","魔拳・ファストダウン"]
 	},
 	"100032005": {
-		"name":"Unmatched Strongman Elbis",
+		"name":"Relentless Might Elbis",
 		"jpname":"無敵の剛筋エルビス",
 		"id":"100032005",
 		"max_rarity":"7",
@@ -7310,7 +7392,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","fist","hat","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Unmatched Strongman Elbis",
+			"name":"Relentless Might Elbis",
 			"jpname":"無敵の剛筋エルビス",
 			"id":"100032005",
 			"sixStarForm":true,
@@ -7327,7 +7409,7 @@
 		}
 	},
 	"100032105": {
-		"name":"Black Mage Lexa",
+		"name":"Blossomed Mage Lexa",
 		"jpname":"深碧の黒魔道士レキサ",
 		"id":"100032105",
 		"max_rarity":"7",
@@ -7341,7 +7423,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"Black Mage Lexa",
+			"name":"Blossomed Mage Lexa",
 			"jpname":"深碧の黒魔道士レキサ",
 			"id":"100032105",
 			"sixStarForm":true,
@@ -7567,6 +7649,78 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","gun","mace","hat","helm","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["廉潔なる騎士剣","チェインパニッシュ"]
+	},
+	"100033007": {
+		"name":"Dark Fina & Sol",
+		"jpname":"魔人フィーナ&ソル",
+		"id":"100033007",
+		"braveShift":"100033017",
+		"exAwakening": [{"hp":644,"mp":37,"atk":23,"def":20,"mag":70,"spr":27},{"hp":496,"mp":28,"atk":18,"def":15,"mag":54,"spr":20},{"hp":347,"mp":20,"atk":12,"def":10,"mag":38,"spr":14}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4960,"mp":289,"atk":183,"def":156,"mag":272,"spr":208},
+			"minStats":{"hp":1637,"mp":95,"atk":60,"def":51,"mag":90,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","whip","mace","fist","lightShield","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["レッドヒート","ブラックエクスキューション"]
+	},
+	"100033017": {
+		"name":"Dark Fina & Sol BS",
+		"jpname":"魔人フィーナ&ソル BS",
+		"id":"100033017",
+		"braveShifted":"100033007",
+		"exAwakening": [{"hp":644,"mp":37,"atk":23,"def":20,"mag":70,"spr":27},{"hp":496,"mp":28,"atk":18,"def":15,"mag":54,"spr":20},{"hp":347,"mp":20,"atk":12,"def":10,"mag":38,"spr":14}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4920,"mp":292,"atk":181,"def":153,"mag":272,"spr":212},
+			"minStats":{"hp":1624,"mp":96,"atk":60,"def":50,"mag":90,"spr":70},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","whip","mace","fist","lightShield","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["ブラウンデストラクション","ブラックエクスキューション"]
+	},
+	"100033107": {
+		"name":"Akstar & Cleome",
+		"jpname":"アクスター&クレオメ",
+		"id":"100033107",
+		"braveShift":"100033117",
+		"exAwakening": [{"hp":651,"mp":34,"atk":66,"def":24,"mag":22,"spr":25},{"hp":501,"mp":26,"atk":51,"def":18,"mag":17,"spr":19},{"hp":350,"mp":18,"atk":35,"def":12,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5010,"mp":262,"atk":255,"def":185,"mag":171,"spr":198},
+			"minStats":{"hp":1653,"mp":86,"atk":84,"def":61,"mag":56,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","harp","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["双奏のアジタート","氷音の旋刀"]
+	},
+	"100033117": {
+		"name":"Akstar & Cleome BS",
+		"jpname":"アクスター&クレオメ BS",
+		"id":"100033117",
+		"braveShifted":"100033107",
+		"exAwakening": [{"hp":651,"mp":34,"atk":66,"def":24,"mag":22,"spr":25},{"hp":501,"mp":26,"atk":51,"def":18,"mag":17,"spr":19},{"hp":350,"mp":18,"atk":35,"def":12,"mag":11,"spr":13}],
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4980,"mp":267,"atk":272,"def":193,"mag":178,"spr":203},
+			"minStats":{"hp":1643,"mp":88,"atk":90,"def":64,"mag":59,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","harp","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["双奏のアジタート","闇刀のユニゾン"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",

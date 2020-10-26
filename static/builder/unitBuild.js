@@ -26,7 +26,6 @@ class UnitBuild {
                 fixedItems = [null, null, null, null, null, null, null, null, null, null, null, null],
                 baseValues = {}) {
         this.unitShift = new UnitShift(unit, fixedItems, baseValues);
-        this._level = 0;
 
         this._monsterAttackFormula = null;
         this._exAwakeningLevel = -1;
@@ -220,7 +219,7 @@ class UnitBuild {
                 let applicableSkills = [];
                 for (let skillIndex = this.unit.skills.length; skillIndex--;) {
                     let skill = this.unit.skills[skillIndex];
-                    if (areConditionOK(skill, this.fixedItems, this._level)) {
+                    if (areConditionOK(skill, this.fixedItems, this.level)) {
                         applicableSkills.push(skill);
                     }
                 }
@@ -347,11 +346,16 @@ class UnitBuild {
         this.unitShift.setUnit(unit);
     }
     
-    setLevel(level) {
-        this._level = level;
+    set level(level) {
+        this.unitShift._level = level;
         this.updateStats();
         this.unitShift._tdwCap = null;
     }
+
+    get level() {
+        return this.unitShift._level;
+    }
+
 
     setExAwakeningLevel(level) {
         this._exAwakeningLevel = level;
@@ -374,14 +378,14 @@ class UnitBuild {
 
     updateStats() {
         if (this.unit) {
-            if (this._level > 100) {
+            if (this.level > 100) {
                 this.unitShift.stats = {
-                    "hp": this.unit.stats.minStats.hp + Math.floor((this.unit.stats.maxStats.hp - this.unit.stats.minStats.hp) * statProgression[this._level - 101] / 100),
-                    "mp": this.unit.stats.minStats.mp + Math.floor((this.unit.stats.maxStats.mp - this.unit.stats.minStats.mp) * statProgression[this._level - 101] / 100),
-                    "atk": this.unit.stats.minStats.atk + Math.floor((this.unit.stats.maxStats.atk - this.unit.stats.minStats.atk) * statProgression[this._level - 101] / 100),
-                    "def": this.unit.stats.minStats.def + Math.floor((this.unit.stats.maxStats.def - this.unit.stats.minStats.def) * statProgression[this._level - 101] / 100),
-                    "mag": this.unit.stats.minStats.mag + Math.floor((this.unit.stats.maxStats.mag - this.unit.stats.minStats.mag) * statProgression[this._level - 101] / 100),
-                    "spr": this.unit.stats.minStats.spr + Math.floor((this.unit.stats.maxStats.spr - this.unit.stats.minStats.spr) * statProgression[this._level - 101] / 100),
+                    "hp": this.unit.stats.minStats.hp + Math.floor((this.unit.stats.maxStats.hp - this.unit.stats.minStats.hp) * statProgression[this.level - 101] / 100),
+                    "mp": this.unit.stats.minStats.mp + Math.floor((this.unit.stats.maxStats.mp - this.unit.stats.minStats.mp) * statProgression[this.level - 101] / 100),
+                    "atk": this.unit.stats.minStats.atk + Math.floor((this.unit.stats.maxStats.atk - this.unit.stats.minStats.atk) * statProgression[this.level - 101] / 100),
+                    "def": this.unit.stats.minStats.def + Math.floor((this.unit.stats.maxStats.def - this.unit.stats.minStats.def) * statProgression[this.level - 101] / 100),
+                    "mag": this.unit.stats.minStats.mag + Math.floor((this.unit.stats.maxStats.mag - this.unit.stats.minStats.mag) * statProgression[this.level - 101] / 100),
+                    "spr": this.unit.stats.minStats.spr + Math.floor((this.unit.stats.maxStats.spr - this.unit.stats.minStats.spr) * statProgression[this.level - 101] / 100),
                 };
             } else {
                 this.unitShift.stats = this.unit.stats.maxStats;
@@ -411,7 +415,7 @@ class UnitBuild {
     
     hasDualWieldMastery() {
         for (let index in this.unit.skills) {
-            if (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this._level) {
+            if (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this.level) {
                 if (this.unit.skills[index].improvedDW) {
                     return true;
                 }

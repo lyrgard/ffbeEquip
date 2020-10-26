@@ -60,7 +60,7 @@ class BuildOptimizer {
             var applicableSkills = [];
             for (var skillIndex = this._unitBuild.unit.skills.length; skillIndex--;) {
                 var skill = this._unitBuild.unit.skills[skillIndex];
-                if (this.areConditionOKBasedOnTypeCombination(skill, typeCombinations[index].combination, this._unitBuild._level)) {
+                if (this.areConditionOKBasedOnTypeCombination(skill, typeCombinations[index].combination, this._unitBuild.level)) {
                     applicableSkills.push(skill);
                 }
             }
