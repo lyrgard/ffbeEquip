@@ -57,7 +57,7 @@
     background-color: #4CAF50;
     text-align: center; /* To center it horizontally (if you want) */
     line-height: 34px; /* To center it vertically */
-    color: white; 
+    color: white;
 }
 
 .progressBar.finished {
@@ -168,7 +168,7 @@
 }
 
 #fixItemModal .modal-body .nav > li.active {
-    
+
 }
 
 #fixItemModal .modal-body .nav > li > a {
@@ -241,6 +241,23 @@
 .td.actions .excludeItem:hover {
     opacity: 1;
     cursor: pointer;
+    color: red;
+}
+
+.td.levels {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row: 4;
+    border-top: none !important;
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+}
+
+.td.levels button.available {
+    color: green;
+}
+.td.levels button.notEnough {
     color: red;
 }
 
@@ -490,7 +507,7 @@ i.img.img-slot-hand.leftHand {
 }
 
 #resultStats .resists, #resultStats .killers {
-    clear: both; 
+    clear: both;
     padding-left: 30px;
     padding-top: 5px;
 }
@@ -551,8 +568,8 @@ i.img.img-slot-hand.leftHand {
     padding: 2px;
 }
 
-.unitStats .stat input { 
-    text-align: right; 
+.unitStats .stat input {
+    text-align: right;
 }
 .unitStats .stat .baseStat {
     flex: 2;
@@ -797,7 +814,7 @@ i.img.img-slot-hand.leftHand {
 
 .showEnhancements #searchText, .showEnhancements .dropdown.stat, .showEnhancements .nav.nav-tabs.type, .showEnhancements .enchantment, .showEnhancements .inventory {
     display: none !important;
-} 
+}
 
 #customFormulaModal .dropdown-submenu.firstLevel > .dropdown-menu {
     left: initial;
@@ -852,17 +869,17 @@ i.img.img-slot-hand.leftHand {
 }
 
 /* elements visible over the glasspanel */
-.building #detailedViewLink, .building #conciseViewLink, .building #buildButton, .building #buildResult .wikiLink, 
+.building #detailedViewLink, .building #conciseViewLink, .building #buildButton, .building #buildResult .wikiLink,
 .building #unitLink, .building .footerButtons a {
     z-index: 110;
 }
 
-.building #buildButton, .building #detailedViewLink a, .building #conciseViewLink a, .building #buildResult .wikiLink, 
+.building #buildButton, .building #detailedViewLink a, .building #conciseViewLink a, .building #buildResult .wikiLink,
 .building #unitLink, .building .footerButtons a {
     box-shadow: 0 0 5px 5px #FFFFFF;
 }
 
-.building #detailedViewLink a, .building #conciseViewLink a, .building #buildResult .wikiLink, 
+.building #detailedViewLink a, .building #conciseViewLink a, .building #buildResult .wikiLink,
 .building #unitLink, .building .footerButtons a {
     background-color: white;
 }
@@ -1319,67 +1336,67 @@ i.img.img-slot-hand.leftHand {
 
 
 @media (max-width: 991px) {
-    
+
     .panel.unit .panel-body {
         display: none;
     }
-    
+
     .panel.monster {
         display: none;
     }
-    
+
     .panel.equipments {
         display: none;
     }
-    
+
     .expanded .panel.unit .panel-body {
         display: block;
     }
-    
+
     .expanded .panel.monster {
         display: block;
     }
-    
+
     .expanded .panel.equipments {
         display: block;
     }
-    
+
     .unitStats .stat {
         width: 100%;
     }
-    
+
     #fixItemModal .results .td.mobile .td.access {
         display: block;
     }
-    
+
     #fixItemModal .results .td.mobile .dropdown-menu {
         padding: 0;
     }
-    
+
     #fixItemModal .results .td.mobile .dropdown-menu li {
         margin-bottom: 5px;
         margin-left: 5px;
     }
-    
+
     .goal .section .title {
         width: 50px;
         margin-top: 0px;
     }
-    
+
     #fixItemModal .modal-header {
         flex-wrap: wrap;
     }
-    
+
     #fixItemModal .td.mobile {
         display: table-cell;
     }
-    
+
     #fixItemModal .td.enchantment, #fixItemModal .td.access, #fixItemModal .td.exclude, #fixItemModal .td.special  {
         display: none;
     }
-    
+
     #fixItemModal.exclusion .td.exclude {
         display: table-cell;
     }
-    
+
 }
