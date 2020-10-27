@@ -49,7 +49,7 @@ window.cancelIdleCallback =
             clearTimeout(id);
         }
 
-/* 
+/*
  * Check if localStorage is enable and available
  * Adapted from https://github.com/Modernizr/Modernizr/blob/master/feature-detects/storage/localstorage.js
  */
@@ -119,7 +119,7 @@ function getImageHtml(item, actionOnImage = undefined) {
     if (item.icon) {
         var src_attr = (lazyLoader !== null) ? 'data-src' : 'src';
         var class_attr = (lazyLoader !== null) ? 'icon lazyload' : 'icon';
-        
+
         html += "<img "+src_attr+"='img/items/" + item.icon + "' class='"+class_attr+"'></img>";
     } else if (item.type == "esper") {
         // no lazyload for espers (uses CSS background)
@@ -173,11 +173,11 @@ function getNameColumnHtml(item) {
     if (item.userPseudo) {
         html += "<div class='userPseudo'>item added by " + item.userPseudo + "</div>";
     }
-    
+
     if (item.enhancements) {
         html += getEnhancements(item);
     }
-    
+
     html += "</div>";
 
     return html;
@@ -216,8 +216,8 @@ function getAilmentsHtml(item) {
         html += '</div>';
     }
     return html;
-    
-    
+
+
 //    var html = "<div class='specialValueGroup'>";
 //    $(item.ailments).each(function(index, ailment) {
 //        html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'>"+
@@ -323,7 +323,7 @@ function getMaxRarityUnitIcon(unit) {
 
 function getSpecialHtml(item) {
     var special = "";
-    
+
     if (item.element) {
         special += getElementHtml(item.element);
     }
@@ -339,7 +339,7 @@ function getSpecialHtml(item) {
         special += '<div>' + killers.physical + '</div>';
         special += '<div>' + killers.magical + '</div>';
     }
-    
+
     if (item.special && item.special.includes("dualWield")) {
         special += '<li><div class="skill">' + toHtml("[Dual Wield|ability_72.png]") + "</div></li>";
     }
@@ -431,9 +431,9 @@ function getSpecialHtml(item) {
     if (item.esperStatsBonus) {
         Object.keys(item.esperStatsBonus).forEach(esper => {
             if (esper === 'all') {
-                special += "<li>Increase esper's bonus stats ("+ item.esperStatsBonus.all.hp + "%)</li>";    
+                special += "<li>Increase esper's bonus stats ("+ item.esperStatsBonus.all.hp + "%)</li>";
             } else {
-                special += "<li>Increase " + esper + "'s bonus stats ("+ item.esperStatsBonus[esper].hp + "%)</li>";    
+                special += "<li>Increase " + esper + "'s bonus stats ("+ item.esperStatsBonus[esper].hp + "%)</li>";
             }
         });
     }
@@ -471,12 +471,12 @@ function getSpecialHtml(item) {
     }
     if (item.autoCastedSkills) {
         item.autoCastedSkills.forEach(skill => {
-            special += '<li>Cast at start of battle or when revived: <img class="icon" src="/img/items/' + skill.icon + '">' + toLink(skill.name) + ': ' + skill.effects.map(effect => effect.desc).join(', ') + '</li>';    
+            special += '<li>Cast at start of battle or when revived: <img class="icon" src="/img/items/' + skill.icon + '">' + toLink(skill.name) + ': ' + skill.effects.map(effect => effect.desc).join(', ') + '</li>';
         });
     }
     if (item.startOfTurnSkills) {
         item.startOfTurnSkills.forEach(skill => {
-            special += '<li>Cast at start of turn: <img class="icon" src="/img/items/' + skill.skill.icon + '">' + toLink(skill.skill.name) + ': ' + skill.skill.effects.map(effect => effect.desc).join(', ') + '</li>';    
+            special += '<li>Cast at start of turn: <img class="icon" src="/img/items/' + skill.skill.icon + '">' + toLink(skill.skill.name) + ': ' + skill.skill.effects.map(effect => effect.desc).join(', ') + '</li>';
         });
     }
     if (item.special) {
@@ -542,7 +542,7 @@ var getStatDetail = function(item) {
             }
         }
         statBonusCoef = Math.min(3, statBonusCoef);
-    } 
+    }
     $(statsToDisplay).each(function(index, stat) {
         detail += "<span class='" + stat + "'>";
 
@@ -675,7 +675,7 @@ function getAccessHtml(item) {
     }
     if (item.equipedConditions) {
         html += getEquipedConditionHtml(item);
-    } 
+    }
     html += "</div>";
     return html;
 }
@@ -695,7 +695,7 @@ var toHtml = function(text) {
             result += "<img class='icon' src='/img/items/" + token[2] + "'></img>"
             result += toLink(token[1], token[0]);
         }
-        
+
         return result;
     });
     if (textWithAddedAnchors.startsWith('<img')) {
@@ -1004,8 +1004,8 @@ class ItemFilter {
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnitId = null, 
-                      types = [], elements = [], ailments = [], physicalKillers = [], magicalKillers = [], accessToRemove = [], 
+function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnitId = null,
+                      types = [], elements = [], ailments = [], physicalKillers = [], magicalKillers = [], accessToRemove = [],
                       additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) {
     var filters = [];
     if (!showItemsWithoutStat && stat.length > 0) filters.push({type: 'stat', value: stat});
@@ -1022,9 +1022,9 @@ function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, search
     if (elements.length > 0) filters.push(convertValuesToFilter(elements, 'element'));
     if (types.length > 0) filters.push(convertValuesToFilter(types, 'type'));
     if (onlyShowOwnedItems) filters.push({type: 'onlyOwned'});
-    
+
     let filter = andFilters(...filters);
-    
+
     var result = filterItems(data, filter, showNotReleasedYet);
     /*for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
@@ -1070,14 +1070,14 @@ function convertValuesToFilter(values, type, logicalAssociation = 'or') {
                     type: type,
                     value: v
                 }
-            }    
+            }
         } else {
             filter = {
                 type: type,
                 value: v
             }
         }
-        
+
     });
     return filter
 }
@@ -1093,7 +1093,7 @@ function andFilters(...filters) {
                     type: 'and',
                     value1: filter,
                     value2: f
-                }    
+                }
             } else {
                 filter = f;
             }
@@ -1106,7 +1106,7 @@ function andFilters(...filters) {
 
 function filterItems(items, filter, showNotReleasedYet) {
     return items.filter(item => {
-        return (showNotReleasedYet || !item.access.includes("not released yet")) 
+        return (showNotReleasedYet || !item.access.includes("not released yet"))
             && itemMatches(item, filter);
     });
 }
@@ -1123,11 +1123,11 @@ function itemMatches(item, filter) {
         case 'type':
             return filter.value === item.type;
         case 'element':
-            return (item.element && item.element.includes(filter.value)) 
-            || (filter.value === 'noElement' && !item.element) 
+            return (item.element && item.element.includes(filter.value))
+            || (filter.value === 'noElement' && !item.element)
             || (item.resist && item.resist.some(r => r.name === filter.value));
         case 'ailment':
-            return (item.ailments && item.ailments.some(a => a.name === filter.value)) 
+            return (item.ailments && item.ailments.some(a => a.name === filter.value))
             || (item.resist && item.resist.some(r => r.name === filter.value));
         case 'physicalKiller':
             return item.killers && item.killers.some(k => k.name === filter.value && k.physical);
@@ -1409,7 +1409,7 @@ function addToKiller(killers, newKiller) {
     var race = newKiller.name;
     var physicalPercent = newKiller.physical || 0;
     var magicalPercent = newKiller.magical || 0;
-    
+
     var killerData = null;
     for (var index in killers) {
         if (killers[index].name == race) {
@@ -1417,7 +1417,7 @@ function addToKiller(killers, newKiller) {
             break;
         }
     }
-    
+
     if (!killerData) {
         killerData = {"name":race};
         killers.push(killerData);
@@ -1579,9 +1579,9 @@ function prepareSearch(data) {
         }
         if (item.allowUseOf) {
             if (Array.isArray(item.allowUseOf)) {
-                textToSearch += item.allowUseOf.map(allowUseOf => "|Allow use of " + item.allowUseOf).join("");       
+                textToSearch += item.allowUseOf.map(allowUseOf => "|Allow use of " + item.allowUseOf).join("");
             } else {
-                textToSearch += "|Allow use of " + item.allowUseOf;    
+                textToSearch += "|Allow use of " + item.allowUseOf;
             }
         }
         if (item.mpRefresh) {
@@ -1675,17 +1675,17 @@ function prepareSearch(data) {
         }
         if (item.skills) {
             item.skills.forEach(skill => {
-                textToSearch += "|" + skill.name + ': ' + skill.effects.map(effect => effect.desc).join(', ');    
+                textToSearch += "|" + skill.name + ': ' + skill.effects.map(effect => effect.desc).join(', ');
             });
         }
         if (item.autoCastedSkills) {
             item.autoCastedSkills.forEach(skill => {
-                textToSearch += "|Cast at start of battle or when revived:" + skill.name + ': ' + skill.effects.map(effect => effect.desc).join(', ');    
+                textToSearch += "|Cast at start of battle or when revived:" + skill.name + ': ' + skill.effects.map(effect => effect.desc).join(', ');
             });
         }
          if (item.startOfTurnSkills) {
             item.startOfTurnSkills.forEach(skill => {
-                textToSearch += '|Cast at start of turn: ' + skill.skill.name + ': ' + skill.skill.effects.map(effect => effect.desc).join(', ');    
+                textToSearch += '|Cast at start of turn: ' + skill.skill.name + ': ' + skill.skill.effects.map(effect => effect.desc).join(', ');
             });
         }
         if (item["tmrUnit"]) {
@@ -1941,33 +1941,33 @@ function getStaticData(name, localized, callback) {
         let start = Date.now();
         $.get(name, function(result) {
            requestIdleCallback(function() {
-                staticFileCache.store(name, result);       
+                staticFileCache.store(name, result);
            });
-        
+
             callback(result);
             let end = Date.now();
             if (end - start < 1000) {
                 setTimeout(function () {
-                    notification.trigger('notify-hide');    
+                    notification.trigger('notify-hide');
                 }, 1000);
             } else {
-                notification.trigger('notify-hide');    
+                notification.trigger('notify-hide');
             }
-            
+
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             Modal.showErrorGet(this.url, errorThrown);
-        });    
+        });
     }
 }
 
 staticFileCache = {
-    /* 
+    /*
      * staticFileCache.store
      * Convert data to string, compress and store in localStorage
      */
     store: function(filename, data) {
         if (!localStorageAvailable) return;
-    
+
         try {
             // Convert to string if not already (may throw if bad data)
             if (typeof data !== 'string') {
@@ -1992,7 +1992,7 @@ staticFileCache = {
         }
     },
 
-    /* 
+    /*
      * staticFileCache.retrieve
      * Read from localStorage, decompress, convert to JS
      */
@@ -2016,7 +2016,7 @@ staticFileCache = {
         return data;
     },
 
-    /* 
+    /*
      * staticFileCache.clear
      * Clear a file or all files saved in localStorage
      */
@@ -2056,7 +2056,7 @@ staticFileCache = {
         localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
     },
 
-    /* 
+    /*
      * staticFileCache.checkDataVersion
      * Compare the version, server and language as stored in localStorage
      */
@@ -2073,7 +2073,7 @@ staticFileCache = {
         return false;
     },
 
-    /* 
+    /*
      * staticFileCache.setDataVersion
      * Set the version, server and language to localStorage
      */
@@ -2108,7 +2108,7 @@ Modal = {
             ]
         }
         */
-    
+
         conf = $.extend({
             title: "Modal Title",
             body: "Modal body",
@@ -2118,11 +2118,11 @@ Modal = {
             withCancelButton: true,
             buttons: false
         }, conf);
-    
+
         conf.title = typeof conf.title === 'function' ? conf.title() : conf.title;
         conf.body = typeof conf.body === 'function' ? conf.body() : conf.body;
         var sizeClass = (conf.size === 'large' ? 'modal-lg' : (conf.size === 'small' ? 'modal-sm' : ''))
-    
+
         if (conf.buttons === false && conf.withCancelButton === false) {
             conf.buttons = [{
                 text: "Close",
@@ -2130,7 +2130,7 @@ Modal = {
                 onClick: function() {}
             }];
         }
-    
+
         var html = '<div class="modal temporaryModal" tabindex="-1" role="dialog">';
         html += '  <div class="modal-dialog '+sizeClass+'" role="document">';
         html += '    <div class="modal-content">';
@@ -2154,11 +2154,11 @@ Modal = {
         html += '    </div>';
         html += '  </div>';
         html += '</div>';
-    
+
         // Modal should be put last to be able to be above everything else
         var $modal = $('body').append(html).children().last();
         var $buttons = $modal.find("button[data-callback]");
-    
+
         // Enable modal mode, and add hidden event handler
         $modal.modal({ keyboard: false })
                 .on('hidden.bs.modal', function (e) {
@@ -2182,7 +2182,7 @@ Modal = {
                         $modal.modal('hide');
                     }
                 });
-    
+
         // Add buttons event handler
         $buttons.on('click', function (e) {
             var shouldHide = true;
@@ -2194,11 +2194,11 @@ Modal = {
                 $modal.modal('hide');
             }
         });
-        
+
         if (conf.onOpen) conf.onOpen($modal);
         return $modal;
     },
-    
+
     hide: function() {
         if ($('.temporaryModal').length > 0) {
             $('.temporaryModal').modal('hide');
@@ -2212,7 +2212,7 @@ Modal = {
         Modal.show({
             title: "Link to your " + name,
             body: "<p>This link will allow anyone to visualize your "+name+"</p>"+
-                  '<div class="input-group">' + 
+                  '<div class="input-group">' +
                     '<span class="input-group-addon">🔗</span>' +
                     '<input class="form-control linkInput" type="text" value="'+link+'"/>' +
                   '</div>'+
@@ -2226,8 +2226,8 @@ Modal = {
             }
         });
     },
-    
-    showWithTextData: function(title, textData) 
+
+    showWithTextData: function(title, textData)
     {
         Modal.show({
             title: title,
@@ -2242,8 +2242,8 @@ Modal = {
             }
         });
     },
-    
-    confirm: function(title, question, onAccept) 
+
+    confirm: function(title, question, onAccept)
     {
         Modal.show({
             title: title,
@@ -2256,8 +2256,8 @@ Modal = {
             }]
         });
     },
-    
-    showMessage: function(title, message, onClose) 
+
+    showMessage: function(title, message, onClose)
     {
         Modal.show({
             title: title,
@@ -2266,7 +2266,7 @@ Modal = {
             withCancelButton: false
         });
     },
-    
+
     showError: function(text, error) {
         Modal.show({
             title: "Something went wrong, Kupo!",
@@ -2279,8 +2279,8 @@ Modal = {
             window.console.error(error);
         }
     },
-    
-    showErrorGet: function(filename, errorThrown) 
+
+    showErrorGet: function(filename, errorThrown)
     {
         if (typeof errorThrown !== 'string') error = JSON.stringify(errorThrown);
 
@@ -2297,7 +2297,7 @@ Modal = {
     }
 }
 
-function copyInputToClipboard($input) 
+function copyInputToClipboard($input)
 {
     var successful = false;
     try {
@@ -2343,10 +2343,10 @@ function waitingCallbackKeyReady(key) {
 
 function getEsperLink(esper) {
     let linkData = escapeName(esper.name) + '|' + esper.rarity + '|' + esper.level + '|';
-    
+
     let boardStateBin = importBoardConversion.map(coordinate => getEsperBoardPositionString(coordinate[0], coordinate[1])).map(positionString => (positionString === '0_0' || esper.selectedSkills.includes(positionString)) ? '1': '0').join('');
     let boardState = bin2hex(boardStateBin);
-    
+
     linkData += boardState;
     return "https://ffbeEquip.com/espers.html?server=" + server + '&o#' + linkData;
 }
@@ -2415,6 +2415,9 @@ function computeConditionalCombinations(item, conditionals, onCombinationFound,i
         if (conditionals[index].exclusiveUnits) {
             item.exclusiveUnits = conditionals[index].exclusiveUnits;
         }
+        if (conditionals[index].exclusiveSex) {
+            item.exclusiveSex = conditionals[index].exclusiveSex;
+        }
         computeConditionalCombinations(item, conditionals, onCombinationFound, index + 1);
     }
 }
@@ -2433,7 +2436,7 @@ $(function() {
             localStorage.clear();
             window.console && window.console.warn("Clearing the whole localStorage!");
         }
-    } catch (e) {}  
+    } catch (e) {}
 
 
     readUrlParams();
@@ -2458,7 +2461,7 @@ $(function() {
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         Modal.showErrorGet(this.url, errorThrown);
     });
-    
+
     if ((window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0)) {
         $("#inventoryDiv").removeClass("Inventoryloading Inventoryloaded");
         notLoaded();
@@ -2520,13 +2523,13 @@ $(function() {
         console.log("Starts to load owned espers");
         $.get(server + '/espers', function(result) {
             ownedEspers = result;
-            
+
             Object.keys(ownedEspers).forEach(esper => {
                  if (ownedEspers[esper].esperStatsBonus && !ownedEspers[esper].esperStatsBonus.all) {
                      ownedEspers[esper].esperStatsBonus = {"all":ownedEspers[esper].esperStatsBonus};
                  }
             });
-            
+
             console.log("owned espers loaded");
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
@@ -2545,7 +2548,7 @@ $(function() {
         e.stopPropagation();
         e.preventDefault();
     });
-    
+
     let themeSelector = $('#themeSelector select');
     if (themeSelector.length) {
         themeSelector.change(onThemeChange);
@@ -2555,45 +2558,45 @@ $(function() {
     var $scroll = $('#scrollToTopButton');
     if ($scroll) {
         // Detect when user start to scroll down
-        $(window).scroll($.debounce(100, function(){ 
-            if ($(this).scrollTop() > 100) { 
+        $(window).scroll($.debounce(100, function(){
+            if ($(this).scrollTop() > 100) {
                 $scroll.fadeIn(200);
-            } else { 
+            } else {
                 $scroll.fadeOut(200);
-            } 
+            }
         }));
 
         // Back to top when clicking on link
-        $scroll.click(function(){ 
-            $("html, body").animate({ scrollTop: 0 }, 400); 
-            return false; 
-        }); 
+        $scroll.click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 400);
+            return false;
+        });
     }
 });
 
 
-/* 
+/*
  * Conditional stylesheet loading at runtime with media queries
- * 
- * How to use: 
+ *
+ * How to use:
  *  <link rel="stylesheet" type="text/css" class="load-if-media-matches" data-href="url/to/file.css" media="min-width: 1024px">
- * 
+ *
  * By default, browser will load all stylesheets, even if the media query
  * in media attr doesn't match.
- * 
+ *
  * This script will load the stylesheet only if the media query matches.
  * Event when resized.
- * 
+ *
  * href is replaced by data-href
  * If media query matches, href will be set by the value of data-ref,
  * effectively loading the stylesheet
- * 
+ *
  * Done in vanillajs for performance
- * 
+ *
  * This is not done in document.ready (i.e. $(function(){}) for jQuery) because it should run ASAP
- * 
+ *
  * Inspired by https://christianheilmann.com/2012/12/19/conditional-loading-of-resources-with-mediaqueries/
- * 
+ *
  */
 (function(){
     loadTheme();
@@ -2615,7 +2618,7 @@ $(function() {
             }
         }
     }
-    
+
     // Loop through the queries and check it
     var query, mql;
     for (query in queries) {
