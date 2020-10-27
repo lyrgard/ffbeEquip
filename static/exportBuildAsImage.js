@@ -51,12 +51,12 @@ FFBEEquipBuildAsImage = {
             ctx.textAlign = "start"
             ctx.textBaseline = "bottom";
             ctx.font = "italic 12px Arial";
-            ctx.fillText("HP", x, y + 20);
-            ctx.fillText("MP", x +100, y + 20);
-            ctx.fillText("ATK", x, y + 40);
-            ctx.fillText("DEF", x + 100, y + 40);
-            ctx.fillText("MAG", x, y + 60);
-            ctx.fillText("SPR", x +100, y + 60);
+            ctx.fillText("HP", x, y + 16);
+            ctx.fillText("MP", x +120, y + 16);
+            ctx.fillText("ATK", x, y + 41);
+            ctx.fillText("DEF", x + 120, y + 41);
+            ctx.fillText("MAG", x, y + 66);
+            ctx.fillText("SPR", x +120, y + 66);
             
             ctx.font = "16px Arial";
             let name = unit.name;
@@ -65,39 +65,48 @@ FFBEEquipBuildAsImage = {
             }
             ctx.fillText(name, 105, y - 5);
 
-            ctx.font = "bold 18px Arial";
             
             let line = 0;
             let column = 0;
-            ctx.textAlign = "end";
+
             ["hp", "mp", "atk", "def", "mag", "spr"].forEach(stat => {
-                ctx.fillText(unit.calculatedValues[stat].value, x + 80 + column * 100, y + 21 + line * 20);
+                ctx.textAlign = "end";
+                ctx.font = "bold 18px Arial";
+                ctx.fillStyle = 'white';
+                ctx.fillText(unit.calculatedValues[stat].value, x + 80 + column * 120, y + 21 + line * 25);
                 if (unit.pots[stat]) {
                     ctx.strokeStyle = 'black';
                     ctx.beginPath();
-                    ctx.moveTo(x + 85 + column * 100, y + 18 + line * 20);
-                    ctx.lineTo(x + 85 + column * 100, y + 3 + line * 20);
+                    ctx.moveTo(x + column * 120, y + 18 + line * 25);
+                    ctx.lineTo(x + 15 + column * 120, y + 18 + line * 25);
                     ctx.stroke();
 
                     ctx.strokeStyle = '#00ff00';
                     ctx.beginPath();
-                    ctx.moveTo(x + 85 + column * 100, y + 18 + line * 20);
-                    ctx.lineTo(x + 85 + column * 100, y + 18 + line * 20 - (15 * Math.min(1, unit.pots[stat] / unit.maxPots[stat])));
+                    ctx.moveTo(x + column * 120, y + 18 + line * 25);
+                    ctx.lineTo(x + column * 120 + (15 * Math.min(1, unit.pots[stat] / unit.maxPots[stat])), y + 18 + line * 25);
                     ctx.stroke();
                 }
 
                 if (unit.pots[stat] > unit.maxPots[stat]) {
                     ctx.strokeStyle = 'black';
                     ctx.beginPath();
-                    ctx.moveTo(x + 88 + column * 100, y + 18 + line * 20);
-                    ctx.lineTo(x + 88 + column * 100, y + 3 + line * 20);
+                    ctx.moveTo(x + 17 + column * 120, y + 18 + line * 25);
+                    ctx.lineTo(x + 32 + column * 120, y + 18 + line * 25);
                     ctx.stroke();
 
                     ctx.strokeStyle = '#00ff00';
                     ctx.beginPath();
-                    ctx.moveTo(x + 88 + column * 100, y + 18 + line * 20);
-                    ctx.lineTo(x + 88 + column * 100, y + 18 + line * 20 - (15 * Math.min(1, (unit.pots[stat] - unit.maxPots[stat]) / (unit.maxPots[stat] / 2))));
+                    ctx.moveTo(x + 17 + column * 120, y + 18 + line * 25);
+                    ctx.lineTo(x + 17 + column * 120 + (15 * Math.min(1, (unit.pots[stat] - unit.maxPots[stat]) / (unit.maxPots[stat] / 2))), y + 18 + line * 25);
                     ctx.stroke();
+                }
+
+                if (unit.buffs[stat]) {
+                    ctx.textAlign = "start";
+                    ctx.font = "italic 10px Arial";
+                    ctx.fillStyle = '#aaaaaa';
+                    ctx.fillText(`↑${unit.buffs[stat]}${stat === 'hp' ? '' : '%'}`, x + 82 + column * 120, y + 18 + line * 25);
                 }
 
                 column++;
@@ -106,32 +115,40 @@ FFBEEquipBuildAsImage = {
                     column = 0;
                 }
             });
-            
+
+            ctx.fillStyle = 'white';
+            ctx.strokeStyle = 'black';
             ctx.textBaseline = "bottom";
             let additionalValues = [
-                {"name":"Evasion", "value":unit.calculatedValues.physicalEvasion.value},
-                {"name":"Provoke", "value":unit.calculatedValues.drawAttacks.value},
-                {"name":"LB Dmg", "value":unit.calculatedValues.lbDamage.value},
-                {"name":"MP/turn", "value":unit.calculatedValues.mpRefresh.value * unit.calculatedValues.mp.value / 100},
-                {"name":"LB/turn", "value":unit.calculatedValues.lbPerTurn.value},
-                {"name":"LB fill", "value":unit.calculatedValues.lbFillRate.value},
-                {"name":"Jmp Dmg", "value":unit.calculatedValues.jumpDamage.value},
+                {"name":"Evasion", "value":unit.calculatedValues.physicalEvasion.value, "buff":0},
+                {"name":"Provoke", "value":unit.calculatedValues.drawAttacks.value, "buff": unit.buffs.drawAttacks},
+                {"name":"LB Dmg", "value":unit.calculatedValues.lbDamage.value, "buff": unit.buffs.lbDamage},
+                {"name":"MP/turn", "value":unit.calculatedValues.mpRefresh.value * unit.calculatedValues.mp.value / 100, "buff":0},
+                {"name":"LB/turn", "value":unit.calculatedValues.lbPerTurn.value, "buff":0},
+                {"name":"LB fill", "value":unit.calculatedValues.lbFillRate.value, "buff":unit.buffs.lbFillRate},
+                {"name":"Jmp Dmg", "value":unit.calculatedValues.jumpDamage.value, "buff":0},
 
             ];
             x = 25;
-            y = 100 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
+            y = 110 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
             line = 0;
             column = 0;
             additionalValues.forEach(valueData => {
                 if (valueData.value) {
-                    ctx.textAlign = "start"
-                    ctx.fillStyle = 'white';
-                    ctx.strokeStyle = 'black';
-                    ctx.font = "italic 12px Arial";
-                    ctx.fillText(valueData.name, x + column * 100, y + line * 20 + 20);
-                    ctx.font = "bold 14px Arial";
                     ctx.textAlign = "end"
-                    ctx.fillText(valueData.value, x + column * 100 + 80, y + line * 20 + 20);
+                    ctx.font = "italic 12px Arial";
+                    ctx.fillStyle = 'white';
+                    ctx.fillText(valueData.name, x + column * 100 + 50, y + line * 20 + 20);
+                    ctx.font = "bold 14px Arial";
+                    ctx.textAlign = "start";
+                    ctx.fillText(valueData.value, x + column * 100 + 54, y + line * 20 + 20);
+                    if (valueData.buff) {
+                        let valueWidth = ctx.measureText(valueData.value).width;
+                        ctx.textAlign = "start";
+                        ctx.font = "italic 10px Arial";
+                        ctx.fillStyle = '#aaaaaa';
+                        ctx.fillText(`↑${valueData.buff}`, x + column * 100 + 56 + valueWidth, y + line * 20 + 20);
+                    }
                     column++;
                     if (column == 3) {
                         line++;
@@ -139,6 +156,8 @@ FFBEEquipBuildAsImage = {
                     }
                 }
             });
+
+
         });
 
         let x = 355;
