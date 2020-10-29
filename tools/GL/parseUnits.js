@@ -418,7 +418,8 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
             lowerCaseKeys(unitIn.nv_upgrade[0].stats),
             lowerCaseKeys(unitIn.nv_upgrade[1].stats),
             lowerCaseKeys(unitIn.nv_upgrade[2].stats),
-        ]
+        ];
+        data.fragmentId = Object.keys(unitIn.nv_upgrade[0].materials).filter(id => unitIn.nv_upgrade[0].materials[id] % 25 === 0)[0];
     }
     
     return unit;

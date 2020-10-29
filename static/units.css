@@ -519,10 +519,14 @@
     display: none;
 }
 
-.ownedNumbers .tmrMoogles {
+.ownedNumbers .tmrMoogles, .ownedNumbers .fragments  {
     display: none;
     position: relative;
     padding-left: 22px;
+}
+
+.NV .ownedNumbers .fragments, .NVA .ownedNumbers .fragments {
+    display: block;
 }
 
 .ownedNumbers .tmrMoogles img {
@@ -530,6 +534,13 @@
     position: absolute;
     top: -10px;
     left: -6px;
+}
+
+.ownedNumbers .fragments img {
+    width: 36px;
+    position: absolute;
+    top: -7px;
+    left: -7px;
 }
 
 .ownedNumbers .tmrMoogles .ownedNumber {

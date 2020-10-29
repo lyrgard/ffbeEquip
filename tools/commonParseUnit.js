@@ -1211,18 +1211,140 @@ function addChainInfoToSkill(skill, effects, attackFrames, moveType, skills) {
 
 function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhancementLevel = 0) {
     var result = null;
-    
-    // break
-    if (rawEffect[2] == 24) { 
+
+    // Physical Damage
+    if (rawEffect[2] == 1) {
+        if (rawEffect[3].length != 7 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0  && rawEffect[3][5] != 0) {
+            console.log("Strange Physic damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}};
+
+        // Healing
+    } else if(rawEffect[2] == 2){
+        result= {"heal":{"base":rawEffect[3][2], "coef":rawEffect[3][3]/100}}
+
+        // Stat buff
+    } else if (rawEffect[2] == 3) {
+        result = {};
+        addStatsBuff(result, rawEffect[3]);
+
+        // raise
+    } else if (rawEffect[2] == 4) {
+        result = {"noUse":true};
+
+        // remove status
+    } else if (rawEffect[2] == 5) {
+        result = {"noUse":true};
+
+        // inflict status
+    } else if (rawEffect[2] == 6) {
+        result = {"noUse":true};
+
+        // Status ailment resistance
+    } else if (rawEffect[2] == 7) {
+        result = {};
+        var ailmentsData = rawEffect[3];
+        addAilmentResist(result, ailmentsData);
+        result.turns = ailmentsData[9];
+
+        // Healing over time
+    } else if(rawEffect[2] == 8){
+        result={"healOverTurn":{"base":rawEffect[3][2], "coef":rawEffect[3][0]/100}}
+        if (rawEffect[3][3] > 0) {
+            result.healOverTurn.turns = rawEffect[3][3];
+        }
+
+        // hp% damage (gravity)
+    } else if (rawEffect[2] == 9) {
+        result = {"noUse":true};
+
+        // mp drain (osmose)
+    } else if (rawEffect[2] == 10) {
+        result = {"noUse":true};
+
+        // self sacrifice
+    } else if (rawEffect[2] == 11) {
+        result = {"noUse":true};
+
+        // Delayed damage
+    } else if (rawEffect[2] == 13) {
+        if (rawEffect[3].length != 6 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0) {
+            console.log("Strange Delayed damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][5]/100, delay:rawEffect[3][0]}};
+
+        // Magical Damage
+    } else if (rawEffect[2] == 15) {
+        if (rawEffect[3].length != 6 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0) {
+            console.log("Strange Magic damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][5]/100}};
+
+        // flat Restore HP
+    } else if (rawEffect[2] == 16) {
+        result = {"noUse":true};
+
+        // recover MP
+    } else if (rawEffect[2] == 17) {
+        result = {"noUse":true};
+
+        //Physical mitigation
+    } else if (rawEffect[2] == 18) {
+        result = {"noUse":true, "physicalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
+        //Magical mitigation
+    } else if (rawEffect[2] == 19) {
+        result = {"noUse":true, "magicalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
+
+        // buff next normal attack (store)
+    } else if (rawEffect[2] == 20) {
+        result = {"noUse":true};
+
+        // Physical Damage with ignore DEF
+    } else if (rawEffect[2] == 21) {
+        if (rawEffect[3].length != 4 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
+            console.log("Strange Physic damage with ignoe DEF");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]/100, "ignore":{"def":-rawEffect[3][3]}}};
+
+        // Damage increased against a race
+    } else if (rawEffect[2] == 22) {
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};
+
+        // 1x mag dmg with race-specific damage boost. - skill 200840, 231747 - rawEffect[3][raceMap, ?, ?, dmgMultiplier]
+    } else if (rawEffect[2] == 23) {
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};
+
+        // break
+    } else if (rawEffect[2] == 24) {
         result = {};
         if (rawEffect[1] == 1) {
             addBreak(result, rawEffect[3]);
         } else {
             addStatsBuff(result, rawEffect[3]);
         }
-    
-    // Randomly use skills
-    } else if (rawEffect[2] == 29) { 
+
+        // hp drain - [%drain, dmgCoef, ?]
+    } else if (rawEffect[2] == 25) {
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][1]/100}};
+
+        // % hp restore
+    } else if (rawEffect[2] == 26) {
+        result = {"noUse":true};
+
+        // auto reraise
+    } else if (rawEffect[2] == 27) {
+        result = {"noUse":true};
+
+        // st healing items are aoe
+    } else if (rawEffect[2] == 28) {
+        result = {"noUse":true};
+
+        // Randomly use skills
+    } else if (rawEffect[2] == 29) {
         result = {"randomlyUse": []};
         for (var i = 0, len = rawEffect[3].length; i < len; i++) {
             var data = rawEffect[3][i];
@@ -1232,9 +1354,21 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
                 result.randomlyUse.push({"skill":skill, "percent":data[1]});
             }
         }
-        
-    // Imperil
-    } else if (rawEffect[2] == 33) { 
+
+        // recover mp (over time) - quick blooming soul
+    } else if (rawEffect[2] == 30) {
+        result = {"noUse":true};
+
+        // entrust
+    } else if (rawEffect[2] == 31) {
+        result = {"noUse":true};
+
+        // fill esper gauge by x-y
+    } else if (rawEffect[2] == 32) {
+        result = {"noUse":true};
+
+        // Imperil
+    } else if (rawEffect[2] == 33) {
         result = {};
         var imperilData = rawEffect[3];
         if (rawEffect[1] == 1) {
@@ -1243,15 +1377,141 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             addElementalResist(result, imperilData);
             result.turns = imperilData[9];
         }
-    
-    // Status ailment resistance
-    } else if (rawEffect[2] == 7) { 
-        result = {};
-        var ailmentsData = rawEffect[3];
-        addAilmentResist(result, ailmentsData);
-        result.turns = ailmentsData[9];
-        
-    // Break, stop and charm resistance with turn number
+
+        // inflict multiple status
+    } else if (rawEffect[2] == 34) {
+        result = {"noUse":true};
+
+        // Auto KO
+    } else if (rawEffect[2] == 35) {
+        result = {"noUse":true};
+
+        // steal item (vaan lb)
+    } else if (rawEffect[2] == 37) {
+        result = {"noUse":true};
+
+        // % chance hp restore or nothing
+    } else if (rawEffect[2] == 38) {
+        result = {"noUse":true};
+
+        // sacrifice x% hp to do y% damage - 202820 - [?, sacrifice%, ?, dmg%, ?, ?]
+    } else if (rawEffect[2] == 39) {
+        result = {"noUse":true};
+
+        // Hybrid damage
+    } else if (rawEffect[2] == 40) {
+        if (rawEffect[3].length != 10 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0 && rawEffect[3][5] != 0 && rawEffect[3][6] != 0 && rawEffect[3][7] != 0 && rawEffect[3][8] != rawEffect[3][9]) {
+            console.log("Strange hybrid damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"hybrid", "coef":rawEffect[3][8]/100}};
+
+        // fixed damage
+    } else if (rawEffect[2] == 41) {
+        result = {"noUse":true};
+
+        // Combo damage
+    } else if (rawEffect[2] == 42) {
+        if (rawEffect[3].length != 5 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
+            console.log("Strange Combo");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "combo": true, "minTime":rawEffect[3][2], "maxTime":rawEffect[3][3]}};
+
+        // Critical Physical Damage
+    } else if (rawEffect[2] == 43) {
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]*1.5/100}};
+
+        // Dual Black Magic
+    } else if (rawEffect[2] == 44) {
+        return {
+            "multicast": {
+                "time": 2,
+                "type": "blackMagic"
+            }
+        }
+
+        // Dualcast
+    } else if (rawEffect[2] == 45) {
+        return {
+            "multicast": {
+                "time": 2,
+                "type": "magic"
+            }
+        };
+
+        // enemy info
+    } else if (rawEffect[2] == 47) {
+        result = {"noUse":true};
+
+        // drink
+    } else if (rawEffect[2] == 48) {
+        result = {"noUse":true};
+
+        // throw
+    } else if (rawEffect[2] == 50) {
+        result = {"noUse":true};
+
+        // escape
+    } else if (rawEffect[2] == 51) {
+        result = {"noUse":true};
+
+        // Multicast magic
+    } else if (rawEffect[2] == 52) {
+        var magicType = "";
+        if (rawEffect[3][0] ==  0) {
+            magicType = "magic";
+        } else if (rawEffect[3][0] ==  1) {
+            magicType = "blackMagic";
+        } else if (rawEffect[3][0] ==  2) {
+            magicType = "whiteMagic";
+        }
+        return {
+            "multicast": {
+                "time": rawEffect[3][1],
+                "type": magicType
+            }
+        };
+
+        // Jump damage
+    } else if (rawEffect[0] == 1 && rawEffect[1] == 1 && rawEffect[2] == 52) {
+        if (rawEffect[3].length != 5 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != rawEffect[3][3]) {
+            console.log("Strange Jump damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][3]}};
+
+        // hide skills
+    } else if (rawEffect[2] == 53 && rawEffect[3].length == 2) {
+        result = {"noUse":true};
+
+
+        // multicast skills
+    } else if (rawEffect[2] == 53 && rawEffect[3].length > 2) {
+
+        let result = {
+            "multicast": {
+                "time": rawEffect[3][0],
+                "type": "skills",
+                "skills":[]
+            }
+        }
+        for (var i = 0, len = rawEffect[3][3].length; i < len; i++) {
+            var skill = skills[rawEffect[3][3][i]];
+            if (!skill) {
+                console.log('Unknown skill : ' + rawEffect[3][3][i] + ' - ' + JSON.stringify(rawEffect));
+                continue;
+            }
+            result.multicast.skills.push({"id": rawEffect[3][3][i].toString(), "name":skill.name});
+        }
+
+        return result;
+
+        // Dodge x physical attacks
+    } else if (rawEffect[2] == 54) {
+        result = {"noUse":true, "mirage":rawEffect[3][0], "turns":rawEffect[3][1]};
+
+        // Break, stop and charm resistance with turn number
     } else if (rawEffect[2] == 89 || rawEffect[2] == 55) {
         result = {resist:[]};
         if (rawEffect[3][0]) {
@@ -1274,8 +1534,113 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         }
         result.turns = rawEffect[3][6];
 
-    // Killers
-    } else if (rawEffect[2] == 92) { 
+        // hp restore over turn - [healMod, ?, flatHeal, turns]
+    } else if (rawEffect[2] == 56) {
+//        result = null;
+        result={"healOverTurn":{"base":rawEffect[3][2], "coef":rawEffect[3][0]/100}}
+        if (rawEffect[3][3] > 0) {
+            result.healOverTurn.turns = rawEffect[3][3];
+        }
+
+        // mp restore over turn
+    } else if (rawEffect[2] == 57) {
+        result = {"noUse":true};
+
+        // stat buff - [atk, def, mag, spr, turns, ?]
+    } else if (rawEffect[2] == 58) {
+//        result = null;
+        result = {};
+        addStatsBuff(result, rawEffect[3]);
+
+        // Remove all debuff
+    } else if (rawEffect[2] == 59) {
+        result = {"noUse":true};
+
+        // inflict charm
+    } else if (rawEffect[2] == 60) {
+        result = {"noUse":true};
+
+        // Draw attacks
+    } else if (rawEffect[2] == 61) {
+        result = {"drawAttacks":rawEffect[3][0], "turns": rawEffect[3][1]};
+
+        // lb fill buff - 912590 - [%boost, turns]
+    } else if (rawEffect[2] == 63 && rawEffect[3].length == 2) {
+        result = null;
+
+        // % hp/mp restore
+    } else if (rawEffect[2] == 64) {
+        result = {"noUse":true};
+
+        // flat recover HP/MP
+    } else if (rawEffect[2] == 65) {
+        result = {"noUse":true};
+
+        // increase hp for ally
+    } else if (rawEffect[2] == 66) {
+        result = {"noUse":true};
+
+        // Self inflict Berserk
+    } else if (rawEffect[2] == 68) {
+        result = {"berserk":{"percent":rawEffect[3][1], "duration":rawEffect[3][0]}};
+
+        // Magical Damage with ignore SPR
+    } else if (rawEffect[2] == 70) {
+        if (rawEffect[3].length != 4 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
+            console.log("Strange Magic damage with ignoe SPR");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, "ignore":{"spr":rawEffect[3][3]}}};
+
+        // use skill - [skillNumber, ?]
+    } else if (rawEffect[2] == 71 && rawEffect[3].length == 2) {
+        result = null;
+
+        // Magical Damage with stacking
+    } else if (rawEffect[2] == 72) {
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":(rawEffect[3][2] + rawEffect[3][3])/100, "stack":rawEffect[3][4]/100, "maxStack":rawEffect[3][5] - 1}};
+
+        // steal gil
+    } else if (rawEffect[2] == 76) {
+        result = {"noUse":true};
+
+        // Physical Damage with HP sacrifice
+    } else if (rawEffect[2] == 81) {
+        if (rawEffect[3].length != 7 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0  && rawEffect[3][5] != 0) {
+            console.log("Strange Physic damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}, hpSacrifice:rawEffect[3][7]};
+
+        // use random ability. - same as 29 - [[skillId, chance]]
+    } else if (rawEffect[2] == 82) {
+        result = null;
+
+        // reduce self hp to 1
+    } else if (rawEffect[2] == 83) {
+        result = {"noUse":true};
+
+        // nullify next magic
+    } else if (rawEffect[2] == 84) {
+        result = {"noUse":true};
+
+        // reflect
+    } else if (rawEffect[2] == 86) {
+        result = {"noUse":true};
+
+        // inflict stop
+    } else if (rawEffect[2] == 88) {
+        result = {"noUse":true};
+
+        // Break, stop and charm resistance with turn number - see [55]
+        // } else if (rawEffect[2] == 89 || rawEffect[2] == 55) {
+
+        // single skill mag buff - [%boost, cap, ?]
+    } else if (rawEffect[2] == 90) {
+        result = {"noUse":true};
+
+        // Killers
+    } else if (rawEffect[2] == 92) {
         result = {};
         var killersData = rawEffect[3];
         for (var i = 0; i < 8; i++) {
@@ -1285,7 +1650,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             addKiller(result, raceMap[killersData[i][0]], killersData[i][1], 0);
         }
         result.turns = killersData[8];
-    } else if (rawEffect[2] == 93) { 
+    } else if (rawEffect[2] == 93) {
         result = {};
         var killersData = rawEffect[3];
         for (var i = 0; i < 8; i++) {
@@ -1295,10 +1660,9 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             addKiller(result, raceMap[killersData[i][0]], 0, killersData[i][1]);
         }
         result.turns = killersData[8];
-        
-        
-    // Imbue
-    } else if (rawEffect[2] == 95) { 
+
+        // Imbue
+    } else if (rawEffect[2] == 95) {
         result = {"imbue":[]};
         var imbueData = rawEffect[3];
         for (var index in elements) {
@@ -1307,299 +1671,17 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             }
         }
         result.turns = imbueData[8];
-        
-    // Cooldown skills
-    } else if (rawEffect[2] == 130) { 
 
-        let id = parseInt(rawEffect[3][0]);
-        var skillIn = skills[id];
-        if (skillIn) {
-            result = {};
-            result.cooldownSkill = parseActiveSkill(id.toString(), skillIn, skills, unit);
-            result.cooldownTurns = rawEffect[3][2][0] + 1;
-            result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
-            if (rawEffect[3][3] == 0) {
-                if (result.cooldownSkill.effects.some(e => e.effect && e.effect.damage && e.effect.damage.mecanism == 'physical')) {
-                   result.cooldownSkill.preventDualCastWithDualWield = true; 
-                }
-            }
-        }
-    
-    // Draw attacks
-    } else if (rawEffect[2] == 61) {
-        result = {"drawAttacks":rawEffect[3][0], "turns": rawEffect[3][1]};
-        
-    // Stat buff
-    } else if (rawEffect[2] == 3) {
-        result = {};
-        addStatsBuff(result, rawEffect[3]);
-        
-    // AOE Cover
+        // AOE Cover
     } else if (rawEffect[2] == 96) {
         result = {"aoeCover":{}, "turns": rawEffect[3][6]};
         result.aoeCover.type = (rawEffect[3][rawEffect[3].length - 1] == 1 ? "physical": "magical");
         result.aoeCover.mitigation = {"min": rawEffect[3][2], "max": rawEffect[3][3]};
         result.aoeCover.chance = rawEffect[3][4];
-    
-    // Conditional skills
-    } else if (rawEffect[2] == 99) {
-        result = {};
-        
-        var skillId1 = rawEffect[3][5].toString();
-        var skillIn1 = skills[skillId1];
-        var skill1 = parseActiveSkill(skillId1, skillIn1, skills, unit, enhancementLevel);
-        
-        var skillId2 = rawEffect[3][3].toString();
-        var skillIn2 = skills[skillId2];
-        var skill2 = parseActiveSkill(skillId2, skillIn2, skills, unit, enhancementLevel);
-        skill2.ifUsedLastTurn = [];
-        if (Array.isArray(rawEffect[3][1])) {
-            for (var i = 0, len = rawEffect[3][1].length; i < len; i++) {
-                var skill = skills[rawEffect[3][1][i]];
-                skill2.ifUsedLastTurn.push({"id":rawEffect[3][1][i], "name":skill.name});
-            }
-        } else {
-            var skill = skills[rawEffect[3][1]];
-            skill2.ifUsedLastTurn.push({"id":rawEffect[3][1], "name":skill.name});
-        }
-        addUnlockedSkill(skillId1, skill2, unit);
-        return skill1;
-        
-    // Magical Damage
-    } else if (rawEffect[2] == 15) {
-        if (rawEffect[3].length != 6 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0) {
-            console.log("Strange Magic damage");
-            console.log(rawEffect);
-        }
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][5]/100}};
-        
-    // Physical Damage
-    } else if (rawEffect[2] == 1) {
-        if (rawEffect[3].length != 7 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0  && rawEffect[3][5] != 0) {
-            console.log("Strange Physic damage");
-            console.log(rawEffect);
-        }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}};
 
-    // Physical Damage with HP sacrifice
-    } else if (rawEffect[2] == 81) {
-        if (rawEffect[3].length != 7 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0  && rawEffect[3][5] != 0) {
-            console.log("Strange Physic damage");
-            console.log(rawEffect);
-        }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}, hpSacrifice:rawEffect[3][7]};
-
-    // Physical Damage with ignore DEF
-    } else if (rawEffect[2] == 21) {
-        if (rawEffect[3].length != 4 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
-            console.log("Strange Physic damage with ignoe DEF");
-            console.log(rawEffect);
-        }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]/100, "ignore":{"def":-rawEffect[3][3]}}};
-        
-    // Magical Damage with ignore SPR
-    } else if (rawEffect[2] == 70) {
-        if (rawEffect[3].length != 4 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
-            console.log("Strange Magic damage with ignoe SPR");
-            console.log(rawEffect);
-        }
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, "ignore":{"spr":rawEffect[3][3]}}};
-    
-    // Physical Damage from DEF
-    } else if (rawEffect[2] == 102) {
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]/100, use: {"stat":"def", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
-        
-    // Magical Damage from SPR
-    } else if (rawEffect[2] == 103) {
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, use: {"stat":"spr", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
-        
-    // Magical Damage with stacking
-    } else if (rawEffect[2] == 72) {
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":(rawEffect[3][2] + rawEffect[3][3])/100, "stack":rawEffect[3][4]/100, "maxStack":rawEffect[3][5] - 1}};    
-        
-    // Physical Damage with stacking
-    } else if (rawEffect[2] == 126) {
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":(rawEffect[3][3] + rawEffect[3][4])/100, "stack":rawEffect[3][5]/100, "maxStack":rawEffect[3][6] - 1}};    
-        
-    // Jump damage
-    } else if (rawEffect[0] == 1 && rawEffect[1] == 1 && rawEffect[2] == 52) {
-        if (rawEffect[3].length != 5 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != rawEffect[3][3]) {
-            console.log("Strange Jump damage");
-            console.log(rawEffect);
-        }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][3]}};
-        
-    // Delayed damage
-    } else if (rawEffect[2] == 13) {
-        if (rawEffect[3].length != 6 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0) {
-            console.log("Strange Delayed damage");
-            console.log(rawEffect);
-        }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][5]/100, delay:rawEffect[3][0]}};
-        
-    // Timed Jump
-    } else if (rawEffect[2] == 134) {
-        if (rawEffect[3].length != 5 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != rawEffect[3][3]) {
-            console.log("Strange Timed Jump damage");
-            console.log(rawEffect);
-        }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][2]}};
-        
-    // Combo damage
-    } else if (rawEffect[2] == 42) {
-        if (rawEffect[3].length != 5 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
-            console.log("Strange Combo");
-            console.log(rawEffect);
-        }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "combo": true, "minTime":rawEffect[3][2], "maxTime":rawEffect[3][3]}};    
-        
-    // Hybrid damage
-    } else if (rawEffect[2] == 40) {
-        if (rawEffect[3].length != 10 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0 && rawEffect[3][5] != 0 && rawEffect[3][6] != 0 && rawEffect[3][7] != 0 && rawEffect[3][8] != rawEffect[3][9]) {
-            console.log("Strange hybrid damage");
-            console.log(rawEffect);
-        }
-        result = {"damage":{"mecanism":"hybrid", "coef":rawEffect[3][8]/100}};    
-    // Evo Damage
-    } else if(rawEffect[2] == 124){
-        result = {"damage":{"mecanism":"summonerSkill", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
-        if (rawEffect[3].length >= 10 && Array.isArray(rawEffect[3][9])) {
-            result.damage.magSplit = rawEffect[3][9][0] / 100;
-            result.damage.sprSplit = rawEffect[3][9][1] / 100;
-        }
-    // Healing
-    } else if(rawEffect[2] == 2){
-        result= {"heal":{"base":rawEffect[3][2], "coef":rawEffect[3][3]/100}}
-    // Healing over time
-    } else if(rawEffect[2] == 8){
-        result={"healOverTurn":{"base":rawEffect[3][2], "coef":rawEffect[3][0]/100}}
-        if (rawEffect[3][3] > 0) {
-            result.healOverTurn.turns = rawEffect[3][3];
-        }
-    // Damage increased against a race
-    } else if (rawEffect[2] == 22) {
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};
-
-    // Critical Physical Damage
-    } else if (rawEffect[2] == 43) {
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]*1.5/100}};
-        
-    // Self inflict Berserk
-    } else if (rawEffect[2] == 68) {
-        result = {"berserk":{"percent":rawEffect[3][1], "duration":rawEffect[3][0]}};
-
-    // inflict status
-    } else if (rawEffect[2] == 6) {
-        result = {"noUse":true};
-        
-    // inflict multiple status
-    } else if (rawEffect[2] == 34) {
-        result = {"noUse":true};
-        
-    // Remove all debuff
-    } else if (rawEffect[2] == 59) {
-        result = {"noUse":true};
-        
-    // inflict stop
-    } else if (rawEffect[2] == 88) {
-        result = {"noUse":true};
-
-        // inflict charm
-    } else if (rawEffect[2] == 60) {
-        result = {"noUse":true};
-
-        // recover MP
-    } else if (rawEffect[2] == 17) {
-        result = {"noUse":true};
-
-        // recover mp (over time) - quick blooming soul
-    } else if (rawEffect[2] == 30) {
-        result = {"noUse":true};
-
-       //Global mitigation
-    } else if (rawEffect[2] == 101) {
-        result = {"noUse":true, "globalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
-        //Magical mitigation
-    } else if (rawEffect[2] == 19) {
-        result = {"noUse":true, "magicalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
-        //Physical mitigation
-    } else if (rawEffect[2] == 18) {
-        result = {"noUse":true, "physicalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
-    } else if (rawEffect[2] == 54) {
-        result = {"noUse":true, "mirage":rawEffect[3][0], "turns":rawEffect[3][1]};
-        // recover HP/MP percentage
-    } else if (rawEffect[2] == 65) {
-        result = {"noUse":true};
-
-        // auto cast skill later
-    } else if (rawEffect[2] == 132) {
-        result = {"noUse":true};
-        
-    // cure breaks
-    } else if (rawEffect[2] == 111) {
-        result = {"noUse":true};
-        
-        // auto reraise
-    } else if (rawEffect[2] == 27) {
-        result = {"noUse":true};
-    
-        // Dodge x physical attacks
-    } else if (rawEffect[2] == 54) {
-        result = {"noUse":true};
-        
-        // HP barrier
-    } else if (rawEffect[2] == 127) {
-        result = {"noUse":true};
-        
-        // Restore HP
-    } else if (rawEffect[2] == 16) {
-        result = {"noUse":true};
-        
-        // Gain counters when ally is hit
-    } else if (rawEffect[2] == 123) {
-        result = {"noUse":true};
-        
-        // Auto KO
-    } else if (rawEffect[2] == 35) {
-        result = {"noUse":true};
-
-        // steal item (vaan lb)
-    } else if (rawEffect[2] == 37) {
-        result = {"noUse":true};
-        
-        // Dualcast
-    } else if (rawEffect[2] == 45) {
-        return {
-            "multicast": {
-                "time": 2,
-                "type": "magic"
-            }
-        };
-        
-    
-    // Dual Black Magic
-    } else if (rawEffect[2] == 44) {
-        return {
-            "multicast": {
-                "time": 2,
-                "type": "blackMagic"
-            }
-        }
-        
-    // +LB damage
-    } else if (rawEffect[2] == 120) {
-        result = {"statsBuff":{"lbDamage":rawEffect[3][0]}, "turns":rawEffect[3][1]};
-        
-    // +LB
-    } else if (rawEffect[2] == 125) {
-        result = {"lbFill":{"min":rawEffect[3][0]/100, "max":rawEffect[3][1]/100}};    
-    
-        
-        
-        
-    // Gain Skill
+        // Gain Skill
     } else if (rawEffect[2] == 97) {
-        
+
         let magicType;
         let magicTypeLabel
         if (rawEffect[3][0] == 0) {
@@ -1614,74 +1696,34 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         }
         var gainedSkillId = rawEffect[3][2].toString();
         var gainedSkill = skills[gainedSkillId];
-        
+
         var multicastskill = {
             "id":gainedSkillId,
             "name":gainedSkill.name,
             "icon":gainedSkill.icon,
             "effects":[{
-                    "effect":{
-                        "multicast":{"time":rawEffect[3][1],"type":magicType}
-                    },
-                    "desc":"Enable unit to cast " + rawEffect[3][1] + " " + magicTypeLabel + " spells"
+                "effect":{
+                    "multicast":{"time":rawEffect[3][1],"type":magicType}
+                },
+                "desc":"Enable unit to cast " + rawEffect[3][1] + " " + magicTypeLabel + " spells"
             }]
         };
-        
+
         result = {
             "gainSkills": {
                 "turns": rawEffect[3][3] - 1,
                 "skills": [multicastskill]
             }
         }
-        
+
         addUnlockedSkill(gainedSkillId, multicastskill, unit, skillId);
-            
+
         return result;
-        
-    // Gain Skill
-    } else if (rawEffect[2] == 100) {
-        result = {
-            "gainSkills": {
-                "skills": []
-            }
-        }
-        if (rawEffect[3][3] > 1) {
-           result.gainSkills.turns = rawEffect[3][3] - 1;
-        }
-        var gainedSkillIds;
-        if (Array.isArray(rawEffect[3][1])) {
-            gainedSkillIds = rawEffect[3][1];
-        } else {
-            gainedSkillIds = [rawEffect[3][1]];
-        }
-        for (var i = 0, len = gainedSkillIds.length; i < len; i++) {
-            var gainedSkill = skills[gainedSkillIds[i].toString()];
-            var gainedSkillName;
-            if (!gainedSkill) {
-                gainedSkillName = "UNKNOWN SKILL";
-            } else {
-                gainedSkillName = gainedSkill.name;
-            }
-            result.gainSkills.skills.push({
-                "id":gainedSkillIds[i].toString(),
-                "name":gainedSkillName
-            });
-            
-            if (gainedSkill) {
-                if (!unit.unlockedSkillAdded) {
-                    unit.unlockedSkillAdded = [];
-                }
-                if (!unit.unlockedSkillAdded.includes(gainedSkillIds[i].toString())) {
-                    unit.unlockedSkillAdded.push(gainedSkillIds[i].toString())
-                    addUnlockedSkill(gainedSkillIds[i].toString(), parseActiveSkill(gainedSkillIds[i].toString(), gainedSkill, skills, unit), unit, skillId);
-                }
-            }
-        }
-        
-    // Gain Multicast ability
+
+        // Gain Multicast ability
     } else if (rawEffect[2] == 98) {
         var gainedSkillId = rawEffect[3][1].toString();
-        
+
         var gainedSkill = skills[gainedSkillId];
         if (gainedSkill) {
             gainedEffect = {
@@ -1701,13 +1743,13 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
                 }
             }
             var parsedSkill = {"name" : gainedSkill.name, "icon": gainedSkill.icon, "effects": [
-                {
-                    "effect":gainedEffect, 
-                    "desc": desc + skillsDesc.join(', ') + ' ' + rawEffect[3][0] + ' times in one turn'
-                }
-            ]};
+                    {
+                        "effect":gainedEffect,
+                        "desc": desc + skillsDesc.join(', ') + ' ' + rawEffect[3][0] + ' times in one turn'
+                    }
+                ]};
             parsedSkill.id = 'unlocked' + JSON.stringify(parsedSkill).hashCode();
-            
+
             addUnlockedSkill(parsedSkill.id, parsedSkill, unit, skillId);
 
             return {
@@ -1720,46 +1762,177 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
                 }
             }
         }
-        
-    // multicast skills
-    } else if (rawEffect[2] == 53 && rawEffect[3].length > 2) {
-        
-        let result = {
-            "multicast": {
-                "time": rawEffect[3][0],
-                "type": "skills",
-                "skills":[]
+
+        // Conditional skills
+    } else if (rawEffect[2] == 99) {
+        result = {};
+
+        var skillId1 = rawEffect[3][5].toString();
+        var skillIn1 = skills[skillId1];
+        var skill1 = parseActiveSkill(skillId1, skillIn1, skills, unit, enhancementLevel);
+
+        var skillId2 = rawEffect[3][3].toString();
+        var skillIn2 = skills[skillId2];
+        var skill2 = parseActiveSkill(skillId2, skillIn2, skills, unit, enhancementLevel);
+        skill2.ifUsedLastTurn = [];
+        if (Array.isArray(rawEffect[3][1])) {
+            for (var i = 0, len = rawEffect[3][1].length; i < len; i++) {
+                var skill = skills[rawEffect[3][1][i]];
+                skill2.ifUsedLastTurn.push({"id":rawEffect[3][1][i], "name":skill.name});
+            }
+        } else {
+            var skill = skills[rawEffect[3][1]];
+            skill2.ifUsedLastTurn.push({"id":rawEffect[3][1], "name":skill.name});
+        }
+        addUnlockedSkill(skillId1, skill2, unit);
+        return skill1;
+
+        // Gain Skill
+    } else if (rawEffect[2] == 100) {
+        result = {
+            "gainSkills": {
+                "skills": []
             }
         }
-        for (var i = 0, len = rawEffect[3][3].length; i < len; i++) {
-            var skill = skills[rawEffect[3][3][i]];
-            if (!skill) {
-                console.log('Unknown skill : ' + rawEffect[3][3][i] + ' - ' + JSON.stringify(rawEffect));
-                continue;
-            }
-            result.multicast.skills.push({"id": rawEffect[3][3][i].toString(), "name":skill.name});
+        if (rawEffect[3][3] > 1) {
+            result.gainSkills.turns = rawEffect[3][3] - 1;
         }
-        
-        return result;
-        
-    // Multicast magic
-    } else if (rawEffect[2] == 52) {    
-        var magicType = "";
-        if (rawEffect[3][0] ==  0) {
-            magicType = "magic";
-        } else if (rawEffect[3][0] ==  1) {
-            magicType = "blackMagic";
-        } else if (rawEffect[3][0] ==  2) {
-            magicType = "whiteMagic";
+        var gainedSkillIds;
+        if (Array.isArray(rawEffect[3][1])) {
+            gainedSkillIds = rawEffect[3][1];
+        } else {
+            gainedSkillIds = [rawEffect[3][1]];
         }
-        return {
-            "multicast": {
-                "time": rawEffect[3][1],
-                "type": magicType
+        for (var i = 0, len = gainedSkillIds.length; i < len; i++) {
+            var gainedSkill = skills[gainedSkillIds[i].toString()];
+            var gainedSkillName;
+            if (!gainedSkill) {
+                gainedSkillName = "UNKNOWN SKILL";
+            } else {
+                gainedSkillName = gainedSkill.name;
             }
-        };
-    
-    // skill enhancement
+            result.gainSkills.skills.push({
+                "id":gainedSkillIds[i].toString(),
+                "name":gainedSkillName
+            });
+
+            if (gainedSkill) {
+                if (!unit.unlockedSkillAdded) {
+                    unit.unlockedSkillAdded = [];
+                }
+                if (!unit.unlockedSkillAdded.includes(gainedSkillIds[i].toString())) {
+                    unit.unlockedSkillAdded.push(gainedSkillIds[i].toString())
+                    addUnlockedSkill(gainedSkillIds[i].toString(), parseActiveSkill(gainedSkillIds[i].toString(), gainedSkill, skills, unit), unit, skillId);
+                }
+            }
+        }
+
+        //Global mitigation
+    } else if (rawEffect[2] == 101) {
+        result = {"noUse":true, "globalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
+
+        // Physical Damage from DEF
+    } else if (rawEffect[2] == 102) {
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]/100, use: {"stat":"def", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
+
+        // Magical Damage from SPR
+    } else if (rawEffect[2] == 103) {
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, use: {"stat":"spr", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
+
+        // mp-based m_damage - raw doesn't make sense
+    } else if (rawEffect[2] == 105) {
+        result = {"noUse":true};
+
+        // cure breaks
+    } else if (rawEffect[2] == 111) {
+        result = {"noUse":true};
+
+        // death or p_damage with def ignore - skill 503660 : [skill mod, death chance, damage chance, def ignore]
+    } else if (rawEffect[2] == 112) {
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][0]/100, "ignore":{"def":rawEffect[3][3]}}};
+
+        // death or m_damage - skill 511703 : [skill mod, death chance, damage chance, spr ignore]
+    } else if (rawEffect[2] == 113) {
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][0]/100, "ignore":{"spr":rawEffect[3][3]}}};
+
+        // Gain counters when ally is hit
+    } else if (rawEffect[2] == 118) {
+        result = {"noUse":true};
+
+        // counter attacks - [%chance, stat[a,m,d,s], coef, effectTurns, ?, max/turn]
+    } else if (rawEffect[2] == 119) {
+        result = {"noUse":true};
+
+        // +LB damage
+    } else if (rawEffect[2] == 120) {
+        result = {"statsBuff":{"lbDamage":rawEffect[3][0]}, "turns":rawEffect[3][1]};
+
+        // Grant immunity to death to allies except self for x turns
+    } else if (rawEffect[2] == 122) {
+        result = {"noUse":true};
+
+        // Gain counters when ally is hit
+    } else if (rawEffect[2] == 123) {
+        result = {"noUse":true};
+
+        // Evo Damage
+    } else if(rawEffect[2] == 124){
+        result = {"damage":{"mecanism":"summonerSkill", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
+        if (rawEffect[3].length >= 10 && Array.isArray(rawEffect[3][9])) {
+            result.damage.magSplit = rawEffect[3][9][0] / 100;
+            result.damage.sprSplit = rawEffect[3][9][1] / 100;
+        }
+
+        // +LB
+    } else if (rawEffect[2] == 125) {
+        result = {"lbFill":{"min":rawEffect[3][0]/100, "max":rawEffect[3][1]/100}};
+
+        // Physical Damage with stacking
+    } else if (rawEffect[2] == 126) {
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":(rawEffect[3][3] + rawEffect[3][4])/100, "stack":rawEffect[3][5]/100, "maxStack":rawEffect[3][6] - 1}};
+
+        // HP barrier
+    } else if (rawEffect[2] == 127) {
+        result = {"noUse":true};
+
+        // Cooldown skills
+    } else if (rawEffect[2] == 130) {
+
+        let id = parseInt(rawEffect[3][0]);
+        var skillIn = skills[id];
+        if (skillIn) {
+            result = {};
+            result.cooldownSkill = parseActiveSkill(id.toString(), skillIn, skills, unit);
+            result.cooldownTurns = rawEffect[3][2][0] + 1;
+            result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
+            if (rawEffect[3][3] == 0) {
+                if (result.cooldownSkill.effects.some(e => e.effect && e.effect.damage && e.effect.damage.mecanism == 'physical')) {
+                    result.cooldownSkill.preventDualCastWithDualWield = true;
+                }
+            }
+        }
+
+        // m_damage over turn - example 228350 - [?, coef/turn, ?, effectTurns, ?, ?]
+    } else if (rawEffect[2] == 131) {
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][1]/100}};
+
+        // auto cast skill later
+    } else if (rawEffect[2] == 132) {
+        result = {"noUse":true};
+
+        // steal debuffs from allies
+    } else if (rawEffect[2] == 133) {
+        result = {"noUse":true};
+
+        // Timed Jump
+    } else if (rawEffect[2] == 134) {
+        if (rawEffect[3].length != 5 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != rawEffect[3][3]) {
+            console.log("Strange Timed Jump damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][2]}};
+
+        // skill enhancement
     } else if (rawEffect[2] == 136) {
         let result = {'skillEnhancement':{}};
         let increase = rawEffect[3][3] / 100;
@@ -1771,15 +1944,146 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         result.turn = rawEffect[3][4];
         return result;
 
+        // damage over turn - [stat, coef/turn, ?, ?, turns, ?, ?]
+    } else if (rawEffect[2] == 139 && (rawEffect[3][0] == 1 || rawEffect[3][0] == 2)) {
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][1]/100}};
+    } else if (rawEffect[2] == 139 && (rawEffect[3][0] == 3 || rawEffect[3][0] == 4)) {
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][1]/100}};
 
-    // Grandis ability
+        // remove buffs from enemy
+    } else if (rawEffect[2] == 141) {
+        result = {"noUse":true};
+
+        // remove zombie
+    } else if (rawEffect[2] == 148) {
+        result = {"noUse":true};
+
+        // increase element damage - [phys/mag, [elements], ?, turns, ?]
+    } else if (rawEffect[2] == 149) {
+        result = {"noUse":true};
+
+        // reduce p_damage from enemy types [[[raceMap, %] || -1] x6], ?, turns, ?
+    } else if (rawEffect[2] == 153) {
+        result = {"noUse":true};
+
+        // reduce m_damage from enemy types [[[raceMap, %] || -1] x6], ?, turns, ?
+    } else if (rawEffect[2] == 154) {
+        result = {"noUse":true};
+
+        // use skill once - [skillId, ?, ?, ?, ?, ?, ?, ?, ?]
     } else if (rawEffect[2] == 157) {
+        // handled elsewhere
 
+        // p_damage + break mechanics damage - [typeMap, breakDamage, ?, p_damage, ?, ?] - only p_damage matters
+    } else if (rawEffect[2] == 159) {
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":1}};
+
+        // enable area effect? - nv terra lb
+    } else if (rawEffect[2] == 160) {
+        result = {"noUse":true};
+
+        // increase accuracy for x turns - [accurace, ?, turns, ?, ?]
+    } else if (rawEffect[2] == 162) {
+        result = null;
+
+        // weapon imperils - [typeMap, ignoreDef, IgnoreSpr, ?, duration, ?] - https://github.com/lyrgard/ffbeEquip/issues/485
+    } else if (rawEffect[2] == 163) {
+        result = null;
+
+        // delay death timer
+    } else if (rawEffect[2] == 1002) {
+        result = {"noUse":true};
+
+        // fill lb gauge by x% [?, fill%]
+    } else if (rawEffect[2] == 1003) {
+        result = {"noUse":true};
+
+        // mirror positive status effects
+    } else if (rawEffect[2] == 1005) {
+        result = {"noUse":true};
+
+        // enable skills
+    } else if (rawEffect[2] == 1006) {
+        result = null;
+
+        // physical damage with mod boost next turn - flat + stacking mod?
+    } else if (rawEffect[2] == 1007) {
+        result = {"noUse":true};
+
+        // add rgb color to caster
+    } else if (rawEffect[2] == 1009) {
+        result = {"noUse":true};
+
+        // caster takes % hp damage at end of turn
+    } else if (rawEffect[2] == 1010) {
+        result = {"noUse":true};
+
+        // skip a turn
+    } else if (rawEffect[2] == 1011) {
+        result = {"noUse":true};
+
+        // fixed damage per status ailment
+    } else if (rawEffect[2] == 1012) {
+        result = {"noUse":true};
+
+        // multi-targetting
+    } else if (rawEffect[2] == 1013) {
+        result = {"noUse":true};
+
+        // unknown.
+    } else if (rawEffect[2] == 1014) {
+        result = {"noUse":true};
+
+        // empty skill - skill a randomly calls skill b or skill c. skill b has effects, skill c does not.
+    } else if (skillId == 500410) {
+        result = {"noUse":true};
+
+        // catch new or unknown effects - remove if's as support is added/verified.
+    } else {
+        if (rawEffect[2] == 23) {
+            console.log(skillId + " - 1x mag dmg with race-specific damage boost.");
+        } else if (rawEffect[2] == 25) {
+            console.log(skillId + " - hp drain");
+        } else if (rawEffect[2] == 56) {
+            console.log(skillId + " - hp restore over turn");
+        } else if (rawEffect[2] == 58) {
+            console.log(skillId + " - stat buff");
+        } else if (rawEffect[2] == 63 && rawEffect[3].length == 2) {
+            console.log(skillId + " - lb fill buff");
+        } else if (rawEffect[2] == 71 && rawEffect[3].length == 2) {
+            console.log(skillId + " - use skill");
+        } else if (rawEffect[2] == 112) {
+            console.log(skillId + " - death or p_damage with def ignore");
+        } else if (rawEffect[2] == 113) {
+            console.log(skillId + " - death or m_damage ");
+        } else if (rawEffect[2] == 131) {
+            console.log(skillId + " - m_damage over turn");
+        } else if (rawEffect[2] == 139) {
+            console.log(skillId + " - p_damage over turn");
+        } else if (rawEffect[2] == 149) {
+            console.log(skillId + " - " + skillIn.effects["effects_raw"]);
+        } else if (rawEffect[2] == 157) {
+            console.log(skillId + " - use skill once");
+        } else if (rawEffect[2] == 159) {
+            console.log(skillId + " - 1x p_damage and break mechanics");
+        } else if (rawEffect[2] == 162) {
+            console.log(skillId + " - increase accuracy for x turns");
+        } else if (rawEffect[2] == 163) {
+            console.log(skillId + " - weapon imperils");
+        } else if (rawEffect[2] == 1003) {
+            console.log(skillId + " - fill lb gauge by x%");
+        } else if (rawEffect[2] == 1006) {
+            console.log(skillId + " - enable skills");
+        } else if (rawEffect[2] == 1007) {
+            console.log(skillId + " - physical damage with mod boost next turn");
+        } else {
+            console.log("Unknown effect" + skillId);
+        }
+        console.log(rawEffect);
     }
-
     if (result && result.damage) {
         if (skillIn.attack_type) {
-            result.damage.mecanism = skillIn.attack_type.toLocaleLowerCase();    
+            result.damage.mecanism = skillIn.attack_type.toLocaleLowerCase();
         } else {
             result.damage.mecanism = skillIn.damage_type.toLocaleLowerCase();
         }
@@ -1789,7 +2093,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         if(result.damage.damageType == "evoke"){
             result.damage.mecanism = "summonerSkill";
         }
-        
+
         if (skillIn.element_inflict) {
             result.damage.elements = [];
             for (var elementIndex = skillIn.element_inflict.length; elementIndex--;) {
@@ -1808,7 +2112,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         } else {
             result.area = "RND";
         }
-        
+
         if (rawEffect[1] == 0) {
             result.target = "SELF";
         } else if (rawEffect[1] == 1) {
@@ -2149,6 +2453,9 @@ function getUnitBasicInfo(unit, prefix = "", form = null) {
     }
     if (unit.exAwakenings) {
         result += "\n" + prefix + "\t\t\"exAwakening\": " + JSON.stringify(unit.exAwakenings) + ',';
+    }
+    if (unit.fragmentId) {
+        result += "\n" + prefix + "\t\t\"fragmentId\": " + JSON.stringify(unit.fragmentId) + ',';
     }
     result += "\n" + prefix + "\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
     result += "\n" + prefix + "\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";
