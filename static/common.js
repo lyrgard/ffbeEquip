@@ -5,6 +5,7 @@ var units;
 var ownedUnits;
 var itemInventory;
 var ownedEspers;
+var ownedConsumables;
 var stat = '';
 var types = [];
 var elements = [];
@@ -1741,7 +1742,7 @@ function getLocalizedFileUrl(name) {
 }
 
 function onUnitsOrInventoryLoaded() {
-    if (itemInventory && ownedUnits && ownedEspers) {
+    if (itemInventory && ownedUnits && ownedEspers && ownedConsumables) {
         if (ownedUnits.version && ownedUnits.version < 3) {
             // before version 3, units were : {"unitId": number}
             // After, they are {"unitId": {"number":number,"farmable":number}
@@ -1821,7 +1822,7 @@ function isLinkId(value) {
     return value.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
 }
 
-function saveUserData(mustSaveInventory, mustSaveUnits, mustSaveEspers = false) {
+function saveUserData(mustSaveInventory, mustSaveUnits, mustSaveEspers = false, mustSaveConsumables = false) {
     if (saveTimeout) {clearTimeout(saveTimeout)}
     $("#inventoryDiv").addClass("Inventoryloading").removeClass("Inventoryloaded");
     saveNeeded = false;
@@ -1839,6 +1840,8 @@ function saveUserData(mustSaveInventory, mustSaveUnits, mustSaveEspers = false) 
         saveUnits(saveSuccess, saveError);
     } else if (mustSaveEspers) {
         saveEspers(saveSuccess, saveError);
+    } else if (mustSaveConsumables) {
+        saveConsumables(saveSuccess, saveError);
     }
 }
 
@@ -1894,6 +1897,18 @@ function saveInventory(successCallback, errorCallback) {
         url: server + '/units',
         method: 'PUT',
         data: JSON.stringify(ownedUnits),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: successCallback,
+        error: errorCallback
+    });
+}
+
+function saveConsumables(successCallback, errorCallback) {
+    $.ajax({
+        url: server + '/consumables',
+        method: 'PUT',
+        data: JSON.stringify(ownedConsumables),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: successCallback,
@@ -2534,6 +2549,18 @@ $(function() {
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             console.log("error loading owned espers");
+            $("#inventoryDiv").removeClass("Inventoryloading Inventoryloaded");
+            if (notLoaded) {
+                notLoaded();
+            }
+        });
+        console.log("Starts to load owned consumables");
+        $.get(server + '/consumables', function(result) {
+            ownedConsumables = result;
+            console.log("owned consumables loaded");
+            onUnitsOrInventoryLoaded();
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            console.log("error loading owned consumables");
             $("#inventoryDiv").removeClass("Inventoryloading Inventoryloaded");
             if (notLoaded) {
                 notLoaded();

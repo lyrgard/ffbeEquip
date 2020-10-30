@@ -247,6 +247,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
             lowerCaseKeys(unitIn.nv_upgrade[1].stats),
             lowerCaseKeys(unitIn.nv_upgrade[2].stats),
         ]
+        data.fragmentId = Object.keys(unitIn.nv_upgrade[0].materials).filter(id => unitIn.nv_upgrade[0].materials[id] % 25 === 0)[0];
     }
     
     data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, lbs, enhancementsByUnitId[unitId], maxRariry, unitData, data);

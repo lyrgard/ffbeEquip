@@ -356,7 +356,7 @@ function getUnitDisplay(unit, useTmrName = false) {
     if (!onlyShowOwnedUnits || ownedUnits[unit.id]) {
         let is7Stars = unit.min_rarity !== 'NV' && ownedUnits[unit.id] && ownedUnits[unit.id].sevenStar;
         let isNV = unit.min_rarity === 'NV';
-        let isNVA = unit.max_rarity === 'NV' && unit.min_rarity !== 'NV' && ownedUnits[unit.id] && ownedUnits[unit.id].nv;
+        let isNVA = unit.max_rarity === 'NV' && unit.min_rarity !== 'NV';
         html += '<div class="unit ' + unit.id;
         if (ownedUnits[unit.id] && (ownedUnits[unit.id].number || ownedUnits[unit.id].sevenStar || ownedUnits[unit.id].nv)) {
             html += ' owned';
@@ -415,6 +415,8 @@ function getUnitDisplay(unit, useTmrName = false) {
         }
         html += '<span class="ownedNumber base badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span></div>';
         html += '<div class="tmrMoogles"><img src="img/units/unit_ills_904000103.png"></img><span class="ownedNumber badge badge-success" title="' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.map(p => p + '%').join(', ') : '') + '">' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.length : 0) + '</span></div>';
+        let fragmentCount = unit.fragmentId ? ownedConsumables[unit.fragmentId] || 0 : 0;
+        html += `<div class="fragments"><img src="img/items/item_8275.png"></img><span class="ownedNumber badge badge-success" title="${fragmentCount} fragments">${fragmentCount}</span></div>`;
         html += '</div>'    
         
         
@@ -1114,7 +1116,7 @@ function importUnits() {
     importedOwnedUnit = null;
     Modal.show({
         title: "Import unit collection",
-        body: '<p class="label label-danger">This feature is a Work in Progress. It will override your unit collection on FFBE Equip</p><br/><br/>' +
+        body: '<p class="label label-danger">It will override your unit collection on FFBE Equip</p><br/><br/>' +
               '<input type="file" id="importFile" name="importFile" onchange="treatImportFile"/>'+
               '<p><a class="link" href="https://www.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/">Instructions to import your data directly from the game</a> ((require login to FFBE with Facebook or Google)</p><br>' +
               '<p id="importSummary"></p>',
@@ -1137,9 +1139,36 @@ function importUnits() {
     $('#importFile').change(treatImportFile);
 }
 
+function importConsumables() {
+    importedConsumables = null;
+    Modal.show({
+        title: "Import consumables",
+        body: '<input type="file" id="importConsumableFile" name="importConsumableFile" onchange="treatImportConsumablesFile"/>'+
+            '<p><a class="link" href="https://www.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/">Instructions to import your data directly from the game</a> ((require login to FFBE with Facebook or Google)</p><br>' +
+            '<p id="importSummary"></p>',
+        buttons: [{
+            text: "Import",
+            onClick: function() {
+                if (importedConsumables) {
+                    ownedConsumables = importedConsumables;
+                    markSaveNeeded();
+                    saveUserData(false, false, false, true);
+                    savePublicLink();
+                    showRaritySort();
+                } else {
+                    Modal.show("Please select a file to import");
+                }
+
+            }
+        }]
+    });
+    $('#importConsumableFile').change(treatImportConsumablesFile);
+}
+
 let baseUnitIdBySpecificRarityUnitId = null;
 let baseUnitIdByTmrId = null;
 let importedOwnedUnit;
+let importedConsumables;
 
 function treatImportFile(evt) {
     var f = evt.target.files[0]; // FileList object
@@ -1234,6 +1263,32 @@ function treatImportFile(evt) {
     };
     reader.readAsText(f);
     
+}
+
+function treatImportConsumablesFile(evt) {
+    var f = evt.target.files[0]; // FileList object
+
+    var reader = new FileReader();
+
+    reader.onload = function(){
+        try {
+            let temporaryResult = JSON.parse(reader.result);
+            var errors = importValidator.validate('consumables', temporaryResult);
+
+            // validation was successful
+            if (errors) {
+                Modal.showMessage("imported file doesn't have the correct form : " + JSON.stringify(errors));
+                return;
+            }
+            importedConsumables = {};
+            temporaryResult.forEach(data => importedConsumables[data.itemId] = parseInt(data.itemQty));
+            $('#importSummary').text('Consumables to import : ' + Object.keys(importedConsumables).length);
+        } catch(e) {
+            Modal.showError('imported file is not in json format', e);
+        }
+
+    };
+    reader.readAsText(f);
 }
 
 function onDataReady() {
@@ -1505,4 +1560,25 @@ importValidator.addSchema('units', {
       required: ['id', 'level', 'tmr']
     
   }
+});
+// Register a `user` schema
+importValidator.addSchema('consumables', {
+    type: 'array',
+    maxItems: 5000,
+    items: {
+        type: 'object',
+        properties: {
+            itemId: {
+                type: 'string',
+                minLength: 9,
+                maxLength: 10
+            },
+            itemQty: {
+                type: 'string',
+                minLength: 1,
+                maxLength: 10
+            }
+        },
+        required: ['itemId', 'itemQty']
+    }
 });
