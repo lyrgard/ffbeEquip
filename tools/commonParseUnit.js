@@ -2517,13 +2517,7 @@ function formatForSearch(units) {
             for (var i = 0, leni = unit.passives.length; i < leni; i++) {
                 var skill = unit.passives[i];
                 if (passivesWithOnlyBestEnhancements.length != 0) {
-                    if (!skill.name) {
-                        console.log(JSON.stringify(skill));
-                    }
-                    if (skill.name.endsWith("+1")) {
-                        continue;
-                    }
-                    if (skill.name.endsWith("+2")) {
+                    if (skill.name.match(/.* \+\d$/)) {
                         passivesWithOnlyBestEnhancements[passivesWithOnlyBestEnhancements.length - 1] = skill;
                         continue;
                     }

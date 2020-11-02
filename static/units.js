@@ -1,4 +1,5 @@
 var releasedUnits;
+var releasedUnitIds = [];
 var lastItemReleases;
 
 var currentSort = showRaritySort;
@@ -505,6 +506,15 @@ function updateUnitDisplay(unitId) {
     div.find(".ownedNumber.base.badge").html(ownedNumber);
 
     div.find(".sevenStarNumber").toggleClass("hidden", !is7Stars);
+
+    if (unit.max_rarity == 'NV') {
+        let ownedNVs = owned ? (ownedUnits[unitId].nv || 0) : 0;
+        div.find(".ownedNumber.NV.badge").html(ownedNVs);
+        if (unit.fragmentId) {
+            let ownedFragments = ownedConsumables[unit.fragmentId] || 0;
+            div.find(".fragments .ownedNumber.badge").html(ownedFragments);
+        }
+    }
     if (is7Stars) {
         let owned7Stars = ownedUnits[unitId].sevenStar || 0;
         div.find(".ownedNumber.sevenStar.badge").html(owned7Stars);
@@ -720,26 +730,42 @@ function editUnit(unitId) {
     if (!ownedUnits[unitId]) {
         ownedUnits[unitId] = {"number":0, "farmable":0, "sevenStar":0, "farmableStmr":0};
     }
-    let form = '<form>' +
-      '<div class="form-group">' +
-        '<label for="ownedNumber">Owned number</label>' +
-        '<input type="number" class="form-control" id="ownedNumber" aria-describedby="emailHelp" placeholder="Enter owned number" value="' + ownedUnits[unitId].number + '">' +
-      '</div>'+
-      '<div class="form-group">' +
-        '<label for="farmableTMR">Number of TMR that can still be farmed</label>' +
-        '<input type="number" class="form-control" id="farmableTMR" aria-describedby="emailHelp" placeholder="Enter farmable TMR number" value="' + ownedUnits[unitId].farmable + '">' +
-      '</div>';
     let unit = units[unitId];
-    if (unit.max_rarity == '7') {
+    let form = '<form>';
+    if (unit.max_rarity == 'NV') {
+        form += '<div class="form-group">' +
+            '<label for="ownedNVNumber">Owned NV number</label>' +
+            '<input type="number" class="form-control" id="ownedNVNumber" placeholder="Enter owned number" value="' + (ownedUnits[unitId].nv || 0) + '">' +
+            '</div>';
+    }
+    if (unit.max_rarity == '7' || unit.max_rarity == 'NV') {
         form += '<div class="form-group">' +
             '<label for="ownedSeventStarNumber">Owned 7* number</label>' +
-            '<input type="number" class="form-control" id="ownedSeventStarNumber" aria-describedby="emailHelp" placeholder="Enter owned number" value="' + (ownedUnits[unitId].sevenStar || 0) + '">' +
-          '</div>'+
-          '<div class="form-group">' +
-            '<label for="farmableSTMR">Number of STMR that can still be farmed</label>' +
-            '<input type="number" class="form-control" id="farmableSTMR" aria-describedby="emailHelp" placeholder="Enter farmable STMR number" value="' + (ownedUnits[unitId].farmableStmr || 0) + '">' +
-          '</div>';
+            '<input type="number" class="form-control" id="ownedSeventStarNumber" placeholder="Enter owned number" value="' + (ownedUnits[unitId].sevenStar || 0) + '">' +
+            '</div>';
     }
+      form += '<div class="form-group">' +
+        '<label for="ownedNumber">Owned 6* or under number</label>' +
+        '<input type="number" class="form-control" id="ownedNumber" placeholder="Enter owned number" value="' + ownedUnits[unitId].number + '">' +
+      '</div>';
+    if (unit.max_rarity == '7' || unit.max_rarity == 'NV') {
+        form += '<div class="form-group">' +
+            '<label for="farmableSTMR">Number of STMR that can still be farmed</label>' +
+            '<input type="number" class="form-control" id="farmableSTMR" placeholder="Enter farmable STMR number" value="' + (ownedUnits[unitId].farmableStmr || 0) + '">' +
+            '</div>';
+    }
+      form += '<div class="form-group">' +
+        '<label for="farmableTMR">Number of TMR that can still be farmed</label>' +
+        '<input type="number" class="form-control" id="farmableTMR" placeholder="Enter farmable TMR number" value="' + ownedUnits[unitId].farmable + '">' +
+      '</div>';
+    if (unit.max_rarity == 'NV') {
+        form += '<div class="form-group">' +
+            '<label for="ownedFragmentNumber">Owned Fragment number</label>' +
+            '<input type="number" class="form-control" id="ownedFragmentNumber" placeholder="Enter owned number" value="' + (ownedConsumables[unit.fragmentId] || 0) + '" step="5">' +
+            '</div>';
+    }
+
+
     if (tmrByUnitId[unitId]) {
         form += '<div class="form-group">' +
             '<label for="tmrMoogles">TMR Moogles owned</label>' +
@@ -758,8 +784,16 @@ function editUnit(unitId) {
                     onClick: function() {
                         ownedUnits[unitId].number = parseInt($("#ownedNumber").val() || 0);
                         ownedUnits[unitId].farmable = parseInt($("#farmableTMR").val() || 0);
-                        if (unit.max_rarity == '7') {
+                        if (unit.max_rarity == 'NV') {
+                            ownedUnits[unitId].nv = parseInt($("#ownedNVNumber").val() || 0);
+                            if (unit.fragmentId) {
+                                ownedConsumables[unit.fragmentId] = parseInt($("#ownedFragmentNumber").val() || 0);
+                            }
+                        }
+                        if (unit.max_rarity == '7' || (unit.max_rarity == 'NV' && unit.min_rarity != 'NV')) {
                             ownedUnits[unitId].sevenStar = parseInt($("#ownedSeventStarNumber").val() || 0);
+                        }
+                        if (unit.max_rarity == '7' || unit.max_rarity == 'NV') {
                             ownedUnits[unitId].farmableStmr = parseInt($("#farmableSTMR").val() || 0);
                         }
                         let tmrMooglesText = $('#tmrMoogles').val();
@@ -781,10 +815,9 @@ function editUnit(unitId) {
                         } else {
                             delete ownedUnits[unitId].tmrMoogles;
                         }
-                        if (ownedUnits[unitId].number == 0 && ownedUnits[unitId].farmable == 0 && !ownedUnits[unitId].tmrMoogles) {
-                            if (unit.max_rarity != '7' || (ownedUnits[unitId].sevenStar == 0 && ownedUnits[unitId].farmableStmr == 0)) {
-                                delete ownedUnits[unitId];
-                            }
+                        if (!ownedUnits[unitId].number && !ownedUnits[unitId].farmable && !ownedUnits[unitId].tmrMoogles
+                            && !ownedUnits[unitId].sevenStar && !ownedUnits[unitId].farmableStmr && !ownedUnits[unitId].nv) {
+                            delete ownedUnits[unitId];
                         }
                         updateUnitDisplay(unitId);
                         markSaveNeeded();
@@ -799,8 +832,7 @@ function markSaveNeeded() {
     savePublicLinkNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
     if (savePublicLinkTimeout) {clearTimeout(savePublicLinkTimeout)}
-    mustSaveInventory = true;
-    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true, false);
+    saveTimeout = setTimeout(saveUserData,3000, true, true, false, true);
     savePublicLinkTimeout = setTimeout(savePublicLink, 10000);
 }
 
@@ -921,10 +953,10 @@ function sortByRarity(units) {
     return unitsToSort.sort(function (unit1, unit2){
         var maxRarity1 = unit1.max_rarity == 'NV' ? 8 : unit1.max_rarity;
         var maxRarity2 = unit2.max_rarity == 'NV' ? 8 : unit2.max_rarity;
-        if (maxRarity1 == 8 && !unit1.braveShift) {
+        if (maxRarity1 == 8 && isSoonNVA(unit1)) {
             maxRarity1 = 7.5;
         }
-        if (maxRarity2 == 8 && !unit2.braveShift) {
+        if (maxRarity2 == 8 && isSoonNVA(unit2)) {
             maxRarity2 = 7.5;
         }
         if (maxRarity1 == 7 && unit1.unreleased7Star) {
@@ -956,7 +988,7 @@ function isNVA(unit) {
 }
 
 function isSoonNVA(unit) {
-    return unit.max_rarity === 'NV' && unit.min_rarity !== 'NV' && !unit.braveShift;
+    return unit.max_rarity === 'NV' && unit.min_rarity !== 'NV' && (!unit.braveShift || !releasedUnitIds.includes(unit.braveShift));
 }
 
 function sortByBaseRarity(units) {
@@ -1338,6 +1370,7 @@ function startPage() {
         });
         getStaticData("releasedUnits", false, function(releasedUnitResult) {
             releasedUnits = [];
+            releasedUnitIds = Object.keys(releasedUnitResult);
             for (var unitId in unitResult) {
                 if (releasedUnitResult[unitId]) {
                     unitResult[unitId].summon_type = releasedUnitResult[unitId].type;

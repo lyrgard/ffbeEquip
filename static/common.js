@@ -1828,11 +1828,11 @@ function saveUserData(mustSaveInventory, mustSaveUnits, mustSaveEspers = false, 
     saveNeeded = false;
     if (mustSaveInventory) {
         if (mustSaveUnits) {
-            saveInventory(
-                function() {
-                    saveUnits(saveSuccess, saveError);
-                }
-            );
+            if (mustSaveConsumables) {
+                saveInventory(() => saveUnits(() => saveConsumables(saveSuccess, saveError)));
+            } else {
+                saveInventory(() => saveUnits(saveSuccess, saveError));
+            }
         } else {
             saveInventory(saveSuccess, saveError);
         }
