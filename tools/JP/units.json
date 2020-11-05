@@ -5975,7 +5975,7 @@
 		"stats": {
 			"maxStats":{"hp":4602,"mp":265,"atk":163,"def":171,"mag":239,"spr":194},
 			"minStats":{"hp":1519,"mp":87,"atk":54,"def":56,"mag":79,"spr":64},
-			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":65,"spr":50}
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
@@ -6028,7 +6028,7 @@
 		"stats": {
 			"maxStats":{"hp":4910,"mp":280,"atk":163,"def":171,"mag":265,"spr":194},
 			"minStats":{"hp":1620,"mp":92,"atk":54,"def":56,"mag":87,"spr":64},
-			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":65,"spr":50}
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
@@ -13023,17 +13023,20 @@
 		"name":"Lightning",
 		"jpname":"ライトニング",
 		"id":"213000105",
-		"max_rarity":"7",
+		"braveShift":"213000127",
+		"exAwakening": [{"hp":647,"mp":31,"atk":31,"def":24,"mag":22,"spr":22},{"hp":498,"mp":24,"atk":24,"def":19,"mag":17,"spr":17},{"hp":348,"mp":17,"atk":17,"def":13,"mag":12,"spr":12}],
+		"fragmentId": "250000550",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4699,"mp":204,"atk":192,"def":171,"mag":159,"spr":163},
-			"minStats":{"hp":1551,"mp":67,"atk":63,"def":54,"mag":52,"spr":51},
+			"maxStats":{"hp":4983,"mp":244,"atk":245,"def":192,"mag":176,"spr":174},
+			"minStats":{"hp":1644,"mp":81,"atk":81,"def":63,"mag":58,"spr":57},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["エリアブラスト","絶影","光速"],
+		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["エリアブラスト","絶影","光速","雷霆剣","天降雷斬","心に宿る無限の力"],
 		"6_form": {
 			"name":"Lightning",
 			"jpname":"ライトニング",
@@ -13049,8 +13052,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["エリアブラスト","絶影","光速"]
+			"enhancementSkills":["エリアブラスト","絶影","光速","雷霆剣","天降雷斬","心に宿る無限の力"]
+		},
+		"7_form": {
+			"name":"Lightning",
+			"jpname":"ライトニング",
+			"id":"213000105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4699,"mp":204,"atk":192,"def":171,"mag":159,"spr":163},
+				"minStats":{"hp":1551,"mp":67,"atk":63,"def":54,"mag":52,"spr":51},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["エリアブラスト","絶影","光速","雷霆剣","天降雷斬","心に宿る無限の力"]
 		}
+	},
+	"213000127": {
+		"name":"Lightning BS",
+		"jpname":"ライトニング BS",
+		"id":"213000127",
+		"braveShifted":"213000105",
+		"exAwakening": [{"hp":647,"mp":31,"atk":31,"def":24,"mag":22,"spr":22},{"hp":498,"mp":24,"atk":24,"def":19,"mag":17,"spr":17},{"hp":348,"mp":17,"atk":17,"def":13,"mag":12,"spr":12}],
+		"fragmentId": "250000550",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4992,"mp":248,"atk":238,"def":198,"mag":184,"spr":192},
+			"minStats":{"hp":1647,"mp":82,"atk":79,"def":65,"mag":61,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["雷霆剣","天昇雷砲","未来への希望"]
 	},
 	"213000204": {
 		"name":"Snow",
@@ -13134,17 +13173,20 @@
 		"name":"Radiant Lightning",
 		"jpname":"閃光のライトニング",
 		"id":"213001005",
-		"max_rarity":"7",
+		"braveShift":"213001027",
+		"exAwakening": [{"hp":650,"mp":32,"atk":31,"def":25,"mag":28,"spr":24},{"hp":500,"mp":24,"atk":24,"def":19,"mag":21,"spr":19},{"hp":350,"mp":17,"atk":17,"def":13,"mag":15,"spr":13}],
+		"fragmentId": "250000540",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4701,"mp":224,"atk":205,"def":188,"mag":175,"spr":179},
-			"minStats":{"hp":1551,"mp":74,"atk":68,"def":62,"mag":58,"spr":59},
+			"maxStats":{"hp":5003,"mp":248,"atk":244,"def":193,"mag":218,"spr":190},
+			"minStats":{"hp":1651,"mp":82,"atk":81,"def":64,"mag":72,"spr":63},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["天鳴万雷・改","ヴァルハラへの誘い","逆流雷","オプティマチェンジ：アタッカー","シーンドライブ"],
+		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["天鳴万雷・改","ヴァルハラへの誘い","逆流雷","オプティマチェンジ：アタッカー","シーンドライブ","バスターインパルス","霹靂","突撃のルビー"],
 		"6_form": {
 			"name":"Radiant Lightning",
 			"jpname":"閃光のライトニング",
@@ -13160,8 +13202,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["天鳴万雷・改","ヴァルハラへの誘い","逆流雷","オプティマチェンジ：アタッカー","シーンドライブ"]
+			"enhancementSkills":["天鳴万雷・改","ヴァルハラへの誘い","逆流雷","オプティマチェンジ：アタッカー","シーンドライブ","バスターインパルス","霹靂","突撃のルビー"]
+		},
+		"7_form": {
+			"name":"Radiant Lightning",
+			"jpname":"閃光のライトニング",
+			"id":"213001005",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4701,"mp":224,"atk":205,"def":188,"mag":175,"spr":179},
+				"minStats":{"hp":1551,"mp":74,"atk":68,"def":62,"mag":58,"spr":59},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["天鳴万雷・改","ヴァルハラへの誘い","逆流雷","オプティマチェンジ：アタッカー","シーンドライブ","バスターインパルス","霹靂","突撃のルビー"]
 		}
+	},
+	"213001027": {
+		"name":"Radiant Lightning BS",
+		"jpname":"閃光のライトニング BS",
+		"id":"213001027",
+		"braveShifted":"213001005",
+		"exAwakening": [{"hp":650,"mp":32,"atk":31,"def":25,"mag":28,"spr":24},{"hp":500,"mp":24,"atk":24,"def":19,"mag":21,"spr":19},{"hp":350,"mp":17,"atk":17,"def":13,"mag":15,"spr":13}],
+		"fragmentId": "250000540",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4964,"mp":252,"atk":248,"def":191,"mag":234,"spr":188},
+			"minStats":{"hp":1638,"mp":83,"atk":82,"def":63,"mag":77,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["バスターインパルス","バスターサンダー","撃滅のサファイア"]
 	},
 	"213001105": {
 		"name":"Neverending Hope",
@@ -13210,6 +13288,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","harp","whip","hat","clothes","robe"],
+		"enhancementSkills":["贖罪の決意","運命に抗う力","百の御手","自然を愛する少女"],
 		"6_form": {
 			"name":"Daughter of Destiny Vanille",
 			"jpname":"宿命の少女ヴァニラ",
@@ -13224,7 +13303,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","harp","whip","hat","clothes","robe"]
+			"equip":["staff","rod","harp","whip","hat","clothes","robe"],
+			"enhancementSkills":["贖罪の決意","運命に抗う力","百の御手","自然を愛する少女"]
 		}
 	},
 	"213001305": {
@@ -13241,6 +13321,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","spear","lightShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["飛竜に乗って戦う者","グラン＝パルスの流儀","壊れたルシの再起"],
 		"6_form": {
 			"name":"Graceful Champion Fang",
 			"jpname":"麗しき勇士ファング",
@@ -13255,7 +13336,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","spear","lightShield","hat","clothes","lightArmor"]
+			"equip":["dagger","sword","spear","lightShield","hat","clothes","lightArmor"],
+			"enhancementSkills":["飛竜に乗って戦う者","グラン＝パルスの流儀","壊れたルシの再起"]
 		}
 	},
 	"214000105": {
@@ -15005,6 +15087,75 @@
 			"stats_pattern":1,
 			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 			"enhancementSkills":["フレイムバレット","ガンブレードの使い手","ブラスティングゾーン","キーンエッジ","G.F.","防御+20%"]
+		}
+	},
+	"258000207": {
+		"name":"Savior of Souls Lightning",
+		"jpname":"魂の解放者ライトニング",
+		"id":"258000207",
+		"braveShift":"258000217",
+		"exAwakening": [{"hp":671,"mp":33,"atk":68,"def":33,"mag":30,"spr":33},{"hp":516,"mp":25,"atk":53,"def":25,"mag":23,"spr":25},{"hp":361,"mp":17,"atk":37,"def":17,"mag":16,"spr":17}],
+		"fragmentId": "250000530",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5169,"mp":255,"atk":265,"def":255,"mag":235,"spr":255},
+			"minStats":{"hp":1706,"mp":84,"atk":87,"def":84,"mag":78,"spr":84},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","spear","gun","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["バオルガード","エレキブラスト"]
+	},
+	"258000217": {
+		"name":"Savior of Souls Lightning BS",
+		"jpname":"魂の解放者ライトニング BS",
+		"id":"258000217",
+		"braveShifted":"258000207",
+		"exAwakening": [{"hp":671,"mp":33,"atk":68,"def":33,"mag":30,"spr":33},{"hp":516,"mp":25,"atk":53,"def":25,"mag":23,"spr":25},{"hp":361,"mp":17,"atk":37,"def":17,"mag":16,"spr":17}],
+		"fragmentId": "250000530",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4847,"mp":255,"atk":235,"def":255,"mag":265,"spr":255},
+			"minStats":{"hp":1600,"mp":84,"atk":78,"def":84,"mag":87,"spr":84},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","katana","staff","rod","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["バオルガード","バースト"]
+	},
+	"258000305": {
+		"name":"Lumina",
+		"jpname":"ルミナ",
+		"id":"258000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4125,"mp":217,"atk":171,"def":168,"mag":216,"spr":201},
+			"minStats":{"hp":1361,"mp":72,"atk":56,"def":55,"mag":71,"spr":66},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","hat","clothes","robe"],
+		"6_form": {
+			"name":"Lumina",
+			"jpname":"ルミナ",
+			"id":"258000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3173,"mp":166,"atk":131,"def":129,"mag":166,"spr":154},
+				"minStats":{"hp":1047,"mp":55,"atk":43,"def":43,"mag":55,"spr":51},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","hat","clothes","robe"]
 		}
 	},
 	"301000103": {

@@ -169,11 +169,11 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
             console.log(skillsIn[skillIndex]);
             continue;
         }
-        manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, baseEffects, skillsIn[skillIndex].rarity, skillsIn[skillIndex].level, false);
+        manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, baseEffects, skillsIn[skillIndex].rarity, skillsIn[skillIndex].level, skillsIn[skillIndex].ex_level, false);
     }
     if (latentSkillsByUnitId && latentSkillsByUnitId[unitId]) {
         latentSkillsByUnitId[unitId].forEach(skillId => {
-            manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, baseEffects, unitOut.min_rarity, 1, true);
+            manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, baseEffects, unitOut.min_rarity, 1, 0, true);
         });
     }
     if (unlockedSkills[unitId]) {
@@ -203,13 +203,14 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
     return skillsOut;
 }
 
-function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, baseEffects, rarity,  level, latentSkill) {
+function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, baseEffects, rarity,  level, exLevel, latentSkill) {
     var skillIn = skills[skillId];
     var skill;
     if (skillIn.active && skillIn.type != "MAGIC") {
         skill = parseActiveSkill(skillId, skillIn, skills, unitOut);
         skill.rarity = rarity;
         skill.level = level;
+        if (exLevel) skill.exLevel = exLevel;
         unitOut.actives.push(skill);
         if (enhancements && enhancements[skillId]) {
             var enhancementLevel = 0;
@@ -220,6 +221,7 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
                 skill = parseActiveSkill(skillId, skillIn, skills, unitOut, enhancementLevel);
                 skill.rarity = rarity;
                 skill.level = level;
+                if (exLevel) skill.exLevel = exLevel;
                 unitOut.actives.push(skill);
             }
         }
@@ -227,6 +229,7 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
         skill = parseActiveSkill(skillId, skillIn, skills, unitOut);
         skill.rarity = rarity;
         skill.level = level;
+        if (exLevel) skill.exLevel = exLevel;
         unitOut.magics.push(skill);
         if (enhancements && enhancements[skillId]) {
             var enhancementLevel = 0;
@@ -237,6 +240,7 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
                 skill = parseActiveSkill(skillId, skillIn, skills, unitOut, enhancementLevel);
                 skill.rarity = rarity;
                 skill.level = level;
+                if (exLevel) skill.exLevel = exLevel;
                 unitOut.magics.push(skill);
             }
         }
@@ -253,6 +257,7 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
         skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut, lbs);
         skill.rarity = rarity;
         skill.level = level;
+        if (exLevel) skill.exLevel = exLevel;
         unitOut.passives.push(skill);
         if (Object.keys(enhancementBaseEffects).length === 0) {
             enhancementSkillsOut.splice(0, 1);
@@ -260,6 +265,11 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
         if (level > 101) {
             for (var i = enhancementSkillsOut.length; i--;) {
                 enhancementSkillsOut[i].levelCondition = level;
+            }
+        }
+        if (exLevel) {
+            for (var i = enhancementSkillsOut.length; i--;) {
+                enhancementSkillsOut[i].exLevelCondition = exLevel;
             }
         }
         enhancementData.levels.push(enhancementSkillsOut);
@@ -273,6 +283,7 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
             skill = getPassive(skills[skillId], skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut, lbs);
             skill.rarity = rarity;
             skill.level = level;
+            if (exLevel) skill.exLevel = exLevel;
             skill.name = skill.name + " +" + enhancementLevel;
             unitOut.passives.push(skill);
 
@@ -282,6 +293,11 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
             if (level > 101) {
                 for (var i = enhancementSkillsOut.length; i--;) {
                     enhancementSkillsOut[i].levelCondition = level;
+                }
+            }
+            if (exLevel) {
+                for (var i = enhancementSkillsOut.length; i--;) {
+                    enhancementSkillsOut[i].exLevelCondition = exLevel;
                 }
             }
             enhancementData.levels.push(enhancementSkillsOut);
@@ -296,18 +312,21 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
         if (!empty) {
             unitOut.enhancements.push(enhancementData);
         }
-    } else if (level > 101) {
+    } else if (level > 101 || exLevel) {
         baseEffectsLevelCondition = {};
         skillsOutLevelCondition = [baseEffectsLevelCondition];
         skill = getPassive(skillIn, skillId, baseEffectsLevelCondition, skillsOutLevelCondition, skills, unitOut, lbs);
         skill.rarity = rarity;
         skill.level = level;
+        if (exLevel) skill.exLevel = exLevel;
         if (!(Object.keys(skillsOutLevelCondition[0]).length === 0)) {
-            baseEffectsLevelCondition.levelCondition = level;
+            if (level > 101) baseEffectsLevelCondition.levelCondition = level;
+            if (exLevel) baseEffectsLevelCondition.exLevelCondition = exLevel;
             skillsOut.push(baseEffectsLevelCondition);
         }
         for (var i = 1, len = skillsOutLevelCondition.length; i < len; i++) {
-            skillsOutLevelCondition[i].levelCondition = level;
+            if (level > 101) skillsOutLevelCondition[i].levelCondition = level;
+            if (exLevel) skillsOutLevelCondition[i].exLevelCondition = exLevel;
             skillsOut.push(skillsOutLevelCondition[i]);
         }
         unitOut.passives.push(skill);
@@ -317,6 +336,7 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
         skill = getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unitOut, lbs);
         skill.rarity = rarity;
         skill.level = level;
+        if (exLevel) skill.exLevel = exLevel;
         unitOut.passives.push(skill);
     }
 }
@@ -2331,7 +2351,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding","improvedDW","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding","improvedDW","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","exLevelCondition" ,"tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";

@@ -372,6 +372,18 @@
 	{"hp":720, "def":72, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20}]},
 	{"hp":800, "def":80, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20},{"def%":20}]}
 ]},
+{"id":"213000101", "name":"解放者の降臨", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000101.png", "sortId":37, "levels":[
+	{"atk":40, "mag":40},
+	{"atk":44, "mag":44},
+	{"atk":48, "mag":48},
+	{"atk":52, "mag":52, "conditional":[{"equipedConditions":["lightShield"],"atk%":50,"mag%":50},{"equipedConditions":["heavyShield"],"atk%":50,"mag%":50}]},
+	{"atk":56, "mag":56, "conditional":[{"equipedConditions":["lightShield"],"atk%":50,"mag%":50},{"equipedConditions":["heavyShield"],"atk%":50,"mag%":50}]},
+	{"atk":60, "mag":60, "conditional":[{"equipedConditions":["lightShield"],"atk%":50,"mag%":50},{"equipedConditions":["heavyShield"],"atk%":50,"mag%":50}]},
+	{"atk":64, "mag":64, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
+	{"atk":68, "mag":68, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
+	{"atk":72, "mag":72, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
+	{"atk":80, "mag":80, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100},{"exclusiveUnits":[]},{"exclusiveUnits":[]}]}
+]},
 {"id":"335000101", "name":"キーブレード墓場の戦い", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},
 	{"atk":55},

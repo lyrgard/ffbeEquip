@@ -32955,22 +32955,22 @@
                 "ผู้สืบทอด\u001aเจตนา\u001a"
             ],
             "desc_short": [
-                "Boost MAG by 30%, SPR by 10%, and evocation damage by 30%",
+                "Boost MAG by 30%, SPR by 10%, and evocation damage for espers by 30%",
                 "提高30%魔力、10%精神+提高30%召喚魔法的威力",
                 "마력 30%, 정신력 10% 상승+소환마법 사용 시 피해량 30% 상승",
                 "Augmente la MAGIE de 30 %, la PSY de 10 %, et les dégâts d'appel de chimère de 30 %",
-                "Erhöht MAG um 30%, PSY um 10% und Rufen-Schaden um 30%.",
-                "Aumenta la MAG un 30%, el ESP un 10% y el daño de evocación un 30%",
+                "Erhöht MAG um 30%, PSY um 10% und durch Esper verursachten Rufen-Schaden um 30%.",
+                "Aumenta la MAG un 30%, el ESP un 10% y el daño de los espers evocados un 30%",
                 "Meningkatkan MAG sebanyak 30%, SPR sebanyak 10%, dan damage summon sebanyak 30%",
                 "เพิ่มค่า\u001a \u001aMAG\u001a \u001a30% และ SPR 10% + เพิ่มความเสียหายจากการใช้มนต์ซัมม่อน Esper\u001a \u001a30%"
             ],
             "desc_long": [
-                "Boosts MAG by 30%, SPR by 10%, and evocation damage by 30%.",
+                "Boosts MAG by 30%, SPR by 10%, and evocation damage for espers by 30%.",
                 "提高30%魔力、10%精神，並且提高30%召喚魔法的威力。",
                 "마력이 30%, 정신력이 10% 상승하고, 소환마법 사용 시 피해량이 30% 상승합니다.",
                 "Augmente la MAGIE de 30 %, la PSY de 10 %, et les dégâts d'appel de chimère de 30 %.",
-                "Erhöht MAG um 30%, PSY um 10% und Rufen-Schaden um 30%.",
-                "Aumenta la MAG un 30%, el ESP un 10% y el daño de evocación un 30%.",
+                "Erhöht MAG um 30%, PSY um 10% und durch Esper verursachten Rufen-Schaden um 30%.",
+                "Aumenta la MAG un 30%, el ESP un 10% y el daño de los espers evocados un 30%.",
                 "Meningkatkan MAG sebanyak 30%, SPR sebanyak 10%, dan damage summon sebanyak 30%.",
                 "เพิ่มค่า\u001a \u001aMAG\u001a \u001a30% และ SPR 10% + เพิ่มความเสียหายจากการใช้มนต์ซัมม่อน Esper\u001a \u001a30%"
             ]
@@ -35236,54 +35236,135 @@
         }
     },
     "504236720": {
-        "name": "悪意の先導者",
+        "name": "Evil Vanguard",
         "compendium_id": 1172,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [236720],
-        "effects": ["Grants '悪意の先導者' passive."],
-        "unique": false,
+        "effects": ["Grants 'Evil Vanguard' passive."],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_76.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Evil Vanguard",
+                "惡意的先導者",
+                "악의의 선도자",
+                "Avant-garde maléfique",
+                "Vorreiter des Bösen",
+                "Vanguardia maligna",
+                "Evil Vanguard",
+                "ผู้ชักนำ\u001aจิต\u001aมาร\u001a"
+            ],
+            "desc_short": [
+                "Boost MP by 30% and boost equipment MAG when a single weapon is equipped in both hands (Not stackable)",
+                "提高30%MP+雙手只裝備1把武器時武具魔力提升[無法重複裝備]",
+                "MP 30% 상승+양손의 장비가 무기 1개일 경우 장비의 마력 상승 (중복 장착 불가)",
+                "Augmente les PM de 30 % et augmente la MAGIE de l'équipement quand une arme est tenue avec les deux mains (non cumulable)",
+                "Erhöht MP um 30% und erhöht Ausrüstung-MAG, wenn in beiden Händen eine einzelne Waffe ausgerüstet ist (nicht stapelbar).",
+                "Aumenta los PM un 30% y aumenta la MAG del equipo al llevar una sola arma en ambas manos (no acumulable)",
+                "Meningkatkan MP sebanyak 30% dan meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aMP\u001a \u001a30% + เพิ่มค่า MAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts MP by 30% and boosts equipment MAG when a single weapon is equipped in both hands. Not stackable.",
+                "提高30%MP，以及雙手只裝備1把武器時武具魔力提升。[無法重複裝備]",
+                "MP가 30% 상승하고, 양손의 장비가 무기 1개일 경우 장비의 마력이 상승합니다. (중복 장착 불가)",
+                "Augmente les PM de 30 % et augmente la MAGIE de l'équipement quand une arme est tenue avec les deux mains. Non cumulable.",
+                "Erhöht MP um 30% und erhöht Ausrüstung-MAG, wenn in beiden Händen eine einzelne Waffe ausgerüstet ist. Nicht stapelbar.",
+                "Aumenta los PM un 30% y aumenta la MAG del equipo al llevar una sola arma en ambas manos. No acumulable.",
+                "Meningkatkan MP sebanyak 30% dan meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aMP\u001a \u001a30% + เพิ่มค่า MAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504236722": {
-        "name": "禁忌と罪咎の大魔道士",
+        "name": "The Mage of Sin and Taboos",
         "compendium_id": 1173,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [236722],
-        "effects": ["Grants '禁忌と罪咎の大魔道士' passive."],
-        "unique": false,
+        "effects": ["Grants 'The Mage of Sin and Taboos' passive."],
+        "unique": true,
         "price_buy": 200000,
         "price_sell": 20000,
         "icon": "ability_76.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "The Mage of Sin and Taboos",
+                "禁忌罪惡的大魔道士",
+                "금기와 죄악의 대마도사",
+                "Le mage du péché et des tabous",
+                "Der Magier der Sünde und der Tabus",
+                "El mago del pecado y los tabús",
+                "Sang Mage Penuh Dosa dan Tabu",
+                "จอม\u001aเวทย์\u001aแห่ง\u001aบาป\u001aต้องห้าม\u001a"
+            ],
+            "desc_short": [
+                "Boost MAG by 20% and boost equipment MAG when only weapons are equipped in one or both hands (Not stackable)",
+                "提高20%魔力+雙手只裝備武器時武具魔力提升[無法重複裝備]",
+                "마력 20% 상승+한손 또는 양손의 장비가 무기뿐일 경우 장비의 마력 상승 (중복 장착 불가)",
+                "Augmente la MAGIE de 20 % et augmente la MAGIE de l'équipement quand seules des armes sont équipées dans une ou dans les deux mains (non cumulable)",
+                "Erhöht MAG um 20% und erhöht Ausrüstung-MAG, wenn nur Waffen in einer oder beiden Händen ausgerüstet sind (nicht stapelbar).",
+                "Aumenta la MAG un 20% y aumenta la MAG del equipo al llevar solo armas en una o ambas manos (no acumulable)",
+                "Meningkatkan MAG sebanyak 20% dan meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan atau 2 senjata satu tangan digunakan (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a20% + เพิ่มค่า MAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aแค่\u001aอาวุธ\u001aใน\u001aมือ\u001aเดียว\u001aหรือ\u001aทั้ง\u001a \u001a2\u001a \u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts MAG by 20% and boosts equipment MAG when only weapons are equipped in one or both hands. Not stackable.",
+                "提高20%魔力，以及雙手只裝備武器時武具魔力提升。[無法重複裝備]",
+                "마력이 20% 상승하고, 한손 또는 양손의 장비가 무기뿐일 경우 장비의 마력이 상승합니다. (중복 장착 불가)",
+                "Augmente la MAGIE de 20 % et augmente la MAGIE de l'équipement quand seules des armes sont équipées dans une ou dans les deux mains. Non cumulable.",
+                "Erhöht MAG um 20% und erhöht Ausrüstung-MAG, wenn in beiden Händen eine einzelne Waffe ausgerüstet ist. Nicht stapelbar.",
+                "Aumenta la MAG un 20% y aumenta la MAG del equipo al llevar solo armas en una o ambas manos. No acumulable.",
+                "Meningkatkan MAG sebanyak 20% dan meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan atau 2 senjata satu tangan digunakan. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a20% + เพิ่มค่า MAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aแค่\u001aอาวุธ\u001aใน\u001aมือ\u001aเดียว\u001aหรือ\u001aทั้ง\u001a \u001a2\u001a \u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504236726": {
-        "name": "破魔の植物",
+        "name": "Evil-Warding Plant",
         "compendium_id": 1174,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [236726],
-        "effects": ["Grants '破魔の植物' passive."],
-        "unique": false,
+        "effects": ["Grants 'Evil-Warding Plant' passive."],
+        "unique": true,
         "price_buy": 15000,
         "price_sell": 1500,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Evil-Warding Plant",
+                "破魔植物",
+                "파마의 식물",
+                "Plante paramaléfique",
+                "Das Böse vernichtende Pflanze",
+                "Planta custodia del mal",
+                "Tumbuhan Pengusir Kejahatan",
+                "พืช\u001aพิฆาต\u001aมาร\u001a"
+            ],
+            "desc_short": [
+                "Boost magic damage against demons (Not stackable)",
+                "魔法攻擊時提高對惡魔系魔物的傷害[無法重複裝備]",
+                "마법 공격 시 악마형 마물에게 부여하는 피해량 상승 (중복 장착 불가)",
+                "Augmente les dégâts magiques infligés aux démons (non cumulable)",
+                "Erhöht magischen Schaden gegen Dämonen (nicht stapelbar).",
+                "Aumenta el daño mágico contra demonios (no acumulable)",
+                "Meningkatkan damage magic terhadap jenis demon (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts magic damage against demons. Not stackable.",
+                "魔法攻擊時提高對惡魔系魔物的傷害。[無法重複裝備]",
+                "마법 공격 시 악마형 마물에게 부여하는 피해량이 상승합니다. (중복 장착 불가)",
+                "Augmente les dégâts magiques infligés aux démons. Non cumulable.",
+                "Erhöht magischen Schaden gegen Dämonen. Nicht stapelbar.",
+                "Aumenta el daño mágico contra demonios. No acumulable.",
+                "Meningkatkan damage magic terhadap jenis demon.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504236890": {
@@ -39855,18 +39936,18 @@
                 "Boost HP and MP by 20%, and boost equipment MAG and equipment SPR when a single weapon is equipped in both hands (Not Stackable)",
                 "提高20%HPMP+雙手只裝備1把武器時武具魔力精神提升 [無法重複裝備]",
                 "HP와 MP 20% 상승+양손의 장비가 무기 1개일 경우 장비의 마력과 정신력 상승 (중복 장착 불가)",
-                "Augmente les PV et les PM de 20 %, et augmente la MAGIE et la PSY de l'équipement quand une arme est tenue avec les deux mains (non cumulable)",
-                "Erhöht LP und MP um 20% und erhöht Ausrüstung-MAG und Ausrüstung-PSY wenn eine einzelne Waffe in beiden Händen ausgerüstet ist (Nicht stapelbar).",
+                "Augmente les PV et les PM de 20 %, et augmente la MAGIE et la PSY de l'équipement lorsqu'une arme est tenue avec les deux mains (non cumulable)",
+                "Erhöht LP und MP um 20% und erhöht Ausrüstung-MAG und Ausrüstung-PSY, wenn eine einzelne Waffe in beiden Händen ausgerüstet ist (Nicht stapelbar).",
                 "Aumenta la VIT y los PM un 20%, y aumenta MAG y el ESP del equipo al llevar una sola arma en las dos manos (no acumulable)",
                 "Meningkatkan HP dan MP sebanyak 20%, serta meningkatkan MAG dan SPR perlengkapan ketika 1 senjata digunakan dengan kedua tangan (Tidak dapat ditumpuk)",
                 "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a20% + เพิ่มค่า MAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ],
             "desc_long": [
                 "Boosts HP and MP by 20%, and boosts equipment MAG and equipment SPR when a single weapon is equipped in both hands. Not Stackable.",
-                "提高20%HPMP，雙手只裝備1把武器時武具魔力和精神提升。[無法重複裝備]",
+                "提高20%HPMP，雙手只裝備1把武器時武具魔力精神提升。[無法重複裝備]",
                 "HP와 MP가 20% 상승하고, 양손의 장비가 무기 1개일 경우 장비의 마력과 정신력이 상승합니다. (중복 장착 불가)",
-                "Augmente les PV et PM de 20%, et la MAGIE et la PSY de l'équipement quand une arme est tenue avec les deux mains. Non cumulable.",
-                "Erhöht LP und MP um 20% und erhöht Ausrüstung-MAG und Ausrüstung-PSY wenn eine einzelne Waffe in beiden Händen ausgerüstet ist. Nicht stapelbar.",
+                "Augmente les PV et les PM de 20 %, et augmente la MAGIE et la PSY de l'équipement lorsqu'une arme est tenue avec les deux mains. Non cumulable.",
+                "Erhöht LP und MP um 20% und erhöht Ausrüstung-MAG und Ausrüstung-PSY, wenn eine einzelne Waffe in beiden Händen ausgerüstet ist. Nicht stapelbar.",
                 "Aumenta la VIT y los PM un 20%, y aumenta MAG y el ESP del equipo al llevar una sola arma en las dos manos (no acumulable).",
                 "Meningkatkan HP dan MP sebanyak 20%, serta meningkatkan MAG dan SPR perlengkapan ketika 1 senjata digunakan dengan kedua tangan. Tidak dapat ditumpuk.",
                 "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a20% + เพิ่มค่า MAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
@@ -39987,19 +40068,19 @@
                 "Boost ATK when equipped with a fist, and boost ATK when equipped with clothes (Not stackable)",
                 "裝備格鬥武器時提高攻擊+裝備衣服時提高攻擊 [無法重複裝備]",
                 "격투무기 장착 시 공격력 상승+옷 장착 시 공격력 상승 (중복 장착 불가)",
-                "Augmente l'ATT quand un poing est équipé, et augmente l'ATT quand des vêtements sont équipés (Non cumulable)",
-                "Erhöht ANG, wenn mit einer Faust ausgerüstet und erhöht zusätzlich ANG, wenn mit Kleidung ausgerüstet (Nicht stapelbar).",
+                "Augmente l'ATT lorsqu'un poing est équipé, et augmente l'ATT lorsque des vêtements sont équipés (Non cumulable)",
+                "Erhöht ANG, wenn mit einer Faust ausgerüstet, und erhöht zusätzlich ANG, wenn mit Kleidung ausgerüstet (Nicht stapelbar).",
                 "Aumenta el ATQ al llevar puños, y aumenta el ATQ al llevar ropa (no acumulable)",
                 "Meningkatkan ATK ketika senjata tinju digunakan dan meningkatkan ATK ketika pakaian digunakan (Tidak dapat ditumpuk)",
                 "เพิ่มค่า\u001a \u001aATK\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aสวม\u001aสนับมือ\u001aหรือ\u001aชุด\u001aผ้า\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ],
             "desc_long": [
                 "Boosts ATK when equipped with a fist, and boosts ATK when equipped with clothes. Not stackable.",
-                "裝備格鬥武器時提高攻擊，裝備衣服時提高攻擊。[無法重複裝備]",
+                "裝備格鬥武器時提高攻擊，並且裝備衣服時提高攻擊。[無法重複裝備]",
                 "격투무기 장착 시 공격력이 상승하고, 옷 장착 시 공격력이 상승합니다. (중복 장착 불가)",
-                "Augmente l'ATT lorsque des poings sont équipés, et augmente encore l'ATT lorsque des vêtements sont équipés. Non cumulable.",
-                "Erhöht ANG, wenn mit einer Faust ausgerüstet und erhöht zusätzlich ANG, wenn mit Kleidung ausgerüstet. Nicht stapelbar.",
-                "Aumenta el ATQ al llevar puños, y aumento extra al llevar también ropa (no acumulable)",
+                "Augmente l'ATT lorsqu'un poing est équipé, et augmente l'ATT lorsque des vêtements sont équipés. Non cumulable.",
+                "Erhöht ANG, wenn mit einer Faust ausgerüstet, und erhöht zusätzlich ANG, wenn mit Kleidung ausgerüstet. Nicht stapelbar.",
+                "Aumenta el ATQ al llevar puños, y aumenta el ATQ al llevar ropa. No acumulable.",
                 "Meningkatkan ATK ketika senjata tinju digunakan dan meningkatkan ATK ketika pakaian digunakan. Tidak dapat ditumpuk.",
                 "เพิ่มค่า\u001a \u001aATK\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aสวม\u001aสนับมือ\u001aหรือ\u001aชุด\u001aผ้า\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]

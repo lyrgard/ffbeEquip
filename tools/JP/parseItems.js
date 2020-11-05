@@ -116,6 +116,7 @@ const unitRules = {
     7212: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10012], // FF12
     7216: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001], // FFBE units
     7272: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20033], // KH units
+    7273: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10013] || []).concat(nvUnitIdsByGameId[11006] || []).concat(nvUnitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units
 }
 
 var unitNamesById = {};
