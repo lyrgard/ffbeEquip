@@ -1805,6 +1805,7 @@ function closeTab(index = currentUnitIndex) {
 function braveShift(index) {
     if (builds[index].hasBraveShift()) {
         builds[index].braveShift();
+        recalculateApplicableSkills();
 
         let unit = builds[index].unit;
         let iconId = unit.id.substr(0,unit.id.length-1) + '7';

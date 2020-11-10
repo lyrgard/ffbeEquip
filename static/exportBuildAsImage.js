@@ -11,7 +11,7 @@ FFBEEquipBuildAsImage = {
         data.units.forEach(unit => {
             FFBEEquipBuildAsImage.drawBuild(ctx, unit, lineIndex);
             lineIndex++;
-            if (unit.braveShiftedUnit) {
+            if (unit.braveShiftedUnit && unit.braveShiftedUnit.items.filter(item => item.slot < 10).length) {
                 FFBEEquipBuildAsImage.drawBuild(ctx, unit.braveShiftedUnit, lineIndex, true);
                 lineIndex++;
             }
