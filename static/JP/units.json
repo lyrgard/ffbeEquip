@@ -1969,17 +1969,20 @@
 		"name":"Raegen",
 		"jpname":"レーゲン",
 		"id":"100010005",
-		"max_rarity":"7",
+		"braveShift":"100010027",
+		"exAwakening": [{"hp":642,"mp":27,"atk":28,"def":22,"mag":21,"spr":23},{"hp":494,"mp":21,"atk":22,"def":17,"mag":16,"spr":18},{"hp":345,"mp":15,"atk":15,"def":12,"mag":11,"spr":12}],
+		"fragmentId": "250000590",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4942,"mp":215,"atk":202,"def":174,"mag":166,"spr":182},
-			"minStats":{"hp":1631,"mp":71,"atk":67,"def":57,"mag":55,"spr":60},
+			"maxStats":{"hp":4942,"mp":215,"atk":223,"def":174,"mag":166,"spr":182},
+			"minStats":{"hp":1631,"mp":71,"atk":74,"def":57,"mag":55,"spr":60},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["緋蒼ノ剣","八連刃","鎧を捨てし英雄","王国の傑士"],
+		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["緋蒼ノ剣","八連刃","鎧を捨てし英雄","王国の傑士","超速八連刃","親友から託されたもの"],
 		"6_form": {
 			"name":"Raegen",
 			"jpname":"レーゲン",
@@ -1995,8 +1998,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["緋蒼ノ剣","八連刃","鎧を捨てし英雄","王国の傑士"]
+			"enhancementSkills":["緋蒼ノ剣","八連刃","鎧を捨てし英雄","王国の傑士","超速八連刃","親友から託されたもの"]
+		},
+		"7_form": {
+			"name":"Raegen",
+			"jpname":"レーゲン",
+			"id":"100010005",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4942,"mp":215,"atk":202,"def":174,"mag":166,"spr":182},
+				"minStats":{"hp":1631,"mp":71,"atk":67,"def":57,"mag":55,"spr":60},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["緋蒼ノ剣","八連刃","鎧を捨てし英雄","王国の傑士","超速八連刃","親友から託されたもの"]
 		}
+	},
+	"100010027": {
+		"name":"レーゲン BS",
+		"jpname":"レーゲン BS",
+		"id":"100010027",
+		"braveShifted":"100010005",
+		"exAwakening": [{"hp":642,"mp":27,"atk":28,"def":22,"mag":21,"spr":23},{"hp":494,"mp":21,"atk":22,"def":17,"mag":16,"spr":18},{"hp":345,"mp":15,"atk":15,"def":12,"mag":11,"spr":12}],
+		"fragmentId": "250000590",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5120,"mp":320,"atk":280,"def":255,"mag":230,"spr":255},
+			"minStats":{"hp":1690,"mp":106,"atk":92,"def":84,"mag":76,"spr":84},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["超速八連刃","ブラッド・リンケージ【英傑】"]
 	},
 	"100010104": {
 		"name":"Silvia",
@@ -2612,7 +2651,7 @@
 		}
 	},
 	"100012427": {
-		"name":"桜雲の賢者サクラ BS",
+		"name":"Blossom Sage Sakura BS",
 		"jpname":"桜雲の賢者サクラ BS",
 		"id":"100012427",
 		"braveShifted":"100012405",
@@ -7781,6 +7820,178 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","harp","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["双奏のアジタート","闇刀のユニゾン"]
+	},
+	"100033207": {
+		"name":"Mazurka",
+		"jpname":"マズルカ",
+		"id":"100033207",
+		"braveShift":"100033217",
+		"exAwakening": [{"hp":589,"mp":35,"atk":61,"def":28,"mag":19,"spr":19},{"hp":453,"mp":27,"atk":47,"def":21,"mag":15,"spr":14},{"hp":317,"mp":18,"atk":33,"def":15,"mag":10,"spr":10}],
+		"fragmentId": "250000580",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4533,"mp":270,"atk":236,"def":217,"mag":152,"spr":148},
+			"minStats":{"hp":1496,"mp":89,"atk":78,"def":72,"mag":50,"spr":49},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["spear","hat","clothes","visionCard"],
+		"enhancementSkills":["エモーションスラッシュ"]
+	},
+	"100033217": {
+		"name":"Mazurka BS",
+		"jpname":"マズルカ BS",
+		"id":"100033217",
+		"braveShifted":"100033207",
+		"exAwakening": [{"hp":589,"mp":35,"atk":61,"def":28,"mag":19,"spr":19},{"hp":453,"mp":27,"atk":47,"def":21,"mag":15,"spr":14},{"hp":317,"mp":18,"atk":33,"def":15,"mag":10,"spr":10}],
+		"fragmentId": "250000580",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4987,"mp":243,"atk":260,"def":196,"mag":137,"spr":163},
+			"minStats":{"hp":1646,"mp":80,"atk":86,"def":65,"mag":45,"spr":54},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ブルームジャンプ"]
+	},
+	"100033305": {
+		"name":"Trot",
+		"jpname":"トロット",
+		"id":"100033305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4125,"mp":224,"atk":217,"def":181,"mag":159,"spr":168},
+			"minStats":{"hp":1361,"mp":74,"atk":72,"def":60,"mag":52,"spr":55},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","bow","spear","throwing","lightShield","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Trot",
+			"jpname":"トロット",
+			"id":"100033305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3173,"mp":172,"atk":166,"def":139,"mag":122,"spr":129},
+				"minStats":{"hp":1047,"mp":57,"atk":55,"def":46,"mag":40,"spr":43},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","bow","spear","throwing","lightShield","hat","clothes","lightArmor"]
+		}
+	},
+	"100033605": {
+		"name":"Grim Lord Sakura",
+		"jpname":"グリムロードサクラ",
+		"id":"100033605",
+		"braveShift":"100033627",
+		"exAwakening": [{"hp":659,"mp":44,"atk":21,"def":27,"mag":33,"spr":33},{"hp":507,"mp":34,"atk":16,"def":21,"mag":25,"spr":26},{"hp":355,"mp":23,"atk":11,"def":14,"mag":17,"spr":18}],
+		"fragmentId": "250000560",
+		"max_rarity":"NV",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5072,"mp":342,"atk":165,"def":213,"mag":255,"spr":261},
+			"minStats":{"hp":1674,"mp":113,"atk":54,"def":70,"mag":84,"spr":86},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["rod","spear","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["グリムロードの魔力鎌【雷】","グリムロードの魔力鎌【火】"],
+		"6_form": {
+			"name":"Grim Lord Sakura",
+			"jpname":"グリムロードサクラ",
+			"id":"100033605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3901,"mp":202,"atk":125,"def":126,"mag":156,"spr":154},
+				"minStats":{"hp":1287,"mp":67,"atk":41,"def":42,"mag":51,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["rod","spear","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["グリムロードの魔力鎌【雷】","グリムロードの魔力鎌【火】"]
+		},
+		"7_form": {
+			"name":"Grim Lord Sakura",
+			"jpname":"グリムロードサクラ",
+			"id":"100033605",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":5072,"mp":263,"atk":163,"def":164,"mag":204,"spr":201},
+				"minStats":{"hp":1674,"mp":87,"atk":54,"def":54,"mag":67,"spr":66},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["rod","spear","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["グリムロードの魔力鎌【雷】","グリムロードの魔力鎌【火】"]
+		}
+	},
+	"100033627": {
+		"name":"Grim Lord Sakura BS",
+		"jpname":"グリムロードサクラ BS",
+		"id":"100033627",
+		"braveShifted":"100033605",
+		"exAwakening": [{"hp":659,"mp":44,"atk":21,"def":27,"mag":33,"spr":33},{"hp":507,"mp":34,"atk":16,"def":21,"mag":25,"spr":26},{"hp":355,"mp":23,"atk":11,"def":14,"mag":17,"spr":18}],
+		"fragmentId": "250000560",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5072,"mp":342,"atk":165,"def":216,"mag":265,"spr":255},
+			"minStats":{"hp":1674,"mp":113,"atk":54,"def":71,"mag":87,"spr":84},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["rod","spear","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["グリムロードの魔力鎌【雷】","グリムロードの魔力鎌【闇】"]
+	},
+	"100033705": {
+		"name":"Illusionist Nichol",
+		"jpname":"イリュージョニストニコル",
+		"id":"100033705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4125,"mp":247,"atk":137,"def":167,"mag":159,"spr":217},
+			"minStats":{"hp":1361,"mp":82,"atk":45,"def":55,"mag":52,"spr":72},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","throwing","hat","clothes"],
+		"6_form": {
+			"name":"Illusionist Nichol",
+			"jpname":"イリュージョニストニコル",
+			"id":"100033705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3173,"mp":190,"atk":105,"def":128,"mag":122,"spr":166},
+				"minStats":{"hp":1047,"mp":63,"atk":35,"def":42,"mag":40,"spr":55},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","throwing","hat","clothes"]
+		}
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -17748,6 +17959,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["≪蒼穹≫の部隊長","センチネル"],
 		"6_form": {
 			"name":"Mont Leonis",
 			"jpname":"モント",
@@ -17762,7 +17974,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["≪蒼穹≫の部隊長","センチネル"]
 		}
 	},
 	"339000305": {
@@ -17779,6 +17992,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["HPアップLv1","捨て身"],
 		"6_form": {
 			"name":"Sterne Leonis",
 			"jpname":"シュテル",
@@ -17793,7 +18007,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"enhancementSkills":["HPアップLv1","捨て身"]
 		}
 	},
 	"339000405": {
@@ -17810,6 +18025,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes"],
+		"enhancementSkills":["夢幻三段・極","夢幻三段・真","シノビとしての覚悟"],
 		"6_form": {
 			"name":"Kitone",
 			"jpname":"キトン",
@@ -17824,7 +18040,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes"]
+			"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes"],
+			"enhancementSkills":["夢幻三段・極","夢幻三段・真","シノビとしての覚悟"]
 		}
 	},
 	"340000107": {

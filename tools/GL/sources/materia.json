@@ -1399,7 +1399,7 @@
                 "Deals damage to one enemy equal to half their current HP.",
                 "對1名敵人造成現有HP1/2的傷害。",
                 "적 1명에게 현재 HP의 1/2의 피해를 줍니다.",
-                "Retire à un ennemi la moitié de ses PV actuels.",
+                "Inflige des dégâts à un ennemi équivalents à 1/2 de ses PV actuels",
                 "Fügt einem Gegner Schaden in Höhe von 50 % seiner aktuellen LP zu.",
                 "Inflige daño a un enemigo equivalente a la mitad de su VIT actual.",
                 "Mengurangi 1/2 dari HP satu musuh.",
@@ -1697,7 +1697,7 @@
                 "Damage all enemies for 3/4 HP",
                 "對全體敵人造成現有HP3/4的傷害",
                 "적 전체에 현재 HP의 3/4 피해",
-                "Réduit les PV de tous les ennemis aux 3/4",
+                "Inflige des dégâts à tous les ennemis équivalents à 3/4 de leurs PV actuels",
                 "Füge allen Gegnern Schaden in Höhe von 3/4 ihrer derz. LP zu.",
                 "Reduce la VIT de todos los enemigos en 3/4",
                 "Mengurangi 3/4 HP semua musuh",
@@ -1707,7 +1707,7 @@
                 "Deals damage to all enemies equal to 3/4 their current HP.",
                 "對全體敵人造成現有HP3/4的傷害。",
                 "적 전체에 현재 HP의 3/4 피해를 줍니다.",
-                "Réduit les PV de tous les ennemis aux 3/4",
+                "Inflige des dégâts à tous les ennemis équivalents à 3/4 de leurs PV actuels",
                 "Füge allen Gegnern Schaden in Höhe von 3/4 ihrer derz. LP zu.",
                 "Daña a todos los enemigos y reduce su VIT en 3/4.",
                 "Mengurangi 3/4 dari HP semua musuh.",
@@ -9807,7 +9807,7 @@
                 "Fügt einem Gegner Schaden zu und reduziert AWB und PSY. (Nur Orlandeau)",
                 "Daña a un enemigo y reduce su DEF y ESP (exclusiva de Orlandeau)",
                 "Memberikan damage dan mengurangi DEF dan SPR satu musuh. Khusus Orlandeau.",
-                "สร้าง\u001aความเสียหาย\u001a \u001a+\u001a \u001aลด\u001aค่า\u001a \u001aDEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aศัตรู\u001a \u001a1\u001a \u001aราย\u001a"
+                "สร้าง\u001aความเสียหาย\u001a \u001a+\u001a \u001aลด\u001aค่า\u001a \u001aDEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aศัตรู\u001a \u001a1\u001a \u001aราย\u001a \u001a(\u001aสำหรับ\u001a \u001aOrlandeau\u001a \u001aใช้\u001aเท่านั้น\u001a)\u001a"
             ]
         }
     },
@@ -10731,7 +10731,7 @@
                 "Erhöht alle Elementarresistenzen um 30%. Nur Orochi.",
                 "Aumenta todas las resistencias elementales un 30% (exclusiva de Hidra)",
                 "Meningkatkan resistansi semua elemen sebanyak 30%. Khusus Orochi.",
-                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aทุก\u001aธาตุ\u001a \u001a30%"
+                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aทุก\u001aธาตุ\u001a \u001a30% (สำหรับ Orochi\u001a \u001aใช้\u001aเท่านั้น\u001a)\u001a"
             ]
         }
     },
@@ -16925,7 +16925,7 @@
                 "Erhöht ANG, wenn mit Fäusten ausgerüstet und erhöht zusätzlich ANG, wenn mit Kleidung ausgerüstet.",
                 "Aumenta el ATQ al llevar puños, y aumento extra al llevar también ropa",
                 "Meningkatkan ATK ketika senjata tinju digunakan dan meningkatkan ATK ketika pakaian digunakan",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aสวม\u001aชุด\u001aนัก\u001aศิลปะ\u001aการต่อสู้\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aสวม\u001aชุด\u001aผ้า\u001a"
             ],
             "desc_long": [
                 "Boosts ATK when equipped with fists, and boosts ATK when equipped with clothes.",
@@ -17761,7 +17761,7 @@
                 "Lässt Helme ausrüsten.",
                 "Puede equiparse con cascos",
                 "Memungkinkan penggunaan helm",
-                "ยู\u001aนิ\u001aทสา\u001aมาร\u001aถา\u001aสวม\u001aหมวก\u001aเกราะ\u001aได้\u001a"
+                "ยู\u001aนิ\u001aทสา\u001aมา\u001aรถ\u001aสวม\u001aหมวก\u001aเกราะ\u001aได้\u001a"
             ],
             "desc_long": [
                 "Enables unit to equip helms.",
@@ -23049,7 +23049,7 @@
                 "Erhöht MP und PSY um 30%, Limitmeter füllt sich schneller und regeneriert jede Runde MP.",
                 "Aumenta los PM y el ESP un 30%, la barra de EL se llena más rápido y recupera PM cada turno (no acumulable)",
                 "Meningkatkan MP dan SPR sebanyak 30%, meningkatkan kecepatan pengisian bar limit burst, dan memulihkan MP setiap giliran. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% และเพิ่มค่าสเตตัส ของ Esper\u001a \u001aที่\u001aเรียก\u001aมา\u001a \u001a10%"
+                "เพิ่มค่า\u001a \u001aMP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% + เพิ่มค่า Fill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a+\u001a \u001aฟื้นฟู\u001a \u001aMP\u001a \u001aทุก\u001aเทิร์น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -23093,7 +23093,7 @@
                 "Erhöht ANG um 40% und erhöht physischen Schaden gegen Pflanzen um 50%.",
                 "Aumenta el ATQ un 40% y el daño físico contra plantas un 50% (no acumulable)",
                 "Meningkatkan ATK sebanyak 40% dan meningkatkan damage fisik terhadap jenis tumbuhan sebanyak 50%. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a10% \u001aและ\u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aพืช\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -23137,7 +23137,7 @@
                 "Erhöht ANG um 20%.",
                 "Aumenta el ATQ un 20%",
                 "Meningkatkan ATK sebanyak 20%.",
-                "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aATK\u001a \u001aและ\u001a \u001aDEF\u001a \u001a15%"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a20%"
             ]
         }
     },
@@ -23181,7 +23181,7 @@
                 "Erhöht MAG um 20%.",
                 "Aumenta la MAG un 20%",
                 "Meningkatkan DEF sebanyak 20%.",
-                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aลม\u001aและ\u001aดิน\u001a \u001a10%"
+                "เพิ่มค่า\u001a \u001aDEF\u001a \u001a20%"
             ]
         }
     },
@@ -23225,7 +23225,7 @@
                 "Erhöht ANG und ABW um 20%, regeneriert jede Runde MP und erhöht ANG um 30%, wenn mit Kleidung ausgerüstet. Nicht stapelbar.",
                 "Aumenta el ATQ y la DEF un 20%, recupera los PM cada turno y aumenta el ATQ un 30% al llevar ropa (no acumulable)",
                 "Meningkatkan ATK dan DEF sebanyak 20%, memulihkan MP setiap giliran, dan meningkatkan ATK sebanyak 30% ketika pakaian digunakan. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a60% + เพิ่มค่า Fill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aจักรกล\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aDEF\u001a \u001a20% + ฟื้นฟู MP ทุกเทิร์น + เพิ่มค่า ATK\u001a \u001a30% \u001aเมื่อ\u001aติดตั้ง\u001aเสื้อผ้า\u001aต่างๆ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -23269,7 +23269,7 @@
                 "Erhöht Feuer-, Wasser-, Wind- und Erdresistenz um 60% und erhöht MAG um 60%, wenn mit einer Rute ausgerüstet. Nicht stapelbar.",
                 "Aumenta la resistencia a fuego, agua, viento y tierra un 60%, y aumenta la MAG un 60% al llevar vara (no acumulable)",
                 "Meningkatkan resistansi api, air, angin, dan tanah sebanyak 60%, serta meningkatkan MAG sebanyak 60% ketika tongkat digunakan. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aMP\u001a \u001a10% + เพิ่มค่า ATK\u001a \u001a40% และเติม LB Gauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a"
+                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำ\u001a,\u001a \u001aลม\u001aและ\u001aดิน\u001a \u001a60% + เพิ่มค่า MAG\u001a \u001a60% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aคทา\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -23313,7 +23313,7 @@
                 "Erhöht MAG um 40% und regeneriert jede Runde MP.",
                 "Aumenta la MAG un 40% y recupera los PM cada turno",
                 "Meningkatkan MAG sebanyak 40% dan memulihkan MP setiap giliran.",
-                "เพิ่มค่า\u001a \u001aMP\u001a \u001a10% + เพิ่มค่า MAG\u001a \u001a40% และเติม LB Gauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a"
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% \u001a+\u001a \u001aฟื้นฟู\u001aค่า\u001a \u001aMP\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a"
             ]
         }
     },
@@ -23357,7 +23357,7 @@
                 "Erhöht LP, ANG und ABW um 15%.",
                 "Aumenta VIT, ATQ y DEF un 15%",
                 "Meningkatkan HP, ATK, dan DEF sebanyak 15%.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a20%"
+                "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aATK\u001a \u001aและ\u001a \u001aDEF\u001a \u001a15%"
             ]
         }
     },
@@ -23401,7 +23401,7 @@
                 "Erhöht Wind- und Erdresistenz um 10%.",
                 "Aumenta la resistencia al viento y a la tierra un 10%",
                 "Meningkatkan resistansi angin dan tanah sebanyak 10%.",
-                "เพิ่มค่า\u001a \u001aDEF\u001a \u001a20%"
+                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aลม\u001aและ\u001aดิน\u001a \u001a10%"
             ]
         }
     },
@@ -23445,7 +23445,7 @@
                 "Erhöht ANG um 60%, Limitmeter füllt sich schneller und erhöht physischen und magischen Schaden gegen Maschinen. Nicht stapelbar.",
                 "Aumenta el ATQ un 60%, la barra de EL se llena más rápido y aumenta el daño físico y mágico contra máquinas (no acumulable)",
                 "Meningkatkan ATK sebanyak 60%, meningkatkan kecepatan pengisian bar limit burst, serta meningkatkan damage fisik dan magic terhadap jenis mesin. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aFill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a60% + เพิ่มค่า Fill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aจักรกล\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -23489,7 +23489,7 @@
                 "Erhöht LP und MP um 20% und erhöht ANG um 50%, wenn mit einem Großschwert ausgerüstet.",
                 "Aumenta la VIT y los PM un 20%, y el ATQ un 50% al llevar espada grande.",
                 "Meningkatkan HP dan MP sebanyak 20%, serta meningkatkan ATK sebanyak 50% ketika pedang besar digunakan.",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a10% \u001aและ\u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a"
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a20% + เพิ่มค่า ATK\u001a \u001a50% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aติดตั้ง\u001aดาบ\u001aใหญ่\u001a"
             ]
         }
     },
@@ -23533,7 +23533,7 @@
                 "Annulliert Konfus, Virus und Stein und erhöht ANG um 60%, wenn mit einem Katana ausgerüstet.",
                 "Anula confusión, enfermedad y piedra, y aumenta el ATQ un 60% al llevar katana.",
                 "Menihilkan status confuse, disease, dan petrify, serta meningkatkan ATK sebanyak 60% ketika katana digunakan. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aMP\u001a,\u001a \u001aSPR\u001a \u001a30% + เพิ่มค่า Fill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001aรวมทั้ง\u001aฟื้นฟู\u001aค่า\u001a \u001aMP\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "ยกเลิก\u001aสถานะ\u001a \u001aConfuse\u001a,\u001a \u001aDisease\u001a \u001aและ\u001a \u001aStone\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aATK\u001a \u001a60% \u001aเมื่อ\u001aติดตั้ง\u001aดาบ\u001aคาตา\u001aนะ\u001a"
             ]
         }
     },
@@ -23577,7 +23577,7 @@
                 "Erhöht MAG um 40% und erhöht Werte gerufener Esper um 10%.",
                 "Aumenta la MAG un 40% y potencia los parámetros de los espers invocados un 10%.",
                 "Meningkatkan MAG sebanyak 40% dan meningkatkan parameter esper yang dipanggil sebanyak 10% . Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% \u001aและ\u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aพืช\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% + เพิ่มค่าสเตตัสของ Esper\u001a \u001aที่\u001aเรียก\u001aมา\u001a \u001a10%"
             ]
         }
     },
@@ -23621,7 +23621,7 @@
                 "Erhöht ANG um 10% und erhöht physischen Schaden gegen Dämonen.",
                 "Aumenta el ATQ un 10% y el daño físico contra demonios.",
                 "Meningkatkan ATK sebanyak 10% dan meningkatkan damage fisik terhadap jenis demon.",
-                "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aMP\u001a \u001a20% และเพิ่มค่า ATK\u001a \u001a50% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aดาบ\u001aใหญ่\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a10% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a"
             ]
         }
     },
@@ -23665,7 +23665,7 @@
                 "Erhöht MAG um 10% und erhöht magischen Schaden gegen Dämonen.",
                 "Aumenta la MAG un 10% y el daño mágico contra demonios.",
                 "Meningkatkan MAG sebanyak 10% dan meningkatkan damage magic terhadap jenis demon.",
-                "ยกเลิก\u001aสถานะ\u001a \u001aConfuse\u001a,\u001a \u001aDisease\u001a \u001aและ\u001a \u001aStone\u001a \u001aและ\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001a60% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aดาบ\u001aคาตา\u001aนะ\u001a"
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a10% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a"
             ]
         }
     },
@@ -23709,7 +23709,7 @@
                 "Erhöht MAG und PSY um 30%, wenn mit einer Robe ausgerüstet.",
                 "Aumenta la MAG y el ESP un 30% al llevar túnica.",
                 "Meningkatkan MAG dan SPR sebanyak 30% ketika jubah digunakan.",
-                "เพิ่ม\u001aความเสียหาย\u001aจาก\u001aการ\u001aใช้\u001a \u001aAbility\u001a \u001aแบบ\u001aกระโดด\u001aหาย\u001aจาก\u001aหน้าจอ\u001a"
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% \u001aเมื่อ\u001aติดตั้ง\u001aเสื้อคลุม\u001a"
             ]
         }
     },
@@ -23753,7 +23753,7 @@
                 "Limitmeter füllt sich schneller, erhöht Ausrüstung-ANG, wenn eine einzelne Waffe in beiden Händen ausgerüstet ist und erhöht ANG um 30%, wenn mit einer Axt ausgerüstet.",
                 "La barra de EL se rellena más rápido, aumenta el ATQ del equipo al llevar una sola arma en las dos manos y aumenta el ATQ un 30% al llevar hacha",
                 "Meningkatkan kecepatan pengisian bar limit burst, meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan, dan meningkatkan ATK sebanyak 30% ketika kapak digunakan.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a20% \u001aและ\u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a"
+                "เพิ่มค่า\u001a \u001aFill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001aรวมทั้ง\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001aและ\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001a30% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aขวาน\u001a"
             ]
         }
     },
@@ -23797,7 +23797,7 @@
                 "Erhöht ANG um 20% und erhöht Schaden durch Limitrausch.",
                 "Aumenta el ATQ un 20% y aumenta el daño del EL",
                 "Meningkatkan ATK sebanyak 20% dan meningkatkan damage limit burst.",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% \u001aและ\u001aมีโอกาส\u001aหลบ\u001aการ\u001aโจมตี\u001aด้วย\u001aพลัง\u001aเวทย์\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a20% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a"
             ]
         }
     },
@@ -24017,7 +24017,7 @@
                 "Erhöht MAG um 30%, wenn mit einem Hut ausgerüstet und erhöht zusätzlich MAG um 30%, wenn mit einer Robe ausgerüstet. Nicht stapelbar.",
                 "Aumenta la MAG un 30% al llevar sombrero, y otro 30% al llevar túnica (no acumulable)",
                 "Meningkatkan MAG sebanyak 30% ketika topi digunakan dan meningkatkan MAG sebanyak 30% ketika jubah digunakan. Tidak dapat ditumpuk.",
-                "เพิ่ม\u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a20% + เพิ่มค่า ATK\u001a \u001a40%,\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a30% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aสวม\u001aหมวก\u001a \u001aหรือ\u001aสวม\u001aเสื้อคลุม\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -24061,7 +24061,7 @@
                 "Erhöht LP und MP umd 20% und ANG um 40%.",
                 "Aumenta la VIT y los PM un 20% y el ATQ un 40%",
                 "Meningkatkan ATK sebanyak 40%, serta HP dan MP sebanyak 20%.",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำแข็ง\u001aและ\u001aสายฟ้า\u001a \u001a30%"
+                "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aMP\u001a \u001a20% และ ATK\u001a \u001a40%"
             ]
         }
     },
@@ -24105,7 +24105,7 @@
                 "Erhöht MAG um 40% und Feuer-, Eis- und Blitzresistenz um 30%.",
                 "Aumenta la MAG un 40% y la resistencia a fuego, hielo y rayo un 30%",
                 "Meningkatkan MAG sebanyak 40%, serta resistansi api, es, dan petir sebanyak 30%.",
-                "ลด\u001aค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001a20% + เพิ่มค่า DEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30%"
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำแข็ง\u001aและ\u001aสายฟ้า\u001a \u001a30%"
             ]
         }
     },
@@ -24149,7 +24149,7 @@
                 "Verringert ANG und MAG um 20% und erhöht ABW und PSY um 30%.",
                 "Reduce el ATQ y la MAG un 20% y aumenta la DEF y el ESP un 30%",
                 "Mengurangi ATK dan MAG sebanyak 20%, serta DEF dan SPR sebanyak 30%.",
-                "เพ\u001aื่ม\u001a \u001aHP\u001a \u001a10% + เพิ่มค่า ATK\u001a \u001aและ\u001a \u001aDEF\u001a \u001a5%"
+                "ลด\u001aค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001a20% + เพิ่มค่า DEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30%"
             ]
         }
     },
@@ -24193,7 +24193,7 @@
                 "Erhöht LP um 10 % und ANG und ABW um 5 %.",
                 "Aumenta la VIT un 10% y el ATQ y la DEF un 5%",
                 "Meningkatkan HP sebanyak 10% dan DEF sebanyak 5%.",
-                "เพ\u001aื่ม\u001a \u001aHP\u001a \u001a10% + เพิ่มค่า MAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a5%"
+                "เพ\u001aื่ม\u001a \u001aHP\u001a \u001a10% + เพิ่มค่า ATK\u001a \u001aและ\u001a \u001aDEF\u001a \u001a5%"
             ]
         }
     },
@@ -24237,7 +24237,7 @@
                 "Erhöht MP um 10 % und MAG und PSY um 5 %.",
                 "Aumenta los PM un 10% y la MAG y el ESP un 5%",
                 "Meningkatkan MP sebanyak 10%, MAG dan SPR sebanyak 5%.",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aคทา\u001a"
+                "เพ\u001aื่ม\u001a \u001aHP\u001a \u001a10% + เพิ่มค่า MAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a5%"
             ]
         }
     },
@@ -24281,7 +24281,7 @@
                 "Mehr Schaden bei Sprungattacken.",
                 "Aumenta el daño de los ataques de salto.",
                 "Meningkatkan damage ability Jump.",
-                "เพิ่มค่า\u001a \u001aSPR\u001a \u001a80% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aสวม\u001aเสื้อคลุม\u001a \u001aและ\u001aเพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a20% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่ม\u001aความเสียหาย\u001aจาก\u001aการ\u001aใช้\u001a \u001aAbility\u001a \u001aแบบ\u001aกระโดด\u001aหาย\u001aจาก\u001aหน้าจอ\u001a"
             ]
         }
     },
@@ -24325,7 +24325,7 @@
                 "Erhöht Ausrüstung-ANG, wenn eine einzelne Waffe in beiden Händen ausgerüstet ist, erhöht Schaden von Sprungangriffen und Limitmeter füllt sich schneller. Nicht stapelbar.",
                 "Aumenta el ATQ del equipo al llevar una sola arma en las dos manos, aumenta el daño de ataques con salto y la barra de EL se llena más rápido (no acumulable)",
                 "Meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan, meningkatkan damage ability Jump, dan meningkatkan kecepatan pengisian bar limit burst. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aATK\u001a,\u001a \u001aDEF\u001a \u001a20% และฟื้นฟูค่า MP ในทุกเทิร์น รวมทั้งเพิ่มค่า ATK\u001a \u001a30% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aสวม\u001aชุด\u001aผ้า\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aสอง\u001aมือ\u001a \u001a+\u001a \u001aเพิ่ม\u001aความเสียหาย\u001aจาก\u001aการ\u001aใช้\u001a \u001aAbility\u001a \u001aแบบ\u001aกระโดด\u001aหาย\u001aจาก\u001aหน้าจอ\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aFill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -24369,7 +24369,7 @@
                 "Erhöht MAG um 30% und verringert MP-Verbrauch von Fertigkeiten um 10%.",
                 "Aumenta la MAG un 30% y reduce un 10% el consumo de PM de las habilidades",
                 "Meningkatkan MAG sebanyak 30% dan mengurangi 10% dari jumlah konsumsi MP ketika menggunakan ability.",
-                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำ\u001a,\u001a \u001aลม\u001aและ\u001aดิน\u001a \u001a60% และเพิ่มค่า MAG\u001a \u001a60% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aคทา\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a30% + ลดค่า MP ในการใช้ Ability\u001a \u001a10%"
             ]
         }
     },
@@ -24413,7 +24413,7 @@
                 "Erhöht Ausrüstung-MAG, wenn eine einzelne Waffe in beiden Händen ausgerüstet ist.",
                 "Aumenta la MAG del equipo al llevar una sola arma en ambas manos",
                 "Meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan.",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% \u001aและ\u001aฟื้นฟู\u001aค่า\u001a \u001aMP\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a"
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aสอง\u001aมือ\u001a"
             ]
         }
     },
@@ -25097,7 +25097,7 @@
                 "Erhöht PSY um 50% und füllt jede Runde Limitmeter (Nicht stapelbar).",
                 "Aumenta el ESP un 50% y la barra de EL se rellena cada turno (no acumulable)",
                 "Meningkatkan SPR sebanyak 50% dan mengisi bar limit burst setiap giliran. Tidak dapat ditumpuk.",
-                "เพิ่ม\u001a \u001aMP\u001a \u001a5% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำ\u001a \u001a10%"
+                "เพิ่มค่า\u001a \u001aSPR\u001a \u001a50% + เติม LB Gauge\u001a \u001aทุก\u001aเทิร์น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -25141,7 +25141,7 @@
                 "Erhöht LP um 5% und Wasserresistenz um 10%.",
                 "Aumenta la VIT un 5% y la resistencia al agua un 10%.",
                 "Meningkatkan HP sebanyak 5% dan resistansi air sebanyak 10%.",
-                "เพิ่มค่า\u001a \u001aSPR\u001a \u001a50% + เติม LB Gauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001a5% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำ\u001a \u001a10%"
             ]
         }
     },
@@ -25185,7 +25185,7 @@
                 "Erhöht MP um 5% und Wasserresistenz um 10%.",
                 "Aumenta los PM un 5% y la resistencia al agua un 10%.",
                 "Meningkatkan MP sebanyak 5% dan resistansi air sebanyak 10%.",
-                "เพิ่ม\u001a \u001aHP\u001a \u001a5% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำ\u001a \u001a10%"
+                "เพิ่มค่า\u001a \u001aMP\u001a \u001a5% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำ\u001a \u001a10%"
             ]
         }
     },
@@ -25625,7 +25625,7 @@
                 "Erhöht ANG um 20 %.",
                 "Aumenta el ATQ un 20%.",
                 "Meningkatkan ATK sebanyak 20%.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a+\u001a \u001aเพิ่ม\u001aความเสียหาย\u001aจาก\u001aการ\u001aใช้\u001a \u001aAbility\u001a \u001aแบบ\u001aกระโดด\u001aหาย\u001aจาก\u001aหน้าจอ\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aFill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a20%"
             ]
         }
     },
@@ -25669,7 +25669,7 @@
                 "Erhöht ABW um 20 %.",
                 "Aumenta la DEF un 20%",
                 "Meningkatkan MAG sebanyak 20%.",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a30% และลดค่า MP ในการใช้ Ability\u001a \u001a10%"
+                "เพิ่มค่า\u001a \u001aDEF\u001a \u001a20%"
             ]
         }
     },
@@ -25713,7 +25713,7 @@
                 "Verstärkt den Effekt von Limitsteinen. Nicht stapelbar.",
                 "Las piedras de estallido recuperarán más EL. No acumulable.",
                 "Meningkatkan kecepatan pengisian bar limit burst. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a"
+                "เพิ่มค่า\u001a \u001aFill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -25801,7 +25801,7 @@
                 "Erhöht ANG um 30% und erhöht Schaden von Limitrausch.",
                 "Aumenta el ATQ un 30% y aumenta el daño del EL",
                 "Meningkatkan ATK sebanyak 30% dan meningkatkan damage limit burst.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a20%"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a30% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a"
             ]
         }
     },
@@ -25845,7 +25845,7 @@
                 "Erhöht ANG um 40% wenn mit einem Schwert, Katana oder Speer ausgerüstet, erhöht physischen und magischen Schaden gegen Menschen und ermöglicht or not to [B]e . Nicht stapelbar.",
                 "Aumenta el ATQ un 40% al llevar espada, katana o lanza, aumenta el daño físico y mágico contra humanos, y aprende or not to [B]e (no acumulable)",
                 "Meningkatkan ATK sebanyak 40% ketika pedang, katana, atau tombak digunakan, meningkatkan damage fisik dan magic terhadap jenis manusia, serta memungkinkan unit untuk menggunakan or not to [B]e. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aดาบ\u001aคาตา\u001aนะ\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% เมื่อยูนิทถือดาบ, ดาบคาตานะหรือหอก + เพิ่มความเสียหายทางกายภาพและพลังเวทย์เมื่อยูนิทโจมตีมนุษย์ + สามารถใช้งาน Ability\u001a \u001a'\u001aOr\u001a \u001anot\u001a \u001ato\u001a \u001a[\u001aB\u001a]\u001ae\u001a'\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -25889,7 +25889,7 @@
                 "Erhöht ANG um 80% wenn mit Großschwert ausgerüstet und erhöht physischen und magischen Schaden gegen Maschinen. Nicht stapelbar.",
                 "Aumenta el ATQ un 80% al llevar espada grande, y daño físico y mágico contra máquinas (no acumulable)",
                 "Meningkatkan ATK sebanyak 80% ketika pedang besar digunakan, serta meningkatkan damage fisik dan magic terhadap jenis mesin. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aSPR\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aสวม\u001aเสื้อคลุม\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a80% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aดาบ\u001aใหญ่\u001a \u001a+\u001a \u001aเพิ่ม\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aโจมตี\u001aจักรกล\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -28198,7 +28198,7 @@
                 "Erhöht Ausrüstung-ANG, wenn mit zwei einhändigen Waffen ausgerüstet, und erhöht ANG um 50%, wenn mit einem Schwert ausgerüstet. Nicht stapelbar.",
                 "Aumenta el ATQ del equipo al llevar 2 armas de una sola mano, y aumenta el ATQ un 50% al llevar espada. No acumulable.",
                 "Meningkatkan ATK perlengkapan ketika 2 senjata satu tangan digunakan dan meningkatkan ATK sebanyak 50% ketika pedang digunakan. Tidak dapat ditumpuk.",
-                "เพิ่ม\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a25% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำ\u001aและ\u001aแสง\u001a \u001a20%"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aATK\u001a \u001a50% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aดาบ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -30270,7 +30270,7 @@
                 "Erhöht MAG um 40% und Ausrüstung-MAG, wenn eine einzige Waffe in beiden Händen ausgerüstet ist. (Nicht stapelbar)",
                 "Aumenta la MAG un 40% y la MAG del equipo al llevar una sola arma en ambas manos (no acumulable)",
                 "Meningkatkan MAG sebanyak 40% dan meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan (Tidak dapat ditumpuk)",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% + เพิ่มค่า MAG\u001a \u001aอุป\u001aกรร\u001a์\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aใช้\u001aมือ\u001aทั้งสอง\u001aข้าง\u001aถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% + เพิ่มค่า MAG\u001a \u001aอุปกรณ์\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aใช้\u001aมือ\u001aทั้งสอง\u001aข้าง\u001aถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ],
             "desc_long": [
                 "Boosts MAG by 40% and boosts equipment MAG when a single weapon is equipped in both hands. Not stackable.",
@@ -32884,7 +32884,7 @@
                 "Erhöht LP sowie MP um 25% und Windresistenz um 30%.",
                 "Aumenta la VIT y los PM un 25% y la resistencia al viento un 30%.",
                 "Meningkatkan HP dan MP sebanyak 25%, serta resistansi angin sebanyak 30%.",
-                "เพิ่ม\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a20% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aลม\u001a \u001a30%"
+                "เพิ่ม\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a25% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aลม\u001a \u001a30%"
             ]
         }
     },
@@ -35011,7 +35011,7 @@
                 "Chance, einen Gegner sofort kampfunfähig zu machen oder ihm Schaden sowie Lähmung oder Stein zuzufügen.",
                 "Probabilidad de dejar K.O. al instante a un enemigo o de dañarlo, y probabilidad de infligirle parálisis o piedra.",
                 "Menambahkan peluang untuk menyebabkan K.O. seketika atau memberikan damage dan status paralyze atau petrify pada satu musuh.",
-                "มีโอกาส\u001a \u001aKO\u001a \u001aศัตรู\u001aทันที\u001aหรือ\u001aสร้าง\u001aความเสียหาย\u001aและ\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aStone\u001a \u001a1\u001a \u001aราย\u001a"
+                "มีโอกาส\u001a \u001aKO\u001a \u001aศัตรู\u001aทันที\u001aหรือ\u001aสร้าง\u001aความเสียหาย\u001aและ\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aParalyze\u001a \u001aหรือ\u001a \u001aStone\u001a \u001a1\u001a \u001aราย\u001a"
             ]
         }
     },
@@ -35316,7 +35316,7 @@
                 "提高20%魔力，以及雙手只裝備武器時武具魔力提升。[無法重複裝備]",
                 "마력이 20% 상승하고, 한손 또는 양손의 장비가 무기뿐일 경우 장비의 마력이 상승합니다. (중복 장착 불가)",
                 "Augmente la MAGIE de 20 % et augmente la MAGIE de l'équipement quand seules des armes sont équipées dans une ou dans les deux mains. Non cumulable.",
-                "Erhöht MAG um 20% und erhöht Ausrüstung-MAG, wenn in beiden Händen eine einzelne Waffe ausgerüstet ist. Nicht stapelbar.",
+                "Erhöht MAG um 20% und erhöht Ausrüstung-MAG, wenn nur Waffen in einer oder beiden Händen ausgerüstet sind. Nicht stapelbar.",
                 "Aumenta la MAG un 20% y aumenta la MAG del equipo al llevar solo armas en una o ambas manos. No acumulable.",
                 "Meningkatkan MAG sebanyak 20% dan meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan atau 2 senjata satu tangan digunakan. Tidak dapat ditumpuk.",
                 "เพิ่มค่า\u001a \u001aMAG\u001a \u001a20% + เพิ่มค่า MAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aแค่\u001aอาวุธ\u001aใน\u001aมือ\u001aเดียว\u001aหรือ\u001aทั้ง\u001a \u001a2\u001a \u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
@@ -35720,37 +35720,91 @@
         }
     },
     "504237240": {
-        "name": "海で遊ぼう！",
+        "name": "Beach Party!",
         "compendium_id": 1183,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237240],
-        "effects": ["Grants '海で遊ぼう！' passive."],
-        "unique": false,
+        "effects": ["Grants 'Beach Party!' passive."],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_18.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Beach Party!",
+                "去海邊玩吧！",
+                "바다에서 같이 놀자!",
+                "Fête à la plage !",
+                "Strandparty!",
+                "¡Fiesta en la playa!",
+                "Beach Party!",
+                "Beach\u001a \u001aParty\u001a!\u001a"
+            ],
+            "desc_short": [
+                "Boost HP, SPR, and water resistance by 40%, and MP by 30% (Not stackable)",
+                "提高40%HP精神、水屬性耐性、30%MP[無法重複裝備]",
+                "HP, 정신력, 물속성 저항력 40%, MP 30% 상승 (중복 장착 불가)",
+                "Augmente les PV, la PSY et la résistance à l'eau de 40 %, et les PM de 30 % (non cumulable)",
+                "Erhöht LP, PSY sowie Wasserresistenz um 40% und erhöht MP um 30% (nicht stapelbar).",
+                "Aumenta la VIT, el ESP y la resistencia al agua un 40% y los PM un 30% (no acumulable)",
+                "Meningkatkan HP, SPR, dan resistansi air sebanyak 40%, serta MP sebanyak 30% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a40% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำ\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aMP\u001a \u001a30% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts HP, SPR, and water resistance by 40%, and MP by 30%. Not stackable.",
+                "提高40%HP精神、水屬性耐性、30%MP。[無法重複裝備]",
+                "HP, 정신력, 물속성 저항력이 40%, MP가 30% 상승합니다. (중복 장착 불가)",
+                "Augmente les PV, la PSY et la résistance à l'eau de 40 %, et les PM de 30 %. Non cumulable.",
+                "Erhöht LP, PSY sowie Wasserresistenz um 40% und erhöht MP um 30%. Nicht stapelbar.",
+                "Aumenta la VIT, el ESP y la resistencia al agua un 40% y los PM un 30%. No acumulable.",
+                "Meningkatkan HP, SPR, dan resistansi air sebanyak 40%, serta MP sebanyak 30%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a40% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำ\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aMP\u001a \u001a30% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504237242": {
-        "name": "パズル同好会メンバー",
+        "name": "Brain Teasers Membership",
         "compendium_id": 1184,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237242],
-        "effects": ["Grants 'パズル同好会メンバー' passive."],
-        "unique": false,
+        "effects": ["Grants 'Brain Teasers Membership' passive."],
+        "unique": true,
         "price_buy": 200000,
         "price_sell": 20000,
         "icon": "ability_76.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Brain Teasers Membership",
+                "解謎同好會成員",
+                "퍼즐 동호회 멤버",
+                "Membre du club de puzzle",
+                "Mitglied im Rätselclub",
+                "Miembro de Adivina adivinanza",
+                "Anggota Klub Teka-Teki",
+                "สมาชิก\u001aสมาคม\u001aเกม\u001aลับสมอง\u001a"
+            ],
+            "desc_short": [
+                "Boost MAG by 40%, boost LB gauge fill rate, and boost equipment MAG when a single weapon is equipped in both hands (Not stackable)",
+                "提高40%魔力+提高極限技石對極限技槽的增加量+雙手只裝備1把武器時武具魔力提升[無法重複裝備]",
+                "마력 40% 상승+LB 게이지 효율 상승+양손의 장비가 무기 1개일 경우 장비의 마력 상승 (중복 장착 불가)",
+                "Augmente la MAGIE de 40 %, augmente le taux de remplissage de la jauge de limite, et augmente la MAGIE de l'équipement quand une arme est tenue avec les deux mains (non cumulable)",
+                "Erhöht MAG um 40%, Limitmeter füllt sich schneller, und erhöht Ausrüstung-MAG, wenn eine einzelne Waffe in beiden Händen ausgerüstet ist (nicht stapelbar).",
+                "Aumenta la MAG un 40%, la barra de EL se rellena más rápido, y aumenta la MAG del equipo al llevar una sola arma en ambas manos (no acumulable)",
+                "Meningkatkan MAG sebanyak 40%, meningkatkan kecepatan pengisian bar LB, dan meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% + เพิ่มค่า Fill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aMAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts MAG by 40%, boosts LB gauge fill rate, and boosts equipment MAG when a single weapon is equipped in both hands. Not stackable.",
+                "提高40%魔力，以及提高極限技石對極限技槽的增加量，並且雙手只裝備1把武器時武具魔力提升。[無法重複裝備]",
+                "마력이 40% 상승하고, LB 게이지 효율이 상승하며, 양손의 장비가 무기 1개일 경우 장비의 마력이 상승합니다. (중복 장착 불가)",
+                "Augmente la MAGIE de 40 %, augmente le taux de remplissage de la jauge de limite, et augmente la MAGIE de l'équipement quand une arme est tenue avec les deux mains. Non cumulable.",
+                "Erhöht MAG um 40%, Limitmeter füllt sich schneller und erhöht Ausrüstung-MAG, wenn eine einzelne Waffe in beiden Händen ausgerüstet ist. Nicht stapelbar.",
+                "Aumenta la MAG un 40%, la barra de EL se rellena más rápido, y aumenta la MAG del equipo al llevar una sola arma en ambas manos. No acumulable.",
+                "Meningkatkan MAG sebanyak 40%, meningkatkan kecepatan pengisian bar LB, dan meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% + เพิ่มค่า Fill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aMAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504237246": {
@@ -38297,7 +38351,7 @@
                 "Erhöht PSY um 15%, sowie alle Elementarresistenzen um 25%. Limitmeter füllt sich jede Runde eines Kampfes.",
                 "Aumenta el ESP un 15% y la res. a todos los elementos un 25%, la barra de EL se llena cada turno",
                 "Meningkatkan SPR sebanyak 15% dan resistansi semua elemen sebanyak 25%, serta mengisi bar LB setiap giliran",
-                "เพิ่มค่า\u001a \u001aSPR\u001a \u001a15% + เพิ่มพลังต้านทานทุกธาตุ 25% และเพิ่มค่า Fill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a"
+                "เพิ่มค่า\u001a \u001aSPR\u001a \u001a15% + เพิ่มพลังต้านทานไฟ,น้ำแข็ง,สายฟ้า,น้ำ,ลม,ดิน,แสงและมืด 25% และเพิ่มค่า Fill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a"
             ],
             "desc_long": [
                 "Boosts SPR by 15% and fire, ice, lightning, water, wind, earth, light, and dark resistance by 25%, and fills the limit burst gauge every turn.",
@@ -38564,7 +38618,7 @@
                 "Erhöht LP, füllt jede Runde Limitmeter, erhöht Chance auf Konter und erhöht ANG, wenn mit einhändiger Waffe ausgerüstet und andere Hand leer (nicht stapelbar).",
                 "Aumenta la VIT, rellena la barra de EL cada turno, puede aumentar la posibilidad de contraatacar y aumenta el ATQ al llevar una sola arma en las dos manos (no acumulable)",
                 "Meningkatkan HP, mengisi bar LB setiap giliran, meningkatkan peluang untuk menyerang balik musuh, dan meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan (Tidak dapat ditumpuk)",
-                "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aเติม\u001a \u001aLB\u001a \u001aGauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a \u001a+\u001a \u001aเพิ่ม\u001aโอกาส\u001aการ\u001aโจมตี\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aเติม\u001a \u001aLB\u001a \u001aGauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a \u001a+\u001a \u001aเพิ่ม\u001aโอกาส\u001aสวน\u001aกลับ\u001aการ\u001aโจมตี\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ],
             "desc_long": [
                 "Boosts HP, fills the limit burst gauge every turn, increases chance of countering, and boosts ATK when a single weapon is equipped in both hands. Not stackable.",
@@ -40126,7 +40180,7 @@
                 "Erhöht ANG wenn mit Katana ausgerüstet.",
                 "Aumenta el ATQ al llevar katana.",
                 "Meningkatkan ATK ketika katana digunakan.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a15% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aโจมตี\u001aปีศาจ\u001a \u001a5%"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aเมื่อ\u001aติดตั้ง\u001aคาตา\u001aนะ\u001a"
             ]
         }
     },
@@ -40170,7 +40224,7 @@
                 "Erhöht PSY wenn mit Robe ausgerüstet.",
                 "Aumenta el ESP al llevar túnica.",
                 "Meningkatkan SPR ketika jubah digunakan.",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a15% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทาง\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aโจมตี\u001aปีศาจ\u001a \u001a5%"
+                "เพิ่มค่า\u001a \u001aSPR\u001a \u001aเมื่อ\u001aติดตั้ง\u001aเสื้อคลุม\u001a"
             ]
         }
     },
@@ -40214,7 +40268,7 @@
                 "Erhöht ANG um 15% und physischen Schaden gegen Dämonen um 5%.",
                 "Aumenta el ATQ un 15% y el daño físico contra demonios un 5%.",
                 "Meningkatkan ATK sebanyak 15% dan meningkatkan damage fisik terhadap demon sebanyak 5%.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% เมื่อยูนิทถือดาบ, ดาบคาตานะหรือหอก + เพิ่มความเสียหายทางกายภาพและพลังเวทย์เมื่อยูนิทโจมตีมนุษย์ + สามารถใช้งาน Ability\u001a \u001a'\u001aOr\u001a \u001anot\u001a \u001ato\u001a \u001a[\u001aB\u001a]\u001ae\u001a'\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a15% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aโจมตี\u001aปีศาจ\u001a \u001a5%"
             ]
         }
     },
@@ -40258,7 +40312,7 @@
                 "Erhöht MAG um 15% und magischen Schaden gegen Dämonen um 5%.",
                 "Aumenta la MAG un 15% y el daño mágico contra demonios un 5%.",
                 "Meningkatkan MAG sebanyak 15% dan meningkatkan damage magic terhadap demon sebanyak 5%.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a80% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aดาบ\u001aใหญ่\u001a \u001a+\u001a \u001aเพิ่ม\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aโจมตี\u001aจักรกล\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a15% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aโจมตี\u001aปีศาจ\u001a \u001a5%"
             ]
         }
     },
@@ -40302,7 +40356,7 @@
                 "Erhöht LP um 40% und MAG sowie PSY um 30%. Nicht stapelbar.",
                 "Aumenta la VIT un 40% y la MAG y el ESP un 30%. No acumulable.",
                 "Meningkatkan HP sebanyak 40%, serta MAG dan SPR sebanyak 30%. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aHP\u001a \u001a40% + เพิ่มค่า MAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30%"
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001a40% + เพิ่มค่า MAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -40789,7 +40843,7 @@
                 "Erhöht PSY um 80%, wenn mit einer Robe ausgerüstet und erhöht LP und MP um 20%. Nicht stapelbar.",
                 "Aumenta el ESP un 80% al llevar túnica y aumenta la VIT y los PM un 20% (no acumulable)",
                 "Meningkatkan SPR sebanyak 80% ketika jubah digunakan, serta meningkatkan HP dan MP sebanyak 20%. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aSPR\u001a \u001a25% \u001aและ\u001aมีโอกาส\u001aหลีกเลี่ยง\u001aความเสียหาย\u001aทางกายภาพ\u001a10%"
+                "เพิ่มค่า\u001a \u001aSPR\u001a \u001a80% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aสวม\u001aเสื้อคลุม\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a20% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -40833,7 +40887,7 @@
                 "Erhöht PSY um 25% und erhöht Ausweichen bei physischen Angriffen um 10%.",
                 "Aumenta el ESP un 25% y la evasión contra daño físico un 10%",
                 "Meningkatkan SPR sebanyak 25% dan meningkatkan peluang untuk menghindari serangan fisik sebanyak 10%.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% เมื่อยูนิทถือดาบสั้น, แส้, ตะบองและสนับมือรวมทั้งเพิ่มค่า ATK\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aอาวุธ\u001aสำหรับ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aSPR\u001a \u001a25% \u001a+\u001a \u001aมีโอกาส\u001aหลีกเลี่ยง\u001aความเสียหาย\u001aทางกายภาพ\u001a \u001a10%"
             ]
         }
     },
@@ -40877,7 +40931,7 @@
                 "Erhöht ANG um 40%, wenn mit einem Kurzschwert, Peitsche, Kolben oder Faust ausgerüstet und erhöht Ausrüstung-ANG, wenn mit zwei einhändigen Waffen ausgerüstet. Nicht stapelbar.",
                 "Aumenta el ATQ un 40% al llevar espada corta, látigo, maza o puños, y aumenta el ATQ del equipo al llevar dos armas de una sola mano (no acumulable)",
                 "Meningkatkan ATK sebanyak 40% ketika pedang pendek, cambuk, gada, atau senjata tinju digunakan, dan meningkatkan ATK perlengkapan ketika 2 senjata satu tangan digunakan. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a60% เมื่อยูนิทถือธนู และเพิ่มค่า ATK\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% เมื่อติดตั้งดาบสั้น, แส้, ตะบองและสนับมือ + เพิ่มค่า ATK\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001aสำหรับ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -40921,7 +40975,7 @@
                 "Erhöht ANG um 60%, wenn mit einem Bogen ausgerüstet und erhöht Ausrüstung-ANG, wenn eine einzelne Waffe in beiden Händen ausgerüstet ist. Nicht stapelbar.",
                 "Aumenta el ATQ un 60% al llevar arco y aumenta el ATQ del equipo al llevar una sola arma en las dos manos (no acumulable)",
                 "Meningkatkan ATK sebanyak 60% ketika busur digunakan dan meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aMP\u001a \u001a10% + เพิ่มค่า ATK\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% และฟื้นฟูค่า HP รวมทั้งเติม LB Gauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a60% เมื่อติดตั้งธนู + เพิ่มค่า ATK\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -40965,7 +41019,7 @@
                 "Erhöht LP und MP um 10%, ANG und PSY um 30% und regeneriert LP und füllt Limitmeter jede Runde.",
                 "Aumenta la VIT y los PM un 10%, el ATQ y el ESP un 30%, recupera la VIT y rellena la barra de EL cada turno",
                 "Meningkatkan HP dan MP sebanyak 10%, ATK dan SPR sebanyak 30%, serta memulihkan HP dan mengisi bar limit burst setiap giliran.",
-                "เพิ่มค่า\u001a \u001aFill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001aรวมทั้ง\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001aและ\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001a30% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aขวาน\u001a"
+                "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aMP\u001a \u001a10% + เพิ่มค่า ATK\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% + ฟื้นฟู HP + เติม LB Gauge\u001a \u001aเต็มที่\u001aใน\u001aทุก\u001aเทิร์น\u001a"
             ]
         }
     },
@@ -41009,7 +41063,7 @@
                 "Erhöht MAG und PSY um 30% und Chance, magischen Angriffen auszuweichen.",
                 "Aumenta la MAG y el ESP un 30%, y probabilidad de evadir ataques mágicos",
                 "Meningkatkan MAG dan SPR sebanyak 30%, serta meningkatkan peluang untuk menghindari serangan magic.",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a20%"
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% \u001aและ\u001aมีโอกาส\u001aหลบ\u001aการ\u001aโจมตี\u001aด้วย\u001aพลัง\u001aเวทย์\u001a"
             ]
         }
     },
@@ -41141,7 +41195,7 @@
                 "Erhöht MP um 10%, ANG um 40% und füllt jede Runde Limitmeter.",
                 "Aumenta los PM un 10%, el ATQ un 40% y la barra de EL se llena cada turno.",
                 "Meningkatkan MP sebanyak 10% dan ATK sebanyak 40%, serta mengisi bar limit burst setiap giliran.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001a30% \u001aและ\u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a"
+                "เพิ่มค่า\u001a \u001aMP\u001a \u001a10% + เพิ่มค่า ATK\u001a \u001a40% + เติม LB Gauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a"
             ]
         }
     },
@@ -41185,7 +41239,7 @@
                 "Erhöht LP um 10%, MAG um 40% und füllt jede Runde Limitmeter.",
                 "Aumenta la VIT un 10%, la MAG un 40% y la barra de EL se llena cada turno.",
                 "Meningkatkan HP sebanyak 10% dan MAG sebanyak 40%, serta mengisi bar limit burst setiap giliran.",
-                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a30% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aสวม\u001aหมวก\u001a \u001aหรือ\u001aสวม\u001aเสื้อคลุม\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001a10% + เพิ่มค่า MAG\u001a \u001a40% + เติม LB Gauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a"
             ]
         }
     },
@@ -41361,7 +41415,7 @@
                 "Erhöht ANG, wenn mit einem Schwert ausgerüstet (nicht stapelbar).",
                 "Aumenta el ATQ al llevar espada (no acumulable).",
                 "Meningkatkan ATK ketika pedang digunakan. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aดาบ\u001a"
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aเมื่อ\u001aติดตั้ง\u001aดาบ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -42380,7 +42434,7 @@
                 "Erhöht LP sowie MP um 25% und erhöht Feuer-, Wasser- und Lichtresistenz um 20%.",
                 "Aumenta la VIT y los PM un 25% y la resistencia a fuego, agua y luz un 20%",
                 "Meningkatkan HP dan MP sebanyak 25%, serta resistansi api, air, dan cahaya sebanyak 20%.",
-                "เพิ่มค่า\u001a \u001aATK\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aATK\u001a \u001a50% \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aดาบ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "เพิ่ม\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a25% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำ\u001aและ\u001aแสง\u001a \u001a20%"
             ]
         }
     },

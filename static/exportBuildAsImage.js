@@ -2,7 +2,7 @@ FFBEEquipBuildAsImage = {
     unitLineHeight:267,
     ffbeEquipUrl: "https://ffbeEquip.com",
     drawTeam: function(canvas, data) {
-        let lineNumber = data.units.map(u => u.braveShiftedUnit ? 2 : 1).reduce((acc, v) => acc + v, 0);
+        let lineNumber = data.units.map(u => FFBEEquipBuildAsImage.mustDisplayBraveShifted(u) ? 2 : 1).reduce((acc, v) => acc + v, 0);
         canvas.height = FFBEEquipBuildAsImage.unitLineHeight * lineNumber;
         let ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -11,7 +11,7 @@ FFBEEquipBuildAsImage = {
         data.units.forEach(unit => {
             FFBEEquipBuildAsImage.drawBuild(ctx, unit, lineIndex);
             lineIndex++;
-            if (unit.braveShiftedUnit && unit.braveShiftedUnit.items.filter(item => item.slot < 10).length) {
+            if (FFBEEquipBuildAsImage.mustDisplayBraveShifted(unit)) {
                 FFBEEquipBuildAsImage.drawBuild(ctx, unit.braveShiftedUnit, lineIndex, true);
                 lineIndex++;
             }
@@ -401,5 +401,9 @@ FFBEEquipBuildAsImage = {
         }
         lines.push(currentLine);
         return lines;
+    },
+
+    mustDisplayBraveShifted(unit) {
+        return unit.braveShiftedUnit && unit.braveShiftedUnit.items.filter(item => item.slot < 10).length
     }
 }

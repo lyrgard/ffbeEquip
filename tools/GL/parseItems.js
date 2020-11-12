@@ -280,12 +280,11 @@ getData('equipment.json', function (items) {
 
                                                                                 Object.keys(units).forEach(unitId => {
                                                                                     let unit = units[unitId];
-                                                                                    if (unit.game_id && unit.skills && unit.skills.some(s => s.brave_ability)) {
+                                                                                    if (unit.game_id && unit.skills && unit.skills.some(s => s.rarity === 'NV')) {
                                                                                         if (!nvUnitIdsByGameId[unit.game_id]) nvUnitIdsByGameId[unit.game_id] = [];
                                                                                         nvUnitIdsByGameId[unit.game_id].push(unitId);
                                                                                     }
                                                                                 });
-
 
                                                                                 for (languageId = 0; languageId < languages.length; languageId++) {
 

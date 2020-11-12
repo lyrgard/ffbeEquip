@@ -72,7 +72,7 @@
 	{"atk":88, "conditional":[{"equipedConditions":["katana"],"atk%":100}]},
 	{"atk":100, "conditional":[{"equipedConditions":["katana"],"atk%":100},{"atk%":20}]}
 ]},
-{"id":"100000701", "name":"感情なき賢者", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000701.png", "sortId":12, "levels":[
+{"id":"100000701", "name":"The Heartless Sage", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000701.png", "sortId":12, "levels":[
 	{"mag":40},
 	{"mag":46},
 	{"mag":52},
@@ -275,6 +275,30 @@
 	{"atk":54, "def":27, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
 	{"atk":56, "def":28, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
 	{"atk":60, "def":30, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}], "conditional":[{"resist":[{"name":"lightning","percent":30},{"name":"earth","percent":30}]},{"atk%":20,"def%":20}]}
+]},
+{"id":"100002501", "name":"今日から親友！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002501.png", "sortId":38, "levels":[
+	{"atk":40},
+	{"atk":46},
+	{"atk":52},
+	{"atk":58, "conditional":[{"equipedConditions":["spear"],"atk%":50}]},
+	{"atk":64, "conditional":[{"equipedConditions":["spear"],"atk%":50}]},
+	{"atk":70, "conditional":[{"equipedConditions":["spear"],"atk%":50}]},
+	{"atk":76, "conditional":[{"equipedConditions":["spear"],"atk%":100}]},
+	{"atk":82, "conditional":[{"equipedConditions":["spear"],"atk%":100}]},
+	{"atk":88, "conditional":[{"equipedConditions":["spear"],"atk%":100}]},
+	{"atk":100, "conditional":[{"equipedConditions":["spear"],"atk%":100},{"atk%":30}]}
+]},
+{"id":"100002701", "name":"竜の封印", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002701.png", "sortId":39, "levels":[
+	{"atk":40, "def":20},
+	{"atk":42, "def":21},
+	{"atk":44, "def":22},
+	{"atk":46, "def":23, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":48, "def":24, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":50, "def":25, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":52, "def":26, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":54, "def":27, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":56, "def":28, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":60, "def":30, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}], "conditional":[{"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}]},{"atk%":20,"def%":20}]}
 ]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},

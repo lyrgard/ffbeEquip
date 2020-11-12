@@ -70,7 +70,7 @@
 	{"atk":76, "conditional":[{"equipedConditions":["katana"],"atk%":100}]},
 	{"atk":82, "conditional":[{"equipedConditions":["katana"],"atk%":100}]},
 	{"atk":88, "conditional":[{"equipedConditions":["katana"],"atk%":100}]},
-	{"atk":100, "conditional":[{"equipedConditions":["katana"],"atk%":100},{"atk%":20}]}
+	{"atk":100, "conditional":[{"equipedConditions":["katana"],"atk%":100},{"atk%":20,"exclusiveUnits":["100000315","100000337","100005905","100005927","100007705","100007727","100009105","100009127","100011705","100011727","100011805","100011827","100012405","100012427","100015405","100015427","100020505","100020527","100020905","100020927","100021705","100021727","100031007","100031017","100031507","100031517","100031607","100031617","100031707","100031717","100031907","100031917","100032207","100032217","401002005","401002027","401006005","401006027","401009907","401009917","401010007","401010017"]}]}
 ]},
 {"id":"100000701", "name":"The Heartless Sage", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000701.png", "sortId":12, "levels":[
 	{"mag":40},
@@ -82,7 +82,19 @@
 	{"mag":76, "conditional":[{"equipedConditions":["rod"],"mag%":100}]},
 	{"mag":82, "conditional":[{"equipedConditions":["rod"],"mag%":100}]},
 	{"mag":88, "conditional":[{"equipedConditions":["rod"],"mag%":100}]},
-	{"mag":100, "conditional":[{"equipedConditions":["rod"],"mag%":100},{"mag%":30}]}
+	{"mag":100, "conditional":[{"equipedConditions":["rod"],"mag%":100},{"mag%":30,"exclusiveUnits":["100000315","100000337","100005905","100005927","100007705","100007727","100009105","100009127","100011705","100011727","100011805","100011827","100012405","100012427","100015405","100015427","100020505","100020527","100020905","100020927","100021705","100021727","100031007","100031017","100031507","100031517","100031607","100031617","100031707","100031717","100031907","100031917","100032207","100032217","401002005","401002027","401006005","401006027","401009907","401009917","401010007","401010017"]}]}
+]},
+{"id":"100000801", "name":"Wake-Up Coeurl", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000801.png", "sortId":13, "levels":[
+	{"atk":50},
+	{"atk":53},
+	{"atk":56},
+	{"atk":59, "conditional":[{"equipedConditions":["spear"],"atk%":20}]},
+	{"atk":62, "conditional":[{"equipedConditions":["spear"],"atk%":20}]},
+	{"atk":65, "conditional":[{"equipedConditions":["spear"],"atk%":20}]},
+	{"atk":68, "conditional":[{"equipedConditions":["spear"],"atk%":40}]},
+	{"atk":71, "conditional":[{"equipedConditions":["spear"],"atk%":40}]},
+	{"atk":74, "conditional":[{"equipedConditions":["spear"],"atk%":40}]},
+	{"atk":80, "conditional":[{"equipedConditions":["spear"],"atk%":40},{"atk%":20,"exclusiveSex":"female"},{"killers":[{"name":"beast","physical":25},{"name":"bug","physical":25}],"exclusiveSex":"female"}]}
 ]},
 {"id":"100001101", "name":"Madam and the Giant Bird, Bennu", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001101.png", "sortId":18, "levels":[
 	{"atk":40},
@@ -94,7 +106,19 @@
 	{"atk":76, "conditional":[{"equipedConditions":["fist"],"atk%":100}]},
 	{"atk":82, "conditional":[{"equipedConditions":["fist"],"atk%":100}]},
 	{"atk":88, "conditional":[{"equipedConditions":["fist"],"atk%":100}]},
-	{"atk":100, "conditional":[{"equipedConditions":["fist"],"atk%":100},{"atk%":30}]}
+	{"atk":100, "conditional":[{"equipedConditions":["fist"],"atk%":100},{"atk%":30,"exclusiveUnits":["100000315","100000337","100005905","100005927","100007705","100007727","100009105","100009127","100011705","100011727","100011805","100011827","100012405","100012427","100015405","100015427","100020505","100020527","100020905","100020927","100021705","100021727","100031007","100031017","100031507","100031517","100031607","100031617","100031707","100031717","100031907","100031917","100032207","100032217","401002005","401002027","401006005","401006027","401009907","401009917","401010007","401010017"]}]}
+]},
+{"id":"100001501", "name":"Too Cool for the Summer", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001501.png", "sortId":17, "levels":[
+	{"hp":400, "spr":40},
+	{"hp":440, "spr":44},
+	{"hp":480, "spr":48},
+	{"hp":520, "spr":52, "conditional":[{"equipedConditions":["heavyArmor"],"spr%":20}]},
+	{"hp":560, "spr":56, "conditional":[{"equipedConditions":["heavyArmor"],"spr%":20}]},
+	{"hp":600, "spr":60, "conditional":[{"equipedConditions":["heavyArmor"],"spr%":20}]},
+	{"hp":640, "spr":64, "conditional":[{"equipedConditions":["heavyArmor"],"spr%":40}]},
+	{"hp":680, "spr":68, "conditional":[{"equipedConditions":["heavyArmor"],"spr%":40}]},
+	{"hp":720, "spr":72, "conditional":[{"equipedConditions":["heavyArmor"],"spr%":40}]},
+	{"hp":800, "spr":80, "conditional":[{"equipedConditions":["heavyArmor"],"spr%":40},{"spr%":20,"exclusiveSex":"female"}]}
 ]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
@@ -106,7 +130,7 @@
 	{"atk":74, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
 	{"atk":78, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
 	{"atk":82, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
-	{"atk":90, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40},{"guts":{"ifHpOver":5,"chance":100,"time":1}}]}
+	{"atk":90, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40},{"guts":{"ifHpOver":5,"chance":100,"time":1},"exclusiveUnits":["202000505","202000527","202001705","202001727","202001907","202001917"]}]}
 ]},
 {"id":"207000101", "name":"Mad Dash", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
 	{"atk":40},
@@ -118,7 +142,7 @@
 	{"atk":76, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
 	{"atk":82, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
 	{"atk":88, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
-	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"atk%":100},{"atk%":30}]}
+	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"atk%":100},{"atk%":30,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207002007","207002017","207002207","207002217"]}]}
 ]},
 {"id":"207000201", "name":"Scorpion Sentinel Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000201.png", "sortId":7, "levels":[
 	{"def":20},
@@ -142,7 +166,7 @@
 	{"mag":55, "spr":55, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
 	{"mag":57, "spr":57, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
 	{"mag":60, "spr":60, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
-	{"mag":65, "spr":65, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50},{"mag%":20,"spr%":20}]}
+	{"mag":65, "spr":65, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50},{"mag%":20,"spr%":20,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207002007","207002017","207002207","207002217"]}]}
 ]},
 {"id":"212000101", "name":"Judge Magister", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_212000101.png", "sortId":14, "levels":[
 	{"hp":400, "def":40},
@@ -154,7 +178,7 @@
 	{"hp":640, "def":64, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20}]},
 	{"hp":680, "def":68, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20}]},
 	{"hp":720, "def":72, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20}]},
-	{"hp":800, "def":80, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20},{"def%":20}]}
+	{"hp":800, "def":80, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20},{"def%":20,"exclusiveUnits":["212000505","212000527","212002207","212002217"]}]}
 ]},
 {"id":"401000101", "name":"Virtual Training", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000101.png", "sortId":9003, "levels":[
 	{"spr":50},

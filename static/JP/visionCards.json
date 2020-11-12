@@ -72,7 +72,7 @@
 	{"atk":88, "conditional":[{"equipedConditions":["katana"],"atk%":100}]},
 	{"atk":100, "conditional":[{"equipedConditions":["katana"],"atk%":100},{"atk%":20}]}
 ]},
-{"id":"100000701", "name":"感情なき賢者", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000701.png", "sortId":12, "levels":[
+{"id":"100000701", "name":"The Heartless Sage", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000701.png", "sortId":12, "levels":[
 	{"mag":40},
 	{"mag":46},
 	{"mag":52},
@@ -276,6 +276,30 @@
 	{"atk":56, "def":28, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
 	{"atk":60, "def":30, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}], "conditional":[{"resist":[{"name":"lightning","percent":30},{"name":"earth","percent":30}]},{"atk%":20,"def%":20}]}
 ]},
+{"id":"100002501", "name":"今日から親友！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002501.png", "sortId":38, "levels":[
+	{"atk":40},
+	{"atk":46},
+	{"atk":52},
+	{"atk":58, "conditional":[{"equipedConditions":["spear"],"atk%":50}]},
+	{"atk":64, "conditional":[{"equipedConditions":["spear"],"atk%":50}]},
+	{"atk":70, "conditional":[{"equipedConditions":["spear"],"atk%":50}]},
+	{"atk":76, "conditional":[{"equipedConditions":["spear"],"atk%":100}]},
+	{"atk":82, "conditional":[{"equipedConditions":["spear"],"atk%":100}]},
+	{"atk":88, "conditional":[{"equipedConditions":["spear"],"atk%":100}]},
+	{"atk":100, "conditional":[{"equipedConditions":["spear"],"atk%":100},{"atk%":30}]}
+]},
+{"id":"100002701", "name":"竜の封印", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002701.png", "sortId":39, "levels":[
+	{"atk":40, "def":20},
+	{"atk":42, "def":21},
+	{"atk":44, "def":22},
+	{"atk":46, "def":23, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":48, "def":24, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":50, "def":25, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":52, "def":26, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":54, "def":27, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":56, "def":28, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}]},
+	{"atk":60, "def":30, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}], "conditional":[{"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}]},{"atk%":20,"def%":20}]}
+]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
 	{"atk":54},
@@ -371,6 +395,18 @@
 	{"hp":680, "def":68, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20}]},
 	{"hp":720, "def":72, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20}]},
 	{"hp":800, "def":80, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20},{"def%":20}]}
+]},
+{"id":"213000101", "name":"解放者の降臨", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000101.png", "sortId":37, "levels":[
+	{"atk":40, "mag":40},
+	{"atk":44, "mag":44},
+	{"atk":48, "mag":48},
+	{"atk":52, "mag":52, "conditional":[{"equipedConditions":["lightShield"],"atk%":50,"mag%":50},{"equipedConditions":["heavyShield"],"atk%":50,"mag%":50}]},
+	{"atk":56, "mag":56, "conditional":[{"equipedConditions":["lightShield"],"atk%":50,"mag%":50},{"equipedConditions":["heavyShield"],"atk%":50,"mag%":50}]},
+	{"atk":60, "mag":60, "conditional":[{"equipedConditions":["lightShield"],"atk%":50,"mag%":50},{"equipedConditions":["heavyShield"],"atk%":50,"mag%":50}]},
+	{"atk":64, "mag":64, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
+	{"atk":68, "mag":68, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
+	{"atk":72, "mag":72, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
+	{"atk":80, "mag":80, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100},{"exclusiveUnits":[]},{"exclusiveUnits":[]}]}
 ]},
 {"id":"335000101", "name":"キーブレード墓場の戦い", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},
