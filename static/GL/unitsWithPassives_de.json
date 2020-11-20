@@ -10588,17 +10588,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","spear","harp","whip","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["オニオンバイセクト","オニオンガーニッシュ","オニオンスタンス"],
+		"enhancementSkills":["Onion Bisect","Onion Garnish","Onion Stance"],
 		"enhancements": [
-			{"name":"オニオンスタンス","levels":[[{"atk":300,"skillEnhancement":{"211420":27,"800144":1},"levelCondition":120}],[{"atk":325,"skillEnhancement":{"211420":31,"800144":2},"levelCondition":120}],[{"atk":350,"skillEnhancement":{"211420":35,"800144":3},"levelCondition":120}],[{"atk":375,"skillEnhancement":{"211420":39,"800144":4},"levelCondition":120}],[{"atk":400,"skillEnhancement":{"211420":43,"800144":5},"levelCondition":120}]]}
+			{"name":"Onion Stance","levels":[[{"atk":300,"skillEnhancement":{"211420":27,"800144":1},"levelCondition":120}],[{"atk":325,"skillEnhancement":{"211420":31,"800144":2},"levelCondition":120}],[{"atk":350,"skillEnhancement":{"211420":35,"800144":3},"levelCondition":120}],[{"atk":375,"skillEnhancement":{"211420":39,"800144":4},"levelCondition":120}],[{"atk":400,"skillEnhancement":{"211420":43,"800144":5},"levelCondition":120}]]}
 		],
 		"skills": [
-			{"mp%":30, "atk%":20, "def%":20, "mag%":20, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "lbDamage":17, "special":["dualWield"]},
+			{"mp%":30, "atk%":50, "def%":20, "mag%":20, "spr%":20, "dualWielding":{"atk":40}, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "lbDamage":17, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"atk%":30, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"water","percent":20},{"name":"dark","percent":20}], "replaceLb":{"name":"Radiant Sword","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"fire":50,"water":50,"wind":50,"earth":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 50% for 5 turns to one enemy"},{"effect":{"skillEnhancement":{"228551":3,"508620":3,"508622":3},"turn":5},"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"imperil":{"fire":80,"water":80,"wind":80,"earth":80},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 80% for 5 turns to one enemy"},{"effect":{"skillEnhancement":{"228551":3,"508620":3,"508622":3},"turn":5},"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}],"frames":[61,67,73,79,101,107,113,119,125,180],"move":"walk"}, "equipedConditions":[["504228565","302007100"]]},
-			{"atk%":30, "def%":20, "spr%":20, "levelCondition":105},
+			{"hp%":20, "mp%":20, "atk%":50, "def%":20, "spr%":20, "improvedDW":true, "lbDamage":100, "skillEnhancement":{"508620":21.5,"800144":9}, "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
-			{"dualWielding":{"atk":60}, "killers":[{"name":"undead","physical":100,"magical":100}], "skillEnhancement":{"211420":1.5,"228551":1.5,"508620":1.5}, "levelCondition":120},
+			{"dualWielding":{"atk":160}, "killers":[{"name":"undead","physical":100,"magical":100}], "skillEnhancement":{"211420":11,"228551":11,"508620":11}, "levelCondition":120},
 			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "levelCondition":120}
 		],
 		"6_form": {
@@ -10616,9 +10616,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","spear","harp","whip","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["オニオンバイセクト","オニオンガーニッシュ","オニオンスタンス"],
+			"enhancementSkills":["Onion Bisect","Onion Garnish","Onion Stance"],
 			"skills": [
-				{"mp%":30, "atk%":20, "def%":20, "mag%":20, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "lbDamage":17, "special":["dualWield"]},
+				{"mp%":30, "atk%":50, "def%":20, "mag%":20, "spr%":20, "dualWielding":{"atk":40}, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "lbDamage":17, "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["sword"]}
 			]
 		},
@@ -10637,14 +10637,14 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","spear","harp","whip","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["オニオンバイセクト","オニオンガーニッシュ","オニオンスタンス"],
+			"enhancementSkills":["Onion Bisect","Onion Garnish","Onion Stance"],
 			"skills": [
-				{"mp%":30, "atk%":20, "def%":20, "mag%":20, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "lbDamage":17, "special":["dualWield"]},
+				{"mp%":30, "atk%":50, "def%":20, "mag%":20, "spr%":20, "dualWielding":{"atk":40}, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "lbDamage":17, "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["sword"]},
 				{"atk%":30, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"water","percent":20},{"name":"dark","percent":20}], "replaceLb":{"name":"Radiant Sword","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"fire":50,"water":50,"wind":50,"earth":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 50% for 5 turns to one enemy"},{"effect":{"skillEnhancement":{"228551":3,"508620":3,"508622":3},"turn":5},"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"imperil":{"fire":80,"water":80,"wind":80,"earth":80},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 80% for 5 turns to one enemy"},{"effect":{"skillEnhancement":{"228551":3,"508620":3,"508622":3},"turn":5},"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}],"frames":[61,67,73,79,101,107,113,119,125,180],"move":"walk"}, "equipedConditions":[["504228565","302007100"]]},
-				{"atk%":30, "def%":20, "spr%":20, "levelCondition":105},
+				{"hp%":20, "mp%":20, "atk%":50, "def%":20, "spr%":20, "improvedDW":true, "lbDamage":100, "skillEnhancement":{"508620":21.5,"800144":9}, "levelCondition":105},
 				{"hp%":20, "levelCondition":115},
-				{"dualWielding":{"atk":60}, "killers":[{"name":"undead","physical":100,"magical":100}], "skillEnhancement":{"211420":1.5,"228551":1.5,"508620":1.5}, "levelCondition":120}
+				{"dualWielding":{"atk":160}, "killers":[{"name":"undead","physical":100,"magical":100}], "skillEnhancement":{"211420":11,"228551":11,"508620":11}, "levelCondition":120}
 			]
 		}
 	},
@@ -10665,9 +10665,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","spear","harp","whip","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["オニオンガーニッシュ","クリスタルの輝き","乙女の旅立ち"],
+		"enhancementSkills":["Onion Garnish","Shining Crystal (Onion Knight Refia)","A Girl on a Journey"],
 		"enhancements": [
-			{"name":"乙女の旅立ち","levels":[[{"mp":100,"mpRefresh":5,"levelCondition":120}],[{"mp":125,"mpRefresh":5,"levelCondition":120}],[{"mp":150,"mpRefresh":10,"levelCondition":120}],[{"mp":175,"mpRefresh":10,"levelCondition":120}],[{"mp":200,"mpRefresh":15,"levelCondition":120}]]}
+			{"name":"A Girl on a Journey","levels":[[{"mp":100,"mpRefresh":5,"levelCondition":120}],[{"mp":125,"mpRefresh":5,"levelCondition":120}],[{"mp":150,"mpRefresh":10,"levelCondition":120}],[{"mp":175,"mpRefresh":10,"levelCondition":120}],[{"mp":200,"mpRefresh":15,"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "levelCondition":120},
@@ -10694,17 +10694,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","lightShield","helm","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["負の力を操りし者","闇断刃","鎮魂の剣舞"],
+		"enhancementSkills":["Wielder of Negative Energy","Forbidden Dark Blade","Sword Dance of Spirits"],
 		"enhancements": [
-			{"name":"負の力を操りし者","levels":[[{"atk":50,"lbDamage":100,"levelCondition":120}],[{"atk":60,"lbDamage":100,"levelCondition":120}],[{"atk":70,"lbDamage":125,"levelCondition":120}],[{"atk":80,"lbDamage":125,"levelCondition":120}],[{"atk":100,"lbDamage":150,"levelCondition":120}]]}
+			{"name":"Wielder of Negative Energy","levels":[[{"atk":50,"lbDamage":100,"levelCondition":120}],[{"atk":60,"lbDamage":100,"levelCondition":120}],[{"atk":70,"lbDamage":125,"levelCondition":120}],[{"atk":80,"lbDamage":125,"levelCondition":120}],[{"atk":100,"lbDamage":150,"levelCondition":120}]]}
 		],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":30, "def%":20, "spr%":30, "singleWielding":{"accuracy":50,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"demon","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":70, "mp%":20, "atk%":30, "def%":20, "spr%":30, "singleWielding":{"accuracy":75,"atk":150}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"demon","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["katana"]},
 			{"atk%":30, "killers":[{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100}], "equipedConditions":[["504228586","304003400"]]},
-			{"mp%":20, "atk%":20, "resist":[{"name":"light","percent":20},{"name":"dark","percent":20}], "levelCondition":105},
+			{"mp%":20, "atk%":60, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"light","percent":20},{"name":"dark","percent":20}], "skillEnhancement":{"510267":15}, "levelCondition":105},
 			{"spr%":20, "levelCondition":115},
-			{"singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "skillEnhancement":{"228570":2,"228572":2,"228573":2,"228574":2,"228575":2,"228576":1.5,"508630":2}, "levelCondition":120},
+			{"singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "skillEnhancement":{"228570":4.5,"228572":4.5,"228573":4.5,"228574":4.5,"228575":4.5,"228576":4.5,"508630":53}, "replaceLb":{"name":"Blade of Destruction","minEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"killers":[{"name":"aquatic","physical":200},{"name":"demon","physical":200}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Aquatics and Demons by 200% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":23.2,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (23.2x * 2 = 46.4x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"killers":[{"name":"aquatic","physical":200},{"name":"demon","physical":200}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Aquatics and Demons by 200% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":33,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (33x * 2 = 66x, ATK) to one enemy (ignore cover)"}],"frames":[90],"move":"walk"}, "levelCondition":120},
 			{"killers":[{"name":"undead","physical":150}], "levelCondition":120},
 			{"killers":[{"name":"machine","physical":150}], "levelCondition":120}
 		],
@@ -10723,9 +10723,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","lightShield","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["負の力を操りし者","闇断刃","鎮魂の剣舞"],
+			"enhancementSkills":["Wielder of Negative Energy","Forbidden Dark Blade","Sword Dance of Spirits"],
 			"skills": [
-				{"hp%":20, "mp%":20, "atk%":30, "def%":20, "spr%":30, "singleWielding":{"accuracy":50,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"demon","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
+				{"hp%":70, "mp%":20, "atk%":30, "def%":20, "spr%":30, "singleWielding":{"accuracy":75,"atk":150}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"demon","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["katana"]}
 			]
 		},
@@ -10744,14 +10744,14 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","greatSword","katana","lightShield","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["負の力を操りし者","闇断刃","鎮魂の剣舞"],
+			"enhancementSkills":["Wielder of Negative Energy","Forbidden Dark Blade","Sword Dance of Spirits"],
 			"skills": [
-				{"hp%":20, "mp%":20, "atk%":30, "def%":20, "spr%":30, "singleWielding":{"accuracy":50,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"demon","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
+				{"hp%":70, "mp%":20, "atk%":30, "def%":20, "spr%":30, "singleWielding":{"accuracy":75,"atk":150}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"demon","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["katana"]},
 				{"atk%":30, "killers":[{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100}], "equipedConditions":[["504228586","304003400"]]},
-				{"mp%":20, "atk%":20, "resist":[{"name":"light","percent":20},{"name":"dark","percent":20}], "levelCondition":105},
+				{"mp%":20, "atk%":60, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"light","percent":20},{"name":"dark","percent":20}], "skillEnhancement":{"510267":15}, "levelCondition":105},
 				{"spr%":20, "levelCondition":115},
-				{"singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "skillEnhancement":{"228570":2,"228572":2,"228573":2,"228574":2,"228575":2,"228576":1.5,"508630":2}, "levelCondition":120}
+				{"singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "skillEnhancement":{"228570":4.5,"228572":4.5,"228573":4.5,"228574":4.5,"228575":4.5,"228576":4.5,"508630":53}, "replaceLb":{"name":"Blade of Destruction","minEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"killers":[{"name":"aquatic","physical":200},{"name":"demon","physical":200}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Aquatics and Demons by 200% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":23.2,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (23.2x * 2 = 46.4x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"killers":[{"name":"aquatic","physical":200},{"name":"demon","physical":200}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Aquatics and Demons by 200% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":33,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (33x * 2 = 66x, ATK) to one enemy (ignore cover)"}],"frames":[90],"move":"walk"}, "levelCondition":120}
 			]
 		}
 	},
@@ -10772,9 +10772,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","lightShield","helm","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["闇断刃","魔剣士の本領","暗黒剣・切裂"],
+		"enhancementSkills":["Forbidden Dark Blade","Dark Knight's Duty","Dark Blade - Kirisaki"],
 		"enhancements": [
-			{"name":"魔剣士の本領","levels":[[{"atk":100,"levelCondition":120}],[{"atk":120,"levelCondition":120}],[{"atk":150,"levelCondition":120}],[{"atk":170,"levelCondition":120}],[{"atk":200,"levelCondition":120}]]}
+			{"name":"Dark Knight's Duty","levels":[[{"atk":100,"levelCondition":120}],[{"atk":120,"levelCondition":120}],[{"atk":150,"levelCondition":120}],[{"atk":170,"levelCondition":120}],[{"atk":200,"levelCondition":120}]]}
 		],
 		"skills": [
 			{"atk%":100, "singleWielding":{"accuracy":25,"atk":300}, "levelCondition":120},
@@ -10983,8 +10983,8 @@
 		}
 	},
 	"203004207": {
-		"name":"Onion Knight -Neo Vision-",
-		"wikiEntry":"オニオンナイト-Neo_Vision-",
+		"name":"Zwiebelritter -Neo-Vision-",
+		"wikiEntry":"Onion_Knight -Neo Vision-",
 		"id":"203004207",
 		"braveShift":"203004217",
 		"exAwakening": [{"hp":630,"mp":31,"atk":60,"def":25,"mag":18,"spr":25},{"hp":485,"mp":24,"atk":46,"def":19,"mag":14,"spr":19},{"hp":339,"mp":17,"atk":32,"def":13,"mag":10,"spr":13}],
@@ -10999,7 +10999,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","bow","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["真・チョップドオニオン","オニオンソード"],
+		"enhancementSkills":["True Onion Chop","Onion Sword"],
 		"skills": [
 			{"hp%":80, "mp%":70, "atk%":190, "dualWielding":{"atk":150}, "lbFillRate":100, "lbPerTurn":{"min":4,"max":4}, "mpRefresh":7, "special":["dualWield"]},
 			{"equipedConditions":[["504237880","302013000"]]},
@@ -11010,8 +11010,8 @@
 		]
 	},
 	"203004217": {
-		"name":"Onion Knight -Neo Vision- BS",
-		"wikiEntry":"オニオンナイト-Neo_Vision-",
+		"name":"Zwiebelritter -Neo-Vision- BS",
+		"wikiEntry":"Onion_Knight -Neo Vision-",
 		"id":"203004217",
 		"braveShifted":"203004207",
 		"exAwakening": [{"hp":630,"mp":31,"atk":60,"def":25,"mag":18,"spr":25},{"hp":485,"mp":24,"atk":46,"def":19,"mag":14,"spr":19},{"hp":339,"mp":17,"atk":32,"def":13,"mag":10,"spr":13}],
@@ -11026,7 +11026,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["真・チョップドオニオン","ラグナロク×マサムネ"],
+		"enhancementSkills":["True Onion Chop","Ragnarok & Masamune"],
 		"skills": [
 			{"hp%":80, "mp%":70, "atk%":190, "dualWielding":{"atk":150}, "lbFillRate":100, "lbPerTurn":{"min":4,"max":4}, "mpRefresh":7, "special":["dualWield"]},
 			{"equipedConditions":[["504237880","302013000"]]},
@@ -11038,8 +11038,8 @@
 		]
 	},
 	"203004305": {
-		"name":"Black Mage Arc",
-		"wikiEntry":"黒魔道師アルクゥ",
+		"name":"Schwarzmagier Arc",
+		"wikiEntry":"Black_Mage Arc",
 		"id":"203004305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -11058,8 +11058,8 @@
 			{"skillEnhancement":{"20290":35,"20300":35,"20310":35,"20350":45,"20400":20,"20430":45,"238034":10,"238035":10}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Black Mage Arc",
-			"wikiEntry":"黒魔道師アルクゥ",
+			"name":"Schwarzmagier Arc",
+			"wikiEntry":"Black_Mage Arc",
 			"id":"203004305",
 			"sixStarForm":true,
 			"max_rarity":"7",

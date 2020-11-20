@@ -7356,7 +7356,7 @@
 		"enhancementSkills":["ブリザードデストラクション","氷闇の飛礫"]
 	},
 	"100031707": {
-		"name":"Summer Fina & Daisy",
+		"name":"Shoreline Fina & Daisy",
 		"jpname":"フィーナ&デイジー2020夏",
 		"id":"100031707",
 		"braveShift":"100031717",
@@ -7375,7 +7375,7 @@
 		"enhancementSkills":["オーシャンマジック","オーシャンズカット"]
 	},
 	"100031717": {
-		"name":"Summer Fina & Daisy BS",
+		"name":"Shoreline Fina & Daisy BS",
 		"jpname":"フィーナ&デイジー2020夏 BS",
 		"id":"100031717",
 		"braveShifted":"100031707",
@@ -14222,16 +14222,20 @@
 		"name":"Serah",
 		"jpname":"セラ",
 		"id":"250000105",
-		"max_rarity":"7",
+		"braveShift":"250000127",
+		"exAwakening": [{"hp":609,"mp":36,"atk":19,"def":20,"mag":31,"spr":26},{"hp":469,"mp":28,"atk":15,"def":16,"mag":23,"spr":20},{"hp":328,"mp":19,"atk":10,"def":11,"mag":16,"spr":14}],
+		"fragmentId": "250000610",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4645,"mp":282,"atk":151,"def":160,"mag":218,"spr":206},
-			"minStats":{"hp":1533,"mp":93,"atk":50,"def":53,"mag":72,"spr":68},
+			"maxStats":{"hp":4691,"mp":284,"atk":151,"def":160,"mag":239,"spr":206},
+			"minStats":{"hp":1548,"mp":94,"atk":50,"def":53,"mag":79,"spr":68},
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","greatSword","rod","bow","hat","clothes","robe"],
+		"equip":["dagger","greatSword","rod","bow","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["シャインシュート","ストーンブロウ","未来を守る覚悟"],
 		"6_form": {
 			"name":"Serah",
 			"jpname":"セラ",
@@ -14246,8 +14250,45 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","greatSword","rod","bow","hat","clothes","robe"]
+			"equip":["dagger","greatSword","rod","bow","hat","clothes","robe"],
+			"enhancementSkills":["シャインシュート","ストーンブロウ","未来を守る覚悟"]
+		},
+		"7_form": {
+			"name":"Serah",
+			"jpname":"セラ",
+			"id":"250000105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4645,"mp":282,"atk":151,"def":160,"mag":218,"spr":206},
+				"minStats":{"hp":1533,"mp":93,"atk":50,"def":53,"mag":72,"spr":68},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","greatSword","rod","bow","hat","clothes","robe"],
+			"enhancementSkills":["シャインシュート","ストーンブロウ","未来を守る覚悟"]
 		}
+	},
+	"250000127": {
+		"name":"セラ BS",
+		"jpname":"セラ BS",
+		"id":"250000127",
+		"braveShifted":"250000105",
+		"exAwakening": [{"hp":609,"mp":36,"atk":19,"def":20,"mag":31,"spr":26},{"hp":469,"mp":28,"atk":15,"def":16,"mag":23,"spr":20},{"hp":328,"mp":19,"atk":10,"def":11,"mag":16,"spr":14}],
+		"fragmentId": "250000610",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4712,"mp":284,"atk":166,"def":150,"mag":218,"spr":236},
+			"minStats":{"hp":1555,"mp":94,"atk":55,"def":50,"mag":72,"spr":78},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","greatSword","rod","bow","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["シャインシュート","女神エトロの干渉","ブライトスラッシュ"]
 	},
 	"250000205": {
 		"name":"Lightning (FFXIII-2)",
@@ -15299,6 +15340,44 @@
 			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 			"enhancementSkills":["フレイムバレット","ガンブレードの使い手","ブラスティングゾーン","キーンエッジ","G.F.","防御+20%"]
 		}
+	},
+	"258000107": {
+		"name":"孤高の太守スノウ",
+		"jpname":"孤高の太守スノウ",
+		"id":"258000107",
+		"braveShift":"258000117",
+		"exAwakening": [{"hp":702,"mp":33,"atk":30,"def":35,"mag":30,"spr":63},{"hp":540,"mp":25,"atk":23,"def":27,"mag":23,"spr":49},{"hp":378,"mp":17,"atk":16,"def":18,"mag":16,"spr":34}],
+		"fragmentId": "250000600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5400,"mp":255,"atk":235,"def":270,"mag":235,"spr":245},
+			"minStats":{"hp":1782,"mp":84,"atk":78,"def":89,"mag":78,"spr":81},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["axe","fist","lightShield","hat","clothes","visionCard"],
+		"enhancementSkills":["イモータルガード","混沌の闘気・物理"]
+	},
+	"258000117": {
+		"name":"孤高の太守スノウ BS",
+		"jpname":"孤高の太守スノウ BS",
+		"id":"258000117",
+		"braveShifted":"258000107",
+		"exAwakening": [{"hp":702,"mp":33,"atk":30,"def":35,"mag":30,"spr":63},{"hp":540,"mp":25,"atk":23,"def":27,"mag":23,"spr":49},{"hp":378,"mp":17,"atk":16,"def":18,"mag":16,"spr":34}],
+		"fragmentId": "250000600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5400,"mp":255,"atk":235,"def":245,"mag":235,"spr":270},
+			"minStats":{"hp":1782,"mp":84,"atk":78,"def":81,"mag":78,"spr":89},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["axe","fist","lightShield","hat","clothes","visionCard"],
+		"enhancementSkills":["イモータルガード","混沌の闘気・魔法"]
 	},
 	"258000207": {
 		"name":"Savior of Souls Lightning",

@@ -132,6 +132,18 @@
 	{"atk":82, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
 	{"atk":90, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40},{"guts":{"ifHpOver":5,"chance":100,"time":1},"exclusiveUnits":["202000505","202000527","202001705","202001727","202001907","202001917"]}]}
 ]},
+{"id":"203000101", "name":"Crystal's Revelation", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_203000101.png", "sortId":25, "levels":[
+	{"atk":40},
+	{"atk":44},
+	{"atk":48},
+	{"atk":52, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":15},{"equipedConditions":["katana"],"atk%":15}]},
+	{"atk":56, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":15},{"equipedConditions":["katana"],"atk%":15}]},
+	{"atk":60, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":15},{"equipedConditions":["katana"],"atk%":15}]},
+	{"atk":64, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
+	{"atk":68, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
+	{"atk":72, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
+	{"atk":80, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30},{"atk%":20,"def%":20,"mag%":20,"spr%":20,"exclusiveUnits":["203001305","203001327","203001405","203001427","203004207","203004217"]},{"resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}],"exclusiveUnits":["203001305","203001327","203001405","203001427","203004207","203004217"]}]}
+]},
 {"id":"207000101", "name":"Mad Dash", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
 	{"atk":40},
 	{"atk":46},

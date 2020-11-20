@@ -10479,7 +10479,7 @@
 		]
 	},
 	"100031707": {
-		"name":"Summer Fina & Daisy",
+		"name":"Shoreline Fina & Daisy",
 		"jpname":"フィーナ&デイジー2020夏",
 		"id":"100031707",
 		"braveShift":"100031717",
@@ -10504,7 +10504,7 @@
 		]
 	},
 	"100031717": {
-		"name":"Summer Fina & Daisy BS",
+		"name":"Shoreline Fina & Daisy BS",
 		"jpname":"フィーナ&デイジー2020夏 BS",
 		"id":"100031717",
 		"braveShifted":"100031707",
@@ -21023,21 +21023,29 @@
 		"name":"Serah",
 		"jpname":"セラ",
 		"id":"250000105",
-		"max_rarity":"7",
+		"braveShift":"250000127",
+		"exAwakening": [{"hp":609,"mp":36,"atk":19,"def":20,"mag":31,"spr":26},{"hp":469,"mp":28,"atk":15,"def":16,"mag":23,"spr":20},{"hp":328,"mp":19,"atk":10,"def":11,"mag":16,"spr":14}],
+		"fragmentId": "250000610",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4645,"mp":282,"atk":151,"def":160,"mag":218,"spr":206},
-			"minStats":{"hp":1533,"mp":93,"atk":50,"def":53,"mag":72,"spr":68},
+			"maxStats":{"hp":4691,"mp":284,"atk":151,"def":160,"mag":239,"spr":206},
+			"minStats":{"hp":1548,"mp":94,"atk":50,"def":53,"mag":79,"spr":68},
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","greatSword","rod","bow","hat","clothes","robe"],
+		"equip":["dagger","greatSword","rod","bow","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["シャインシュート","ストーンブロウ","未来を守る覚悟"],
+		"enhancements": [
+			{"name":"未来を守る覚悟","levels":[[{"lbDamage":50,"killers":[{"name":"bird","magical":25},{"name":"aquatic","magical":25}],"skillEnhancement":{"234210":12,"234211":12,"234212":12,"234214":27,"234216":1,"234217":1,"234218":1,"234220":27,"234224":12},"levelCondition":120}],[{"lbDamage":75,"killers":[{"name":"bird","magical":25},{"name":"aquatic","magical":25}],"skillEnhancement":{"234210":14,"234211":14,"234212":14,"234214":29,"234216":2,"234217":2,"234218":2,"234220":29,"234224":14},"levelCondition":120}],[{"lbDamage":100,"killers":[{"name":"bird","magical":50},{"name":"aquatic","magical":50}],"skillEnhancement":{"234210":16,"234211":16,"234212":16,"234214":31,"234216":3,"234217":3,"234218":3,"234220":31,"234224":16},"levelCondition":120}],[{"lbDamage":125,"killers":[{"name":"bird","magical":50},{"name":"aquatic","magical":50}],"skillEnhancement":{"234210":18,"234211":18,"234212":18,"234214":33,"234216":4,"234217":4,"234218":4,"234220":33,"234224":18},"levelCondition":120}],[{"lbDamage":150,"killers":[{"name":"bird","magical":75},{"name":"aquatic","magical":75}],"skillEnhancement":{"234210":20,"234211":20,"234212":20,"234214":35,"234216":5,"234217":5,"234218":5,"234220":35,"234224":20},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":50, "mp%":40, "def%":20, "mag%":100, "spr%":50, "singleWielding":{"mag":125}, "resist":[{"name":"lightning","percent":30},{"name":"ice","percent":30}], "killers":[{"name":"bird","magical":75},{"name":"aquatic","magical":75}], "mpRefresh":5},
 			{"mag%":60, "singleWielding":{"mag":100}, "equipedConditions":[["312003400","504234201"]]},
 			{"def%":20, "levelCondition":115},
-			{"mp%":20, "def%":20, "skillEnhancement":{"234210":5,"234211":5,"234212":5,"234214":5,"234216":5,"234217":5,"234218":5,"234220":5,"234224":5}, "levelCondition":120}
+			{"mp%":20, "def%":20, "skillEnhancement":{"234210":5,"234211":5,"234212":5,"234214":5,"234216":5,"234217":5,"234218":5,"234220":5,"234224":5}, "levelCondition":120},
+			{"mag":500, "mag%":40, "spr%":40, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Serah",
@@ -21054,10 +21062,59 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","greatSword","rod","bow","hat","clothes","robe"],
+			"enhancementSkills":["シャインシュート","ストーンブロウ","未来を守る覚悟"],
 			"skills": [
 				{"hp%":50, "mp%":40, "def%":20, "mag%":100, "spr%":50, "singleWielding":{"mag":125}, "resist":[{"name":"lightning","percent":30},{"name":"ice","percent":30}], "killers":[{"name":"bird","magical":75},{"name":"aquatic","magical":75}], "mpRefresh":5}
 			]
+		},
+		"7_form": {
+			"name":"Serah",
+			"jpname":"セラ",
+			"id":"250000105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4645,"mp":282,"atk":151,"def":160,"mag":218,"spr":206},
+				"minStats":{"hp":1533,"mp":93,"atk":50,"def":53,"mag":72,"spr":68},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","greatSword","rod","bow","hat","clothes","robe"],
+			"enhancementSkills":["シャインシュート","ストーンブロウ","未来を守る覚悟"],
+			"skills": [
+				{"hp%":50, "mp%":40, "def%":20, "mag%":100, "spr%":50, "singleWielding":{"mag":125}, "resist":[{"name":"lightning","percent":30},{"name":"ice","percent":30}], "killers":[{"name":"bird","magical":75},{"name":"aquatic","magical":75}], "mpRefresh":5},
+				{"mag%":60, "singleWielding":{"mag":100}, "equipedConditions":[["312003400","504234201"]]},
+				{"def%":20, "levelCondition":115},
+				{"mp%":20, "def%":20, "skillEnhancement":{"234210":5,"234211":5,"234212":5,"234214":5,"234216":5,"234217":5,"234218":5,"234220":5,"234224":5}, "levelCondition":120}
+			]
 		}
+	},
+	"250000127": {
+		"name":"セラ BS",
+		"jpname":"セラ BS",
+		"id":"250000127",
+		"braveShifted":"250000105",
+		"exAwakening": [{"hp":609,"mp":36,"atk":19,"def":20,"mag":31,"spr":26},{"hp":469,"mp":28,"atk":15,"def":16,"mag":23,"spr":20},{"hp":328,"mp":19,"atk":10,"def":11,"mag":16,"spr":14}],
+		"fragmentId": "250000610",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4712,"mp":284,"atk":166,"def":150,"mag":218,"spr":236},
+			"minStats":{"hp":1555,"mp":94,"atk":55,"def":50,"mag":72,"spr":78},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","greatSword","rod","bow","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["シャインシュート","女神エトロの干渉","ブライトスラッシュ"],
+		"skills": [
+			{"hp%":50, "mp%":60, "def%":60, "mag%":130, "spr%":150, "mpRefresh":5, "levelCondition":120},
+			{"killers":[{"name":"bird","magical":150},{"name":"aquatic","magical":150}], "equipedConditions":[["312003400","504234201"]], "levelCondition":120},
+			{"mag":500, "mag%":40, "spr%":40, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "levelCondition":120},
+			{"singleWielding":{"mag":225}, "resist":[{"name":"ice","percent":30},{"name":"lightning","percent":30}], "levelCondition":120}
+		]
 	},
 	"250000205": {
 		"name":"Lightning (FFXIII-2)",
@@ -22628,6 +22685,52 @@
 				{"atk%":50, "equipedConditions":["greatSword"]}
 			]
 		}
+	},
+	"258000107": {
+		"name":"孤高の太守スノウ",
+		"jpname":"孤高の太守スノウ",
+		"id":"258000107",
+		"braveShift":"258000117",
+		"exAwakening": [{"hp":702,"mp":33,"atk":30,"def":35,"mag":30,"spr":63},{"hp":540,"mp":25,"atk":23,"def":27,"mag":23,"spr":49},{"hp":378,"mp":17,"atk":16,"def":18,"mag":16,"spr":34}],
+		"fragmentId": "250000600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5400,"mp":255,"atk":235,"def":270,"mag":235,"spr":245},
+			"minStats":{"hp":1782,"mp":84,"atk":78,"def":89,"mag":78,"spr":81},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["axe","fist","lightShield","hat","clothes","visionCard"],
+		"enhancementSkills":["イモータルガード","混沌の闘気・物理"],
+		"skills": [
+			{"hp%":70, "mp%":70, "atk%":70, "def%":150, "mag%":70, "dualWielding":{"def":100,"spr":100}, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":-50},{"name":"ice","percent":100},{"name":"water","percent":50},{"name":"light","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"spirit","physical":150}], "mpRefresh":7, "lbDamage":150, "special":["dualWield"]},
+			{"equipedConditions":[["504239340","309006900"]]}
+		]
+	},
+	"258000117": {
+		"name":"孤高の太守スノウ BS",
+		"jpname":"孤高の太守スノウ BS",
+		"id":"258000117",
+		"braveShifted":"258000107",
+		"exAwakening": [{"hp":702,"mp":33,"atk":30,"def":35,"mag":30,"spr":63},{"hp":540,"mp":25,"atk":23,"def":27,"mag":23,"spr":49},{"hp":378,"mp":17,"atk":16,"def":18,"mag":16,"spr":34}],
+		"fragmentId": "250000600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5400,"mp":255,"atk":235,"def":245,"mag":235,"spr":270},
+			"minStats":{"hp":1782,"mp":84,"atk":78,"def":81,"mag":78,"spr":89},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["axe","fist","lightShield","hat","clothes","visionCard"],
+		"enhancementSkills":["イモータルガード","混沌の闘気・魔法"],
+		"skills": [
+			{"hp%":70, "mp%":70, "atk%":70, "mag%":70, "spr%":150, "dualWielding":{"def":100,"spr":100}, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":-50},{"name":"ice","percent":100},{"name":"water","percent":50},{"name":"dark","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"spirit","physical":150}], "mpRefresh":7, "lbDamage":150, "special":["dualWield"]},
+			{"equipedConditions":[["504239340","309006900"]]}
+		]
 	},
 	"258000207": {
 		"name":"Savior of Souls Lightning",

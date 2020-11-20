@@ -84,7 +84,7 @@
 	{"mag":88, "conditional":[{"equipedConditions":["rod"],"mag%":100}]},
 	{"mag":100, "conditional":[{"equipedConditions":["rod"],"mag%":100},{"mag%":30}]}
 ]},
-{"id":"100000801", "name":"即席クアールライダー参上！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000801.png", "sortId":13, "levels":[
+{"id":"100000801", "name":"Wake-Up Coeurl", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000801.png", "sortId":13, "levels":[
 	{"atk":50},
 	{"atk":53},
 	{"atk":56},
@@ -156,7 +156,7 @@
 	{"atk":47, "mag":47, "resist":[{"name":"lightning","percent":10},{"name":"earth","percent":10},{"name":"dark","percent":10},{"name":"lightning","percent":10},{"name":"earth","percent":10},{"name":"dark","percent":10}]},
 	{"atk":50, "mag":50, "resist":[{"name":"lightning","percent":10},{"name":"earth","percent":10},{"name":"dark","percent":10},{"name":"lightning","percent":10},{"name":"earth","percent":10},{"name":"dark","percent":10}], "conditional":[{"resist":[{"name":"lightning","percent":20},{"name":"earth","percent":20},{"name":"dark","percent":20}]},{"atk%":20,"mag%":20}]}
 ]},
-{"id":"100001501", "name":"夏のひとこま", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001501.png", "sortId":17, "levels":[
+{"id":"100001501", "name":"Too Cool for the Summer", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001501.png", "sortId":17, "levels":[
 	{"hp":400, "spr":40},
 	{"hp":440, "spr":44},
 	{"hp":480, "spr":48},
@@ -312,7 +312,7 @@
 	{"atk":82, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
 	{"atk":90, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40},{}]}
 ]},
-{"id":"203000101", "name":"クリスタルの啓示", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_203000101.png", "sortId":25, "levels":[
+{"id":"203000101", "name":"Crystal's Revelation", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_203000101.png", "sortId":25, "levels":[
 	{"atk":40},
 	{"atk":44},
 	{"atk":48},
@@ -407,6 +407,18 @@
 	{"atk":68, "mag":68, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
 	{"atk":72, "mag":72, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
 	{"atk":80, "mag":80, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100},{"exclusiveUnits":[]},{"exclusiveUnits":[]}]}
+]},
+{"id":"213000201", "name":"500年の悔恨", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000201.png", "sortId":40, "levels":[
+	{"hp":500, "def":30, "spr":30},
+	{"hp":550, "def":33, "spr":33},
+	{"hp":600, "def":36, "spr":36},
+	{"hp":650, "def":39, "spr":39, "conditional":[{"equipedConditions":["axe"],"hp%":20},{"equipedConditions":["fist"],"hp%":20}]},
+	{"hp":700, "def":42, "spr":42, "conditional":[{"equipedConditions":["axe"],"hp%":20},{"equipedConditions":["fist"],"hp%":20}]},
+	{"hp":750, "def":45, "spr":45, "conditional":[{"equipedConditions":["axe"],"hp%":20},{"equipedConditions":["fist"],"hp%":20}]},
+	{"hp":800, "def":48, "spr":48, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
+	{"hp":850, "def":51, "spr":51, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
+	{"hp":900, "def":54, "spr":54, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
+	{"hp":1000, "def":60, "spr":60, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40},{"exclusiveSex":"male"},{"exclusiveSex":"male"}]}
 ]},
 {"id":"335000101", "name":"キーブレード墓場の戦い", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},

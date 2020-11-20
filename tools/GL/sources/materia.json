@@ -21091,7 +21091,7 @@
                 "Restore HP and MP, fill LB gauge, and boost ATK, DEF, MAG, and SPR every turn",
                 "恢復HPMP+增加極限技槽+每回合自動提高攻擊防禦魔力精神",
                 "매 턴마다 HP와 MP 회복+LB 게이지 증가+공격력, 방어력, 마력, 정신력 상승",
-                "Restaure les PV et PM à chaque tour, remplit la jauge de limite et augmente l'ATT, la DEF, la MAGIE et la PSY",
+                "Restaure les PV et les PM, remplit la jauge de limite, et augmente l'ATT, la DEF, la MAGIE et la PSY à chaque tour",
                 "Regeneriert LP und MP, füllt Limitmeter und erhöht jede Runde ANG, ABW, MAG und PSY.",
                 "Recupera VIT y PM, rellena la barra de EL y aumenta ATQ, DEF, MAG, y ESP cada turno durante el combate",
                 "Memulihkan HP dan MP, mengisi bar LB, serta meningkatkan ATK, DEF, MAG, dan SPR setiap giliran",
@@ -36283,71 +36283,179 @@
         }
     },
     "504237880": {
-        "name": "風のクリスタルに選ばれし者",
+        "name": "Chosen by the Wind Crystal",
         "compendium_id": 1205,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237880],
-        "effects": ["Grants '風のクリスタルに選ばれし者' passive."],
-        "unique": false,
+        "effects": ["Grants 'Chosen by the Wind Crystal' passive."],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Chosen by the Wind Crystal",
+                "被風之水晶選中的人",
+                "바람의 크리스탈에게 선택받은 자",
+                "Choisi par le Cristal de vent",
+                "Die Auserwählten des Windkristalls",
+                "El elegido del Cristal del viento",
+                "Dipilih oleh Kristal Angin",
+                "ผู้\u001aถูก\u001aเลือก\u001aโดย\u001aคริสตัล\u001aวาตะ\u001a"
+            ],
+            "desc_short": [
+                "Boost physical and magic damage against reapers, and boost equipment ATK when equipped with two one-handed weapons (Not stackable)",
+                "物理、魔法攻擊時提高對死靈系魔物的傷害+裝備2把單手武器時武具攻擊提升[無法重複裝備]",
+                "물리, 마법 공격 시 사령형 마물에게 부여하는 피해량 상승+한손용 무기 2개 장착 시 장비의 공격력 상승 (중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants, et augmente l'ATT de l'équipement quand deux armes à une main sont équipées (non cumulable)",
+                "Erhöht physischen sowie magischen Schaden gegen Untote und erhöht Ausrüstung-ANG, wenn mit zwei einhändigen Waffen ausgerüstet (nicht stapelbar).",
+                "Aumenta el daño físico y mágico contra muertos vivientes, y aumenta el ATQ del equipo al llevar 2 armas de una sola mano (no acumulable)",
+                "Meningkatkan damage fisik dan magic terhadap jenis makhluk halus, serta meningkatkan ATK perlengkapan ketika 2 senjata satu tangan digunakan (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts physical and magic damage against reapers, and boosts equipment ATK when equipped with two one-handed weapons. Not stackable.",
+                "物理、魔法攻擊時提高對死靈系魔物的傷害，以及裝備2把單手武器時武具攻擊提升。[無法重複裝備]",
+                "물리, 마법 공격 시 사령형 마물에게 부여하는 피해량이 상승하고, 한손용 무기 2개 장착 시 장비의 공격력이 상승합니다. (중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants, et augmente l'ATT de l'équipement quand deux armes à une main sont équipées. Non cumulable.",
+                "Erhöht physischen sowie magischen Schaden gegen Untote und erhöht Ausrüstung-ANG, wenn mit zwei einhändigen Waffen ausgerüstet. Nicht stapelbar.",
+                "Aumenta el daño físico y mágico contra muertos vivientes, y aumenta el ATQ del equipo al llevar 2 armas de una sola mano. No acumulable.",
+                "Meningkatkan damage fisik dan magic terhadap jenis makhluk halus, serta meningkatkan ATK perlengkapan ketika 2 senjata satu tangan digunakan. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504237882": {
-        "name": "黒魔道師の心得",
+        "name": "Path of a Black Mage",
         "compendium_id": 1206,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237882],
-        "effects": ["Grants '黒魔道師の心得' passive."],
-        "unique": false,
+        "effects": ["Grants 'Path of a Black Mage' passive."],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_95.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Path of a Black Mage",
+                "黑魔道師的心得",
+                "흑마도사의 마음가짐",
+                "Voie de la magie noire",
+                "Einmaleins der Schwarzmagie",
+                "Conocimientos de mago negro",
+                "Pengetahuan Mage Hitam",
+                "วิถี\u001aจอม\u001aเวทย์\u001aดำ\u001a"
+            ],
+            "desc_short": [
+                "Boost MAG by 30%, nullify sleep, silence, and paralysis, and boost MAG by 30% when equipped with a hat (Not stackable)",
+                "提高30%魔力+睡眠沉默麻痺無效+裝備帽子時提高30%魔力[無法重複裝備]",
+                "마력 30% 상승+수면, 침묵, 마비 무효화+모자 장착 시 마력 30% 상승 (중복 장착 불가)",
+                "Augmente la MAGIE de 30 %, annule sommeil, silence et paralysie, et augmente la MAGIE de 30 % quand un chapeau est équipé (non cumulable)",
+                "Erhöht MAG um 30%, annulliert Schlaf, Stille sowie Lähmung und erhöht MAG um 30%, wenn mit einem Hut ausgerüstet (nicht stapelbar).",
+                "Aumenta la MAG un 30%, anula sueño, silencio y parálisis, y aumenta la MAG otro 30% extra al llevar sombrero (no acumulable)",
+                "Meningkatkan MAG sebanyak 30%, menihilkan status sleep, silence, dan paralyze, serta meningkatkan MAG sebanyak 30% ketika topi digunakan (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a30% + ยกเลิกสถานะ Sleep\u001a,\u001a \u001aSilence\u001a \u001aและ\u001a \u001aParalyze\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aMAG\u001a \u001a30% \u001aเมื่อ\u001aติดตั้ง\u001aหมวก\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts MAG by 30%, nullifies sleep, silence, and paralysis, and boosts MAG by 30% when equipped with a hat. Not stackable.",
+                "提高30%魔力，以及睡眠沉默麻痺無效，並且裝備帽子時提高30%魔力。[無法重複裝備]",
+                "마력이 30% 상승하고, 수면, 침묵, 마비를 무효화하며, 모자 장착 시 마력이 30% 상승합니다. (중복 장착 불가)",
+                "Augmente la MAGIE de 30 %, annule sommeil, silence et paralysie, et augmente la MAGIE de 30 % quand un chapeau est équipé. Non cumulable.",
+                "Erhöht MAG um 30%, annulliert Schlaf, Stille sowie Lähmung und erhöht MAG um 30%, wenn mit einem Hut ausgerüstet. Nicht stapelbar.",
+                "Aumenta la MAG un 30%, anula sueño, silencio y parálisis, y aumenta la MAG otro 30% extra al llevar sombrero. No acumulable.",
+                "Meningkatkan MAG sebanyak 30%, menihilkan status sleep, silence, dan paralyze, serta meningkatkan MAG sebanyak 30% ketika topi digunakan. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a30% + ยกเลิกสถานะ Sleep\u001a,\u001a \u001aSilence\u001a \u001aและ\u001a \u001aParalyze\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aMAG\u001a \u001a30% \u001aเมื่อ\u001aติดตั้ง\u001aหมวก\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504237887": {
-        "name": "ツインソードの使い手",
+        "name": "Twin Sword User",
         "compendium_id": 1207,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237887],
-        "effects": ["Grants 'ツインソードの使い手' passive."],
-        "unique": false,
+        "effects": ["Grants 'Twin Sword User' passive."],
+        "unique": true,
         "price_buy": 50000,
         "price_sell": 5000,
         "icon": "ability_72.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Twin Sword User",
+                "雙劍使用者",
+                "트윈 소드 사용자",
+                "Utilisateur de lames jumelles",
+                "Doppelschwertkämpfer",
+                "Usuario de espadas gemelas",
+                "Pengguna Pedang Kembar",
+                "ผู้ใช้\u001aดาบ\u001aคู่แฝด\u001a"
+            ],
+            "desc_short": [
+                "Unit can equip swords and katanas, and can equip two of any one-handed sword or katana",
+                "可以裝備劍刀+可以裝備2把單手劍刀",
+                "검과 도 장착 가능+한손용 검 또는 도 2개 장착 가능",
+                "Permet à l'unité de s'équiper d'épées et de katanas, et de s'équiper de deux épées à une main ou katanas",
+                "Lässt Einheit Schwerter sowie Katanas ausrüsten und lässt zwei beliebige einhändige Schwerter oder Katanas ausrüsten.",
+                "La unidad puede llevar espadas, katanas y 2 espadas o katanas de una sola mano",
+                "Memungkinkan penggunaan pedang dan katana, serta memungkinkan penggunaan 2 pedang atau katana satu tangan apa pun",
+                "ยู\u001aนิ\u001aทสา\u001aมา\u001aรถ\u001aติดตั้ง\u001aดาบ\u001aและ\u001aคาตา\u001aนะ\u001aได้\u001a \u001a+\u001a \u001aสามารถ\u001aติดตั้ง\u001aดาบ\u001aมือ\u001aเดียว\u001aหรือ\u001aคาตา\u001aนะ\u001aได้\u001a \u001a2\u001a \u001aชิ้น\u001a"
+            ],
+            "desc_long": [
+                "Enables unit to equip swords and katanas, and two of any one-handed sword or katana.",
+                "可以裝備劍刀，以及可以裝備2把單手劍刀。",
+                "검과 도를 장착할 수 있게 되며, 한손용 검 또는 도를 2개 장착할 수 있게 됩니다.",
+                "Permet à l'unité de s'équiper d'épées et de katanas, et de s'équiper de deux épées à une main ou katanas.",
+                "Lässt Einheit Schwerter sowie Katanas ausrüsten und lässt zwei beliebige einhändige Schwerter oder Katanas ausrüsten.",
+                "La unidad puede llevar espadas, katanas y 2 espadas o katanas de una sola mano.",
+                "Memungkinkan unit untuk menggunakan pedang dan katana, serta 2 pedang atau katana satu tangan apa pun.",
+                "ยู\u001aนิ\u001aทสา\u001aมา\u001aรถ\u001aติดตั้ง\u001aดาบ\u001aและ\u001aคาตา\u001aนะ\u001aได้\u001a \u001a+\u001a \u001aสามารถ\u001aติดตั้ง\u001aดาบ\u001aมือ\u001aเดียว\u001aหรือ\u001aคาตา\u001aนะ\u001aได้\u001a \u001a2\u001a \u001aชิ้น\u001a"
+            ]
         }
     },
     "504237888": {
-        "name": "託された光",
+        "name": "Entrusted Light",
         "compendium_id": 1208,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237888],
-        "effects": ["Grants '託された光' passive."],
-        "unique": false,
+        "effects": ["Grants 'Entrusted Light' passive."],
+        "unique": true,
         "price_buy": 50000,
         "price_sell": 5000,
         "icon": "ability_9.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Entrusted Light",
+                "被託付的光",
+                "맡겨진 빛",
+                "Lumière confiée",
+                "Anvertrautes Licht",
+                "Luz encomendada",
+                "Cahaya yang Dipercayakan",
+                "แสง\u001aที่\u001aรับฝาก\u001aไว้\u001a"
+            ],
+            "desc_short": [
+                "Boost fire, water, wind, and earth resistance by 20%",
+                "提高20%火水風土屬性耐性",
+                "불, 물, 바람, 땅속성 저항력 20% 상승",
+                "Augmente la résistance au feu, à l'eau, au vent et à la terre de 20 %",
+                "Erhöht Feuer-, Wasser-, Wind- und Erdresistenz um 20%.",
+                "Aumenta la resistencia a fuego, agua, viento y tierra un 20%",
+                "Meningkatkan resistansi api, air, angin, dan tanah sebanyak 20%",
+                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำ\u001a,\u001a \u001aลม\u001aและ\u001aดิน\u001a \u001a20%"
+            ],
+            "desc_long": [
+                "Boosts fire, water, wind, and earth resistance by 20%.",
+                "提高20%火水風土屬性耐性。",
+                "불, 물, 바람, 땅속성 저항력이 20% 상승합니다.",
+                "Augmente la résistance au feu, à l'eau, au vent et à la terre de 20 %",
+                "Erhöht Feuer-, Wasser-, Wind- sowie Erdresistenz um 20%.",
+                "Aumenta la resistencia a fuego, agua, viento y tierra un 20%.",
+                "Meningkatkan resistansi api, air, angin, dan tanah sebanyak 20%.",
+                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำ\u001a,\u001a \u001aลม\u001aและ\u001aดิน\u001a \u001a20%"
+            ]
         }
     },
     "504237889": {
