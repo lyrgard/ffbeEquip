@@ -15,7 +15,7 @@ var onlyShow7Star = false;
 var showNumberTMRFarmed = false;
 var readOnly;
 var unitsToIgnoreForImport = {
-    'GL': [],
+    'GL': ['100000327'],
     'JP': []
 }
 

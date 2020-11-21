@@ -17,6 +17,10 @@ var equipmentLastSearch = "";
 var materiaLastSearch = "";
 var farmableStmrLastSearch = "";
 
+let idToIgnoreOnImport = {
+    GL: ["409026200", "306002600"],
+}
+
 function beforeShow(clearTabSelection = true) {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
@@ -1469,8 +1473,6 @@ let importedItemInventory;
 
 function treatImportFile(evt) {
     var f = evt.target.files[0]; // FileList object
-    
-    
   
     var reader = new FileReader();
     
@@ -1492,6 +1494,7 @@ function treatImportFile(evt) {
                     importedOwnedUnit = null;
                     return;
                 } else {
+                    if (idToIgnoreOnImport[server].includes(item.id)) return;
                     if (dataIds.includes(item.id)) {
                         if (!importedItemInventory[item.id]) {
                             importedItemInventory[item.id] = 0;
