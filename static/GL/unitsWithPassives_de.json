@@ -21352,14 +21352,19 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Lucky Strike","Combo Plus","Ars Arcanum","Strike Raid","Twin Limit Upgrade"],
+		"enhancements": [
+			{"name":"Lucky Strike","levels":[[{"def%":20,"atk%":20,"singleWielding":{"accuracy":25,"atk":50},"lbFillRate":100}],[{"def%":20,"atk%":20,"singleWielding":{"accuracy":25,"atk":50},"lbFillRate":100,"killers":[{"name":"spirit","physical":100}]}],[{"def%":20,"atk%":20,"singleWielding":{"accuracy":25,"atk":150},"lbFillRate":100,"killers":[{"name":"spirit","physical":100}]}]]},
+			{"name":"Twin Limit Upgrade","levels":[[{"lbDamage":30,"dualWielding":{"atk":50},"skillEnhancement":{"230849":3,"230851":3},"levelCondition":120}],[{"lbDamage":100,"dualWielding":{"atk":80},"skillEnhancement":{"230849":3,"230851":3},"levelCondition":120}],[{"lbDamage":100,"dualWielding":{"atk":80},"skillEnhancement":{"230849":3,"230851":3},"replaceLb":{"name":"Ragnarok","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":65.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (65.1x, ATK) to one enemy"},{"effect":{"break":{"atk":75,"def":75,"mag":75,"spr":75},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 75% for 4 turns to one enemy"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"unlocked-65821833","name":"Triple Command"}]}},"desc":"Gain 3 uses of Ars Arcanum (230857), Ars Arcanum+1 (708656), Ars Arcanum+2 (708657), Blitz (230845), Combo Plus (230856), Combo Plus+1 (708654), Combo Plus+2 (708655), Hurricane Blast (230844), Ripple Drive (230850), Slapshot (230842), Sonic Blade (230851), Strike Raid (230858), Strike Raid+1 (708658), Strike Raid+2 (708659), Stun Impact (230843) and Vortex (230849) for 4 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":68},"area":"ST","target":"ENEMY"},"desc":"Physical damage (68x, ATK) to one enemy"},{"effect":{"break":{"atk":75,"def":75,"mag":75,"spr":75},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 75% for 4 turns to one enemy"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"unlocked-65821833","name":"Triple Command"}]}},"desc":"Gain 3 uses of Ars Arcanum (230857), Ars Arcanum+1 (708656), Ars Arcanum+2 (708657), Blitz (230845), Combo Plus (230856), Combo Plus+1 (708654), Combo Plus+2 (708655), Hurricane Blast (230844), Ripple Drive (230850), Slapshot (230842), Sonic Blade (230851), Strike Raid (230858), Strike Raid+1 (708658), Strike Raid+2 (708659), Stun Impact (230843) and Vortex (230849) for 4 turns"}],"frames":[30,46,59,73,89,153],"move":"walk"},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":30, "atk%":60, "def%":40, "mag%":20, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]},
+			{"hp%":30, "mp%":30, "atk%":40, "def%":20, "mag%":20, "spr%":40, "evade":{"physical":30}, "dualWielding":{"atk":50}, "improvedDW":true, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]},
 			{"hp%":20, "mp%":20, "atk%":40, "equipedConditions":[["302008400","504230832"]]},
+			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "equipedConditions":["302012900",["302008400","504230832"]]},
 			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "equipedConditions":["302008500",["302008400","504230832"]]},
 			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "equipedConditions":["302008400",["302008400","504230832"]]},
 			{"atk%":30, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":110},
-			{"atk%":20, "levelCondition":115},
-			{"dualWielding":{"atk":50}, "lbDamage":30, "skillEnhancement":{"230849":3,"230851":3}, "levelCondition":120}
+			{"atk%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Sora",
@@ -21376,8 +21381,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Lucky Strike","Combo Plus","Ars Arcanum","Strike Raid","Twin Limit Upgrade"],
+		"enhancements": [
+			{"name":"Lucky Strike","levels":[[{"def%":20,"atk%":20,"singleWielding":{"accuracy":25,"atk":50},"lbFillRate":100}],[{"def%":20,"atk%":20,"singleWielding":{"accuracy":25,"atk":50},"lbFillRate":100,"killers":[{"name":"spirit","physical":100}]}],[{"def%":20,"atk%":20,"singleWielding":{"accuracy":25,"atk":150},"lbFillRate":100,"killers":[{"name":"spirit","physical":100}]}]]}
+		],
 			"skills": [
-				{"hp%":30, "mp%":30, "atk%":60, "def%":40, "mag%":20, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]}
+				{"hp%":30, "mp%":30, "atk%":40, "def%":20, "mag%":20, "spr%":40, "evade":{"physical":30}, "dualWielding":{"atk":50}, "improvedDW":true, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]}
 			]
 		}
 	},
@@ -21395,13 +21404,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Cross-slash - Omen","Assault Break","Continuum Cut","Battle Expert","Those Drawn to One's Darkness"],
+		"enhancements": [
+			{"name":"Battle Expert","levels":[[{"atk%":30,"singleWielding":{"accuracy":25,"atk":50},"levelCondition":110}],[{"atk%":60,"singleWielding":{"accuracy":25,"atk":50},"levelCondition":110}],[{"atk%":60,"singleWielding":{"accuracy":25,"atk":100},"killers":[{"name":"human","physical":100}],"levelCondition":110}]]},
+			{"name":"Those Drawn to One's Darkness","levels":[[{"spr%":20,"def%":20,"hp%":20,"skillEnhancement":{"230879":3,"509745":2,"513250":2,"513251":2,"708678":3,"708679":3},"levelCondition":120}],[{"spr%":20,"def%":20,"hp%":20,"skillEnhancement":{"230879":3,"509745":2,"513250":2,"513251":2,"708678":3,"708679":3},"lbDamage":60,"levelCondition":120}],[{"spr%":20,"def%":20,"hp%":20,"skillEnhancement":{"230879":3,"509745":2,"513250":2,"513251":2,"708678":3,"708679":3},"lbDamage":60,"replaceLb":{"name":"Omnislash","minEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":50},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 50% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":32.1,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (32.1x * 2 = 64.2x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":50},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 50% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":35,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (35x * 2 = 70x, ATK) to one enemy (ignore cover)"}],"frames":[216,250,276,288,298,307,360],"move":"walk"},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":50, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":7},
 			{"atk%":30, "equipedConditions":["greatSword"]},
 			{"atk%":40, "lbDamage":40, "equipedConditions":[["409029900","303006300"]]},
-			{"atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":110},
-			{"atk%":20, "levelCondition":115},
-			{"hp%":20, "def%":20, "spr%":20, "skillEnhancement":{"230879":3,"509745":2}, "levelCondition":120}
+			{"atk%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Cloud (KH)",
@@ -21418,6 +21430,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Cross-slash - Omen","Assault Break","Continuum Cut","Battle Expert","Those Drawn to One's Darkness"],
 			"skills": [
 				{"hp%":50, "mp%":50, "atk%":50, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":7},
 				{"atk%":30, "equipedConditions":["greatSword"]}
@@ -21438,13 +21451,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Mysterious Heavy Swordsman","Engulfing Duality","Prepare to fall!","Dark Blessing","Cloud's Darkness"],
+		"enhancements": [
+			{"name":"Mysterious Heavy Swordsman","levels":[[{"singleWielding":{"accuracy":25,"atk":50}}],[{"singleWielding":{"accuracy":25,"atk":50}}],[{"singleWielding":{"accuracy":25,"atk":100},"skillEnhancement":{"232971":35,"232972":35,"232975":30,"232976":30,"232977":35,"232980":35}}]]},
+			{"name":"Cloud's Darkness","levels":[[{"def%":30,"mp%":30,"lbPerTurn":{"min":6,"max":6},"skillEnhancement":{"232970":1,"232973":1,"232975":5,"232976":5,"232980":1,"914530":1,"914531":1},"levelCondition":120}],[{"def%":30,"mp%":30,"lbPerTurn":{"min":8,"max":8},"skillEnhancement":{"232970":1,"232973":1,"232975":5,"232976":5,"232980":1,"914530":1,"914531":1},"levelCondition":120}],[{"def%":30,"mp%":30,"lbPerTurn":{"min":8,"max":8},"skillEnhancement":{"232970":1,"232973":1,"232975":5,"232976":5,"232980":1,"914530":1,"914531":1},"replaceLb":{"name":"Super Nova","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":55.1},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (55.1x, ATK) to all enemies"},{"effect":{"skillEnhancement":{"232970":3,"232973":3,"232975":3,"232976":3,"232977":3,"232980":3,"914530":3,"914531":3},"turn":9999},"desc":"Increase damage of Consuming Light (232976), Descent into Darkness (232975), Engulfing Duality (232973), Engulfing Duality+1 (914530), Engulfing Duality+2 (914531), Life-Taker (232977), Octaslash (232980) and Vanisher (232970) by 300% for 9999 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":58},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (58x, ATK) to all enemies"},{"effect":{"skillEnhancement":{"232970":3,"232973":3,"232975":3,"232976":3,"232977":3,"232980":3,"914530":3,"914531":3},"turn":9999},"desc":"Increase damage of Consuming Light (232976), Descent into Darkness (232975), Engulfing Duality (232973), Engulfing Duality+1 (914530), Engulfing Duality+2 (914531), Life-Taker (232977), Octaslash (232980) and Vanisher (232970) by 300% for 9999 turns"}],"frames":[382],"move":"walk"},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":30, "atk%":50, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"disease","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
+			{"hp%":20, "mp%":30, "atk%":50, "def%":30, "spr%":30, "resist":[{"name":"disease","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":7},
 			{"atk%":50, "equipedConditions":["katana"]},
 			{"hp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["405008400","304005000"]]},
-			{"hp%":20, "atk%":40, "resist":[{"name":"light","percent":50},{"name":"dark","percent":50}], "skillEnhancement":{"232970":2}, "levelCondition":105},
-			{"mp%":20, "levelCondition":115},
-			{"mp%":30, "def%":30, "lbPerTurn":{"min":2,"max":2}, "skillEnhancement":{"232970":1,"232973":1,"232980":1}, "levelCondition":120}
+			{"hp%":20, "atk%":40, "resist":[{"name":"light","percent":50},{"name":"dark","percent":50}], "killers":[{"name":"human","physical":100}], "skillEnhancement":{"232970":2}, "levelCondition":105},
+			{"mp%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Sephiroth (KH)",
@@ -21461,8 +21478,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Mysterious Heavy Swordsman","Engulfing Duality","Prepare to fall!","Dark Blessing","Cloud's Darkness"],
+		"enhancements": [
+			{"name":"Mysterious Heavy Swordsman","levels":[[{"singleWielding":{"accuracy":25,"atk":50}}],[{"singleWielding":{"accuracy":25,"atk":50}}],[{"singleWielding":{"accuracy":25,"atk":100},"skillEnhancement":{"232971":35,"232972":35,"232975":30,"232976":30,"232977":35,"232980":35}}]]}
+		],
 			"skills": [
-				{"hp%":20, "mp%":30, "atk%":50, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"disease","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
+				{"hp%":20, "mp%":30, "atk%":50, "def%":30, "spr%":30, "resist":[{"name":"disease","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":7},
 				{"atk%":50, "equipedConditions":["katana"]}
 			]
 		}
@@ -21481,12 +21502,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Dark Maelstrom","Duel Trigger","Fighting the Darkness","Dark Aura","True Chosen One"],
+		"enhancements": [
+			{"name":"Fighting the Darkness","levels":[[{"def%":30,"levelCondition":110}],[{"def%":30,"atk%":30,"killers":[{"name":"spirit","physical":100}],"levelCondition":110}],[{"def%":30,"atk%":30,"killers":[{"name":"spirit","physical":100}],"lbDamage":50,"replaceLb":{"name":"Dark Barrage & Dark Impulse","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":27.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (27.1x * 2 = 54.2x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"dark":90},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Dark by 90% for 5 turns to all enemies"},{"effect":{"gainSkills":{"turns":5,"skills":[{"id":"unlocked-1353241594","name":"Triple Command"}]}},"desc":"Gain 3 uses of Dark Aura (232959), Dark Aura+1 (708666), Dark Aura+2 (708667), Dark Break (232952), Dark Firaga (232954), Dark Maelstrom (232957), Dark Maelstrom+1 (708668), Dark Maelstrom+2 (708669), Darkhand (232955), Duel Trigger (232958), Duel Trigger+1 (708664), Duel Trigger+2 (708665), Helm Split (232951), Spinning Slash (232953) and Vertical Strike (232950) for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":30,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (30x * 2 = 60x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"dark":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Dark by 120% for 5 turns to all enemies"},{"effect":{"gainSkills":{"turns":5,"skills":[{"id":"unlocked-1353241594","name":"Triple Command"}]}},"desc":"Gain 3 uses of Dark Aura (232959), Dark Aura+1 (708666), Dark Aura+2 (708667), Dark Break (232952), Dark Firaga (232954), Dark Maelstrom (232957), Dark Maelstrom+1 (708668), Dark Maelstrom+2 (708669), Darkhand (232955), Duel Trigger (232958), Duel Trigger+1 (708664), Duel Trigger+2 (708665), Helm Split (232951), Spinning Slash (232953) and Vertical Strike (232950) for 5 turns"}],"frames":[130,153,186,194,202,210,218,226,234,242,305,354],"move":"walk"},"levelCondition":110}]]},
+			{"name":"True Chosen One","levels":[[{"dualWielding":{"atk":50},"lbPerTurn":{"min":5,"max":5},"skillEnhancement":{"232950":3,"232951":3,"232952":3,"232953":3,"232954":3,"232955":5.5,"232957":3,"510713":3,"513245":3,"513246":3,"708668":3,"708669":3},"levelCondition":120}],[{"dualWielding":{"atk":100},"lbPerTurn":{"min":5,"max":5},"skillEnhancement":{"232950":3,"232951":3,"232952":3,"232953":3,"232954":3,"232955":5.5,"232957":3,"510713":3,"513245":3,"513246":3,"708668":3,"708669":3},"levelCondition":120}],[{"dualWielding":{"atk":100},"lbPerTurn":{"min":5,"max":5},"skillEnhancement":{"232950":3,"232951":3,"232952":3,"232953":3,"232954":9,"232955":40,"232957":3,"510713":3,"513245":3,"513246":3,"708668":3,"708669":3},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":40, "atk%":80, "def%":40, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":50}], "special":["dualWield"]},
+			{"hp%":20, "mp%":40, "atk%":80, "def%":40, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"hp%":30, "mp%":30, "atk%":50, "equipedConditions":[["302010500","504232931"]]},
-			{"def%":30, "mpRefresh":5, "levelCondition":110},
-			{"atk%":20, "levelCondition":115},
-			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "skillEnhancement":{"232950":1,"232951":1,"232952":1,"232953":1,"232954":1,"232955":1,"232957":1,"510713":1}, "levelCondition":120}
+			{"atk%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Riku",
@@ -21503,8 +21527,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Dark Maelstrom","Duel Trigger","Fighting the Darkness","Dark Aura","True Chosen One"],
 			"skills": [
-				{"hp%":20, "mp%":40, "atk%":80, "def%":40, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":50}], "special":["dualWield"]}
+				{"hp%":20, "mp%":40, "atk%":80, "def%":40, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":50}], "mpRefresh":5, "special":["dualWield"]}
 			]
 		}
 	},
@@ -22414,7 +22439,7 @@
 	},
 	"340000107": {
 		"name":"Sora (KHIII)",
-		"wikiEntry":"ソラ(KHIII)",
+		"wikiEntry":"Sora_(KHIII)",
 		"id":"340000107",
 		"braveShift":"340000117",
 		"exAwakening": [{"hp":622,"mp":33,"atk":59,"def":25,"mag":21,"spr":23},{"hp":478,"mp":25,"atk":46,"def":19,"mag":16,"spr":18},{"hp":335,"mp":18,"atk":32,"def":13,"mag":11,"spr":12}],
@@ -22429,7 +22454,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["ラピッドスラッシュ","サンセットブライト"],
+		"enhancementSkills":["Speed Slash","Sunray Blast"],
 		"skills": [
 			{"hp%":70, "mp%":20, "atk%":80, "def%":50, "mag%":30, "spr%":50, "evade":{"physical":50}, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":200, "killers":[{"name":"spirit","physical":150,"magical":150}], "special":["dualWield"]},
 			{"atk%":20, "lbPerTurn":{"min":3,"max":3}, "lbDamage":50, "equipedConditions":[["302012900","504237541"]]},
@@ -22440,7 +22465,7 @@
 	},
 	"340000117": {
 		"name":"Sora (KHIII) BS",
-		"wikiEntry":"ソラ(KHIII)",
+		"wikiEntry":"Sora_(KHIII)",
 		"id":"340000117",
 		"braveShifted":"340000107",
 		"exAwakening": [{"hp":622,"mp":33,"atk":59,"def":25,"mag":21,"spr":23},{"hp":478,"mp":25,"atk":46,"def":19,"mag":16,"spr":18},{"hp":335,"mp":18,"atk":32,"def":13,"mag":11,"spr":12}],
@@ -22455,7 +22480,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["ラピッドスラッシュ","フィニッシュアーツ"],
+		"enhancementSkills":["Speed Slash","Ultimate Finish"],
 		"skills": [
 			{"hp%":80, "mp%":50, "atk%":80, "def%":60, "mag%":30, "spr%":60, "evade":{"physical":30}, "singleWielding":{"accuracy":50,"atk":200}, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":200, "special":["dualWield"]},
 			{"atk%":20, "lbPerTurn":{"min":3,"max":3}, "lbDamage":50, "equipedConditions":[["302012900","504237541"]]},
@@ -22466,7 +22491,7 @@
 	},
 	"340000207": {
 		"name":"Riku (KHIII)",
-		"wikiEntry":"リク(KHIII)",
+		"wikiEntry":"Riku_(KHIII)",
 		"id":"340000207",
 		"braveShift":"340000217",
 		"exAwakening": [{"hp":623,"mp":32,"atk":59,"def":24,"mag":20,"spr":23},{"hp":479,"mp":24,"atk":46,"def":18,"mag":15,"spr":18},{"hp":335,"mp":17,"atk":32,"def":13,"mag":11,"spr":13}],
@@ -22481,7 +22506,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["ダークメイルストロム","シャドウストライク"],
+		"enhancementSkills":["Dark Maelstrom (KHIII)","Shadow Strike"],
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":130, "def%":50, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":150}], "mpRefresh":5, "special":["dualWield"]},
 			{"equipedConditions":[["409045000","504237543"]]},
@@ -22492,7 +22517,7 @@
 	},
 	"340000217": {
 		"name":"Riku (KHIII) BS",
-		"wikiEntry":"リク(KHIII)",
+		"wikiEntry":"Riku_(KHIII)",
 		"id":"340000217",
 		"braveShifted":"340000207",
 		"exAwakening": [{"hp":623,"mp":32,"atk":59,"def":24,"mag":20,"spr":23},{"hp":479,"mp":24,"atk":46,"def":18,"mag":15,"spr":18},{"hp":335,"mp":17,"atk":32,"def":13,"mag":11,"spr":13}],
@@ -22507,7 +22532,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["ダークメイルストロム","ダークディバイド"],
+		"enhancementSkills":["Dark Maelstrom (KHIII)","Dark Divide"],
 		"skills": [
 			{"hp%":30, "mp%":80, "atk%":130, "def%":20, "resist":[{"name":"blind","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"spirit","physical":150}], "mpRefresh":5, "lbDamage":100, "special":["dualWield"]},
 			{"equipedConditions":[["409045000","504237543"]]},
@@ -22518,7 +22543,7 @@
 	},
 	"340000307": {
 		"name":"Kairi (KHIII)",
-		"wikiEntry":"カイリ(KHIII)",
+		"wikiEntry":"Kairi_(KHIII)",
 		"id":"340000307",
 		"braveShift":"340000317",
 		"exAwakening": [{"hp":630,"mp":32,"atk":59,"def":23,"mag":20,"spr":24},{"hp":484,"mp":24,"atk":45,"def":18,"mag":16,"spr":19},{"hp":339,"mp":17,"atk":32,"def":12,"mag":11,"spr":13}],
@@ -22533,7 +22558,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["ファイティングアップ","セイントシャワー"],
+		"enhancementSkills":["Fighting Boost","Holy Shower"],
 		"skills": [
 			{"hp%":30, "mp%":60, "atk%":120, "def%":20, "mag%":30, "spr%":20, "singleWielding":{"accuracy":50,"atk":100}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"light","percent":30},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"human","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100}], "mpRefresh":7, "lbDamage":50},
 			{"atk%":50, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "lbDamage":100, "equipedConditions":[["405012400","504237545"]]},
@@ -22544,7 +22569,7 @@
 	},
 	"340000317": {
 		"name":"Kairi (KHIII) BS",
-		"wikiEntry":"カイリ(KHIII)",
+		"wikiEntry":"Kairi_(KHIII)",
 		"id":"340000317",
 		"braveShifted":"340000307",
 		"exAwakening": [{"hp":630,"mp":32,"atk":59,"def":23,"mag":20,"spr":24},{"hp":484,"mp":24,"atk":45,"def":18,"mag":16,"spr":19},{"hp":339,"mp":17,"atk":32,"def":12,"mag":11,"spr":13}],
@@ -22559,7 +22584,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["ファイティングアップ","ホーリーライト"],
+		"enhancementSkills":["Fighting Boost","Holy Light (KHIII)"],
 		"skills": [
 			{"hp%":30, "mp%":60, "atk%":100, "def%":20, "mag%":30, "spr%":90, "singleWielding":{"accuracy":25,"atk":50}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"light","percent":30},{"name":"stop","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "lbDamage":50, "skillEnhancement":{"237672":5,"513231":5}},
 			{"atk%":50, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "lbDamage":100, "equipedConditions":[["405012400","504237545"]]},
@@ -22569,8 +22594,8 @@
 		]
 	},
 	"341000105": {
-		"name":"Young Xehanort (KHDR)",
-		"wikiEntry":"少年ゼアノート(KHDR)",
+		"name":"Junger Xehanort (KDHR)",
+		"wikiEntry":"Young_Xehanort (KHDR)",
 		"id":"341000105",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -22589,8 +22614,8 @@
 			{"mp%":20, "atk%":20, "dualWielding":{"atk":50}, "skillEnhancement":{"237570":15,"237571":15,"237572":15,"237573":15}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Young Xehanort (KHDR)",
-			"wikiEntry":"少年ゼアノート(KHDR)",
+			"name":"Junger Xehanort (KDHR)",
+			"wikiEntry":"Young_Xehanort (KHDR)",
 			"id":"341000105",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -26633,6 +26658,9 @@
   "206002705":{"name":"Gambler Setzer","jpname":"空駆けるギャンブラー セッツァー","id":"206002705","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4600,"mp":227,"atk":222,"def":151,"mag":124,"spr":232},"minStats":{"hp":1518,"mp":75,"atk":73,"def":50,"mag":41,"spr":77},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","throwing","hat","helm","clothes","lightArmor","robe"],"enhancements":[{"name":"人生とは運命を切り開く賭けの連続","levels":[[],[{"skillEnhancement":{"238530":15},"lbDamage":50}]]}],"skills":[{"hp%":50,"mp%":40,"def%":40,"spr%":180,"resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":30},{"name":"earth","percent":30}],"mpRefresh":7},{"killers":[{"name":"bird","physical":150},{"name":"demon","physical":150}],"equipedConditions":[["315024300","504238392"]]},{"dualWielding":{"spr":150},"special":["dualWield"],"levelCondition":110},{"spr%":20,"levelCondition":115}],"6_form":{"name":"Gambler Setzer","jpname":"空駆けるギャンブラー セッツァー","id":"206002705","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3538,"mp":174,"atk":170,"def":116,"mag":95,"spr":178},"minStats":{"hp":1168,"mp":57,"atk":56,"def":38,"mag":31,"spr":59},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}},"stats_pattern":1,"equip":["dagger","sword","throwing","hat","helm","clothes","lightArmor","robe"],"enhancements":[{"name":"人生とは運命を切り開く賭けの連続","levels":[[],[{"skillEnhancement":{"238530":15},"lbDamage":50}]]}],"skills":[{"hp%":50,"mp%":40,"def%":40,"spr%":180,"resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":30},{"name":"earth","percent":30}],"mpRefresh":7}]}},
   "213000127":{"name":"Lightning BS","jpname":"ライトニング BS","id":"213000127","braveShifted":"213000105","exAwakening":[{"hp":647,"mp":31,"atk":31,"def":24,"mag":22,"spr":22},{"hp":498,"mp":24,"atk":24,"def":19,"mag":17,"spr":17},{"hp":348,"mp":17,"atk":17,"def":13,"mag":12,"spr":12}],"fragmentId":"250000550","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4992,"mp":248,"atk":238,"def":198,"mag":184,"spr":192},"minStats":{"hp":1647,"mp":82,"atk":79,"def":65,"mag":61,"spr":63},"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["雷霆剣","天昇雷砲","未来への希望"],"enhancements":[{"name":"未来への希望","levels":[[{"atk":400,"killers":[{"name":"machine","physical":50}],"levelCondition":120}],[{"atk":450,"killers":[{"name":"machine","physical":50}],"levelCondition":120}],[{"atk":500,"killers":[{"name":"machine","physical":75}],"levelCondition":120}],[{"atk":550,"killers":[{"name":"machine","physical":75}],"levelCondition":120}],[{"atk":600,"killers":[{"name":"machine","physical":100}],"levelCondition":120}]]}],"skills":[{"resist":[{"name":"lightning","percent":60}]},{"resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100}],"killers":[{"name":"machine","physical":100}],"levelCondition":120},{"hp%":20,"mp%":20,"atk%":50,"def%":20,"spr%":20,"equipedConditions":[["409006300","302005400"]],"levelCondition":120},{"evade":{"physical":30,"magical":20},"mpRefresh":5,"levelCondition":120},{"hp%":40,"mp%":20,"atk%":180,"def%":20,"spr%":20,"special":["dualWield"],"levelCondition":120},{"atk%":20,"equipedConditions":["sword"],"levelCondition":120},{"atk%":20,"equipedConditions":["gun"],"levelCondition":120},{"dualWielding":{"atk":150},"skillEnhancement":{"239090":7.5,"239091":7.5,"239092":7.5,"239093":7.5,"239094":7.5,"239101":12.5,"239102":12.5,"239103":12.5,"239104":12.5,"239105":12.5},"levelCondition":120}]},
   "213001027":{"name":"Radiant Lightning BS","jpname":"閃光のライトニング BS","id":"213001027","braveShifted":"213001005","exAwakening":[{"hp":650,"mp":32,"atk":31,"def":25,"mag":28,"spr":24},{"hp":500,"mp":24,"atk":24,"def":19,"mag":21,"spr":19},{"hp":350,"mp":17,"atk":17,"def":13,"mag":15,"spr":13}],"fragmentId":"250000540","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4964,"mp":252,"atk":248,"def":191,"mag":234,"spr":188},"minStats":{"hp":1638,"mp":83,"atk":82,"def":63,"mag":77,"spr":62},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["バスターインパルス","バスターサンダー","撃滅のサファイア"],"enhancements":[{"name":"撃滅のサファイア","levels":[[{"mag":250,"killers":[{"name":"machine","magical":100}],"levelCondition":120}],[{"mag":300,"killers":[{"name":"machine","magical":100}],"levelCondition":120}],[{"mag":350,"killers":[{"name":"machine","magical":125}],"levelCondition":120}],[{"mag":400,"killers":[{"name":"machine","magical":125}],"levelCondition":120}],[{"mag":500,"killers":[{"name":"machine","magical":150}],"levelCondition":120}]]}],"skills":[{"resist":[{"name":"lightning","percent":60}]},{"atk%":50,"mag%":50,"lbDamage":150,"levelCondition":120},{"lbFillRate":100,"equipedConditions":[["504230370","302007600"]],"levelCondition":120},{"hp%":60,"mp%":40,"atk%":30,"def%":50,"mag%":120,"spr%":50,"lbPerTurn":{"min":3,"max":3},"resist":[{"name":"lightning","percent":50}],"mpRefresh":5,"levelCondition":120},{"mag%":50,"equipedConditions":["sword"],"levelCondition":120},{"mag%":50,"equipedConditions":["gun"],"levelCondition":120},{"evade":{"physical":30},"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}],"esperStatsBonus":{"Odin":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}},"levelCondition":120},{"dualWielding":{"mag":150},"improvedDW":true,"special":["dualWield"],"levelCondition":120}]},
+  "250000127":{"name":"セラ BS","jpname":"セラ BS","id":"250000127","braveShifted":"250000105","exAwakening":[{"hp":609,"mp":36,"atk":19,"def":20,"mag":31,"spr":26},{"hp":469,"mp":28,"atk":15,"def":16,"mag":23,"spr":20},{"hp":328,"mp":19,"atk":10,"def":11,"mag":16,"spr":14}],"fragmentId":"250000610","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4712,"mp":284,"atk":166,"def":150,"mag":218,"spr":236},"minStats":{"hp":1555,"mp":94,"atk":55,"def":50,"mag":72,"spr":78},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","greatSword","rod","bow","hat","clothes","robe","visionCard"],"enhancementSkills":["シャインシュート","女神エトロの干渉","ブライトスラッシュ"],"skills":[{"hp%":50,"mp%":60,"def%":60,"mag%":130,"spr%":150,"mpRefresh":5,"levelCondition":120},{"killers":[{"name":"bird","magical":150},{"name":"aquatic","magical":150}],"equipedConditions":[["312003400","504234201"]],"levelCondition":120},{"mag":500,"mag%":40,"spr%":40,"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}],"mpRefresh":5,"levelCondition":120},{"singleWielding":{"mag":225},"resist":[{"name":"ice","percent":30},{"name":"lightning","percent":30}],"levelCondition":120}]},
+  "258000107":{"name":"孤高の太守スノウ","jpname":"孤高の太守スノウ","id":"258000107","braveShift":"258000117","exAwakening":[{"hp":702,"mp":33,"atk":30,"def":35,"mag":30,"spr":63},{"hp":540,"mp":25,"atk":23,"def":27,"mag":23,"spr":49},{"hp":378,"mp":17,"atk":16,"def":18,"mag":16,"spr":34}],"fragmentId":"250000600","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5400,"mp":255,"atk":235,"def":270,"mag":235,"spr":245},"minStats":{"hp":1782,"mp":84,"atk":78,"def":89,"mag":78,"spr":81},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}},"stats_pattern":4,"equip":["axe","fist","lightShield","hat","clothes","visionCard"],"enhancementSkills":["イモータルガード","混沌の闘気・物理"],"skills":[{"hp%":70,"mp%":70,"atk%":70,"def%":150,"mag%":70,"dualWielding":{"def":100,"spr":100},"lbFillRate":150,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"fire","percent":-50},{"name":"ice","percent":100},{"name":"water","percent":50},{"name":"light","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":100}],"killers":[{"name":"demon","physical":50},{"name":"spirit","physical":150}],"mpRefresh":7,"lbDamage":150,"special":["dualWield"]},{"equipedConditions":[["504239340","309006900"]]}]},
+  "258000117":{"name":"孤高の太守スノウ BS","jpname":"孤高の太守スノウ BS","id":"258000117","braveShifted":"258000107","exAwakening":[{"hp":702,"mp":33,"atk":30,"def":35,"mag":30,"spr":63},{"hp":540,"mp":25,"atk":23,"def":27,"mag":23,"spr":49},{"hp":378,"mp":17,"atk":16,"def":18,"mag":16,"spr":34}],"fragmentId":"250000600","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5400,"mp":255,"atk":235,"def":245,"mag":235,"spr":270},"minStats":{"hp":1782,"mp":84,"atk":78,"def":81,"mag":78,"spr":89},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}},"stats_pattern":4,"equip":["axe","fist","lightShield","hat","clothes","visionCard"],"enhancementSkills":["イモータルガード","混沌の闘気・魔法"],"skills":[{"hp%":70,"mp%":70,"atk%":70,"mag%":70,"spr%":150,"dualWielding":{"def":100,"spr":100},"lbFillRate":150,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"fire","percent":-50},{"name":"ice","percent":100},{"name":"water","percent":50},{"name":"dark","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":100}],"killers":[{"name":"demon","physical":50},{"name":"spirit","physical":150}],"mpRefresh":7,"lbDamage":150,"special":["dualWield"]},{"equipedConditions":[["504239340","309006900"]]}]},
   "258000207":{"name":"Savior of Souls Lightning","jpname":"魂の解放者ライトニング","id":"258000207","braveShift":"258000217","exAwakening":[{"hp":671,"mp":33,"atk":68,"def":33,"mag":30,"spr":33},{"hp":516,"mp":25,"atk":53,"def":25,"mag":23,"spr":25},{"hp":361,"mp":17,"atk":37,"def":17,"mag":16,"spr":17}],"fragmentId":"250000530","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5169,"mp":255,"atk":265,"def":255,"mag":235,"spr":255},"minStats":{"hp":1706,"mp":84,"atk":87,"def":84,"mag":78,"spr":84},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["sword","greatSword","katana","spear","gun","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["バオルガード","エレキブラスト"],"skills":[{"hp%":100,"mp%":100,"atk%":100,"def%":100,"mag%":100,"spr%":100,"evade":{"physical":50},"lbFillRate":150,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"wind","percent":50},{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}],"killers":[{"name":"demon","physical":50,"magical":50},{"name":"spirit","physical":150,"magical":150}],"mpRefresh":7,"lbDamage":150},{"drawAttacks":50,"equipedConditions":[["402005000","504239011"]]}]},
   "258000217":{"name":"Savior of Souls Lightning BS","jpname":"魂の解放者ライトニング BS","id":"258000217","braveShifted":"258000207","exAwakening":[{"hp":671,"mp":33,"atk":68,"def":33,"mag":30,"spr":33},{"hp":516,"mp":25,"atk":53,"def":25,"mag":23,"spr":25},{"hp":361,"mp":17,"atk":37,"def":17,"mag":16,"spr":17}],"fragmentId":"250000530","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4847,"mp":255,"atk":235,"def":255,"mag":265,"spr":255},"minStats":{"hp":1600,"mp":84,"atk":78,"def":84,"mag":87,"spr":84},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["sword","katana","staff","rod","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["バオルガード","バースト"],"skills":[{"hp%":100,"mp%":100,"atk%":100,"def%":100,"mag%":100,"spr%":100,"evade":{"magical":30},"lbFillRate":150,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"wind","percent":50},{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}],"killers":[{"name":"demon","physical":50,"magical":50},{"name":"spirit","physical":150,"magical":150}],"mpRefresh":7,"lbDamage":150},{"drawAttacks":50,"equipedConditions":[["402005000","504239011"]]}]},
   "258000305":{"name":"Lumina","jpname":"ルミナ","id":"258000305","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4125,"mp":217,"atk":171,"def":168,"mag":216,"spr":201},"minStats":{"hp":1361,"mp":72,"atk":56,"def":55,"mag":71,"spr":66},"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}},"stats_pattern":4,"equip":["dagger","staff","rod","hat","clothes","robe"],"skills":[{"mp%":120,"atk%":50,"def%":100,"mag%":50,"spr%":100,"evade":{"physical":30,"magical":30},"resist":[{"name":"charm","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},{"equipedConditions":[["504239012","405012800"]]}],"6_form":{"name":"Lumina","jpname":"ルミナ","id":"258000305","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3173,"mp":166,"atk":131,"def":129,"mag":166,"spr":154},"minStats":{"hp":1047,"mp":55,"atk":43,"def":43,"mag":55,"spr":51},"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}},"stats_pattern":1,"equip":["dagger","staff","rod","hat","clothes","robe"],"skills":[{"mp%":120,"atk%":50,"def%":100,"mag%":50,"spr%":100,"evade":{"physical":30,"magical":30},"resist":[{"name":"charm","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]}]}},

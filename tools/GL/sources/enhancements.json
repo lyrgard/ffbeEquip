@@ -19804,7 +19804,7 @@
                 "Doppelwürfel",
                 "Dado doble",
                 "Dadu Ganda",
-                "ลูกเต๋า\u001aแดง\u001a"
+                "ลูกเต๋า\u001aคู่\u001a"
             ],
             "description": [
                 "Boosts chance of inflicted great damage (low)",
@@ -65856,6 +65856,1501 @@
             ]
         }
     },
+    "230846001": {
+        "name": "Lucky Strike",
+        "skill_id_old": 230846,
+        "skill_id_new": 708660,
+        "cost": {
+            "gil": 250000,
+            "materials": {
+                "270004100": 10,
+                "270004200": 8,
+                "270004300": 2
+            }
+        },
+        "units": [335000105],
+        "strings": {
+            "names": [
+                "Lucky Strike",
+                "幸運提升",
+                "럭 업",
+                "Chance",
+                "Glückspilz",
+                "Buena suerte",
+                "Lucky Strike",
+                "Lucky\u001a \u001aStike\u001a"
+            ],
+            "description": [
+                "Boosts physical damage against fairies (100%)",
+                "物理攻擊時提高對精靈系魔物的傷害(100%)",
+                "물리 공격 시 정령형 마물에게 부여하는 피해량 상승(100%)",
+                "Augmente les dégâts physiques infligés aux esprits (100 %)",
+                "Erhöht physischen Schaden gegen Feen (um 100%)",
+                "Aumenta el daño físico contra espíritus (un 100%)",
+                "Meningkatkan damage fisik terhadap jenis peri (100%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aแฟรี่\u001a \u001a(\u001a100%)"
+            ]
+        }
+    },
+    "230846002": {
+        "name": "Lucky Strike",
+        "skill_id_old": 708660,
+        "skill_id_new": 708661,
+        "cost": {
+            "gil": 250000,
+            "materials": {
+                "270004100": 15,
+                "270004200": 12,
+                "270004300": 4,
+                "270004400": 1
+            }
+        },
+        "units": [335000105],
+        "strings": {
+            "names": [
+                "Lucky Strike",
+                "幸運提升",
+                "럭 업",
+                "Chance",
+                "Glückspilz",
+                "Buena suerte",
+                "Lucky Strike",
+                "Lucky\u001a \u001aStrike\u001a"
+            ],
+            "description": [
+                "Boosts equipment ATK increase (to 150%)",
+                "提高武具攻擊增加量(至150%)",
+                "장비의 공격력 상승량 상승(150%)",
+                "Amplifie l'augmentation de l'ATT de l'équipement (à 150 %)",
+                "Steigert Erhöhung des Ausrüstung-ANG (auf 150%)",
+                "Mayor aumento de ATQ del equipo (a un 150%)",
+                "Menambah jumlah peningkatan ATK perlengkapan (menjadi 150%)",
+                "\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aที่\u001aถูก\u001aเพิ่ม\u001aของ\u001aอุปกรณ์\u001a \u001a(\u001aเป็น\u001a \u001a150%)"
+            ]
+        }
+    },
+    "230855001": {
+        "name": "Twin Limit Upgrade",
+        "skill_id_old": 230855,
+        "skill_id_new": 708662,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270004600": 10,
+                "270004700": 8,
+                "270004800": 2,
+                "270004900": 1
+            }
+        },
+        "units": [335000105],
+        "strings": {
+            "names": [
+                "Twin Limit Upgrade",
+                "雙重限幅",
+                "리미트 업 트윈",
+                "Double Booster Limite",
+                "Doppelter Limit-Boost",
+                "Límite doble ↑",
+                "Twin Limit Upgrade",
+                "Twin\u001a \u001aLimit\u001a \u001aUpgrade\u001a"
+            ],
+            "description": [
+                "Boosts LB damage increase (to 100%)",
+                "提高極限技傷害增加量(至100%)",
+                "LB 피해 상승량 상승(100%)",
+                "Amplifie l'augmentation des dégâts de la limite (à 100 %)",
+                "Steigert Schadenserhöhung durch Limitrausch (auf 100%)",
+                "Mayor aumento de daño del EL (a un 100%)",
+                "Menambah jumlah peningkatan damage LB (menjadi 100%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a(\u001aเป็น\u001a \u001a100%)"
+            ]
+        }
+    },
+    "230855002": {
+        "name": "Twin Limit Upgrade",
+        "skill_id_old": 708662,
+        "skill_id_new": 708663,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270004600": 15,
+                "270004700": 12,
+                "270004800": 4,
+                "270004900": 1,
+                "270005000": 1
+            }
+        },
+        "units": [335000105],
+        "strings": {
+            "names": [
+                "Twin Limit Upgrade",
+                "雙重限幅",
+                "리미트 업 트윈",
+                "Double Booster Limite",
+                "Doppelter Limit-Boost",
+                "Límite doble ↑",
+                "Twin Limit Upgrade",
+                "Twin\u001a \u001aLimit\u001a \u001aUpgrade\u001a"
+            ],
+            "description": [
+                "Changes LB effects",
+                "極限技效果變化",
+                "LB 효과 변화",
+                "Modifie les effets de la limite",
+                "Ändert Limitrausch-Effekte",
+                "Cambia los efectos del EL",
+                "Mengubah efek LB",
+                "\u001aเปลี่ยน\u001aผล\u001aของ\u001a \u001aLB\u001a"
+            ]
+        }
+    },
+    "230856001": {
+        "name": "Combo Plus",
+        "skill_id_old": 230856,
+        "skill_id_new": 708654,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "270003600": 10,
+                "270003700": 8,
+                "270003800": 3,
+                "270003900": 1,
+                "270004000": 1
+            }
+        },
+        "units": [335000105],
+        "strings": {
+            "names": [
+                "Combo Plus",
+                "連續攻擊",
+                "콤보 플러스",
+                "Combo",
+                "Combo +",
+                "Combo +1",
+                "Combo Plus",
+                "Combo\u001a \u001aPlus\u001a"
+            ],
+            "description": [
+                "Boosts ATK increase (to 300%)",
+                "提高攻擊增加量(至300%)",
+                "공격력 상승량 상승(300%)",
+                "Amplifie l'augmentation de l'ATT (à 300 %)",
+                "Steigert ANG-Erhöhung (auf 300%)",
+                "Mayor aumento de ATQ (a un 300%)",
+                "Menambah jumlah peningkatan ATK (menjadi 300%)",
+                "\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aที่\u001aถูก\u001aเพิ่ม\u001a \u001a(\u001aเป็น\u001a \u001a300%)"
+            ]
+        }
+    },
+    "230856002": {
+        "name": "Combo Plus",
+        "skill_id_old": 708654,
+        "skill_id_new": 708655,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "270003600": 15,
+                "270003700": 12,
+                "270003800": 5,
+                "270003900": 1,
+                "270004000": 1
+            }
+        },
+        "units": [335000105],
+        "strings": {
+            "names": [
+                "Combo Plus",
+                "連續攻擊",
+                "콤보 플러스",
+                "Combo",
+                "Combo +",
+                "Combo +1",
+                "Combo Plus",
+                "Combo\u001a \u001aPlus\u001a"
+            ],
+            "description": [
+                "Boosts turns in effect (to 5 turns)",
+                "提高效果回合數(至5回合)",
+                "효과 턴 수 상승(5턴)",
+                "Augmente le nombre de tours des effets (à 5 tours)",
+                "Erhöht Anzahl aktiver Runden (auf 5 Runden)",
+                "Aumenta la duración (a 5 turnos)",
+                "Menambah durasi efek (menjadi 5 giliran)",
+                "\u001aเพิ่มจำนวน\u001aเทิร์น\u001aที่\u001aมีผล\u001a \u001a(\u001aเป็น\u001a \u001a5\u001a \u001aเทิร์น)"
+            ]
+        }
+    },
+    "230857001": {
+        "name": "Ars Arcanum",
+        "skill_id_old": 230857,
+        "skill_id_new": 708656,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270002600": 10,
+                "270002700": 8,
+                "270002800": 3,
+                "270002900": 1
+            }
+        },
+        "units": [335000105],
+        "strings": {
+            "names": [
+                "Ars Arcanum",
+                "最終奧義",
+                "라스트 아르카눔",
+                "Arcanes",
+                "Ars Arcanum",
+                "Último arcano",
+                "Ars Arcanum",
+                "Ars\u001a \u001aArcanum\u001a"
+            ],
+            "description": [
+                "Boosts damage amount of first attack (to 150%)",
+                "提高首次攻擊的傷害量(至150%)",
+                "첫 번째 공격 피해량 상승(150%)",
+                "Augmente les dégâts de la première attaque (à 150 %)",
+                "Erhöht Schaden des ersten Angriffs (auf 150%)",
+                "Aumenta el daño del primer ataque (a un 150%)",
+                "Meningkatkan damage serangan pertama (menjadi 150%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aจาก\u001aการ\u001aโจมตี\u001aครั้งแรก\u001a \u001a(\u001aเป็น\u001a \u001a150%)"
+            ]
+        }
+    },
+    "230857002": {
+        "name": "Ars Arcanum",
+        "skill_id_old": 708656,
+        "skill_id_new": 708657,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270002600": 15,
+                "270002700": 12,
+                "270002800": 5,
+                "270002900": 1,
+                "270003000": 1
+            }
+        },
+        "units": [335000105],
+        "strings": {
+            "names": [
+                "Ars Arcanum",
+                "最終奧義",
+                "라스트 아르카눔",
+                "Arcanes",
+                "Ars Arcanum",
+                "Último arcano",
+                "Ars Arcanum",
+                "Ars\u001a \u001aArcanum\u001a"
+            ],
+            "description": [
+                "Boosts damage amount of first attack (to 200%)",
+                "提高首次攻擊的傷害量(至200%)",
+                "첫 번째 공격 피해량 상승(200%)",
+                "Augmente les dégâts de la première attaque (à 200 %)",
+                "Erhöht Schaden des ersten Angriffs (auf 200%)",
+                "Aumenta el daño del primer ataque (a un 200%)",
+                "Meningkatkan damage serangan pertama (menjadi 200%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aจาก\u001aการ\u001aโจมตี\u001aครั้งแรก\u001a \u001a(\u001aเป็น\u001a \u001a200%)"
+            ]
+        }
+    },
+    "230858001": {
+        "name": "Strike Raid",
+        "skill_id_old": 230858,
+        "skill_id_new": 708658,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270000600": 10,
+                "270000700": 8,
+                "270000800": 2,
+                "270000900": 1
+            }
+        },
+        "units": [335000105],
+        "strings": {
+            "names": [
+                "Strike Raid",
+                "衝撞突擊",
+                "스트라이크 레이드",
+                "Diskobolos",
+                "Schwertwurf",
+                "Tiro mortífero",
+                "Strike Raid",
+                "Strike\u001a \u001aRaid\u001a"
+            ],
+            "description": [
+                "Boosts damage amount (to 2500%)",
+                "提高傷害量(至2500%)",
+                "피해량 상승(2500%)",
+                "Augmente les dégâts infligés (à 2500 %)",
+                "Erhöht Schaden (auf 2500%)",
+                "Aumenta el daño (a un 2500%)",
+                "Meningkatkan damage (menjadi 2500%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001a \u001a(\u001aเป็น\u001a \u001a2500%)"
+            ]
+        }
+    },
+    "230858002": {
+        "name": "Strike Raid",
+        "skill_id_old": 708658,
+        "skill_id_new": 708659,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270000600": 15,
+                "270000700": 12,
+                "270000800": 4,
+                "270000900": 1,
+                "270001000": 1
+            }
+        },
+        "units": [335000105],
+        "strings": {
+            "names": [
+                "Strike Raid",
+                "衝撞突擊",
+                "스트라이크 레이드",
+                "Diskobolos",
+                "Schwertwurf",
+                "Tiro mortífero",
+                "Strike Raid",
+                "Strike\u001a \u001aRaid\u001a"
+            ],
+            "description": [
+                "Boosts damage amount (to 4000%)",
+                "提高傷害量(至4000%)",
+                "피해량 상승(4000%)",
+                "Augmente les dégâts infligés (à 4000 %)",
+                "Erhöht Schaden (auf 4000%)",
+                "Aumenta el daño (a un 4000%)",
+                "Meningkatkan damage (menjadi 4000%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001a \u001a(\u001aเป็น\u001a \u001a4000%)"
+            ]
+        }
+    },
+    "230875001": {
+        "name": "Battle Expert",
+        "skill_id_old": 230875,
+        "skill_id_new": 708680,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270004600": 10,
+                "270004700": 8,
+                "270004800": 3,
+                "270004900": 1
+            }
+        },
+        "units": [335000205],
+        "strings": {
+            "names": [
+                "Battle Expert",
+                "戰鬥專家",
+                "전투 숙련자",
+                "Expert du combat",
+                "Kampfmeister",
+                "Guerrero experto",
+                "Ahli Pertempuran",
+                "ผู้เชี่ยวชาญ\u001aการ\u001aสู้รบ\u001a"
+            ],
+            "description": [
+                "Boosts ATK increase (to 60%)",
+                "提高攻擊增加量(至60%)",
+                "공격력 상승량 상승(60%)",
+                "Amplifie l'augmentation de l'ATT (à 60 %)",
+                "Steigert ANG-Erhöhung (auf 60%)",
+                "Mayor aumento de ATQ (a un 60%)",
+                "Menambah jumlah peningkatan ATK (menjadi 60%)",
+                "\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aที่\u001aถูก\u001aเพิ่ม\u001a \u001a(\u001aเป็น\u001a \u001a60%)"
+            ]
+        }
+    },
+    "230875002": {
+        "name": "Battle Expert",
+        "skill_id_old": 708680,
+        "skill_id_new": 708681,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270004600": 15,
+                "270004700": 12,
+                "270004800": 5,
+                "270004900": 1,
+                "270005000": 1
+            }
+        },
+        "units": [335000205],
+        "strings": {
+            "names": [
+                "Battle Expert",
+                "戰鬥專家",
+                "전투 숙련자",
+                "Expert du combat",
+                "Kampfmeister",
+                "Guerrero experto",
+                "Ahli Pertempuran",
+                "ผู้เชี่ยวชาญ\u001aการ\u001aสู้รบ\u001a"
+            ],
+            "description": [
+                "Boosts physical damage dealt against humans (to 100%)<br>Boosts equipment ATK increase (to 100%)",
+                "物理攻擊時提高對人系魔物的傷害(至100%)<br>提高武具攻擊增加量(至100%)",
+                "물리 공격 시 인간형 마물에게 부여하는 피해량 상승(100%)<br>장비의 공격력 상승량 상승(100%)",
+                "Augmente les dégâts physiques infligés aux humains (à 100 %)<br>Amplifie l'augmentation de l'ATT de l'équipement (à 100 %)",
+                "Erhöht physischen Schaden gegen Menschen (auf 100%)<br>Steigert Erhöhung des Ausrüstung-ANG (auf 100%)",
+                "Aumenta el daño físico contra humanos (a un 100%)<br>Mayor aumento de ATQ del equipo (a un 100%)",
+                "Meningkatkan damage fisik terhadap jenis manusia (menjadi 100%)<br>Menambah jumlah peningkatan ATK perlengkapan (menjadi 100%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมนุษย์\u001a \u001a(\u001aเป็น\u001a \u001a100%)<br>เพิ่มค่า ATK\u001a \u001aที่\u001aถูก\u001aเพิ่ม\u001aของ\u001aอุปกรณ์\u001a \u001a(\u001aเป็น\u001a \u001a100%)"
+            ]
+        }
+    },
+    "230876001": {
+        "name": "Those Drawn to One's Darkness",
+        "skill_id_old": 230876,
+        "skill_id_new": 708682,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270003100": 10,
+                "270003200": 8,
+                "270003300": 2,
+                "270003400": 1
+            }
+        },
+        "units": [335000205],
+        "strings": {
+            "names": [
+                "Those Drawn to One's Darkness",
+                "追尋自身黑暗之人",
+                "자신의 어둠을 쫓는 자",
+                "Ceux qui plongent dans leurs ténèbres",
+                "Jener, der die eigene Dunkelheit verfolgt",
+                "Aquellos que se dejan arrastrar por su propia oscuridad",
+                "Mengejar Kegelapan Diri Sendiri",
+                "เหล่า\u001aผู้\u001aที่\u001aถูก\u001aดึง\u001aสู่\u001aความมืด\u001a"
+            ],
+            "description": [
+                "Boosts LB damage (60%)",
+                "提高極限技的傷害(60%)",
+                "LB 피해량 상승(60%)",
+                "Augmente les dégâts de la limite (60 %)",
+                "Erhöht Schaden durch Limitrausch (um 60%)",
+                "Mayor aumento de daño del EL (a un 60%)",
+                "Meningkatkan damage LB (60%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a(\u001a60%)"
+            ]
+        }
+    },
+    "230876002": {
+        "name": "Those Drawn to One's Darkness",
+        "skill_id_old": 708682,
+        "skill_id_new": 708683,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270003100": 15,
+                "270003200": 12,
+                "270003300": 4,
+                "270003400": 1,
+                "270003500": 1
+            }
+        },
+        "units": [335000205],
+        "strings": {
+            "names": [
+                "Those Drawn to One's Darkness",
+                "追尋自身黑暗之人",
+                "자신의 어둠을 쫓는 자",
+                "Ceux qui plongent dans leurs ténèbres",
+                "Jener, der die eigene Dunkelheit verfolgt",
+                "Aquellos que se dejan arrastrar por su propia oscuridad",
+                "Mengejar Kegelapan Diri Sendiri",
+                "เหล่า\u001aผู้\u001aที่\u001aถูก\u001aดึง\u001aสู่\u001aความมืด\u001a"
+            ],
+            "description": [
+                "Changes LB effects",
+                "極限技效果變化",
+                "LB 효과 변화",
+                "Modifie les effets de la limite",
+                "Ändert Limitrausch-Effekte",
+                "Cambia los efectos del EL",
+                "Mengubah efek LB",
+                "\u001aเปลี่ยน\u001aผล\u001aของ\u001a \u001aLB\u001a"
+            ]
+        }
+    },
+    "230877001": {
+        "name": "Cross-slash - Omen",
+        "skill_id_old": 230877,
+        "skill_id_new": 708674,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "270004600": 10,
+                "270004700": 8,
+                "270004800": 3,
+                "270004900": 1,
+                "270005000": 1
+            }
+        },
+        "units": [335000205],
+        "strings": {
+            "names": [
+                "Cross-slash - Omen",
+                "預兆・兇斬",
+                "전조·흉베기",
+                "Taillade croisée - Présage",
+                "Kreuzhieb - Omen",
+                "Látigo-cruzado - Presagio",
+                "Cross-slash - Pertanda",
+                "Cross-slash\u001a \u001a-\u001a \u001aOmen\u001a"
+            ],
+            "description": [
+                "Boosts ATK increase (to 300%)",
+                "提高攻擊增加量(至300%)",
+                "공격력 상승량 상승(300%)",
+                "Amplifie l'augmentation de l'ATT (à 300 %)",
+                "Steigert ANG-Erhöhung (auf 300%)",
+                "Mayor aumento de ATQ (a un 300%)<br>Aumenta la duración de las habilidades aprendidas Látigo-cruzado+ y Triple límite (a 4 turnos)",
+                "Menambah jumlah peningkatan ATK (menjadi 300%)",
+                "\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aที่\u001aถูก\u001aเพิ่ม\u001a \u001a(\u001aเป็น\u001a \u001a300%)"
+            ]
+        }
+    },
+    "230877002": {
+        "name": "Cross-slash - Omen",
+        "skill_id_old": 708674,
+        "skill_id_new": 708675,
+        "cost": {
+            "gil": 500000,
+            "materials": {
+                "270004600": 15,
+                "270004700": 12,
+                "270004800": 5,
+                "270004900": 1,
+                "270005000": 1
+            }
+        },
+        "units": [335000205],
+        "strings": {
+            "names": [
+                "Cross-slash - Omen",
+                "預兆・兇斬",
+                "전조·흉베기",
+                "Taillade croisée - Présage",
+                "Kreuzhieb - Omen",
+                "Látigo-cruzado - Presagio",
+                "Cross-slash - Pertanda",
+                "Cross-slash\u001a \u001a-\u001a \u001aOmen\u001a"
+            ],
+            "description": [
+                "Boosts damage of enabled ability - cross-slash+ (to 5000%)",
+                "提高可使用能力「兇斬 改」的傷害(至5000%)",
+                "사용 가능 어빌리티 '개량형 흉베기'의 피해량 상승(5000%)",
+                "Augmente les dégâts de l'aptitude déblocable Taillade croisée + (à 5000 %)",
+                "Erhöht Schaden aktiver Fertigkeit - Kreuzhieb+ (auf 5000%)",
+                "Aumenta el daño de la habilidad aprendida Látigo-cruzado+ (a un 5000%)",
+                "Meningkatkan damage ability yang diaktifkan: Triple Limit (menjadi 5000%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aAbility\u001a \u001aที่\u001aใช้งาน\u001aได้\u001a \u001a-\u001a \u001aCross-slash\u001a+\u001a \u001a(\u001aเป็น\u001a \u001a5000%)"
+            ]
+        }
+    },
+    "230878001": {
+        "name": "Assault Break",
+        "skill_id_old": 230878,
+        "skill_id_new": 708676,
+        "cost": {
+            "gil": 250000,
+            "materials": {
+                "270002600": 10,
+                "270002700": 8,
+                "270002800": 2
+            }
+        },
+        "units": [335000205],
+        "strings": {
+            "names": [
+                "Assault Break",
+                "突擊破壞",
+                "어설트 브레이크",
+                "Assaut destructeur",
+                "Bruchangriff",
+                "Asalto quebrantador",
+                "Assault Break",
+                "Assault\u001a \u001aBreak\u001a"
+            ],
+            "description": [
+                "Reduces cooldown time (to one use every 2 turns)",
+                "減少冷卻時間(減少至每2回合可使用1次)",
+                "재사용 대기 시간 감소(2턴에 1회 사용 가능)",
+                "Réduit le nombre de tours avant réutilisation (à une fois tous les 2 tours)",
+                "Verringert Abklingdauer (auf eine Benutzung alle 2 Runden)",
+                "Reduce el tiempo de espera (a un uso cada 2 turnos)",
+                "Mengurangi jeda waktu (menjadi 1 kali penggunaan setiap 2 giliran)",
+                "ลด\u001aเวลา\u001aคู\u001aลดา\u001aวน\u001a์\u001a \u001a(\u001aเป็น\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aทุก\u001a \u001a2\u001a \u001aเทิร์น)"
+            ]
+        }
+    },
+    "230878002": {
+        "name": "Assault Break",
+        "skill_id_old": 708676,
+        "skill_id_new": 708677,
+        "cost": {
+            "gil": 250000,
+            "materials": {
+                "270002600": 15,
+                "270002700": 12,
+                "270002800": 4,
+                "270002900": 1
+            }
+        },
+        "units": [335000205],
+        "strings": {
+            "names": [
+                "Assault Break",
+                "突擊破壞",
+                "어설트 브레이크",
+                "Assaut destructeur",
+                "Bruchangriff",
+                "Asalto quebrantador",
+                "Assault Break",
+                "Assault\u001a \u001aBreak\u001a"
+            ],
+            "description": [
+                "Boosts damage amount (to 2850%)",
+                "提高傷害量(至2850%)",
+                "피해량 상승(2850%)",
+                "Augmente les dégâts infligés (à 2850 %)",
+                "Erhöht Schaden (auf 2850%)",
+                "Aumenta el daño (a un 2850%)",
+                "Meningkatkan damage (menjadi 2850%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001a \u001a(\u001aเป็น\u001a \u001a2850%)"
+            ]
+        }
+    },
+    "230879001": {
+        "name": "Continuum Cut",
+        "skill_id_old": 230879,
+        "skill_id_new": 708678,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270000600": 10,
+                "270000700": 8,
+                "270000800": 2,
+                "270000900": 1
+            }
+        },
+        "units": [335000205],
+        "strings": {
+            "names": [
+                "Continuum Cut",
+                "連續劈斬",
+                "컨티넘 컷",
+                "Continuum",
+                "Kontinuummesser",
+                "Corte infinito",
+                "Continuum Cut",
+                "ฟาดฟัน\u001aต่อเนื่อง\u001a"
+            ],
+            "description": [
+                "Boosts damage amount of first attack (to 950%)",
+                "提高首次攻擊的傷害量(至950%)",
+                "첫 번째 공격 피해량 상승(950%)",
+                "Augmente les dégâts de la première attaque (à 950 %)",
+                "Erhöht Schaden des ersten Angriffs (auf 950%)",
+                "Aumenta el daño del primer ataque (a un 950%)",
+                "Meningkatkan damage serangan pertama (menjadi 950%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aจาก\u001aการ\u001aโจมตี\u001aครั้งแรก\u001a \u001a(\u001aเป็น\u001a \u001a950%)"
+            ]
+        }
+    },
+    "230879002": {
+        "name": "Continuum Cut",
+        "skill_id_old": 708678,
+        "skill_id_new": 708679,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270000600": 15,
+                "270000700": 12,
+                "270000800": 4,
+                "270000900": 1,
+                "270001000": 1
+            }
+        },
+        "units": [335000205],
+        "strings": {
+            "names": [
+                "Continuum Cut",
+                "連續劈斬",
+                "컨티넘 컷",
+                "Continuum",
+                "Kontinuummesser",
+                "Corte infinito",
+                "Continuum Cut",
+                "ฟาดฟัน\u001aต่อเนื่อง\u001a"
+            ],
+            "description": [
+                "Boosts damage amount of first attack (to 1700%)",
+                "提高首次攻擊的傷害量(至1700%)",
+                "첫 번째 공격 피해량 상승(1700%)",
+                "Augmente les dégâts de la première attaque (à 1700 %)",
+                "Erhöht Schaden des ersten Angriffs (auf 1700%)",
+                "Aumenta el daño del primer ataque (a un 1700%)",
+                "Meningkatkan damage serangan pertama (menjadi 1700%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aจาก\u001aการ\u001aโจมตี\u001aครั้งแรก\u001a \u001a(\u001aเป็น\u001a \u001a1700%)"
+            ]
+        }
+    },
+    "232957001": {
+        "name": "Dark Maelstrom",
+        "skill_id_old": 232957,
+        "skill_id_new": 708668,
+        "cost": {
+            "gil": 250000,
+            "materials": {
+                "270000600": 10,
+                "270000700": 8,
+                "270000800": 3,
+                "270000900": 1
+            }
+        },
+        "units": [335000405],
+        "strings": {
+            "names": [
+                "Dark Maelstrom",
+                "黑暗大漩渦",
+                "다크 마엘스트롬",
+                "Dark Maëlstrom",
+                "Sinistra-Mahlstrom",
+                "Vorágine umbría",
+                "Dark Maelstrom",
+                "Dark\u001a \u001aMaelstrom\u001a"
+            ],
+            "description": [
+                "Boosts damage amount of first attack (to 450%)",
+                "提高首次攻擊的傷害量(至450%)",
+                "첫 번째 공격 피해량 상승(450%)",
+                "Augmente les dégâts de la première attaque (à 450 %)",
+                "Erhöht Schaden des ersten Angriffs (auf 450%)",
+                "Aumenta el daño del primer ataque (a un 450%)",
+                "Meningkatkan damage serangan pertama (menjadi 450%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aจาก\u001aการ\u001aโจมตี\u001aครั้งแรก\u001a \u001a(\u001aเป็น\u001a \u001a450%)"
+            ]
+        }
+    },
+    "232957002": {
+        "name": "Dark Maelstrom",
+        "skill_id_old": 708668,
+        "skill_id_new": 708669,
+        "cost": {
+            "gil": 250000,
+            "materials": {
+                "270000600": 15,
+                "270000700": 12,
+                "270000800": 5,
+                "270000900": 1
+            }
+        },
+        "units": [335000405],
+        "strings": {
+            "names": [
+                "Dark Maelstrom",
+                "黑暗大漩渦",
+                "다크 마엘스트롬",
+                "Dark Maëlstrom",
+                "Sinistra-Mahlstrom",
+                "Vorágine umbría",
+                "Dark Maelstrom",
+                "Dark\u001a \u001aMaelstrom\u001a"
+            ],
+            "description": [
+                "Boosts damage amount of first attack (to 800%)",
+                "提高首次攻擊的傷害量(至800%)",
+                "첫 번째 공격 피해량 상승(800%)",
+                "Augmente les dégâts de la première attaque (à 800 %)",
+                "Erhöht Schaden des ersten Angriffs (auf 800%)",
+                "Aumenta el daño del primer ataque (a un 800%)",
+                "Meningkatkan damage serangan pertama (menjadi 800%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aจาก\u001aการ\u001aโจมตี\u001aครั้งแรก\u001a \u001a(\u001aเป็น\u001a \u001a800%)"
+            ]
+        }
+    },
+    "232958001": {
+        "name": "Duel Trigger",
+        "skill_id_old": 232958,
+        "skill_id_new": 708664,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270004100": 10,
+                "270004200": 8,
+                "270004300": 3,
+                "270004400": 1
+            }
+        },
+        "units": [335000405],
+        "strings": {
+            "names": [
+                "Duel Trigger",
+                "决鬥扳機",
+                "듀얼 트리거",
+                "Déclenche-duels",
+                "Duellant",
+                "Lanzar guante",
+                "Duel Trigger",
+                "Duel\u001a \u001aTrigger\u001a"
+            ],
+            "description": [
+                "Boosts DEF reduction for all enemies (to 80%)",
+                "提高全體敵人的防禦減少量(至80%)",
+                "적 전체의 방어력 감소량 상승(80%)",
+                "Amplifie la réduction de la DEF pour tous les ennemis (à 80 %)",
+                "Steigert ABW-Verringerungen aller Gegner (auf 80%)",
+                "Aumenta la reducción de DEF de todos los enemigos (a un 80%)",
+                "Menambah jumlah pengurangan DEF semua musuh (menjadi 80%)",
+                "\u001aเพิ่มจำนวน\u001a \u001aDEF\u001a \u001aที่\u001aถู\u001aกลด\u001aของ\u001aศัตรู\u001aทุกราย\u001a \u001a(\u001aเป็น\u001a \u001a80%)"
+            ]
+        }
+    },
+    "232958002": {
+        "name": "Duel Trigger",
+        "skill_id_old": 708664,
+        "skill_id_new": 708665,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270004100": 15,
+                "270004200": 12,
+                "270004300": 5,
+                "270004400": 1,
+                "270004500": 1
+            }
+        },
+        "units": [335000405],
+        "strings": {
+            "names": [
+                "Duel Trigger",
+                "决鬥扳機",
+                "듀얼 트리거",
+                "Déclenche-duels",
+                "Duellant",
+                "Lanzar guante",
+                "Duel Trigger",
+                "Duel\u001a \u001aTrigger\u001a"
+            ],
+            "description": [
+                "Removes DEF reduction for caster",
+                "解除自身降低防禦的效果",
+                "자신의 방어력 감소 효과 해제",
+                "Dissipe la réduction de la DEF pour le lanceur",
+                "Entfernt ABW-Verringerung des Benutzers",
+                "Elimina la reducción de DEF del usuario",
+                "Menghilangkan efek pengurangan DEF pada diri sendiri",
+                "\u001aยกเลิก\u001aการถู\u001aกลด\u001aค่า\u001a \u001aDEF\u001a \u001aของ\u001aผู้ใช้\u001a"
+            ]
+        }
+    },
+    "232959001": {
+        "name": "Dark Aura",
+        "skill_id_old": 232959,
+        "skill_id_new": 708666,
+        "cost": {
+            "gil": 250000,
+            "materials": {
+                "270002600": 10,
+                "270002700": 8,
+                "270002800": 3,
+                "270002900": 1
+            }
+        },
+        "units": [335000405],
+        "strings": {
+            "names": [
+                "Dark Aura",
+                "黑暗衝擊",
+                "다크 오라",
+                "Dark Aura",
+                "Sinistra-Aura",
+                "Razia tenebrosa",
+                "Dark Aura",
+                "รัศมี\u001aความมืด\u001a"
+            ],
+            "description": [
+                "Boosts damage amount (to 4000%)",
+                "提高傷害量(至4000%)",
+                "피해량 상승(4000%)",
+                "Augmente les dégâts infligés (à 4000 %)",
+                "Erhöht Schaden (auf 4000%)",
+                "Aumenta el daño (a un 4000%)",
+                "Meningkatkan damage (menjadi 4000%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001a \u001a(\u001aเป็น\u001a \u001a4000%)"
+            ]
+        }
+    },
+    "232959002": {
+        "name": "Dark Aura",
+        "skill_id_old": 708666,
+        "skill_id_new": 708667,
+        "cost": {
+            "gil": 250000,
+            "materials": {
+                "270002600": 15,
+                "270002700": 12,
+                "270002800": 5,
+                "270002900": 1
+            }
+        },
+        "units": [335000405],
+        "strings": {
+            "names": [
+                "Dark Aura",
+                "黑暗衝擊",
+                "다크 오라",
+                "Dark Aura",
+                "Sinistra-Aura",
+                "Razia tenebrosa",
+                "Dark Aura",
+                "รัศมี\u001aความมืด\u001a"
+            ],
+            "description": [
+                "Boosts damage amount (to 5500%)",
+                "提高傷害量(至5500%)",
+                "피해량 상승(5500%)",
+                "Augmente les dégâts infligés (à 5500 %)",
+                "Erhöht Schaden (auf 5500%)",
+                "Aumenta el daño (a un 5500%)",
+                "Meningkatkan damage (menjadi 5500%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001a \u001a(\u001aเป็น\u001a \u001a5500%)"
+            ]
+        }
+    },
+    "232965001": {
+        "name": "Fighting the Darkness",
+        "skill_id_old": 232965,
+        "skill_id_new": 708670,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270000100": 10,
+                "270000200": 8,
+                "270000300": 3,
+                "270000400": 1
+            }
+        },
+        "units": [335000405],
+        "strings": {
+            "names": [
+                "Fighting the Darkness",
+                "反抗黑暗之術",
+                "어둠에 대항하는 법",
+                "Annihilation des ténèbres",
+                "Kampf gegen die Dunkelheit",
+                "Lucha contra la oscuridad",
+                "Menentang Kegelapan",
+                "พลัง\u001aต้านทาน\u001aความมืด\u001a"
+            ],
+            "description": [
+                "Boosts ATK (30%)",
+                "提高攻擊(30%)",
+                "공격력 상승(30%)",
+                "Augmente l'ATT (30 %)",
+                "Erhöht ANG (um 30%)",
+                "Aumenta el ATQ (un 30%)",
+                "Meningkatkan ATK (30%)",
+                "\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001a(\u001a30%)"
+            ]
+        }
+    },
+    "232965002": {
+        "name": "Fighting the Darkness",
+        "skill_id_old": 708670,
+        "skill_id_new": 708671,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270000100": 15,
+                "270000200": 12,
+                "270000300": 5,
+                "270000400": 1,
+                "270000500": 1
+            }
+        },
+        "units": [335000405],
+        "strings": {
+            "names": [
+                "Fighting the Darkness",
+                "反抗黑暗之術",
+                "어둠에 대항하는 법",
+                "Annihilation des ténèbres",
+                "Kampf gegen die Dunkelheit",
+                "Lucha contra la oscuridad",
+                "Menentang Kegelapan",
+                "พลัง\u001aต้านทาน\u001aความมืด\u001a"
+            ],
+            "description": [
+                "Boosts LB damage (50%)",
+                "提高極限技的傷害(50%)",
+                "LB 피해량 상승(50%)",
+                "Augmente les dégâts de la limite (50 %)",
+                "Erhöht Schaden durch Limitrausch (um 50%)",
+                "Aumenta el daño del EL (un 50%)",
+                "Meningkatkan damage LB (50%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a(\u001a50%)"
+            ]
+        }
+    },
+    "232966001": {
+        "name": "True Chosen One",
+        "skill_id_old": 232966,
+        "skill_id_new": 708672,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270004600": 10,
+                "270004700": 8,
+                "270004800": 2,
+                "270004900": 1
+            }
+        },
+        "units": [335000405],
+        "strings": {
+            "names": [
+                "True Chosen One",
+                "臻選之人",
+                "진정한 선택받은 자",
+                "Élu véritable",
+                "Der wahre Auserwählte",
+                "Verdadero elegido",
+                "Orang yang Terpilih Sesungguhnya",
+                "ผู้\u001aถูก\u001aเลือก\u001aที่\u001aแท้จริง\u001a"
+            ],
+            "description": [
+                "Boosts equipment ATK increase (to 100%)",
+                "提高武具攻擊增加量(至100%)",
+                "장비의 공격력 상승량 상승(100%)",
+                "Amplifie l'augmentation de l'ATT de l'équipement (à 100 %)",
+                "Steigert Erhöhung des Ausrüstung-ANG (auf 100%)",
+                "Mayor aumento de ATQ del equipo (a un 100%)",
+                "Menambah jumlah peningkatan ATK perlengkapan (menjadi 100%)",
+                "\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aที่\u001aถูก\u001aเพิ่ม\u001aของ\u001aอุปกรณ์\u001a \u001a(\u001aเป็น\u001a \u001a100%)"
+            ]
+        }
+    },
+    "232966002": {
+        "name": "True Chosen One",
+        "skill_id_old": 708672,
+        "skill_id_new": 708673,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270004600": 15,
+                "270004700": 12,
+                "270004800": 4,
+                "270004900": 1,
+                "270005000": 1
+            }
+        },
+        "units": [335000405],
+        "strings": {
+            "names": [
+                "True Chosen One",
+                "臻選之人",
+                "진정한 선택받은 자",
+                "Élu véritable",
+                "Der wahre Auserwählte",
+                "Verdadero elegido",
+                "Orang yang Terpilih Sesungguhnya",
+                "ผู้\u001aถูก\u001aเลือก\u001aที่\u001aแท้จริง\u001a"
+            ],
+            "description": [
+                "Boosts increase to damage of certain abilities (dark firaga: 900%, and darkhand: 4000%)",
+                "提高特定能力的傷害增加量(黑暗大火焰：900%、黑暗之手：4000%)",
+                "특정 어빌리티의 피해 상승량 상승(다크 파이가: 900%, 다크 핸드: 4000%)",
+                "Amplifie l'augmentation des dégâts de certaines aptitudes (Brasier X obscur : 900 %, Brise-casque ténébreux : 4000 %)",
+                "Steigert Erhöhung des Schadens bestimmter Fertigkeiten (Sinistra-Feuga: um 900% und Sinistra-Hand: um 4000%)",
+                "Mayor aumento del daño de determinadas habilidades (Nigro Piro++: un 900%, Tinieblas: un 4000%)",
+                "Menambah jumlah peningkatan damage ability tertentu (Dark Firaga 900%, dan Darkhand: 4000%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aที่\u001aถูก\u001aเพิ่ม\u001aของ\u001a \u001aAbility\u001a \u001aที่\u001aกำหนด\u001a \u001a(\u001aDark\u001a \u001aFiraga\u001a:\u001a \u001a900% และ Darkhand\u001a:\u001a \u001a4000%)"
+            ]
+        }
+    },
+    "232973001": {
+        "name": "Engulfing Duality",
+        "skill_id_old": 232973,
+        "skill_id_new": 914530,
+        "cost": {
+            "gil": 250000,
+            "materials": {
+                "270002600": 10,
+                "270002700": 8,
+                "270002800": 3,
+                "270002900": 1
+            }
+        },
+        "units": [335000305],
+        "strings": {
+            "names": [
+                "Engulfing Duality",
+                "貳旋暗明",
+                "이선암명",
+                "Dualité envahissante",
+                "Zwei Seiten einer Medaille",
+                "Dualidad integral",
+                "Dualitas Integral",
+                "มืด\u001aสว่าง\u001aสอง\u001aขั้ว\u001a"
+            ],
+            "description": [
+                "Boosts damage amount of first attack (to 400%)",
+                "提高首次攻擊的傷害量(至400%)",
+                "첫 번째 공격 피해량 상승(400%)",
+                "Augmente les dégâts de la première attaque (à 400 %)",
+                "Erhöht Schaden des ersten Angriffs (auf 400%)",
+                "Aumenta el daño del primer ataque (a un 400%)",
+                "Meningkatkan damage serangan pertama (menjadi 400%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aจาก\u001aการ\u001aโจมตี\u001aครั้งแรก\u001a<br>(\u001aเป็น\u001a \u001a400%)"
+            ]
+        }
+    },
+    "232973002": {
+        "name": "Engulfing Duality",
+        "skill_id_old": 914530,
+        "skill_id_new": 914531,
+        "cost": {
+            "gil": 250000,
+            "materials": {
+                "270002600": 15,
+                "270002700": 12,
+                "270002800": 5,
+                "270002900": 1
+            }
+        },
+        "units": [335000305],
+        "strings": {
+            "names": [
+                "Engulfing Duality",
+                "貳旋暗明",
+                "이선암명",
+                "Dualité envahissante",
+                "Zwei Seiten einer Medaille",
+                "Dualidad integral",
+                "Dualitas Integral",
+                "มืด\u001aสว่าง\u001aสอง\u001aขั้ว\u001a"
+            ],
+            "description": [
+                "Boosts damage amount of first attack (to 700%)",
+                "提高首次攻擊的傷害量(至700%)",
+                "첫 번째 공격 피해량 상승(700%)",
+                "Augmente les dégâts de la première attaque (à 700 %)",
+                "Erhöht Schaden des ersten Angriffs (auf 700%)",
+                "Aumenta el daño del primer ataque (a un 700%)",
+                "Meningkatkan damage serangan pertama (menjadi 700%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001aจาก\u001aการ\u001aโจมตี\u001aครั้งแรก\u001a \u001a(\u001aเป็น\u001a \u001a700%)"
+            ]
+        }
+    },
+    "232981001": {
+        "name": "Prepare to fall!",
+        "skill_id_old": 232981,
+        "skill_id_new": 708684,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270000600": 10,
+                "270000700": 8,
+                "270000800": 3,
+                "270000900": 1
+            }
+        },
+        "units": [335000305],
+        "strings": {
+            "names": [
+                "Prepare to fall!",
+                "墜入黑暗",
+                "어둠에 빠져라",
+                "Préparez-vous à mourir !",
+                "Gebt euch der Dunkelheit hin!",
+                "¡Prepárate para morir!",
+                "Tunduklah pada kegelapan!",
+                "หาย\u001aไป\u001aใน\u001aความมืด\u001aซะ\u001a!\u001a"
+            ],
+            "description": [
+                "Boosts turns in effect for light and dark resistance reductions (to 3 turns)",
+                "提高降低光暗屬性耐性的效果回合數(至3回合)",
+                "빛과 어둠속성 저항력 감소 효과 턴 수 상승(3턴)",
+                "Augmente le nombre de tours des effets de réduction de la résistance à la lumière et aux ténèbres (à 3 tours)",
+                "Erhöht Anzahl aktiver Runden der Verringerungen der Licht- und Dunkelresistenz (auf 3 Runden)",
+                "Aumenta la duración de la reducción de resistencia a luz y oscuridad (a 3 turnos)",
+                "Menambah durasi efek pengurangan resistansi cahaya dan kegelapan (menjadi 3 giliran)",
+                "\u001aเพิ่มจำนวน\u001aเทิร์น\u001aที่\u001aมีผล\u001aของ\u001aการ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aแสง\u001aและ\u001aมืด\u001a \u001a(\u001aเป็น\u001a \u001a3\u001a \u001aเทิร์น)"
+            ]
+        }
+    },
+    "232981002": {
+        "name": "Prepare to fall!",
+        "skill_id_old": 708684,
+        "skill_id_new": 708685,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270000600": 15,
+                "270000700": 12,
+                "270000800": 5,
+                "270000900": 1,
+                "270001000": 1
+            }
+        },
+        "units": [335000305],
+        "strings": {
+            "names": [
+                "Prepare to fall!",
+                "墜入黑暗",
+                "어둠에 빠져라",
+                "Préparez-vous à mourir !",
+                "Gebt euch der Dunkelheit hin!",
+                "¡Prepárate para morir!",
+                "Tunduklah pada kegelapan!",
+                "หาย\u001aไป\u001aใน\u001aความมืด\u001aซะ\u001a!\u001a"
+            ],
+            "description": [
+                "Boosts turns in effect for ATK, DEF, MAG, and SPR reductions (to 3 turns)",
+                "提高降低攻擊防禦魔力精神的效果回合數(至3回合)",
+                "공격력, 방어력, 마력, 정신력 감소 효과 턴 수 상승(3턴)",
+                "Augmente le nombre de tours des effets de réduction de l'ATT, de la DEF, de la MAGIE et de la PSY (à 3 tours)",
+                "Erhöht Anzahl aktiver Runden der ANG-, ABW-, MAG- und PSY-Verringerungen (auf 3 Runden)",
+                "Aumenta la duración de la reducción de ATQ, DEF, MAG y ESP (a 3 turnos)",
+                "Menambah durasi efek pengurangan ATK, DEF, MAG, dan SPR (menjadi 3 giliran)",
+                "\u001aเพิ่มจำนวน\u001aเทิร์น\u001aที่\u001aมีผล\u001aลด\u001aค่า\u001a \u001aATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a(\u001aเป็น\u001a \u001a3\u001a \u001aเทิร์น)"
+            ]
+        }
+    },
+    "232982001": {
+        "name": "Dark Blessing",
+        "skill_id_old": 232982,
+        "skill_id_new": 708686,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270000100": 10,
+                "270000200": 8,
+                "270000300": 3,
+                "270000400": 1
+            }
+        },
+        "units": [335000305],
+        "strings": {
+            "names": [
+                "Dark Blessing",
+                "黑色祝福",
+                "어둠의 축복",
+                "Bénédiction obscure",
+                "Dunkler Segen",
+                "Bendición oscura",
+                "Berkah Gelap",
+                "พร\u001aอัน\u001aดำมืด\u001a"
+            ],
+            "description": [
+                "Boosts damage amount (to 3000%)",
+                "提高傷害量(至3000%)",
+                "피해량 상승(3000%)",
+                "Augmente les dégâts infligés (à 3000 %)",
+                "Erhöht Schaden (auf 3000%)",
+                "Aumenta el daño (a un 3000%)",
+                "Meningkatkan damage (menjadi 3000%)",
+                "\u001aเพิ่มค่า\u001aความเสียหาย\u001a \u001a(\u001aเป็น\u001a \u001a3000%)"
+            ]
+        }
+    },
+    "232982002": {
+        "name": "Dark Blessing",
+        "skill_id_old": 708686,
+        "skill_id_new": 708687,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270000100": 15,
+                "270000200": 12,
+                "270000300": 5,
+                "270000400": 1,
+                "270000500": 1
+            }
+        },
+        "units": [335000305],
+        "strings": {
+            "names": [
+                "Dark Blessing",
+                "黑色祝福",
+                "어둠의 축복",
+                "Bénédiction obscure",
+                "Dunkler Segen",
+                "Bendición oscura",
+                "Berkah Gelap",
+                "พร\u001aอัน\u001aดำมืด\u001a"
+            ],
+            "description": [
+                "Boosts turns in effect (to 3 turns)",
+                "提高效果回合數(至3回合)",
+                "효과 턴 수 상승(3턴)",
+                "Augmente le nombre de tours des effets (à 3 tours)",
+                "Erhöht Anzahl aktiver Runden (auf 3 Runden)",
+                "Aumenta la duración (a 3 turnos)",
+                "Menambah durasi efek (menjadi 3 giliran)",
+                "\u001aเพิ่มจำนวน\u001aเทิร์น\u001aที่\u001aมีผล\u001a \u001a(\u001aเป็น\u001a \u001a3\u001a \u001aเทิร์น)"
+            ]
+        }
+    },
+    "232988001": {
+        "name": "Mysterious Heavy Swordsman",
+        "skill_id_old": 232988,
+        "skill_id_new": 708690,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270004600": 10,
+                "270004700": 8,
+                "270004800": 3,
+                "270004900": 1
+            }
+        },
+        "units": [335000305],
+        "strings": {
+            "names": [
+                "Mysterious Heavy Swordsman",
+                "身份不明的大劍豪",
+                "정체불명의 검호",
+                "Mystérieux épéiste aux longues lames",
+                "Mysteriöser Fechtmeister",
+                "Gran espadachín misterioso",
+                "Pendekar Pedang Besar Misterius",
+                "นัก\u001aดาบ\u001aใหญ่\u001aปริศนา\u001a"
+            ],
+            "description": [
+                "Boosts ATK increase (to 230%)",
+                "提高攻擊增加量(至230%)",
+                "공격력 상승량 상승(230%)",
+                "Amplifie l'augmentation de l'ATT (à 230 %)",
+                "Steigert ANG-Erhöhung (auf 230%)",
+                "Mayor aumento de ATQ (a un 230%)",
+                "Menambah jumlah peningkatan ATK (menjadi 230%)",
+                "\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aที่\u001aถูก\u001aเพิ่ม\u001a \u001a(\u001aเป็น\u001a \u001a230%)"
+            ]
+        }
+    },
+    "232988002": {
+        "name": "Mysterious Heavy Swordsman",
+        "skill_id_old": 708690,
+        "skill_id_new": 708691,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270004600": 15,
+                "270004700": 12,
+                "270004800": 5,
+                "270004900": 1,
+                "270005000": 1
+            }
+        },
+        "units": [335000305],
+        "strings": {
+            "names": [
+                "Mysterious Heavy Swordsman",
+                "身份不明的大劍豪",
+                "정체불명의 검호",
+                "Mystérieux épéiste aux longues lames",
+                "Mysteriöser Fechtmeister",
+                "Gran espadachín misterioso",
+                "Pendekar Pedang Besar Misterius",
+                "นัก\u001aดาบ\u001aใหญ่\u001aปริศนา\u001a"
+            ],
+            "description": [
+                "Boosts equipment ATK increase (to 100%)",
+                "提高武具攻擊增加量(至100%)",
+                "장비의 공격력 상승량 상승(100%)",
+                "Amplifie l'augmentation de l'ATT de l'équipement (à 100 %)",
+                "Steigert Erhöhungen des Ausrüstung-ANG (auf 100%)",
+                "Mayor aumento de ATQ del equipo (a un 100%)",
+                "Menambah jumlah peningkatan ATK perlengkapan (menjadi 100%)",
+                "\u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aที่\u001aถูก\u001aเพิ่ม\u001aของ\u001aอุปกรณ์\u001a \u001a(\u001aเป็น\u001a \u001a100%)"
+            ]
+        }
+    },
+    "232991001": {
+        "name": "Cloud's Darkness",
+        "skill_id_old": 232991,
+        "skill_id_new": 708692,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270003100": 10,
+                "270003200": 8,
+                "270003300": 2,
+                "270003400": 1
+            }
+        },
+        "units": [335000305],
+        "strings": {
+            "names": [
+                "Cloud's Darkness",
+                "克勞德之暗",
+                "클라우드의 어둠",
+                "Ténèbres de Cloud",
+                "Clouds Dunkelheit",
+                "Oscuridad de Cloud",
+                "Kegelapan Cloud",
+                "ความมืด\u001aใน\u001aใจ\u001a \u001aCloud\u001a"
+            ],
+            "description": [
+                "Boosts LB gauge increase (to 800 per turn)",
+                "提高極限技槽增加量(至每回合800)",
+                "LB 게이지 증가량 상승(매 턴마다 800)",
+                "Amplifie l'augmentation de la jauge de limite (à 800 par tour)",
+                "Steigert Erhöhung des Limitmeters (auf 800 pro Runde)",
+                "Mayor aumento de la barra de EL (a 800 por turno)",
+                "Menambah jumlah pengisian bar LB (menjadi 800 per giliran)",
+                "\u001aเพิ่มค่า\u001a \u001aLB\u001a \u001aGauge\u001a \u001aที่\u001aถูก\u001aเพิ่ม\u001a \u001a(\u001aเป็น\u001a \u001a800\u001a \u001aต่อ\u001aเทิร์น)"
+            ]
+        }
+    },
+    "232991002": {
+        "name": "Cloud's Darkness",
+        "skill_id_old": 708692,
+        "skill_id_new": 708693,
+        "cost": {
+            "gil": 375000,
+            "materials": {
+                "270003100": 15,
+                "270003200": 12,
+                "270003300": 4,
+                "270003400": 1,
+                "270003500": 1
+            }
+        },
+        "units": [335000305],
+        "strings": {
+            "names": [
+                "Cloud's Darkness",
+                "克勞德之暗",
+                "클라우드의 어둠",
+                "Ténèbres de Cloud",
+                "Clouds Dunkelheit",
+                "Oscuridad de Cloud",
+                "Kegelapan Cloud",
+                "ความมืด\u001aใน\u001aใจ\u001a \u001aCloud\u001a"
+            ],
+            "description": [
+                "Changes LB effects",
+                "極限技效果變化",
+                "LB 효과 변화",
+                "Modifie les effets de la limite",
+                "Ändert Limitrausch-Effekte",
+                "Cambia los efectos del EL",
+                "Mengubah efek LB",
+                "\u001aเปลี่ยน\u001aผล\u001aของ\u001a \u001aLB\u001a"
+            ]
+        }
+    },
     "300000002": {
         "name": "Braver (FFVII REMAKE)",
         "skill_id_old": 236010,
@@ -80647,7 +82142,7 @@
         }
     },
     "300000427": {
-        "name": null,
+        "name": "Speed Slash",
         "skill_id_old": 237592,
         "skill_id_new": 237593,
         "cost": {
@@ -80659,12 +82154,30 @@
         },
         "units": [340000107, 340000117],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Speed Slash",
+                "急速斬",
+                "래피드 슬래시",
+                "Entaille rapide",
+                "Rapidhieb",
+                "Tajo veloz",
+                "Speed Slash",
+                "Speed\u001a \u001aSlash\u001a"
+            ],
+            "description": [
+                "4800%",
+                "4800%",
+                "4800%",
+                "4800 %",
+                "4800%",
+                "4800%",
+                "4800%",
+                "\u001a4800%"
+            ]
         }
     },
     "300000428": {
-        "name": null,
+        "name": "Speed Slash",
         "skill_id_old": 237593,
         "skill_id_new": 237594,
         "cost": {
@@ -80672,17 +82185,35 @@
             "materials": {
                 "271000100": 30,
                 "271000200": 20,
-                "260000100": 10
+                "1209001294": 10
             }
         },
         "units": [340000107, 340000117],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Speed Slash",
+                "急速斬",
+                "래피드 슬래시",
+                "Entaille rapide",
+                "Rapidhieb",
+                "Tajo veloz",
+                "Speed Slash",
+                "Speed\u001a \u001aSlash\u001a"
+            ],
+            "description": [
+                "5300%",
+                "5300%",
+                "5300%",
+                "5300 %",
+                "5300%",
+                "5300%",
+                "5300%",
+                "\u001a5300%"
+            ]
         }
     },
     "300000429": {
-        "name": null,
+        "name": "Speed Slash",
         "skill_id_old": 237594,
         "skill_id_new": 237595,
         "cost": {
@@ -80691,17 +82222,35 @@
                 "271000100": 50,
                 "271000200": 30,
                 "271000300": 5,
-                "260000100": 20
+                "1209001294": 20
             }
         },
         "units": [340000107, 340000117],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Speed Slash",
+                "急速斬",
+                "래피드 슬래시",
+                "Entaille rapide",
+                "Rapidhieb",
+                "Tajo veloz",
+                "Speed Slash",
+                "Speed\u001a \u001aSlash\u001a"
+            ],
+            "description": [
+                "5800%",
+                "5800%",
+                "5800%",
+                "5800 %",
+                "5800%",
+                "5800%",
+                "5800%",
+                "\u001a5800%"
+            ]
         }
     },
     "300000430": {
-        "name": null,
+        "name": "Speed Slash",
         "skill_id_old": 237595,
         "skill_id_new": 237596,
         "cost": {
@@ -80710,17 +82259,35 @@
                 "271000100": 100,
                 "271000200": 50,
                 "271000300": 10,
-                "260000100": 30
+                "1209001294": 30
             }
         },
         "units": [340000107, 340000117],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Speed Slash",
+                "急速斬",
+                "래피드 슬래시",
+                "Entaille rapide",
+                "Rapidhieb",
+                "Tajo veloz",
+                "Speed Slash",
+                "Speed\u001a \u001aSlash\u001a"
+            ],
+            "description": [
+                "6500%",
+                "6500%",
+                "6500%",
+                "6500 %",
+                "6500%",
+                "6500%",
+                "6500%",
+                "\u001a6500%"
+            ]
         }
     },
     "300000431": {
-        "name": null,
+        "name": "Sunray Blast",
         "skill_id_old": 237607,
         "skill_id_new": 237608,
         "cost": {
@@ -80732,12 +82299,30 @@
         },
         "units": [340000107],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Sunray Blast",
+                "落日餘輝",
+                "선셋 브라이트",
+                "Soleil levant",
+                "Solarstoß",
+                "Golpe de sol",
+                "Sunray Blast",
+                "Sunray\u001a \u001aBlast\u001a"
+            ],
+            "description": [
+                "200%+5200%",
+                "200%+5200%",
+                "200%+5200%",
+                "200 % + 5200 %",
+                "200%+5200%",
+                "200%+5200%",
+                "200%+5200%",
+                "\u001a200%+5200%"
+            ]
         }
     },
     "300000432": {
-        "name": null,
+        "name": "Sunray Blast",
         "skill_id_old": 237608,
         "skill_id_new": 237609,
         "cost": {
@@ -80745,17 +82330,35 @@
             "materials": {
                 "271000400": 30,
                 "271000500": 20,
-                "260000100": 10
+                "1209001294": 10
             }
         },
         "units": [340000107],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Sunray Blast",
+                "落日餘輝",
+                "선셋 브라이트",
+                "Soleil levant",
+                "Solarstoß",
+                "Golpe de sol",
+                "Sunray Blast",
+                "Sunray\u001a \u001aBlast\u001a"
+            ],
+            "description": [
+                "300%+5700%",
+                "300%+5700%",
+                "300%+5700%",
+                "300 % + 5700 %",
+                "300%+5700%",
+                "300%+5700%",
+                "300%+5700%",
+                "\u001a300%+5700%"
+            ]
         }
     },
     "300000433": {
-        "name": null,
+        "name": "Sunray Blast",
         "skill_id_old": 237609,
         "skill_id_new": 237610,
         "cost": {
@@ -80764,17 +82367,35 @@
                 "271000400": 50,
                 "271000500": 30,
                 "271000600": 5,
-                "260000100": 20
+                "1209001294": 20
             }
         },
         "units": [340000107],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Sunray Blast",
+                "落日餘輝",
+                "선셋 브라이트",
+                "Soleil levant",
+                "Solarstoß",
+                "Golpe de sol",
+                "Sunray Blast",
+                "Sunray\u001a \u001aBlast\u001a"
+            ],
+            "description": [
+                "400%+6300%",
+                "400%+6300%",
+                "400%+6300%",
+                "400 % + 6300 %",
+                "400%+6300%",
+                "400%+6300%",
+                "400%+6300%",
+                "\u001a400%+6300%"
+            ]
         }
     },
     "300000434": {
-        "name": null,
+        "name": "Sunray Blast",
         "skill_id_old": 237610,
         "skill_id_new": 237611,
         "cost": {
@@ -80783,17 +82404,35 @@
                 "271000400": 100,
                 "271000500": 50,
                 "271000600": 10,
-                "260000100": 30
+                "1209001294": 30
             }
         },
         "units": [340000107],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Sunray Blast",
+                "落日餘輝",
+                "선셋 브라이트",
+                "Soleil levant",
+                "Solarstoß",
+                "Golpe de sol",
+                "Sunray Blast",
+                "Sunray\u001a \u001aBlast\u001a"
+            ],
+            "description": [
+                "500%+6600%",
+                "500%+6600%",
+                "500%+6600%",
+                "500 % + 6600 %",
+                "500%+6600%",
+                "500%+6600%",
+                "500%+6600%",
+                "\u001a500%+6600%"
+            ]
         }
     },
     "300000435": {
-        "name": null,
+        "name": "Ultimate Finish",
         "skill_id_old": 237618,
         "skill_id_new": 237619,
         "cost": {
@@ -80805,12 +82444,30 @@
         },
         "units": [340000117],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Ultimate Finish",
+                "終結武技",
+                "피니시 아츠",
+                "Coup de grâce ultime",
+                "Ultimatives Finale",
+                "Final excepcional",
+                "Ultimate Finish",
+                "Ultimate\u001a \u001aFinish\u001a"
+            ],
+            "description": [
+                "96",
+                "96",
+                "96",
+                "96",
+                "96",
+                "96",
+                "96",
+                "\u001a96\u001a"
+            ]
         }
     },
     "300000436": {
-        "name": null,
+        "name": "Ultimate Finish",
         "skill_id_old": 237619,
         "skill_id_new": 237620,
         "cost": {
@@ -80818,17 +82475,35 @@
             "materials": {
                 "271001300": 30,
                 "271001400": 20,
-                "260000100": 10
+                "1209001294": 10
             }
         },
         "units": [340000117],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Ultimate Finish",
+                "終結武技",
+                "피니시 아츠",
+                "Coup de grâce ultime",
+                "Ultimatives Finale",
+                "Final excepcional",
+                "Ultimate Finish",
+                "Ultimate\u001a \u001aFinish\u001a"
+            ],
+            "description": [
+                "94",
+                "94",
+                "94",
+                "94",
+                "94",
+                "94",
+                "94",
+                "\u001a94\u001a"
+            ]
         }
     },
     "300000437": {
-        "name": null,
+        "name": "Ultimate Finish",
         "skill_id_old": 237620,
         "skill_id_new": 237621,
         "cost": {
@@ -80837,17 +82512,35 @@
                 "271001300": 50,
                 "271001400": 30,
                 "271001500": 5,
-                "260000100": 20
+                "1209001294": 20
             }
         },
         "units": [340000117],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Ultimate Finish",
+                "終結武技",
+                "피니시 아츠",
+                "Coup de grâce ultime",
+                "Ultimatives Finale",
+                "Final excepcional",
+                "Ultimate Finish",
+                "Ultimate\u001a \u001aFinish\u001a"
+            ],
+            "description": [
+                "92",
+                "92",
+                "92",
+                "92",
+                "92",
+                "92",
+                "92",
+                "\u001a92\u001a"
+            ]
         }
     },
     "300000438": {
-        "name": null,
+        "name": "Ultimate Finish",
         "skill_id_old": 237621,
         "skill_id_new": 237622,
         "cost": {
@@ -80856,17 +82549,35 @@
                 "271001300": 100,
                 "271001400": 50,
                 "271001500": 10,
-                "260000100": 30
+                "1209001294": 30
             }
         },
         "units": [340000117],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Ultimate Finish",
+                "終結武技",
+                "피니시 아츠",
+                "Coup de grâce ultime",
+                "Ultimatives Finale",
+                "Final excepcional",
+                "Ultimate Finish",
+                "Ultimate\u001a \u001aFinish\u001a"
+            ],
+            "description": [
+                "90",
+                "90",
+                "90",
+                "90",
+                "90",
+                "90",
+                "90",
+                "\u001a90\u001a"
+            ]
         }
     },
     "300000439": {
-        "name": null,
+        "name": "Dark Maelstrom (KHIII)",
         "skill_id_old": 237631,
         "skill_id_new": 237632,
         "cost": {
@@ -80878,12 +82589,30 @@
         },
         "units": [340000207, 340000217],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Dark Maelstrom (KHIII)",
+                "黑暗大漩渦(KHIII)",
+                "다크 마엘스트롬(KHIII)",
+                "Dark Maelström (KHIII)",
+                "Dunkelvortex (KHIII)",
+                "Vorágine umbría (KHIII)",
+                "Dark Maelstrom (KHIII)",
+                "Dark\u001a \u001aMaelstrom\u001a \u001a(\u001aKHIII\u001a)\u001a"
+            ],
+            "description": [
+                "5000%",
+                "5000%",
+                "5000%",
+                "5000 %",
+                "5000%",
+                "5000%",
+                "5000%",
+                "\u001a5000%"
+            ]
         }
     },
     "300000440": {
-        "name": null,
+        "name": "Dark Maelstrom (KHIII)",
         "skill_id_old": 237632,
         "skill_id_new": 237633,
         "cost": {
@@ -80891,17 +82620,35 @@
             "materials": {
                 "271001600": 30,
                 "271001700": 20,
-                "260000100": 10
+                "1209001294": 10
             }
         },
         "units": [340000207, 340000217],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Dark Maelstrom (KHIII)",
+                "黑暗大漩渦(KHIII)",
+                "다크 마엘스트롬(KHIII)",
+                "Dark Maelström (KHIII)",
+                "Dunkelvortex (KHIII)",
+                "Vorágine umbría (KHIII)",
+                "Dark Maelstrom (KHIII)",
+                "Dark\u001a \u001aMaelstrom\u001a \u001a(\u001aKHIII\u001a)\u001a"
+            ],
+            "description": [
+                "5800%",
+                "5800%",
+                "5800%",
+                "5800 %",
+                "5800%",
+                "5800%",
+                "5800%",
+                "\u001a5800%"
+            ]
         }
     },
     "300000441": {
-        "name": null,
+        "name": "Dark Maelstrom (KHIII)",
         "skill_id_old": 237633,
         "skill_id_new": 237634,
         "cost": {
@@ -80910,17 +82657,35 @@
                 "271001600": 50,
                 "271001700": 30,
                 "271001800": 5,
-                "260000100": 20
+                "1209001294": 20
             }
         },
         "units": [340000207, 340000217],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Dark Maelstrom (KHIII)",
+                "黑暗大漩渦(KHIII)",
+                "다크 마엘스트롬(KHIII)",
+                "Dark Maelström (KHIII)",
+                "Dunkelvortex (KHIII)",
+                "Vorágine umbría (KHIII)",
+                "Dark Maelstrom (KHIII)",
+                "Dark\u001a \u001aMaelstrom\u001a \u001a(\u001aKHIII\u001a)\u001a"
+            ],
+            "description": [
+                "6400%",
+                "6400%",
+                "6400%",
+                "6400 %",
+                "6400%",
+                "6400%",
+                "6400%",
+                "\u001a6400%"
+            ]
         }
     },
     "300000442": {
-        "name": null,
+        "name": "Dark Maelstrom (KHIII)",
         "skill_id_old": 237634,
         "skill_id_new": 237635,
         "cost": {
@@ -80929,17 +82694,35 @@
                 "271001600": 100,
                 "271001700": 50,
                 "271001800": 10,
-                "260000100": 30
+                "1209001294": 30
             }
         },
         "units": [340000207, 340000217],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Dark Maelstrom (KHIII)",
+                "黑暗大漩渦(KHIII)",
+                "다크 마엘스트롬(KHIII)",
+                "Dark Maelström (KHIII)",
+                "Dunkelvortex (KHIII)",
+                "Vorágine umbría (KHIII)",
+                "Dark Maelstrom (KHIII)",
+                "Dark\u001a \u001aMaelstrom\u001a \u001a(\u001aKHIII\u001a)\u001a"
+            ],
+            "description": [
+                "6700%",
+                "6700%",
+                "6700%",
+                "6700 %",
+                "6700%",
+                "6700%",
+                "6700%",
+                "\u001a6700%"
+            ]
         }
     },
     "300000443": {
-        "name": null,
+        "name": "Shadow Strike",
         "skill_id_old": 237644,
         "skill_id_new": 237645,
         "cost": {
@@ -80951,12 +82734,30 @@
         },
         "units": [340000207],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Shadow Strike",
+                "陰影強襲",
+                "섀도우 스트라이크",
+                "Frappe de l'ombre",
+                "Schattenschlag",
+                "Golpe umbrío",
+                "Shadow Strike",
+                "Shadow\u001a \u001aStrike\u001a"
+            ],
+            "description": [
+                "7600%",
+                "7600%",
+                "7600%",
+                "7600 %",
+                "7600%",
+                "7600%",
+                "7600%",
+                "\u001a7600%"
+            ]
         }
     },
     "300000444": {
-        "name": null,
+        "name": "Shadow Strike",
         "skill_id_old": 237645,
         "skill_id_new": 237646,
         "cost": {
@@ -80964,17 +82765,35 @@
             "materials": {
                 "271000700": 30,
                 "271000800": 20,
-                "260000100": 10
+                "1209001294": 10
             }
         },
         "units": [340000207],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Shadow Strike",
+                "陰影強襲",
+                "섀도우 스트라이크",
+                "Frappe de l'ombre",
+                "Schattenschlag",
+                "Golpe umbrío",
+                "Shadow Strike",
+                "Shadow\u001a \u001aStrike\u001a"
+            ],
+            "description": [
+                "8300%",
+                "8300%",
+                "8300%",
+                "8300 %",
+                "8300%",
+                "8300%",
+                "8300%",
+                "\u001a8300%"
+            ]
         }
     },
     "300000445": {
-        "name": null,
+        "name": "Shadow Strike",
         "skill_id_old": 237646,
         "skill_id_new": 237647,
         "cost": {
@@ -80983,17 +82802,35 @@
                 "271000700": 50,
                 "271000800": 30,
                 "271000900": 5,
-                "260000100": 20
+                "1209001294": 20
             }
         },
         "units": [340000207],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Shadow Strike",
+                "陰影強襲",
+                "섀도우 스트라이크",
+                "Frappe de l'ombre",
+                "Schattenschlag",
+                "Golpe umbrío",
+                "Shadow Strike",
+                "Shadow\u001a \u001aStrike\u001a"
+            ],
+            "description": [
+                "8800%",
+                "8800%",
+                "8800%",
+                "8800 %",
+                "8800%",
+                "8800%",
+                "8800%",
+                "\u001a8800%"
+            ]
         }
     },
     "300000446": {
-        "name": null,
+        "name": "Shadow Strike",
         "skill_id_old": 237647,
         "skill_id_new": 237648,
         "cost": {
@@ -81002,17 +82839,35 @@
                 "271000700": 100,
                 "271000800": 50,
                 "271000900": 10,
-                "260000100": 30
+                "1209001294": 30
             }
         },
         "units": [340000207],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Shadow Strike",
+                "陰影強襲",
+                "섀도우 스트라이크",
+                "Frappe de l'ombre",
+                "Schattenschlag",
+                "Golpe umbrío",
+                "Shadow Strike",
+                "Shadow\u001a \u001aStrike\u001a"
+            ],
+            "description": [
+                "9200%",
+                "9200%",
+                "9200%",
+                "9200 %",
+                "9200%",
+                "9200%",
+                "9200%",
+                "\u001a9200%"
+            ]
         }
     },
     "300000447": {
-        "name": null,
+        "name": "Dark Divide",
         "skill_id_old": 237653,
         "skill_id_new": 237654,
         "cost": {
@@ -81024,12 +82879,30 @@
         },
         "units": [340000217],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Dark Divide",
+                "黑暗分裂",
+                "다크 디바이드",
+                "Division obscure",
+                "Sinistre Spaltung",
+                "División oscura",
+                "Dark Divide",
+                "Dark\u001a \u001aDivide\u001a"
+            ],
+            "description": [
+                "1200%+6000%",
+                "1200%+6000%",
+                "1200%+6000%",
+                "1200 % + 6000 %",
+                "1200%+6000%",
+                "1200%+6000%",
+                "1200%+6000%",
+                "\u001a1200%+6000%"
+            ]
         }
     },
     "300000448": {
-        "name": null,
+        "name": "Dark Divide",
         "skill_id_old": 237654,
         "skill_id_new": 237655,
         "cost": {
@@ -81037,17 +82910,35 @@
             "materials": {
                 "271001000": 30,
                 "271001100": 20,
-                "260000100": 10
+                "1209001294": 10
             }
         },
         "units": [340000217],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Dark Divide",
+                "黑暗分裂",
+                "다크 디바이드",
+                "Division obscure",
+                "Sinistre Spaltung",
+                "División oscura",
+                "Dark Divide",
+                "Dark\u001a \u001aDivide\u001a"
+            ],
+            "description": [
+                "1500%+6700%",
+                "1500%+6700%",
+                "1500%+6700%",
+                "1500 % + 6700 %",
+                "1500%+6700%",
+                "1500%+6700%",
+                "1500%+6700%",
+                "\u001a1500%+6700%"
+            ]
         }
     },
     "300000449": {
-        "name": null,
+        "name": "Dark Divide",
         "skill_id_old": 237655,
         "skill_id_new": 237656,
         "cost": {
@@ -81056,17 +82947,35 @@
                 "271001000": 50,
                 "271001100": 30,
                 "271001200": 5,
-                "260000100": 20
+                "1209001294": 20
             }
         },
         "units": [340000217],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Dark Divide",
+                "黑暗分裂",
+                "다크 디바이드",
+                "Division obscure",
+                "Sinistre Spaltung",
+                "División oscura",
+                "Dark Divide",
+                "Dark\u001a \u001aDivide\u001a"
+            ],
+            "description": [
+                "1700%+7200%",
+                "1700%+7200%",
+                "1700%+7200%",
+                "1700 % + 7200 %",
+                "1700%+7200%",
+                "1700%+7200%",
+                "1700%+7200%",
+                "\u001a1700%+7200%"
+            ]
         }
     },
     "300000450": {
-        "name": null,
+        "name": "Dark Divide",
         "skill_id_old": 237656,
         "skill_id_new": 237657,
         "cost": {
@@ -81075,17 +82984,35 @@
                 "271001000": 100,
                 "271001100": 50,
                 "271001200": 10,
-                "260000100": 30
+                "1209001294": 30
             }
         },
         "units": [340000217],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Dark Divide",
+                "黑暗分裂",
+                "다크 디바이드",
+                "Division obscure",
+                "Sinistre Spaltung",
+                "División oscura",
+                "Dark Divide",
+                "Dark\u001a \u001aDivide\u001a"
+            ],
+            "description": [
+                "2000%+8000%",
+                "2000%+8000%",
+                "2000%+8000%",
+                "2000 % + 8000 %",
+                "2000%+8000%",
+                "2000%+8000%",
+                "2000%+8000%",
+                "\u001a2000%+8000%"
+            ]
         }
     },
     "300000451": {
-        "name": null,
+        "name": "Fighting Boost",
         "skill_id_old": 237673,
         "skill_id_new": 237674,
         "cost": {
@@ -81097,12 +83024,30 @@
         },
         "units": [340000307, 340000317],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Fighting Boost",
+                "鬥爭激勵",
+                "파이팅 UP",
+                "Booster de combat",
+                "Kampf-Boost",
+                "Mejora combativa",
+                "Fighting Boost",
+                "เพิ่ม\u001aพลัง\u001aนัก\u001aสู้\u001a"
+            ],
+            "description": [
+                "4800%",
+                "4800%",
+                "4800%",
+                "4800 %",
+                "4800%",
+                "4800%",
+                "4800%",
+                "\u001a4800%"
+            ]
         }
     },
     "300000452": {
-        "name": null,
+        "name": "Fighting Boost",
         "skill_id_old": 237674,
         "skill_id_new": 237675,
         "cost": {
@@ -81110,17 +83055,35 @@
             "materials": {
                 "271001300": 30,
                 "271001400": 20,
-                "260000100": 10
+                "1209001294": 10
             }
         },
         "units": [340000307, 340000317],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Fighting Boost",
+                "鬥爭激勵",
+                "파이팅 UP",
+                "Booster de combat",
+                "Kampf-Boost",
+                "Mejora combativa",
+                "Fighting Boost",
+                "เพิ่ม\u001aพลัง\u001aนัก\u001aสู้\u001a"
+            ],
+            "description": [
+                "5200%",
+                "5200%",
+                "5200%",
+                "5200 %",
+                "5200%",
+                "5200%",
+                "5200%",
+                "\u001a5200%"
+            ]
         }
     },
     "300000453": {
-        "name": null,
+        "name": "Fighting Boost",
         "skill_id_old": 237675,
         "skill_id_new": 237676,
         "cost": {
@@ -81129,17 +83092,35 @@
                 "271001300": 50,
                 "271001400": 30,
                 "271001500": 5,
-                "260000100": 20
+                "1209001294": 20
             }
         },
         "units": [340000307, 340000317],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Fighting Boost",
+                "鬥爭激勵",
+                "파이팅 UP",
+                "Booster de combat",
+                "Kampf-Boost",
+                "Mejora combativa",
+                "Fighting Boost",
+                "เพิ่ม\u001aพลัง\u001aนัก\u001aสู้\u001a"
+            ],
+            "description": [
+                "5800%",
+                "5800%",
+                "5800%",
+                "5800 %",
+                "5800%",
+                "5800%",
+                "5800%",
+                "\u001a5800%"
+            ]
         }
     },
     "300000454": {
-        "name": null,
+        "name": "Fighting Boost",
         "skill_id_old": 237676,
         "skill_id_new": 237677,
         "cost": {
@@ -81148,17 +83129,35 @@
                 "271001300": 100,
                 "271001400": 50,
                 "271001500": 10,
-                "260000100": 30
+                "1209001294": 30
             }
         },
         "units": [340000307, 340000317],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Fighting Boost",
+                "鬥爭激勵",
+                "파이팅 UP",
+                "Booster de combat",
+                "Kampf-Boost",
+                "Mejora combativa",
+                "Fighting Boost",
+                "เพิ่ม\u001aพลัง\u001aนัก\u001aสู้\u001a"
+            ],
+            "description": [
+                "6400%",
+                "6400%",
+                "6400%",
+                "6400 %",
+                "6400%",
+                "6400%",
+                "6400%",
+                "\u001a6400%"
+            ]
         }
     },
     "300000455": {
-        "name": null,
+        "name": "Holy Shower",
         "skill_id_old": 237688,
         "skill_id_new": 237689,
         "cost": {
@@ -81170,12 +83169,30 @@
         },
         "units": [340000307],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Holy Shower",
+                "神聖沐浴",
+                "세인트 샤워",
+                "Averse sacrée",
+                "Heiligenschauer",
+                "Lluvia sacra",
+                "Holy Shower",
+                "Holy\u001a \u001aShower\u001a"
+            ],
+            "description": [
+                "200%+6000%",
+                "200%+6000%",
+                "200%+6000%",
+                "200 % + 6000 %",
+                "200%+6000%",
+                "200%+6000%",
+                "200%+6000%",
+                "\u001a200%+6000%"
+            ]
         }
     },
     "300000456": {
-        "name": null,
+        "name": "Holy Shower",
         "skill_id_old": 237689,
         "skill_id_new": 237690,
         "cost": {
@@ -81183,17 +83200,35 @@
             "materials": {
                 "271000100": 30,
                 "271000200": 20,
-                "260000100": 10
+                "1209001294": 10
             }
         },
         "units": [340000307],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Holy Shower",
+                "神聖沐浴",
+                "세인트 샤워",
+                "Averse sacrée",
+                "Heiligenschauer",
+                "Lluvia sacra",
+                "Holy Shower",
+                "Holy\u001a \u001aShower\u001a"
+            ],
+            "description": [
+                "300%+6500%",
+                "300%+6500%",
+                "300%+6500%",
+                "300 % + 6500 %",
+                "300%+6500%",
+                "300%+6500%",
+                "300%+6500%",
+                "\u001a300%+6500%"
+            ]
         }
     },
     "300000457": {
-        "name": null,
+        "name": "Holy Shower",
         "skill_id_old": 237690,
         "skill_id_new": 237691,
         "cost": {
@@ -81202,17 +83237,35 @@
                 "271000100": 50,
                 "271000200": 30,
                 "271000300": 5,
-                "260000100": 20
+                "1209001294": 20
             }
         },
         "units": [340000307],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Holy Shower",
+                "神聖沐浴",
+                "세인트 샤워",
+                "Averse sacrée",
+                "Heiligenschauer",
+                "Lluvia sacra",
+                "Holy Shower",
+                "Holy\u001a \u001aShower\u001a"
+            ],
+            "description": [
+                "400%+6900%",
+                "400%+6900%",
+                "400%+6900%",
+                "400 % + 6900 %",
+                "400%+6900%",
+                "400%+6900%",
+                "400%+6900%",
+                "\u001a400%+6900%"
+            ]
         }
     },
     "300000458": {
-        "name": null,
+        "name": "Holy Shower",
         "skill_id_old": 237691,
         "skill_id_new": 237692,
         "cost": {
@@ -81221,17 +83274,35 @@
                 "271000100": 100,
                 "271000200": 50,
                 "271000300": 10,
-                "260000100": 30
+                "1209001294": 30
             }
         },
         "units": [340000307],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Holy Shower",
+                "神聖沐浴",
+                "세인트 샤워",
+                "Averse sacrée",
+                "Heiligenschauer",
+                "Lluvia sacra",
+                "Holy Shower",
+                "Holy\u001a \u001aShower\u001a"
+            ],
+            "description": [
+                "500%+7200%",
+                "500%+7200%",
+                "500%+7200%",
+                "500 % + 7200 %",
+                "500%+7200%",
+                "500%+7200%",
+                "500%+7200%",
+                "\u001a500%+7200%"
+            ]
         }
     },
     "300000459": {
-        "name": null,
+        "name": "Holy Light (KHIII)",
         "skill_id_old": 237699,
         "skill_id_new": 237700,
         "cost": {
@@ -81243,12 +83314,30 @@
         },
         "units": [340000317],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Holy Light (KHIII)",
+                "神聖之光(KHIII)",
+                "홀리 라이트(KHIII)",
+                "Lueur sacrée (KHIII)",
+                "Heiligenlicht (KHIII)",
+                "Luz divina (KHIII)",
+                "Holy Light (KHIII)",
+                "Holy\u001a \u001aLight\u001a \u001a(\u001aKHIII\u001a)\u001a"
+            ],
+            "description": [
+                "3100%",
+                "3100%",
+                "3100%",
+                "3100 %",
+                "3100%",
+                "3100%",
+                "3100%",
+                "\u001a3100%"
+            ]
         }
     },
     "300000460": {
-        "name": null,
+        "name": "Holy Light (KHIII)",
         "skill_id_old": 237700,
         "skill_id_new": 237701,
         "cost": {
@@ -81256,17 +83345,35 @@
             "materials": {
                 "271001600": 30,
                 "271001700": 20,
-                "260000100": 10
+                "1209001294": 10
             }
         },
         "units": [340000317],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Holy Light (KHIII)",
+                "神聖之光(KHIII)",
+                "홀리 라이트(KHIII)",
+                "Lueur sacrée (KHIII)",
+                "Heiligenlicht (KHIII)",
+                "Luz divina (KHIII)",
+                "Holy Light (KHIII)",
+                "Holy\u001a \u001aLight\u001a \u001a(\u001aKHIII\u001a)\u001a"
+            ],
+            "description": [
+                "3700%",
+                "3700%",
+                "3700%",
+                "3700 %",
+                "3700%",
+                "3700%",
+                "3700%",
+                "\u001a3700%"
+            ]
         }
     },
     "300000461": {
-        "name": null,
+        "name": "Holy Light (KHIII)",
         "skill_id_old": 237701,
         "skill_id_new": 237702,
         "cost": {
@@ -81275,17 +83382,35 @@
                 "271001600": 50,
                 "271001700": 30,
                 "271001800": 5,
-                "260000100": 20
+                "1209001294": 20
             }
         },
         "units": [340000317],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Holy Light (KHIII)",
+                "神聖之光(KHIII)",
+                "홀리 라이트(KHIII)",
+                "Lueur sacrée (KHIII)",
+                "Heiligenlicht (KHIII)",
+                "Luz divina (KHIII)",
+                "Holy Light (KHIII)",
+                "Holy\u001a \u001aLight\u001a \u001a(\u001aKHIII\u001a)\u001a"
+            ],
+            "description": [
+                "4300%",
+                "4300%",
+                "4300%",
+                "4300 %",
+                "4300%",
+                "4300%",
+                "4300%",
+                "\u001a4300%"
+            ]
         }
     },
     "300000462": {
-        "name": null,
+        "name": "Holy Light (KHIII)",
         "skill_id_old": 237702,
         "skill_id_new": 237703,
         "cost": {
@@ -81294,13 +83419,31 @@
                 "271001600": 100,
                 "271001700": 50,
                 "271001800": 10,
-                "260000100": 30
+                "1209001294": 30
             }
         },
         "units": [340000317],
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "description": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Holy Light (KHIII)",
+                "神聖之光(KHIII)",
+                "홀리 라이트(KHIII)",
+                "Lueur sacrée (KHIII)",
+                "Heiligenlicht (KHIII)",
+                "Luz divina (KHIII)",
+                "Holy Light (KHIII)",
+                "Holy\u001a \u001aLight\u001a \u001a(\u001aKHIII\u001a)\u001a"
+            ],
+            "description": [
+                "4900%",
+                "4900%",
+                "4900%",
+                "4900 %",
+                "4900%",
+                "4900%",
+                "4900%",
+                "\u001a4900%"
+            ]
         }
     },
     "300000463": {

@@ -26377,7 +26377,7 @@
                 "Doppelform",
                 "Forma dual",
                 "Dual Form",
-                "Dual\u001a \u001aForm\u001a"
+                "ตั้งท่า\u001aสู้\u001aสอง\u001aมือ\u001a"
             ],
             "desc_short": [
                 "Boost equipment ATK when armed with two one-handed weapons (Not stackable)",
@@ -30003,7 +30003,7 @@
                 "提高70%攻擊、50%光屬性耐性+裝備2把單手武器時武具攻擊提升(無法重複裝備)",
                 "공격력 70%, 빛속성 저항력 50% 상승+한손용 무기 2개 장착 시 장비의 공격력 상승 (중복 장착 불가)",
                 "Augmente l'ATT de 70 %, la résistance à la lumière de 50 % et l'ATT de l'équipement quand deux armes à une main sont équipées (non cumulable)",
-                "Erhöht ANG um 70%, Lichtresistenz um 50% und Ausrüstung-ANG, wenn mit zwei einhändigen Waffen ausgerüstet.",
+                "Erhöht ANG um 70%, Lichtresistenz um 50% und Ausrüstung-ANG, wenn mit zwei einhändigen Waffen ausgerüstet (Nicht stapelbar).",
                 "Aumenta el ATQ un 70%, la resistencia a la luz un 50%, y el ATQ del equipo al llevar 2 armas de una sola mano (no acumulable)",
                 "Meningkatkan ATK sebanyak 70% dan resistansi cahaya sebanyak 50%, serta meningkatkan ATK perlengkapan ketika 2 senjata satu tangan digunakan (Tidak dapat ditumpuk)",
                 "เพิ่มค่า\u001a \u001aATK\u001a \u001a70% + เพิ่มพลังต้านทานธาตุแสง 50% + เพิ่มค่า ATK\u001a \u001aอุปกรณ์\u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
@@ -36079,71 +36079,179 @@
         }
     },
     "504237541": {
-        "name": "光の守護者【ソラ】",
+        "name": "Guardian of Light (Sora)",
         "compendium_id": 1193,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237541],
-        "effects": ["Grants '光の守護者【ソラ】' passive."],
-        "unique": false,
+        "effects": ["Grants 'Guardian of Light (Sora)' passive."],
+        "unique": true,
         "price_buy": 200000,
         "price_sell": 20000,
         "icon": "ability_77.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Guardian of Light (Sora)",
+                "光之守護者(索拉)",
+                "빛의 수호자(소라)",
+                "Gardien de la lumière (Sora)",
+                "Hüter des Lichts (Sora)",
+                "Custodio de la luz (Sora)",
+                "Pelindung Cahaya (Sora)",
+                "ผู้พิทักษ์\u001aแห่ง\u001aแสง\u001a \u001a(\u001aSora\u001a)\u001a"
+            ],
+            "desc_short": [
+                "Boost ATK by 80% and boost LB damage (Not stackable)",
+                "提高80%攻擊+提高極限技的傷害[無法重複裝備]",
+                "공격력 80% 상승+LB 피해량 상승 (중복 장착 불가)",
+                "Augmente l'ATT de 80 % et augmente les dégâts de la limite (non cumulable)",
+                "Erhöht ANG um 80% und erhöht Schaden durch Limitrausch (nicht stapelbar).",
+                "Aumenta el ATQ un 80% y el daño del EL (no acumulable)",
+                "Meningkatkan ATK sebanyak 80% dan meningkatkan damage LB (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a80% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts ATK by 80% and boosts LB damage. Not stackable.",
+                "提高80%攻擊，以及提高極限技的傷害。[無法重複裝備]",
+                "공격력이 80% 상승하고, LB 피해량이 상승합니다. (중복 장착 불가)",
+                "Augmente l'ATT de 80 % et augmente les dégâts de la limite. Non cumulable.",
+                "Erhöht ANG um 80% und erhöht Schaden durch Limitrausch. Nicht stapelbar.",
+                "Aumenta el ATQ un 80% y el daño del EL. No acumulable.",
+                "Meningkatkan ATK sebanyak 80% dan meningkatkan damage LB. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a80% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504237543": {
-        "name": "光の守護者【リク】",
+        "name": "Guardian of Light (Riku)",
         "compendium_id": 1194,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237543],
-        "effects": ["Grants '光の守護者【リク】' passive."],
-        "unique": false,
+        "effects": ["Grants 'Guardian of Light (Riku)' passive."],
+        "unique": true,
         "price_buy": 200000,
         "price_sell": 20000,
         "icon": "ability_72.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Guardian of Light (Riku)",
+                "光之守護者(里克)",
+                "빛의 수호자(리쿠)",
+                "Gardien de la lumière (Riku)",
+                "Hüter des Lichts (Riku)",
+                "Custodio de la luz (Riku)",
+                "Pelindung Cahaya (Riku)",
+                "ผู้พิทักษ์\u001aแห่ง\u001aแสง\u001a \u001a(\u001aRiku\u001a)\u001a"
+            ],
+            "desc_short": [
+                "Boost ATK by 80%, and boost equipment ATK when only weapons are equipped in one or both hands (Not stackable)",
+                "提高80%攻擊+雙手只裝備武器時武具攻擊提升[無法重複裝備]",
+                "공격력 80% 상승+한손 또는 양손의 장비가 무기뿐일 경우 장비의 공격력 상승 (중복 장착 불가)",
+                "Augmente l'ATT de 80 %, et augmente l'ATT de l'équipement quand seules des armes sont équipées dans une ou dans les deux mains (Non cumulable)",
+                "Erhöht ANG um 80% und erhöht Ausrüstung-ANG, wenn nur Waffen in einer oder beiden Händen ausgerüstet sind (nicht stapelbar).",
+                "Aumenta el ataque un 80% y aumenta el ATQ del equipo al llevar solo armas en una o ambas manos (no acumulable)",
+                "Meningkatkan ATK sebanyak 80% dan meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan atau 2 senjata satu tangan digunakan (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a80% + เพิ่มค่า ATK\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aแค่\u001aอาวุธ\u001aใน\u001aมือ\u001aเดียว\u001aหรือ\u001aทั้ง\u001a \u001a2\u001a \u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts ATK by 80%, and boosts equipment ATK when only weapons are equipped in one or both hands. Not stackable.",
+                "提高80%攻擊，以及雙手只裝備武器時武具攻擊提升。[無法重複裝備]",
+                "공격력이 80% 상승하고, 한손 또는 양손의 장비가 무기뿐일 경우 장비의 공격력이 상승합니다. (중복 장착 불가)",
+                "Augmente l'ATT de 80 % et augmente l'ATT de l'équipement quand seules des armes sont équipées dans une ou dans les deux mains. Non cumulable.",
+                "Erhöht ANG um 80% und erhöht Ausrüstung-ANG, wenn nur Waffen in einer oder beiden Händen ausgerüstet sind. Nicht stapelbar.",
+                "Aumenta el ataque un 80% y aumenta el ATQ del equipo al llevar solo armas en una o ambas manos. No acumulable.",
+                "Meningkatkan ATK sebanyak 80% dan meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan atau 2 senjata satu tangan digunakan. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a80% + เพิ่มค่า ATK\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aแค่\u001aอาวุธ\u001aใน\u001aมือ\u001aเดียว\u001aหรือ\u001aทั้ง\u001a \u001a2\u001a \u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504237545": {
-        "name": "光の守護者【カイリ】",
+        "name": "Guardian of Light (Kairi)",
         "compendium_id": 1195,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237545],
-        "effects": ["Grants '光の守護者【カイリ】' passive."],
-        "unique": false,
+        "effects": ["Grants 'Guardian of Light (Kairi)' passive."],
+        "unique": true,
         "price_buy": 200000,
         "price_sell": 20000,
         "icon": "ability_91.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Guardian of Light (Kairi)",
+                "光之守護者(凱莉)",
+                "빛의 수호자(카이리)",
+                "Gardien de la lumière (Kairi)",
+                "Hüter des Lichts (Kairi)",
+                "Custodio de la luz (Kairi)",
+                "Pelindung Cahaya (Kairi)",
+                "ผู้พิทักษ์\u001aแห่ง\u001aแสง\u001a \u001a(\u001aKairi\u001a)\u001a"
+            ],
+            "desc_short": [
+                "Boost ATK, SPR, and dark resistance by 70%, and restore MP and fill LB gauge every turn (Not stackable)",
+                "提高70%攻擊精神、暗屬性耐性+每回合恢復MP+增加極限技槽[無法重複裝備]",
+                "공격력, 정신력과 어둠속성 저항력 70% 상승+매 턴마다 MP 회복, LB 게이지 증가 (중복 장착 불가)",
+                "Augmente l'ATT, la PSY et la résistance aux ténèbres de 70 %, restaure les PM et remplit la jauge de limite à chaque tour (Non cumulable)",
+                "Erhöht ANG, PSY sowie Dunkelresistenz um 70%, regeneriert jede Runde MP und füllt jede Runde Limitmeter (nicht stapelbar).",
+                "Aumenta el ATQ, el ESP y la resistencia a la oscuridad un 70%, y recupera PM y rellena la barra de EL cada turno (no acumulable)",
+                "Meningkatkan ATK, SPR, dan resistansi kegelapan sebanyak 70%, serta memulihkan MP dan mengisi bar LB setiap giliran (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aSPR\u001a \u001a70% + เพิ่มพลังต้านทานธาตุมืด 70%, + ฟื้นฟู MP + เติม LB Gauge\u001a \u001aทุก\u001aเทิร์น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts ATK, SPR, and dark resistance by 70%, and restores MP and fills LB gauge every turn. Not stackable.",
+                "提高70%攻擊精神、暗屬性耐性，以及每回合恢復MP，並且增加極限技槽。[無法重複裝備]",
+                "공격력, 정신력과 어둠속성 저항력이 70% 상승하고, 매 턴마다 MP를 회복하며 LB 게이지가 증가합니다. (중복 장착 불가)",
+                "Augmente l'ATT, la PSY et la résistance aux ténèbres de 70 %, restaure les PM et remplit la jauge de limite à chaque tour. Non cumulable.",
+                "Erhöht ANG, PSY sowie Dunkelresistenz um 70%, regeneriert jede Runde MP und füllt jede Runde Limitmeter. Nicht stapelbar.",
+                "Aumenta el ATQ, el ESP y la resistencia a la oscuridad un 70%, y recupera PM y rellena la barra de EL cada turno. No acumulable.",
+                "Meningkatkan ATK, SPR, dan resistansi kegelapan sebanyak 70%, serta memulihkan MP dan mengisi bar LB setiap giliran. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aSPR\u001a \u001a70% + เพิ่มพลังต้านทานธาตุมืด 70%, + ฟื้นฟู MP + เติม LB Gauge\u001a \u001aทุก\u001aเทิร์น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504237547": {
-        "name": "好奇心旺盛な少年",
+        "name": "Boy Brimming with Curiosity",
         "compendium_id": 1196,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237547],
-        "effects": ["Grants '好奇心旺盛な少年' passive."],
+        "effects": ["Grants 'Boy Brimming with Curiosity' passive."],
         "unique": false,
         "price_buy": 200000,
         "price_sell": 20000,
         "icon": "ability_9.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Boy Brimming with Curiosity",
+                "好奇心旺盛的少年",
+                "호기심이 왕성한 소년",
+                "Garçon débordant de curiosité",
+                "Vor Neugier sprudelnder Junge",
+                "Joven curioso",
+                "Pemuda dengan Rasa Ingin Tahu",
+                "หนุ่มน้อย\u001aช่าง\u001aสงสัย\u001a"
+            ],
+            "desc_short": [
+                "Boost ATK by 40% and light and dark resistance by 30%, and nullify stop",
+                "提高40%攻擊、30%光暗屬性耐性+停止無效",
+                "공격력 40%, 빛과 어둠속성 저항력 30% 상승+스톱 무효화",
+                "Augmente l'ATT de 40 %, la résistance à la lumière et aux ténèbres de 30 %, et annule stop",
+                "Erhöht ANG um 40%, Licht- und Dunkelresistenz um 30% und annulliert Stopp.",
+                "Aumenta el ATQ un 40% y la resistencia a luz y oscuridad un 30%, y anula paro",
+                "Meningkatkan ATK sebanyak 40%, dan resistansi cahaya dan kegelapan sebanyak 30%, serta menihilkan status stop",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% + เพิ่มพลังต้านทานธาตุแสงและมืด 30%, + ยกเลิกสถานะ Stop\u001a"
+            ],
+            "desc_long": [
+                "Boosts ATK by 40% and light and dark resistance by 30%, and nullifies stop.",
+                "提高40%攻擊、30%光暗屬性耐性，以及停止無效。",
+                "공격력이 40%, 빛과 어둠속성 저항력이 30% 상승하고, 스톱을 무효화합니다.",
+                "Augmente l'ATT de 40 %, la résistance à la lumière et aux ténèbres de 30 % et annule stop.",
+                "Erhöht ANG um 40%, Licht- und Dunkelresistenz um 30% und annulliert Stopp.",
+                "Aumenta el ATQ un 40% y la resistencia a luz y oscuridad un 30%, y anula paro.",
+                "Meningkatkan ATK sebanyak 40% dan resistansi cahaya dan kegelapan sebanyak 30%, serta menihilkan status stop.",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% + เพิ่มพลังต้านทานธาตุแสงและมืด 30%, + ยกเลิกสถานะ Stop\u001a"
+            ]
         }
     },
     "504237549": {
