@@ -21101,7 +21101,7 @@
                 "Restores HP and MP, fills the limit burst gauge, and boosts ATK, DEF, MAG, and SPR every turn.",
                 "恢復HPMP+增加極限技槽+每回合自動提高攻擊防禦魔力精神",
                 "매 턴마다 HP와 MP 회복+LB 게이지 증가+공격력, 방어력, 마력, 정신력 상승",
-                "Restaure les PV et PM à chaque tour, remplit la jauge de limite et augmente l'ATT, la DEF, la MAGIE et la PSY",
+                "Restaure les PV et les PM, remplit la jauge de limite, et augmente l'ATT, la DEF, la MAGIE et la PSY à chaque tour.",
                 "Regeneriert LP und MP, füllt Limitmeter und erhöht jede Runde ANG, ABW, MAG und PSY.",
                 "Recupera VIT y PM, rellena la barra de EL y aumenta ATQ, DEF, MAG, y ESP cada turno durante el combate",
                 "Memulihkan HP dan MP, mengisi bar limit burst, serta meningkatkan ATK, DEF, MAG, dan SPR setiap giliran.",
@@ -25435,7 +25435,7 @@
                 "Boost MP by 20% and ATK by 40%, and boost physical damage against machina monsters",
                 "提高20%MP、40%攻擊+物理攻擊時提高對機械系魔物的傷害",
                 "MP 20%, 공격력 40% 상승+물리 공격 시 기계형 마물에게 부여하는 피해량 상승 (중복 장착 불가)",
-                "Augmente les PM de 20%, l'ATT de 40%, et augmente les dégâts physiques contre les machines",
+                "Augmente les PM de 20 %, l'ATT de 40 %, et augmente les dégâts physiques infligés aux machines",
                 "Erhöht MP um 20% und ANG um 40% und erhöht physischen Schaden gegen Maschinen.",
                 "Aumenta los PM un 20%, el ATQ un 40% y el daño físico contra máquinas",
                 "Meningkatkan MP sebanyak 20% dan ATK sebanyak 40%, serta meningkatkan damage fisik terhadap jenis mesin",
@@ -35957,37 +35957,91 @@
         }
     },
     "504237410": {
-        "name": "おんねんが渦巻く",
+        "name": "Surging Malice",
         "compendium_id": 1191,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237410],
-        "effects": ["Grants 'おんねんが渦巻く' ability."],
+        "effects": ["Grants 'Surging Malice' ability."],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_43.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Surging Malice",
+                "怨念匯集",
+                "원념의 소용돌이",
+                "Rancœur absolue",
+                "Vorpreschende Bosheit",
+                "Envuelto en odio",
+                "Surging Malice",
+                "คลื่น\u001aความแค้น\u001aถาโถม\u001a"
+            ],
+            "desc_short": [
+                "Reduce damage taken for four turns for self, activate one step closer for three consecutive turns, and activate knife wield after four turns",
+                "4回合內減少對自身的傷害+1、2、3回合後發動「靠近一步」+4回合後發動「招架菜刀」",
+                "4턴 동안 자신이 받는 피해량 감소+3턴 연속 '한 발 더 가까이' 발동+4턴 후 '식칼을 가다듬었다' 발동",
+                "Réduit les dégâts subis par le lanceur pendant 4 tours, active Pas en avant pendant 3 tours et active Lever de poignard après 4 tours",
+                "Verringert vier Runden lang erlittenen Schaden des Benutzers, aktiviert drei aufeinander folgende Runden Einen Schritt näher und aktiviert nach vier Runden Umherschwingendes Messer.",
+                "Reduce el daño que recibe el usuario durante 4 turnos, activa Pasito a pasito durante 3 turnos seguidos, y activa Cuchillo en mano tras 4 turnos",
+                "Mengurangi damage yang diterima diri sendiri selama 4 giliran, mengaktifkan Selangkah Lebih Dekat selama 3 giliran berikutnya, dan mengaktifkan Postur Pisau setelah 4 giliran",
+                "ลด\u001aค่า\u001aความเสียหาย\u001aที่\u001aตัวเอง\u001aได้รับ\u001aเป็นเวลา\u001a \u001a4\u001a \u001aเทิร์น\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aเข้าใกล้\u001aอีก\u001aหนึ่ง\u001aก้าว\u001a \u001aต่อเนื่อง\u001a \u001a3\u001a \u001aเทิร์น\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aถือ\u001aมีด\u001aเตรียม\u001aแทง\u001a \u001aหลังจาก\u001a \u001a4\u001a \u001aเทิร์น\u001a"
+            ],
+            "desc_long": [
+                "Reduces damage taken for four turns for self, activates one step closer for three consecutive turns, and activates knife wield after four turns.",
+                "4回合內減少對自身的傷害，並且1、2、3回合後發動「靠近一步」，以及4回合後發動「招架菜刀」。",
+                "4턴 동안 자신이 받는 피해량이 감소하고, 3턴 연속 '한 발 더 가까이'가 발동하며, 4턴 후 '식칼을 가다듬었다'가 발동합니다.",
+                "Réduit les dégâts subis par le lanceur pendant 4 tours, active Pas en avant pendant 3 tours et active Lever de poignard après 4 tours",
+                "Verringert vier Runden lang erlittenen Schaden des Benutzers, aktiviert drei aufeinander folgende Runden Einen Schritt näher und aktiviert nach vier Runden Umherschwingendes Messer.",
+                "Reduce el daño que recibe el usuario durante 4 turnos, activa Pasito a pasito durante 3 turnos seguidos, y activa Cuchillo en mano tras 4 turnos.",
+                "Mengurangi damage yang diterima diri sendiri selama 4 giliran, mengaktifkan Selangkah Lebih Dekat selama 3 giliran berikutnya, dan mengaktifkan Postur Pisau setelah 4 giliran.",
+                "ลด\u001aค่า\u001aความเสียหาย\u001aที่\u001aตัวเอง\u001aได้รับ\u001aเป็นเวลา\u001a \u001a4\u001a \u001aเทิร์น\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aเข้าใกล้\u001aอีก\u001aหนึ่ง\u001aก้าว\u001a \u001aต่อเนื่อง\u001a \u001a3\u001a \u001aเทิร์น\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aถือ\u001aมีด\u001aเตรียม\u001aแทง\u001a \u001aหลังจาก\u001a \u001a4\u001a \u001aเทิร์น\u001a"
+            ]
         }
     },
     "504237411": {
-        "name": "うらみのパワー",
+        "name": "Grudge Power",
         "compendium_id": 1192,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237411],
-        "effects": ["Grants 'うらみのパワー' passive."],
-        "unique": false,
+        "effects": ["Grants 'Grudge Power' passive."],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_95.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Grudge Power",
+                "怨恨能量",
+                "원한의 힘",
+                "Pouvoir de la rancune",
+                "Macht des Grolls",
+                "Poder del rencor",
+                "Kekuatan Dendam",
+                "พลัง\u001aพยาบาท\u001a"
+            ],
+            "desc_short": [
+                "Boost water resistance by 30%, and boost ATK by 50% when equipped with a short sword (Not stackable)",
+                "提高30%水屬性耐性+裝備短劍時提高50%攻擊[無法重複裝備]",
+                "물속성 저항력 30% 상승+단검 장착 시 공격력 50% 상승 (중복 장착 불가)",
+                "Augmente la résistance à l'eau de 30 % et augmente l'ATT de 50 % quand une épée courte est équipée (non cumulable)",
+                "Erhöht ANG um 50%, wenn mit einem Kurzschwert ausgerüstet, und erhöht Wasserresistenz um 30% (nicht stapelbar).",
+                "Aumenta la resistencia al agua un 30%, y aumenta el ATQ un 50% al llevar espada corta (no acumulable)",
+                "Meningkatkan resistansi air sebanyak 30% dan meningkatkan ATK sebanyak 50% ketika pedang pendek digunakan (Tidak dapat ditumpuk)",
+                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำ\u001a \u001a30% + เพิ่มค่า ATK\u001a \u001a50% \u001aเมื่อ\u001aติดตั้ง\u001aดาบสั้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts water resistance by 30%, and boosts ATK by 50% when equipped with a short sword. Not stackable.",
+                "提高30%水屬性耐性，並且裝備短劍時提高50%攻擊。[無法重複裝備]",
+                "물속성 저항력이 30% 상승하고, 단검 장착 시 공격력이 50% 상승합니다. (중복 장착 불가)",
+                "Augmente la résistance à l'eau de 30 % et augmente l'ATT de 50 % quand une épée courte est équipée. Non cumulable.",
+                "Erhöht ANG um 50%, wenn mit einem Kurzschwert ausgerüstet, und erhöht Wasserresistenz um 30%. Nicht stapelbar.",
+                "Aumenta la resistencia al agua un 30%, y aumenta el ATQ un 50% al llevar espada corta. No acumulable.",
+                "Meningkatkan resistansi air sebanyak 30% dan meningkatkan ATK sebanyak 50% ketika pedang pendek digunakan. Tidak dapat ditumpuk.",
+                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำ\u001a \u001a30% + เพิ่มค่า ATK\u001a \u001a50% \u001aเมื่อ\u001aติดตั้ง\u001aดาบสั้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504237412": {
@@ -36340,54 +36394,135 @@
         }
     },
     "504237720": {
-        "name": "敏腕新人ガンナー",
+        "name": "Talented New Gunner",
         "compendium_id": 1202,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237720],
-        "effects": ["Grants '敏腕新人ガンナー' passive."],
-        "unique": false,
+        "effects": ["Grants 'Talented New Gunner' passive."],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_95.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Talented New Gunner",
+                "新秀神槍手",
+                "능수능란한 신입 총술사",
+                "Nouvelle gâchette",
+                "Talentierte Nachwuchsschützin",
+                "Pistolera novata habilidosa",
+                "Penembak Baru yang Berbakat",
+                "ยอด\u001aมือปืน\u001aหน้าใหม่\u001a"
+            ],
+            "desc_short": [
+                "Boost ATK and MAG by 30%, and boost ATK and MAG by 30% when equipped with a gun (Not stackable)",
+                "提高30%攻擊魔力+裝備火槍時提高30%攻擊魔力[無法重複裝備]",
+                "공격력과 마력 30% 상승+총 장착 시 공격력과 마력 30% 상승 (중복 장착 불가)",
+                "Augmente l'ATT et la MAGIE de 30 %, et augmente l'ATT et la MAGIE de 30 % quand un pistolet est équipé (non cumulable)",
+                "Erhöht ANG sowie MAG um 30% und erhöht ANG sowie MAG um 30%, wenn mit einer Schusswaffe ausgerüstet (nicht stapelbar).",
+                "Aumenta el ATQ y la MAG un 30%, y los aumenta otro 30% extra al llevar arma de fuego (no acumulable)",
+                "Meningkatkan ATK dan MAG sebanyak 30%, serta meningkatkan ATK dan MAG sebanyak 30% ketika senapan digunakan (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001a30% + เพิ่มค่า ATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001a30% \u001aเมื่อ\u001aติดตั้ง\u001aปืน\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts ATK and MAG by 30%, and boosts ATK and MAG by 30% when equipped with a gun. Not stackable.",
+                "提高30%攻擊魔力，並且裝備火槍時提高30%攻擊魔力。[無法重複裝備]",
+                "공격력과 마력이 30% 상승하고, 총 장착 시 공격력과 마력이 30% 상승합니다. (중복 장착 불가)",
+                "Augmente l'ATT et la MAGIE de 30 %, et augmente l'ATT et la MAGIE de 30 % quand un pistolet est équipé. Non cumulable.",
+                "Erhöht ANG sowie MAG um 30% und erhöht ANG sowie MAG um 30%, wenn mit einer Schusswaffe ausgerüstet. Nicht stapelbar.",
+                "Aumenta el ATQ y la MAG un 30%, y los aumenta otro 30% extra al llevar arma de fuego. No acumulable.",
+                "Meningkatkan ATK dan MAG sebanyak 30%, serta meningkatkan ATK dan MAG sebanyak 30% ketika senapan digunakan. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001a30% + เพิ่มค่า ATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001a30% \u001aเมื่อ\u001aติดตั้ง\u001aปืน\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504237721": {
-        "name": "砂嵐を耐える盾技",
+        "name": "Sandstorm-Resisting Shield",
         "compendium_id": 1203,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237721],
-        "effects": ["Grants '砂嵐を耐える盾技' passive."],
-        "unique": false,
+        "effects": ["Grants 'Sandstorm-Resisting Shield' passive."],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_95.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Sandstorm-Resisting Shield",
+                "可抵抗沙暴的盾技",
+                "모래폭풍을 이기는 방패술",
+                "Bouclier aérotellurique",
+                "Sandsturmschild",
+                "Escudo antitormentas de arena",
+                "Perisai Penangkal Badai Pasir",
+                "โล่\u001aปะทะ\u001aพายุ\u001aทราย\u001a"
+            ],
+            "desc_short": [
+                "Boost wind and earth resistance by 30%, and boost HP by 40% and DEF by 20% when equipped with a light shield (Not stackable)",
+                "提高30%風土屬性耐性+裝備輕盾時提高40%HP、20%防禦[無法重複裝備]",
+                "바람과 땅속성 저항력 30% 상승+경방패 장착 시 HP 40%, 방어력 20% 상승 (중복 장착 불가)",
+                "Augmente la résistance au vent et à la terre de 30 %, et augmente les PV de 40 % ainsi que la DEF de 20 % quand un bouclier léger est équipé (non cumulable)",
+                "Erhöht Wind- sowie Erdresistenz um 30% und erhöht LP um 40% sowie ABW um 20%, wenn mit einem leichten Schild ausgerüstet (nicht stapelbar).",
+                "Aumenta la resistencia a viento y tierra un 30%, y aumenta la VIT un 40% y la DEF un 20% al llevar escudo ligero (no acumulable)",
+                "Meningkatkan resistansi angin dan tanah sebanyak 30%, serta meningkatkan HP sebanyak 40% dan DEF sebanyak 20% ketika perisai kelas ringan digunakan (Tidak dapat ditumpuk)",
+                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aลม\u001aและ\u001aดิน\u001a \u001a30% + เพิ่มค่า HP 40% และ DEF\u001a \u001a20% \u001aเมื่อ\u001aติดตั้ง\u001aโล่\u001aเบา\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts wind and earth resistance by 30%, and boosts HP by 40% and DEF by 20% when equipped with a light shield. Not stackable.",
+                "提高30%風土屬性耐性，並且裝備輕盾時提高40%HP、20%防禦。[無法重複裝備]",
+                "바람과 땅속성 저항력이 30% 상승하고, 경방패 장착 시 HP가 40%, 방어력이 20% 상승합니다. (중복 장착 불가)",
+                "Augmente la résistance au vent et à la terre de 30 %, et augmente les PV de 40 % ainsi que la DEF de 20 % quand un bouclier léger est équipé. Non cumulable.",
+                "Erhöht Wind- sowie Erdresistenz um 30% und erhöht LP um 40% sowie ABW um 20%, wenn mit einem leichten Schild ausgerüstet. Nicht stapelbar.",
+                "Aumenta la resistencia a viento y tierra un 30%, y aumenta la VIT un 40% y la DEF un 20% al llevar escudo ligero. No acumulable.",
+                "Meningkatkan resistansi angin dan tanah sebanyak 30%, serta meningkatkan HP sebanyak 40% dan DEF sebanyak 20% ketika perisai kelas ringan digunakan. Tidak dapat ditumpuk.",
+                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aลม\u001aและ\u001aดิน\u001a \u001a30% + เพิ่มค่า HP 40% และ DEF\u001a \u001a20% \u001aเมื่อ\u001aติดตั้ง\u001aโล่\u001aเบา\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504237725": {
-        "name": "グランシェルトの新人騎士",
+        "name": "Rookie Knight of Grandshelt",
         "compendium_id": 1204,
         "compendium_shown": true,
         "unit_restriction": null,
         "skills": [237725],
-        "effects": ["Grants 'グランシェルトの新人騎士' passive."],
+        "effects": ["Grants 'Rookie Knight of Grandshelt' passive."],
         "unique": false,
         "price_buy": 15000,
         "price_sell": 1500,
         "icon": "ability_95.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Rookie Knight of Grandshelt",
+                "格蘭謝爾特的新人騎士",
+                "그랑셸트의 신입 기사",
+                "Apprentie chevaleresse de Grandshelt",
+                "Nachwuchsritterin von Grandshelt",
+                "Aprendiz de caballero de Grandshelt",
+                "Kesatria Grandshelt Baru",
+                "อัศวิน\u001aแห่ง\u001a \u001aGrandshelt\u001a \u001aมือใหม่\u001a"
+            ],
+            "desc_short": [
+                "Boost ATK by 30%, and boost MAG by 30% when equipped with a gun",
+                "提高30%攻擊+裝備火槍時提高30%魔力",
+                "공격력 30% 상승+총 장착 시 마력 30% 상승",
+                "Augmente l'ATT de 30 %, et augmente la MAGIE de 30 % quand un pistolet est équipé",
+                "Erhöht ANG um 30% und erhöht MAG um 30%, wenn mit einer Schusswaffe ausgerüstet.",
+                "Aumenta el ATQ un 30%, y aumenta la MAG un 30% al llevar arma de fuego",
+                "Meningkatkan ATK sebanyak 30% dan meningkatkan MAG sebanyak 30% ketika senapan digunakan",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a30% + เพิ่มค่า MAG\u001a \u001a30% \u001aเมื่อ\u001aติดตั้ง\u001aปืน\u001a"
+            ],
+            "desc_long": [
+                "Boosts ATK by 30%, and boosts MAG by 30% when equipped with a gun.",
+                "提高30%攻擊，並且裝備火槍時提高30%魔力。",
+                "공격력이 30% 상승하고, 총 장착 시 마력이 30% 상승합니다.",
+                "Augmente l'ATT de 30 %, et augmente la MAGIE de 30 % quand un pistolet est équipé.",
+                "Erhöht ANG um 30% und erhöht MAG um 30%, wenn mit einer Schusswaffe ausgerüstet.",
+                "Aumenta el ATQ un 30%, y aumenta la MAG un 30% al llevar arma de fuego.",
+                "Meningkatkan ATK sebanyak 30% dan meningkatkan MAG sebanyak 30% ketika senapan digunakan.",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a30% + เพิ่มค่า MAG\u001a \u001a30% \u001aเมื่อ\u001aติดตั้ง\u001aปืน\u001a"
+            ]
         }
     },
     "504237880": {
@@ -38576,7 +38711,7 @@
                 "Augmente la PSY de 15%, toutes les résistances élémentaires de 25% et la jauge de limite à chaque tour en combat.",
                 "Erhöht PSY um 15%, sowie alle Elementarresistenzen um 25%. Limitmeter füllt sich jede Runde eines Kampfes.",
                 "Aumenta el ESP un 15% y la resistencia a todos los elementos un 25%, la barra de EL se llena cada turno durante el combate.",
-                "Meningkatkan SPR sebanyak 15% dan resistansi semua elemen sebanyak 25%, serta mengisi bar limit burst setiap giliran.",
+                "Meningkatkan SPR sebanyak 15% dan resistansi api, es, petir, air, angin, tanah, cahaya, dan kegelapan sebanyak 25%, serta mengisi bar LB setiap giliran.",
                 "เพิ่มค่า\u001a \u001aSPR\u001a \u001a15% + เพิ่มพลังต้านทานทุกธาตุ 25% และเพิ่มค่า Fill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a"
             ]
         }

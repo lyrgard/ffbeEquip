@@ -3137,11 +3137,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Sexy Pose","Manatopia","White Lotus","Shining Cheer","Divine Veil","Sacred Burst","Eternal Light","ヒールペトル","ロータスインプルーブ","ふたりの想い"],
+		"enhancementSkills":["Sexy Pose","Manatopia","White Lotus","Shining Cheer","Divine Veil","Sacred Burst","Eternal Light","Healing Petals","Blooming Lotus","Feelings of Two"],
 		"enhancements": [
 			{"name":"Entrusted Emotions","levels":[[],[{"resist":[{"name":"earth","percent":30},{"name":"dark","percent":30}],"mpRefresh":5}]]},
 			{"name":"White Lotus","levels":[[{"lbFillRate":100},{"equipedConditions":["staff"],"spr%":50},{"equipedConditions":["bow"],"spr%":50}],[{"lbFillRate":100},{"equipedConditions":["staff"],"spr%":75},{"equipedConditions":["bow"],"spr%":75}],[{"lbFillRate":100,"resist":[{"name":"charm","percent":100}]},{"equipedConditions":["staff"],"spr%":100},{"equipedConditions":["bow"],"spr%":100}]]},
-			{"name":"ふたりの想い","levels":[[{"skillEnhancement":{"204350":18,"221060":18,"221070":18,"707745":18,"707746":18},"levelCondition":120}],[{"skillEnhancement":{"204350":20,"221060":20,"221070":20,"707745":20,"707746":20},"levelCondition":120}],[{"skillEnhancement":{"204350":22,"221060":22,"221070":22,"707745":22,"707746":22},"levelCondition":120}],[{"skillEnhancement":{"204350":24,"221060":24,"221070":24,"707745":24,"707746":24},"levelCondition":120}],[{"skillEnhancement":{"204350":28,"221060":28,"221070":28,"707745":28,"707746":28},"levelCondition":120}]]},
+			{"name":"Feelings of Two","levels":[[{"skillEnhancement":{"204350":18,"221060":18,"221070":18,"707745":18,"707746":18},"levelCondition":120}],[{"skillEnhancement":{"204350":20,"221060":20,"221070":20,"707745":20,"707746":20},"levelCondition":120}],[{"skillEnhancement":{"204350":22,"221060":22,"221070":22,"707745":22,"707746":22},"levelCondition":120}],[{"skillEnhancement":{"204350":24,"221060":24,"221070":24,"707745":24,"707746":24},"levelCondition":120}],[{"skillEnhancement":{"204350":28,"221060":28,"221070":28,"707745":28,"707746":28},"levelCondition":120}]]},
 			{"name":"Dark Fina's Wishes","levels":[[],[{"mp%":20,"hp%":20}],[{"mp%":20,"hp%":20,"mpRefresh":5}],[{"mp%":20,"hp%":20,"lbPerTurn":{"min":3,"max":3},"mpRefresh":5}]]}
 		],
 		"skills": [
@@ -3172,7 +3172,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
-			"enhancementSkills":["Sexy Pose","Manatopia","White Lotus","Shining Cheer","Divine Veil","Sacred Burst","Eternal Light","ヒールペトル","ロータスインプルーブ","ふたりの想い"],
+			"enhancementSkills":["Sexy Pose","Manatopia","White Lotus","Shining Cheer","Divine Veil","Sacred Burst","Eternal Light","Healing Petals","Blooming Lotus","Feelings of Two"],
 		"enhancements": [
 			{"name":"Entrusted Emotions","levels":[[],[{"resist":[{"name":"earth","percent":30},{"name":"dark","percent":30}],"mpRefresh":5}]]},
 			{"name":"White Lotus","levels":[[{"lbFillRate":100},{"equipedConditions":["staff"],"spr%":50},{"equipedConditions":["bow"],"spr%":50}],[{"lbFillRate":100},{"equipedConditions":["staff"],"spr%":75},{"equipedConditions":["bow"],"spr%":75}],[{"lbFillRate":100,"resist":[{"name":"charm","percent":100}]},{"equipedConditions":["staff"],"spr%":100},{"equipedConditions":["bow"],"spr%":100}]]},
@@ -3199,7 +3199,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
-			"enhancementSkills":["Sexy Pose","Manatopia","White Lotus","Shining Cheer","Divine Veil","Sacred Burst","Eternal Light","ヒールペトル","ロータスインプルーブ","ふたりの想い"],
+			"enhancementSkills":["Sexy Pose","Manatopia","White Lotus","Shining Cheer","Divine Veil","Sacred Burst","Eternal Light","Healing Petals","Blooming Lotus","Feelings of Two"],
 		"enhancements": [
 			{"name":"Entrusted Emotions","levels":[[],[{"resist":[{"name":"earth","percent":30},{"name":"dark","percent":30}],"mpRefresh":5}]]},
 			{"name":"White Lotus","levels":[[{"lbFillRate":100},{"equipedConditions":["staff"],"spr%":50},{"equipedConditions":["bow"],"spr%":50}],[{"lbFillRate":100},{"equipedConditions":["staff"],"spr%":75},{"equipedConditions":["bow"],"spr%":75}],[{"lbFillRate":100,"resist":[{"name":"charm","percent":100}]},{"equipedConditions":["staff"],"spr%":100},{"equipedConditions":["bow"],"spr%":100}]]},
@@ -3236,9 +3236,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["bow","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["ヒールペトル","白蓮の護り","魔人の守護"],
+		"enhancementSkills":["Healing Petals","White Lotus Blessing","Dark Fina's Protection"],
 		"enhancements": [
-			{"name":"魔人の守護","levels":[[{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"levelCondition":120}],[{"resist":[{"name":"fire","percent":60},{"name":"ice","percent":60},{"name":"lightning","percent":60},{"name":"water","percent":60},{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"light","percent":60},{"name":"dark","percent":60}],"levelCondition":120}],[{"resist":[{"name":"fire","percent":75},{"name":"ice","percent":75},{"name":"lightning","percent":75},{"name":"water","percent":75},{"name":"wind","percent":75},{"name":"earth","percent":75},{"name":"light","percent":75},{"name":"dark","percent":75}],"levelCondition":120}],[{"resist":[{"name":"fire","percent":85},{"name":"ice","percent":85},{"name":"lightning","percent":85},{"name":"water","percent":85},{"name":"wind","percent":85},{"name":"earth","percent":85},{"name":"light","percent":85},{"name":"dark","percent":85}],"levelCondition":120}],[{"resist":[{"name":"fire","percent":100},{"name":"ice","percent":100},{"name":"lightning","percent":100},{"name":"water","percent":100},{"name":"wind","percent":100},{"name":"earth","percent":100},{"name":"light","percent":100},{"name":"dark","percent":100}],"levelCondition":120}]]}
+			{"name":"Dark Fina's Protection","levels":[[{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"levelCondition":120}],[{"resist":[{"name":"fire","percent":60},{"name":"ice","percent":60},{"name":"lightning","percent":60},{"name":"water","percent":60},{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"light","percent":60},{"name":"dark","percent":60}],"levelCondition":120}],[{"resist":[{"name":"fire","percent":75},{"name":"ice","percent":75},{"name":"lightning","percent":75},{"name":"water","percent":75},{"name":"wind","percent":75},{"name":"earth","percent":75},{"name":"light","percent":75},{"name":"dark","percent":75}],"levelCondition":120}],[{"resist":[{"name":"fire","percent":85},{"name":"ice","percent":85},{"name":"lightning","percent":85},{"name":"water","percent":85},{"name":"wind","percent":85},{"name":"earth","percent":85},{"name":"light","percent":85},{"name":"dark","percent":85}],"levelCondition":120}],[{"resist":[{"name":"fire","percent":100},{"name":"ice","percent":100},{"name":"lightning","percent":100},{"name":"water","percent":100},{"name":"wind","percent":100},{"name":"earth","percent":100},{"name":"light","percent":100},{"name":"dark","percent":100}],"levelCondition":120}]]}
 		],
 		"skills": [
 			{"mp":200, "resist":[{"name":"stop","percent":100}], "levelCondition":120},
@@ -5967,11 +5967,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Knight's Command","Undying Loyalty","Knight of Knights","Noble Knight","Light of Grandshelt","聖盾のヴェール","阻魔の聖盾","グランシェルト国民の憧れ"],
+		"enhancementSkills":["Knight's Command","Undying Loyalty","Knight of Knights","Noble Knight","Light of Grandshelt","Veil of the Sacred Shield","Evil-Warding Shield","Adored by the People of Grandshelt"],
 		"enhancements": [
 			{"name":"Undying Loyalty","levels":[[{"lbPerTurn":{"min":2,"max":2},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}],"spr%":30,"def%":30,"atk%":30,"hp%":30}]]},
 			{"name":"Noble Knight","levels":[[{"spr%":30,"def%":30,"hp%":30,"resist":[{"name":"light","percent":70}],"equipedConditions":[["404003900","402003500"]]}],[{"spr%":30,"def%":30,"mp%":30,"hp%":30,"resist":[{"name":"light","percent":70}],"equipedConditions":[["404003900","402003500"]]}],[{"spr%":50,"def%":50,"mp%":30,"hp%":50,"resist":[{"name":"light","percent":70}],"replaceLb":{"name":"Protector's Sacred Shield","minEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":70,"max":80},"chance":80},"turns":4,"area":"SELF","target":"SELF"},"desc":"80% chance to intercept magical damage to allies for 4 turns, reducing damage by 70%-80%"},{"effect":{"noUse":true,"globalMitigation":21,"turns":4,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 21% to all allies for 4 turns"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":70,"max":80},"chance":80},"turns":4,"area":"SELF","target":"SELF"},"desc":"80% chance to intercept magical damage to allies for 4 turns, reducing damage by 70%-80%"},{"effect":{"noUse":true,"globalMitigation":50,"turns":4,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 50% to all allies for 4 turns"}]},"equipedConditions":[["404003900","402003500"]]}]]},
-			{"name":"グランシェルト国民の憧れ","levels":[[{"skillEnhancement":{"230197":12,"230198":12,"708195":12,"708196":12,"708197":12,"708198":12},"levelCondition":120}],[{"skillEnhancement":{"230197":18,"230198":18,"708195":18,"708196":18,"708197":18,"708198":18},"levelCondition":120}],[{"skillEnhancement":{"230197":24,"230198":24,"708195":24,"708196":24,"708197":24,"708198":24},"levelCondition":120}],[{"skillEnhancement":{"230197":30,"230198":30,"708195":30,"708196":30,"708197":30,"708198":30},"levelCondition":120}],[{"skillEnhancement":{"230197":36,"230198":36,"708195":36,"708196":36,"708197":36,"708198":36},"levelCondition":120}]]}
+			{"name":"Adored by the People of Grandshelt","levels":[[{"skillEnhancement":{"230197":12,"230198":12},"levelCondition":120}],[{"skillEnhancement":{"230197":18,"230198":18},"levelCondition":120}],[{"skillEnhancement":{"230197":24,"230198":24},"levelCondition":120}],[{"skillEnhancement":{"230197":30,"230198":30},"levelCondition":120}],[{"skillEnhancement":{"230197":36,"230198":36},"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":50, "mp%":30, "atk%":30, "def%":50, "spr%":50, "resist":[{"name":"ice","percent":70}], "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}], "mpRefresh":7, "drawAttacks":50},
@@ -5996,7 +5996,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Knight's Command","Undying Loyalty","Knight of Knights","Noble Knight","Light of Grandshelt","聖盾のヴェール","阻魔の聖盾","グランシェルト国民の憧れ"],
+			"enhancementSkills":["Knight's Command","Undying Loyalty","Knight of Knights","Noble Knight","Light of Grandshelt","Veil of the Sacred Shield","Evil-Warding Shield","Adored by the People of Grandshelt"],
 		"enhancements": [
 			{"name":"Undying Loyalty","levels":[[{"lbPerTurn":{"min":2,"max":2},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}],"spr%":30,"def%":30,"atk%":30,"hp%":30}]]}
 		],
@@ -6021,7 +6021,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Knight's Command","Undying Loyalty","Knight of Knights","Noble Knight","Light of Grandshelt","聖盾のヴェール","阻魔の聖盾","グランシェルト国民の憧れ"],
+			"enhancementSkills":["Knight's Command","Undying Loyalty","Knight of Knights","Noble Knight","Light of Grandshelt","Veil of the Sacred Shield","Evil-Warding Shield","Adored by the People of Grandshelt"],
 		"enhancements": [
 			{"name":"Undying Loyalty","levels":[[{"lbPerTurn":{"min":2,"max":2},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}],"spr%":30,"def%":30,"atk%":30,"hp%":30}]]},
 			{"name":"Noble Knight","levels":[[{"spr%":30,"def%":30,"hp%":30,"resist":[{"name":"light","percent":70}],"equipedConditions":[["404003900","402003500"]]}],[{"spr%":30,"def%":30,"mp%":30,"hp%":30,"resist":[{"name":"light","percent":70}],"equipedConditions":[["404003900","402003500"]]}],[{"spr%":50,"def%":50,"mp%":30,"hp%":50,"resist":[{"name":"light","percent":70}],"replaceLb":{"name":"Protector's Sacred Shield","minEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":70,"max":80},"chance":80},"turns":4,"area":"SELF","target":"SELF"},"desc":"80% chance to intercept magical damage to allies for 4 turns, reducing damage by 70%-80%"},{"effect":{"noUse":true,"globalMitigation":21,"turns":4,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 21% to all allies for 4 turns"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":70,"max":80},"chance":80},"turns":4,"area":"SELF","target":"SELF"},"desc":"80% chance to intercept magical damage to allies for 4 turns, reducing damage by 70%-80%"},{"effect":{"noUse":true,"globalMitigation":50,"turns":4,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 50% to all allies for 4 turns"}]},"equipedConditions":[["404003900","402003500"]]}]]}
@@ -6052,9 +6052,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["聖盾のヴェール","邪を阻む聖盾","凛とした女騎士"],
+		"enhancementSkills":["Veil of the Sacred Shield","Mischief-Warding Shield","Dignified Knight"],
 		"enhancements": [
-			{"name":"凛とした女騎士","levels":[[{"killers":[{"name":"demon","physical":10},{"name":"undead","physical":10}],"resist":[{"name":"ice","percent":20},{"name":"light","percent":20}],"levelCondition":120}],[{"killers":[{"name":"demon","physical":20},{"name":"undead","physical":20}],"resist":[{"name":"ice","percent":40},{"name":"light","percent":40}],"levelCondition":120}],[{"killers":[{"name":"demon","physical":30},{"name":"undead","physical":30}],"resist":[{"name":"ice","percent":60},{"name":"light","percent":60}],"levelCondition":120}],[{"killers":[{"name":"demon","physical":40},{"name":"undead","physical":40}],"resist":[{"name":"ice","percent":80},{"name":"light","percent":80}],"levelCondition":120}],[{"killers":[{"name":"demon","physical":50},{"name":"undead","physical":50}],"resist":[{"name":"ice","percent":100},{"name":"light","percent":100}],"levelCondition":120}]]}
+			{"name":"Dignified Knight","levels":[[{"killers":[{"name":"demon","physical":10},{"name":"undead","physical":10}],"resist":[{"name":"ice","percent":20},{"name":"light","percent":20}],"levelCondition":120}],[{"killers":[{"name":"demon","physical":20},{"name":"undead","physical":20}],"resist":[{"name":"ice","percent":40},{"name":"light","percent":40}],"levelCondition":120}],[{"killers":[{"name":"demon","physical":30},{"name":"undead","physical":30}],"resist":[{"name":"ice","percent":60},{"name":"light","percent":60}],"levelCondition":120}],[{"killers":[{"name":"demon","physical":40},{"name":"undead","physical":40}],"resist":[{"name":"ice","percent":80},{"name":"light","percent":80}],"levelCondition":120}],[{"killers":[{"name":"demon","physical":50},{"name":"undead","physical":50}],"resist":[{"name":"ice","percent":100},{"name":"light","percent":100}],"levelCondition":120}]]}
 		],
 		"skills": [
 			{"resist":[{"name":"dark","percent":50}], "levelCondition":120},
@@ -9467,8 +9467,8 @@
 		}
 	},
 	"100032207": {
-		"name":"Physalis -Neo Vision-",
-		"wikiEntry":"ファイサリス-Neo_Vision-",
+		"name":"Physalis -NeoVisión-",
+		"wikiEntry":"Physalis_-Neo Vision-",
 		"id":"100032207",
 		"braveShift":"100032217",
 		"exAwakening": [{"hp":622,"mp":32,"atk":20,"def":24,"mag":60,"spr":25},{"hp":478,"mp":25,"atk":16,"def":19,"mag":46,"spr":19},{"hp":335,"mp":17,"atk":11,"def":13,"mag":32,"spr":13}],
@@ -9483,7 +9483,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["F型最強アイス弾","F型最強ウィンド弾"],
+		"enhancementSkills":["F-Type Strongest Ice Shot (Physalis -Neo Vision-)","F-Type Strongest Wind Shot"],
 		"skills": [
 			{"hp%":50, "mp%":30, "mag%":40, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 			{"mag%":50, "equipedConditions":["gun"]},
@@ -9495,8 +9495,8 @@
 		]
 	},
 	"100032217": {
-		"name":"Physalis -Neo Vision- BS",
-		"wikiEntry":"ファイサリス-Neo_Vision-",
+		"name":"Physalis -NeoVisión- BS",
+		"wikiEntry":"Physalis_-Neo Vision-",
 		"id":"100032217",
 		"braveShifted":"100032207",
 		"exAwakening": [{"hp":622,"mp":32,"atk":20,"def":24,"mag":60,"spr":25},{"hp":478,"mp":25,"atk":16,"def":19,"mag":46,"spr":19},{"hp":335,"mp":17,"atk":11,"def":13,"mag":32,"spr":13}],
@@ -9511,7 +9511,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["F型最強アイス弾","F型最強ウォータ弾"],
+		"enhancementSkills":["F-Type Strongest Ice Shot (Physalis -Neo Vision-)","F-Type Strongest Water Shot"],
 		"skills": [
 			{"hp%":30, "mp%":50, "mag%":40, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]},
 			{"mag%":50, "equipedConditions":["gun"]},
@@ -9523,8 +9523,8 @@
 		]
 	},
 	"100032305": {
-		"name":"Knight Lawrence",
-		"wikiEntry":"騎士団一の優男ローレンス",
+		"name":"Lorenzo, caballero ejemplar",
+		"wikiEntry":"Knightly_Paragon Lawrence",
 		"id":"100032305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -9547,8 +9547,8 @@
 			{"hp%":100, "def%":100, "spr%":100, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Knight Lawrence",
-			"wikiEntry":"騎士団一の優男ローレンス",
+			"name":"Lorenzo, caballero ejemplar",
+			"wikiEntry":"Knightly_Paragon Lawrence",
 			"id":"100032305",
 			"sixStarForm":true,
 			"max_rarity":"7",
