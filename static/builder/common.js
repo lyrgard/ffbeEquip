@@ -410,6 +410,19 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             context.savedValues.resistModifier = resistModifier;
         }
 
+        let elementBoostModifier;
+        if (context.savedValues.hasOwnProperty("elementBoostModifier")) {
+            elementBoostModifier = context.savedValues.hasOwnProperty("elementBoostModifier");
+        } else {
+            if (elements.length) {
+                elementBoostModifier = 1 + elements.map(e => unitBuild.baseValues.elementBuffs[e] || 0).reduce((acc, value) => acc + value, 0)/ 100 / elements.length;
+            } else {
+                elementBoostModifier = 1;
+            }
+            context.savedValues.elementBoostModifier = elementBoostModifier;
+        }
+
+
 
         var jumpMultiplier = 1;
         if (formula.value.jump) {
@@ -454,10 +467,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             defendingStatValue = defendingStatValue * (1 - formula.value.ignore[defendingStat]/100);
         }
 
-        var baseDamage = coef * (statValueToUse * statValueToUse) * evoMagMultiplier * evokeDamageBoostMultiplier * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 + (ennemyStats.buffs[defendingStat] - ennemyStats.breaks[defendingStat]) / 100));
+        var baseDamage = coef * (statValueToUse * statValueToUse) * evoMagMultiplier * evokeDamageBoostMultiplier * resistModifier * elementBoostModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 + (ennemyStats.buffs[defendingStat] - ennemyStats.breaks[defendingStat]) / 100));
         if (formula.value.mecanism == "hybrid") {
             var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
-            var magDamage = coef * (magStat * magStat) * resistModifier * killerMultiplicator / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
+            var magDamage = coef * (magStat * magStat) * resistModifier * elementBoostModifier * killerMultiplicator / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
 
             result = {
                 "min": (baseDamage * variance.min + magDamage) * context.damageMultiplier.min / 2,
@@ -555,6 +568,13 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 ;
             }
             var resistModifier = getElementCoef(elements, ennemyStats);
+
+            let elementBoostModifier;
+            if (elements.length) {
+                elementBoostModifier = 1 + elements.map(e => unitBuild.baseValues.elementBuffs[e] || 0).reduce((acc, value) => acc + value, 0) / elements.length;
+            } else {
+                elementBoostModifier = 1;
+            }
 
             // Killers
             var killerMultiplicator = 1;
@@ -691,7 +711,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                         if (goalValuesCaract[formula.name].type == "physical" && !goalValuesCaract[formula.name].multicast && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
                             dualWieldCoef = 2;
                         }
-                        var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier * evokeDamageBoostMultiplier * lbMultiplier / ennemyResistanceStat;
+                        var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * elementBoostModifier * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier * evokeDamageBoostMultiplier * lbMultiplier / ennemyResistanceStat;
                         total.min += base * damageMultiplier.min;
                         total.avg += base * damageMultiplier.avg;
                         total.max += base * damageMultiplier.max;

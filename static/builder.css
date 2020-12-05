@@ -1174,30 +1174,30 @@ i.img.img-slot-hand.leftHand {
     margin-left: 5px;
 }
 
-.killerBuffs {
+.killerBuffs, .elementBuffs {
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
 }
 
-.killerBuff {
+.killerBuff, .elementBuff {
     display: flex;
     margin-right: 5px;
 }
 
-.killerBuff i.img {
+.killerBuff i.img, .elementBuffs i.img {
     height: 38px;
     width: 34px;
     margin-right: -8px;
     z-index: 2;
 }
 
-.killerBuff input {
+.killerBuff input, .elementBuff input {
     width: 70px;
     text-align: right;
 }
 
-.killerBuff .inputWithIcon .leftIcon {
+.killerBuff .inputWithIcon .leftIcon, .elementBuff .inputWithIcon .leftIcon {
     left: 7px;
 }
 

@@ -205,6 +205,16 @@ const unitSchema = Joi.object().keys({
                 magical: Joi.number().min(0).max(300),
             })
         ),
+        elements: Joi.object().keys({
+            fire: Joi.number().integer(),
+            ice: Joi.number().integer(),
+            water: Joi.number().integer(),
+            lightning: Joi.number().integer(),
+            earth: Joi.number().integer(),
+            wind: Joi.number().integer(),
+            light: Joi.number().integer(),
+            dark: Joi.number().integer(),
+        }),
     }),
     lbShardsPerTurn: Joi.number().min(0).max(100),
     stack: Joi.number().min(0).max(99),

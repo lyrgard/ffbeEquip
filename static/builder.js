@@ -292,7 +292,8 @@ function prepareDataStorage() {
     dataStorage.setUnitBuild(builds[currentUnitIndex]);
     dataStorage.itemsToExclude = itemsToExclude;
     dataStorage.itemsToInclude = itemsToInclude;
-    dataStorage.prepareData(itemsToExclude, ennemyStats);
+    dataStorage.useElementConditionedMateria = $("#useElementConditionedMateria").prop('checked');
+    dataStorage.prepareData(itemsToExclude, ennemyStats, builds[currentUnitIndex].baseValues.elementBuffs);
 }
 
 function processTypeCombinations(workerIndex) {
@@ -515,6 +516,13 @@ function readStatsValues() {
                 killerData.magical = magical;
             }
             baseValues["killerBuffs"].push(killerData);
+        }
+    });
+    baseValues.elementBuffs = {};
+    elementList.forEach(element => {
+        const elementBuff =parseInt($(".elementBuffs ." + element + " input").val()) || 0;
+        if (elementBuff) {
+            baseValues.elementBuffs[element] = elementBuff;
         }
     });
     builds[currentUnitIndex].baseValues = baseValues;
@@ -1680,6 +1688,14 @@ function updateUnitStats() {
             }
         });
     }
+    elementList.forEach(element => {
+        const input = $('.elementBuffs .' + element + ' input');
+        if (builds[currentUnitIndex].baseValues.elementBuffs && builds[currentUnitIndex].baseValues.elementBuffs[element]) {
+            input.val(builds[currentUnitIndex].baseValues.elementBuffs[element]);
+        } else {
+            input.val('');
+        }
+    });
     updateKillerBuffSummary();
     readStatsValues();
 
@@ -2776,6 +2792,9 @@ function getUnitStateFromUnitBuild(build, braveShifted = false) {
     if (build.baseValues.killerBuffs) {
         unit.buffs.killers = build.baseValues.killerBuffs;
     }
+    if (build.baseValues.elementBuffs) {
+        unit.buffs.elements = build.baseValues.elementBuffs;
+    }
     if (build.baseValues.currentStack) {
         unit.stack = build.baseValues.currentStack;
     }
@@ -3169,6 +3188,16 @@ async function loadUnitFromStateHash(unit, dataVersion) {
                 }
                 if (killerData.magical) {
                     $('.killerBuffs.magical .' + killerData.name + ' input').val(killerData.magical);
+                }
+            });
+        }
+        if (unit.buffs.elements) {
+            elementList.forEach(element => {
+                const input = $('.elementBuffs .' + element + ' input');
+                if (unit.buffs.elements[element]) {
+                    input.val(unit.buffs.elements[element]);
+                } else {
+                    input.val('');
                 }
             });
         }
@@ -4202,10 +4231,10 @@ function onKillerBuffChange() {
             input.val(300);
         }
     });
-    readStatsValues();
     logCurrentBuild();
     updateKillerBuffSummary();
 }
+
 
 function updateKillerBuffSummary() {
     let killerHtml = getKillerHtml(builds[currentUnitIndex].baseValues["killerBuffs"]);
@@ -4548,6 +4577,7 @@ function startPage() {
     $(".unitStats .stat.drawAttacks .buff input").on('input',$.debounce(300,function() {onBuffChange("drawAttacks")}));
     $(".unitStats .stat.lbDamage .buff input").on('input',$.debounce(300,function() {onBuffChange("lbDamage")}));
     $(".killerBuffs input").on('input',$.debounce(300,function() {onKillerBuffChange();}));
+    $(".elementBuffs input").on('input',$.debounce(300,function() {logCurrentBuild();;}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
     $("#paramChallengeSelect").change(function() {

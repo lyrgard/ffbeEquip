@@ -25,6 +25,7 @@ class DataStorage {
         this.availableStmr = null;
         this.defaultWeaponEnhancement = null;
         this.defaultVisionCardLevel = 10;
+        this.useElementConditionedMateria = false;
     }
     
     setData(data) {
@@ -95,7 +96,6 @@ class DataStorage {
     }
     
     addDesirableElementsFromFormula(formula) {
-        var elements = [];
         if (builds[currentUnitIndex].formula.type === "condition" && builds[currentUnitIndex].formula.elements) {
             for (var i = builds[currentUnitIndex].formula.elements.length; i--;) {
                 if (!this.desirableElements.includes(builds[currentUnitIndex].formula.elements[i])) {
@@ -145,7 +145,7 @@ class DataStorage {
         });
     }
     
-    prepareData(itemsToExclude, ennemyStats) {
+    prepareData(itemsToExclude, ennemyStats, elementBuffs) {
         this.dataByType = {};
         this.dataWithCondition = [];
         this.dualWieldSources = [];
@@ -173,7 +173,9 @@ class DataStorage {
             }
         }
 
-        this.addDesirableElementsFromItems(ennemyStats);
+        if (useElementConditionedMateria) {
+            this.addDesirableElementsFromItems(ennemyStats);
+        }
         
         for (var index = 0; index < itemNumber; index++) {
             var item = this.data[this.data.length - 1 - index];
@@ -215,7 +217,7 @@ class DataStorage {
                     }
                 }
                 for (var i = enhancementsAvailables.length; i--;) {
-                    addedToItems = this.prepareItem(applyEnhancements(item, enhancementsAvailables[i]), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
+                    addedToItems = this.prepareItem(applyEnhancements(item, enhancementsAvailables[i]), this.unitBuild.baseValues, ennemyStats, elementBuffs, 1, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
                     availableNumber--;
                     if (ownedAvailableNumber > 0) {
                         ownedAvailableNumber--;
@@ -224,7 +226,7 @@ class DataStorage {
             }
             
             if (availableNumber > 0) {
-                addedToItems = this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds) || addedToItems;  
+                addedToItems = this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, elementBuffs, availableNumber, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds) || addedToItems;
             }
             if (addedToItems && !alreadyAddedIds.includes(item.id)) {
                 alreadyAddedIds.push(item.id);
@@ -371,7 +373,7 @@ class DataStorage {
         return result;
     }
 
-    prepareItem(item, baseValues, ennemyStats, availableNumber, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, tmrAbilityEnhancedItem = false) {
+    prepareItem(item, baseValues, ennemyStats, elementBuffs, availableNumber, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, tmrAbilityEnhancedItem = false) {
         var added = false;
         if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0 && weaponList.includes(item.type) && !item.enhancements) {
             item = applyEnhancements(item, this.defaultWeaponEnhancement)
@@ -398,8 +400,8 @@ class DataStorage {
                     this.equipSources.push(item);
                 }
             }
-            if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
-                if (this.itemWithUnstackableSkillOnlyUsefulInOne(item, ennemyStats)) {
+            if (this.itemCanBeOfUseForGoal(item, ennemyStats, elementBuffs)) {
+                if (this.itemWithUnstackableSkillOnlyUsefulInOne(item, ennemyStats, elementBuffs)) {
                     availableNumber = Math.min(1, availableNumber);
                     ownedAvailableNumber = Math.min(1, ownedAvailableNumber);
                 }
@@ -461,7 +463,7 @@ class DataStorage {
         }
     }
     
-    itemCanBeOfUseForGoal(item, ennemyStats) {
+    itemCanBeOfUseForGoal(item, ennemyStats, elementBuffs = {}) {
         if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.elements && item.element) {
             if (builds[currentUnitIndex].formula.elements.includes("none") ) {
                 return false;
@@ -477,7 +479,7 @@ class DataStorage {
 
         for (var index = 0, len = stats.length; index < len; index++) {
             if (stats[index] == "weaponElement") {
-                if (item.element && getElementCoef(item.element, ennemyStats) < 0) return true;
+                if (item.element && (getElementCoef(item.element, ennemyStats) < 0 || item.element.map(e => elementBuffs[e] || 0).reduce((acc, val) => acc + val, 0))) return true;
             } else if (stats[index] == "physicalKiller") {
                 if (this.getKillerCoef(item, "physical") > 0) return true;
             } else if (stats[index] == "magicalKiller") {
@@ -511,7 +513,7 @@ class DataStorage {
         }
     }
     
-    itemWithUnstackableSkillOnlyUsefulInOne(item, ennemyStats) {
+    itemWithUnstackableSkillOnlyUsefulInOne(item, ennemyStats, elementBuffs) {
         if (item.notStackableSkills) {
             var itemWithoutUnstackableSkills = JSON.parse(JSON.stringify(item));
             Object.keys(itemWithoutUnstackableSkills.notStackableSkills).forEach(id => {
@@ -520,7 +522,7 @@ class DataStorage {
                     this.removeStat(itemWithoutUnstackableSkills, stat, skill[stat]);
                 })
             });
-            return this.itemCanBeOfUseForGoal(itemWithoutUnstackableSkills)
+            return this.itemCanBeOfUseForGoal(itemWithoutUnstackableSkills, ennemyStats, elementBuffs)
         }
         return false;
     }

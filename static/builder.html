@@ -740,6 +740,72 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-xs-12 elementBuffs">
+                            <div class="elementBuff fire">
+                                <i class="img img-element-fire" title="Fire element damage boost"></i>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                            </div>
+                            <div class="elementBuff ice">
+                                <i class="img img-element-ice" title="Ice element damage boost"></i>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                            </div>
+                            <div class="elementBuff lightning">
+                                <i class="img img-element-lightning" title="Lightning element damage boost"></i>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                            </div>
+                            <div class="elementBuff water">
+                                <i class="img img-element-water" title="Water element damage boost"></i>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                            </div>
+                            <div class="elementBuff wind">
+                                <i class="img img-element-wind" title="Wind element damage boost"></i>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                            </div>
+                            <div class="elementBuff earth">
+                                <i class="img img-element-earth" title="Earth element damage boost"></i>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                            </div>
+                            <div class="elementBuff light">
+                                <i class="img img-element-light" title="Light element damage boost"></i>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                            </div>
+                            <div class="elementBuff dark">
+                                <i class="img img-element-dark" title="Dark element damage boost"></i>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-xs-12 unitAttackElement">
                             <div class="col-xs-3 text-right">Imbue(s):</div>
                             <div class="col-xs-9 btn-group elements choice" data-toggle="buttons" id="elements"></div>
@@ -791,7 +857,13 @@
                                 Force use of TMR or STMR
                             </label>
                         </div>
-                        <div class="col-xs-12 col-lg-6">
+                        <div class="col-xs-12">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="useElementConditionedMateria" class="checkbox"/><span></span>
+                                Try element conditioned materia (like Electrifying Might)
+                            </label>
+                        </div>
+                        <div class="col-xs-12">
                             <label class="checkbox-label">
                                 <input type="checkbox" id="useNewJpDamageFormula" class="checkbox"/><span></span>
                                 Use new damage formula
