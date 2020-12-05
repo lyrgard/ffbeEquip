@@ -7563,7 +7563,7 @@
 		"enhancementSkills":["F型最強アイス弾","F型最強ウォータ弾"]
 	},
 	"100032305": {
-		"name":"Knight Lawrence",
+		"name":"Knightly Paragon Lawrence",
 		"jpname":"騎士団一の優男ローレンス",
 		"id":"100032305",
 		"max_rarity":"7",
@@ -7577,7 +7577,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","lightShield","hat","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Knight Lawrence",
+			"name":"Knightly Paragon Lawrence",
 			"jpname":"騎士団一の優男ローレンス",
 			"id":"100032305",
 			"sixStarForm":true,
@@ -9636,17 +9636,20 @@
 		"name":"Gilgamesh",
 		"jpname":"ギルガメッシュ(FFV)",
 		"id":"205000805",
-		"max_rarity":"7",
+		"braveShift":"205000827",
+		"exAwakening": [{"hp":613,"mp":25,"atk":32,"def":24,"mag":19,"spr":20},{"hp":471,"mp":19,"atk":25,"def":18,"mag":14,"spr":15},{"hp":330,"mp":13,"atk":17,"def":12,"mag":10,"spr":11}],
+		"fragmentId": "250000640",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4719,"mp":195,"atk":193,"def":185,"mag":148,"spr":158},
-			"minStats":{"hp":1557,"mp":64,"atk":64,"def":61,"mag":49,"spr":52},
+			"maxStats":{"hp":4719,"mp":195,"atk":246,"def":185,"mag":148,"spr":158},
+			"minStats":{"hp":1557,"mp":64,"atk":81,"def":61,"mag":49,"spr":52},
 			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["雪月花","武器コレクター","三対の剣"],
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["雪月花","武器コレクター","三対の剣","武人の生き様"],
 		"6_form": {
 			"name":"Gilgamesh",
 			"jpname":"ギルガメッシュ(FFV)",
@@ -9662,8 +9665,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["雪月花","武器コレクター","三対の剣"]
+			"enhancementSkills":["雪月花","武器コレクター","三対の剣","武人の生き様"]
+		},
+		"7_form": {
+			"name":"Gilgamesh",
+			"jpname":"ギルガメッシュ(FFV)",
+			"id":"205000805",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4719,"mp":195,"atk":193,"def":185,"mag":148,"spr":158},
+				"minStats":{"hp":1557,"mp":64,"atk":64,"def":61,"mag":49,"spr":52},
+				"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["雪月花","武器コレクター","三対の剣","武人の生き様"]
 		}
+	},
+	"205000827": {
+		"name":"ギルガメッシュ(FFV) BS",
+		"jpname":"ギルガメッシュ(FFV) BS",
+		"id":"205000827",
+		"braveShifted":"205000805",
+		"exAwakening": [{"hp":613,"mp":25,"atk":32,"def":24,"mag":19,"spr":20},{"hp":471,"mp":19,"atk":25,"def":18,"mag":14,"spr":15},{"hp":330,"mp":13,"atk":17,"def":12,"mag":10,"spr":11}],
+		"fragmentId": "250000640",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5100,"mp":222,"atk":265,"def":196,"mag":162,"spr":182},
+			"minStats":{"hp":1683,"mp":73,"atk":87,"def":65,"mag":53,"spr":60},
+			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["自慢の武具","【秘剣】天の叢雲"]
 	},
 	"205000905": {
 		"name":"Dark Mage Exdeath",
@@ -9735,17 +9774,20 @@
 		"name":"Warrior of Light Bartz",
 		"jpname":"光の戦士バッツ",
 		"id":"205001105",
-		"max_rarity":"7",
+		"braveShift":"205001127",
+		"exAwakening": [{"hp":626,"mp":27,"atk":29,"def":22,"mag":19,"spr":24},{"hp":481,"mp":21,"atk":22,"def":17,"mag":15,"spr":18},{"hp":337,"mp":14,"atk":15,"def":12,"mag":10,"spr":12}],
+		"fragmentId": "250000630",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4818,"mp":213,"atk":207,"def":174,"mag":151,"spr":185},
-			"minStats":{"hp":1590,"mp":70,"atk":68,"def":57,"mag":50,"spr":61},
+			"maxStats":{"hp":4818,"mp":213,"atk":227,"def":174,"mag":151,"spr":185},
+			"minStats":{"hp":1590,"mp":70,"atk":75,"def":57,"mag":50,"spr":61},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流"],
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流","天昇の剣","探求の剣","まっすぐな正義感"],
 		"6_form": {
 			"name":"Warrior of Light Bartz",
 			"jpname":"光の戦士バッツ",
@@ -9761,8 +9803,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流"]
+			"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流","天昇の剣","探求の剣","まっすぐな正義感"]
+		},
+		"7_form": {
+			"name":"Warrior of Light Bartz",
+			"jpname":"光の戦士バッツ",
+			"id":"205001105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4818,"mp":213,"atk":207,"def":174,"mag":151,"spr":185},
+				"minStats":{"hp":1590,"mp":70,"atk":68,"def":57,"mag":50,"spr":61},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流","天昇の剣","探求の剣","まっすぐな正義感"]
 		}
+	},
+	"205001127": {
+		"name":"光の戦士バッツ BS",
+		"jpname":"光の戦士バッツ BS",
+		"id":"205001127",
+		"braveShifted":"205001105",
+		"exAwakening": [{"hp":626,"mp":27,"atk":29,"def":22,"mag":19,"spr":24},{"hp":481,"mp":21,"atk":22,"def":17,"mag":15,"spr":18},{"hp":337,"mp":14,"atk":15,"def":12,"mag":10,"spr":12}],
+		"fragmentId": "250000630",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4970,"mp":224,"atk":265,"def":184,"mag":151,"spr":195},
+			"minStats":{"hp":1640,"mp":74,"atk":87,"def":61,"mag":50,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["天昇の剣","湧きおこる活力","きりひらく風の剣"]
 	},
 	"205001205": {
 		"name":"Warrior of Light Lenna",
@@ -9828,6 +9906,77 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
 			"enhancementSkills":["モーグリの助言・退霊","モーグリの助言・退獣","海竜の魂を見出す力","飛竜の守護","飛竜の急襲改","森羅万象の恵み"]
+		}
+	},
+	"205001407": {
+		"name":"Faris -Neo Vision-",
+		"jpname":"ファリス-Neo Vision-",
+		"id":"205001407",
+		"braveShift":"205001417",
+		"exAwakening": [{"hp":624,"mp":35,"atk":21,"def":24,"mag":68,"spr":28},{"hp":480,"mp":27,"atk":16,"def":19,"mag":52,"spr":21},{"hp":336,"mp":18,"atk":11,"def":13,"mag":36,"spr":15}],
+		"fragmentId": "250000620",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":270,"atk":168,"def":190,"mag":260,"spr":216},
+			"minStats":{"hp":1584,"mp":89,"atk":55,"def":63,"mag":86,"spr":71},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","rod","gun","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["砲撃Lv1"]
+	},
+	"205001417": {
+		"name":"Faris -Neo Vision- BS",
+		"jpname":"ファリス-Neo Vision- BS",
+		"id":"205001417",
+		"braveShifted":"205001407",
+		"exAwakening": [{"hp":624,"mp":35,"atk":21,"def":24,"mag":68,"spr":28},{"hp":480,"mp":27,"atk":16,"def":19,"mag":52,"spr":21},{"hp":336,"mp":18,"atk":11,"def":13,"mag":36,"spr":15}],
+		"fragmentId": "250000620",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":270,"atk":250,"def":216,"mag":168,"spr":191},
+			"minStats":{"hp":1584,"mp":89,"atk":83,"def":71,"mag":55,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","rod","gun","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["勇気の剣"]
+	},
+	"205001505": {
+		"name":"Xezat",
+		"jpname":"ゼザ",
+		"id":"205001505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5100,"mp":240,"atk":151,"def":222,"mag":124,"spr":232},
+			"minStats":{"hp":1683,"mp":79,"atk":50,"def":73,"mag":41,"spr":77},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","staff","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["シェルガ","プロテガ"],
+		"6_form": {
+			"name":"Xezat",
+			"jpname":"ゼザ",
+			"id":"205001505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3923,"mp":184,"atk":116,"def":170,"mag":95,"spr":178},
+				"minStats":{"hp":1295,"mp":61,"atk":38,"def":56,"mag":31,"spr":59},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["sword","staff","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["シェルガ","プロテガ"]
 		}
 	},
 	"206000103": {

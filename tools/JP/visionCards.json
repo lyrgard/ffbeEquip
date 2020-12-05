@@ -324,6 +324,18 @@
 	{"atk":72, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
 	{"atk":80, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30},{"atk%":20,"def%":20,"mag%":20,"spr%":20},{"resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}]}]}
 ]},
+{"id":"205000101", "name":"シルドラ！あいさつしな！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000101.png", "sortId":41, "levels":[
+	{"atk":35, "mag":50},
+	{"atk":38, "mag":54},
+	{"atk":41, "mag":58},
+	{"atk":44, "mag":62, "conditional":[{"equipedConditions":["sword"],"atk%":30,"mag%":30}]},
+	{"atk":47, "mag":66, "conditional":[{"equipedConditions":["sword"],"atk%":30,"mag%":30}]},
+	{"atk":50, "mag":70, "conditional":[{"equipedConditions":["sword"],"atk%":30,"mag%":30}]},
+	{"atk":53, "mag":74, "conditional":[{"equipedConditions":["sword"],"atk%":60,"mag%":60}]},
+	{"atk":56, "mag":78, "conditional":[{"equipedConditions":["sword"],"atk%":60,"mag%":60}]},
+	{"atk":59, "mag":82, "conditional":[{"equipedConditions":["sword"],"atk%":60,"mag%":60}]},
+	{"atk":65, "mag":90, "conditional":[{"equipedConditions":["sword"],"atk%":60,"mag%":60},{"atk%":20,"mag%":20,"exclusiveSex":"female"},{"evokeDamageBoost":{"all":30},"exclusiveSex":"female"}]}
+]},
 {"id":"206000101", "name":"幻獣を求めて", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000101.png", "sortId":26, "levels":[
 	{"mag":50},
 	{"mag":55},
@@ -420,7 +432,7 @@
 	{"hp":900, "def":54, "spr":54, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
 	{"hp":1000, "def":60, "spr":60, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40},{"exclusiveSex":"male"},{"exclusiveSex":"male"}]}
 ]},
-{"id":"335000101", "name":"キーブレード墓場の戦い", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
+{"id":"335000101", "name":"The Keyblade Graveyard Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},
 	{"atk":55},
 	{"atk":60},
@@ -432,7 +444,7 @@
 	{"atk":90, "atk%":60},
 	{"atk":100, "atk%":60, "conditional":[{"atk%":20,"def%":20,"mag%":20,"spr%":20},{"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10}]}]}
 ]},
-{"id":"335000201", "name":"VSデビルズタワー", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000201.png", "sortId":20, "levels":[
+{"id":"335000201", "name":"Facing the Demon Tower", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000201.png", "sortId":20, "levels":[
 	{"atk":35},
 	{"atk":42},
 	{"atk":50},
@@ -444,7 +456,7 @@
 	{"atk":95, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
 	{"atk":110, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"atk%":20},{"lbDamage":50}]}
 ]},
-{"id":"335000301", "name":"パオプの実のおまじない", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000301.png", "sortId":21, "levels":[
+{"id":"335000301", "name":"The Paopu Fruit's Bond", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000301.png", "sortId":21, "levels":[
 	{"atk":36, "spr":44},
 	{"atk":39, "spr":48},
 	{"atk":43, "spr":52},

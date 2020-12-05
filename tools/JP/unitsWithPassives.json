@@ -10763,7 +10763,7 @@
 		]
 	},
 	"100032305": {
-		"name":"Knight Lawrence",
+		"name":"Knightly Paragon Lawrence",
 		"jpname":"騎士団一の優男ローレンス",
 		"id":"100032305",
 		"max_rarity":"7",
@@ -10790,7 +10790,7 @@
 			{"hp%":100, "def%":100, "spr%":100, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Knight Lawrence",
+			"name":"Knightly Paragon Lawrence",
 			"jpname":"騎士団一の優男ローレンス",
 			"id":"100032305",
 			"sixStarForm":true,
@@ -13927,64 +13927,73 @@
 		"name":"Gilgamesh",
 		"jpname":"ギルガメッシュ(FFV)",
 		"id":"205000805",
-		"max_rarity":"7",
+		"braveShift":"205000827",
+		"exAwakening": [{"hp":613,"mp":25,"atk":32,"def":24,"mag":19,"spr":20},{"hp":471,"mp":19,"atk":25,"def":18,"mag":14,"spr":15},{"hp":330,"mp":13,"atk":17,"def":12,"mag":10,"spr":11}],
+		"fragmentId": "250000640",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4719,"mp":195,"atk":193,"def":185,"mag":148,"spr":158},
-			"minStats":{"hp":1557,"mp":64,"atk":64,"def":61,"mag":49,"spr":52},
+			"maxStats":{"hp":4719,"mp":195,"atk":246,"def":185,"mag":148,"spr":158},
+			"minStats":{"hp":1557,"mp":64,"atk":81,"def":61,"mag":49,"spr":52},
 			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["雪月花","武器コレクター","三対の剣"],
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["雪月花","武器コレクター","三対の剣","武人の生き様"],
 		"enhancements": [
 			{"name":"豪傑の底力","levels":[[],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"lbPerTurn":{"min":3,"max":3}}]]},
-			{"name":"続・漢の奥義","levels":[[],[{"mp%":40,"hp%":40,"skillEnhancement":{"203990":3,"204020":3,"227482":3,"507934":3,"507935":3,"507936":3,"507937":3,"701350":3,"701360":3,"701490":3,"701500":3}}]]},
-			{"name":"武器コレクター","levels":[[{"equipedConditions":["katana"],"atk%":40},{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":20}],[{"equipedConditions":["katana"],"atk%":40},{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":20},{"equipedConditions":["dagger"],"atk%":20},{"equipedConditions":["spear"],"atk%":20}],[{"equipedConditions":["katana"],"atk%":50},{"equipedConditions":["sword"],"atk%":50},{"equipedConditions":["greatSword"],"atk%":50},{"equipedConditions":["dagger"],"atk%":50},{"equipedConditions":["spear"],"atk%":50}]]}
+			{"name":"続・漢の奥義","levels":[[],[{"mp%":40,"hp%":40,"skillEnhancement":{"203990":3,"204020":3,"227482":3,"507934":3,"507935":3,"507936":3,"507937":3,"701350":3,"701360":3,"701490":3,"701500":3},"atk":800}]]},
+			{"name":"武器コレクター","levels":[[{"equipedConditions":["katana"],"atk%":40},{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":20}],[{"equipedConditions":["katana"],"atk%":40},{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":20},{"equipedConditions":["dagger"],"atk%":20},{"equipedConditions":["spear"],"atk%":20}],[{"equipedConditions":["katana"],"atk%":50},{"equipedConditions":["sword"],"atk%":50},{"equipedConditions":["greatSword"],"atk%":50},{"equipedConditions":["dagger"],"atk%":50},{"equipedConditions":["spear"],"atk%":50}]]},
+			{"name":"武人の生き様","levels":[[{"skillEnhancement":{"203990":5,"204000":5,"204020":5,"227483":5,"507934":5,"507935":5,"507936":5,"507937":5,"701350":5,"701360":5,"701490":5,"701500":5},"levelCondition":120}],[{"skillEnhancement":{"203990":10,"204000":10,"204020":10,"227483":10,"507934":10,"507935":10,"507936":10,"507937":10,"701350":10,"701360":10,"701490":10,"701500":10},"levelCondition":120}],[{"skillEnhancement":{"203990":20,"204000":20,"204020":20,"227483":20,"507934":20,"507935":20,"507936":20,"507937":20,"701350":20,"701360":20,"701490":20,"701500":20},"levelCondition":120}],[{"skillEnhancement":{"203990":30,"204000":30,"204020":30,"227483":30,"507934":30,"507935":30,"507936":30,"507937":30,"701350":30,"701360":30,"701490":30,"701500":30},"levelCondition":120}],[{"skillEnhancement":{"203990":40,"204000":40,"204020":40,"227483":40,"507934":40,"507935":40,"507936":40,"507937":40,"701350":40,"701360":40,"701490":40,"701500":40},"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":30, "atk%":20, "def%":20, "jumpDamage":100, "mpRefresh":5},
-			{"dualWielding":{"atk":30}, "replaceLb":{"name":"ギルガメッシュチェーンジ！！","minEffects":[{"effect":{"statsBuff":{"atk":91,"def":91,"mag":91,"spr":91},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK, DEF, MAG and SPR by 91% for 5 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"507934","name":"【秘剣】エクスカリバー"},{"id":"507935","name":"【秘剣】村正"},{"id":"507936","name":"【秘剣】斬鉄剣"},{"id":"507937","name":"【秘剣】源氏の刀"}],"turns":4},"area":"SELF","target":"SELF"},"desc":"Gain 【秘剣】 skills  [エクスカリバー (507934) / 斬鉄剣 (507936) / 村正 (507935) / 源氏の刀 (507937)] for 4 turns"}],"maxEffects":[{"effect":{"statsBuff":{"atk":120,"def":120,"mag":120,"spr":120},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK, DEF, MAG and SPR by 120% for 5 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"507934","name":"【秘剣】エクスカリバー"},{"id":"507935","name":"【秘剣】村正"},{"id":"507936","name":"【秘剣】斬鉄剣"},{"id":"507937","name":"【秘剣】源氏の刀"}],"turns":4},"area":"SELF","target":"SELF"},"desc":"Gain 【秘剣】 skills  [エクスカリバー (507934) / 斬鉄剣 (507936) / 村正 (507935) / 源氏の刀 (507937)] for 4 turns"}]}, "equipedConditions":[["409008100","404003100"]]},
+			{"dualWielding":{"atk":30}, "replaceLb":{"name":"ギルガメッシュチェーンジ！！","minEffects":[{"effect":{"statsBuff":{"atk":271,"def":271,"mag":271,"spr":271},"turns":99999,"area":"SELF","target":"SELF"},"desc":"Increase ATK, DEF, MAG and SPR by 271% for 99999 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"507934","name":"【秘剣】エクスカリバー"},{"id":"507935","name":"【秘剣】村正"},{"id":"507936","name":"【秘剣】斬鉄剣"},{"id":"507937","name":"【秘剣】源氏の刀"}],"turns":4},"area":"SELF","target":"SELF"},"desc":"Gain 【秘剣】 skills  [エクスカリバー (507934) / 斬鉄剣 (507936) / 村正 (507935) / 源氏の刀 (507937)] for 4 turns"},{"effect":{"statsBuff":{"lbDamage":150},"turns":99999,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% to caster for 99999 turns"}],"maxEffects":[{"effect":{"statsBuff":{"atk":300,"def":300,"mag":300,"spr":300},"turns":99999,"area":"SELF","target":"SELF"},"desc":"Increase ATK, DEF, MAG and SPR by 300% for 99999 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"507934","name":"【秘剣】エクスカリバー"},{"id":"507935","name":"【秘剣】村正"},{"id":"507936","name":"【秘剣】斬鉄剣"},{"id":"507937","name":"【秘剣】源氏の刀"}],"turns":4},"area":"SELF","target":"SELF"},"desc":"Gain 【秘剣】 skills  [エクスカリバー (507934) / 斬鉄剣 (507936) / 村正 (507935) / 源氏の刀 (507937)] for 4 turns"},{"effect":{"statsBuff":{"lbDamage":150},"turns":99999,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% to caster for 99999 turns"}]}, "equipedConditions":[["409008100","404003100"]]},
 			{"lbPerTurn":{"min":1,"max":1}, "skillEnhancement":{"203990":1,"204020":1,"701350":1,"701360":1,"701490":1,"701500":1}, "levelCondition":105},
 			{"resist":[{"name":"fire","percent":50}], "equipedConditions":["greatSword"], "levelCondition":115},
 			{"resist":[{"name":"fire","percent":50}], "equipedConditions":["sword"], "levelCondition":115},
 			{"resist":[{"name":"fire","percent":50}], "equipedConditions":["dagger"], "levelCondition":115},
-			{"killers":[{"name":"beast","physical":75,"magical":75}], "equipedConditions":["greatSword"], "levelCondition":115},
-			{"killers":[{"name":"beast","physical":75,"magical":75}], "equipedConditions":["sword"], "levelCondition":115},
-			{"killers":[{"name":"beast","physical":75,"magical":75}], "equipedConditions":["dagger"], "levelCondition":115},
+			{"killers":[{"name":"beast","physical":100,"magical":100}], "equipedConditions":["greatSword"], "levelCondition":115},
+			{"killers":[{"name":"beast","physical":100,"magical":100}], "equipedConditions":["sword"], "levelCondition":115},
+			{"killers":[{"name":"beast","physical":100,"magical":100}], "equipedConditions":["dagger"], "levelCondition":115},
 			{"resist":[{"name":"ice","percent":50}], "equipedConditions":["katana"], "levelCondition":115},
-			{"killers":[{"name":"human","physical":75,"magical":75}], "equipedConditions":["katana"], "levelCondition":115},
+			{"killers":[{"name":"human","physical":100,"magical":100}], "equipedConditions":["katana"], "levelCondition":115},
 			{"resist":[{"name":"wind","percent":50}], "equipedConditions":["rod"], "levelCondition":115},
 			{"resist":[{"name":"wind","percent":50}], "equipedConditions":["staff"], "levelCondition":115},
-			{"killers":[{"name":"demon","physical":75,"magical":75}], "equipedConditions":["rod"], "levelCondition":115},
-			{"killers":[{"name":"demon","physical":75,"magical":75}], "equipedConditions":["staff"], "levelCondition":115},
+			{"killers":[{"name":"demon","physical":100,"magical":100}], "equipedConditions":["rod"], "levelCondition":115},
+			{"killers":[{"name":"demon","physical":100,"magical":100}], "equipedConditions":["staff"], "levelCondition":115},
 			{"resist":[{"name":"water","percent":50}], "equipedConditions":["harp"], "levelCondition":115},
 			{"resist":[{"name":"water","percent":50}], "equipedConditions":["bow"], "levelCondition":115},
-			{"killers":[{"name":"undead","physical":75,"magical":75}], "equipedConditions":["harp"], "levelCondition":115},
-			{"killers":[{"name":"undead","physical":75,"magical":75}], "equipedConditions":["bow"], "levelCondition":115},
+			{"killers":[{"name":"undead","physical":100,"magical":100}], "equipedConditions":["harp"], "levelCondition":115},
+			{"killers":[{"name":"undead","physical":100,"magical":100}], "equipedConditions":["bow"], "levelCondition":115},
 			{"resist":[{"name":"earth","percent":50}], "equipedConditions":["mace"], "levelCondition":115},
 			{"resist":[{"name":"earth","percent":50}], "equipedConditions":["hammer"], "levelCondition":115},
 			{"resist":[{"name":"earth","percent":50}], "equipedConditions":["axe"], "levelCondition":115},
-			{"killers":[{"name":"stone","physical":75,"magical":75}], "equipedConditions":["mace"], "levelCondition":115},
-			{"killers":[{"name":"stone","physical":75,"magical":75}], "equipedConditions":["hammer"], "levelCondition":115},
-			{"killers":[{"name":"stone","physical":75,"magical":75}], "equipedConditions":["axe"], "levelCondition":115},
+			{"killers":[{"name":"stone","physical":100,"magical":100}], "equipedConditions":["mace"], "levelCondition":115},
+			{"killers":[{"name":"stone","physical":100,"magical":100}], "equipedConditions":["hammer"], "levelCondition":115},
+			{"killers":[{"name":"stone","physical":100,"magical":100}], "equipedConditions":["axe"], "levelCondition":115},
 			{"resist":[{"name":"light","percent":50}], "equipedConditions":["spear"], "levelCondition":115},
-			{"killers":[{"name":"dragon","physical":75,"magical":75}], "equipedConditions":["spear"], "levelCondition":115},
+			{"killers":[{"name":"dragon","physical":100,"magical":100}], "equipedConditions":["spear"], "levelCondition":115},
 			{"resist":[{"name":"lightning","percent":50}], "equipedConditions":["fist"], "levelCondition":115},
 			{"resist":[{"name":"lightning","percent":50}], "equipedConditions":["whip"], "levelCondition":115},
-			{"killers":[{"name":"machine","physical":75,"magical":75}], "equipedConditions":["fist"], "levelCondition":115},
-			{"killers":[{"name":"machine","physical":75,"magical":75}], "equipedConditions":["whip"], "levelCondition":115},
+			{"killers":[{"name":"machine","physical":100,"magical":100}], "equipedConditions":["fist"], "levelCondition":115},
+			{"killers":[{"name":"machine","physical":100,"magical":100}], "equipedConditions":["whip"], "levelCondition":115},
 			{"resist":[{"name":"dark","percent":50}], "equipedConditions":["gun"], "levelCondition":115},
 			{"resist":[{"name":"dark","percent":50}], "equipedConditions":["throwing"], "levelCondition":115},
-			{"killers":[{"name":"bird","physical":75,"magical":75}], "equipedConditions":["gun"], "levelCondition":115},
-			{"killers":[{"name":"bird","physical":75,"magical":75}], "equipedConditions":["throwing"], "levelCondition":115},
+			{"killers":[{"name":"bird","physical":100,"magical":100}], "equipedConditions":["gun"], "levelCondition":115},
+			{"killers":[{"name":"bird","physical":100,"magical":100}], "equipedConditions":["throwing"], "levelCondition":115},
+			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["308007300"], "levelCondition":120},
 			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["407003600"], "levelCondition":120},
 			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["407003500"], "levelCondition":120},
 			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["404003100"], "levelCondition":120},
 			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["402001800"], "levelCondition":120},
 			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["409008100"], "levelCondition":120},
-			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["304001100"], "levelCondition":120}
+			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["304001100"], "levelCondition":120},
+			{"dualWielding":{"atk":120}, "levelCondition":120},
+			{"hp%":50, "mp%":40, "atk%":40, "def%":40, "spr%":40, "levelCondition":120},
+			{"special":["dualWield"], "levelCondition":120},
+			{"improvedDW":true, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Gilgamesh",
@@ -14001,16 +14010,153 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["雪月花","武器コレクター","三対の剣"],
+			"enhancementSkills":["雪月花","武器コレクター","三対の剣","武人の生き様"],
 		"enhancements": [
 			{"name":"豪傑の底力","levels":[[],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"lbPerTurn":{"min":3,"max":3}}]]},
-			{"name":"続・漢の奥義","levels":[[],[{"mp%":40,"hp%":40,"skillEnhancement":{"203990":3,"204020":3,"227482":3,"507934":3,"507935":3,"507936":3,"507937":3,"701350":3,"701360":3,"701490":3,"701500":3}}]]},
+			{"name":"続・漢の奥義","levels":[[],[{"mp%":40,"hp%":40,"skillEnhancement":{"203990":3,"204020":3,"227482":3,"507934":3,"507935":3,"507936":3,"507937":3,"701350":3,"701360":3,"701490":3,"701500":3},"atk":800}]]},
 			{"name":"武器コレクター","levels":[[{"equipedConditions":["katana"],"atk%":40},{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":20}],[{"equipedConditions":["katana"],"atk%":40},{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":20},{"equipedConditions":["dagger"],"atk%":20},{"equipedConditions":["spear"],"atk%":20}],[{"equipedConditions":["katana"],"atk%":50},{"equipedConditions":["sword"],"atk%":50},{"equipedConditions":["greatSword"],"atk%":50},{"equipedConditions":["dagger"],"atk%":50},{"equipedConditions":["spear"],"atk%":50}]]}
 		],
 			"skills": [
 				{"hp%":30, "atk%":20, "def%":20, "jumpDamage":100, "mpRefresh":5}
 			]
+		},
+		"7_form": {
+			"name":"Gilgamesh",
+			"jpname":"ギルガメッシュ(FFV)",
+			"id":"205000805",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4719,"mp":195,"atk":193,"def":185,"mag":148,"spr":158},
+				"minStats":{"hp":1557,"mp":64,"atk":64,"def":61,"mag":49,"spr":52},
+				"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["雪月花","武器コレクター","三対の剣","武人の生き様"],
+		"enhancements": [
+			{"name":"豪傑の底力","levels":[[],[{"spr%":40,"mag%":40,"def%":40,"atk%":40,"lbPerTurn":{"min":3,"max":3}}]]},
+			{"name":"続・漢の奥義","levels":[[],[{"mp%":40,"hp%":40,"skillEnhancement":{"203990":3,"204020":3,"227482":3,"507934":3,"507935":3,"507936":3,"507937":3,"701350":3,"701360":3,"701490":3,"701500":3},"atk":800}]]},
+			{"name":"武器コレクター","levels":[[{"equipedConditions":["katana"],"atk%":40},{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":20}],[{"equipedConditions":["katana"],"atk%":40},{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":20},{"equipedConditions":["dagger"],"atk%":20},{"equipedConditions":["spear"],"atk%":20}],[{"equipedConditions":["katana"],"atk%":50},{"equipedConditions":["sword"],"atk%":50},{"equipedConditions":["greatSword"],"atk%":50},{"equipedConditions":["dagger"],"atk%":50},{"equipedConditions":["spear"],"atk%":50}]]}
+		],
+			"skills": [
+				{"hp%":30, "atk%":20, "def%":20, "jumpDamage":100, "mpRefresh":5},
+				{"dualWielding":{"atk":30}, "replaceLb":{"name":"ギルガメッシュチェーンジ！！","minEffects":[{"effect":{"statsBuff":{"atk":271,"def":271,"mag":271,"spr":271},"turns":99999,"area":"SELF","target":"SELF"},"desc":"Increase ATK, DEF, MAG and SPR by 271% for 99999 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"507934","name":"【秘剣】エクスカリバー"},{"id":"507935","name":"【秘剣】村正"},{"id":"507936","name":"【秘剣】斬鉄剣"},{"id":"507937","name":"【秘剣】源氏の刀"}],"turns":4},"area":"SELF","target":"SELF"},"desc":"Gain 【秘剣】 skills  [エクスカリバー (507934) / 斬鉄剣 (507936) / 村正 (507935) / 源氏の刀 (507937)] for 4 turns"},{"effect":{"statsBuff":{"lbDamage":150},"turns":99999,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% to caster for 99999 turns"}],"maxEffects":[{"effect":{"statsBuff":{"atk":300,"def":300,"mag":300,"spr":300},"turns":99999,"area":"SELF","target":"SELF"},"desc":"Increase ATK, DEF, MAG and SPR by 300% for 99999 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"507934","name":"【秘剣】エクスカリバー"},{"id":"507935","name":"【秘剣】村正"},{"id":"507936","name":"【秘剣】斬鉄剣"},{"id":"507937","name":"【秘剣】源氏の刀"}],"turns":4},"area":"SELF","target":"SELF"},"desc":"Gain 【秘剣】 skills  [エクスカリバー (507934) / 斬鉄剣 (507936) / 村正 (507935) / 源氏の刀 (507937)] for 4 turns"},{"effect":{"statsBuff":{"lbDamage":150},"turns":99999,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% to caster for 99999 turns"}]}, "equipedConditions":[["409008100","404003100"]]},
+				{"lbPerTurn":{"min":1,"max":1}, "skillEnhancement":{"203990":1,"204020":1,"701350":1,"701360":1,"701490":1,"701500":1}, "levelCondition":105},
+				{"resist":[{"name":"fire","percent":50}], "equipedConditions":["greatSword"], "levelCondition":115},
+				{"resist":[{"name":"fire","percent":50}], "equipedConditions":["sword"], "levelCondition":115},
+				{"resist":[{"name":"fire","percent":50}], "equipedConditions":["dagger"], "levelCondition":115},
+				{"killers":[{"name":"beast","physical":100,"magical":100}], "equipedConditions":["greatSword"], "levelCondition":115},
+				{"killers":[{"name":"beast","physical":100,"magical":100}], "equipedConditions":["sword"], "levelCondition":115},
+				{"killers":[{"name":"beast","physical":100,"magical":100}], "equipedConditions":["dagger"], "levelCondition":115},
+				{"resist":[{"name":"ice","percent":50}], "equipedConditions":["katana"], "levelCondition":115},
+				{"killers":[{"name":"human","physical":100,"magical":100}], "equipedConditions":["katana"], "levelCondition":115},
+				{"resist":[{"name":"wind","percent":50}], "equipedConditions":["rod"], "levelCondition":115},
+				{"resist":[{"name":"wind","percent":50}], "equipedConditions":["staff"], "levelCondition":115},
+				{"killers":[{"name":"demon","physical":100,"magical":100}], "equipedConditions":["rod"], "levelCondition":115},
+				{"killers":[{"name":"demon","physical":100,"magical":100}], "equipedConditions":["staff"], "levelCondition":115},
+				{"resist":[{"name":"water","percent":50}], "equipedConditions":["harp"], "levelCondition":115},
+				{"resist":[{"name":"water","percent":50}], "equipedConditions":["bow"], "levelCondition":115},
+				{"killers":[{"name":"undead","physical":100,"magical":100}], "equipedConditions":["harp"], "levelCondition":115},
+				{"killers":[{"name":"undead","physical":100,"magical":100}], "equipedConditions":["bow"], "levelCondition":115},
+				{"resist":[{"name":"earth","percent":50}], "equipedConditions":["mace"], "levelCondition":115},
+				{"resist":[{"name":"earth","percent":50}], "equipedConditions":["hammer"], "levelCondition":115},
+				{"resist":[{"name":"earth","percent":50}], "equipedConditions":["axe"], "levelCondition":115},
+				{"killers":[{"name":"stone","physical":100,"magical":100}], "equipedConditions":["mace"], "levelCondition":115},
+				{"killers":[{"name":"stone","physical":100,"magical":100}], "equipedConditions":["hammer"], "levelCondition":115},
+				{"killers":[{"name":"stone","physical":100,"magical":100}], "equipedConditions":["axe"], "levelCondition":115},
+				{"resist":[{"name":"light","percent":50}], "equipedConditions":["spear"], "levelCondition":115},
+				{"killers":[{"name":"dragon","physical":100,"magical":100}], "equipedConditions":["spear"], "levelCondition":115},
+				{"resist":[{"name":"lightning","percent":50}], "equipedConditions":["fist"], "levelCondition":115},
+				{"resist":[{"name":"lightning","percent":50}], "equipedConditions":["whip"], "levelCondition":115},
+				{"killers":[{"name":"machine","physical":100,"magical":100}], "equipedConditions":["fist"], "levelCondition":115},
+				{"killers":[{"name":"machine","physical":100,"magical":100}], "equipedConditions":["whip"], "levelCondition":115},
+				{"resist":[{"name":"dark","percent":50}], "equipedConditions":["gun"], "levelCondition":115},
+				{"resist":[{"name":"dark","percent":50}], "equipedConditions":["throwing"], "levelCondition":115},
+				{"killers":[{"name":"bird","physical":100,"magical":100}], "equipedConditions":["gun"], "levelCondition":115},
+				{"killers":[{"name":"bird","physical":100,"magical":100}], "equipedConditions":["throwing"], "levelCondition":115},
+				{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["308007300"], "levelCondition":120},
+				{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["407003600"], "levelCondition":120},
+				{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["407003500"], "levelCondition":120},
+				{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["404003100"], "levelCondition":120},
+				{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["402001800"], "levelCondition":120},
+				{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["409008100"], "levelCondition":120},
+				{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["304001100"], "levelCondition":120}
+			]
 		}
+	},
+	"205000827": {
+		"name":"ギルガメッシュ(FFV) BS",
+		"jpname":"ギルガメッシュ(FFV) BS",
+		"id":"205000827",
+		"braveShifted":"205000805",
+		"exAwakening": [{"hp":613,"mp":25,"atk":32,"def":24,"mag":19,"spr":20},{"hp":471,"mp":19,"atk":25,"def":18,"mag":14,"spr":15},{"hp":330,"mp":13,"atk":17,"def":12,"mag":10,"spr":11}],
+		"fragmentId": "250000640",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5100,"mp":222,"atk":265,"def":196,"mag":162,"spr":182},
+			"minStats":{"hp":1683,"mp":73,"atk":87,"def":65,"mag":53,"spr":60},
+			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["自慢の武具","【秘剣】天の叢雲"],
+		"enhancements": [
+			{"name":"自慢の武具","levels":[[{"lbDamage":50,"levelCondition":120}],[{"lbDamage":75,"levelCondition":120}],[{"lbDamage":100,"levelCondition":120}],[{"lbDamage":125,"levelCondition":120}],[{"lbDamage":150,"levelCondition":120}]]}
+		],
+		"skills": [
+			{"resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
+			{"hp%":50, "mp%":40, "atk%":40, "def%":40, "spr%":40, "levelCondition":120},
+			{"resist":[{"name":"lightning","percent":50}], "equipedConditions":["fist"], "levelCondition":120},
+			{"resist":[{"name":"lightning","percent":50}], "equipedConditions":["whip"], "levelCondition":120},
+			{"killers":[{"name":"machine","physical":100,"magical":100}], "equipedConditions":["fist"], "levelCondition":120},
+			{"killers":[{"name":"machine","physical":100,"magical":100}], "equipedConditions":["whip"], "levelCondition":120},
+			{"resist":[{"name":"light","percent":50}], "equipedConditions":["spear"], "levelCondition":120},
+			{"killers":[{"name":"dragon","physical":100,"magical":100}], "equipedConditions":["spear"], "levelCondition":120},
+			{"resist":[{"name":"earth","percent":50}], "equipedConditions":["mace"], "levelCondition":120},
+			{"resist":[{"name":"earth","percent":50}], "equipedConditions":["hammer"], "levelCondition":120},
+			{"resist":[{"name":"earth","percent":50}], "equipedConditions":["axe"], "levelCondition":120},
+			{"killers":[{"name":"stone","physical":100,"magical":100}], "equipedConditions":["mace"], "levelCondition":120},
+			{"killers":[{"name":"stone","physical":100,"magical":100}], "equipedConditions":["hammer"], "levelCondition":120},
+			{"killers":[{"name":"stone","physical":100,"magical":100}], "equipedConditions":["axe"], "levelCondition":120},
+			{"resist":[{"name":"water","percent":50}], "equipedConditions":["harp"], "levelCondition":120},
+			{"resist":[{"name":"water","percent":50}], "equipedConditions":["bow"], "levelCondition":120},
+			{"killers":[{"name":"undead","physical":100,"magical":100}], "equipedConditions":["harp"], "levelCondition":120},
+			{"killers":[{"name":"undead","physical":100,"magical":100}], "equipedConditions":["bow"], "levelCondition":120},
+			{"resist":[{"name":"wind","percent":50}], "equipedConditions":["rod"], "levelCondition":120},
+			{"resist":[{"name":"wind","percent":50}], "equipedConditions":["staff"], "levelCondition":120},
+			{"killers":[{"name":"demon","physical":100,"magical":100}], "equipedConditions":["rod"], "levelCondition":120},
+			{"killers":[{"name":"demon","physical":100,"magical":100}], "equipedConditions":["staff"], "levelCondition":120},
+			{"resist":[{"name":"ice","percent":50}], "equipedConditions":["katana"], "levelCondition":120},
+			{"killers":[{"name":"human","physical":100,"magical":100}], "equipedConditions":["katana"], "levelCondition":120},
+			{"resist":[{"name":"fire","percent":50}], "equipedConditions":["greatSword"], "levelCondition":120},
+			{"resist":[{"name":"fire","percent":50}], "equipedConditions":["sword"], "levelCondition":120},
+			{"resist":[{"name":"fire","percent":50}], "equipedConditions":["dagger"], "levelCondition":120},
+			{"killers":[{"name":"beast","physical":100,"magical":100}], "equipedConditions":["greatSword"], "levelCondition":120},
+			{"killers":[{"name":"beast","physical":100,"magical":100}], "equipedConditions":["sword"], "levelCondition":120},
+			{"killers":[{"name":"beast","physical":100,"magical":100}], "equipedConditions":["dagger"], "levelCondition":120},
+			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["308007300"], "levelCondition":120},
+			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["407003600"], "levelCondition":120},
+			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["407003500"], "levelCondition":120},
+			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["404003100"], "levelCondition":120},
+			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["402001800"], "levelCondition":120},
+			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["409008100"], "levelCondition":120},
+			{"hp%":15, "mp%":15, "atk%":15, "def%":15, "mag%":15, "spr%":15, "equipedConditions":["304001100"], "levelCondition":120},
+			{"improvedDW":true, "levelCondition":120},
+			{"lbFillRate":100, "mpRefresh":7, "levelCondition":120},
+			{"hp%":70, "mp%":70, "atk%":160, "def%":70, "levelCondition":120},
+			{"dualWielding":{"atk":30}, "levelCondition":120},
+			{"lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["409008100","404003100"]], "levelCondition":120},
+			{"dualWielding":{"atk":120}, "levelCondition":120},
+			{"resist":[{"name":"dark","percent":50}], "equipedConditions":["gun"], "levelCondition":120},
+			{"resist":[{"name":"dark","percent":50}], "equipedConditions":["throwing"], "levelCondition":120},
+			{"killers":[{"name":"bird","physical":100,"magical":100}], "equipedConditions":["gun"], "levelCondition":120},
+			{"killers":[{"name":"bird","physical":100,"magical":100}], "equipedConditions":["throwing"], "levelCondition":120}
+		]
 	},
 	"205000905": {
 		"name":"Dark Mage Exdeath",
@@ -14122,27 +14268,34 @@
 		"name":"Warrior of Light Bartz",
 		"jpname":"光の戦士バッツ",
 		"id":"205001105",
-		"max_rarity":"7",
+		"braveShift":"205001127",
+		"exAwakening": [{"hp":626,"mp":27,"atk":29,"def":22,"mag":19,"spr":24},{"hp":481,"mp":21,"atk":22,"def":17,"mag":15,"spr":18},{"hp":337,"mp":14,"atk":15,"def":12,"mag":10,"spr":12}],
+		"fragmentId": "250000630",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4818,"mp":213,"atk":207,"def":174,"mag":151,"spr":185},
-			"minStats":{"hp":1590,"mp":70,"atk":68,"def":57,"mag":50,"spr":61},
+			"maxStats":{"hp":4818,"mp":213,"atk":227,"def":174,"mag":151,"spr":185},
+			"minStats":{"hp":1590,"mp":70,"atk":75,"def":57,"mag":50,"spr":61},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流"],
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流","天昇の剣","探求の剣","まっすぐな正義感"],
 		"enhancements": [
 			{"name":"はるかなる故郷","levels":[[],[{"lbFillRate":50,"lbDamage":30}]]},
-			{"name":"自由な冒険家","levels":[[{"dualWielding":{"atk":50}}],[{"dualWielding":{"atk":50},"atk%":30,"mp%":20,"hp%":20}],[{"dualWielding":{"atk":100},"atk%":30,"mp%":20,"hp%":20}]]}
+			{"name":"自由な冒険家","levels":[[{"dualWielding":{"atk":50}}],[{"dualWielding":{"atk":50},"atk%":30,"mp%":20,"hp%":20}],[{"dualWielding":{"atk":100},"atk%":30,"mp%":20,"hp%":20}]]},
+			{"name":"まっすぐな正義感","levels":[[{"atk":300,"skillEnhancement":{"230661":10.6,"230666":30,"230670":7},"levelCondition":120}],[{"atk":350,"skillEnhancement":{"230661":14.6,"230666":38,"230670":9},"levelCondition":120}],[{"atk":400,"skillEnhancement":{"230661":18.6,"230666":45,"230670":11},"levelCondition":120}],[{"atk":450,"skillEnhancement":{"230661":22.6,"230666":53,"230670":13},"levelCondition":120}],[{"atk":500,"skillEnhancement":{"230661":26.6,"230666":60,"230670":15},"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":40, "mp%":30, "atk%":30, "def%":30, "mag%":10, "spr%":30, "improvedDW":true, "lbFillRate":150, "resist":[{"name":"wind","percent":50},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"hp%":20, "atk%":30, "dualWielding":{"atk":50}, "resist":[{"name":"wind","percent":50}], "equipedConditions":[["409029600","302008000"]]},
 			{"spr%":20, "levelCondition":115},
-			{"atk%":40, "skillEnhancement":{"230661":1.5,"230664":1.5,"230665":1.5,"230666":1.5,"509623":1.5,"509624":0.5,"512882":1.5,"512883":1.5,"708591":1.5,"708592":1.5,"708593":1.5,"708594":1.5}, "levelCondition":120}
+			{"atk%":40, "skillEnhancement":{"230661":1.5,"230664":1.5,"230665":1.5,"230666":1.5,"509623":1.5,"509624":0.5,"512882":1.5,"512883":1.5,"708591":1.5,"708592":1.5,"708593":1.5,"708594":1.5}, "levelCondition":120},
+			{"replaceLb":{"name":"全ての伝説の剣","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":96},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (96x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Use 全ての伝説の剣 (509655) next turn on caster"},{"effect":{"skillEnhancement":{"509624":10},"turn":99999},"desc":"Increase damage of ブレイブブレイド (509624) by 1000% for 99999 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":135},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (135x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Use 全ての伝説の剣 (509655) next turn on caster"},{"effect":{"skillEnhancement":{"509624":10},"turn":99999},"desc":"Increase damage of ブレイブブレイド (509624) by 1000% for 99999 turns"}],"frames":[172],"move":"walk"}, "levelCondition":120},
+			{"killers":[{"name":"beast","physical":100},{"name":"plant","physical":100}], "lbDamage":150, "levelCondition":120},
+			{"hp%":20, "mp%":20, "atk%":50, "def%":20, "spr%":20, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Warrior of Light Bartz",
@@ -14159,7 +14312,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流"],
+			"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流","天昇の剣","探求の剣","まっすぐな正義感"],
 		"enhancements": [
 			{"name":"はるかなる故郷","levels":[[],[{"lbFillRate":50,"lbDamage":30}]]},
 			{"name":"自由な冒険家","levels":[[{"dualWielding":{"atk":50}}],[{"dualWielding":{"atk":50},"atk%":30,"mp%":20,"hp%":20}],[{"dualWielding":{"atk":100},"atk%":30,"mp%":20,"hp%":20}]]}
@@ -14168,7 +14321,68 @@
 				{"hp%":40, "mp%":30, "atk%":30, "def%":30, "mag%":10, "spr%":30, "improvedDW":true, "lbFillRate":150, "resist":[{"name":"wind","percent":50},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["sword"]}
 			]
+		},
+		"7_form": {
+			"name":"Warrior of Light Bartz",
+			"jpname":"光の戦士バッツ",
+			"id":"205001105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4818,"mp":213,"atk":207,"def":174,"mag":151,"spr":185},
+				"minStats":{"hp":1590,"mp":70,"atk":68,"def":57,"mag":50,"spr":61},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["魔法剣士：ハリケーントマホーク","自由な冒険家","踊り子：つるぎのまい","探求の風","魔法剣二刀流","天昇の剣","探求の剣","まっすぐな正義感"],
+		"enhancements": [
+			{"name":"はるかなる故郷","levels":[[],[{"lbFillRate":50,"lbDamage":30}]]},
+			{"name":"自由な冒険家","levels":[[{"dualWielding":{"atk":50}}],[{"dualWielding":{"atk":50},"atk%":30,"mp%":20,"hp%":20}],[{"dualWielding":{"atk":100},"atk%":30,"mp%":20,"hp%":20}]]}
+		],
+			"skills": [
+				{"hp%":40, "mp%":30, "atk%":30, "def%":30, "mag%":10, "spr%":30, "improvedDW":true, "lbFillRate":150, "resist":[{"name":"wind","percent":50},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "special":["dualWield"]},
+				{"atk%":50, "equipedConditions":["sword"]},
+				{"hp%":20, "atk%":30, "dualWielding":{"atk":50}, "resist":[{"name":"wind","percent":50}], "equipedConditions":[["409029600","302008000"]]},
+				{"spr%":20, "levelCondition":115},
+				{"atk%":40, "skillEnhancement":{"230661":1.5,"230664":1.5,"230665":1.5,"230666":1.5,"509623":1.5,"509624":0.5,"512882":1.5,"512883":1.5,"708591":1.5,"708592":1.5,"708593":1.5,"708594":1.5}, "levelCondition":120}
+			]
 		}
+	},
+	"205001127": {
+		"name":"光の戦士バッツ BS",
+		"jpname":"光の戦士バッツ BS",
+		"id":"205001127",
+		"braveShifted":"205001105",
+		"exAwakening": [{"hp":626,"mp":27,"atk":29,"def":22,"mag":19,"spr":24},{"hp":481,"mp":21,"atk":22,"def":17,"mag":15,"spr":18},{"hp":337,"mp":14,"atk":15,"def":12,"mag":10,"spr":12}],
+		"fragmentId": "250000630",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4970,"mp":224,"atk":265,"def":184,"mag":151,"spr":195},
+			"minStats":{"hp":1640,"mp":74,"atk":87,"def":61,"mag":50,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["天昇の剣","湧きおこる活力","きりひらく風の剣"],
+		"enhancements": [
+			{"name":"湧きおこる活力","levels":[[{"atk":300,"lbPerTurn":{"min":3,"max":3},"levelCondition":120}],[{"atk":350,"lbPerTurn":{"min":3,"max":3},"levelCondition":120}],[{"atk":400,"lbPerTurn":{"min":4,"max":4},"levelCondition":120}],[{"atk":450,"lbPerTurn":{"min":4,"max":4},"levelCondition":120}],[{"atk":500,"lbPerTurn":{"min":5,"max":5},"levelCondition":120}]]}
+		],
+		"skills": [
+			{"resist":[{"name":"wind","percent":100},{"name":"confuse","percent":100}]},
+			{"improvedDW":true, "levelCondition":120},
+			{"special":["dualWield"], "levelCondition":120},
+			{"lbFillRate":150, "mpRefresh":7, "levelCondition":120},
+			{"atk%":150, "dualWielding":{"atk":150}, "levelCondition":120},
+			{"hp%":60, "mp%":50, "def%":50, "spr%":50, "levelCondition":120},
+			{"equipedConditions":[["409029600","302008000"]], "levelCondition":120},
+			{"killers":[{"name":"beast","physical":100},{"name":"plant","physical":100}], "lbDamage":150, "levelCondition":120},
+			{"hp%":20, "mp%":20, "atk%":50, "def%":20, "spr%":20, "levelCondition":120}
+		]
 	},
 	"205001205": {
 		"name":"Warrior of Light Lenna",
@@ -14268,6 +14482,102 @@
 		],
 			"skills": [
 				{"hp%":20, "mp%":40, "def%":20, "mag%":80, "spr%":60, "evoMag":30, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7}
+			]
+		}
+	},
+	"205001407": {
+		"name":"Faris -Neo Vision-",
+		"jpname":"ファリス-Neo Vision-",
+		"id":"205001407",
+		"braveShift":"205001417",
+		"exAwakening": [{"hp":624,"mp":35,"atk":21,"def":24,"mag":68,"spr":28},{"hp":480,"mp":27,"atk":16,"def":19,"mag":52,"spr":21},{"hp":336,"mp":18,"atk":11,"def":13,"mag":36,"spr":15}],
+		"fragmentId": "250000620",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":270,"atk":168,"def":190,"mag":260,"spr":216},
+			"minStats":{"hp":1584,"mp":89,"atk":55,"def":63,"mag":86,"spr":71},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","rod","gun","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["砲撃Lv1"],
+		"skills": [
+			{"hp%":70, "mp%":70, "atk%":70, "def%":70, "mag%":200, "spr%":70, "evoMag":60, "evokeDamageBoost":{"all":180}, "dualWielding":{"mag":150}, "improvedDW":true, "resist":[{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"aquatic","physical":150,"magical":150}], "lbDamage":100, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "special":["dualWield"]},
+			{"equipedConditions":[["504239430","302013900"]]}
+		]
+	},
+	"205001417": {
+		"name":"Faris -Neo Vision- BS",
+		"jpname":"ファリス-Neo Vision- BS",
+		"id":"205001417",
+		"braveShifted":"205001407",
+		"exAwakening": [{"hp":624,"mp":35,"atk":21,"def":24,"mag":68,"spr":28},{"hp":480,"mp":27,"atk":16,"def":19,"mag":52,"spr":21},{"hp":336,"mp":18,"atk":11,"def":13,"mag":36,"spr":15}],
+		"fragmentId": "250000620",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":270,"atk":250,"def":216,"mag":168,"spr":191},
+			"minStats":{"hp":1584,"mp":89,"atk":83,"def":71,"mag":55,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","rod","gun","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["勇気の剣"],
+		"skills": [
+			{"hp%":70, "mp%":70, "atk%":200, "def%":70, "mag%":70, "spr%":70, "evoMag":60, "evokeDamageBoost":{"all":180}, "dualWielding":{"atk":150}, "improvedDW":true, "resist":[{"name":"fire","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"aquatic","physical":150,"magical":150}], "mpRefresh":7, "lbDamage":100, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "special":["dualWield"]},
+			{"equipedConditions":[["504239430","302013900"]]}
+		]
+	},
+	"205001505": {
+		"name":"Xezat",
+		"jpname":"ゼザ",
+		"id":"205001505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5100,"mp":240,"atk":151,"def":222,"mag":124,"spr":232},
+			"minStats":{"hp":1683,"mp":79,"atk":50,"def":73,"mag":41,"spr":77},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","staff","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["シェルガ","プロテガ"],
+		"enhancements": [
+			{"name":"不屈の闘志","levels":[[],[{"evade":{"magical":40}}]]}
+		],
+		"skills": [
+			{"dualWielding":{"spr":150}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"charm","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100}], "mpRefresh":7, "special":["dualWield"]},
+			{"hp%":50, "mp%":50, "def%":50, "spr%":50, "equipedConditions":["sword"]},
+			{"hp%":50, "mp%":50, "def%":50, "spr%":50, "equipedConditions":["mace"]},
+			{"mpRefresh":7, "equipedConditions":[["409048700","307003400"]]}
+		],
+		"6_form": {
+			"name":"Xezat",
+			"jpname":"ゼザ",
+			"id":"205001505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3923,"mp":184,"atk":116,"def":170,"mag":95,"spr":178},
+				"minStats":{"hp":1295,"mp":61,"atk":38,"def":56,"mag":31,"spr":59},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["sword","staff","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["シェルガ","プロテガ"],
+		"enhancements": [
+			{"name":"不屈の闘志","levels":[[],[{"evade":{"magical":40}}]]}
+		],
+			"skills": [
+				{"dualWielding":{"spr":150}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"charm","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100}], "mpRefresh":7, "special":["dualWield"]},
+				{"hp%":50, "mp%":50, "def%":50, "spr%":50, "equipedConditions":["sword"]},
+				{"hp%":50, "mp%":50, "def%":50, "spr%":50, "equipedConditions":["mace"]}
 			]
 		}
 	},
