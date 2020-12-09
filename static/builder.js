@@ -520,7 +520,7 @@ function readStatsValues() {
     });
     baseValues.elementBuffs = {};
     elementList.forEach(element => {
-        const elementBuff =parseInt($(".elementBuffs ." + element + " input").val()) || 0;
+        const elementBuff = parseInt($(".elementBuffs ." + element + " input").val()) || 0;
         if (elementBuff) {
             baseValues.elementBuffs[element] = elementBuff;
         }
@@ -626,10 +626,18 @@ function readEnnemyStats() {
     if ($("#monsterStats .spr .breakIcon").hasClass("glyphicon-ban-circle")) {
         enemyBreakabilities.spr = false;
     }
+
+    weaponList.forEach(weapon => {
+        const weaponImperil = parseInt($(".weaponImperils ." + weapon + " input").val()) || 0;
+        if (weaponImperil) {
+            ennemyImperils[weapon] = weaponImperil;
+        }
+    });
+
     ennemyStats = new EnnemyStats(getSelectedValuesFor("races"), monsterAtk, monsterMag, monsterDef, monsterSpr, ennemyResist, ennemyBreaks, enemyBuffs, enemyBreakabilities, ennemyImperils, monsterAttackFormula);
 
     $("#negativeBreakImperilWarning").toggleClass("hidden", ennemyBreaks.atk >= 0 && ennemyBreaks.def >= 0 && ennemyBreaks.mag >= 0 && ennemyBreaks.spr >= 0 && !negativeImperil);
-
+    updateWeaponImperilsSummary();
 }
 
 
@@ -3241,71 +3249,82 @@ async function loadStateHashAndBuild(data, importMode = false) {
 
     if (!importMode) {
         if (data.monster) {
-          select("races", data.monster.races);
-          for (var element in data.monster.elementalResist) {
-              if (data.monster.elementalResist[element] == 0) {
-                  $("#elementalResists ." + element + " input.elementalResist").val("");
-              } else {
-                  $("#elementalResists ." + element + " input.elementalResist").val(data.monster.elementalResist[element]);
-              }
-              if (data.monster.imperils && data.monster.imperils[element]) {
-                  $("#elementalResists ." + element + " input.imperil").val(data.monster.imperils[element]);
-              }
-          }
+            select("races", data.monster.races);
+            for (var element in data.monster.elementalResist) {
+                if (data.monster.elementalResist[element] == 0) {
+                    $("#elementalResists ." + element + " input.elementalResist").val("");
+                } else {
+                    $("#elementalResists ." + element + " input.elementalResist").val(data.monster.elementalResist[element]);
+                }
+                if (data.monster.imperils && data.monster.imperils[element]) {
+                    $("#elementalResists ." + element + " input.imperil").val(data.monster.imperils[element]);
+                }
+            }
 
-          if (data.monster.atk) {
-              $("#monsterStats .atk .stat").val(data.monster.atk);
-          }
-          if (data.monster.mag) {
-              $("#monsterStats .mag .stat").val(data.monster.mag);
-          }
-          if (data.monster.def) {
-              $("#monsterStats .def .stat").val(data.monster.def);
-          }
-          if (data.monster.spr) {
-              $("#monsterStats .spr .stat").val(data.monster.spr);
-          }
-          if (data.monster.breaks) {
-              if (data.monster.breaks.atk) {
+            if (data.monster.imperils) {
+                for (var type in data.monster.imperils) {
+                    if (elementList.includes(type) && data.monster.imperils[type]) {
+                        $("#elementalResists ." + type + " input.imperil").val(data.monster.imperils[type]);
+                    }
+                    if (weaponList.includes(type) && data.monster.imperils[type]) {
+                        $(".weaponImperils ." + type + " input").val(data.monster.imperils[type]);
+                    }
+                }
+            }
+
+            if (data.monster.atk) {
+                $("#monsterStats .atk .stat").val(data.monster.atk);
+            }
+            if (data.monster.mag) {
+                $("#monsterStats .mag .stat").val(data.monster.mag);
+            }
+            if (data.monster.def) {
+                $("#monsterStats .def .stat").val(data.monster.def);
+            }
+            if (data.monster.spr) {
+                $("#monsterStats .spr .stat").val(data.monster.spr);
+            }
+            if (data.monster.breaks) {
+                if (data.monster.breaks.atk) {
                   $("#monsterStats .atk .break").val(data.monster.breaks.atk);
-              }
-              if (data.monster.breaks.mag) {
+                }
+                if (data.monster.breaks.mag) {
                   $("#monsterStats .mag .break").val(data.monster.breaks.mag);
-              }
-              if (data.monster.breaks.def) {
+                }
+                if (data.monster.breaks.def) {
                   $("#monsterStats .def .break").val(data.monster.breaks.def);
-              }
-              if (data.monster.breaks.spr) {
+                }
+                if (data.monster.breaks.spr) {
                   $("#monsterStats .spr .break").val(data.monster.breaks.spr);
-              }
-          }
-          if (data.monster.buffs) {
-              if (data.monster.buffs.atk) {
+                }
+            }
+            if (data.monster.buffs) {
+                if (data.monster.buffs.atk) {
                   $("#monsterStats .atk .buff").val(data.monster.buffs.atk);
-              }
-              if (data.monster.buffs.mag) {
+                }
+                if (data.monster.buffs.mag) {
                   $("#monsterStats .mag .buff").val(data.monster.buffs.mag);
-              }
-              if (data.monster.buffs.def) {
+                }
+                if (data.monster.buffs.def) {
                   $("#monsterStats .def .buff").val(data.monster.buffs.def);
-              }
-              if (data.monster.buffs.spr) {
+                }
+                if (data.monster.buffs.spr) {
                   $("#monsterStats .spr .buff").val(data.monster.buffs.spr);
-              }
-          }
-          if (data.monster.breakability) {
-              setMonsterStatBreakibility('atk', data.monster.breakability.atk);
-              setMonsterStatBreakibility('mag', data.monster.breakability.mag);
-              setMonsterStatBreakibility('def', data.monster.breakability.def);
-              setMonsterStatBreakibility('spr', data.monster.breakability.spr);
-          }
-          if (data.monster.attackFormula) {
-              setMonsterAttackFormula(parseFormula(data.monster.attackFormula, null));
-          }
-          $('.equipments select option[value="' + data.itemSelector.mainSelector + '"]').prop("selected", true);
-          for (var i = 0; i < data.itemSelector.additionalFilters.length; i++) {
+                }
+            }
+            if (data.monster.breakability) {
+                setMonsterStatBreakibility('atk', data.monster.breakability.atk);
+                setMonsterStatBreakibility('mag', data.monster.breakability.mag);
+                setMonsterStatBreakibility('def', data.monster.breakability.def);
+                setMonsterStatBreakibility('spr', data.monster.breakability.spr);
+            }
+            if (data.monster.attackFormula) {
+                setMonsterAttackFormula(parseFormula(data.monster.attackFormula, null));
+            }
+            $('.equipments select option[value="' + data.itemSelector.mainSelector + '"]').prop("selected", true);
+            for (var i = 0; i < data.itemSelector.additionalFilters.length; i++) {
             $("#" + data.itemSelector.additionalFilters[i]).prop('checked', true);
-          }
+            }
         }
     }
 
@@ -4218,6 +4237,11 @@ function switchDisplayKillerBuffs() {
     $('.unit.panel .killerBuffsSummary').toggleClass('hidden');
 }
 
+function switchDisplayWeaponImperils() {
+    $('.weaponImperils').toggleClass('hidden');
+    $('.weaponImperilsSummary').toggleClass('hidden');
+}
+
 function onKillerBuffChange() {
     killerList.forEach(killer => {
         let input = $('.killerBuffs.physical .' + killer + ' input');
@@ -4240,6 +4264,14 @@ function updateKillerBuffSummary() {
     let killerHtml = getKillerHtml(builds[currentUnitIndex].baseValues["killerBuffs"]);
     $('.unit.panel .killerBuffsSummary .physical').html(killerHtml.physical);
     $('.unit.panel .killerBuffsSummary .magical').html(killerHtml.magical);
+}
+
+function updateWeaponImperilsSummary() {
+    let weaponImperilsHtml = "";
+    weaponList.filter(weaponType => ennemyStats.imperils[weaponType]).forEach(weaponType => {
+        weaponImperilsHtml += `<i class="img img-equipment-${weaponType}"></i><span class="value">${ennemyStats.imperils[weaponType]}%</span>`;
+    });
+    $('.weaponImperilsSummary').html(weaponImperilsHtml);
 }
 
 const effectKeysSupported = ["turns", "damage", "statsBuff", "heal", "healOverTurn", "imperil", "break", "globalMitigation", "physicalMitigaiton", "magicalMitigation", "imbue", "dispel", "autoReraise", "restoreMp", "inflict", "cureAilments", "area","target","frames","repartition", "multicast"];
@@ -4579,6 +4611,7 @@ function startPage() {
     $(".killerBuffs input").on('input',$.debounce(300,function() {onKillerBuffChange();}));
     $(".elementBuffs input").on('input',$.debounce(300,function() {logCurrentBuild();;}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
+    $(".weaponImperils input").on('input',$.debounce(300,function() {logCurrentBuild();;}));
     $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
     $("#paramChallengeSelect").change(function() {
         currentBestParamChallengeBuild.value = 0;

@@ -1174,13 +1174,45 @@ i.img.img-slot-hand.leftHand {
     margin-left: 5px;
 }
 
-.killerBuffs, .elementBuffs {
+.killerBuffs, .elementBuffs, .weaponImperils {
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
 }
 
-.killerBuff, .elementBuff {
+.weaponImperilsContainer {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.weaponImperilsContainer .line {
+    display: flex;
+    align-items: center;
+}
+
+#weaponImperilsSwitch, .weaponImperilsSummary, .weaponImperils {
+    margin-bottom: 5px;
+}
+
+#weaponImperilsSwitch {
+    flex-shrink: 0;
+}
+
+.weaponImperilsSummary {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.weaponImperilsSummary .value {
+    margin-right: 5px;
+}
+.weaponImperilsSummary i.img {
+    height: 38px;
+    width: 34px;
+}
+
+
+.killerBuff, .elementBuff, .weaponImperil {
     display: flex;
     margin-right: 5px;
 }
@@ -1192,12 +1224,20 @@ i.img.img-slot-hand.leftHand {
     z-index: 2;
 }
 
-.killerBuff input, .elementBuff input {
+.weaponImperils i.img {
+    height: 38px;
+    width: 34px;
+    margin-right: -6px;
+    z-index: 2;
+    margin-top: -2px;
+}
+
+.killerBuff input, .elementBuff input, .weaponImperil input {
     width: 70px;
     text-align: right;
 }
 
-.killerBuff .inputWithIcon .leftIcon, .elementBuff .inputWithIcon .leftIcon {
+.killerBuff .inputWithIcon .leftIcon, .elementBuff .inputWithIcon .leftIcon, .weaponImperil .inputWithIcon .leftIcon {
     left: 7px;
 }
 

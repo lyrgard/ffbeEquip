@@ -410,6 +410,15 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             context.savedValues.resistModifier = resistModifier;
         }
 
+        let weaponImperilCoef;
+        if (context.savedValues.hasOwnProperty("weaponImperilCoef")) {
+            weaponImperilCoef = context.savedValues.weaponImperilCoef;
+        } else {
+            weaponImperilCoef = getWeaponImperilCoef(itemAndPassives[0], itemAndPassives[1], ennemyStats);
+            context.savedValues.weaponImperilCoef = weaponImperilCoef;
+        }
+
+
         let elementBoostModifier;
         if (context.savedValues.hasOwnProperty("elementBoostModifier")) {
             elementBoostModifier = context.savedValues.hasOwnProperty("elementBoostModifier");
@@ -467,10 +476,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             defendingStatValue = defendingStatValue * (1 - formula.value.ignore[defendingStat]/100);
         }
 
-        var baseDamage = coef * (statValueToUse * statValueToUse) * evoMagMultiplier * evokeDamageBoostMultiplier * resistModifier * elementBoostModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 + (ennemyStats.buffs[defendingStat] - ennemyStats.breaks[defendingStat]) / 100));
+        var baseDamage = coef * (statValueToUse * statValueToUse) * evoMagMultiplier * evokeDamageBoostMultiplier * resistModifier * weaponImperilCoef * elementBoostModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 + (ennemyStats.buffs[defendingStat] - ennemyStats.breaks[defendingStat]) / 100));
         if (formula.value.mecanism == "hybrid") {
             var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
-            var magDamage = coef * (magStat * magStat) * resistModifier * elementBoostModifier * killerMultiplicator / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
+            var magDamage = coef * (magStat * magStat) * resistModifier * weaponImperilCoef * elementBoostModifier * killerMultiplicator / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
 
             result = {
                 "min": (baseDamage * variance.min + magDamage) * context.damageMultiplier.min / 2,
@@ -482,7 +491,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             if (formula.value.sprSplit > 0) {
                 var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
                 let coefIncrease = coef - formula.value.magCoef;
-                var sprDamage = (formula.value.sprCoef + coefIncrease) * (sprStat * sprStat) * evoMagMultiplier * evokeDamageBoostMultiplier * resistModifier / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
+                var sprDamage = (formula.value.sprCoef + coefIncrease) * (sprStat * sprStat) * evoMagMultiplier * evokeDamageBoostMultiplier * weaponImperilCoef * resistModifier * elementBoostModifier / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
             } else {
                 sprDamage = 0;
             }
@@ -1399,6 +1408,21 @@ function getElementCoef(elements, ennemyStats) {
         resistModifier = resistModifier / elements.length;
     }
     return resistModifier;
+}
+
+function getWeaponImperilCoef(weapon1, weapon2, ennemyStats) {
+    let weaponTypes = [];
+    if (weapon1 && weaponList.includes(weapon1.type)) {
+        weaponTypes.push(weapon1.type);
+    }
+    if (weapon2 && weaponList.includes(weapon2.type) && !weaponTypes.includes(weapon2.type)) {
+        weaponTypes.push(weapon2.type);
+    }
+    let weaponImperil = 1;
+    if (weaponTypes.length) {
+        weaponImperil += weaponTypes.map(weaponType => ennemyStats.imperils[weaponType] || 0).reduce((acc, value) => acc + value, 0) / 100 / weaponTypes.length;
+    }
+    return weaponImperil;
 }
 
 function isApplicable(item, unit) {
