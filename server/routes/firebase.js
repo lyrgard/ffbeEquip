@@ -236,6 +236,8 @@ const unitSchema = Joi.object().keys({
         lbFillRate: Joi.object().keys({value: Joi.number().integer()}),
         lbPerTurn: Joi.object().keys({value: Joi.number()}),
         jumpDamage: Joi.object().keys({value: Joi.number().integer()}),
+        evoMag: Joi.object().keys({value: Joi.number().integer()}),
+        evokeDamageBoost: Joi.object().keys({value: Joi.number().integer()}),
         elementResists: Joi.object().keys({
             fire: Joi.number().integer(),
             ice: Joi.number().integer(),

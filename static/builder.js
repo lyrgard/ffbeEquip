@@ -2720,7 +2720,9 @@ const stateHashCalculatedValues = {
     "mpRefresh": "mpRefresh",
     "lbFillRate": "lbFillRate",
     "lbPerTurn": "lbPerTurn",
-    "jumpDamage": "jumpDamage"
+    "jumpDamage": "jumpDamage",
+    "evoMag": "evoMag",
+    "evokeDamageBoost": "evokeDamageBoost.all",
 }
 
 function getUnitStateFromUnitBuild(build, braveShifted = false) {
