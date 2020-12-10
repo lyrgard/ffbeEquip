@@ -1420,7 +1420,7 @@ function getWeaponImperilCoef(weapon1, weapon2, ennemyStats) {
     }
     let weaponImperil = 1;
     if (weaponTypes.length) {
-        weaponImperil += Math.floor(weaponTypes.map(weaponType => ennemyStats.imperils[weaponType] || 0).reduce((acc, value) => acc + value, 0) / 100 / weaponTypes.length);
+        weaponImperil += Math.floor(weaponTypes.map(weaponType => ennemyStats.imperils[weaponType] || 0).reduce((acc, value) => acc + value, 0) / weaponTypes.length) / 100;
     }
     return weaponImperil;
 }
