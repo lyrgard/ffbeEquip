@@ -6,12 +6,15 @@ var unitSearch = [];
 var releasedUnits;
 var dataById;
 
-var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "tankAbilities", "mitigation", "buffs"];
+var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "weaponImperils", "magicalElementDamageBoosts", "physicalElementDamageBoosts", "tankAbilities", "mitigation", "buffs"];
 
 var baseRarity;
 var maxRarity;
 var skillFilter;
 var imperils;
+var physicalElementDamageBoosts;
+var magicalElementDamageBoosts;
+var weaponImperils;
 var breaks;
 var elements;
 var ailments;
@@ -37,6 +40,9 @@ var defaultFilter = {
     "imbues": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb"]},
     "physicalKillers": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
     "magicalKillers": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
+    "physicalElementDamageBoosts": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"], "threshold":null},
+    "magicalElementDamageBoosts": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"], "threshold":null},
+    "weaponImperils": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"], "threshold":null},
     "tankAbilities": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
     "mitigation":{values:[], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]}
 };
@@ -49,7 +55,24 @@ var update = function() {
     updateHash();
 
 
-    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && buffs.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && mitigation.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0 && skillFilter.chainFamily == "none") {
+    if (searchText.length == 0
+        && types.length == 0
+        && elements.values.length == 0
+        && buffs.values.length == 0
+        && ailments.values.length == 0
+        && physicalKillers.values.length == 0
+        && magicalKillers.values.length == 0
+        && imperils.values.length == 0
+        && physicalElementDamageBoosts.values.length == 0
+        && magicalElementDamageBoosts.values.length == 0
+        && weaponImperils.values.length == 0
+        && breaks.values.length == 0
+        && imbues.values.length == 0
+        && tankAbilities.values.length == 0
+        && mitigation.values.length == 0
+        && baseRarity.length == 0
+        && maxRarity.length == 0
+        && skillFilter.chainFamily == "none") {
 
 		// Empty filters => no results
         $("#results").html("");
@@ -59,7 +82,19 @@ var update = function() {
     }
 
 	// filter, sort and display the results
-    displayUnits(sortUnits(filterUnits(unitSearch, onlyShowOwnedUnits, searchText, types, elements, ailments, physicalKillers, magicalKillers, breaks, baseRarity, maxRarity)));
+    displayUnits(sortUnits(filterUnits(
+        unitSearch,
+        onlyShowOwnedUnits,
+        searchText,
+        types,
+        elements,
+        ailments,
+        physicalKillers,
+        magicalKillers,
+        breaks,
+        baseRarity,
+        maxRarity
+    )));
 
 	// If the text search box was used, highlight the corresponding parts of the results
     $("#results").unmark({
@@ -90,7 +125,18 @@ function isOwnedUnit(unit) {
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = "", types = [], elements = [], ailments = [], physicalKillers = [], magicalKillers = [], breaks = [], baseRarity = [], maxRarity = []) {
+var filterUnits = function(searchUnits,
+                           onlyShowOwnedUnits = true,
+                           searchText = "",
+                           types = [],
+                           elements = [],
+                           ailments = [],
+                           physicalKillers = [],
+                           magicalKillers = [],
+                           breaks = [],
+                           baseRarity = [],
+                           maxRarity = []
+) {
     var result = [];
     for (var index = 0, len = searchUnits.length; index < len; index++) {
         var unit = searchUnits[index];
@@ -106,16 +152,22 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
                                             if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
                                                 if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
                                                     if (matchesCriteria(imperils, unit, "imperil")) {
-                                                        if (matchesCriteria(breaks, unit, "break")) {
-                                                            if (matchesCriteria(imbues, unit, "imbue")) {
-                                                                if (matchesCriteria(tankAbilities, unit, null, true)) {
-                                                                    if (matchesCriteria(mitigation, unit, null, true)) {
-                                                                        if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
-                                                                            if (!skillSearchMatcher || matchesSkillSearch(skillSearchMatcher, units[unit.id]))
-                                                                            result.push({
-                                                                                "searchData": unit,
-                                                                                "unit": units[unit.id]
-                                                                            });
+                                                        if (matchesCriteria(physicalElementDamageBoosts, unit, "physicalElementDamageBoost")) {
+                                                            if (matchesCriteria(magicalElementDamageBoosts, unit, "magicalElementDamageBoost")) {
+                                                                if (matchesCriteria(weaponImperils, unit, "weaponImperil")) {
+                                                                    if (matchesCriteria(breaks, unit, "break")) {
+                                                                        if (matchesCriteria(imbues, unit, "imbue")) {
+                                                                            if (matchesCriteria(tankAbilities, unit, null, true)) {
+                                                                                if (matchesCriteria(mitigation, unit, null, true)) {
+                                                                                    if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
+                                                                                        if (!skillSearchMatcher || matchesSkillSearch(skillSearchMatcher, units[unit.id]))
+                                                                                            result.push({
+                                                                                                "searchData": unit,
+                                                                                                "unit": units[unit.id]
+                                                                                            });
+                                                                                    }
+                                                                                }
+                                                                            }
                                                                         }
                                                                     }
                                                                 }
@@ -305,6 +357,45 @@ function sortUnits(units) {
                 return 1
             }
         }
+        if (physicalElementDamageBoosts.values.length > 0) {
+            var value1 = 0;
+            var value2 = 0;
+            for (var i = physicalElementDamageBoosts.values.length; i--;) {
+                value1 += getValue(unit1.searchData,"physicalElementDamageBoost", physicalElementDamageBoosts, i);
+                value2 += getValue(unit2.searchData,"physicalElementDamageBoost", physicalElementDamageBoosts, i);
+            }
+            if (value1 > value2) {
+                return -1;
+            } else if (value2 > value1) {
+                return 1
+            }
+        }
+        if (magicalElementDamageBoosts.values.length > 0) {
+            var value1 = 0;
+            var value2 = 0;
+            for (var i = magicalElementDamageBoosts.values.length; i--;) {
+                value1 += getValue(unit1.searchData,"magicalElementDamageBoost", magicalElementDamageBoosts, i);
+                value2 += getValue(unit2.searchData,"magicalElementDamageBoost", magicalElementDamageBoosts, i);
+            }
+            if (value1 > value2) {
+                return -1;
+            } else if (value2 > value1) {
+                return 1
+            }
+        }
+        if (weaponImperils.values.length > 0) {
+            var value1 = 0;
+            var value2 = 0;
+            for (var i = weaponImperils.values.length; i--;) {
+                value1 += getValue(unit1.searchData,"weaponImperil", weaponImperils, i);
+                value2 += getValue(unit2.searchData,"weaponImperil", weaponImperils, i);
+            }
+            if (value1 > value2) {
+                return -1;
+            } else if (value2 > value1) {
+                return 1
+            }
+        }
         if (breaks.values.length > 0) {
             var value1 = 0;
             var value2 = 0;
@@ -479,6 +570,21 @@ var readFilterValues = function() {
     imperils.skillTypes = getSelectedValuesFor("imperilsSkillTypes");
     imperils.threshold = parseInt($('.imperils .threshold input').val()) || 0;
 
+    physicalElementDamageBoosts.values = getSelectedValuesFor("physicalElementDamageBoosts");
+    physicalElementDamageBoosts.targetAreaTypes = getSelectedValuesFor("physicalElementDamageBoostsTargetAreaTypes");
+    physicalElementDamageBoosts.skillTypes = getSelectedValuesFor("physicalElementDamageBoostsSkillTypes");
+    physicalElementDamageBoosts.threshold = parseInt($('.physicalElementDamageBoosts .threshold input').val()) || 0;
+
+    magicalElementDamageBoosts.values = getSelectedValuesFor("magicalElementDamageBoosts");
+    magicalElementDamageBoosts.targetAreaTypes = getSelectedValuesFor("magicalElementDamageBoostsTargetAreaTypes");
+    magicalElementDamageBoosts.skillTypes = getSelectedValuesFor("magicalElementDamageBoostsSkillTypes");
+    magicalElementDamageBoosts.threshold = parseInt($('.magicalElementDamageBoosts .threshold input').val()) || 0;
+
+    weaponImperils.values = getSelectedValuesFor("weaponImperils");
+    weaponImperils.targetAreaTypes = getSelectedValuesFor("weaponImperilsTargetAreaTypes");
+    weaponImperils.skillTypes = getSelectedValuesFor("weaponImperilsSkillTypes");
+    weaponImperils.threshold = parseInt($('.weaponImperils .threshold input').val()) || 0;
+
     breaks.values = getSelectedValuesFor("breaks").map(function(v){return v.replace('break_','');});
     breaks.targetAreaTypes = getSelectedValuesFor("breaksTargetAreaTypes");
     breaks.skillTypes = getSelectedValuesFor("breaksSkillTypes");
@@ -514,6 +620,9 @@ var updateFilterHeadersDisplay = function() {
     $(".buffs .unselectAll").toggleClass("hidden", buffs.length == 0);
     $(".killers .unselectAll").toggleClass("hidden", physicalKillers.length + magicalKillers.length == 0);
     $(".imperils .unselectAll").toggleClass("hidden", imperils.length == 0);
+    $(".physicalElementDamageBoosts .unselectAll").toggleClass("hidden", physicalElementDamageBoosts.length == 0);
+    $(".magicalElementDamageBoosts .unselectAll").toggleClass("hidden", magicalElementDamageBoosts.length == 0);
+    $(".weaponImperils .unselectAll").toggleClass("hidden", weaponImperils.length == 0);
     $(".breaks .unselectAll").toggleClass("hidden", breaks.length == 0);
     $(".tankAbilities .unselectAll").toggleClass("hidden", tankAbilities.length == 0);
     $(".mitigation .unselectAll").toggleClass("hidden", mitigation.length == 0);
@@ -523,6 +632,9 @@ var updateFilterHeadersDisplay = function() {
     $(".ailments .filters").toggleClass("hidden", ailments.values.length == 0);
     $(".killers .filters").toggleClass("hidden", physicalKillers.values.length + magicalKillers.values.length == 0);
     $(".imperils .filters").toggleClass("hidden", imperils.values.length == 0);
+    $(".physicalElementDamageBoosts .filters").toggleClass("hidden", physicalElementDamageBoosts.values.length == 0);
+    $(".magicalElementDamageBoosts .filters").toggleClass("hidden", magicalElementDamageBoosts.values.length == 0);
+    $(".weaponImperils .filters").toggleClass("hidden", weaponImperils.values.length == 0);
     $(".breaks .filters").toggleClass("hidden", breaks.values.length == 0);
     $(".imbues .filters").toggleClass("hidden", imbues.values.length == 0);
     $(".tankAbilities .filters").toggleClass("hidden", tankAbilities.values.length == 0);
@@ -532,6 +644,9 @@ var updateFilterHeadersDisplay = function() {
     $("#ailmentsTargetAreaTypes").toggleClass("hidden", !ailments.skillTypes.includes("actives") && !ailments.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#killersTargetAreaTypes").toggleClass("hidden", !physicalKillers.skillTypes.includes("actives") && !physicalKillers.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#imperilsTargetAreaTypes").toggleClass("hidden", !imperils.skillTypes.includes("actives") && !imperils.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
+    $("#physicalElementDamageBoostsTargetAreaTypes").toggleClass("hidden", !physicalElementDamageBoosts.skillTypes.includes("actives") && !physicalElementDamageBoosts.skillTypes.includes("lb") && !physicalElementDamageBoosts.skillTypes.includes("counter"));
+    $("#magicalElementDamageBoostsTargetAreaTypes").toggleClass("hidden", !magicalElementDamageBoosts.skillTypes.includes("actives") && !magicalElementDamageBoosts.skillTypes.includes("lb") && !magicalElementDamageBoosts.skillTypes.includes("counter"));
+    $("#weaponImperilsTargetAreaTypes").toggleClass("hidden", !weaponImperils.skillTypes.includes("actives") && !weaponImperils.skillTypes.includes("lb") && !weaponImperils.skillTypes.includes("counter"));
     $("#breaksTargetAreaTypes").toggleClass("hidden", !breaks.skillTypes.includes("actives") && !breaks.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#imbuesTargetAreaTypes").toggleClass("hidden", !imbues.skillTypes.includes("actives") && !imbues.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#mitigationTargetAreaTypes").toggleClass("hidden", !mitigation.skillTypes.includes("actives") && !mitigation.skillTypes.includes("lb"));
@@ -1093,6 +1208,15 @@ function mustDisplaySkill(skill, effects, type, skillName) {
             if (imperils.values.length > 0 && imperils.skillTypes.includes(type) && isTargetToBeDispalyed(imperils, effect, type) && effect.effect.imperil && matches(imperils.values, Object.keys(effect.effect.imperil)) && (!imperils.threshold || imperils.values.every(element => effect.effect.imperil[element] >= imperils.threshold))) {
                 return true;
             }
+            if (physicalElementDamageBoosts.values.length > 0 && physicalElementDamageBoosts.skillTypes.includes(type) && isTargetToBeDispalyed(physicalElementDamageBoosts, effect, type) && effect.effect.physicalElementDamageBoost && matches(physicalElementDamageBoosts.values, Object.keys(effect.effect.physicalElementDamageBoost)) && (!physicalElementDamageBoosts.threshold || physicalElementDamageBoosts.values.every(element => effect.effect.physicalElementDamageBoost[element] >= physicalElementDamageBoosts.threshold))) {
+                return true;
+            }
+            if (magicalElementDamageBoosts.values.length > 0 && magicalElementDamageBoosts.skillTypes.includes(type) && isTargetToBeDispalyed(magicalElementDamageBoosts, effect, type) && effect.effect.magicalElementDamageBoost && matches(magicalElementDamageBoosts.values, Object.keys(effect.effect.magicalElementDamageBoost)) && (!magicalElementDamageBoosts.threshold || magicalElementDamageBoosts.values.every(element => effect.effect.magicalElementDamageBoost[element] >= magicalElementDamageBoosts.threshold))) {
+                return true;
+            }
+            if (weaponImperils.values.length > 0 && weaponImperils.skillTypes.includes(type) && isTargetToBeDispalyed(weaponImperils, effect, type) && effect.effect.weaponImperil && weaponImperils.values.includes(effect.effect.weaponImperil.weaponType) && (!weaponImperils.threshold || weaponImperils.values.every(weaponType => effect.effect.weaponImperil[weaponType] >= weaponImperils.threshold))) {
+                return true;
+            }
             if (breaks.values.length > 0 && breaks.skillTypes.includes(type) && isTargetToBeDispalyed(breaks, effect, type) && effect.effect.break && matches(breaks.values, Object.keys(effect.effect.break)) && (!breaks.threshold || breaks.values.every(stat => effect.effect.break[stat] >= breaks.threshold))) {
                 return true;
             }
@@ -1429,6 +1553,21 @@ function startPage() {
 	addIconChoicesTo("imperils", elementList, "checkbox", "element", function(v){return ucFirst(v)+" imperil"});
     addTextChoicesTo("imperilsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("imperilsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
+
+    // Physical Element Damage Boost
+    addIconChoicesTo("physicalElementDamageBoosts", elementList, "checkbox", "element", v => "Physical " + v + " damage boost");
+    addTextChoicesTo("physicalElementDamageBoostsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
+    addTextChoicesTo("physicalElementDamageBoostsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
+
+    // Physical Element Damage Boost
+    addIconChoicesTo("magicalElementDamageBoosts", elementList, "checkbox", "element", v => "Magical " + v + " damage boost");
+    addTextChoicesTo("magicalElementDamageBoostsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
+    addTextChoicesTo("magicalElementDamageBoostsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
+
+    // Weapon Imperils
+    addIconChoicesTo("weaponImperils", weaponList, "checkbox", "equipment", v => ucFirst(v) + " imperil");
+    addTextChoicesTo("weaponImperilsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
+    addTextChoicesTo("weaponImperilsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
 
     // Breaks
     addIconChoicesTo("breaks", ['break_atk', 'break_def', 'break_mag', 'break_spr'], "checkbox", "ailment",

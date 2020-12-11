@@ -1143,8 +1143,16 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
             effect.frames = getArrayValueAtIndex(skillIn.attack_frames, rawEffectIndex);
             effect.repartition = getArrayValueAtIndex(skillIn.attack_damage, rawEffectIndex);
         }
-        
-        skill.effects.push({"effect":effect, "desc": skillIn.effects[rawEffectIndex]});
+
+        let desc;
+        if (effect && effect.desc) {
+            desc = effect.desc;
+            delete effect.desc;
+        } else {
+            desc = skillIn.effects[rawEffectIndex];
+        }
+
+        skill.effects.push({"effect":effect, "desc": desc});
     }
     addChainInfoToSkill(skill, skill.effects, skillIn.attack_frames, skillIn.move_type, skills);
     if (skill.magic_type) {
@@ -1192,7 +1200,14 @@ function parseLb(lb, unit, skills) {
             effect.frames = getArrayValueAtIndex(lb.attack_frames, rawEffectIndex);
             effect.repartition = getArrayValueAtIndex(lb.attack_damage, rawEffectIndex);
         }
-        lbOut.minEffects.push({"effect":effect, "desc": lb.min_level[rawEffectIndex]});
+        let desc;
+        if (effect && effect.desc) {
+            desc = effect.desc;
+            delete effect.desc;
+        } else {
+            desc = lb.min_level[rawEffectIndex];
+        }
+        lbOut.minEffects.push({"effect":effect, "desc": desc});
     }
     for (var rawEffectIndex in lb.levels[lb.levels.length - 1][1]) {
         var rawEffect = lb.levels[lb.levels.length - 1][1][rawEffectIndex];
@@ -1202,7 +1217,14 @@ function parseLb(lb, unit, skills) {
             effect.frames = getArrayValueAtIndex(lb.attack_frames, rawEffectIndex);
             effect.repartition = getArrayValueAtIndex(lb.attack_damage, rawEffectIndex);
         }
-        lbOut.maxEffects.push({"effect":effect, "desc": lb.max_level[rawEffectIndex]});
+        let desc;
+        if (effect && effect.desc) {
+            desc = effect.desc;
+            delete effect.desc;
+        } else {
+            desc = lb.max_level[rawEffectIndex];
+        }
+        lbOut.maxEffects.push({"effect":effect, "desc": desc});
     }
     addChainInfoToSkill(lbOut, lbOut.maxEffects, lb.attack_frames, lb.move_type, skills);
     return lbOut;
@@ -1980,7 +2002,20 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
 
         // increase element damage - [phys/mag, [elements], ?, turns, ?]
     } else if (rawEffect[2] == 149) {
-        result = {"noUse":true};
+        let valueByElement = {};
+        for (let i = 0; i < 8; i++) {
+            if (rawEffect[3][1][i]) {
+                valueByElement[elements[i]] = rawEffect[3][1][i];
+            }
+        }
+
+        let desc = Object.keys(valueByElement).map(element => `Increase ${rawEffect[3][0] ? 'magical' : 'physical'} ${element} damage by ${valueByElement[element]}% to ${getTargetDesc(rawEffect)} for ${getTurn(rawEffect[3][3])}`).join('\n');
+
+        if (rawEffect[3][0]) {
+            result = {"magicalElementDamageBoost": valueByElement, "turns": rawEffect[3][3], desc: desc};
+        } else {
+            result = {"physicalElementDamageBoost": valueByElement, "turns": rawEffect[3][3], desc: desc};
+        }
 
         // reduce p_damage from enemy types [[[raceMap, %] || -1] x6], ?, turns, ?
     } else if (rawEffect[2] == 153) {
@@ -2008,7 +2043,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
 
         // weapon imperils - [typeMap, ignoreDef, IgnoreSpr, ?, duration, ?] - https://github.com/lyrgard/ffbeEquip/issues/485
     } else if (rawEffect[2] == 163) {
-        result = null;
+        result = {"weaponImperil":{"weaponType":typeMap[rawEffect[3][0]], "value":rawEffect[3][1]}, "turns":rawEffect[3][4], desc:`Increase damage dealt by ${typeMap[rawEffect[3][0]]} to ${getTargetDesc(rawEffect)} by ${rawEffect[3][1]}% for ${getTurn(rawEffect[3][4])}`};
 
         // delay death timer
     } else if (rawEffect[2] == 1002) {
@@ -2153,6 +2188,70 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         }
     }
     return result;
+}
+
+function getTargetDesc(rawEffect) {
+    if (rawEffect[0] == 0) {
+        return "self";
+    } else if (rawEffect[0] == 1) {
+        if (rawEffect[1] == 0) {
+            return "self";
+        } else if (rawEffect[1] == 1) {
+            return "one enemy";
+        } else if (rawEffect[1] == 2) {
+            return "one ally";
+        } else if (rawEffect[1] == 3) {
+            return "self"
+        } else if (rawEffect[1] == 4) {
+            return 'one ally'
+        } else if (rawEffect[1] == 5) {
+            return 'one other ally'
+        } else if (rawEffect[1] == 6) {
+            return 'one target'
+        }
+    } else if (rawEffect[0] == 2) {
+        if (rawEffect[1] == 0) {
+            return "self";
+        } else if (rawEffect[1] == 1) {
+            return "all enemies";
+        } else if (rawEffect[1] == 2) {
+            return "all allies";
+        } else if (rawEffect[1] == 3) {
+            return "self"
+        } else if (rawEffect[1] == 4) {
+            return 'all allies'
+        } else if (rawEffect[1] == 5) {
+            return 'all other allies'
+        } else if (rawEffect[1] == 6) {
+            return 'all allies/enemies'
+        }
+    } else {
+        if (rawEffect[1] == 0) {
+            return "self";
+        } else if (rawEffect[1] == 1) {
+            return "one random enemy";
+        } else if (rawEffect[1] == 2) {
+            return "one random ally";
+        } else if (rawEffect[1] == 3) {
+            return "self"
+        } else if (rawEffect[1] == 4) {
+            return 'one random ally'
+        } else if (rawEffect[1] == 5) {
+            return 'one random ally but self'
+        } else if (rawEffect[1] == 6) {
+            return 'one random target'
+        }
+    }
+}
+
+function getTurn(turnNumber) {
+    if (turnNumber === 0) {
+        return "this turn";
+    } else if (turnNumber === 0) {
+        return '1 turn';
+    } else {
+        return `${turnNumber} turns`;
+    }
 }
 
 function addUnlockedSkill(gainedSkillId, gainedSkill, unit, unlockedBy) {
@@ -2598,6 +2697,28 @@ function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
                         effectOut.imperil[element] = effect.effect.imperil[element];
                     }
                 }
+            } else if (effect.effect.physicalElementDamageBoost) {
+                if (!effectOut.physicalElementDamageBoost) {
+                    effectOut.physicalElementDamageBoost = {};
+                }
+                var boostedElements = Object.keys(effect.effect.physicalElementDamageBoost);
+                for (var j = boostedElements.length; j--;) {
+                    var element = boostedElements[j];
+                    if (!effectOut.physicalElementDamageBoost[element] || effectOut.physicalElementDamageBoost[element] < effect.effect.physicalElementDamageBoost[element]) {
+                        effectOut.physicalElementDamageBoost[element] = effect.effect.physicalElementDamageBoost[element];
+                    }
+                }
+            } else if (effect.effect.magicalElementDamageBoost) {
+                if (!effectOut.magicalElementDamageBoost) {
+                    effectOut.magicalElementDamageBoost = {};
+                }
+                var boostedElements = Object.keys(effect.effect.magicalElementDamageBoost);
+                for (var j = boostedElements.length; j--;) {
+                    var element = boostedElements[j];
+                    if (!effectOut.magicalElementDamageBoost[element] || effectOut.magicalElementDamageBoost[element] < effect.effect.magicalElementDamageBoost[element]) {
+                        effectOut.magicalElementDamageBoost[element] = effect.effect.magicalElementDamageBoost[element];
+                    }
+                }
              } else if (effect.effect.resist) {
                 for (var j = effect.effect.resist.length; j--;) {
                     if (elements.includes(effect.effect.resist[j].name)) {
@@ -2732,6 +2853,13 @@ function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
                 var meanMitigation = (effect.effect.stCover.mitigation.min + effect.effect.stCover.mitigation.max) / 2;
                 if (!effectOut.stCover || effectOut.stCover < meanMitigation) {
                     effectOut.stCover = meanMitigation;
+                }
+            } else if (effect.effect.weaponImperil) {
+                if (!effectOut.weaponImperil) {
+                    effectOut.weaponImperil = {};
+                }
+                if (!effectOut.weaponImperil[effect.effect.weaponImperil.weaponType] || effectOut.weaponImperil[effect.effect.weaponImperil.weaponType] < effect.effect.weaponImperil.value) {
+                    effectOut.weaponImperil[effect.effect.weaponImperil.weaponType] = effect.effect.weaponImperil.value;
                 }
             } else if (effect.effect.autoCastedSkill) {
                 addSkillEffectToSearch(effect.effect.autoCastedSkill, effect.effect.autoCastedSkill.effects, unitOut, "passives");
