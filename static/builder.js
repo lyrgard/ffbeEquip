@@ -2103,7 +2103,7 @@ function updateSearchResult() {
     });
 
     readItemsExcludeInclude();
-    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, onlyOwnedItems, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], [], "", !excludeNotReleasedYetOption, true), builds[currentUnitIndex].unit.id));
+    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, onlyOwnedItems, searchStat.split('-')[0], baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], [], "", !excludeNotReleasedYetOption, true), builds[currentUnitIndex].unit.id));
 
     if (searchStat == "") {
         $("#fixItemModal .results").addClass("notSorted");
@@ -2407,7 +2407,7 @@ function selectSearchStat(stat) {
         $("#fixItemModal .modal-header .stat .dropdown-toggle").addClass("img-sort-a-z");
     } else {
         searchStat = stat;
-        $("#fixItemModal .modal-header .stat .dropdown-toggle").addClass("img-sort-" + stat);
+        $("#fixItemModal .modal-header .stat .dropdown-toggle").addClass("img-sort-" + stat.split('-')[0]);
     }
 }
 
@@ -4929,14 +4929,26 @@ function populateItemType(equip) {
 }
 
 function populateItemStat() {
-    var statList = ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"];
+    var statList = ["hp", "mp", "atk", "def", "mag", "spr"];
     var target = $("#fixItemModal .stat .dropdown-menu");
-    target.append('<button class="btn btn-default" onclick="selectSearchStat();updateSearchResult();"><i class="img img-sort-a-z"></i></button>');
+    target.append('<div class="sortChoices">');
+    target.append('<div class="sortChoice"><i class="img img-sort-a-z"></i><button class="btn btn-default" onclick="selectSearchStat();updateSearchResult();">by name</button></div>');
 	for (var key in statList) {
-        target.append('<button class="btn btn-default" onclick="selectSearchStat(\'' + statList[key] + '\');updateSearchResult();">'+
-                      '<i class="img img-sort-' + statList[key] + '"></i>' +
-                      '</button>');
+        target.append('<div class="sortChoice"><i class="img img-sort-' + statList[key] + '"></i>'+
+                      '<button class="btn btn-default" onclick="selectSearchStat(\'' + statList[key] + '\');updateSearchResult();">total</button>' +
+                      '<button class="btn btn-default" onclick="selectSearchStat(\'' + statList[key] + '-flat\');updateSearchResult();">flat</button>' +
+                      '</div>');
 	}
+    target.append('<div class="sortChoice"><i class="img img-sort-evade"></i>'+
+        '<button class="btn btn-default" onclick="selectSearchStat(\'evade\');updateSearchResult();">total</button>' +
+        '</div>');
+    target.append('<div class="sortChoice"><i class="img img-sort-inflict"></i>'+
+        '<button class="btn btn-default" onclick="selectSearchStat(\'inflict\');updateSearchResult();">total</button>' +
+        '</div>');
+    target.append('<div class="sortChoice"><i class="img img-sort-resist"></i>'+
+        '<button class="btn btn-default" onclick="selectSearchStat(\'resist\');updateSearchResult();">total</button>' +
+        '</div>');
+    target.append('</div>');
 }
 
 function populateResists() {

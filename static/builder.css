@@ -792,6 +792,20 @@ i.img.img-slot-hand.leftHand {
     flex:1;
 }
 
+.sortChoices {
+    display: flex;
+    flex-direction: column;
+}
+
+.sortChoices .sortChoice {
+    display: flex;
+}
+
+.sortChoice button {
+    padding: 0 4px;
+    margin-right: 4px;
+}
+
 .customEnchantment {
     display: none;
     border-top: 1px solid #ddd;
