@@ -96,7 +96,7 @@
 	{"atk":74, "conditional":[{"equipedConditions":["spear"],"atk%":40}]},
 	{"atk":80, "conditional":[{"equipedConditions":["spear"],"atk%":40},{"atk%":20,"exclusiveSex":"female"},{"killers":[{"name":"beast","physical":25},{"name":"bug","physical":25}],"exclusiveSex":"female"}]}
 ]},
-{"id":"100000901", "name":"ファイサリスの日常", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000901.png", "sortId":23, "levels":[
+{"id":"100000901", "name":"A Day in the Life of Physalis", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100000901.png", "sortId":23, "levels":[
 	{"atk":40, "mag":40},
 	{"atk":42, "mag":42},
 	{"atk":45, "mag":45},
@@ -108,7 +108,7 @@
 	{"atk":60, "mag":60, "conditional":[{"equipedConditions":["gun"],"atk%":40,"mag%":40}]},
 	{"atk":65, "mag":65, "conditional":[{"equipedConditions":["gun"],"atk%":40,"mag%":40},{"atk%":30,"mag%":30}]}
 ]},
-{"id":"100001001", "name":"ビューティフルバケーション", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001001.png", "sortId":16, "levels":[
+{"id":"100001001", "name":"Beach Beauties", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001001.png", "sortId":16, "levels":[
 	{"spr":50},
 	{"spr":53},
 	{"spr":56},
@@ -288,6 +288,18 @@
 	{"atk":88, "conditional":[{"equipedConditions":["spear"],"atk%":100}]},
 	{"atk":100, "conditional":[{"equipedConditions":["spear"],"atk%":100},{"atk%":30}]}
 ]},
+{"id":"100002601", "name":"これが俺の本気の力", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002601.png", "sortId":42, "levels":[
+	{"mag":40},
+	{"mag":46},
+	{"mag":52},
+	{"mag":58, "conditional":[{"equipedConditions":["rod"],"mag%":40}]},
+	{"mag":64, "conditional":[{"equipedConditions":["rod"],"mag%":40}]},
+	{"mag":70, "conditional":[{"equipedConditions":["rod"],"mag%":40}]},
+	{"mag":76, "conditional":[{"equipedConditions":["rod"],"mag%":80}]},
+	{"mag":82, "conditional":[{"equipedConditions":["rod"],"mag%":80}]},
+	{"mag":88, "conditional":[{"equipedConditions":["rod"],"mag%":80}]},
+	{"mag":100, "conditional":[{"equipedConditions":["rod"],"mag%":80},{}]}
+]},
 {"id":"100002701", "name":"竜の封印", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002701.png", "sortId":39, "levels":[
 	{"atk":40, "def":20},
 	{"atk":42, "def":21},
@@ -299,6 +311,18 @@
 	{"atk":54, "def":27, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}]},
 	{"atk":56, "def":28, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}]},
 	{"atk":60, "def":30, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}], "conditional":[{"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}]},{"atk%":20,"def%":20}]}
+]},
+{"id":"100002801", "name":"未来に遺されたもの", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002801.png", "sortId":43, "levels":[
+	{"atk":40, "def":20},
+	{"atk":42, "def":21},
+	{"atk":44, "def":22},
+	{"atk":46, "def":23, "resist":[{"name":"water","percent":15},{"name":"earth","percent":15}]},
+	{"atk":48, "def":24, "resist":[{"name":"water","percent":15},{"name":"earth","percent":15}]},
+	{"atk":50, "def":25, "resist":[{"name":"water","percent":15},{"name":"earth","percent":15}]},
+	{"atk":52, "def":26, "resist":[{"name":"water","percent":15},{"name":"earth","percent":15},{"name":"water","percent":15},{"name":"earth","percent":15}]},
+	{"atk":54, "def":27, "resist":[{"name":"water","percent":15},{"name":"earth","percent":15},{"name":"water","percent":15},{"name":"earth","percent":15}]},
+	{"atk":56, "def":28, "resist":[{"name":"water","percent":15},{"name":"earth","percent":15},{"name":"water","percent":15},{"name":"earth","percent":15}]},
+	{"atk":60, "def":30, "resist":[{"name":"water","percent":15},{"name":"earth","percent":15},{"name":"water","percent":15},{"name":"earth","percent":15}], "conditional":[{"atk%":20,"def%":20},{"resist":[{"name":"water","percent":30},{"name":"earth","percent":30}]}]}
 ]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
@@ -336,7 +360,7 @@
 	{"atk":59, "mag":82, "conditional":[{"equipedConditions":["sword"],"atk%":60,"mag%":60}]},
 	{"atk":65, "mag":90, "conditional":[{"equipedConditions":["sword"],"atk%":60,"mag%":60},{"atk%":20,"mag%":20,"exclusiveSex":"female"},{"evokeDamageBoost":{"all":30},"exclusiveSex":"female"}]}
 ]},
-{"id":"206000101", "name":"幻獣を求めて", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000101.png", "sortId":26, "levels":[
+{"id":"206000101", "name":"Search for the Esper", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000101.png", "sortId":26, "levels":[
 	{"mag":50},
 	{"mag":55},
 	{"mag":60},
