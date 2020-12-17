@@ -13367,6 +13367,7 @@
 		"name":"Edgar, rey de Fígaro",
 		"wikiEntry":"King_Edgar of Figaro",
 		"id":"206001905",
+		"braveShift":"206001927",
 		"exAwakening": [{"hp":606,"mp":29,"atk":28,"def":23,"mag":18,"spr":24},{"hp":466,"mp":22,"atk":22,"def":17,"mag":14,"spr":19},{"hp":326,"mp":15,"atk":15,"def":12,"mag":9,"spr":13}],
 		"fragmentId": "250000420",
 		"max_rarity":"NV",
@@ -13379,16 +13380,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["シザーズクリッパー","ミラクルブラスト","マシーナリーの本領"],
+		"enhancementSkills":["Clipping Scissors","Miracle Blaster","Machinery Functions"],
 		"enhancements": [
-			{"name":"マシーナリーの本領","levels":[[{"lbPerTurn":{"min":3,"max":3},"lbFillRate":100,"levelCondition":120}],[{"lbPerTurn":{"min":4,"max":4},"lbFillRate":100,"levelCondition":120}],[{"lbPerTurn":{"min":5,"max":5},"lbFillRate":150,"levelCondition":120}],[{"lbPerTurn":{"min":6,"max":6},"lbFillRate":150,"levelCondition":120}],[{"lbPerTurn":{"min":7,"max":7},"lbFillRate":200,"levelCondition":120}]]}
+			{"name":"Machinery Functions","levels":[[{"lbPerTurn":{"min":3,"max":3},"lbFillRate":100,"levelCondition":120}],[{"lbPerTurn":{"min":4,"max":4},"lbFillRate":100,"levelCondition":120}],[{"lbPerTurn":{"min":5,"max":5},"lbFillRate":150,"levelCondition":120}],[{"lbPerTurn":{"min":6,"max":6},"lbFillRate":150,"levelCondition":120}],[{"lbPerTurn":{"min":7,"max":7},"lbFillRate":200,"levelCondition":120}]]}
 		],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":80, "def%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "lbFillRate":50, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":50, "mp%":20, "atk%":80, "def%":50, "spr%":60, "singleWielding":{"accuracy":50,"atk":100}, "dualWielding":{"atk":50}, "lbFillRate":50, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":5, "special":["dualWield"]},
 			{"lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"machine","physical":100}], "equipedConditions":[["504229930","409027900"]]},
 			{"skillEnhancement":{"229940":1.5,"229943":1.5,"229944":0.75,"229945":1.5,"229948":1.5,"509283":1.5,"509284":0.75,"509287":0.75}, "levelCondition":110},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "atk%":40, "def%":20, "spr%":20, "lbPerTurn":{"min":1,"max":1}, "levelCondition":120},
+			{"hp%":20, "atk%":80, "def%":20, "spr%":20, "lbPerTurn":{"min":1,"max":1}, "lbDamage":100, "levelCondition":120},
 			{"lbDamage":100, "levelCondition":120},
 			{"improvedDW":true, "levelCondition":120}
 		],
@@ -13407,9 +13408,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["シザーズクリッパー","ミラクルブラスト","マシーナリーの本領"],
+			"enhancementSkills":["Clipping Scissors","Miracle Blaster","Machinery Functions"],
 			"skills": [
-				{"hp%":20, "mp%":20, "atk%":80, "def%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "lbFillRate":50, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":5, "special":["dualWield"]}
+				{"hp%":50, "mp%":20, "atk%":80, "def%":50, "spr%":60, "singleWielding":{"accuracy":50,"atk":100}, "dualWielding":{"atk":50}, "lbFillRate":50, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":5, "special":["dualWield"]}
 			]
 		},
 		"7_form": {
@@ -13427,20 +13428,23 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["シザーズクリッパー","ミラクルブラスト","マシーナリーの本領"],
+			"enhancementSkills":["Clipping Scissors","Miracle Blaster","Machinery Functions"],
 			"skills": [
-				{"hp%":20, "mp%":20, "atk%":80, "def%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "lbFillRate":50, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":5, "special":["dualWield"]},
+				{"hp%":50, "mp%":20, "atk%":80, "def%":50, "spr%":60, "singleWielding":{"accuracy":50,"atk":100}, "dualWielding":{"atk":50}, "lbFillRate":50, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":5, "special":["dualWield"]},
 				{"lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"machine","physical":100}], "equipedConditions":[["504229930","409027900"]]},
 				{"skillEnhancement":{"229940":1.5,"229943":1.5,"229944":0.75,"229945":1.5,"229948":1.5,"509283":1.5,"509284":0.75,"509287":0.75}, "levelCondition":110},
 				{"mp%":20, "levelCondition":115},
-				{"hp%":20, "atk%":40, "def%":20, "spr%":20, "lbPerTurn":{"min":1,"max":1}, "levelCondition":120}
+				{"hp%":20, "atk%":80, "def%":20, "spr%":20, "lbPerTurn":{"min":1,"max":1}, "lbDamage":100, "levelCondition":120}
 			]
 		}
 	},
 	"206001927": {
-		"name":"King Edgar of Figaro",
-		"wikiEntry":"フィガロの王エドガー",
+		"name":"Edgar, rey de Fígaro BS",
+		"wikiEntry":"King_Edgar of Figaro",
 		"id":"206001927",
+		"braveShifted":"206001905",
+		"exAwakening": [{"hp":606,"mp":29,"atk":28,"def":23,"mag":18,"spr":24},{"hp":466,"mp":22,"atk":22,"def":17,"mag":14,"spr":19},{"hp":326,"mp":15,"atk":15,"def":12,"mag":9,"spr":13}],
+		"fragmentId": "250000420",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -13450,10 +13454,10 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["シザーズクリッパー","フィガロジャンプ","竜騎士の資質"],
+		"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Clipping Scissors","Figaro Jump","Talented Dragoon"],
 		"enhancements": [
-			{"name":"竜騎士の資質","levels":[[{"atk":100,"jumpDamage":250,"levelCondition":120}],[{"atk":125,"jumpDamage":250,"levelCondition":120}],[{"atk":150,"jumpDamage":300,"levelCondition":120}],[{"atk":175,"jumpDamage":300,"levelCondition":120}],[{"atk":200,"jumpDamage":350,"levelCondition":120}]]}
+			{"name":"Talented Dragoon","levels":[[{"atk":100,"jumpDamage":250,"levelCondition":120}],[{"atk":125,"jumpDamage":250,"levelCondition":120}],[{"atk":150,"jumpDamage":300,"levelCondition":120}],[{"atk":175,"jumpDamage":300,"levelCondition":120}],[{"atk":200,"jumpDamage":350,"levelCondition":120}]]}
 		],
 		"skills": [
 			{"lbDamage":100, "levelCondition":120},
@@ -13470,6 +13474,7 @@
 		"name":"Sabin, monje de Kolts",
 		"wikiEntry":"Monk_Sabin of Kolts",
 		"id":"206002005",
+		"braveShift":"206002027",
 		"exAwakening": [{"hp":762,"mp":26,"atk":26,"def":20,"mag":16,"spr":25},{"hp":586,"mp":20,"atk":20,"def":16,"mag":12,"spr":19},{"hp":410,"mp":14,"atk":14,"def":11,"mag":9,"spr":13}],
 		"fragmentId": "250000410",
 		"max_rarity":"NV",
@@ -13482,18 +13487,18 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["活心術","かばう・物理","頼れる熱血漢"],
+		"enhancementSkills":["Revitalizing Technique","Cover - Physical","Infallible Fists"],
 		"enhancements": [
-			{"name":"頼れる熱血漢","levels":[[{"atk":100,"hp":3000,"levelCondition":120}],[{"atk":100,"hp":4000,"levelCondition":120}],[{"atk":125,"hp":5000,"levelCondition":120}],[{"atk":125,"hp":6000,"levelCondition":120}],[{"atk":150,"hp":7000,"levelCondition":120}]]}
+			{"name":"Infallible Fists","levels":[[{"atk":100,"hp":3000,"levelCondition":120}],[{"atk":100,"hp":4000,"levelCondition":120}],[{"atk":125,"hp":5000,"levelCondition":120}],[{"atk":125,"hp":6000,"levelCondition":120}],[{"atk":150,"hp":7000,"levelCondition":120}]]}
 		],
 		"skills": [
-			{"hp%":50, "mp%":20, "atk%":30, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "skillEnhancement":{"200200":1.5}},
+			{"hp%":50, "mp%":50, "atk%":60, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "skillEnhancement":{"200200":1.5}},
 			{"atk%":200, "equipedConditions":["unarmed"]},
 			{"atk%":50, "equipedConditions":["fist"]},
 			{"atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"229977":1.5}, "equipedConditions":[["504229931","409028000"]]},
 			{"skillEnhancement":{"200200":1.5,"229970":0.75,"229971":0.75,"229972":0.75,"229973":1.5,"229974":1.5,"229977":0.75,"509302":1.5}, "levelCondition":110},
 			{"def%":20, "levelCondition":115},
-			{"hp%":20, "mp%":20, "atk%":40, "spr%":20, "mpRefresh":5, "levelCondition":120}
+			{"hp%":20, "mp%":20, "atk%":60, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "lbPerTurn":{"min":6,"max":6}, "mpRefresh":5, "lbDamage":50, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Sabin, monje de Kolts",
@@ -13510,9 +13515,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["活心術","かばう・物理","頼れる熱血漢"],
+			"enhancementSkills":["Revitalizing Technique","Cover - Physical","Infallible Fists"],
 			"skills": [
-				{"hp%":50, "mp%":20, "atk%":30, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "skillEnhancement":{"200200":1.5}},
+				{"hp%":50, "mp%":50, "atk%":60, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "skillEnhancement":{"200200":1.5}},
 				{"atk%":200, "equipedConditions":["unarmed"]},
 				{"atk%":50, "equipedConditions":["fist"]}
 			]
@@ -13532,22 +13537,25 @@
 			},
 			"stats_pattern":4,
 			"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["活心術","かばう・物理","頼れる熱血漢"],
+			"enhancementSkills":["Revitalizing Technique","Cover - Physical","Infallible Fists"],
 			"skills": [
-				{"hp%":50, "mp%":20, "atk%":30, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "skillEnhancement":{"200200":1.5}},
+				{"hp%":50, "mp%":50, "atk%":60, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "skillEnhancement":{"200200":1.5}},
 				{"atk%":200, "equipedConditions":["unarmed"]},
 				{"atk%":50, "equipedConditions":["fist"]},
 				{"atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"229977":1.5}, "equipedConditions":[["504229931","409028000"]]},
 				{"skillEnhancement":{"200200":1.5,"229970":0.75,"229971":0.75,"229972":0.75,"229973":1.5,"229974":1.5,"229977":0.75,"509302":1.5}, "levelCondition":110},
 				{"def%":20, "levelCondition":115},
-				{"hp%":20, "mp%":20, "atk%":40, "spr%":20, "mpRefresh":5, "levelCondition":120}
+				{"hp%":20, "mp%":20, "atk%":60, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "lbPerTurn":{"min":6,"max":6}, "mpRefresh":5, "lbDamage":50, "levelCondition":120}
 			]
 		}
 	},
 	"206002027": {
-		"name":"Monk Sabin of Kolts",
-		"wikiEntry":"コルツの格闘家マッシュ",
+		"name":"Sabin, monje de Kolts BS",
+		"wikiEntry":"Monk_Sabin of Kolts",
 		"id":"206002027",
+		"braveShifted":"206002005",
+		"exAwakening": [{"hp":762,"mp":26,"atk":26,"def":20,"mag":16,"spr":25},{"hp":586,"mp":20,"atk":20,"def":16,"mag":12,"spr":19},{"hp":410,"mp":14,"atk":14,"def":11,"mag":9,"spr":13}],
+		"fragmentId": "250000410",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -13557,10 +13565,10 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["活心術","オーラキャノン改","正義の熱血漢"],
+		"equip":["staff","rod","hammer","spear","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Revitalizing Technique","Aura Cannon+","Fists of Justice"],
 		"enhancements": [
-			{"name":"正義の熱血漢","levels":[[{"mag":400,"hp":3000,"levelCondition":120}],[{"mag":400,"hp":4000,"levelCondition":120}],[{"mag":450,"hp":5000,"levelCondition":120}],[{"mag":450,"hp":6000,"levelCondition":120}],[{"mag":500,"hp":7000,"levelCondition":120}]]}
+			{"name":"Fists of Justice","levels":[[{"mag":400,"hp":3000,"levelCondition":120}],[{"mag":400,"hp":4000,"levelCondition":120}],[{"mag":450,"hp":5000,"levelCondition":120}],[{"mag":450,"hp":6000,"levelCondition":120}],[{"mag":500,"hp":7000,"levelCondition":120}]]}
 		],
 		"skills": [
 			{"mag":500, "spr":200, "equipedConditions":[["504229931","409028000"]], "levelCondition":120},
@@ -13925,8 +13933,8 @@
 		]
 	},
 	"206002607": {
-		"name":"Lock -Neo Vision-",
-		"wikiEntry":"ロック-Neo_Vision-",
+		"name":"Locke -NeoVisión-",
+		"wikiEntry":"Locke_-Neo Vision-",
 		"id":"206002607",
 		"braveShift":"206002617",
 		"exAwakening": [{"hp":630,"mp":31,"atk":60,"def":22,"mag":17,"spr":22},{"hp":484,"mp":24,"atk":46,"def":17,"mag":13,"spr":17},{"hp":339,"mp":16,"atk":32,"def":12,"mag":9,"spr":12}],
@@ -13941,7 +13949,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["レビテト【Ⅵ】","フルブレイクチェイン"],
+		"enhancementSkills":["Float (FFVI)","Full Break Chain"],
 		"skills": [
 			{"hp%":70, "mp%":50, "atk%":200, "def%":50, "spr%":50, "dualWielding":{"atk":150}, "lbFillRate":150, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "special":["dualWield"]},
 			{"evade":{"physical":30}, "lbPerTurn":{"min":4,"max":4}, "equipedConditions":[["315024200","504238390"]]},
@@ -13952,8 +13960,8 @@
 		]
 	},
 	"206002617": {
-		"name":"Lock -Neo Vision- BS",
-		"wikiEntry":"ロック-Neo_Vision-",
+		"name":"Locke -NeoVisión- BS",
+		"wikiEntry":"Locke_-Neo Vision-",
 		"id":"206002617",
 		"braveShifted":"206002607",
 		"exAwakening": [{"hp":630,"mp":31,"atk":60,"def":22,"mag":17,"spr":22},{"hp":484,"mp":24,"atk":46,"def":17,"mag":13,"spr":17},{"hp":339,"mp":16,"atk":32,"def":12,"mag":9,"spr":12}],
@@ -13968,7 +13976,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["レビテト【Ⅵ】","ファイアエッジ"],
+		"enhancementSkills":["Float (FFVI)","Blazing Edge"],
 		"skills": [
 			{"hp%":70, "mp%":50, "atk%":200, "def%":50, "spr%":50, "dualWielding":{"atk":150}, "lbFillRate":150, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "special":["dualWield"]},
 			{"evade":{"physical":30}, "lbPerTurn":{"min":4,"max":4}, "equipedConditions":[["315024200","504238390"]]},
@@ -13979,8 +13987,8 @@
 		]
 	},
 	"206002705": {
-		"name":"Gambler Setzer",
-		"wikiEntry":"空駆けるギャンブラー_セッツァー",
+		"name":"Setzer, tahúr elegante",
+		"wikiEntry":"Dashing_Gambler Setzer",
 		"id":"206002705",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -13999,8 +14007,8 @@
 			{"spr%":20, "levelCondition":115}
 		],
 		"6_form": {
-			"name":"Gambler Setzer",
-			"wikiEntry":"空駆けるギャンブラー_セッツァー",
+			"name":"Setzer, tahúr elegante",
+			"wikiEntry":"Dashing_Gambler Setzer",
 			"id":"206002705",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -23225,7 +23233,7 @@
 			{"mp%":70, "atk%":50, "def%":40, "spr%":40, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"ice","percent":80},{"name":"dark","percent":80},{"name":"silence","percent":100},{"name":"petrification","percent":100}], "lbDamage":50},
 			{"hp%":50, "atk%":50, "def%":50, "lbPerTurn":{"min":2,"max":2}, "lbDamage":50, "equipedConditions":[["303007700","504233760"]]},
 			{"atk%":20, "levelCondition":115},
-			{"hp%":50, "atk%":50, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"233780":6,"233782":6,"233784":4,"233785":4,"233786":4,"233787":2,"233789":2}, "levelCondition":120}
+			{"hp%":50, "atk%":50, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"233780":6,"233782":6,"233784":4,"233785":4,"233786":4,"233787":11.5,"233789":11.5}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Señor de las Sombras",
@@ -23318,7 +23326,7 @@
 			{"spr%":30, "equipedConditions":["fist"]},
 			{"hp%":20, "mp%":20, "atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504233761","308006200"]]},
 			{"atk%":20, "levelCondition":115},
-			{"atk%":30, "def%":30, "spr%":30, "skillEnhancement":{"233810":3,"233815":2,"233816":2,"233817":2,"233818":3,"233819":1,"233820":1,"233822":1}, "levelCondition":120}
+			{"atk%":30, "def%":30, "spr%":30, "skillEnhancement":{"233810":6,"233815":4,"233816":4,"233817":4,"233818":6,"233819":2,"233820":2,"233822":2}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Jade",
