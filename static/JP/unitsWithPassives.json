@@ -15801,7 +15801,7 @@
 		]
 	},
 	"206002607": {
-		"name":"Lock -Neo Vision-",
+		"name":"Locke -Neo Vision-",
 		"jpname":"ロック-Neo Vision-",
 		"id":"206002607",
 		"braveShift":"206002617",
@@ -15828,7 +15828,7 @@
 		]
 	},
 	"206002617": {
-		"name":"Lock -Neo Vision- BS",
+		"name":"Locke -Neo Vision- BS",
 		"jpname":"ロック-Neo Vision- BS",
 		"id":"206002617",
 		"braveShifted":"206002607",
@@ -15855,7 +15855,7 @@
 		]
 	},
 	"206002705": {
-		"name":"Gambler Setzer",
+		"name":"Dashing Gambler Setzer",
 		"jpname":"空駆けるギャンブラー セッツァー",
 		"id":"206002705",
 		"max_rarity":"7",
@@ -15878,7 +15878,7 @@
 			{"spr%":20, "levelCondition":115}
 		],
 		"6_form": {
-			"name":"Gambler Setzer",
+			"name":"Dashing Gambler Setzer",
 			"jpname":"空駆けるギャンブラー セッツァー",
 			"id":"206002705",
 			"sixStarForm":true,
@@ -26671,14 +26671,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","spear","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["弟を取り戻す覚悟","オートメイルブレード","格の違いってやつを見せてやる！！！","神の鉄槌","真理の扉を見た者"],
+		"enhancements": [
+			{"name":"弟を取り戻す覚悟","levels":[[{"hp%":30,"dualWielding":{"atk":50},"lbPerTurn":{"min":3,"max":3}}],[{"atk%":30,"hp%":30,"dualWielding":{"atk":100},"lbPerTurn":{"min":3,"max":3}}],[{"atk%":30,"hp%":30,"dualWielding":{"atk":100},"lbPerTurn":{"min":3,"max":3},"killers":[{"name":"demon","physical":100}],"atk":1000}]]},
+			{"name":"真理の扉を見た者","levels":[[{"spr%":40,"atk%":40,"skillEnhancement":{"234110":3.25,"234111":2.5,"234112":2.5,"234113":2.5,"234114":2.5,"511574":4.25,"514032":4.25,"514033":4.25,"708856":3.25,"708857":3.25},"levelCondition":120},{"equipedConditions":["clothes"],"atk%":20,"levelCondition":120}],[{"spr%":40,"atk%":40,"skillEnhancement":{"234110":8,"234111":8,"234112":8,"234113":8,"234114":8,"511574":8,"514032":8,"514033":8,"708856":8,"708857":8},"lbDamage":150,"levelCondition":120},{"equipedConditions":["clothes"],"atk%":20,"levelCondition":120}],[{"spr%":40,"atk%":40,"skillEnhancement":{"234110":8,"234111":8,"234112":8,"234113":8,"234114":8,"511574":8,"514032":8,"514033":8,"708856":8,"708857":8},"lbDamage":150,"replaceLb":{"name":"アルケミストラッシュ","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":107.1},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (107.1x, ATK) to all enemies"},{"effect":{"break":{"def":80,"spr":80},"turns":4,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 80% for 4 turns to all enemies"},{"effect":{"imperil":{"fire":120,"water":120,"wind":120,"earth":120},"turns":4,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 120% for 4 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":110},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (110x, ATK) to all enemies"},{"effect":{"break":{"def":80,"spr":80},"turns":4,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 80% for 4 turns to all enemies"},{"effect":{"imperil":{"fire":120,"water":120,"wind":120,"earth":120},"turns":4,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 120% for 4 turns to all enemies"}],"frames":[62,115,123,130,136,145,148,154,210],"move":"walk"},"levelCondition":120},{"equipedConditions":["clothes"],"atk%":20,"levelCondition":120}]]}
+		],
 		"skills": [
-			{"hp%":60, "mp%":30, "atk%":60, "def%":60, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"demon","physical":50}], "mpRefresh":7, "special":["dualWield"]},
+			{"hp%":30, "mp%":30, "atk%":60, "def%":60, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"demon","physical":50}], "mpRefresh":7, "special":["dualWield"]},
 			{"def%":30, "equipedConditions":["fist"]},
 			{"atk%":30, "equipedConditions":["sword"]},
 			{"atk%":50, "dualWielding":{"atk":50}, "killers":[{"name":"demon","physical":100}], "equipedConditions":[["405009000","504234091"]]},
-			{"mp%":20, "levelCondition":115},
-			{"atk%":40, "spr%":40, "skillEnhancement":{"234110":3.25,"234111":2.5,"234112":2.5,"234113":2.5,"234114":2.5,"511574":4.25}, "levelCondition":120},
-			{"atk%":20, "equipedConditions":["clothes"], "levelCondition":120}
+			{"mp%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Edward Elric",
@@ -26695,8 +26698,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","spear","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["弟を取り戻す覚悟","オートメイルブレード","格の違いってやつを見せてやる！！！","神の鉄槌","真理の扉を見た者"],
+		"enhancements": [
+			{"name":"弟を取り戻す覚悟","levels":[[{"hp%":30,"dualWielding":{"atk":50},"lbPerTurn":{"min":3,"max":3}}],[{"atk%":30,"hp%":30,"dualWielding":{"atk":100},"lbPerTurn":{"min":3,"max":3}}],[{"atk%":30,"hp%":30,"dualWielding":{"atk":100},"lbPerTurn":{"min":3,"max":3},"killers":[{"name":"demon","physical":100}],"atk":1000}]]}
+		],
 			"skills": [
-				{"hp%":60, "mp%":30, "atk%":60, "def%":60, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"demon","physical":50}], "mpRefresh":7, "special":["dualWield"]},
+				{"hp%":30, "mp%":30, "atk%":60, "def%":60, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"demon","physical":50}], "mpRefresh":7, "special":["dualWield"]},
 				{"def%":30, "equipedConditions":["fist"]},
 				{"atk%":30, "equipedConditions":["sword"]}
 			]
@@ -26716,14 +26723,18 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","heavyArmor"],
+		"enhancementSkills":["エドワードとの絆","無痛の身体","堅固なる鋼","禁忌の代償"],
+		"enhancements": [
+			{"name":"エドワードとの絆","levels":[[{"spr%":20,"def%":20,"atk%":20,"resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}],"mpRefresh":7}],[{"spr%":20,"def%":40,"atk%":40,"resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}],"mpRefresh":7,"def":1000}],[{"spr%":20,"def%":40,"atk%":40,"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}],"mpRefresh":7,"def":1000}]]},
+			{"name":"禁忌の代償","levels":[[{"spr%":40,"def%":60,"hp%":40,"levelCondition":110}],[{"spr%":60,"def%":60,"hp%":60,"levelCondition":110}],[{"spr%":60,"def%":60,"hp%":60,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"earth","percent":30}],"levelCondition":110}]]}
+		],
 		"skills": [
-			{"hp%":50, "mp%":30, "atk%":70, "def%":50, "spr%":50, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"earth","percent":30}], "mpRefresh":7, "drawAttacks":50},
+			{"hp%":50, "mp%":30, "atk%":50, "def%":30, "spr%":30, "lbFillRate":100, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"earth","percent":30}], "drawAttacks":50},
 			{"def%":20, "equipedConditions":["lightShield"]},
 			{"def%":20, "equipedConditions":["heavyShield"]},
 			{"atk%":30, "equipedConditions":["lightShield"]},
 			{"atk%":30, "equipedConditions":["heavyShield"]},
 			{"atk%":50, "def%":50, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"earth","percent":20}], "equipedConditions":[["504234092","409038600"]]},
-			{"hp%":40, "def%":60, "spr%":40, "levelCondition":110},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":30, "mp%":30, "spr%":30, "levelCondition":120}
 		],
@@ -26742,8 +26753,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","heavyArmor"],
+			"enhancementSkills":["エドワードとの絆","無痛の身体","堅固なる鋼","禁忌の代償"],
+		"enhancements": [
+			{"name":"エドワードとの絆","levels":[[{"spr%":20,"def%":20,"atk%":20,"resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}],"mpRefresh":7}],[{"spr%":20,"def%":40,"atk%":40,"resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}],"mpRefresh":7,"def":1000}],[{"spr%":20,"def%":40,"atk%":40,"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}],"mpRefresh":7,"def":1000}]]}
+		],
 			"skills": [
-				{"hp%":50, "mp%":30, "atk%":70, "def%":50, "spr%":50, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"earth","percent":30}], "mpRefresh":7, "drawAttacks":50},
+				{"hp%":50, "mp%":30, "atk%":50, "def%":30, "spr%":30, "lbFillRate":100, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"earth","percent":30}], "drawAttacks":50},
 				{"def%":20, "equipedConditions":["lightShield"]},
 				{"def%":20, "equipedConditions":["heavyShield"]},
 				{"atk%":30, "equipedConditions":["lightShield"]},
@@ -26755,22 +26770,30 @@
 		"name":"Roy Mustang",
 		"jpname":"ロイ・マスタング",
 		"id":"338000305",
-		"max_rarity":"7",
+		"braveShift":"338000327",
+		"exAwakening": [{"hp":603,"mp":38,"atk":17,"def":20,"mag":33,"spr":26},{"hp":464,"mp":29,"atk":13,"def":16,"mag":25,"spr":20},{"hp":324,"mp":20,"atk":9,"def":11,"mag":17,"spr":14}],
+		"fragmentId": "250000690",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4611,"mp":285,"atk":131,"def":158,"mag":218,"spr":202},
-			"minStats":{"hp":1522,"mp":94,"atk":43,"def":52,"mag":72,"spr":67},
+			"maxStats":{"hp":4640,"mp":295,"atk":131,"def":160,"mag":255,"spr":205},
+			"minStats":{"hp":1531,"mp":97,"atk":43,"def":53,"mag":84,"spr":68},
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","gun","hat","clothes","lightArmor","robe"],
+		"equip":["dagger","staff","rod","gun","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["戦友の忠告","ピンポイント爆破","血の錬成陣"],
+		"enhancements": [
+			{"name":"戦友の忠告","levels":[[{"mag":100,"lbDamage":50,"levelCondition":120}],[{"mag":125,"lbDamage":50,"levelCondition":120}],[{"mag":150,"lbDamage":75,"levelCondition":120}],[{"mag":175,"lbDamage":75,"levelCondition":120}],[{"mag":200,"lbDamage":100,"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":30, "mp%":30, "def%":20, "mag%":90, "spr%":20, "singleWielding":{"mag":50}, "resist":[{"name":"fire","percent":60},{"name":"dark","percent":60},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 			{"mag%":30, "spr%":30, "equipedConditions":["clothes"]},
 			{"hp%":30, "def%":30, "singleWielding":{"mag":100}, "equipedConditions":[["409038700","504234095"]]},
 			{"mag%":20, "levelCondition":115},
-			{"mag%":60, "resist":[{"name":"stop","percent":100}], "killers":[{"name":"demon","magical":50}], "levelCondition":120}
+			{"mag%":60, "resist":[{"name":"stop","percent":100}], "killers":[{"name":"demon","magical":50}], "levelCondition":120},
+			{"singleWielding":{"mag":50}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Roy Mustang",
@@ -26787,11 +26810,67 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","gun","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["戦友の忠告","ピンポイント爆破","血の錬成陣"],
 			"skills": [
 				{"hp%":30, "mp%":30, "def%":20, "mag%":90, "spr%":20, "singleWielding":{"mag":50}, "resist":[{"name":"fire","percent":60},{"name":"dark","percent":60},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 				{"mag%":30, "spr%":30, "equipedConditions":["clothes"]}
 			]
+		},
+		"7_form": {
+			"name":"Roy Mustang",
+			"jpname":"ロイ・マスタング",
+			"id":"338000305",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4611,"mp":285,"atk":131,"def":158,"mag":218,"spr":202},
+				"minStats":{"hp":1522,"mp":94,"atk":43,"def":52,"mag":72,"spr":67},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","staff","rod","gun","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["戦友の忠告","ピンポイント爆破","血の錬成陣"],
+			"skills": [
+				{"hp%":30, "mp%":30, "def%":20, "mag%":90, "spr%":20, "singleWielding":{"mag":50}, "resist":[{"name":"fire","percent":60},{"name":"dark","percent":60},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+				{"mag%":30, "spr%":30, "equipedConditions":["clothes"]},
+				{"hp%":30, "def%":30, "singleWielding":{"mag":100}, "equipedConditions":[["409038700","504234095"]]},
+				{"mag%":20, "levelCondition":115},
+				{"mag%":60, "resist":[{"name":"stop","percent":100}], "killers":[{"name":"demon","magical":50}], "levelCondition":120}
+			]
 		}
+	},
+	"338000327": {
+		"name":"Roy Mustang BS",
+		"jpname":"ロイ・マスタング BS",
+		"id":"338000327",
+		"braveShifted":"338000305",
+		"exAwakening": [{"hp":603,"mp":38,"atk":17,"def":20,"mag":33,"spr":26},{"hp":464,"mp":29,"atk":13,"def":16,"mag":25,"spr":20},{"hp":324,"mp":20,"atk":9,"def":11,"mag":17,"spr":14}],
+		"fragmentId": "250000690",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4822,"mp":305,"atk":131,"def":148,"mag":280,"spr":210},
+			"minStats":{"hp":1591,"mp":101,"atk":43,"def":49,"mag":92,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","gun","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["鷹の眼の支援","ピンポイント爆破","大爆炎"],
+		"enhancements": [
+			{"name":"鷹の眼の支援","levels":[[{"mag":200,"lbDamage":50,"levelCondition":120}],[{"mag":225,"lbDamage":50,"levelCondition":120}],[{"mag":250,"lbDamage":75,"levelCondition":120}],[{"mag":275,"lbDamage":75,"levelCondition":120}],[{"mag":300,"lbDamage":100,"levelCondition":120}]]}
+		],
+		"skills": [
+			{"resist":[{"name":"water","percent":-100}]},
+			{"singleWielding":{"mag":50}, "levelCondition":120},
+			{"mag%":220, "mpRefresh":7, "levelCondition":120},
+			{"hp%":30, "def%":30, "spr%":30, "lbFillRate":100, "lbPerTurn":{"min":4,"max":4}, "levelCondition":120},
+			{"resist":[{"name":"fire","percent":100},{"name":"blind","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
+			{"mp%":40, "singleWielding":{"mag":50}, "levelCondition":120},
+			{"hp%":30, "spr%":30, "singleWielding":{"mag":100}, "equipedConditions":[["409038700","504234095"]], "levelCondition":120}
+		]
 	},
 	"338000404": {
 		"name":"Riza Hawkeye",
@@ -26829,6 +26908,178 @@
 		"skills": [
 			{"hp%":40, "mp%":20, "atk%":20, "def%":20, "spr%":20, "resist":[{"name":"paralysis","percent":100},{"name":"fire","percent":20}]}
 		]
+	},
+	"338000607": {
+		"name":"Elric Brothers",
+		"jpname":"エルリック兄弟",
+		"id":"338000607",
+		"braveShift":"338000617",
+		"exAwakening": [{"hp":677,"mp":31,"atk":66,"def":26,"mag":15,"spr":18},{"hp":521,"mp":24,"atk":51,"def":20,"mag":12,"spr":14},{"hp":364,"mp":17,"atk":36,"def":14,"mag":8,"spr":9}],
+		"fragmentId": "250000670",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5212,"mp":245,"atk":255,"def":207,"mag":120,"spr":141},
+			"minStats":{"hp":1720,"mp":81,"atk":91,"def":68,"mag":40,"spr":47},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["ひとりじゃない!!","土槍錬成"],
+		"skills": [
+			{"hp%":40, "mp%":40, "atk%":200, "def%":40, "spr%":40, "singleWielding":{"accuracy":25,"atk":200}, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"earth","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"stone","physical":100}], "mpRefresh":10, "lbDamage":100, "special":["dualWield"]},
+			{"lbPerTurn":{"min":8,"max":8}, "equipedConditions":[["504239680","409049100"]]}
+		]
+	},
+	"338000617": {
+		"name":"Elric Brothers BS",
+		"jpname":"エルリック兄弟 BS",
+		"id":"338000617",
+		"braveShifted":"338000607",
+		"exAwakening": [{"hp":677,"mp":31,"atk":66,"def":26,"mag":15,"spr":18},{"hp":521,"mp":24,"atk":51,"def":20,"mag":12,"spr":14},{"hp":364,"mp":17,"atk":36,"def":14,"mag":8,"spr":9}],
+		"fragmentId": "250000670",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4976,"mp":266,"atk":252,"def":195,"mag":144,"spr":169},
+			"minStats":{"hp":1642,"mp":88,"atk":86,"def":64,"mag":48,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["ひとりじゃない!!","悪党とは等価交換の必要無し!!!!!"],
+		"skills": [
+			{"hp%":40, "mp%":60, "atk%":190, "def%":40, "spr%":40, "singleWielding":{"accuracy":25,"atk":200}, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"stop","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":200}], "mpRefresh":10, "lbDamage":50, "special":["dualWield"]},
+			{"lbPerTurn":{"min":8,"max":8}, "equipedConditions":[["504239680","409049100"]]}
+		]
+	},
+	"338000707": {
+		"name":"King Bradley",
+		"jpname":"キング・ブラッドレイ",
+		"id":"338000707",
+		"braveShift":"338000717",
+		"exAwakening": [{"hp":643,"mp":26,"atk":63,"def":22,"mag":17,"spr":22},{"hp":495,"mp":20,"atk":48,"def":17,"mag":13,"spr":17},{"hp":346,"mp":14,"atk":34,"def":12,"mag":9,"spr":11}],
+		"fragmentId": "250000680",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4950,"mp":200,"atk":243,"def":172,"mag":131,"spr":170},
+			"minStats":{"hp":1634,"mp":66,"atk":80,"def":57,"mag":43,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["反逆者への鉄槌","私を壊してみせろ!!"],
+		"skills": [
+			{"hp%":100, "mp%":80, "atk%":180, "def%":50, "spr%":40, "evade":{"physical":70}, "dualWielding":{"atk":150}, "improvedDW":true, "lbFillRate":150, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7, "lbDamage":100, "drawAttacks":50, "special":["dualWield"]},
+			{"equipedConditions":[["409049200","302014100"]]}
+		]
+	},
+	"338000717": {
+		"name":"King Bradley BS",
+		"jpname":"キング・ブラッドレイ BS",
+		"id":"338000717",
+		"braveShifted":"338000707",
+		"exAwakening": [{"hp":643,"mp":26,"atk":63,"def":22,"mag":17,"spr":22},{"hp":495,"mp":20,"atk":48,"def":17,"mag":13,"spr":17},{"hp":346,"mp":14,"atk":34,"def":12,"mag":9,"spr":11}],
+		"fragmentId": "250000680",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4890,"mp":203,"atk":265,"def":186,"mag":131,"spr":184},
+			"minStats":{"hp":1614,"mp":67,"atk":87,"def":61,"mag":43,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["反逆者への鉄槌","修羅の斬撃"],
+		"skills": [
+			{"hp%":100, "mp%":80, "atk%":200, "def%":70, "spr%":60, "evade":{"physical":40}, "dualWielding":{"atk":150}, "improvedDW":true, "lbFillRate":150, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":150}], "mpRefresh":7, "lbDamage":100, "special":["dualWield"]},
+			{"equipedConditions":[["409049200","302014100"]]}
+		]
+	},
+	"338000805": {
+		"name":"Envy",
+		"jpname":"エンヴィー",
+		"id":"338000805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5014,"mp":214,"atk":224,"def":134,"mag":144,"spr":124},
+			"minStats":{"hp":1655,"mp":71,"atk":74,"def":44,"mag":48,"spr":41},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["gun","fist","hat","clothes"],
+		"skills": [
+			{"hp%":50, "mp%":80, "atk%":180, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":200}, "dualWielding":{"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":100}], "mpRefresh":7, "lbDamage":200, "special":["dualWield"]},
+			{"evade":{"physical":15}, "lbPerTurn":{"min":2,"max":2}, "equipedConditions":[["504239686","403052700"]]}
+		],
+		"6_form": {
+			"name":"Envy",
+			"jpname":"エンヴィー",
+			"id":"338000805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3856,"mp":164,"atk":172,"def":103,"mag":110,"spr":95},
+				"minStats":{"hp":1272,"mp":54,"atk":57,"def":34,"mag":36,"spr":31},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["gun","fist","hat","clothes"],
+			"skills": [
+				{"hp%":50, "mp%":80, "atk%":180, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":200}, "dualWielding":{"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":100}], "mpRefresh":7, "lbDamage":200, "special":["dualWield"]}
+			]
+		}
+	},
+	"338000905": {
+		"name":"Greed",
+		"jpname":"グリード",
+		"id":"338000905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":195,"atk":173,"def":229,"mag":122,"spr":201},
+			"minStats":{"hp":1650,"mp":64,"atk":57,"def":76,"mag":40,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","gun","fist","hat","clothes"],
+		"skills": [
+			{"hp%":30, "mp%":30, "def%":30, "spr%":60, "evade":{"physical":20}, "lbFillRate":150, "mpRefresh":5, "drawAttacks":30},
+			{"def%":100, "equipedConditions":["sword"]},
+			{"def%":150, "equipedConditions":["fist"]},
+			{"dualWielding":{"def":150}, "resist":[{"name":"stop","percent":100}], "equipedConditions":[["504239684","405013000"]]}
+		],
+		"6_form": {
+			"name":"Greed",
+			"jpname":"グリード",
+			"id":"338000905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3846,"mp":150,"atk":133,"def":176,"mag":93,"spr":154},
+				"minStats":{"hp":1269,"mp":50,"atk":44,"def":58,"mag":31,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","gun","fist","hat","clothes"],
+			"skills": [
+				{"hp%":30, "mp%":30, "def%":30, "spr%":60, "evade":{"physical":20}, "lbFillRate":150, "mpRefresh":5, "drawAttacks":30},
+				{"def%":100, "equipedConditions":["sword"]},
+				{"def%":150, "equipedConditions":["fist"]}
+			]
+		}
 	},
 	"339000105": {
 		"name":"Gilgamesh (WOTV FFBE)",

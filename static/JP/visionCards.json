@@ -372,7 +372,7 @@
 	{"mag":90, "conditional":[{"equipedConditions":["sword"],"mag%":100}]},
 	{"mag":100, "conditional":[{"equipedConditions":["sword"],"mag%":100},{"mag%":20},{"evokeDamageBoost":{"all":30}}]}
 ]},
-{"id":"206000201", "name":"別離と再起", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000201.png", "sortId":29, "levels":[
+{"id":"206000201", "name":"Separation and Restoration", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000201.png", "sortId":29, "levels":[
 	{"atk":50},
 	{"atk":55},
 	{"atk":60},
@@ -491,6 +491,18 @@
 	{"atk":61, "atk%":40, "spr":74, "spr%":40},
 	{"atk":64, "atk%":40, "spr":79, "spr%":40},
 	{"atk":72, "atk%":40, "spr":88, "spr%":40, "conditional":[{"atk%":30,"spr%":30},{"resist":[{"name":"light","percent":50}]}]}
+]},
+{"id":"338000101", "name":"真理の扉", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_338000101.png", "sortId":44, "levels":[
+	{"atk":50},
+	{"atk":55},
+	{"atk":60},
+	{"atk":65, "atk%":30},
+	{"atk":70, "atk%":30},
+	{"atk":75, "atk%":30},
+	{"atk":80, "atk%":60},
+	{"atk":85, "atk%":60},
+	{"atk":90, "atk%":60},
+	{"atk":100, "atk%":60, "conditional":[{"lbDamage":50}]}
 ]},
 {"id":"900020101", "name":"Metal Gigantuar's Here!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_900020101.png", "sortId":6, "levels":[
 	{"hp":10, "mp":10}
