@@ -324,6 +324,18 @@
 	{"atk":56, "def":28, "resist":[{"name":"water","percent":15},{"name":"earth","percent":15},{"name":"water","percent":15},{"name":"earth","percent":15}]},
 	{"atk":60, "def":30, "resist":[{"name":"water","percent":15},{"name":"earth","percent":15},{"name":"water","percent":15},{"name":"earth","percent":15}], "conditional":[{"atk%":20,"def%":20},{"resist":[{"name":"water","percent":30},{"name":"earth","percent":30}]}]}
 ]},
+{"id":"100002901", "name":"マク爺のお手伝い", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002901.png", "sortId":49, "levels":[
+	{"mag":50},
+	{"mag":53},
+	{"mag":56},
+	{"mag":59, "conditional":[{"equipedConditions":["clothes"],"mag%":20}]},
+	{"mag":62, "conditional":[{"equipedConditions":["clothes"],"mag%":20}]},
+	{"mag":65, "conditional":[{"equipedConditions":["clothes"],"mag%":20}]},
+	{"mag":68, "conditional":[{"equipedConditions":["clothes"],"mag%":40}]},
+	{"mag":71, "conditional":[{"equipedConditions":["clothes"],"mag%":40}]},
+	{"mag":74, "conditional":[{"equipedConditions":["clothes"],"mag%":40}]},
+	{"mag":80, "killers":[{"name":"machine","magical":25}], "conditional":[{"equipedConditions":["clothes"],"mag%":40}]}
+]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
 	{"atk":54},
@@ -455,6 +467,30 @@
 	{"hp":850, "def":51, "spr":51, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
 	{"hp":900, "def":54, "spr":54, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
 	{"hp":1000, "def":60, "spr":60, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40},{"exclusiveSex":"male"},{"exclusiveSex":"male"}]}
+]},
+{"id":"215000101", "name":"王都決戦", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_215000101.png", "sortId":45, "levels":[
+	{"atk":60},
+	{"atk":65},
+	{"atk":70},
+	{"atk":75, "conditional":[{"equipedConditions":["sword"],"atk%":40}]},
+	{"atk":80, "conditional":[{"equipedConditions":["sword"],"atk%":40}]},
+	{"atk":85, "conditional":[{"equipedConditions":["sword"],"atk%":40}]},
+	{"atk":90, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
+	{"atk":95, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
+	{"atk":100, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
+	{"atk":110, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"jumpDamage":50},{"resist":[{"name":"fire","percent":25},{"name":"dark","percent":25}]}]}
+]},
+{"id":"215000201", "name":"カーテスの大皿へ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_215000201.png", "sortId":46, "levels":[
+	{"atk":60},
+	{"atk":65},
+	{"atk":70},
+	{"atk":75, "conditional":[{"equipedConditions":["sword"],"atk%":40}]},
+	{"atk":80, "conditional":[{"equipedConditions":["sword"],"atk%":40}]},
+	{"atk":85, "conditional":[{"equipedConditions":["sword"],"atk%":40}]},
+	{"atk":90, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
+	{"atk":95, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
+	{"atk":100, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
+	{"atk":110, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"jumpDamage":50},{"resist":[{"name":"light","percent":50}]}]}
 ]},
 {"id":"335000101", "name":"The Keyblade Graveyard Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},
