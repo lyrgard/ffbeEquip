@@ -540,6 +540,30 @@
 	{"atk":90, "atk%":60},
 	{"atk":100, "atk%":60, "conditional":[{"lbDamage":50}]}
 ]},
+{"id":"401000101", "name":"Virtual Training", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000101.png", "sortId":48, "levels":[
+	{"spr":50},
+	{"spr":55},
+	{"spr":60},
+	{"spr":65, "spr%":20},
+	{"spr":70, "spr%":20},
+	{"spr":75, "spr%":20},
+	{"spr":80, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
+	{"spr":85, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
+	{"spr":90, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
+	{"spr":100, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}
+]},
+{"id":"401000401", "name":"Azure Successor", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000401.png", "sortId":47, "levels":[
+	{"atk":45, "mag":45},
+	{"atk":48, "mag":48},
+	{"atk":52, "mag":52},
+	{"atk":55, "atk%":20, "mag":55, "mag%":20},
+	{"atk":59, "atk%":20, "mag":59, "mag%":20},
+	{"atk":62, "atk%":20, "mag":62, "mag%":20},
+	{"atk":66, "atk%":50, "mag":66, "mag%":50},
+	{"atk":69, "atk%":50, "mag":69, "mag%":50},
+	{"atk":73, "atk%":50, "mag":73, "mag%":50},
+	{"atk":80, "atk%":50, "mag":80, "mag%":50, "conditional":[{"lbDamage":50,"exclusiveSex":"female"}]}
+]},
 {"id":"900020101", "name":"Metal Gigantuar's Here!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_900020101.png", "sortId":6, "levels":[
 	{"hp":10, "mp":10}
 ]}

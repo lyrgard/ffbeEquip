@@ -593,6 +593,10 @@ const chainFamilySkillName = {
     "AZ": "Absolute Zero",
     "Ryu": "Ryujin",
     "CWA": "Chaos Wave Awakened",
+    "AK": "Avalanche Kick",
+    "BP": "Blade Prison",
+    "TS": "Torrential Slash",
+    "ExN": "Extreme Nova"
 }
 
 const importBoardConversion = [[0,0], [-1,-1], [0,-1], [-1,0], [1,0], [0,1], [1,1],

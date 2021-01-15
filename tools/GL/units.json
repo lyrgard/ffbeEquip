@@ -2406,6 +2406,7 @@
 	"100012605": {
 		"name":"Kunshira",
 		"id":"100012605",
+		"braveShift":"100012627",
 		"exAwakening": [{"hp":588,"mp":28,"atk":27,"def":22,"mag":28,"spr":21},{"hp":452,"mp":22,"atk":20,"def":17,"mag":21,"spr":16},{"hp":317,"mp":15,"atk":14,"def":11,"mag":15,"spr":11}],
 		"fragmentId": "250000390",
 		"max_rarity":"NV",
@@ -2418,7 +2419,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","水光の強魔剣舞","火風の強魔剣舞","平和を望む心"],
+		"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","Enhanced Holy Water Spellblade","Enhanced Firestorm Spellblade","Longing for Peace"],
 		"6_form": {
 			"name":"Kunshira",
 			"id":"100012605",
@@ -2433,7 +2434,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","水光の強魔剣舞","火風の強魔剣舞","平和を望む心"]
+			"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","Enhanced Holy Water Spellblade","Enhanced Firestorm Spellblade","Longing for Peace"]
 		},
 		"7_form": {
 			"name":"Kunshira",
@@ -2449,12 +2450,15 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","水光の強魔剣舞","火風の強魔剣舞","平和を望む心"]
+			"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","Enhanced Holy Water Spellblade","Enhanced Firestorm Spellblade","Longing for Peace"]
 		}
 	},
 	"100012627": {
-		"name":"クンシラ",
+		"name":"Kunshira BS",
 		"id":"100012627",
+		"braveShifted":"100012605",
+		"exAwakening": [{"hp":588,"mp":28,"atk":27,"def":22,"mag":28,"spr":21},{"hp":452,"mp":22,"atk":20,"def":17,"mag":21,"spr":16},{"hp":317,"mp":15,"atk":14,"def":11,"mag":15,"spr":11}],
+		"fragmentId": "250000390",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -2464,8 +2468,8 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["水光の強魔剣舞","魔奪の剣舞","魔力操作環の新たな力"]
+		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Enhanced Holy Water Spellblade","Mana Drain Sword Dance","Magic Control Ring's New Power"]
 	},
 	"100012704": {
 		"name":"Wadow",
@@ -3194,6 +3198,7 @@
 	"100017605": {
 		"name":"Yuraisha",
 		"id":"100017605",
+		"braveShift":"100017627",
 		"exAwakening": [{"hp":581,"mp":32,"atk":17,"def":20,"mag":25,"spr":29},{"hp":447,"mp":25,"atk":13,"def":15,"mag":19,"spr":22},{"hp":312,"mp":17,"atk":9,"def":11,"mag":13,"spr":15}],
 		"fragmentId": "250000380",
 		"max_rarity":"NV",
@@ -3206,7 +3211,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","守護堅壁の法","四元素結界","アルドールに立ち向かいし者"],
+		"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"],
 		"6_form": {
 			"name":"Yuraisha",
 			"id":"100017605",
@@ -3221,7 +3226,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","守護堅壁の法","四元素結界","アルドールに立ち向かいし者"]
+			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"]
 		},
 		"7_form": {
 			"name":"Yuraisha",
@@ -3237,12 +3242,15 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","守護堅壁の法","四元素結界","アルドールに立ち向かいし者"]
+			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"]
 		}
 	},
 	"100017627": {
-		"name":"ユライシャ",
+		"name":"Yuraisha BS",
 		"id":"100017627",
+		"braveShifted":"100017605",
+		"exAwakening": [{"hp":581,"mp":32,"atk":17,"def":20,"mag":25,"spr":29},{"hp":447,"mp":25,"atk":13,"def":15,"mag":19,"spr":22},{"hp":312,"mp":17,"atk":9,"def":11,"mag":13,"spr":15}],
+		"fragmentId": "250000380",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -3252,8 +3260,8 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["守護堅壁の法","復魔活性の法","ヘスを導きし者"]
+		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Protector's Stratagem","Revitalization Stratagem","Guidance for Hess"]
 	},
 	"100017704": {
 		"name":"Franis",
@@ -3993,7 +4001,7 @@
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
 	},
 	"100021405": {
-		"name":"紫紺の八賢者ローウェン",
+		"name":"Hess Sage Rowen",
 		"id":"100021405",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4006,7 +4014,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"紫紺の八賢者ローウェン",
+			"name":"Hess Sage Rowen",
 			"id":"100021405",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -6722,7 +6730,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["明鏡・蒼穹","氷河断刃"]
+		"enhancementSkills":["Mirror of Equity - Blue Sky","Glacial Judgment Blade"]
 	},
 	"100032617": {
 		"name":"Lasswell -Neo Vision- BS",
@@ -6740,7 +6748,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["明鏡・蒼穹","絶魔剣"]
+		"enhancementSkills":["Mirror of Equity - Blue Sky","Obliterating Magic Blade"]
 	},
 	"100032707": {
 		"name":"Rain & Fina",

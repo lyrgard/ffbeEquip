@@ -104,8 +104,15 @@ let chainingFamilies = {
     "none,42,50,58,66,74,82,90,98": "FE",               // Free Energy
     "none,84,92,100,108,116,124,132,140": "MR",         // Meteor Rain
     "none,40,45,50,55,60,65,70,75,80,85,90": "AZ",      // Absolute Zero
-    "none,2,12,22,32,42": "Ryu",                         // Ryujin
-    "none,42,62,82,102,122,142,162,182": "CWA"               // Chaos Wave Awakened
+    "walk,2,12,22,32,42": "Ryu",                         // Ryujin
+    "none,42,62,82,102,122,142,162,182": "CWA",               // Chaos Wave Awakened
+    "none,70,77,84,91,98,105,112,119,126,133,140,147": "AK", // Avalanche Kick
+    "none,42,50,58,66,74,82,90,98,106,114": "BP", // Blade Prison
+    "none,42,52,62,72,82,92,102,112,122,132": "TS", // Torrential Slash
+    "none,52,57,62,67,72,77,82,87,92,97,102,107,112,117,122,127,132,137,142,147,152,157,162,167,172,177,182,187,192,197": "ExN", // Extreme nova, idle 52
+    "walk,52,57,62,67,72,77,82,87,92,97,102,107,112,117,122,127,132,137,142,147,152,157,162,167,172,177,182,187,192,197": "ExN", // Extreme nova, walk 52
+    "walk,60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200,205": "ExN", // Extreme nova, walk 60
+    "walk,88,93,98,103,108,113,118,123,128,133,138,143,148,153,158,163,168,173,178,183,188,193,198,203,208,213,218,223,228,233": "ExN", // Extreme nova, walk 88
 }
 
 let moveTypes = {
@@ -2039,7 +2046,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
 
         // increase accuracy for x turns - [accurace, ?, turns, ?, ?]
     } else if (rawEffect[2] == 162) {
-        result = null;
+        result = {"noUse":true};
 
         // weapon imperils - [typeMap, ignoreDef, IgnoreSpr, ?, duration, ?] - https://github.com/lyrgard/ffbeEquip/issues/485
     } else if (rawEffect[2] == 163) {

@@ -3596,6 +3596,7 @@
 		"name":"Kunshira",
 		"wikiEntry":"Kunshira",
 		"id":"100012605",
+		"braveShift":"100012627",
 		"exAwakening": [{"hp":588,"mp":28,"atk":27,"def":22,"mag":28,"spr":21},{"hp":452,"mp":22,"atk":20,"def":17,"mag":21,"spr":16},{"hp":317,"mp":15,"atk":14,"def":11,"mag":15,"spr":11}],
 		"fragmentId": "250000390",
 		"max_rarity":"NV",
@@ -3608,11 +3609,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","水光の強魔剣舞","火風の強魔剣舞","平和を望む心"],
+		"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","Enhanced Holy Water Spellblade","Enhanced Firestorm Spellblade","Longing for Peace"],
 		"enhancements": [
 			{"name":"Shibyra Technique","levels":[[{"killers":[{"name":"beast","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}]}],[{"killers":[{"name":"beast","physical":75,"magical":75},{"name":"human","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}]}],[{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100}]}]]},
 			{"name":"Aide to the King","levels":[[{"equipedConditions":["sword"],"atk%":30,"mag%":30},{"equipedConditions":["rod"],"atk%":30,"mag%":30}],[{"equipedConditions":["sword"],"atk%":45,"mag%":45},{"equipedConditions":["rod"],"atk%":45,"mag%":45}],[{"hp%":30,"dualWielding":{"atk":20,"mag":20}},{"equipedConditions":["sword"],"atk%":60,"mag%":60},{"equipedConditions":["rod"],"atk%":60,"mag%":60}]]},
-			{"name":"平和を望む心","levels":[[{"mag":300,"atk":300,"skillEnhancement":{"200770":36,"220760":49,"220770":36,"220780":36,"220790":36,"220800":36,"227610":49},"levelCondition":120}],[{"mag":300,"atk":300,"skillEnhancement":{"200770":40,"220760":55,"220770":40,"220780":40,"220790":40,"220800":40,"227610":55},"levelCondition":120}],[{"mag":400,"atk":400,"skillEnhancement":{"200770":44,"220760":61,"220770":44,"220780":44,"220790":44,"220800":44,"227610":61},"levelCondition":120}],[{"mag":400,"atk":400,"skillEnhancement":{"200770":48,"220760":67,"220770":48,"220780":48,"220790":48,"220800":48,"227610":67},"levelCondition":120}],[{"mag":500,"atk":500,"skillEnhancement":{"200770":52,"220760":73,"220770":52,"220780":52,"220790":52,"220800":52,"227610":73},"levelCondition":120}]]}
+			{"name":"Longing for Peace","levels":[[{"mag":300,"atk":300,"skillEnhancement":{"200770":36,"220760":49,"220770":36,"220780":36,"220790":36,"220800":36,"227610":49,"912220":49,"912221":49,"912222":49},"levelCondition":120}],[{"mag":300,"atk":300,"skillEnhancement":{"200770":40,"220760":55,"220770":40,"220780":40,"220790":40,"220800":40,"227610":55,"912220":55,"912221":55,"912222":55},"levelCondition":120}],[{"mag":400,"atk":400,"skillEnhancement":{"200770":44,"220760":61,"220770":44,"220780":44,"220790":44,"220800":44,"227610":61,"912220":61,"912221":61,"912222":61},"levelCondition":120}],[{"mag":400,"atk":400,"skillEnhancement":{"200770":48,"220760":67,"220770":48,"220780":48,"220790":48,"220800":48,"227610":67,"912220":67,"912221":67,"912222":67},"levelCondition":120}],[{"mag":500,"atk":500,"skillEnhancement":{"200770":52,"220760":73,"220770":52,"220780":52,"220790":52,"220800":52,"227610":73,"912220":73,"912221":73,"912222":73},"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":20, "atk%":30, "mag%":30, "partialDualWield":["sword","rod"], "mpRefresh":5},
@@ -3639,7 +3640,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","水光の強魔剣舞","火風の強魔剣舞","平和を望む心"],
+			"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","Enhanced Holy Water Spellblade","Enhanced Firestorm Spellblade","Longing for Peace"],
 		"enhancements": [
 			{"name":"Shibyra Technique","levels":[[{"killers":[{"name":"beast","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}]}],[{"killers":[{"name":"beast","physical":75,"magical":75},{"name":"human","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}]}],[{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100}]}]]},
 			{"name":"Aide to the King","levels":[[{"equipedConditions":["sword"],"atk%":30,"mag%":30},{"equipedConditions":["rod"],"atk%":30,"mag%":30}],[{"equipedConditions":["sword"],"atk%":45,"mag%":45},{"equipedConditions":["rod"],"atk%":45,"mag%":45}],[{"hp%":30,"dualWielding":{"atk":20,"mag":20}},{"equipedConditions":["sword"],"atk%":60,"mag%":60},{"equipedConditions":["rod"],"atk%":60,"mag%":60}]]}
@@ -3663,7 +3664,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","水光の強魔剣舞","火風の強魔剣舞","平和を望む心"],
+			"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","Enhanced Holy Water Spellblade","Enhanced Firestorm Spellblade","Longing for Peace"],
 		"enhancements": [
 			{"name":"Shibyra Technique","levels":[[{"killers":[{"name":"beast","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}]}],[{"killers":[{"name":"beast","physical":75,"magical":75},{"name":"human","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}]}],[{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100}]}]]},
 			{"name":"Aide to the King","levels":[[{"equipedConditions":["sword"],"atk%":30,"mag%":30},{"equipedConditions":["rod"],"atk%":30,"mag%":30}],[{"equipedConditions":["sword"],"atk%":45,"mag%":45},{"equipedConditions":["rod"],"atk%":45,"mag%":45}],[{"hp%":30,"dualWielding":{"atk":20,"mag":20}},{"equipedConditions":["sword"],"atk%":60,"mag%":60},{"equipedConditions":["rod"],"atk%":60,"mag%":60}]]}
@@ -3678,9 +3679,12 @@
 		}
 	},
 	"100012627": {
-		"name":"クンシラ",
-		"wikiEntry":"クンシラ",
+		"name":"Kunshira BS",
+		"wikiEntry":"Kunshira",
 		"id":"100012627",
+		"braveShifted":"100012605",
+		"exAwakening": [{"hp":588,"mp":28,"atk":27,"def":22,"mag":28,"spr":21},{"hp":452,"mp":22,"atk":20,"def":17,"mag":21,"spr":16},{"hp":317,"mp":15,"atk":14,"def":11,"mag":15,"spr":11}],
+		"fragmentId": "250000390",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -3690,16 +3694,16 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["水光の強魔剣舞","魔奪の剣舞","魔力操作環の新たな力"],
+		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Enhanced Holy Water Spellblade","Mana Drain Sword Dance","Magic Control Ring's New Power"],
 		"enhancements": [
-			{"name":"魔力操作環の新たな力","levels":[[{"resist":[{"name":"fire","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"light","percent":10}],"levelCondition":120},{"equipedConditions":["mace"],"spr%":30,"levelCondition":120}],[{"resist":[{"name":"fire","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"light","percent":20}],"levelCondition":120},{"equipedConditions":["mace"],"spr%":30,"levelCondition":120}],[{"resist":[{"name":"fire","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30}],"levelCondition":120},{"equipedConditions":["mace"],"spr%":50,"levelCondition":120}],[{"resist":[{"name":"fire","percent":40},{"name":"lightning","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"light","percent":40}],"levelCondition":120},{"equipedConditions":["mace"],"spr%":50,"levelCondition":120}],[{"resist":[{"name":"fire","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"light","percent":50}],"levelCondition":120},{"equipedConditions":["mace"],"spr%":70,"levelCondition":120}]]}
+			{"name":"Magic Control Ring's New Power","levels":[[{"resist":[{"name":"fire","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"light","percent":10}],"levelCondition":120},{"equipedConditions":["mace"],"spr%":30,"levelCondition":120}],[{"resist":[{"name":"fire","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"light","percent":20}],"levelCondition":120},{"equipedConditions":["mace"],"spr%":30,"levelCondition":120}],[{"resist":[{"name":"fire","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30}],"levelCondition":120},{"equipedConditions":["mace"],"spr%":50,"levelCondition":120}],[{"resist":[{"name":"fire","percent":40},{"name":"lightning","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"light","percent":40}],"levelCondition":120},{"equipedConditions":["mace"],"spr%":50,"levelCondition":120}],[{"resist":[{"name":"fire","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"light","percent":50}],"levelCondition":120},{"equipedConditions":["mace"],"spr%":70,"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":30, "mp%":50, "atk%":50, "def%":30, "mag%":50, "spr%":30, "levelCondition":120},
 			{"dualWielding":{"atk":120,"mag":120}, "levelCondition":120},
 			{"lbFillRate":100, "lbPerTurn":{"min":5,"max":5}, "equipedConditions":[["504220680","409020800"]], "levelCondition":120},
-			{"singleWielding":{"accuracy":25,"atk":200,"mag":200}, "dualWielding":{"atk":30,"mag":30}, "skillEnhancement":{"220760":97,"227610":97}, "levelCondition":120},
+			{"singleWielding":{"accuracy":25,"atk":200,"mag":200}, "dualWielding":{"atk":30,"mag":30}, "skillEnhancement":{"220760":97,"227610":97,"912220":97,"912221":97,"912222":97}, "levelCondition":120},
 			{"mp%":20, "mpRefresh":10, "special":["dualWield"], "levelCondition":120},
 			{"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "levelCondition":120},
 			{"atk%":150, "mag%":150, "killers":[{"name":"beast","physical":125,"magical":125},{"name":"human","physical":125,"magical":125},{"name":"spirit","physical":125,"magical":125}], "levelCondition":120},
@@ -4824,6 +4828,7 @@
 		"name":"Yuraisha",
 		"wikiEntry":"Yuraisha",
 		"id":"100017605",
+		"braveShift":"100017627",
 		"exAwakening": [{"hp":581,"mp":32,"atk":17,"def":20,"mag":25,"spr":29},{"hp":447,"mp":25,"atk":13,"def":15,"mag":19,"spr":22},{"hp":312,"mp":17,"atk":9,"def":11,"mag":13,"spr":15}],
 		"fragmentId": "250000380",
 		"max_rarity":"NV",
@@ -4836,11 +4841,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","守護堅壁の法","四元素結界","アルドールに立ち向かいし者"],
+		"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"],
 		"enhancements": [
 			{"name":"Royal Virtue","levels":[[{"spr%":20,"def%":20,"resist":[{"name":"confuse","percent":100}]}],[{"spr%":60,"def%":60,"resist":[{"name":"confuse","percent":100}]}],[{"spr%":60,"def%":60,"resist":[{"name":"confuse","percent":100}],"mpRefresh":5,"lbPerTurn":{"min":3,"max":3}}]]},
 			{"name":"Mother of Hess","levels":[[{"mp%":30,"resist":[{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}],"lbPerTurn":{"min":2,"max":2},"levelCondition":120}],[{"mp%":50,"hp%":20,"resist":[{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}],"lbPerTurn":{"min":2,"max":2},"levelCondition":120}],[{"mp%":60,"hp%":50,"resist":[{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"dark","percent":50}],"lbPerTurn":{"min":2,"max":2},"replaceLb":{"name":"Societal Embrace","minEffects":[{"effect":{"statsBuff":{"atk":171,"def":171,"mag":171,"spr":171},"turns":4,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 171% for 4 turns to all allies (can not be removed)"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Grant a 4000 HP shield to all allies for 4 turns"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 4 turns to all allies"}],"maxEffects":[{"effect":{"statsBuff":{"atk":200,"def":200,"mag":200,"spr":200},"turns":4,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 200% for 4 turns to all allies (can not be removed)"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Grant a 4000 HP shield to all allies for 4 turns"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 4 turns to all allies"}]},"levelCondition":120}]]},
-			{"name":"アルドールに立ち向かいし者","levels":[[{"spr":100,"levelCondition":120}],[{"spr":150,"levelCondition":120}],[{"spr":200,"levelCondition":120}],[{"spr":250,"levelCondition":120}],[{"spr":300,"levelCondition":120}]]}
+			{"name":"Standing Against Aldore","levels":[[{"spr":100,"levelCondition":120}],[{"spr":150,"levelCondition":120}],[{"spr":200,"levelCondition":120}],[{"spr":250,"levelCondition":120}],[{"spr":300,"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":20, "mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}], "mpRefresh":5},
@@ -4864,7 +4869,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","守護堅壁の法","四元素結界","アルドールに立ち向かいし者"],
+			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"],
 		"enhancements": [
 			{"name":"Royal Virtue","levels":[[{"spr%":20,"def%":20,"resist":[{"name":"confuse","percent":100}]}],[{"spr%":60,"def%":60,"resist":[{"name":"confuse","percent":100}]}],[{"spr%":60,"def%":60,"resist":[{"name":"confuse","percent":100}],"mpRefresh":5,"lbPerTurn":{"min":3,"max":3}}]]}
 		],
@@ -4888,7 +4893,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","守護堅壁の法","四元素結界","アルドールに立ち向かいし者"],
+			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"],
 		"enhancements": [
 			{"name":"Royal Virtue","levels":[[{"spr%":20,"def%":20,"resist":[{"name":"confuse","percent":100}]}],[{"spr%":60,"def%":60,"resist":[{"name":"confuse","percent":100}]}],[{"spr%":60,"def%":60,"resist":[{"name":"confuse","percent":100}],"mpRefresh":5,"lbPerTurn":{"min":3,"max":3}}]]},
 			{"name":"Mother of Hess","levels":[[{"mp%":30,"resist":[{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}],"lbPerTurn":{"min":2,"max":2},"levelCondition":120}],[{"mp%":50,"hp%":20,"resist":[{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}],"lbPerTurn":{"min":2,"max":2},"levelCondition":120}],[{"mp%":60,"hp%":50,"resist":[{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"dark","percent":50}],"lbPerTurn":{"min":2,"max":2},"replaceLb":{"name":"Societal Embrace","minEffects":[{"effect":{"statsBuff":{"atk":171,"def":171,"mag":171,"spr":171},"turns":4,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 171% for 4 turns to all allies (can not be removed)"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Grant a 4000 HP shield to all allies for 4 turns"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 4 turns to all allies"}],"maxEffects":[{"effect":{"statsBuff":{"atk":200,"def":200,"mag":200,"spr":200},"turns":4,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 200% for 4 turns to all allies (can not be removed)"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Grant a 4000 HP shield to all allies for 4 turns"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 4 turns to all allies"}]},"levelCondition":120}]]}
@@ -4902,9 +4907,12 @@
 		}
 	},
 	"100017627": {
-		"name":"ユライシャ",
-		"wikiEntry":"ユライシャ",
+		"name":"Yuraisha BS",
+		"wikiEntry":"Yuraisha",
 		"id":"100017627",
+		"braveShifted":"100017605",
+		"exAwakening": [{"hp":581,"mp":32,"atk":17,"def":20,"mag":25,"spr":29},{"hp":447,"mp":25,"atk":13,"def":15,"mag":19,"spr":22},{"hp":312,"mp":17,"atk":9,"def":11,"mag":13,"spr":15}],
+		"fragmentId": "250000380",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -4914,10 +4922,10 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["守護堅壁の法","復魔活性の法","ヘスを導きし者"],
+		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Protector's Stratagem","Revitalization Stratagem","Guidance for Hess"],
 		"enhancements": [
-			{"name":"ヘスを導きし者","levels":[[{"mpRefresh":7,"resist":[{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}],"levelCondition":120}],[{"mpRefresh":7,"resist":[{"name":"wind","percent":40},{"name":"earth","percent":40},{"name":"light","percent":40},{"name":"dark","percent":40}],"levelCondition":120}],[{"mpRefresh":10,"resist":[{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"levelCondition":120}],[{"mpRefresh":10,"resist":[{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"light","percent":60},{"name":"dark","percent":60}],"levelCondition":120}],[{"mpRefresh":15,"resist":[{"name":"wind","percent":70},{"name":"earth","percent":70},{"name":"light","percent":70},{"name":"dark","percent":70}],"levelCondition":120}]]}
+			{"name":"Guidance for Hess","levels":[[{"mpRefresh":7,"resist":[{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}],"levelCondition":120}],[{"mpRefresh":7,"resist":[{"name":"wind","percent":40},{"name":"earth","percent":40},{"name":"light","percent":40},{"name":"dark","percent":40}],"levelCondition":120}],[{"mpRefresh":10,"resist":[{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"levelCondition":120}],[{"mpRefresh":10,"resist":[{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"light","percent":60},{"name":"dark","percent":60}],"levelCondition":120}],[{"mpRefresh":15,"resist":[{"name":"wind","percent":70},{"name":"earth","percent":70},{"name":"light","percent":70},{"name":"dark","percent":70}],"levelCondition":120}]]}
 		],
 		"skills": [
 			{"spr%":60, "levelCondition":120},
@@ -6035,8 +6043,8 @@
 		]
 	},
 	"100021405": {
-		"name":"紫紺の八賢者ローウェン",
-		"wikiEntry":"紫紺の八賢者ローウェン",
+		"name":"Rowen, sabio de Hess",
+		"wikiEntry":"Hess_Sage Rowen",
 		"id":"100021405",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6059,8 +6067,8 @@
 			{"skillEnhancement":{"238250":22}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"紫紺の八賢者ローウェン",
-			"wikiEntry":"紫紺の八賢者ローウェン",
+			"name":"Rowen, sabio de Hess",
+			"wikiEntry":"Hess_Sage Rowen",
 			"id":"100021405",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -10060,8 +10068,8 @@
 		}
 	},
 	"100032607": {
-		"name":"Lasswell -Neo Vision-",
-		"wikiEntry":"ラスウェル-Neo_Vision-",
+		"name":"Lasswell -NeoVisión-",
+		"wikiEntry":"Lasswell_-Neo Vision-",
 		"id":"100032607",
 		"braveShift":"100032617",
 		"exAwakening": [{"hp":607,"mp":33,"atk":58,"def":28,"mag":21,"spr":24},{"hp":467,"mp":25,"atk":45,"def":22,"mag":16,"spr":19},{"hp":327,"mp":17,"atk":31,"def":15,"mag":11,"spr":13}],
@@ -10076,7 +10084,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["明鏡・蒼穹","氷河断刃"],
+		"enhancementSkills":["Mirror of Equity - Blue Sky","Glacial Judgment Blade"],
 		"skills": [
 			{"hp%":40, "def%":30, "lbFillRate":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"ice","percent":50}]},
 			{"lbDamage":50, "equipedConditions":[["504238230","405012500"]]},
@@ -10088,8 +10096,8 @@
 		]
 	},
 	"100032617": {
-		"name":"Lasswell -Neo Vision- BS",
-		"wikiEntry":"ラスウェル-Neo_Vision-",
+		"name":"Lasswell -NeoVisión- BS",
+		"wikiEntry":"Lasswell_-Neo Vision-",
 		"id":"100032617",
 		"braveShifted":"100032607",
 		"exAwakening": [{"hp":607,"mp":33,"atk":58,"def":28,"mag":21,"spr":24},{"hp":467,"mp":25,"atk":45,"def":22,"mag":16,"spr":19},{"hp":327,"mp":17,"atk":31,"def":15,"mag":11,"spr":13}],
@@ -10104,7 +10112,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["明鏡・蒼穹","絶魔剣"],
+		"enhancementSkills":["Mirror of Equity - Blue Sky","Obliterating Magic Blade"],
 		"skills": [
 			{"hp%":40, "def%":30, "lbFillRate":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"ice","percent":50}]},
 			{"lbDamage":50, "equipedConditions":[["504238230","405012500"]]},
