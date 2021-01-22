@@ -5425,7 +5425,7 @@
 		}
 	},
 	"100024827": {
-		"name":"フィーナ&魔人フィーナ BS",
+		"name":"Fina & Dark Fina BS",
 		"jpname":"フィーナ&魔人フィーナ BS",
 		"id":"100024827",
 		"braveShifted":"100024805",
@@ -13964,17 +13964,20 @@
 		"name":"Gladiolus",
 		"jpname":"グラディオラス",
 		"id":"215000205",
-		"max_rarity":"7",
+		"braveShift":"215000227",
+		"exAwakening": [{"hp":714,"mp":25,"atk":25,"def":27,"mag":22,"spr":24},{"hp":549,"mp":19,"atk":19,"def":21,"mag":17,"spr":18},{"hp":384,"mp":13,"atk":13,"def":14,"mag":11,"spr":13}],
+		"fragmentId": "250000800",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4998,"mp":195,"atk":196,"def":212,"mag":171,"spr":189},
-			"minStats":{"hp":1649,"mp":64,"atk":65,"def":70,"mag":56,"spr":62},
+			"maxStats":{"hp":5497,"mp":195,"atk":196,"def":212,"mag":171,"spr":189},
+			"minStats":{"hp":1814,"mp":64,"atk":65,"def":70,"mag":56,"spr":62},
 			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["王の盾","大剣の極意","ダッシュガード","ロイヤルガード"],
+		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["王の盾","大剣の極意","ダッシュガード","ロイヤルガード","オービタルシールド","師弟の絆"],
 		"6_form": {
 			"name":"Gladiolus",
 			"jpname":"グラディオラス",
@@ -13990,8 +13993,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["王の盾","大剣の極意","ダッシュガード","ロイヤルガード"]
+			"enhancementSkills":["王の盾","大剣の極意","ダッシュガード","ロイヤルガード","オービタルシールド","師弟の絆"]
+		},
+		"7_form": {
+			"name":"Gladiolus",
+			"jpname":"グラディオラス",
+			"id":"215000205",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4998,"mp":195,"atk":196,"def":212,"mag":171,"spr":189},
+				"minStats":{"hp":1649,"mp":64,"atk":65,"def":70,"mag":56,"spr":62},
+				"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["王の盾","大剣の極意","ダッシュガード","ロイヤルガード","オービタルシールド","師弟の絆"]
 		}
+	},
+	"215000227": {
+		"name":"グラディオラス BS",
+		"jpname":"グラディオラス BS",
+		"id":"215000227",
+		"braveShifted":"215000205",
+		"exAwakening": [{"hp":714,"mp":25,"atk":25,"def":27,"mag":22,"spr":24},{"hp":549,"mp":19,"atk":19,"def":21,"mag":17,"spr":18},{"hp":384,"mp":13,"atk":13,"def":14,"mag":11,"spr":13}],
+		"fragmentId": "250000800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5915,"mp":222,"atk":248,"def":191,"mag":171,"spr":184},
+			"minStats":{"hp":1952,"mp":73,"atk":82,"def":63,"mag":56,"spr":61},
+			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ヘヴィストライク","剣聖が認めし実力"]
 	},
 	"215000304": {
 		"name":"Cor",
@@ -14029,17 +14068,20 @@
 		"name":"Ignis",
 		"jpname":"イグニス",
 		"id":"215000505",
-		"max_rarity":"7",
+		"braveShift":"215000527",
+		"exAwakening": [{"hp":614,"mp":28,"atk":24,"def":20,"mag":25,"spr":28},{"hp":472,"mp":21,"atk":18,"def":16,"mag":19,"spr":22},{"hp":330,"mp":15,"atk":13,"def":11,"mag":13,"spr":15}],
+		"fragmentId": "250000790",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4728,"mp":217,"atk":187,"def":160,"mag":193,"spr":200},
-			"minStats":{"hp":1560,"mp":72,"atk":62,"def":53,"mag":64,"spr":66},
+			"maxStats":{"hp":4728,"mp":217,"atk":187,"def":160,"mag":193,"spr":220},
+			"minStats":{"hp":1560,"mp":72,"atk":62,"def":53,"mag":64,"spr":73},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["レガリアドライバー","調理","エンハンス","父王たちのご馳走カナッペ"],
+		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["レガリアドライバー","調理","エンハンス","父王たちのご馳走カナッペ","真の王を導きし軍師","ラウンドブースト","ラウンドガード"],
 		"6_form": {
 			"name":"Ignis",
 			"jpname":"イグニス",
@@ -14055,8 +14097,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["レガリアドライバー","調理","エンハンス","父王たちのご馳走カナッペ"]
+			"enhancementSkills":["レガリアドライバー","調理","エンハンス","父王たちのご馳走カナッペ","真の王を導きし軍師","ラウンドブースト","ラウンドガード"]
+		},
+		"7_form": {
+			"name":"Ignis",
+			"jpname":"イグニス",
+			"id":"215000505",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4728,"mp":217,"atk":187,"def":160,"mag":193,"spr":200},
+				"minStats":{"hp":1560,"mp":72,"atk":62,"def":53,"mag":64,"spr":66},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["レガリアドライバー","調理","エンハンス","父王たちのご馳走カナッペ","真の王を導きし軍師","ラウンドブースト","ラウンドガード"]
 		}
+	},
+	"215000527": {
+		"name":"イグニス BS",
+		"jpname":"イグニス BS",
+		"id":"215000527",
+		"braveShifted":"215000505",
+		"exAwakening": [{"hp":614,"mp":28,"atk":24,"def":20,"mag":25,"spr":28},{"hp":472,"mp":21,"atk":18,"def":16,"mag":19,"spr":22},{"hp":330,"mp":15,"atk":13,"def":11,"mag":13,"spr":15}],
+		"fragmentId": "250000790",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4975,"mp":223,"atk":240,"def":170,"mag":193,"spr":200},
+			"minStats":{"hp":1642,"mp":74,"atk":79,"def":56,"mag":64,"spr":66},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["もうひとつの可能性","ラウンドブースト","真・オーバーブースト"]
 	},
 	"215000605": {
 		"name":"Aranea",
@@ -14134,17 +14212,20 @@
 		"name":"Prompto",
 		"jpname":"プロンプト",
 		"id":"215000705",
-		"max_rarity":"7",
+		"braveShift":"215000727",
+		"exAwakening": [{"hp":605,"mp":31,"atk":28,"def":21,"mag":23,"spr":23},{"hp":465,"mp":24,"atk":21,"def":16,"mag":17,"spr":18},{"hp":325,"mp":17,"atk":15,"def":11,"mag":12,"spr":12}],
+		"fragmentId": "250000780",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4655,"mp":244,"atk":199,"def":163,"mag":179,"spr":180},
-			"minStats":{"hp":1536,"mp":81,"atk":66,"def":54,"mag":59,"spr":59},
+			"maxStats":{"hp":4655,"mp":244,"atk":219,"def":163,"mag":179,"spr":180},
+			"minStats":{"hp":1536,"mp":81,"atk":72,"def":54,"mag":59,"spr":59},
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["銃の極意","スターシェル","アトラクトウェイブ","ドリルブレイカー"],
+		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["銃の極意","スターシェル","アトラクトウェイブ","ドリルブレイカー","アンダーマインショット"],
 		"6_form": {
 			"name":"Prompto",
 			"jpname":"プロンプト",
@@ -14160,8 +14241,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["銃の極意","スターシェル","アトラクトウェイブ","ドリルブレイカー"]
+			"enhancementSkills":["銃の極意","スターシェル","アトラクトウェイブ","ドリルブレイカー","アンダーマインショット"]
+		},
+		"7_form": {
+			"name":"Prompto",
+			"jpname":"プロンプト",
+			"id":"215000705",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4655,"mp":244,"atk":199,"def":163,"mag":179,"spr":180},
+				"minStats":{"hp":1536,"mp":81,"atk":66,"def":54,"mag":59,"spr":59},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["銃の極意","スターシェル","アトラクトウェイブ","ドリルブレイカー","アンダーマインショット"]
 		}
+	},
+	"215000727": {
+		"name":"プロンプト BS",
+		"jpname":"プロンプト BS",
+		"id":"215000727",
+		"braveShifted":"215000705",
+		"exAwakening": [{"hp":605,"mp":31,"atk":28,"def":21,"mag":23,"spr":23},{"hp":465,"mp":24,"atk":21,"def":16,"mag":17,"spr":18},{"hp":325,"mp":17,"atk":15,"def":11,"mag":12,"spr":12}],
+		"fragmentId": "250000780",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4190,"mp":269,"atk":241,"def":147,"mag":162,"spr":198},
+			"minStats":{"hp":1383,"mp":89,"atk":80,"def":49,"mag":53,"spr":65},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["アンダーマインショット","可変刀「アウダックス」"]
 	},
 	"215000805": {
 		"name":"Ardyn",
@@ -14378,6 +14495,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["支援の光","星の病を癒す力"],
 		"6_form": {
 			"name":"Lunafreya",
 			"jpname":"ルナフレーナ",
@@ -14392,7 +14510,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","harp","lightShield","hat","clothes","robe"]
+			"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["支援の光","星の病を癒す力"]
 		}
 	},
 	"215002305": {
@@ -14426,6 +14545,44 @@
 			"equip":["hammer","mace","hat","clothes"]
 		}
 	},
+	"215002407": {
+		"name":"Oracle Lunafreya",
+		"jpname":"神凪の巫女ルナフレーナ",
+		"id":"215002407",
+		"braveShift":"215002417",
+		"exAwakening": [{"hp":580,"mp":33,"atk":20,"def":21,"mag":61,"spr":25},{"hp":446,"mp":25,"atk":15,"def":16,"mag":47,"spr":19},{"hp":312,"mp":18,"atk":11,"def":11,"mag":33,"spr":13}],
+		"fragmentId": "250000770",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4467,"mp":258,"atk":158,"def":163,"mag":236,"spr":194},
+			"minStats":{"hp":1474,"mp":85,"atk":52,"def":54,"mag":78,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","spear","harp","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["ファイガ","ブリザガ","サンダガ","清浄なる光芒","甦星の耀き"]
+	},
+	"215002417": {
+		"name":"Oracle Lunafreya BS",
+		"jpname":"神凪の巫女ルナフレーナ BS",
+		"id":"215002417",
+		"braveShifted":"215002407",
+		"exAwakening": [{"hp":580,"mp":33,"atk":20,"def":21,"mag":61,"spr":25},{"hp":446,"mp":25,"atk":15,"def":16,"mag":47,"spr":19},{"hp":312,"mp":18,"atk":11,"def":11,"mag":33,"spr":13}],
+		"fragmentId": "250000770",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4583,"mp":296,"atk":170,"def":174,"mag":269,"spr":216},
+			"minStats":{"hp":1512,"mp":98,"atk":56,"def":57,"mag":89,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","spear","harp","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["清浄なる光芒","雷神の裁き"]
+	},
 	"215002605": {
 		"name":"Gentiana",
 		"jpname":"ゲンティアナ",
@@ -14440,6 +14597,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+		"enhancementSkills":["四方神の御重詰め","炎神への愛"],
 		"6_form": {
 			"name":"Gentiana",
 			"jpname":"ゲンティアナ",
@@ -14454,7 +14612,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","whip","hat","clothes","robe"]
+			"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+			"enhancementSkills":["四方神の御重詰め","炎神への愛"]
 		}
 	},
 	"215002705": {
