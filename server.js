@@ -70,7 +70,9 @@ if (config.isDev) {
   delete cspDirectives.reportUri;
 }
 
-app.use(helmet.contentSecurityPolicy({ directives: cspDirectives, reportOnly: !config.isDev }));
+if (!config.isDev) {
+  app.use(helmet.contentSecurityPolicy({ directives: cspDirectives }));
+}
 
 // Static middleware
 if (config.isProd || process.env.DEV_USE_DIST === "yes") {
