@@ -156,6 +156,18 @@
 	{"hp":720, "spr":72, "conditional":[{"equipedConditions":["heavyArmor"],"spr%":40}]},
 	{"hp":800, "spr":80, "conditional":[{"equipedConditions":["heavyArmor"],"spr%":40},{"spr%":20,"exclusiveSex":"female"}]}
 ]},
+{"id":"100001801", "name":"Festive Preparations - Team Lasswell", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001801.png", "sortId":31, "levels":[
+	{"hp":100, "atk":40},
+	{"hp":110, "atk":45},
+	{"hp":120, "atk":50},
+	{"hp":130, "atk":55, "dualWielding":{"atk":25}},
+	{"hp":140, "atk":60, "dualWielding":{"atk":25}},
+	{"hp":150, "atk":65, "dualWielding":{"atk":25}},
+	{"hp":160, "atk":70, "dualWielding":{"atk":50}},
+	{"hp":170, "atk":75, "dualWielding":{"atk":50}},
+	{"hp":180, "atk":80, "dualWielding":{"atk":50}},
+	{"hp":200, "hp%":20, "atk":90, "dualWielding":{"atk":50}}
+]},
 {"id":"100002201", "name":"The Heir to Purple Lightning", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002201.png", "sortId":27, "levels":[
 	{"atk":40, "mag":40},
 	{"atk":42, "mag":42},
