@@ -1479,7 +1479,7 @@ let importValidator = jjv();
 // Register a `user` schema
 importValidator.addSchema('units', {
   type: 'array',
-  maxItems: 6000,
+  maxItems: 9999,
   items: {
     type: 'object',
     properties: {
@@ -1597,7 +1597,7 @@ importValidator.addSchema('units', {
 // Register a `user` schema
 importValidator.addSchema('consumables', {
     type: 'array',
-    maxItems: 5000,
+    maxItems: 9999,
     items: {
         type: 'object',
         properties: {
