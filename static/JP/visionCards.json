@@ -144,7 +144,7 @@
 	{"mp%":10, "atk":47, "atk%":15, "mag":47, "mag%":15},
 	{"mp%":20, "atk":55, "atk%":45, "mag":55, "mag%":45}
 ]},
-{"id":"100001401", "name":"モールズの夜会", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001401.png", "sortId":24, "levels":[
+{"id":"100001401", "name":"Morze's Soiree", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001401.png", "sortId":24, "levels":[
 	{"atk":35, "mag":35},
 	{"atk":36, "mag":36},
 	{"atk":38, "mag":38},
@@ -192,7 +192,7 @@
 	{"atk":73, "mag":73, "conditional":[{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["bow"],"mag%":80}]},
 	{"atk":80, "mag":80, "conditional":[{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["bow"],"mag%":80},{"resist":[{"name":"fire","percent":30},{"name":"light","percent":30}]}]}
 ]},
-{"id":"100001801", "name":"祝祭準備・ラスウェルチーム", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001801.png", "sortId":31, "levels":[
+{"id":"100001801", "name":"Festive Preparations - Team Lasswell", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001801.png", "sortId":31, "levels":[
 	{"hp":100, "atk":40},
 	{"hp":110, "atk":45},
 	{"hp":120, "atk":50},
@@ -216,7 +216,7 @@
 	{"atk":62, "conditional":[{"equipedConditions":["sword"],"atk%":50},{"equipedConditions":["gun"],"atk%":50}]},
 	{"atk":70, "conditional":[{"equipedConditions":["sword"],"atk%":50},{"equipedConditions":["gun"],"atk%":50},{"atk%":20}]}
 ]},
-{"id":"100002001", "name":"祝祭準備・賢者チーム", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002001.png", "sortId":34, "levels":[
+{"id":"100002001", "name":"Festive Preparations - Team Sages", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002001.png", "sortId":34, "levels":[
 	{"hp":100, "mag":40},
 	{"hp":110, "mag":45},
 	{"hp":120, "mag":50},
@@ -240,7 +240,7 @@
 	{"atk":80, "conditional":[{"equipedConditions":["katana"],"atk%":80}]},
 	{"atk":90, "conditional":[{"equipedConditions":["katana"],"atk%":80},{"singleWielding":{"atk":50,"accuracy":25}}]}
 ]},
-{"id":"100002201", "name":"紫電を継ぎし剣士", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002201.png", "sortId":27, "levels":[
+{"id":"100002201", "name":"The Heir to Purple Lightning", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002201.png", "sortId":27, "levels":[
 	{"atk":40, "mag":40},
 	{"atk":42, "mag":42},
 	{"atk":45, "mag":45},
@@ -252,7 +252,7 @@
 	{"atk":60, "mag":60, "conditional":[{"equipedConditions":["clothes"],"atk%":40,"mag%":40}]},
 	{"atk":65, "mag":65, "conditional":[{"equipedConditions":["clothes"],"atk%":40,"mag%":40},{"killers":[{"name":"bug","physical":50,"magical":50}],"exclusiveSex":"male"}]}
 ]},
-{"id":"100002301", "name":"いつもありがとう！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002301.png", "sortId":36, "levels":[
+{"id":"100002301", "name":"Thanks for Everything!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002301.png", "sortId":36, "levels":[
 	{"atk":5, "atk%":5, "mag":5, "mag%":5},
 	{"atk":10, "atk%":5, "mag":10, "mag%":5},
 	{"atk":15, "atk%":5, "mag":15, "mag%":5},
@@ -432,6 +432,18 @@
 	{"mag":60, "spr":60, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
 	{"mag":65, "spr":65, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50},{"mag%":20,"spr%":20}]}
 ]},
+{"id":"209000101", "name":"この刃に懸けて", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_209000101.png", "sortId":51, "levels":[
+	{"atk":40},
+	{"atk":47},
+	{"atk":54},
+	{"atk":61, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
+	{"atk":68, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
+	{"atk":75, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
+	{"atk":82, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
+	{"atk":89, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
+	{"atk":96, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
+	{"atk":110, "conditional":[{"equipedConditions":["dagger"],"atk%":80},{"lbDamage":50}]}
+]},
 {"id":"212000101", "name":"Judge Magister", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_212000101.png", "sortId":14, "levels":[
 	{"hp":400, "def":40},
 	{"hp":440, "def":44},
@@ -491,6 +503,18 @@
 	{"atk":95, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
 	{"atk":100, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
 	{"atk":110, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"jumpDamage":50},{"resist":[{"name":"light","percent":50}]}]}
+]},
+{"id":"215000301", "name":"神凪の使命", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_215000301.png", "sortId":50, "levels":[
+	{"mag":50},
+	{"mag":55},
+	{"mag":60},
+	{"mag":65, "mag%":30},
+	{"mag":70, "mag%":30},
+	{"mag":75, "mag%":30},
+	{"mag":80, "mag%":60},
+	{"mag":85, "mag%":60},
+	{"mag":90, "mag%":60},
+	{"mag":100, "mag%":60, "conditional":[{"evoMag":30,"exclusiveSex":"female"}]}
 ]},
 {"id":"335000101", "name":"The Keyblade Graveyard Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},
