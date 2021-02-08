@@ -29,15 +29,17 @@ const configSchema = Joi.object({
     port: Joi.number().integer().required(),
     secret: Joi.string().required(),
     google: Joi.object({
-        apiKey: Joi.string().required(),
+        enabled: Joi.boolean().required(),
         oAuthConfiguration: oauthSchema,
     }).required(),
     firebase: Joi.object({
+        enabled: Joi.boolean().required(),
         bucketUri: Joi.string().required(),
         databaseId: Joi.string().required(),
         configuration: firebaseConfSchema,
     }).required(),
     imgur: Joi.object({
+        enabled: Joi.boolean().required(),
         clientId: Joi.string().required(),
     }).required(),
 });

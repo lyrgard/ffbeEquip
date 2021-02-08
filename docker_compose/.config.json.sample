@@ -3,7 +3,7 @@
     "port": 3000,
     "secret": "<30 random characters>",
     "google": {
-        "apiKey": "<your google api key>",
+        "enabled": false,
         "oAuthConfiguration": {
             "web":{
                 "client_id":"<client id from client_secret.json>",
@@ -17,6 +17,7 @@
         }
     },
     "firebase": {
+        "enabled": false,
         "bucketUri": "<your firebase bucket uri, like ffbeequip.appspot.com>",
         "databaseId": "<your firebase database id, like ffbeequip>",
         "configuration": {
@@ -33,6 +34,7 @@
         }
     },
     "imgur": {
+        "enabled": false,
         "clientId": "<your imgur client id>"
     }
 }

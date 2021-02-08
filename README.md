@@ -10,9 +10,37 @@ Welcome to FFBE Equip, an online tool for [Final Fantasy Brave Exvius](http://ww
 Check it out here: https://ffbeequip.com/
 
 # How to run locally
+This first point explain how to get a barebone FFBE Equip local server in 5 mintes.
+This server won't have login capability.
+See further points for a full featured local server.
 
-## Get the code
-Either clone/fork the repo, or download the code as an archive. Your Git root (referenced below) will be where you place the repository.
+## Install docker and docker-compose
+See instructions from here : https://docs.docker.com/get-docker/ and https://docs.docker.com/compose/install/
+(Docker-compose is already installed when you install docker on Windows or MAc)
+
+## Download FFBE Equip docker-compose.yml and .config.json.sample
+From https://github.com/lyrgard/ffbeEquip/tree/master/docker_compose and put them in a folder of your choice.
+
+Rename `.config.json.sample` into `.config.json`
+
+Edit `.config.json` to change the `secret` value into some random characters
+
+## Run docker-compose
+In the folder where you saved the files, run `docker-compose up -d`
+
+Open your browser at http://localhost:3000 to verify it correctly worked.
+
+# How to update your local server
+
+In your install folder, run :
+
+```
+docker-compose down
+docker-compose pull
+docker-compose up -d
+```
+
+# Install a fully featured local server
 
 ## Obtain OAuth client credentials from the Google API Console
 OAuth is used to authenticate users, while Google Drive is used to store the user data such as item inventory, unit collection, espers, etc...
@@ -22,11 +50,15 @@ OAuth is used to authenticate users, while Google Drive is used to store the use
   4) Under Authorized JavaScript origins: http://localhost:3000
   5) Under Authorized Redirect URIs: http://localhost:3000/googleOAuthSuccess
   6) Click Create - A modal will appear with your client ID and secret, but exit the modal and click on the download icon to the right of the client ID to download as JSON.
-  7) Create a folder called googleOAuth in your Git root and place the downloaded JSON file there (`/googleOAuth/client_secret.json`)
+  7) Open the `.config.json` file and paste the content of the downloaded file in the `google.oAuthConfiguration` value
   8) Go to Dashboard -> Enable APIs. Search for Google Drive and enable it
    
-## Obtain and set up a Firebase account
+## Obtain and set up a Firebase account (optional)
 Firebase is used to share information between users such as builder links to unit/party builds.
+
+Links generated on your local server will only be valid for your local server.
+This section is probably **NOT** needed for a personal use local instance
+
   1) Go to the [Firebase Console](https://console.firebase.google.com)
   2) Create a project
   3) Choose a Project Name (e.g. ffbeEquip Dev)
@@ -58,6 +90,9 @@ Firebase is used to share information between users such as builder links to uni
    
 ## Enable CORS (Cross Origin Resource Sharing)
 CORS needs to be enabled so that anyone may read the Firebase files when given a builder link.
+
+This section is only needed if you use firebase with your local instance.
+
   1)  Go to https://console.cloud.google.com/home
   2)  Click "Activate Google Cloud Shell" in the top right, this will open a terminal shell
   3)  Create a file called `cors.json` and open it with an editor (e.g. vim, nano, etc...)
@@ -79,24 +114,6 @@ CORS needs to be enabled so that anyone may read the Firebase files when given a
         ```bash
         gsutil cors set cors.json gs://[myproject].appspot.com
         ``` 
-
-## Run the application
-1) Have your Firebase config info handy
-   1) Open the Firebase Console -> Project Overview -> Settings -> General
-   2) Under the "Your apps" section, you'll see a Firebase SDK Snippet code containing a firebaseConfig object, which we'll use below
-2) Set up your node environment.
-   1) Open a terminal window and navigate to your Git root
-   2) Run `npm install` (there may be a lot of warnings/errors, but the node_modules folder should still be installed)
-   3) Run `npm start`
-   4) Enter your details from the previous section into the prompted configuration
-      1) Server environment: development
-      2) Server listen port: 3000
-      3) Server encryption secret: client_secret (from client_secret.json)
-      4) Google API key: firebaseConfig -> apiKey
-      5) Google OAuth file path: googleOAuth/client_secret.json
-      6) Firebase conf path: googleOAuth/firebase_config.json
-      7) Firebase bucket URI: firebaseConfig => storageBucket
-3) You did it! The app should be running at http://localhost:3000
 
 # Connect
 Need help or have questions?

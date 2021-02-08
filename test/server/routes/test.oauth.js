@@ -16,7 +16,7 @@ describe('routes.oauth', () => {
       .expect(200)
       .expect((res) => {
         const authUrl = new URL(res.body.url);
-        assert.equal(authUrl.searchParams.get('client_id'), utils.config.googleOAuthCredential.web.client_id);
+        assert.equal(authUrl.searchParams.get('client_id'), utils.config.google.oAuthConfiguration.web.client_id);
         assert.equal(authUrl.searchParams.get('prompt'), 'select_account');
       })
       .end(done);
