@@ -1,0 +1,38 @@
+{
+    "env": "development",
+    "port": 3000,
+    "secret": "<30 random characters>",
+    "google": {
+        "apiKey": "<your google api key>",
+        "oAuthConfiguration": {
+            "web":{
+                "client_id":"<client id from client_secret.json>",
+                "project_id":"<project id from client_secret.json>",
+                "auth_uri":"<auth uri from client_secret.json>",
+                "token_uri":"https://accounts.google.com/o/oauth2/token",
+                "auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+                "client_secret":"<client secret from client_secret.json>",
+                "redirect_uris":["http://localhost:3000/googleOAuthSuccess"]
+            }
+        }
+    },
+    "firebase": {
+        "bucketUri": "<your firebase bucket uri, like ffbeequip.appspot.com>",
+        "databaseId": "<your firebase database id, like ffbeequip>",
+        "configuration": {
+            "type": "service_account",
+            "project_id": "<project id from firebase_config.json>",
+            "private_key_id": "<your private key id from firebase_config.json>",
+            "private_key": "<your private key from firebase_config.json>",
+            "client_email": "<your client email from firebase_config.json>",
+            "client_id": "<your client id from firebase_config.json>",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://accounts.google.com/o/oauth2/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_x509_cert_url": "<your client_x509_cert_url from firebase_config.json>"
+        }
+    },
+    "imgur": {
+        "clientId": "<your imgur client id>"
+    }
+}

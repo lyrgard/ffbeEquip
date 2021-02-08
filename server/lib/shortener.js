@@ -4,7 +4,7 @@ const config = require('../../config.js');
 
 const urlshortener = google.urlshortener({
   version: 'v1',
-  auth: config.googleApiKey,
+  auth: config.google.apiKey,
 });
 
 /**

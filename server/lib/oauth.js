@@ -10,9 +10,9 @@ const { OAuth2 } = google.auth;
  */
 const createClient = (tokens) => {
   const OAuth2Client = new OAuth2(
-    config.googleOAuthCredential.web.client_id,
-    config.googleOAuthCredential.web.client_secret,
-    config.googleOAuthCredential.web.redirect_uris[0],
+    config.google.oAuthConfiguration.web.client_id,
+    config.google.oAuthConfiguration.web.client_secret,
+    config.google.oAuthConfiguration.web.redirect_uris[0],
   );
 
   if (tokens) {
