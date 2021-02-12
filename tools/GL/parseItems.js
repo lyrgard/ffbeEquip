@@ -675,6 +675,11 @@ function readSkills(itemIn, itemOut, skills) {
                             } else if (rawEffect[1] == 3 && rawEffect[2] == 10004) {
                                 masterySkills.push(rawEffect);
 
+                                // one weapon mastery
+                            } else if (rawEffect[1] == 3 && rawEffect[2] == 99 && rawEffect[3][2] && rawEffect[3][2].length < 16 && itemIn.type_id > 16) {
+                                masterySkills.push(rawEffect);
+
+
                             } else if (!addEffectToItem(itemOut, skill, rawEffectIndex, skills)) {
                                 effectsNotTreated.push(rawEffectIndex)
                                 //console.log(rawEffect + " - " + skill.effects);
@@ -804,7 +809,22 @@ function addMasterySkills(item, masterySkills, result) {
     for (var masteryIndex in masterySkills) {
         var lenght = treatedItems.length;
         var copy = JSON.parse(JSON.stringify(item));
-        if (addMastery(copy, masterySkills[masteryIndex])) {
+
+        if (masterySkills[masteryIndex][2] === 99) {
+            masterySkills[masteryIndex][3][2].forEach(weaponTypeId => {
+                addOneWeaponMastery(copy, masteryIndex[3][0], masteryIndex[3][1], weaponTypeId);
+                result.push(copy);
+                treatedItems.push(copy);
+                for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
+                    if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
+                        var copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
+                        addOneWeaponMastery(copy, masteryIndex[3][0], masteryIndex[3][1], weaponTypeId);
+                        result.push(copy);
+                        treatedItems.push(copy);
+                    }
+                }
+            });
+        } else if (addMastery(copy, masterySkills[masteryIndex])) {
             result.push(copy);
             treatedItems.push(copy);
             for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
@@ -1026,6 +1046,21 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             dualWieldingStat = "spr";
         }
         addStat(item.dualWielding, dualWieldingStat, rawEffect[3][1]);
+
+        // Increase EQ stat when armed with a single weapon (with or without shield)
+    } else if (rawEffect[2] == 99) {
+        var stat;
+        if (rawEffect[3][0] == 1) {
+            stat = "atk";
+        } else if (rawEffect[3][0] == 2) {
+            stat = "def";
+        } else if (rawEffect[3][0] == 3) {
+            stat = "mag";
+        } else if (rawEffect[3][0] == 4) {
+            stat = "spr";
+        }
+        if (!item.oneWeaponMastery) item.oneWeaponMastery = {};
+        addStat(item.oneWeaponMastery, stat, rawEffect[3][1]);
 
     // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
@@ -2167,7 +2202,7 @@ function addLbPerTurn(item, min, max) {
     item.lbPerTurn.max += max;
 }
 
-let itemProperties = ["id","name", "access", "maxNumber", "eventNames", "wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts", "evokeDamageBoost","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills","conditional"];
+let itemProperties = ["id","name", "access", "maxNumber", "eventNames", "wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "oneWeaponMastery", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts", "evokeDamageBoost","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills","conditional"];
 function formatOutput(items) {
 
     var result = "[\n";
