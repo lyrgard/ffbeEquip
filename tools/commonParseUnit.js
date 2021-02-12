@@ -110,7 +110,7 @@ let chainingFamilies = {
     "none,42,50,58,66,74,82,90,98,106,114": "BP", // Blade Prison
     "none,42,52,62,72,82,92,102,112,122,132": "TS", // Torrential Slash
     "none,52,57,62,67,72,77,82,87,92,97,102,107,112,117,122,127,132,137,142,147,152,157,162,167,172,177,182,187,192,197": "ExN", // Extreme nova, idle 52
-    "walk,52,57,62,67,72,77,82,87,92,97,102,107,112,117,122,127,132,137,142,147,152,157,162,167,172,177,182,187,192,197": "ExN", // Extreme nova, walk 52
+    "walk,28,33,38,43,48,53,58,63,68,73,78,83,88,93,98,103,108,113,118,123,128,133,138,143,148,153,158,163,168,173": "ExN", // Extreme nova, walk 28, with 24-32 frame anim delay
     "walk,60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200,205": "ExN", // Extreme nova, walk 60
     "walk,88,93,98,103,108,113,118,123,128,133,138,143,148,153,158,163,168,173,178,183,188,193,198,203,208,213,218,223,228,233": "ExN", // Extreme nova, walk 88
 }
@@ -773,6 +773,33 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
         }
         addToStat(result.dualWielding, stat, rawEffect[3][1]);
         return [result];
+
+        // Increase EQ stat when armed with a single weapon (with or without shield)
+    } else if (rawEffect[2] == 99) {
+        var stat;
+        if (rawEffect[3][0] == 1) {
+            stat = "atk";
+        } else if (rawEffect[3][0] == 2) {
+            stat = "def";
+        } else if (rawEffect[3][0] == 3) {
+            stat = "mag";
+        } else if (rawEffect[3][0] == 4) {
+            stat = "spr";
+        }
+        result.oneWeaponMastery = {};
+        addToStat(result.oneWeaponMastery, stat, rawEffect[3][1]);
+        let results = [];
+        if (!rawEffect[3][3] || rawEffect[3][3].length === 16) {
+            // all weapons
+            results.push(result);
+        } else {
+            rawEffect[3][3].map(weaponTypeId => typeMap[weaponTypeId]).forEach(weaponType => {
+                let conditionedResult = {oneWeaponMastery:{}, equipedConditions:[weaponType]};
+                addToStat(conditionedResult.oneWeaponMastery, stat, rawEffect[3][1]);
+                results.push(conditionedResult);
+            });
+        }
+        return results;
 
     // Element Resist
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 3) {
@@ -2052,6 +2079,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 163) {
         result = {"weaponImperil":{"weaponType":typeMap[rawEffect[3][0]], "value":rawEffect[3][1]}, "turns":rawEffect[3][4], desc:`Increase damage dealt by ${typeMap[rawEffect[3][0]]} to ${getTargetDesc(rawEffect)} by ${rawEffect[3][1]}% for ${getTurn(rawEffect[3][4])}`};
 
+        // tag team effects - single unit chains an ability/lb cast
+    } else if (rawEffect[2] == 165) {
+        result = {"noUse":true};
+
         // delay death timer
     } else if (rawEffect[2] == 1002) {
         result = {"noUse":true};
@@ -2457,7 +2488,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding","improvedDW","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","exLevelCondition" ,"tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding", "oneWeaponMastery","improvedDW","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","exLevelCondition" ,"tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";
