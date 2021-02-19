@@ -120,6 +120,7 @@ const unitRules = {
     7271: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20032], // Fullmetal Alchemist units
     7272: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20033], // KH units
     7273: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10013] || []).concat(nvUnitIdsByGameId[11006] || []).concat(nvUnitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units
+    7274: (item) => item.exclusiveUnits = ["312000205", "312001007", "312001017"],
 }
 
 var unitNamesById = {};
