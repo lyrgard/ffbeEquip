@@ -9,13 +9,9 @@ var cors = require('cors')
 
 const config = require('./config.js');
 
-if (config.firebase.enabled) {
-    const firebase = require('./server/routes/firebase.js');
-}
-if (config.google.enabled) {
-    const drive = require('./server/routes/drive.js');
-    const oauth = require('./server/routes/oauth.js');
-}
+const firebase = config.firebase.enabled ? require('./server/routes/firebase.js') : null;
+const drive = config.google.enabled ? require('./server/routes/drive.js') : null;
+const oauth = config.google.enabled ? require('./server/routes/oauth.js') : null;
 const clientConfig = require('./server/routes/clientConfig.js');
 const corrections = require('./server/routes/corrections.js');
 const unitSkills = require('./server/routes/unitSkills.js');
@@ -128,12 +124,14 @@ app.use(bodyParser.json({'limit':'1mb'}));
 app.use('/clientConfig', clientConfig);
 if (config.google.enabled) {
     app.use('/', oauth);
-    app.use('/', authRequired, drive);
 }
 app.use('/', corrections, unitSkills);
 if (config.firebase.enabled) {
     app.use('/', firebase.unAuthenticatedRoute);
     app.use('/', authRequired, firebase.authenticatedRoute);
+}
+if (config.google.enabled) {
+    app.use('/', authRequired, drive);
 }
 
 // Old index.html file no longer exists
