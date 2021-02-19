@@ -168,7 +168,7 @@
 	{"hp":720, "spr":72, "conditional":[{"equipedConditions":["heavyArmor"],"spr%":40}]},
 	{"hp":800, "spr":80, "conditional":[{"equipedConditions":["heavyArmor"],"spr%":40},{"spr%":20,"exclusiveSex":"female"}]}
 ]},
-{"id":"100001601", "name":"最後の一戦", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001601.png", "sortId":28, "levels":[
+{"id":"100001601", "name":"One Last Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001601.png", "sortId":28, "levels":[
 	{"atk":40, "def":20},
 	{"atk":42, "def":21},
 	{"atk":44, "def":22},
@@ -228,7 +228,7 @@
 	{"hp":180, "mag":80, "conditional":[{"equipedConditions":["rod"],"mag%":50},{"equipedConditions":["robe"],"mag%":50}]},
 	{"hp":200, "mag":90, "conditional":[{"equipedConditions":["rod"],"mag%":50},{"equipedConditions":["robe"],"mag%":50},{"resist":[{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}]}]}
 ]},
-{"id":"100002101", "name":"祝祭準備・アクスターチーム", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002101.png", "sortId":35, "levels":[
+{"id":"100002101", "name":"Festive Preparations - Team Akstar", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002101.png", "sortId":35, "levels":[
 	{"atk":40},
 	{"atk":45},
 	{"atk":50},
@@ -335,6 +335,30 @@
 	{"mag":71, "conditional":[{"equipedConditions":["clothes"],"mag%":40}]},
 	{"mag":74, "conditional":[{"equipedConditions":["clothes"],"mag%":40}]},
 	{"mag":80, "killers":[{"name":"machine","magical":25}], "conditional":[{"equipedConditions":["clothes"],"mag%":40}]}
+]},
+{"id":"100003001", "name":"愛したのは……", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003001.png", "sortId":52, "levels":[
+	{"atk":35},
+	{"atk":42},
+	{"atk":50},
+	{"atk":57, "conditional":[{"equipedConditions":["whip"],"atk%":40}]},
+	{"atk":65, "conditional":[{"equipedConditions":["whip"],"atk%":40}]},
+	{"atk":72, "conditional":[{"equipedConditions":["whip"],"atk%":40}]},
+	{"atk":80, "conditional":[{"equipedConditions":["whip"],"atk%":80}]},
+	{"atk":87, "conditional":[{"equipedConditions":["whip"],"atk%":80}]},
+	{"atk":95, "conditional":[{"equipedConditions":["whip"],"atk%":80}]},
+	{"atk":110, "conditional":[{"equipedConditions":["whip"],"atk%":80},{"atk%":20},{"lbDamage":50}]}
+]},
+{"id":"100003101", "name":"トモエVSグレイビー", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003101.png", "sortId":53, "levels":[
+	{"atk":50},
+	{"atk":53},
+	{"atk":56},
+	{"atk":59, "conditional":[{"equipedConditions":["gun"],"atk%":20}]},
+	{"atk":62, "conditional":[{"equipedConditions":["gun"],"atk%":20}]},
+	{"atk":65, "conditional":[{"equipedConditions":["gun"],"atk%":20}]},
+	{"atk":68, "conditional":[{"equipedConditions":["gun"],"atk%":40}]},
+	{"atk":71, "conditional":[{"equipedConditions":["gun"],"atk%":40}]},
+	{"atk":74, "conditional":[{"equipedConditions":["gun"],"atk%":40}]},
+	{"atk":80, "killers":[{"name":"human","physical":25}], "conditional":[{"equipedConditions":["gun"],"atk%":40}]}
 ]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
@@ -466,7 +490,7 @@
 	{"atk":64, "mag":64, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
 	{"atk":68, "mag":68, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
 	{"atk":72, "mag":72, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
-	{"atk":80, "mag":80, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100},{"exclusiveUnits":[]},{"exclusiveUnits":[]}]}
+	{"atk":80, "mag":80, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100},{"oneWeaponMastery":{"atk":50},"exclusiveUnits":[]},{"oneWeaponMastery":{"mag":50},"exclusiveUnits":[]}]}
 ]},
 {"id":"213000201", "name":"500年の悔恨", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000201.png", "sortId":40, "levels":[
 	{"hp":500, "def":30, "spr":30},
@@ -478,7 +502,7 @@
 	{"hp":800, "def":48, "spr":48, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
 	{"hp":850, "def":51, "spr":51, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
 	{"hp":900, "def":54, "spr":54, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
-	{"hp":1000, "def":60, "spr":60, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40},{"exclusiveSex":"male"},{"exclusiveSex":"male"}]}
+	{"hp":1000, "def":60, "spr":60, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40},{"oneWeaponMastery":{"def":50},"exclusiveSex":"male"},{"oneWeaponMastery":{"spr":50},"exclusiveSex":"male"}]}
 ]},
 {"id":"215000101", "name":"王都決戦", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_215000101.png", "sortId":45, "levels":[
 	{"atk":60},
@@ -515,6 +539,18 @@
 	{"mag":85, "mag%":60},
 	{"mag":90, "mag%":60},
 	{"mag":100, "mag%":60, "conditional":[{"evoMag":30,"exclusiveSex":"female"}]}
+]},
+{"id":"312000101", "name":"もうキスしちゃう！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_312000101.png", "sortId":54, "levels":[
+	{"atk":40},
+	{"atk":47},
+	{"atk":54},
+	{"atk":61, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
+	{"atk":68, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
+	{"atk":75, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
+	{"atk":82, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
+	{"atk":89, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
+	{"atk":96, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
+	{"atk":110, "conditional":[{"equipedConditions":["dagger"],"atk%":80},{"lbDamage":50,"exclusiveUnits":["312000205","312001007","312001017"]}]}
 ]},
 {"id":"335000101", "name":"The Keyblade Graveyard Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},
@@ -574,7 +610,7 @@
 	{"spr":80, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
 	{"spr":85, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
 	{"spr":90, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
-	{"spr":100, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}
+	{"spr":100, "spr%":20, "oneWeaponMastery":{"spr":25}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}
 ]},
 {"id":"401000401", "name":"Azure Successor", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000401.png", "sortId":47, "levels":[
 	{"atk":45, "mag":45},
