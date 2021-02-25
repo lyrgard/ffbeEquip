@@ -546,6 +546,7 @@ function treatVisionCard(visionCard, visionCardId, skills) {
             addStat(levelData, stat.toLowerCase(), Math.floor(value));
         });
         for (let i = 1; i <= level; i++) {
+            const conditionalByRuleId = {};
             if (visionCard.skills && visionCard.skills[i]) {
                 let skill = skills[visionCard.skills[i].toString()];
                 skill.effects_raw.forEach((rawEffect, index) => {
@@ -567,14 +568,17 @@ function treatVisionCard(visionCard, visionCardId, skills) {
                     } else {
                         if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
                             let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
-                            let conditional = {};
+                            let conditional = conditionalByRuleId[ruleId] || {};
                             addEffectToItem(conditional, skill, index, skills);
-                            if (!levelData.conditional) levelData.conditional = [];
-                            if (!Object.keys(unitRules).includes(ruleId.toString())) {
-                                console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                            if (!conditionalByRuleId[ruleId]) {
+                                if (!levelData.conditional) levelData.conditional = [];
+                                if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                                    console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                                }
+                                unitRules[ruleId](conditional);
+                                levelData.conditional.push(conditional);
+                                conditionalByRuleId[ruleId] = conditional;
                             }
-                            unitRules[ruleId](conditional);
-                            levelData.conditional.push(conditional);
                         } else {
                             addEffectToItem(levelData, skill, index, skills);
                         }

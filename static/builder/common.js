@@ -1169,12 +1169,16 @@ function getEquipmentStatBonus(itemAndPassives, stat, doCap = true) {
     if ((baseStats.includes(stat) || stat == "accuracy") && itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
         let normalStack = 0;
         let twoHanded = isTwoHanded(itemAndPassives[0]);
-        let dualWield = itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type);
+        let dualWield = itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type);
+        let oneWeapon = !itemAndPassives[1] || shieldList.includes(itemAndPassives[1].type);
         for (var index = itemAndPassives.length; index--;) {
             var item = itemAndPassives[index];
             if (item) {
                 if (item.singleWielding && item.singleWielding[stat]  && itemAndPassives[0] && !itemAndPassives[1]) {
                     normalStack += item.singleWielding[stat] / 100;
+                }
+                if (oneWeapon && item.oneWeaponMastery && item.oneWeaponMastery[stat]) {
+                    normalStack += item.oneWeaponMastery[stat] / 100;
                 }
                 if (!twoHanded && item.singleWieldingOneHanded && item.singleWieldingOneHanded[stat] && itemAndPassives[0] && !itemAndPassives[1]) {
                     normalStack += item.singleWieldingOneHanded[stat] / 100;
@@ -1608,6 +1612,9 @@ function combineTwoItems(item1, item2) {
     }
     if (item2.dualWielding) {
         addEqStatBonus(sum, "dualWielding", item2.dualWielding);
+    }
+    if (item2.oneWeaponMastery) {
+        addEqStatBonus(sum, "oneWeaponMastery", item2.oneWeaponMastery);
     }
     if (item2.resist) {
         addResist(sum, item2.resist);

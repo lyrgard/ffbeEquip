@@ -157,7 +157,7 @@ if (validation.error) {
             },
             "imgur": {
                 "enabled": true,
-                "clientId": config.imgurClientId;
+                "clientId": config.imgurClientId
             }
         };
         writeJson(OLD_CONFIG_FILE_BACKUP, config);
