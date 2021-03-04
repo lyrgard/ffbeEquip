@@ -1866,6 +1866,9 @@
 		"name":"Raegen",
 		"wikiEntry":"Raegen",
 		"id":"100010005",
+		"braveShift":"100010027",
+		"exAwakening": [{"hp":642,"mp":27,"atk":28,"def":22,"mag":21,"spr":23},{"hp":494,"mp":21,"atk":22,"def":17,"mag":16,"spr":18},{"hp":345,"mp":15,"atk":15,"def":12,"mag":11,"spr":12}],
+		"fragmentId": "250000590",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1875,8 +1878,8 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","超速八連刃","親友から託されたもの"],
+		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Sonic Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","Entrusted by a Friend"],
 		"6_form": {
 			"name":"Raegen",
 			"wikiEntry":"Raegen",
@@ -1892,7 +1895,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","超速八連刃","親友から託されたもの"]
+			"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Sonic Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","Entrusted by a Friend"]
 		},
 		"7_form": {
 			"name":"Raegen",
@@ -1909,14 +1912,16 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","超速八連刃","親友から託されたもの"]
+			"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Sonic Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","Entrusted by a Friend"]
 		}
 	},
 	"100010027": {
-		"name":"レーゲン",
-		"wikiEntry":"レーゲン",
+		"name":"Raegen BS",
+		"wikiEntry":"Raegen",
 		"id":"100010027",
-		"braveShift":"700000091",
+		"braveShifted":"100010005",
+		"exAwakening": [{"hp":642,"mp":27,"atk":28,"def":22,"mag":21,"spr":23},{"hp":494,"mp":21,"atk":22,"def":17,"mag":16,"spr":18},{"hp":345,"mp":15,"atk":15,"def":12,"mag":11,"spr":12}],
+		"fragmentId": "250000590",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -1926,8 +1931,8 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["超速八連刃","ブラッド・リンケージ【英傑】"]
+		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Sonic Octostrike Blade","Hero's Blood Linkage"]
 	},
 	"100010104": {
 		"name":"Silvia",
@@ -7434,7 +7439,7 @@
 	},
 	"100033207": {
 		"name":"Mazurka",
-		"wikiEntry":"マズルカ",
+		"wikiEntry":"Mazurka",
 		"id":"100033207",
 		"braveShift":"100033217",
 		"exAwakening": [{"hp":589,"mp":35,"atk":61,"def":28,"mag":19,"spr":19},{"hp":453,"mp":27,"atk":47,"def":21,"mag":15,"spr":14},{"hp":317,"mp":18,"atk":33,"def":15,"mag":10,"spr":10}],
@@ -7449,11 +7454,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["spear","hat","clothes","visionCard"],
-		"enhancementSkills":["エモーションスラッシュ"]
+		"enhancementSkills":["Emotional Slash"]
 	},
 	"100033217": {
 		"name":"Mazurka BS",
-		"wikiEntry":"マズルカ",
+		"wikiEntry":"Mazurka",
 		"id":"100033217",
 		"braveShifted":"100033207",
 		"exAwakening": [{"hp":589,"mp":35,"atk":61,"def":28,"mag":19,"spr":19},{"hp":453,"mp":27,"atk":47,"def":21,"mag":15,"spr":14},{"hp":317,"mp":18,"atk":33,"def":15,"mag":10,"spr":10}],
@@ -7468,11 +7473,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["ブルームジャンプ"]
+		"enhancementSkills":["Blooming Jump"]
 	},
 	"100033305": {
 		"name":"Trot",
-		"wikiEntry":"トロット",
+		"wikiEntry":"Trot",
 		"id":"100033305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7486,7 +7491,7 @@
 		"equip":["dagger","bow","spear","throwing","lightShield","hat","clothes","lightArmor"],
 		"6_form": {
 			"name":"Trot",
-			"wikiEntry":"トロット",
+			"wikiEntry":"Trot",
 			"id":"100033305",
 			"sixStarForm":true,
 			"max_rarity":"7",
