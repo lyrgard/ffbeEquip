@@ -276,7 +276,7 @@
 	{"atk":56, "def":28, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
 	{"atk":60, "def":30, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}], "conditional":[{"resist":[{"name":"lightning","percent":30},{"name":"earth","percent":30}]},{"atk%":20,"def%":20}]}
 ]},
-{"id":"100002501", "name":"今日から親友！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002501.png", "sortId":38, "levels":[
+{"id":"100002501", "name":"Friends from Today!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002501.png", "sortId":38, "levels":[
 	{"atk":40},
 	{"atk":46},
 	{"atk":52},
@@ -359,6 +359,18 @@
 	{"atk":71, "conditional":[{"equipedConditions":["gun"],"atk%":40}]},
 	{"atk":74, "conditional":[{"equipedConditions":["gun"],"atk%":40}]},
 	{"atk":80, "killers":[{"name":"human","physical":25}], "conditional":[{"equipedConditions":["gun"],"atk%":40}]}
+]},
+{"id":"100003401", "name":"結束の星", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003401.png", "sortId":55, "levels":[
+	{"atk":40, "mag":30},
+	{"atk":46, "mag":35},
+	{"atk":52, "mag":40},
+	{"atk":58, "mag":45, "conditional":[{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["greatSword"],"atk%":40},{"equipedConditions":["rod"],"mag%":50}]},
+	{"atk":64, "mag":50, "conditional":[{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["greatSword"],"atk%":40},{"equipedConditions":["rod"],"mag%":50}]},
+	{"atk":70, "mag":55, "conditional":[{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["greatSword"],"atk%":40},{"equipedConditions":["rod"],"mag%":50}]},
+	{"atk":76, "mag":60, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["rod"],"mag%":100}]},
+	{"atk":82, "mag":65, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["rod"],"mag%":100}]},
+	{"atk":88, "mag":70, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["rod"],"mag%":100}]},
+	{"atk":100, "mag":80, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["rod"],"mag%":100},{"lbDamage":50}]}
 ]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
@@ -480,7 +492,7 @@
 	{"hp":720, "def":72, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20}]},
 	{"hp":800, "def":80, "conditional":[{"equipedConditions":["helm"],"def%":20},{"equipedConditions":["heavyArmor"],"def%":20},{"def%":20}]}
 ]},
-{"id":"213000101", "name":"解放者の降臨", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000101.png", "sortId":37, "levels":[
+{"id":"213000101", "name":"The Savior's Descent", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000101.png", "sortId":37, "levels":[
 	{"atk":40, "mag":40},
 	{"atk":44, "mag":44},
 	{"atk":48, "mag":48},

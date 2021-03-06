@@ -9,7 +9,7 @@ const route = express.Router();
  */
 route.get('/', (req, res) => {
   res.contentType('application/javascript');
-  return res.send("window.clientConfig = {firebaseBucketUri:'" + config.firebaseBucketUri + "', firebaseDatabaseId:'" + config.firebaseDatabaseId + "', imgurClientId:'" + config.imgurClientId + "'}");
+  return res.send("window.clientConfig = {firebaseBucketUri:'" + config.firebase.bucketUri + "', firebaseDatabaseId:'" + config.firebase.databaseId + "', imgurClientId:'" + config.imgur.clientId + "'}");
 });
 
 module.exports = route;

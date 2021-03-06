@@ -1,12 +1,11 @@
 var admin = require("firebase-admin");
 const config = require('../../config.js');
-var serviceAccount = require.main.require(config.firebaseConfFile);
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://" + config.firebaseDatabaseId + ".firebaseio.com"
+  credential: admin.credential.cert(config.firebase.configuration),
+  databaseURL: "https://" + config.firebase.databaseId + ".firebaseio.com"
 });
 
-var bucket = admin.storage().bucket("gs://" + config.firebaseBucketUri);
+var bucket = admin.storage().bucket("gs://" + config.firebase.bucketUri);
 
 module.exports = bucket;

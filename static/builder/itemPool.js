@@ -208,6 +208,7 @@ class ItemPool {
                     if (includeSingleWielding) {
                         comparisionStatus.push(TreeComparator.compareByDoublehand(entry1.item, entry2.item, stat));
                     }
+                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "oneWeaponMastery." + stat));
                     if (includeDualWielding) {
                         comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "dualWielding." + stat));
                         if (stat == 'atk') {

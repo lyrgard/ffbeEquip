@@ -475,7 +475,7 @@ function addEffectsToEffectList(effectList, effects) {
                     addToStat(effectList[0], simpleValues[i], effect[simpleValues[i]]);
                 }
             }
-            const baseStatsBasedValues = ["singleWielding","singleWieldingOneHanded","dualWielding"];
+            const baseStatsBasedValues = ["singleWielding","singleWieldingOneHanded","dualWielding", "oneWeaponMastery"];
             const baseStatsWithAccuracy = baseStats.concat(["accuracy"]);
             for (var i = baseStatsBasedValues.length; i--;) {
                 if (effect[baseStatsBasedValues[i]]) {

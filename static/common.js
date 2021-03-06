@@ -392,6 +392,13 @@ function getSpecialHtml(item) {
             }
         }
     }
+    if (item.oneWeaponMastery) {
+        for (var index in baseStats) {
+            if (item.oneWeaponMastery[baseStats[index]]) {
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.oneWeaponMastery[baseStats[index]] + "%) when single wielding any weapon with or without shield</li>";
+            }
+        }
+    }
 
     if (item.accuracy) {
         special += "<li>Increase Accuracy (" + item.accuracy + "%)</li>";
@@ -1620,6 +1627,13 @@ function prepareSearch(data) {
             for (var index in baseStats) {
                 if (item.dualWielding[baseStats[index]]) {
                     textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.dualWielding[baseStats[index]] + "%) when dual wielding"
+                }
+            }
+        }
+        if (item.oneWeaponMastery) {
+            for (var index in baseStats) {
+                if (item.oneWeaponMastery[baseStats[index]]) {
+                    textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.oneWeaponMastery[baseStats[index]] + "%) when single wielding any weapon with or without shield"
                 }
             }
         }

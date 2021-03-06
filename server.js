@@ -8,10 +8,10 @@ const mime = require('mime-types');
 var cors = require('cors')
 
 const config = require('./config.js');
-const firebase = require('./server/routes/firebase.js');
-const drive = require('./server/routes/drive.js');
-const links = require('./server/routes/links.js');
-const oauth = require('./server/routes/oauth.js');
+
+const firebase = config.firebase.enabled ? require('./server/routes/firebase.js') : null;
+const drive = config.google.enabled ? require('./server/routes/drive.js') : null;
+const oauth = config.google.enabled ? require('./server/routes/oauth.js') : null;
 const clientConfig = require('./server/routes/clientConfig.js');
 const corrections = require('./server/routes/corrections.js');
 const unitSkills = require('./server/routes/unitSkills.js');
@@ -121,12 +121,18 @@ app.use(sessions({
 app.use(bodyParser.json({'limit':'1mb'}));
 
 // Routes
-app.use('/', oauth);
 app.use('/clientConfig', clientConfig);
-app.use('/links', links);
+if (config.google.enabled) {
+    app.use('/', oauth);
+}
 app.use('/', corrections, unitSkills);
-app.use('/', firebase.unAuthenticatedRoute);
-app.use('/', authRequired, firebase.authenticatedRoute, drive);
+if (config.firebase.enabled) {
+    app.use('/', firebase.unAuthenticatedRoute);
+    app.use('/', authRequired, firebase.authenticatedRoute);
+}
+if (config.google.enabled) {
+    app.use('/', authRequired, drive);
+}
 
 // Old index.html file no longer exists
 // Redirect users to homepage

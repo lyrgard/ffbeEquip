@@ -4806,6 +4806,7 @@ function initWorkers() {
                                                 overcapedStats.push("singleWieldingOneHanded." + baseStats[i]);
                                             }
                                             overcapedStats.push("singleWielding." + baseStats[i]);
+                                            overcapedStats.push("oneWeaponMastery." + baseStats[i]);
                                         }
                                     }
                                 }
