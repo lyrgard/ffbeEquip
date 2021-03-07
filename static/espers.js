@@ -1101,7 +1101,7 @@ function setEsperRarity(rarity) {
     showBoard(currentEsper, rarity);
     $(".stats").removeClass("invisible");
     $(".esperOtherStats").removeClass("invisible");
-    $("#tabs li."+currentEsper).removeClass("notOwned");
+    $("#tabs li."+escapeName(currentEsper)).removeClass("notOwned");
     $("#esper .shareLink").removeClass("hidden");
 }
 
