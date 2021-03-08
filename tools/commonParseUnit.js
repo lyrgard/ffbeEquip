@@ -381,10 +381,10 @@ function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit, lbs)
                 addEffectsToEffectList(skillsOut, effects);
             }
             for (var i = 0, len = effects.length; i < len; i++) {
-                skill.effects.push({"effect":effects[i], "desc": skillIn.effects[rawEffectIndex]});    
+                skill.effects.push({"effect":effects[i], "desc": skillIn.effects[rawEffectIndex].join(', ')});
             }
         } else {
-            skill.effects.push({"effect":null, "desc": skillIn.effects[rawEffectIndex]});    
+            skill.effects.push({"effect":null, "desc": skillIn.effects[rawEffectIndex].join(', ')});
         }
     }
     if (skillIn.requirements && skillIn.requirements[0][0] == "EQUIP") {
@@ -1183,7 +1183,7 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
             desc = effect.desc;
             delete effect.desc;
         } else {
-            desc = skillIn.effects[rawEffectIndex];
+            desc = skillIn.effects[rawEffectIndex].join(', ');
         }
 
         skill.effects.push({"effect":effect, "desc": desc});
@@ -1239,7 +1239,7 @@ function parseLb(lb, unit, skills) {
             desc = effect.desc;
             delete effect.desc;
         } else {
-            desc = lb.min_level[rawEffectIndex];
+            desc = lb.min_level[rawEffectIndex].join(', ');
         }
         lbOut.minEffects.push({"effect":effect, "desc": desc});
     }
@@ -1256,7 +1256,7 @@ function parseLb(lb, unit, skills) {
             desc = effect.desc;
             delete effect.desc;
         } else {
-            desc = lb.max_level[rawEffectIndex];
+            desc = lb.max_level[rawEffectIndex].join(', ');
         }
         lbOut.maxEffects.push({"effect":effect, "desc": desc});
     }
