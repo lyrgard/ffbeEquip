@@ -646,7 +646,7 @@ function addNotTreatedEffects(itemOut, effectsNotTreated, skill) {
             } else {
                 special += ", ";
             }
-            special += skill.effects[effectsNotTreated[index]];
+            special += skill.effects[effectsNotTreated[index]].join(', ');
         }
         addSpecial(itemOut, special);
     }
@@ -981,7 +981,7 @@ function getSkillString(skill) {
         } else {
             effect += ", ";
         }
-        effect += skill.effects[effectIndex];
+        effect += skill.effects[effectIndex].join(', ');
     }
     var result = "[" + skill.name;
     if (skill.icon) {

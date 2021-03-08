@@ -864,7 +864,7 @@ function addNotTreatedEffects(itemOut, effectsNotTreated, skill, skillId) {
                 } else {
                     special += ", ";
                 }
-                special += skill.effects[effectsNotTreated[index]];
+                special += skill.effects[effectsNotTreated[index]].join(', ');
                 let raw = skill.effects_raw[effectsNotTreated[index]];
                 if (!notParsedSkillType[raw[2]]) {
                         notParsedSkillType[raw[2]] = [];
@@ -1266,7 +1266,7 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
             effect.frames = getArrayValueAtIndex(skillIn.attack_frames, rawEffectIndex);
             effect.repartition = getArrayValueAtIndex(skillIn.attack_damage, rawEffectIndex, 100);
         }
-        skill.effects.push({"effect":effect, "desc": skillIn.effects[rawEffectIndex]});
+        skill.effects.push({"effect":effect, "desc": skillIn.effects[rawEffectIndex].join(', ')});
     }
     addChainInfoToSkill(skill, skill.effects, skillIn.attack_frames, skillIn.move_type, skills);
     if (skill.magic_type) {
