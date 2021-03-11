@@ -360,6 +360,18 @@
 	{"atk":74, "conditional":[{"equipedConditions":["gun"],"atk%":40}]},
 	{"atk":80, "killers":[{"name":"human","physical":25}], "conditional":[{"equipedConditions":["gun"],"atk%":40}]}
 ]},
+{"id":"100003301", "name":"命がけの逃避行", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003301.png", "sortId":57, "levels":[
+	{"atk":20, "def":40},
+	{"atk":21, "def":42},
+	{"atk":22, "def":44},
+	{"atk":23, "def":46, "resist":[{"name":"fire","percent":15},{"name":"wind","percent":15}]},
+	{"atk":24, "def":48, "resist":[{"name":"fire","percent":15},{"name":"wind","percent":15}]},
+	{"atk":25, "def":50, "resist":[{"name":"fire","percent":15},{"name":"wind","percent":15}]},
+	{"atk":26, "def":52, "resist":[{"name":"fire","percent":15},{"name":"wind","percent":15},{"name":"fire","percent":15},{"name":"wind","percent":15}]},
+	{"atk":27, "def":54, "resist":[{"name":"fire","percent":15},{"name":"wind","percent":15},{"name":"fire","percent":15},{"name":"wind","percent":15}]},
+	{"atk":28, "def":56, "resist":[{"name":"fire","percent":15},{"name":"wind","percent":15},{"name":"fire","percent":15},{"name":"wind","percent":15}]},
+	{"atk":30, "atk%":20, "def":60, "def%":20, "resist":[{"name":"fire","percent":15},{"name":"wind","percent":15},{"name":"fire","percent":15},{"name":"wind","percent":15},{"name":"fire","percent":30},{"name":"wind","percent":30}]}
+]},
 {"id":"100003401", "name":"結束の星", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003401.png", "sortId":55, "levels":[
 	{"atk":40, "mag":30},
 	{"atk":46, "mag":35},
@@ -623,6 +635,18 @@
 	{"spr":85, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
 	{"spr":90, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
 	{"spr":100, "spr%":20, "oneWeaponMastery":{"spr":25}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}
+]},
+{"id":"401000201", "name":"Demon Who Learned Humanity", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000201.png", "sortId":56, "levels":[
+	{"mag":40},
+	{"mag":46},
+	{"mag":52},
+	{"mag":58, "conditional":[{"equipedConditions":["rod"],"mag%":25}]},
+	{"mag":64, "conditional":[{"equipedConditions":["rod"],"mag%":25}]},
+	{"mag":70, "conditional":[{"equipedConditions":["rod"],"mag%":25}]},
+	{"mag":76, "conditional":[{"equipedConditions":["rod"],"mag%":50}]},
+	{"mag":82, "conditional":[{"equipedConditions":["rod"],"mag%":50}]},
+	{"mag":88, "conditional":[{"equipedConditions":["rod"],"mag%":50}]},
+	{"mag":100, "conditional":[{"equipedConditions":["rod"],"mag%":50},{"killers":[{"name":"spirit","magical":50}]}]}
 ]},
 {"id":"401000401", "name":"Azure Successor", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000401.png", "sortId":47, "levels":[
 	{"atk":45, "mag":45},
