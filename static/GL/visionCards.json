@@ -228,6 +228,18 @@
 	{"atk":73, "mag":73, "conditional":[{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["bow"],"mag%":80}]},
 	{"atk":80, "mag":80, "conditional":[{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["bow"],"mag%":80},{"resist":[{"name":"fire","percent":30},{"name":"light","percent":30}],"exclusiveUnits":["100000315","100000337","100005905","100005927","100007705","100007727","100009105","100009127","100010005","100010027","100011705","100011727","100011805","100011827","100012405","100012427","100012605","100012627","100015405","100015427","100017605","100017627","100020505","100020527","100020905","100020927","100021705","100021727","100024805","100024827","100024905","100024927","100027105","100027127","100027205","100027227","100027805","100027827","100031007","100031017","100031507","100031517","100031607","100031617","100031707","100031717","100031907","100031917","100032207","100032217","100032607","100032617","100032707","100032717","100032807","100032817","100032907","100032917","100033007","100033017","100033107","100033117","100033207","100033217","401002005","401002027","401002605","401002627","401002705","401002727","401006005","401006027","401009907","401009917","401010007","401010017","401010107","401010117","401010207","401010217","401011207","401011217"]}]}
 ]},
+{"id":"100002401", "name":"No Matter the Cost", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002401.png", "sortId":33, "levels":[
+	{"atk":40, "def":20},
+	{"atk":42, "def":21},
+	{"atk":44, "def":22},
+	{"atk":46, "def":23, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
+	{"atk":48, "def":24, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
+	{"atk":50, "def":25, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
+	{"atk":52, "def":26, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
+	{"atk":54, "def":27, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
+	{"atk":56, "def":28, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
+	{"atk":60, "def":30, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}], "conditional":[{"resist":[{"name":"lightning","percent":30},{"name":"earth","percent":30}],"exclusiveUnits":["100000315","100000337","100005905","100005927","100007705","100007727","100009105","100009127","100010005","100010027","100011705","100011727","100011805","100011827","100012405","100012427","100012605","100012627","100015405","100015427","100017605","100017627","100020505","100020527","100020905","100020927","100021705","100021727","100024805","100024827","100024905","100024927","100027105","100027127","100027205","100027227","100027805","100027827","100031007","100031017","100031507","100031517","100031607","100031617","100031707","100031717","100031907","100031917","100032207","100032217","100032607","100032617","100032707","100032717","100032807","100032817","100032907","100032917","100033007","100033017","100033107","100033117","100033207","100033217","401002005","401002027","401002605","401002627","401002705","401002727","401006005","401006027","401009907","401009917","401010007","401010017","401010107","401010117","401010207","401010217","401011207","401011217"],"atk%":20,"def%":20}]}
+]},
 {"id":"100002501", "name":"Friends from Today!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002501.png", "sortId":38, "levels":[
 	{"atk":40},
 	{"atk":46},
@@ -348,6 +360,18 @@
 	{"atk":72, "mag":72, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
 	{"atk":80, "mag":80, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100},{"oneWeaponMastery":{"atk":50,"mag":50},"exclusiveUnits":["213000105","213000127","213001005","213001027","250000105","250000127","258000107","258000117","258000207","258000217"]}]}
 ]},
+{"id":"213000201", "name":"Five Hundred Years of Grief", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000201.png", "sortId":40, "levels":[
+	{"hp":500, "def":30, "spr":30},
+	{"hp":550, "def":33, "spr":33},
+	{"hp":600, "def":36, "spr":36},
+	{"hp":650, "def":39, "spr":39, "conditional":[{"equipedConditions":["axe"],"hp%":20},{"equipedConditions":["fist"],"hp%":20}]},
+	{"hp":700, "def":42, "spr":42, "conditional":[{"equipedConditions":["axe"],"hp%":20},{"equipedConditions":["fist"],"hp%":20}]},
+	{"hp":750, "def":45, "spr":45, "conditional":[{"equipedConditions":["axe"],"hp%":20},{"equipedConditions":["fist"],"hp%":20}]},
+	{"hp":800, "def":48, "spr":48, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
+	{"hp":850, "def":51, "spr":51, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
+	{"hp":900, "def":54, "spr":54, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40}]},
+	{"hp":1000, "def":60, "spr":60, "conditional":[{"equipedConditions":["axe"],"hp%":40},{"equipedConditions":["fist"],"hp%":40},{"oneWeaponMastery":{"def":50,"spr":50},"exclusiveSex":"male"}]}
+]},
 {"id":"335000101", "name":"The Keyblade Graveyard Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},
 	{"atk":55},
@@ -455,6 +479,18 @@
 	{"mag":67, "spr":67, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
 	{"mag":70, "spr":70, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
 	{"mag":75, "spr":75, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50},{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"exclusiveUnits":["100000315","100000337","100005905","100005927","100007705","100007727","100009105","100009127","100010005","100010027","100011705","100011727","100011805","100011827","100012405","100012427","100012605","100012627","100015405","100015427","100017605","100017627","100020505","100020527","100020905","100020927","100021705","100021727","100024805","100024827","100024905","100024927","100027105","100027127","100027205","100027227","100027805","100027827","100031007","100031017","100031507","100031517","100031607","100031617","100031707","100031717","100031907","100031917","100032207","100032217","100032607","100032617","100032707","100032717","100032807","100032817","100032907","100032917","100033007","100033017","100033107","100033117","100033207","100033217","401002005","401002027","401002605","401002627","401002705","401002727","401006005","401006027","401009907","401009917","401010007","401010017","401010107","401010117","401010207","401010217","401011207","401011217"]}]}
+]},
+{"id":"401001501", "name":"Encounter of Heroes", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401001501.png", "sortId":9009, "levels":[
+	{"atk":20, "def":20, "mag":20, "spr":20},
+	{"atk":22, "def":22, "mag":22, "spr":22},
+	{"atk":24, "def":24, "mag":24, "spr":24},
+	{"atk":26, "def":26, "def%":40, "mag":26, "spr":26, "spr%":40},
+	{"atk":28, "def":28, "def%":40, "mag":28, "spr":28, "spr%":40},
+	{"atk":30, "def":30, "def%":40, "mag":30, "spr":30, "spr%":40},
+	{"atk":32, "def":32, "def%":40, "mag":32, "spr":32, "spr%":40, "resist":[{"name":"fire","percent":30},{"name":"earth","percent":30}]},
+	{"atk":34, "def":34, "def%":40, "mag":34, "spr":34, "spr%":40, "resist":[{"name":"fire","percent":30},{"name":"earth","percent":30}]},
+	{"atk":36, "def":36, "def%":40, "mag":36, "spr":36, "spr%":40, "resist":[{"name":"fire","percent":30},{"name":"earth","percent":30}]},
+	{"atk":40, "atk%":40, "def":40, "def%":40, "mag":40, "mag%":40, "spr":40, "spr%":40, "resist":[{"name":"fire","percent":30},{"name":"earth","percent":30}]}
 ]},
 {"id":"900020101", "name":"Metal Gigantuar's Here!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_900020101.png", "sortId":6, "levels":[
 	{"hp":10, "mp":10}
