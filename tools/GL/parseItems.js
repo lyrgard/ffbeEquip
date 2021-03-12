@@ -1141,7 +1141,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         }    
         
     // Break, stop and charm resistance with turn number
-    } else if (rawEffect[2] == 89 || rawEffect[2] == 55) {
+    } else if (rawEffect[2] == 55) {
         if (!item.resist) {
             item.resist = [];
         }
