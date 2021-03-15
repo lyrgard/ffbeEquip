@@ -776,10 +776,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         };
     } else if (formula.type == "chainMultiplier") {
         if (formula.value === 'MAX') {
-            let chainMult = 4;
-            if (unitBuild.hasDualWieldMastery() && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
-                chainMult = 6;
-            }
+            let chainMult = getChainMult(unitBuild, itemAndPassives);
             return {
                 "min": chainMult,
                 "avg": chainMult,
@@ -1013,6 +1010,17 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         }
         return innerCalculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula, goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context)
     }
+}
+
+function getChainMult(unitBuild, itemAndPassives) {
+    let chainMult = 4;
+    if (unitBuild.hasDualWieldMastery() && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+        chainMult = 6;
+    }
+    itemAndPassives.filter(i => i && i.chainMastery).forEach(i => {
+        chainMult += i.chainMastery / 100;
+    });
+    return Math.min(chainMult, 6);
 }
 
 function calculateMonsterDamage(monsterAttackFormula, itemAndPassives, unitBuild, ennemyStats, context = {}) {

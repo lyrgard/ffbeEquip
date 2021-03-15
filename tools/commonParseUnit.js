@@ -469,7 +469,7 @@ function addEffectsToEffectList(effectList, effects) {
                     addToStat(effectList[0].evokeDamageBoost, esperName, effect.evokeDamageBoost[esperName]);
                 });
             }
-            const simpleValues = ["evoMag", "accuracy", "jumpDamage","lbFillRate", "mpRefresh", "lbDamage"];
+            const simpleValues = ["evoMag", "accuracy", "jumpDamage","lbFillRate", "mpRefresh", "lbDamage", "chainMastery"];
             for (var i = simpleValues.length; i--;) {
                 if (effect[simpleValues[i]]) {
                     addToStat(effectList[0], simpleValues[i], effect[simpleValues[i]]);
@@ -772,6 +772,11 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
             stat = "spr";
         }
         addToStat(result.dualWielding, stat, rawEffect[3][1]);
+        return [result];
+
+        // Increase max chain coef
+    } else if (rawEffect[2] == 98) {
+        addToStat(result, 'chainMastery', rawEffect[3][1]);
         return [result];
 
         // Increase EQ stat when armed with a single weapon (with or without shield)
@@ -2488,7 +2493,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding", "oneWeaponMastery","improvedDW","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","exLevelCondition" ,"tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding", "oneWeaponMastery","improvedDW", "chainMastery","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","exLevelCondition" ,"tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";

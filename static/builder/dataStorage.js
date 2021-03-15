@@ -488,6 +488,8 @@ class DataStorage {
                 if (item.lbPerTurn || item.lbFillRate) return true;
             } else if (stats[index] == "meanDamageVariance") {
                 if (item.meanDamageVariance && item.meanDamageVariance > 1) return true;
+            } else if (stats[index] == "chainMastery") {
+                if (item.chainMastery && item.chainMastery > 0) return true;
             } else {
                 if (getValue(item, stats[index]) > 0) return true;
                 if (item[stats[index] + '%'] && item[stats[index] + '%'] > 0) return true;

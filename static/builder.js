@@ -426,6 +426,10 @@ function readSimpleConditions(formula) {
     }
 }
 
+function setChainMultiplierToMax() {
+    $(".goal .chainMultiplier input").val('MAX')
+}
+
 function readChainMultiplier() {
     let stringValue = $(".goal .chainMultiplier input").val();
     if (stringValue) {
@@ -847,12 +851,24 @@ function logBuild(build, value) {
     var formulaIsOneSkill = false;
     var skillName;
     if (builds[currentUnitIndex].formula) {
-        if (builds[currentUnitIndex].formula) {
+        if (builds[currentUnitIndex].formula && builds[currentUnitIndex].formula.type === 'value') {
+            formulaIsOneSkill = true;
+            skillName = builds[currentUnitIndex].formula.name;
+        } else if (builds[currentUnitIndex].formula && builds[currentUnitIndex].formula.type === 'skill') {
             formulaIsOneSkill = true;
             skillName = builds[currentUnitIndex].formula.name;
         } else if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.formula.type == "skill") {
             formulaIsOneSkill = true;
             skillName = builds[currentUnitIndex].formula.formula.name;
+        } else if (builds[currentUnitIndex].formula.type === '*' && builds[currentUnitIndex].formula.value1.type === 'chainMultiplier') {
+            let chainLabel = builds[currentUnitIndex].formula.value1.value === 'MAX' ? 'MAX chain' : builds[currentUnitIndex].formula.value1.value + 'x chain';
+            if (builds[currentUnitIndex].formula.value2.type === 'value') {
+                formulaIsOneSkill = true;
+                skillName = chainLabel + ' ' + builds[currentUnitIndex].formula.value2.name;
+            } else if (builds[currentUnitIndex].formula.value2.type === 'skill') {
+                formulaIsOneSkill = true;
+                skillName = chainLabel + ' ' + builds[currentUnitIndex].formula.value2.name;
+            }
         }
     }
 

@@ -193,6 +193,8 @@ class ItemPool {
                     comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "singleWielding.accuracy"));
                     comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "singleWieldingOneHanded.accuracy"));
                 }
+            } else if (stat == "chainMastery") {
+                comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "chainMastery"));
             } else if (stat === 'newDamageFormula' && weaponList.includes(entry1.item.type)) {
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, 'atk'));    
             } else {

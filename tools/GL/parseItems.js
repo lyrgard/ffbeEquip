@@ -1208,7 +1208,10 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             item.startOfTurnSkills = [];
         }
         item.startOfTurnSkills.push({chance: rawEffect[3][1], skill:skill});
-        
+
+        // Increase max chain coef
+    } else if (rawEffect[2] == 98) {
+        addStat(item, 'chainMastery', rawEffect[3][1]);
     
         // item sets
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 74) {
@@ -2206,7 +2209,7 @@ function addLbPerTurn(item, min, max) {
     item.lbPerTurn.max += max;
 }
 
-let itemProperties = ["id","name", "access", "maxNumber", "eventNames", "wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "oneWeaponMastery", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts", "evokeDamageBoost","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills","conditional"];
+let itemProperties = ["id","name", "access", "maxNumber", "eventNames", "wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "oneWeaponMastery", "chainMastery", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts", "evokeDamageBoost","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills","conditional"];
 function formatOutput(items) {
 
     var result = "[\n";

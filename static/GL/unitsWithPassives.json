@@ -10023,7 +10023,7 @@
 		"equip":["spear","hat","clothes","visionCard"],
 		"enhancementSkills":["Emotional Slash"],
 		"skills": [
-			{"hp%":40, "mp%":60, "atk%":190, "def%":40, "singleWielding":{"accuracy":25,"atk":400}, "lbFillRate":100, "resist":[{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"lightning","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"earth","percent":40},{"name":"light","percent":40},{"name":"dark","percent":40}], "killers":[{"name":"plant","physical":150}], "mpRefresh":7, "lbDamage":100},
+			{"hp%":40, "mp%":60, "atk%":190, "def%":40, "singleWielding":{"accuracy":25,"atk":400}, "chainMastery":100, "lbFillRate":100, "resist":[{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"lightning","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"earth","percent":40},{"name":"light","percent":40},{"name":"dark","percent":40}], "killers":[{"name":"plant","physical":150}], "mpRefresh":7, "lbDamage":100},
 			{"equipedConditions":[["504239170","308007000"]]}
 		]
 	},
@@ -10045,7 +10045,7 @@
 		"equip":["spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Blooming Jump"],
 		"skills": [
-			{"hp%":30, "mp%":40, "atk%":190, "singleWielding":{"accuracy":25,"atk":400}, "jumpDamage":300, "lbFillRate":100, "killers":[{"name":"plant","physical":150}], "lbDamage":100},
+			{"hp%":30, "mp%":40, "atk%":190, "singleWielding":{"accuracy":25,"atk":400}, "chainMastery":100, "jumpDamage":300, "lbFillRate":100, "killers":[{"name":"plant","physical":150}], "lbDamage":100},
 			{"jumpDamage":100, "lbPerTurn":{"min":8,"max":8}, "equipedConditions":[["504239170","308007000"]]}
 		]
 	},
@@ -20405,7 +20405,7 @@
 		"equip":["sword","greatSword","katana","spear","gun","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["NulAll Guard","Electric Blitz (LIGHTNING RETURNS)"],
 		"skills": [
-			{"hp%":100, "mp%":100, "atk%":100, "def%":100, "mag%":100, "spr%":100, "evade":{"physical":50}, "oneWeaponMastery":{"atk":200,"def":200}, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"wind","percent":50},{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"spirit","physical":150,"magical":150}], "mpRefresh":7, "lbDamage":150},
+			{"hp%":100, "mp%":100, "atk%":100, "def%":100, "mag%":100, "spr%":100, "evade":{"physical":50}, "oneWeaponMastery":{"atk":200,"def":200}, "chainMastery":100, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"wind","percent":50},{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"spirit","physical":150,"magical":150}], "mpRefresh":7, "lbDamage":150},
 			{"drawAttacks":50, "equipedConditions":[["402005000","504239011"]]}
 		]
 	},
@@ -20427,7 +20427,7 @@
 		"equip":["sword","katana","staff","rod","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["NulAll Guard","Surge"],
 		"skills": [
-			{"hp%":100, "mp%":100, "atk%":100, "def%":100, "mag%":100, "spr%":100, "evade":{"magical":30}, "oneWeaponMastery":{"mag":200,"spr":200}, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"wind","percent":50},{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"spirit","physical":150,"magical":150}], "mpRefresh":7, "lbDamage":150},
+			{"hp%":100, "mp%":100, "atk%":100, "def%":100, "mag%":100, "spr%":100, "evade":{"magical":30}, "oneWeaponMastery":{"mag":200,"spr":200}, "chainMastery":100, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"wind","percent":50},{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"spirit","physical":150,"magical":150}], "mpRefresh":7, "lbDamage":150},
 			{"drawAttacks":50, "equipedConditions":[["402005000","504239011"]]}
 		]
 	},

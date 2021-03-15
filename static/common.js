@@ -399,6 +399,9 @@ function getSpecialHtml(item) {
             }
         }
     }
+    if (item.chainMastery) {
+        special += "<li>Increase chain modifier cap (" + item.chainMastery + "%)</li>";
+    }
 
     if (item.accuracy) {
         special += "<li>Increase Accuracy (" + item.accuracy + "%)</li>";
@@ -1636,6 +1639,9 @@ function prepareSearch(data) {
                     textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.oneWeaponMastery[baseStats[index]] + "%) when single wielding any weapon with or without shield"
                 }
             }
+        }
+        if (item.chainMastery) {
+            textToSearch += "|" + "Increase chain modifier cap (" + item.chainMastery + "%)"
         }
         if (item.killers) {
             for (var i = 0, len = item.killers.length; i < len;i++) {

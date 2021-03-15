@@ -933,7 +933,10 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         if (rawEffect[3][5]) {
             item.resist.push({"name":"charm","percent":rawEffect[3][5]});
         }
-        
+
+        // Increase max chain coef
+    } else if (rawEffect[2] == 98) {
+        addStat(item, 'chainMastery', rawEffect[3][1]);
 
     } else {
         return false;
@@ -1115,7 +1118,7 @@ function addLbPerTurn(item, min, max) {
     item.lbPerTurn.max += max;
 }
 
-const itemProperties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","oneWeaponMastery","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks", "evokeDamageBoost","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills","rarity", "conditional"];
+const itemProperties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","oneWeaponMastery", "chainMastery","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks", "evokeDamageBoost","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills","rarity", "conditional"];
 function formatOutput(items) {
     var result = "[\n";
     var first = true;
