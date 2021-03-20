@@ -264,7 +264,7 @@
 	{"atk":45, "atk%":5, "mag":45, "mag%":5},
 	{"atk":55, "atk%":55, "mag":55, "mag%":55}
 ]},
-{"id":"100002401", "name":"この命をかけて", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002401.png", "sortId":33, "levels":[
+{"id":"100002401", "name":"No Matter the Cost", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002401.png", "sortId":33, "levels":[
 	{"atk":40, "def":20},
 	{"atk":42, "def":21},
 	{"atk":44, "def":22},
@@ -492,6 +492,18 @@
 	{"atk":96, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
 	{"atk":110, "conditional":[{"equipedConditions":["dagger"],"atk%":80},{"lbDamage":50}]}
 ]},
+{"id":"211000101", "name":"ラグナロク", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_211000101.png", "sortId":58, "levels":[
+	{"hp":400, "def":40},
+	{"hp":440, "def":44},
+	{"hp":480, "def":48},
+	{"hp":520, "def":52, "conditional":[{"equipedConditions":["fist"],"def%":20}]},
+	{"hp":560, "def":56, "conditional":[{"equipedConditions":["fist"],"def%":20}]},
+	{"hp":600, "def":60, "conditional":[{"equipedConditions":["fist"],"def%":20}]},
+	{"hp":640, "def":64, "conditional":[{"equipedConditions":["fist"],"def%":40}]},
+	{"hp":680, "def":68, "conditional":[{"equipedConditions":["fist"],"def%":40}]},
+	{"hp":720, "def":72, "conditional":[{"equipedConditions":["fist"],"def%":40}]},
+	{"hp":800, "def":80, "oneWeaponMastery":{"def":50}, "conditional":[{"equipedConditions":["fist"],"def%":40}]}
+]},
 {"id":"212000101", "name":"Judge Magister", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_212000101.png", "sortId":14, "levels":[
 	{"hp":400, "def":40},
 	{"hp":440, "def":44},
@@ -516,7 +528,7 @@
 	{"atk":72, "mag":72, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
 	{"atk":80, "mag":80, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100},{"oneWeaponMastery":{"atk":50},"exclusiveUnits":[]},{"oneWeaponMastery":{"mag":50},"exclusiveUnits":[]}]}
 ]},
-{"id":"213000201", "name":"500年の悔恨", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000201.png", "sortId":40, "levels":[
+{"id":"213000201", "name":"Five Hundred Years of Grief", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000201.png", "sortId":40, "levels":[
 	{"hp":500, "def":30, "spr":30},
 	{"hp":550, "def":33, "spr":33},
 	{"hp":600, "def":36, "spr":36},

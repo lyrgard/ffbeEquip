@@ -11722,7 +11722,7 @@
 		]
 	},
 	"100034005": {
-		"name":"ベルメーラ",
+		"name":"Belmera",
 		"jpname":"ベルメーラ",
 		"id":"100034005",
 		"max_rarity":"7",
@@ -11741,7 +11741,7 @@
 			{"evade":{"physical":30}, "dualWielding":{"atk":150}, "equipedConditions":[["504240574","313007600"]]}
 		],
 		"6_form": {
-			"name":"ベルメーラ",
+			"name":"Belmera",
 			"jpname":"ベルメーラ",
 			"id":"100034005",
 			"sixStarForm":true,
@@ -11810,7 +11810,7 @@
 		]
 	},
 	"100034205": {
-		"name":"コンチェ",
+		"name":"Conche",
 		"jpname":"コンチェ",
 		"id":"100034205",
 		"max_rarity":"7",
@@ -11829,7 +11829,7 @@
 			{"oneWeaponMastery":{"spr":100}, "equipedConditions":[["504240573","316002500"]]}
 		],
 		"6_form": {
-			"name":"コンチェ",
+			"name":"Conche",
 			"jpname":"コンチェ",
 			"id":"100034205",
 			"sixStarForm":true,
@@ -19486,28 +19486,34 @@
 		"name":"Livid Shantotto",
 		"jpname":"ブチ切れシャントット",
 		"id":"211000805",
-		"max_rarity":"7",
+		"braveShift":"211000827",
+		"exAwakening": [{"hp":399,"mp":37,"atk":17,"def":18,"mag":29,"spr":25},{"hp":307,"mp":28,"atk":13,"def":14,"mag":22,"spr":19},{"hp":215,"mp":20,"atk":9,"def":10,"mag":15,"spr":13}],
+		"fragmentId": "250000950",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3073,"mp":289,"atk":137,"def":145,"mag":204,"spr":195},
-			"minStats":{"hp":1014,"mp":95,"atk":45,"def":48,"mag":67,"spr":64},
+			"maxStats":{"hp":3073,"mp":289,"atk":137,"def":145,"mag":225,"spr":195},
+			"minStats":{"hp":1014,"mp":95,"atk":45,"def":48,"mag":74,"spr":64},
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
-		"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%"],
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%","ウインドクラッシャー"],
 		"enhancements": [
-			{"name":"ヴァナ・ディール最強の魔道士","levels":[[],[{"singleWielding":{"mag":140},"lbDamage":50,"replaceLb":{"name":"ブチ切れ","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":15,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (15x * 2 = 30x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":71,"ice":71,"lightning":71,"water":71,"wind":71,"earth":71},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 71% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":3,"skills":[{"id":"510871","name":"IV連続魔","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}],"unlockedBy":["lb"]}]}},"desc":"Grant Quadra-cast all magic for 3 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"20810","name":"ファイガV+"},{"id":"20820","name":"ブリザガV+"},{"id":"20830","name":"サンダガV+"},{"id":"20840","name":"ウォタガV+"},{"id":"20850","name":"エアロガV+"},{"id":"20860","name":"ストンガV+"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain ウォタガV+ (20840), エアロガV+ (20850), サンダガV+ (20830), ストンガV+ (20860), ファイガV+ (20810) and ブリザガV+ (20820) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":17.9,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (17.9x * 2 = 35.8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100,"water":100,"wind":100,"earth":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 100% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":3,"skills":[{"id":"510871","name":"IV連続魔","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}]}]}},"desc":"Grant Quadra-cast all magic for 3 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"20810","name":"ファイガV+"},{"id":"20820","name":"ブリザガV+"},{"id":"20830","name":"サンダガV+"},{"id":"20840","name":"ウォタガV+"},{"id":"20850","name":"エアロガV+"},{"id":"20860","name":"ストンガV+"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain ウォタガV+ (20840), エアロガV+ (20850), サンダガV+ (20830), ストンガV+ (20860), ファイガV+ (20810) and ブリザガV+ (20820) for 3 turns"}],"frames":[42,80,150,200,250,318,450],"move":"walk"}}]]},
+			{"name":"ヴァナ・ディール最強の魔道士","levels":[[],[{"singleWielding":{"mag":140},"lbDamage":50,"replaceLb":{"name":"ブチ切れ","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":15,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (15x * 2 = 30x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":71,"ice":71,"lightning":71,"water":71,"wind":71,"earth":71},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 71% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":10,"skills":[{"id":"510871","name":"IV連続魔","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}],"unlockedBy":["lb"]}]}},"desc":"Grant Quadra-cast all magic for 10 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"20810","name":"ファイガV+"},{"id":"20820","name":"ブリザガV+"},{"id":"20830","name":"サンダガV+"},{"id":"20840","name":"ウォタガV+"},{"id":"20850","name":"エアロガV+"},{"id":"20860","name":"ストンガV+"}],"turns":10},"area":"SELF","target":"SELF"},"desc":"Gain ウォタガV+ (20840), エアロガV+ (20850), サンダガV+ (20830), ストンガV+ (20860), ファイガV+ (20810) and ブリザガV+ (20820) for 10 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":17.9,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (17.9x * 2 = 35.8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100,"water":100,"wind":100,"earth":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 100% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":10,"skills":[{"id":"510871","name":"IV連続魔","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}]}]}},"desc":"Grant Quadra-cast all magic for 10 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"20810","name":"ファイガV+"},{"id":"20820","name":"ブリザガV+"},{"id":"20830","name":"サンダガV+"},{"id":"20840","name":"ウォタガV+"},{"id":"20850","name":"エアロガV+"},{"id":"20860","name":"ストンガV+"}],"turns":10},"area":"SELF","target":"SELF"},"desc":"Gain ウォタガV+ (20840), エアロガV+ (20850), サンダガV+ (20830), ストンガV+ (20860), ファイガV+ (20810) and ブリザガV+ (20820) for 10 turns"}],"frames":[42,80,150,200,250,318,450],"move":"walk"}}]]},
 			{"name":"『口の院』元院長","levels":[[{"spr%":30,"mag%":30,"mp%":50}],[{"spr%":30,"mag%":30,"def%":30,"mp%":50}],[{"spr%":50,"mag%":50,"def%":50,"mp%":50}]]},
 			{"name":"精霊魔法スキル・A+","levels":[[{"mag%":50}],[{"mag%":70}],[{"mag%":100,"skillEnhancement":{"20570":3,"20580":3,"20590":3,"20600":3,"20610":3,"20620":3,"20630":5,"20640":5,"20650":5,"20660":5,"20670":5,"20680":5,"20700":2,"20730":2,"70444":2,"70445":2,"70446":2,"70447":2}}]]},
 			{"name":"防御+20%","levels":[[{"def%":20,"levelCondition":115}],[{"def%":30,"levelCondition":115}],[]]}
 		],
 		"skills": [
 			{"lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
-			{"equipedConditions":[["310003700","504227209"]]},
+			{"equipedConditions":[["310003700","310010600","310010700","310010800","310010900","504227209"]]},
 			{"singleWielding":{"mag":60}, "levelCondition":110},
-			{"mag%":40, "levelCondition":120}
+			{"mag%":40, "levelCondition":120},
+			{"skillEnhancement":{"0":20}, "levelCondition":120},
+			{"chainMastery":100, "levelCondition":120},
+			{"hp%":50, "killers":[{"name":"beast","magical":200},{"name":"human","magical":100}], "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Livid Shantotto",
@@ -19524,22 +19530,81 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
-			"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%"],
+			"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%","ウインドクラッシャー"],
 		"enhancements": [
-			{"name":"ヴァナ・ディール最強の魔道士","levels":[[],[{"singleWielding":{"mag":140},"lbDamage":50,"replaceLb":{"name":"ブチ切れ","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":15,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (15x * 2 = 30x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":71,"ice":71,"lightning":71,"water":71,"wind":71,"earth":71},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 71% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":3,"skills":[{"id":"510871","name":"IV連続魔","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}],"unlockedBy":["lb"]}]}},"desc":"Grant Quadra-cast all magic for 3 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"20810","name":"ファイガV+"},{"id":"20820","name":"ブリザガV+"},{"id":"20830","name":"サンダガV+"},{"id":"20840","name":"ウォタガV+"},{"id":"20850","name":"エアロガV+"},{"id":"20860","name":"ストンガV+"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain ウォタガV+ (20840), エアロガV+ (20850), サンダガV+ (20830), ストンガV+ (20860), ファイガV+ (20810) and ブリザガV+ (20820) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":17.9,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (17.9x * 2 = 35.8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100,"water":100,"wind":100,"earth":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 100% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":3,"skills":[{"id":"510871","name":"IV連続魔","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}]}]}},"desc":"Grant Quadra-cast all magic for 3 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"20810","name":"ファイガV+"},{"id":"20820","name":"ブリザガV+"},{"id":"20830","name":"サンダガV+"},{"id":"20840","name":"ウォタガV+"},{"id":"20850","name":"エアロガV+"},{"id":"20860","name":"ストンガV+"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain ウォタガV+ (20840), エアロガV+ (20850), サンダガV+ (20830), ストンガV+ (20860), ファイガV+ (20810) and ブリザガV+ (20820) for 3 turns"}],"frames":[42,80,150,200,250,318,450],"move":"walk"}}]]},
+			{"name":"ヴァナ・ディール最強の魔道士","levels":[[],[{"singleWielding":{"mag":140},"lbDamage":50,"replaceLb":{"name":"ブチ切れ","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":15,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (15x * 2 = 30x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":71,"ice":71,"lightning":71,"water":71,"wind":71,"earth":71},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 71% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":10,"skills":[{"id":"510871","name":"IV連続魔","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}],"unlockedBy":["lb"]}]}},"desc":"Grant Quadra-cast all magic for 10 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"20810","name":"ファイガV+"},{"id":"20820","name":"ブリザガV+"},{"id":"20830","name":"サンダガV+"},{"id":"20840","name":"ウォタガV+"},{"id":"20850","name":"エアロガV+"},{"id":"20860","name":"ストンガV+"}],"turns":10},"area":"SELF","target":"SELF"},"desc":"Gain ウォタガV+ (20840), エアロガV+ (20850), サンダガV+ (20830), ストンガV+ (20860), ファイガV+ (20810) and ブリザガV+ (20820) for 10 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":17.9,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (17.9x * 2 = 35.8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100,"water":100,"wind":100,"earth":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 100% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":10,"skills":[{"id":"510871","name":"IV連続魔","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}]}]}},"desc":"Grant Quadra-cast all magic for 10 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"20810","name":"ファイガV+"},{"id":"20820","name":"ブリザガV+"},{"id":"20830","name":"サンダガV+"},{"id":"20840","name":"ウォタガV+"},{"id":"20850","name":"エアロガV+"},{"id":"20860","name":"ストンガV+"}],"turns":10},"area":"SELF","target":"SELF"},"desc":"Gain ウォタガV+ (20840), エアロガV+ (20850), サンダガV+ (20830), ストンガV+ (20860), ファイガV+ (20810) and ブリザガV+ (20820) for 10 turns"}],"frames":[42,80,150,200,250,318,450],"move":"walk"}}]]},
 			{"name":"『口の院』元院長","levels":[[{"spr%":30,"mag%":30,"mp%":50}],[{"spr%":30,"mag%":30,"def%":30,"mp%":50}],[{"spr%":50,"mag%":50,"def%":50,"mp%":50}]]},
 			{"name":"精霊魔法スキル・A+","levels":[[{"mag%":50}],[{"mag%":70}],[{"mag%":100,"skillEnhancement":{"20570":3,"20580":3,"20590":3,"20600":3,"20610":3,"20620":3,"20630":5,"20640":5,"20650":5,"20660":5,"20670":5,"20680":5,"20700":2,"20730":2,"70444":2,"70445":2,"70446":2,"70447":2}}]]}
 		],
 			"skills": [
 				{"lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
 			]
+		},
+		"7_form": {
+			"name":"Livid Shantotto",
+			"jpname":"ブチ切れシャントット",
+			"id":"211000805",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3073,"mp":289,"atk":137,"def":145,"mag":204,"spr":195},
+				"minStats":{"hp":1014,"mp":95,"atk":45,"def":48,"mag":67,"spr":64},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%","ウインドクラッシャー"],
+		"enhancements": [
+			{"name":"ヴァナ・ディール最強の魔道士","levels":[[],[{"singleWielding":{"mag":140},"lbDamage":50,"replaceLb":{"name":"ブチ切れ","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":15,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (15x * 2 = 30x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":71,"ice":71,"lightning":71,"water":71,"wind":71,"earth":71},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 71% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":10,"skills":[{"id":"510871","name":"IV連続魔","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}],"unlockedBy":["lb"]}]}},"desc":"Grant Quadra-cast all magic for 10 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"20810","name":"ファイガV+"},{"id":"20820","name":"ブリザガV+"},{"id":"20830","name":"サンダガV+"},{"id":"20840","name":"ウォタガV+"},{"id":"20850","name":"エアロガV+"},{"id":"20860","name":"ストンガV+"}],"turns":10},"area":"SELF","target":"SELF"},"desc":"Gain ウォタガV+ (20840), エアロガV+ (20850), サンダガV+ (20830), ストンガV+ (20860), ファイガV+ (20810) and ブリザガV+ (20820) for 10 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":17.9,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (17.9x * 2 = 35.8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100,"water":100,"wind":100,"earth":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 100% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":10,"skills":[{"id":"510871","name":"IV連続魔","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}]}]}},"desc":"Grant Quadra-cast all magic for 10 turns to caster"},{"effect":{"gainSkills":{"skills":[{"id":"20810","name":"ファイガV+"},{"id":"20820","name":"ブリザガV+"},{"id":"20830","name":"サンダガV+"},{"id":"20840","name":"ウォタガV+"},{"id":"20850","name":"エアロガV+"},{"id":"20860","name":"ストンガV+"}],"turns":10},"area":"SELF","target":"SELF"},"desc":"Gain ウォタガV+ (20840), エアロガV+ (20850), サンダガV+ (20830), ストンガV+ (20860), ファイガV+ (20810) and ブリザガV+ (20820) for 10 turns"}],"frames":[42,80,150,200,250,318,450],"move":"walk"}}]]},
+			{"name":"『口の院』元院長","levels":[[{"spr%":30,"mag%":30,"mp%":50}],[{"spr%":30,"mag%":30,"def%":30,"mp%":50}],[{"spr%":50,"mag%":50,"def%":50,"mp%":50}]]},
+			{"name":"精霊魔法スキル・A+","levels":[[{"mag%":50}],[{"mag%":70}],[{"mag%":100,"skillEnhancement":{"20570":3,"20580":3,"20590":3,"20600":3,"20610":3,"20620":3,"20630":5,"20640":5,"20650":5,"20660":5,"20670":5,"20680":5,"20700":2,"20730":2,"70444":2,"70445":2,"70446":2,"70447":2}}]]},
+			{"name":"防御+20%","levels":[[{"def%":20,"levelCondition":115}],[{"def%":30,"levelCondition":115}],[]]}
+		],
+			"skills": [
+				{"lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+				{"equipedConditions":[["310003700","310010600","310010700","310010800","310010900","504227209"]]},
+				{"singleWielding":{"mag":60}, "levelCondition":110},
+				{"mag%":40, "levelCondition":120}
+			]
 		}
+	},
+	"211000827": {
+		"name":"口の院の元院長シャントット BS",
+		"jpname":"口の院の元院長シャントット BS",
+		"id":"211000827",
+		"braveShifted":"211000817",
+		"exAwakening": [{"hp":399,"mp":37,"atk":17,"def":18,"mag":29,"spr":25},{"hp":307,"mp":28,"atk":13,"def":14,"mag":22,"spr":19},{"hp":215,"mp":20,"atk":9,"def":10,"mag":15,"spr":13}],
+		"fragmentId": "250000950",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3381,"mp":318,"atk":124,"def":131,"mag":248,"spr":176},
+			"minStats":{"hp":1116,"mp":105,"atk":41,"def":43,"mag":82,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["ウインドクラッシャー","ディバインクラッシャー"],
+		"skills": [
+			{"skillEnhancement":{"0":20}, "levelCondition":120},
+			{"chainMastery":100, "levelCondition":120},
+			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "lbPerTurn":{"min":4,"max":4}, "killers":[{"name":"human","physical":200,"magical":200}], "mpRefresh":10, "levelCondition":120},
+			{"mag%":140, "equipedConditions":["rod"], "levelCondition":120},
+			{"lbDamage":200, "levelCondition":120},
+			{"singleWielding":{"mag":200}, "equipedConditions":[["310003700","310010600","310010700","310010800","310010900","504227209"]], "levelCondition":120}
+		]
 	},
 	"211000905": {
 		"name":"Shadow Lord",
 		"jpname":"闇の王",
 		"id":"211000905",
-		"max_rarity":"7",
+		"braveShift":"211000927",
+		"exAwakening": [{"hp":625,"mp":23,"atk":26,"def":24,"mag":19,"spr":21},{"hp":481,"mp":18,"atk":20,"def":18,"mag":14,"spr":16},{"hp":336,"mp":12,"atk":14,"def":13,"mag":10,"spr":11}],
+		"fragmentId": "250000960",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
@@ -19548,8 +19613,8 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理"],
+		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理","真・クロススマッシュ"],
 		"enhancements": [
 			{"name":"真なる闇の王","levels":[[],[{"atk%":100,"mp%":50,"hp%":50,"mpRefresh":10,"dualWielding":{"atk":170},"skillEnhancement":{"507702":10,"507703":10,"507706":17,"507707":17,"507708":10,"507709":10,"507710":17,"507711":17,"509672":17,"509673":17,"509674":17,"509675":17,"509676":10,"509677":10,"509678":10,"509679":10}}]]},
 			{"name":"シャドウロード","levels":[[{"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":30},"levelCondition":110}],[{"singleWielding":{"accuracy":25,"atk":150},"dualWielding":{"atk":30},"levelCondition":110}],[{"singleWielding":{"accuracy":25,"atk":200},"dualWielding":{"atk":30},"levelCondition":110}]]},
@@ -19559,7 +19624,12 @@
 		"skills": [
 			{"hp%":30, "atk%":30, "resist":[{"name":"dark","percent":100}]},
 			{"atk%":50, "equipedConditions":["sword"]},
-			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "skillEnhancement":{"507700":1,"507701":1,"507702":1,"507703":1,"507704":1,"507705":1,"507706":1,"507707":1,"507708":1,"507709":1,"507710":1,"507711":1,"509672":1,"509673":1,"509674":1,"509675":1,"509676":1,"509677":1,"509678":1,"509679":1}, "equipedConditions":[["504227237","302005800"]]}
+			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "skillEnhancement":{"507700":1,"507701":1,"507702":1,"507703":1,"507704":1,"507705":1,"507706":1,"507707":1,"507708":1,"507709":1,"507710":1,"507711":1,"509672":1,"509673":1,"509674":1,"509675":1,"509676":1,"509677":1,"509678":1,"509679":1}, "equipedConditions":[["504227237","302005800"]]},
+			{"special":["dualWield"], "levelCondition":120},
+			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"human","physical":100,"magical":100}], "mpRefresh":7, "levelCondition":120},
+			{"killers":[{"name":"spirit","physical":200}], "lbDamage":150, "levelCondition":120},
+			{"chainMastery":100, "levelCondition":120},
+			{"atk":800, "atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Shadow Lord",
@@ -19576,7 +19646,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理"],
+			"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理","真・クロススマッシュ"],
 		"enhancements": [
 			{"name":"真なる闇の王","levels":[[],[{"atk%":100,"mp%":50,"hp%":50,"mpRefresh":10,"dualWielding":{"atk":170},"skillEnhancement":{"507702":10,"507703":10,"507706":17,"507707":17,"507708":10,"507709":10,"507710":17,"507711":17,"509672":17,"509673":17,"509674":17,"509675":17,"509676":10,"509677":10,"509678":10,"509679":10}}]]}
 		],
@@ -19584,7 +19654,64 @@
 				{"hp%":30, "atk%":30, "resist":[{"name":"dark","percent":100}]},
 				{"atk%":50, "equipedConditions":["sword"]}
 			]
+		},
+		"7_form": {
+			"name":"Shadow Lord",
+			"jpname":"闇の王",
+			"id":"211000905",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4812,"mp":180,"atk":202,"def":186,"mag":149,"spr":166},
+				"minStats":{"hp":1588,"mp":59,"atk":67,"def":61,"mag":49,"spr":55},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理","真・クロススマッシュ"],
+		"enhancements": [
+			{"name":"真なる闇の王","levels":[[],[{"atk%":100,"mp%":50,"hp%":50,"mpRefresh":10,"dualWielding":{"atk":170},"skillEnhancement":{"507702":10,"507703":10,"507706":17,"507707":17,"507708":10,"507709":10,"507710":17,"507711":17,"509672":17,"509673":17,"509674":17,"509675":17,"509676":10,"509677":10,"509678":10,"509679":10}}]]},
+			{"name":"シャドウロード","levels":[[{"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":30},"levelCondition":110}],[{"singleWielding":{"accuracy":25,"atk":150},"dualWielding":{"atk":30},"levelCondition":110}],[{"singleWielding":{"accuracy":25,"atk":200},"dualWielding":{"atk":30},"levelCondition":110}]]},
+			{"name":"精神+20%","levels":[[{"spr%":20,"levelCondition":115}],[{"spr%":30,"levelCondition":115}],[]]},
+			{"name":"不滅の理","levels":[[{"def%":30,"levelCondition":120}],[{"spr%":30,"def%":30,"levelCondition":120}],[{"spr%":30,"def%":30,"levelCondition":120}]]}
+		],
+			"skills": [
+				{"hp%":30, "atk%":30, "resist":[{"name":"dark","percent":100}]},
+				{"atk%":50, "equipedConditions":["sword"]},
+				{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "skillEnhancement":{"507700":1,"507701":1,"507702":1,"507703":1,"507704":1,"507705":1,"507706":1,"507707":1,"507708":1,"507709":1,"507710":1,"507711":1,"509672":1,"509673":1,"509674":1,"509675":1,"509676":1,"509677":1,"509678":1,"509679":1}, "equipedConditions":[["504227237","302005800"]]}
+			]
 		}
+	},
+	"211000927": {
+		"name":"闇の王 BS",
+		"jpname":"闇の王 BS",
+		"id":"211000927",
+		"braveShifted":"211000905",
+		"exAwakening": [{"hp":625,"mp":23,"atk":26,"def":24,"mag":19,"spr":21},{"hp":481,"mp":18,"atk":20,"def":18,"mag":14,"spr":16},{"hp":336,"mp":12,"atk":14,"def":13,"mag":10,"spr":11}],
+		"fragmentId": "250000960",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5010,"mp":273,"atk":266,"def":198,"mag":177,"spr":198},
+			"minStats":{"hp":1653,"mp":90,"atk":88,"def":65,"mag":58,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ブライティングブリッツ"],
+		"skills": [
+			{"special":["dualWield"], "levelCondition":120},
+			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"human","physical":100,"magical":100}], "mpRefresh":7, "levelCondition":120},
+			{"killers":[{"name":"spirit","physical":200}], "lbDamage":150, "levelCondition":120},
+			{"atk%":40, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["504227237","302005800"]], "levelCondition":120},
+			{"improvedDW":true, "levelCondition":120},
+			{"hp%":80, "atk%":220, "resist":[{"name":"dark","percent":100}], "levelCondition":120},
+			{"mp%":50, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":200}, "dualWielding":{"atk":200}, "levelCondition":120},
+			{"atk":500, "levelCondition":120}
+		]
 	},
 	"211001004": {
 		"name":"Joachim",
@@ -19623,13 +19750,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["カスケード","連邦の黒い悪魔","希代の黒魔道士"],
 		"enhancements": [
-			{"name":"グスタベルグ山脈より荒削りな気性","levels":[[],[{"spr%":30,"mag%":30,"mp%":30,"resist":[{"name":"confuse","percent":100},{"name":"charm","percent":100}],"skillEnhancement":{"233340":3,"233341":3,"233342":3,"233345":3,"233346":3,"233347":3}}]]}
+			{"name":"グスタベルグ山脈より荒削りな気性","levels":[[],[{"spr%":30,"mag%":30,"mp%":30,"resist":[{"name":"confuse","percent":100},{"name":"charm","percent":100}],"skillEnhancement":{"233340":3,"233341":3,"233342":3,"233345":3,"233346":3,"233347":3}}]]},
+			{"name":"連邦の黒い悪魔","levels":[[{"spr%":30,"def%":30,"resist":[{"name":"dark","percent":50}],"lbDamage":20}],[{"spr%":100,"def%":100,"resist":[{"name":"dark","percent":75}],"lbDamage":100}],[{"spr%":200,"def%":200,"resist":[{"name":"dark","percent":100}],"lbDamage":200}]]},
+			{"name":"希代の黒魔道士","levels":[[{"mag%":50,"singleWielding":{"mag":65},"levelCondition":110}],[{"mag%":100,"singleWielding":{"mag":100},"levelCondition":110}],[{"mag%":150,"singleWielding":{"mag":100},"chainMastery":200,"levelCondition":110}]]}
 		],
 		"skills": [
-			{"mp%":50, "def%":30, "mag%":80, "spr%":60, "singleWielding":{"mag":160}, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100},{"name":"dark","percent":50}], "mpRefresh":12, "lbDamage":20},
-			{"mp%":50, "mag%":50, "lbFillRate":50, "lbDamage":30, "equipedConditions":[["403049300","408005700"]]},
-			{"mag%":50, "singleWielding":{"mag":65}, "levelCondition":110},
+			{"mp%":50, "mag%":80, "spr%":30, "singleWielding":{"mag":160}, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100}], "mpRefresh":12},
+			{"mp%":50, "mag%":50, "lbFillRate":50, "lbDamage":75, "equipedConditions":[["403049300","408005700"]]},
 			{"hp%":20, "levelCondition":115}
 		],
 		"6_form": {
@@ -19647,11 +19776,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["カスケード","連邦の黒い悪魔","希代の黒魔道士"],
 		"enhancements": [
-			{"name":"グスタベルグ山脈より荒削りな気性","levels":[[],[{"spr%":30,"mag%":30,"mp%":30,"resist":[{"name":"confuse","percent":100},{"name":"charm","percent":100}],"skillEnhancement":{"233340":3,"233341":3,"233342":3,"233345":3,"233346":3,"233347":3}}]]}
+			{"name":"グスタベルグ山脈より荒削りな気性","levels":[[],[{"spr%":30,"mag%":30,"mp%":30,"resist":[{"name":"confuse","percent":100},{"name":"charm","percent":100}],"skillEnhancement":{"233340":3,"233341":3,"233342":3,"233345":3,"233346":3,"233347":3}}]]},
+			{"name":"連邦の黒い悪魔","levels":[[{"spr%":30,"def%":30,"resist":[{"name":"dark","percent":50}],"lbDamage":20}],[{"spr%":100,"def%":100,"resist":[{"name":"dark","percent":75}],"lbDamage":100}],[{"spr%":200,"def%":200,"resist":[{"name":"dark","percent":100}],"lbDamage":200}]]}
 		],
 			"skills": [
-				{"mp%":50, "def%":30, "mag%":80, "spr%":60, "singleWielding":{"mag":160}, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100},{"name":"dark","percent":50}], "mpRefresh":12, "lbDamage":20}
+				{"mp%":50, "mag%":80, "spr%":30, "singleWielding":{"mag":160}, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100}], "mpRefresh":12}
 			]
 		}
 	},
@@ -19669,6 +19800,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["センシュアルダンス","ワーリングエッジ","ラウジングサンバ"],
 		"enhancements": [
 			{"name":"天涯の娘","levels":[[],[{"spr%":30,"atk%":30,"hp%":30,"skillEnhancement":{"233360":2.5,"233366":2.5,"510830":2.5,"510841":1,"510842":1}}]]}
 		],
@@ -19678,7 +19810,7 @@
 			{"mp%":20, "equipedConditions":["dagger"]},
 			{"resist":[{"name":"wind","percent":20}], "equipedConditions":["dagger"]},
 			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "spr%":20, "dualWielding":{"atk":50}, "equipedConditions":[["504233332","409036800"]]},
-			{"skillEnhancement":{"233360":5,"233365":5,"233366":5,"510830":5,"510841":4,"510842":4}, "levelCondition":105},
+			{"skillEnhancement":{"233360":5,"233365":5,"233366":5,"510830":5,"510841":4,"510842":4,"708946":5,"708947":5}, "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
 			{"atk%":40, "resist":[{"name":"charm","percent":100}], "levelCondition":120}
 		],
@@ -19697,6 +19829,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","throwing","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["センシュアルダンス","ワーリングエッジ","ラウジングサンバ"],
 		"enhancements": [
 			{"name":"天涯の娘","levels":[[],[{"spr%":30,"atk%":30,"hp%":30,"skillEnhancement":{"233360":2.5,"233366":2.5,"510830":2.5,"510841":1,"510842":1}}]]}
 		],
@@ -19727,6 +19860,54 @@
 		],
 		"skills": [
 			{"hp%":50, "mp%":20, "atk%":50, "def%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":100, "resist":[{"name":"paralysis","percent":100}]}
+		]
+	},
+	"211001507": {
+		"name":"Royal Puppeteer Aphmau",
+		"jpname":"無手の傀儡師アフマウ",
+		"id":"211001507",
+		"braveShift":"211001517",
+		"exAwakening": [{"hp":620,"mp":37,"atk":19,"def":52,"mag":29,"spr":23},{"hp":477,"mp":29,"atk":14,"def":40,"mag":22,"spr":17},{"hp":334,"mp":20,"atk":10,"def":28,"mag":15,"spr":12}],
+		"fragmentId": "250000940",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4772,"mp":291,"atk":147,"def":203,"mag":224,"spr":178},
+			"minStats":{"hp":1575,"mp":96,"atk":49,"def":67,"mag":74,"spr":59},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["ストリングシュレッダー"],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "evade":{"physical":30}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":100,"magical":100},{"name":"bug","physical":200}], "mpRefresh":7, "lbDamage":150, "drawAttacks":50},
+			{"def%":140, "equipedConditions":["fist"]},
+			{"oneWeaponMastery":{"def":200}, "equipedConditions":[["504241050","309007100"]]}
+		]
+	},
+	"211001517": {
+		"name":"Royal Puppeteer Aphmau BS",
+		"jpname":"無手の傀儡師アフマウ BS",
+		"id":"211001517",
+		"braveShifted":"211001507",
+		"exAwakening": [{"hp":620,"mp":37,"atk":19,"def":52,"mag":29,"spr":23},{"hp":477,"mp":29,"atk":14,"def":40,"mag":22,"spr":17},{"hp":334,"mp":20,"atk":10,"def":28,"mag":15,"spr":12}],
+		"fragmentId": "250000940",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5250,"mp":262,"atk":133,"def":254,"mag":212,"spr":196},
+			"minStats":{"hp":1733,"mp":86,"atk":44,"def":84,"mag":70,"spr":65},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["スタウトサーヴァント"],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "evade":{"physical":30}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":100,"magical":100},{"name":"bug","physical":200}], "mpRefresh":7, "lbDamage":150, "drawAttacks":50},
+			{"def%":140, "equipedConditions":["fist"]},
+			{"oneWeaponMastery":{"def":200}, "equipedConditions":[["504241050","309007100"]]}
 		]
 	},
 	"212000103": {
