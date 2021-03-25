@@ -20,7 +20,7 @@ FFBEEquipExternalControl = {
         'excludeNotReleasedYet'
     ],
     'weaponEnhancementList': [
-        "rare_3", "rare_4",
+        "rare_3", "rare_4", "rare_5",
         "hp_15", "hp_12", "hp_10", "hp_7", "hp_5", "hp_3", "hp_1",
         "mp_15", "mp_12", "mp_10", "mp_7", "mp_5", "mp_3", "mp_1",
         "atk_15", "atk_12", "atk_10", "atk_7", "atk_5", "atk_3", "atk_1",

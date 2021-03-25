@@ -384,6 +384,9 @@
 	{"atk":88, "mag":70, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["rod"],"mag%":100}]},
 	{"atk":100, "mag":80, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["rod"],"mag%":100},{"lbDamage":50}]}
 ]},
+{"id":"100003801", "name":"アクスターの記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003801.png", "sortId":59, "levels":[
+	{"atk":100, "atk%":20, "conditional":[{"equipedConditions":["katana"],"atk%":80}]}
+]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
 	{"atk":54},
@@ -408,7 +411,7 @@
 	{"atk":72, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
 	{"atk":80, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30},{"atk%":20,"def%":20,"mag%":20,"spr%":20},{"resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}]}]}
 ]},
-{"id":"205000101", "name":"シルドラ！あいさつしな！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000101.png", "sortId":41, "levels":[
+{"id":"205000101", "name":"Syldra! Come Up and Say Hello!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000101.png", "sortId":41, "levels":[
 	{"atk":35, "mag":50},
 	{"atk":38, "mag":54},
 	{"atk":41, "mag":58},

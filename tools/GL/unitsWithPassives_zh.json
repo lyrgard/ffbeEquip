@@ -7041,7 +7041,7 @@
 			{"hp%":50, "mp%":50, "def%":50, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
 			{"equipedConditions":[["409030800","504231204"]]},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "levelCondition":120}
+			{"hp%":20, "mp%":20, "def%":20, "spr%":50, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "levelCondition":120}
 		],
 		"6_form": {
 			"name":"甜蜜露露卡",
@@ -7711,11 +7711,11 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
 		"skills": [
-			{"hp%":30, "mp%":60, "def%":30, "mag%":90, "spr%":30, "singleWielding":{"mag":100}, "resist":[{"name":"lightning","percent":100},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":12, "replaceLb":{"name":"Eternal Ray - Burst","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":21.6,"ignore":{"spr":50},"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (21.6x * 2 = 43.2x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":-50,"def":-50,"mag":-50,"spr":-50},"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce ATK, DEF, MAG and SPR by 50% for 5 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":24.5,"ignore":{"spr":50},"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (24.5x * 2 = 49x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":-50,"def":-50,"mag":-50,"spr":-50},"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce ATK, DEF, MAG and SPR by 50% for 5 turns to caster"}],"frames":[211,220,229,238,247,256,265,274,283,292,301,310,319,328,337,346,355,364,373,382],"move":"walk"}},
+			{"hp%":30, "mp%":60, "def%":30, "mag%":90, "spr%":30, "singleWielding":{"mag":100}, "resist":[{"name":"lightning","percent":100},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":12, "replaceLb":{"name":"Eternal Ray - Burst","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":47.1,"ignore":{"spr":50},"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (47.1x * 2 = 94.2x, MAG) to all enemies (ignore reflect)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":50,"ignore":{"spr":50},"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (50x * 2 = 100x, MAG) to all enemies (ignore reflect)"}],"frames":[211,220,229,238,247,256,265,274,283,292,301,310,319,328,337,346,355,364,373,382],"move":"walk"}},
 			{"mag%":30, "spr%":30, "equipedConditions":["rod"]},
 			{"singleWielding":{"mag":100}, "equipedConditions":[["403048900","310005700"]]},
 			{"mag%":20, "levelCondition":115},
-			{"mag%":60, "resist":[{"name":"stop","percent":100}], "levelCondition":120}
+			{"hp%":30, "mp%":30, "def%":30, "mag":500, "mag%":60, "spr%":30, "resist":[{"name":"stop","percent":100}], "mpRefresh":3, "lbDamage":100, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"四鬥星櫻",
@@ -7733,7 +7733,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
 			"skills": [
-				{"hp%":30, "mp%":60, "def%":30, "mag%":90, "spr%":30, "singleWielding":{"mag":100}, "resist":[{"name":"lightning","percent":100},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":12, "replaceLb":{"name":"Eternal Ray - Burst","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":21.6,"ignore":{"spr":50},"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (21.6x * 2 = 43.2x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":-50,"def":-50,"mag":-50,"spr":-50},"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce ATK, DEF, MAG and SPR by 50% for 5 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":24.5,"ignore":{"spr":50},"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (24.5x * 2 = 49x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":-50,"def":-50,"mag":-50,"spr":-50},"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce ATK, DEF, MAG and SPR by 50% for 5 turns to caster"}],"frames":[211,220,229,238,247,256,265,274,283,292,301,310,319,328,337,346,355,364,373,382],"move":"walk"}},
+				{"hp%":30, "mp%":60, "def%":30, "mag%":90, "spr%":30, "singleWielding":{"mag":100}, "resist":[{"name":"lightning","percent":100},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":12, "replaceLb":{"name":"Eternal Ray - Burst","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":47.1,"ignore":{"spr":50},"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (47.1x * 2 = 94.2x, MAG) to all enemies (ignore reflect)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":50,"ignore":{"spr":50},"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (50x * 2 = 100x, MAG) to all enemies (ignore reflect)"}],"frames":[211,220,229,238,247,256,265,274,283,292,301,310,319,328,337,346,355,364,373,382],"move":"walk"}},
 				{"mag%":30, "spr%":30, "equipedConditions":["rod"]}
 			]
 		}
@@ -7758,7 +7758,7 @@
 			{"mp%":50, "spr%":50, "equipedConditions":["robe"]},
 			{"hp%":40, "def%":40, "spr%":40, "resist":[{"name":"disease","percent":100}], "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "equipedConditions":[["403049000","504232511"]]},
 			{"mag%":20, "levelCondition":115},
-			{"spr%":50, "lbFillRate":100, "levelCondition":120}
+			{"mag%":70, "spr%":70, "lbFillRate":100, "resist":[{"name":"ice","percent":60}], "skillEnhancement":{"232570":40,"232571":40}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"五鬥星尼科爾",
@@ -28718,6 +28718,60 @@
 			{"def%":40, "mag%":40, "spr%":40, "singleWielding":{"spr":100}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "lbDamage":50, "equipedConditions":[["1500000143","1100000454"]]},
 			{"spr%":20, "levelCondition":115},
 			{"mp%":50, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"demon","magical":75}], "lbDamage":100, "levelCondition":120}
+		]
+	},
+	"401011407": {
+		"name":"維內拉·芬尼斯",
+		"wikiEntry":"Vinera_Fennes",
+		"id":"401011407",
+		"braveShift":"401011417",
+		"exAwakening": [{"hp":637,"mp":34,"atk":68,"def":24,"mag":23,"spr":26},{"hp":490,"mp":26,"atk":52,"def":18,"mag":18,"spr":20},{"hp":343,"mp":19,"atk":36,"def":13,"mag":13,"spr":15}],
+		"fragmentId": "310000680",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4900,"mp":264,"atk":260,"def":182,"mag":180,"spr":204},
+			"minStats":{"hp":1617,"mp":87,"atk":86,"def":60,"mag":59,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","throwing","gun","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Poison Sting (WOTV FFBE)","Condemning Blade"],
+		"skills": [
+			{"hp%":50, "mp%":80, "atk%":80, "def%":50, "spr%":50, "evade":{"physical":25}, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":50, "lbPerTurn":{"min":5,"max":5}, "special":["dualWield"]},
+			{"evade":{"physical":20}, "mpRefresh":10, "lbDamage":50, "equipedConditions":[["1100000470","1500000144"]]},
+			{"atk%":50, "equipedConditions":["dagger",["1100000470","1500000144"]]},
+			{"resist":[{"name":"disease","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"human","physical":50}], "levelCondition":110},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":30, "atk%":80, "def%":30, "spr%":30, "dualWielding":{"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":150}], "lbDamage":100, "levelCondition":120}
+		]
+	},
+	"401011417": {
+		"name":"維內拉·芬尼斯 BS",
+		"wikiEntry":"Vinera_Fennes",
+		"id":"401011417",
+		"braveShifted":"401011407",
+		"exAwakening": [{"hp":637,"mp":34,"atk":68,"def":24,"mag":23,"spr":26},{"hp":490,"mp":26,"atk":52,"def":18,"mag":18,"spr":20},{"hp":343,"mp":19,"atk":36,"def":13,"mag":13,"spr":15}],
+		"fragmentId": "310000680",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4860,"mp":270,"atk":265,"def":175,"mag":176,"spr":209},
+			"minStats":{"hp":1604,"mp":89,"atk":87,"def":58,"mag":58,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","throwing","gun","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Poison Sting (WOTV FFBE)","Shadowcast"],
+		"skills": [
+			{"hp%":50, "mp%":80, "atk%":80, "def%":50, "spr%":50, "evade":{"physical":25}, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":50, "lbPerTurn":{"min":5,"max":5}, "special":["dualWield"]},
+			{"evade":{"physical":20}, "mpRefresh":10, "lbDamage":50, "equipedConditions":[["1100000470","1500000144"]]},
+			{"atk%":50, "equipedConditions":["dagger",["1100000470","1500000144"]]},
+			{"resist":[{"name":"petrification","percent":100},{"name":"stop","percent":100}], "killers":[{"name":"undead","physical":100}], "levelCondition":110},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":30, "atk%":80, "def%":30, "spr%":30, "dualWielding":{"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":150}], "lbDamage":100, "levelCondition":120}
 		]
 	},
 	"800000102": {

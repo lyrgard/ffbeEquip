@@ -595,6 +595,8 @@ function getEnhancements(item) {
             html += itemEnhancementLabels["rare_3"][item.type];
         } else if (enhancement == "rare_4") {
             html += itemEnhancementLabels["rare_4"][item.type];
+        } else if (enhancement == "rare_5") {
+            html += itemEnhancementLabels["rare_5"][item.type];
         } else if (enhancement == "special_1") {
             html += itemEnhancementLabels["special_1"][item.id];
         } else {

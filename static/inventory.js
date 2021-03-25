@@ -1232,6 +1232,12 @@ function updateItemEnhancementDisplay() {
     $("#modifyEnhancementModal .modal-header .title").html('<span class="item ' + currentEnhancementItem.id + '">' + getImageHtml(item) + getNameColumnHtml(item) + '</span>');
     $("#modifyEnhancementModal .value.rare_3").html(itemEnhancementLabels["rare_3"][item.type]);
     $("#modifyEnhancementModal .value.rare_4").html(itemEnhancementLabels["rare_4"][item.type]);
+    if (item.type == "dagger") {
+        $("#modifyEnhancementModal .value.rare_5").removeClass('hidden');
+        $("#modifyEnhancementModal .value.rare_5").html(itemEnhancementLabels["rare_5"][item.type]);
+    } else {
+        $("#modifyEnhancementModal .value.rare_5").addClass('hidden');
+    }
     if (itemEnhancementLabels["special_1"][item.id]) {
         $("#modifyEnhancementModal .value.special_1").removeClass("hidden");
         $("#modifyEnhancementModal .value.special_1").html(itemEnhancementLabels["special_1"][item.id]);
@@ -1268,8 +1274,20 @@ function toggleItemEnhancement(enhancement) {
         if (enhancement == 'rare_3' && enhancements.includes('rare_4')) {
             enhancements.splice(enhancements.indexOf('rare_4'), 1);
         }
+        if (enhancement == 'rare_3' && enhancements.includes('rare_5')) {
+            enhancements.splice(enhancements.indexOf('rare_5'), 1);
+        }
         if (enhancement == 'rare_4' && enhancements.includes('rare_3')) {
             enhancements.splice(enhancements.indexOf('rare_3'), 1);
+        }
+        if (enhancement == 'rare_4' && enhancements.includes('rare_5')) {
+            enhancements.splice(enhancements.indexOf('rare_5'), 1);
+        }
+        if (enhancement == 'rare_5' && enhancements.includes('rare_3')) {
+            enhancements.splice(enhancements.indexOf('rare_3'), 1);
+        }
+        if (enhancement == 'rare_5' && enhancements.includes('rare_4')) {
+            enhancements.splice(enhancements.indexOf('rare_4'), 1);
         }
         if (enhancements.length == 3) {
             $.notify("No more than 3 item enhancements can be selected", "warning");
@@ -1416,7 +1434,7 @@ function exportAsJson() {
             enhancedItemResult.enhancements = enh.map(e => {
                 if (e === 'special_1') {
                     return skillIdByItemEnhancement[e][id];
-                } else if (e == 'rare_3' || e == 'rare_4') {
+                } else if (e == 'rare_3' || e == 'rare_4' || e == 'rare_5') {
                     return skillIdByItemEnhancement[e][typeById[id]];
                 } else {
                     return skillIdByItemEnhancement[e];
