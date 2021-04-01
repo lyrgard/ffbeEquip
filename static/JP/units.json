@@ -3856,6 +3856,7 @@
 	},
 	"100017927": {
 		"name":"ジークハルト BS",
+		"jpname":"ジークハルト BS",
 		"id":"100017927",
 		"braveShifted":"100017905",
 		"exAwakening": [{"hp":652,"mp":23,"atk":22,"def":27,"mag":18,"spr":26},{"hp":502,"mp":18,"atk":17,"def":21,"mag":14,"spr":20},{"hp":351,"mp":12,"atk":12,"def":14,"mag":10,"spr":14}],
@@ -8242,7 +8243,7 @@
 		"enhancementSkills":["アビスウィップ","スパイラルシャドウウィップ"]
 	},
 	"100034005": {
-		"name":"ベルメーラ",
+		"name":"Belmera",
 		"jpname":"ベルメーラ",
 		"id":"100034005",
 		"max_rarity":"7",
@@ -8256,7 +8257,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","throwing","gun","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"6_form": {
-			"name":"ベルメーラ",
+			"name":"Belmera",
 			"jpname":"ベルメーラ",
 			"id":"100034005",
 			"sixStarForm":true,
@@ -8311,7 +8312,7 @@
 		"enhancementSkills":["クレイヒートアップ","アビスサモン"]
 	},
 	"100034205": {
-		"name":"コンチェ",
+		"name":"Conche",
 		"jpname":"コンチェ",
 		"id":"100034205",
 		"max_rarity":"7",
@@ -8325,7 +8326,7 @@
 		"stats_pattern":4,
 		"equip":["harp","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"6_form": {
-			"name":"コンチェ",
+			"name":"Conche",
 			"jpname":"コンチェ",
 			"id":"100034205",
 			"sixStarForm":true,
@@ -10110,7 +10111,7 @@
 		}
 	},
 	"205000827": {
-		"name":"ギルガメッシュ(FFV) BS",
+		"name":"Gilgamesh BS",
 		"jpname":"ギルガメッシュ(FFV) BS",
 		"id":"205000827",
 		"braveShifted":"205000805",
@@ -10248,7 +10249,7 @@
 		}
 	},
 	"205001127": {
-		"name":"光の戦士バッツ BS",
+		"name":"Warrior of Light Bartz BS",
 		"jpname":"光の戦士バッツ BS",
 		"id":"205001127",
 		"braveShifted":"205001105",
@@ -13262,17 +13263,20 @@
 		"name":"Livid Shantotto",
 		"jpname":"ブチ切れシャントット",
 		"id":"211000805",
-		"max_rarity":"7",
+		"braveShift":"211000827",
+		"exAwakening": [{"hp":399,"mp":37,"atk":17,"def":18,"mag":29,"spr":25},{"hp":307,"mp":28,"atk":13,"def":14,"mag":22,"spr":19},{"hp":215,"mp":20,"atk":9,"def":10,"mag":15,"spr":13}],
+		"fragmentId": "250000950",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3073,"mp":289,"atk":137,"def":145,"mag":204,"spr":195},
-			"minStats":{"hp":1014,"mp":95,"atk":45,"def":48,"mag":67,"spr":64},
+			"maxStats":{"hp":3073,"mp":289,"atk":137,"def":145,"mag":225,"spr":195},
+			"minStats":{"hp":1014,"mp":95,"atk":45,"def":48,"mag":74,"spr":64},
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
-		"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%"],
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%","ウインドクラッシャー"],
 		"6_form": {
 			"name":"Livid Shantotto",
 			"jpname":"ブチ切れシャントット",
@@ -13288,14 +13292,53 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
-			"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%"]
+			"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%","ウインドクラッシャー"]
+		},
+		"7_form": {
+			"name":"Livid Shantotto",
+			"jpname":"ブチ切れシャントット",
+			"id":"211000805",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3073,"mp":289,"atk":137,"def":145,"mag":204,"spr":195},
+				"minStats":{"hp":1014,"mp":95,"atk":45,"def":48,"mag":67,"spr":64},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%","ウインドクラッシャー"]
 		}
+	},
+	"211000827": {
+		"name":"口の院の元院長シャントット BS",
+		"jpname":"口の院の元院長シャントット BS",
+		"id":"211000827",
+		"braveShifted":"211000817",
+		"exAwakening": [{"hp":399,"mp":37,"atk":17,"def":18,"mag":29,"spr":25},{"hp":307,"mp":28,"atk":13,"def":14,"mag":22,"spr":19},{"hp":215,"mp":20,"atk":9,"def":10,"mag":15,"spr":13}],
+		"fragmentId": "250000950",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3381,"mp":318,"atk":124,"def":131,"mag":248,"spr":176},
+			"minStats":{"hp":1116,"mp":105,"atk":41,"def":43,"mag":82,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["ウインドクラッシャー","ディバインクラッシャー"]
 	},
 	"211000905": {
 		"name":"Shadow Lord",
 		"jpname":"闇の王",
 		"id":"211000905",
-		"max_rarity":"7",
+		"braveShift":"211000927",
+		"exAwakening": [{"hp":625,"mp":23,"atk":26,"def":24,"mag":19,"spr":21},{"hp":481,"mp":18,"atk":20,"def":18,"mag":14,"spr":16},{"hp":336,"mp":12,"atk":14,"def":13,"mag":10,"spr":11}],
+		"fragmentId": "250000960",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
@@ -13304,8 +13347,8 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理"],
+		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理","真・クロススマッシュ"],
 		"6_form": {
 			"name":"Shadow Lord",
 			"jpname":"闇の王",
@@ -13321,8 +13364,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理"]
+			"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理","真・クロススマッシュ"]
+		},
+		"7_form": {
+			"name":"Shadow Lord",
+			"jpname":"闇の王",
+			"id":"211000905",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4812,"mp":180,"atk":202,"def":186,"mag":149,"spr":166},
+				"minStats":{"hp":1588,"mp":59,"atk":67,"def":61,"mag":49,"spr":55},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理","真・クロススマッシュ"]
 		}
+	},
+	"211000927": {
+		"name":"闇の王 BS",
+		"jpname":"闇の王 BS",
+		"id":"211000927",
+		"braveShifted":"211000905",
+		"exAwakening": [{"hp":625,"mp":23,"atk":26,"def":24,"mag":19,"spr":21},{"hp":481,"mp":18,"atk":20,"def":18,"mag":14,"spr":16},{"hp":336,"mp":12,"atk":14,"def":13,"mag":10,"spr":11}],
+		"fragmentId": "250000960",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5010,"mp":273,"atk":266,"def":198,"mag":177,"spr":198},
+			"minStats":{"hp":1653,"mp":90,"atk":88,"def":65,"mag":58,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ブライティングブリッツ"]
 	},
 	"211001004": {
 		"name":"Joachim",
@@ -13354,6 +13433,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["カスケード","連邦の黒い悪魔","希代の黒魔道士"],
 		"6_form": {
 			"name":"Wizardess Shantotto",
 			"jpname":"連邦の黒い悪魔シャントット",
@@ -13368,7 +13448,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"]
+			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["カスケード","連邦の黒い悪魔","希代の黒魔道士"]
 		}
 	},
 	"211001305": {
@@ -13385,6 +13466,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["センシュアルダンス","ワーリングエッジ","ラウジングサンバ"],
 		"6_form": {
 			"name":"Lilisette",
 			"jpname":"リリゼット",
@@ -13399,7 +13481,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","throwing","fist","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","throwing","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["センシュアルダンス","ワーリングエッジ","ラウジングサンバ"]
 		}
 	},
 	"211001404": {
@@ -13416,6 +13499,44 @@
 		},
 		"stats_pattern":1,
 		"equip":["sword","greatSword","katana","axe","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+	},
+	"211001507": {
+		"name":"Royal Puppeteer Aphmau",
+		"jpname":"無手の傀儡師アフマウ",
+		"id":"211001507",
+		"braveShift":"211001517",
+		"exAwakening": [{"hp":620,"mp":37,"atk":19,"def":52,"mag":29,"spr":23},{"hp":477,"mp":29,"atk":14,"def":40,"mag":22,"spr":17},{"hp":334,"mp":20,"atk":10,"def":28,"mag":15,"spr":12}],
+		"fragmentId": "250000940",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4772,"mp":291,"atk":147,"def":203,"mag":224,"spr":178},
+			"minStats":{"hp":1575,"mp":96,"atk":49,"def":67,"mag":74,"spr":59},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["ストリングシュレッダー"]
+	},
+	"211001517": {
+		"name":"Royal Puppeteer Aphmau BS",
+		"jpname":"無手の傀儡師アフマウ BS",
+		"id":"211001517",
+		"braveShifted":"211001507",
+		"exAwakening": [{"hp":620,"mp":37,"atk":19,"def":52,"mag":29,"spr":23},{"hp":477,"mp":29,"atk":14,"def":40,"mag":22,"spr":17},{"hp":334,"mp":20,"atk":10,"def":28,"mag":15,"spr":12}],
+		"fragmentId": "250000940",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5250,"mp":262,"atk":133,"def":254,"mag":212,"spr":196},
+			"minStats":{"hp":1733,"mp":86,"atk":44,"def":84,"mag":70,"spr":65},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["スタウトサーヴァント"]
 	},
 	"212000103": {
 		"name":"Vaan",
@@ -15341,7 +15462,7 @@
 		}
 	},
 	"250000127": {
-		"name":"セラ BS",
+		"name":"Serah BS",
 		"jpname":"セラ BS",
 		"id":"250000127",
 		"braveShifted":"250000105",
@@ -19770,6 +19891,7 @@
 	},
 	"401008707": {
 		"name":"Ibara",
+		"jpname":"イバラ",
 		"id":"401008707",
 		"braveShift":"401008717",
 		"exAwakening": [{"hp":616,"mp":34,"atk":18,"def":19,"mag":64,"spr":26},{"hp":474,"mp":26,"atk":14,"def":15,"mag":49,"spr":20},{"hp":331,"mp":18,"atk":9,"def":10,"mag":34,"spr":14}],
@@ -19788,6 +19910,7 @@
 	},
 	"401008717": {
 		"name":"Ibara BS",
+		"jpname":"イバラ BS",
 		"id":"401008717",
 		"braveShifted":"401008707",
 		"exAwakening": [{"hp":616,"mp":34,"atk":18,"def":19,"mag":64,"spr":26},{"hp":474,"mp":26,"atk":14,"def":15,"mag":49,"spr":20},{"hp":331,"mp":18,"atk":9,"def":10,"mag":34,"spr":14}],

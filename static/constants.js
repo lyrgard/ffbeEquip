@@ -78,6 +78,10 @@ const itemEnhancementLabels = {
         "fist": "HP/ATK +20%",
         "fake": "Rare+"
     },
+    "rare_5":{
+        "dagger": "ATK +20%, +150% LB fill rate",
+        "fake": "Rare++"
+    },
     "special_1": {
         "303007400":"ATK/Fire resist +20%",
         "303007500":"ATK/Fire resist +20%",
@@ -193,6 +197,10 @@ const itemEnhancementAbilities = {
         "gun": {"atk%":40},
         "mace": {"hp%":40},
         "fist": {"hp%":20, "atk%":20},
+        "fake": {}
+    },
+    "rare_5":{
+        "dagger": {"atk%":20, "lbFillRate":150},
         "fake": {}
     },
     "special_1": {
@@ -422,6 +430,9 @@ const skillIdByItemEnhancement = {
         "gun": "410240",
         "mace": "410040",
         "fist": "450870"
+    },
+    "rare_5":{
+        "dagger": "914847",
     },
     "special_1": {
         "303007600":"451050",

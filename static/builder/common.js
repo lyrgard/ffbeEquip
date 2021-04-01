@@ -776,10 +776,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         };
     } else if (formula.type == "chainMultiplier") {
         if (formula.value === 'MAX') {
-            let chainMult = 4;
-            if (unitBuild.hasDualWieldMastery() && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
-                chainMult = 6;
-            }
+            let chainMult = getChainMult(unitBuild, itemAndPassives);
             return {
                 "min": chainMult,
                 "avg": chainMult,
@@ -1013,6 +1010,17 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         }
         return innerCalculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula, goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context)
     }
+}
+
+function getChainMult(unitBuild, itemAndPassives) {
+    let chainMult = 4;
+    if (unitBuild.hasDualWieldMastery() && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+        chainMult = 6;
+    }
+    itemAndPassives.filter(i => i && i.chainMastery).forEach(i => {
+        chainMult += i.chainMastery / 100;
+    });
+    return Math.min(chainMult, 6);
 }
 
 function calculateMonsterDamage(monsterAttackFormula, itemAndPassives, unitBuild, ennemyStats, context = {}) {
@@ -1336,7 +1344,11 @@ function calculateStateValueForIndex(items, index, baseValue, currentPercentIncr
                 value += lbPerTurnTakenIntoAccount;
             }
             if (item.lbFillRate) {
-                value += item.lbFillRate * baseValue / 100;
+//                value += item.lbFillRate * baseValue / 100;
+                var lbFillRate = getValue(item, "lbFillRate", notStackableSkillsAlreadyUsed);
+                var lbFillRateTakenIntoAccount = Math.min(lbFillRate, Math.max(1000 - currentPercentIncrease.value, 0));
+                currentPercentIncrease.value += lbFillRateTakenIntoAccount;
+                value += lbFillRateTakenIntoAccount * baseValue / 100;
             }
             return value;
         } else {
@@ -1365,6 +1377,8 @@ function getStatBonusCap(stat) {
             return 300;
         case 'lbPerTurn':
             return 12;
+        case 'lbFillRate':
+            return 1000;
         case 'tdh':
             return 400;
         case 'tdw':
@@ -1760,7 +1774,7 @@ function applyEnhancements(item, enhancements) {
         for (var i = enhancements.length; i--;) {
             var enhancement = enhancements[i];
             var enhancementValue;
-            if (enhancement == "rare_3" || enhancement == "rare_4") {
+            if (enhancement == "rare_3" || enhancement == "rare_4" || enhancement == "rare_5") {
                 enhancementValue = itemEnhancementAbilities[enhancement][item.type];
             } else if (enhancement === 'special_1') {
                 enhancementValue = itemEnhancementAbilities[enhancement][item.id];

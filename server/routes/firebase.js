@@ -74,7 +74,7 @@ const statsSchema = [
 ];
 
 const itemEnchantmentsSchema =  [
-    Joi.string().valid('rare_3'),Joi.string().valid('rare_4'),Joi.string().valid('special_1'),
+    Joi.string().valid('rare_3'),Joi.string().valid('rare_4'),Joi.string().valid('rare_5'),Joi.string().valid('special_1'),
     Joi.string().valid('hp_15'),Joi.string().valid('hp_12'),Joi.string().valid('hp_10'),Joi.string().valid('hp_7'),Joi.string().valid('hp_5'),Joi.string().valid('hp_3'),Joi.string().valid('hp_1'),
     Joi.string().valid('mp_15'),Joi.string().valid('mp_12'),Joi.string().valid('mp_10'),Joi.string().valid('mp_7'),Joi.string().valid('mp_5'),Joi.string().valid('mp_3'),Joi.string().valid('mp_1'),
     Joi.string().valid('atk_15'),Joi.string().valid('atk_12'),Joi.string().valid('atk_10'),Joi.string().valid('atk_7'),Joi.string().valid('atk_5'),Joi.string().valid('atk_3'),Joi.string().valid('atk_1'),

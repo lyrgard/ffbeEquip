@@ -376,39 +376,41 @@ function treatVisionCard(visionCard, visionCardId, skills) {
         });
         for (let i = 1; i <= level; i++) {
             if (visionCard.skills && visionCard.skills[i]) {
-                let skill = skills[visionCard.skills[i].toString()];
-                skill.effects_raw.forEach((rawEffect, index) => {
-                    if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
-                        // mastery skill
-                        let conditional = {};
-                        addMastery(conditional, rawEffect);
-                        if (!levelData.conditional) levelData.conditional = [];
-                        const sameCondition = levelData.conditional.filter(cond => arrayEquivalents(cond.equipedConditions, conditional.equipedConditions));
-                        if (sameCondition.length === 0) {
-                            levelData.conditional.push(conditional);
-                        } else {
-                            stats.forEach(stat => {
-                                if (conditional[stat.toLowerCase() + '%']) {
-                                    addStat(sameCondition[0], stat.toLowerCase() + '%', conditional[stat.toLowerCase() + '%']);
-                                }
-                            });
-                        }
-                    } else {
-                        if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
-                            let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
+                for (let j = 0; j < visionCard.skills[i].length; j++) {
+                    let skill = skills[visionCard.skills[i][j].toString()];
+                    skill.effects_raw.forEach((rawEffect, index) => {
+                        if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
+                            // mastery skill
                             let conditional = {};
-                            addEffectToItem(conditional, skill, index, skills);
+                            addMastery(conditional, rawEffect);
                             if (!levelData.conditional) levelData.conditional = [];
-                            if (!Object.keys(unitRules).includes(ruleId.toString())) {
-                                console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                            const sameCondition = levelData.conditional.filter(cond => arrayEquivalents(cond.equipedConditions, conditional.equipedConditions));
+                            if (sameCondition.length === 0) {
+                                levelData.conditional.push(conditional);
+                            } else {
+                                stats.forEach(stat => {
+                                    if (conditional[stat.toLowerCase() + '%']) {
+                                        addStat(sameCondition[0], stat.toLowerCase() + '%', conditional[stat.toLowerCase() + '%']);
+                                    }
+                                });
                             }
-                            unitRules[ruleId](conditional);
-                            levelData.conditional.push(conditional);
                         } else {
-                            addEffectToItem(levelData, skill, index, skills);
+                            if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
+                                let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
+                                let conditional = {};
+                                addEffectToItem(conditional, skill, index, skills);
+                                if (!levelData.conditional) levelData.conditional = [];
+                                if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                                    console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                                }
+                                unitRules[ruleId](conditional);
+                                levelData.conditional.push(conditional);
+                            } else {
+                                addEffectToItem(levelData, skill, index, skills);
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         }
         // TODO restriction
@@ -911,7 +913,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         addStat(item, "drawAttacks", drawAttacks);
 
     // Break, stop and charm resistance with turn number
-    } else if (rawEffect[2] == 89 || rawEffect[2] == 55) {
+    } else if (rawEffect[2] == 55) {
         if (!item.resist) {
             item.resist = [];
         }
@@ -933,7 +935,10 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         if (rawEffect[3][5]) {
             item.resist.push({"name":"charm","percent":rawEffect[3][5]});
         }
-        
+
+        // Increase max chain coef
+    } else if (rawEffect[2] == 98) {
+        addStat(item, 'chainMastery', rawEffect[3][1]);
 
     } else {
         return false;
@@ -1115,7 +1120,7 @@ function addLbPerTurn(item, min, max) {
     item.lbPerTurn.max += max;
 }
 
-const itemProperties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","oneWeaponMastery","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks", "evokeDamageBoost","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills","rarity", "conditional"];
+const itemProperties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","oneWeaponMastery", "chainMastery","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks", "evokeDamageBoost","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills","rarity", "conditional"];
 function formatOutput(items) {
     var result = "[\n";
     var first = true;
