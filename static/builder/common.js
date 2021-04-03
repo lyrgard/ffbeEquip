@@ -1344,11 +1344,7 @@ function calculateStateValueForIndex(items, index, baseValue, currentPercentIncr
                 value += lbPerTurnTakenIntoAccount;
             }
             if (item.lbFillRate) {
-//                value += item.lbFillRate * baseValue / 100;
-                var lbFillRate = getValue(item, "lbFillRate", notStackableSkillsAlreadyUsed);
-                var lbFillRateTakenIntoAccount = Math.min(lbFillRate, Math.max(1000 - currentPercentIncrease.value, 0));
-                currentPercentIncrease.value += lbFillRateTakenIntoAccount;
-                value += lbFillRateTakenIntoAccount * baseValue / 100;
+                value += item.lbFillRate * baseValue / 100;
             }
             return value;
         } else {
@@ -1377,7 +1373,7 @@ function getStatBonusCap(stat) {
             return 300;
         case 'lbPerTurn':
             return 12;
-        case 'lbFillRate':
+        case 'lbFillRate': // removed bugged support.
             return 1000;
         case 'tdh':
             return 400;
