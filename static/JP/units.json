@@ -11596,16 +11596,20 @@
 		"name":"Rufus Shinra (FFVII REMAKE)",
 		"jpname":"ルーファウス神羅(FFVII REMAKE)",
 		"id":"207001205",
-		"max_rarity":"7",
+		"braveShift":"207001227",
+		"exAwakening": [{"hp":645,"mp":33,"atk":29,"def":22,"mag":20,"spr":27},{"hp":496,"mp":25,"atk":22,"def":17,"mag":16,"spr":21},{"hp":347,"mp":17,"atk":15,"def":12,"mag":11,"spr":14}],
+		"fragmentId": "250000990",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4877,"mp":244,"atk":207,"def":173,"mag":160,"spr":197},
-			"minStats":{"hp":1609,"mp":81,"atk":68,"def":57,"mag":53,"spr":65},
+			"maxStats":{"hp":4966,"mp":255,"atk":225,"def":175,"mag":160,"spr":213},
+			"minStats":{"hp":1639,"mp":84,"atk":74,"def":58,"mag":53,"spr":70},
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"],
+		"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["ハンティングマーク"],
 		"6_form": {
 			"name":"Rufus Shinra (FFVII REMAKE)",
 			"jpname":"ルーファウス神羅(FFVII REMAKE)",
@@ -11620,14 +11624,54 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"]
+			"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"],
+			"enhancementSkills":["ハンティングマーク"]
+		},
+		"7_form": {
+			"name":"Rufus Shinra (FFVII REMAKE)",
+			"jpname":"ルーファウス神羅(FFVII REMAKE)",
+			"id":"207001205",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4877,"mp":244,"atk":207,"def":173,"mag":160,"spr":197},
+				"minStats":{"hp":1609,"mp":81,"atk":68,"def":57,"mag":53,"spr":65},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"],
+			"enhancementSkills":["ハンティングマーク"]
 		}
+	},
+	"207001227": {
+		"name":"ルーファウス神羅(FFVII REMAKE) BS",
+		"jpname":"ルーファウス神羅(FFVII REMAKE) BS",
+		"id":"207001227",
+		"braveShifted":"207001205",
+		"exAwakening": [{"hp":645,"mp":33,"atk":29,"def":22,"mag":20,"spr":27},{"hp":496,"mp":25,"atk":22,"def":17,"mag":16,"spr":21},{"hp":347,"mp":17,"atk":15,"def":12,"mag":11,"spr":14}],
+		"fragmentId": "250000990",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5016,"mp":279,"atk":232,"def":180,"mag":160,"spr":200},
+			"minStats":{"hp":1655,"mp":92,"atk":77,"def":59,"mag":53,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["スピニングダッシュ","ビーストスラム"]
 	},
 	"207001305": {
 		"name":"Reno (FFVII REMAKE)",
 		"jpname":"レノ(FFVII REMAKE)",
 		"id":"207001305",
-		"max_rarity":"7",
+		"braveShift":"207001327",
+		"exAwakening": [{"hp":624,"mp":32,"atk":26,"def":24,"mag":20,"spr":24},{"hp":480,"mp":24,"atk":20,"def":19,"mag":15,"spr":18},{"hp":336,"mp":17,"atk":14,"def":13,"mag":10,"spr":13}],
+		"fragmentId": "250001000",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
@@ -11636,7 +11680,8 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"],
+		"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["ライトニングラッシュ"],
 		"6_form": {
 			"name":"Reno (FFVII REMAKE)",
 			"jpname":"レノ(FFVII REMAKE)",
@@ -11651,8 +11696,116 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["ライトニングラッシュ"]
+		},
+		"7_form": {
+			"name":"Reno (FFVII REMAKE)",
+			"jpname":"レノ(FFVII REMAKE)",
+			"id":"207001305",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4804,"mp":248,"atk":206,"def":192,"mag":156,"spr":188},
+				"minStats":{"hp":1585,"mp":82,"atk":68,"def":63,"mag":51,"spr":62},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["ライトニングラッシュ"]
 		}
+	},
+	"207001327": {
+		"name":"レノ&ルード(FFVII REMAKE) BS",
+		"jpname":"レノ&ルード(FFVII REMAKE) BS",
+		"id":"207001327",
+		"braveShifted":"207001317",
+		"exAwakening": [{"hp":624,"mp":32,"atk":26,"def":24,"mag":20,"spr":24},{"hp":480,"mp":24,"atk":20,"def":19,"mag":15,"spr":18},{"hp":336,"mp":17,"atk":14,"def":13,"mag":10,"spr":13}],
+		"fragmentId": "250001000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5036,"mp":266,"atk":216,"def":200,"mag":264,"spr":216},
+			"minStats":{"hp":1662,"mp":88,"atk":71,"def":66,"mag":87,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["タイタンブロウ","コークスクリュー"]
+	},
+	"207001405": {
+		"name":"アバランチ ジェシー",
+		"jpname":"アバランチ ジェシー",
+		"id":"207001405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3887,"mp":333,"atk":179,"def":216,"mag":113,"spr":216},
+			"minStats":{"hp":1283,"mp":110,"atk":59,"def":71,"mag":37,"spr":71},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["ブレイブ","フェイス"],
+		"6_form": {
+			"name":"アバランチ ジェシー",
+			"jpname":"アバランチ ジェシー",
+			"id":"207001405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":2990,"mp":256,"atk":137,"def":166,"mag":86,"spr":166},
+				"minStats":{"hp":987,"mp":84,"atk":45,"def":55,"mag":28,"spr":55},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["ブレイブ","フェイス"]
+		}
+	},
+	"207001507": {
+		"name":"Descendant of Cetra Aerith",
+		"jpname":"セトラの末裔 エアリス",
+		"id":"207001507",
+		"braveShift":"207001517",
+		"exAwakening": [{"hp":611,"mp":39,"atk":19,"def":19,"mag":62,"spr":33},{"hp":470,"mp":30,"atk":14,"def":15,"mag":48,"spr":26},{"hp":329,"mp":21,"atk":10,"def":10,"mag":33,"spr":18}],
+		"fragmentId": "250000970",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4700,"mp":300,"atk":148,"def":150,"mag":240,"spr":260},
+			"minStats":{"hp":1551,"mp":99,"atk":49,"def":50,"mag":79,"spr":86},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["プロテガ","シェルガ","ホーリー","バニシュガ","光芒の祈り"]
+	},
+	"207001517": {
+		"name":"Aerith & Red XIII BS",
+		"jpname":"エアリス&レッドXIII BS",
+		"id":"207001517",
+		"braveShifted":"207001507",
+		"exAwakening": [{"hp":611,"mp":39,"atk":19,"def":19,"mag":62,"spr":33},{"hp":470,"mp":30,"atk":14,"def":15,"mag":48,"spr":26},{"hp":329,"mp":21,"atk":10,"def":10,"mag":33,"spr":18}],
+		"fragmentId": "250000970",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4700,"mp":300,"atk":148,"def":150,"mag":260,"spr":240},
+			"minStats":{"hp":1551,"mp":99,"atk":49,"def":50,"mag":86,"spr":79},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","rod","fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["プロテガ","シェルガ","フレイムファング","火焔の祈り"]
 	},
 	"207001605": {
 		"name":"Cloud (FFVII: AC)",
@@ -11868,6 +12021,44 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","mace","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["テンペスト","ジャッジメントレイ"]
+	},
+	"207002307": {
+		"name":"Avalanche Tifa",
+		"jpname":"アバランチ ティファ",
+		"id":"207002307",
+		"braveShift":"207002317",
+		"exAwakening": [{"hp":650,"mp":39,"atk":78,"def":24,"mag":19,"spr":22},{"hp":500,"mp":30,"atk":60,"def":19,"mag":14,"spr":17},{"hp":350,"mp":21,"atk":42,"def":13,"mag":10,"spr":11}],
+		"fragmentId": "250000980",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":300,"atk":300,"def":190,"mag":148,"spr":170},
+			"minStats":{"hp":1650,"mp":99,"atk":99,"def":63,"mag":49,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["オーバードライブ"]
+	},
+	"207002317": {
+		"name":"Avalanche Tifa BS",
+		"jpname":"アバランチ ティファ BS",
+		"id":"207002317",
+		"braveShifted":"207002307",
+		"exAwakening": [{"hp":650,"mp":39,"atk":78,"def":24,"mag":19,"spr":22},{"hp":500,"mp":30,"atk":60,"def":19,"mag":14,"spr":17},{"hp":350,"mp":21,"atk":42,"def":13,"mag":10,"spr":11}],
+		"fragmentId": "250000980",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":300,"atk":300,"def":190,"mag":148,"spr":170},
+			"minStats":{"hp":1650,"mp":99,"atk":99,"def":63,"mag":49,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["掌打ラッシュ"]
 	},
 	"208000105": {
 		"name":"Squall",
