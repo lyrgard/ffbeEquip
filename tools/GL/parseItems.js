@@ -1167,6 +1167,10 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
 
         // Multicast magic
     } else if (rawEffect[2] == 52) {
+        if (!skills[rawEffect[3][2]]) {
+            console.log('Skill id not found', rawEffect);
+            return false;
+        }
         let skill = parseActiveSkill(rawEffect[3][2], skills[rawEffect[3][2]], skills);
         var magicType = "";
         if (rawEffect[3][0] ==  0) {
