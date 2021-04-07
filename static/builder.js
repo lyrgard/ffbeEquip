@@ -3913,7 +3913,7 @@ function switchPots() {
 function onBuffChange(stat) {
     if (builds[currentUnitIndex].unit) {
         var value = parseInt($(".unitStats .stat." + stat + " .buff input").val()) || 0;
-//        var maxValue = (stat === "hp" ? 30000 : 2000);
+        var maxValue = (stat === "hp" ? 30000 : 2000);
         if (stat == "pMitigation" || stat == "mMitigation" || stat == "mitigation") {
             maxValue = 99;
         }
