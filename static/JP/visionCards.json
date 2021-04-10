@@ -288,7 +288,7 @@
 	{"atk":88, "conditional":[{"equipedConditions":["spear"],"atk%":100}]},
 	{"atk":100, "conditional":[{"equipedConditions":["spear"],"atk%":100},{"atk%":30}]}
 ]},
-{"id":"100002601", "name":"これが俺の本気の力", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002601.png", "sortId":42, "levels":[
+{"id":"100002601", "name":"Face My Full Power!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002601.png", "sortId":42, "levels":[
 	{"mag":40},
 	{"mag":46},
 	{"mag":52},
@@ -300,7 +300,7 @@
 	{"mag":88, "conditional":[{"equipedConditions":["rod"],"mag%":80}]},
 	{"mag":100, "conditional":[{"equipedConditions":["rod"],"mag%":80},{}]}
 ]},
-{"id":"100002701", "name":"竜の封印", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002701.png", "sortId":39, "levels":[
+{"id":"100002701", "name":"The Dragon's Seal", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002701.png", "sortId":39, "levels":[
 	{"atk":40, "def":20},
 	{"atk":42, "def":21},
 	{"atk":44, "def":22},
@@ -383,6 +383,18 @@
 	{"atk":82, "mag":65, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["rod"],"mag%":100}]},
 	{"atk":88, "mag":70, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["rod"],"mag%":100}]},
 	{"atk":100, "mag":80, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["rod"],"mag%":100},{"lbDamage":50}]}
+]},
+{"id":"100003601", "name":"はじまりの物語", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003601.png", "sortId":63, "levels":[
+	{"atk":40},
+	{"atk":44},
+	{"atk":48},
+	{"atk":52, "conditional":[{"equipedConditions":["gun"],"atk%":30}]},
+	{"atk":56, "conditional":[{"equipedConditions":["gun"],"atk%":30}]},
+	{"atk":60, "conditional":[{"equipedConditions":["gun"],"atk%":30}]},
+	{"atk":64, "conditional":[{"equipedConditions":["gun"],"atk%":60}]},
+	{"atk":68, "conditional":[{"equipedConditions":["gun"],"atk%":60}]},
+	{"atk":72, "conditional":[{"equipedConditions":["gun"],"atk%":60}]},
+	{"atk":80, "killers":[{"name":"spirit","physical":50,"magical":50}], "conditional":[{"equipedConditions":["gun"],"atk%":60}]}
 ]},
 {"id":"100003801", "name":"アクスターの記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003801.png", "sortId":59, "levels":[
 	{"atk":100, "atk%":20, "conditional":[{"equipedConditions":["katana"],"atk%":80}]}
@@ -488,6 +500,9 @@
 ]},
 {"id":"207000501", "name":"VSハンドレッドガンナー", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000501.png", "sortId":61, "levels":[
 	{"mag":100, "mag%":100, "spr":100, "spr%":100, "lbDamage":50}
+]},
+{"id":"207000601", "name":"感動の再会だ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000601.png", "sortId":62, "levels":[
+	{"atk":125, "killers":[{"name":"undead","physical":100,"magical":100}], "lbDamage":50}
 ]},
 {"id":"209000101", "name":"この刃に懸けて", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_209000101.png", "sortId":51, "levels":[
 	{"atk":40},
