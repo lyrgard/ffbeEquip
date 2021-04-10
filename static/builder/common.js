@@ -421,7 +421,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
 
         let elementBoostModifier;
         if (context.savedValues.hasOwnProperty("elementBoostModifier")) {
-            elementBoostModifier = context.savedValues.hasOwnProperty("elementBoostModifier");
+            elementBoostModifier = context.savedValues.elementBoostModifier;
         } else {
             if (elements.length) {
                 elementBoostModifier = 1 + elements.map(e => unitBuild.baseValues.elementBuffs[e] || 0).reduce((acc, value) => acc + value, 0)/ 100 / elements.length;
