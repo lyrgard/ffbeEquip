@@ -361,6 +361,7 @@ const itemEnhancementBySkillId = {
     "410140": "rare_4", // MP +40%
     "410040": "rare_4", // HP +40%
     "910339": "rare_4", // ATK +40%
+    "914847": "rare_5", // Twilight Tide
     "451050": "special_1",
     "451054": "special_1",
     "451053": "special_1",
