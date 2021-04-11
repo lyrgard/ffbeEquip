@@ -395,7 +395,7 @@ const itemEnhancementBySkillId = {
     "914716": "special_1",
     "914717": "special_1",
     "914718": "special_1",
-    "914844":"special_1"
+    "914844": "special_1"
 }  
 
 const skillIdByItemEnhancement = {
