@@ -581,7 +581,9 @@ const esperNameById = {
   "14": "Phoenix",
   "15": "Bahamut",
   "16": "Fenrir",
-  "17": "Anima"
+  "17": "Anima",
+  "18": "Asura",
+  "19": "Black Dragon"
 }
 
 const chainFamilySkillName = {
