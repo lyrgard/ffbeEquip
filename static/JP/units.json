@@ -4050,7 +4050,7 @@
 		}
 	},
 	"100018727": {
-		"name":"イグニシオ BS",
+		"name":"Ignacio BS",
 		"jpname":"イグニシオ BS",
 		"id":"100018727",
 		"braveShifted":"100018705",
@@ -11129,7 +11129,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["レビテト【Ⅵ】","フルブレイクチェイン"]
+		"enhancementSkills":["レビテト【VI】","フルブレイクチェイン"]
 	},
 	"206002617": {
 		"name":"Locke -Neo Vision- BS",
@@ -11148,7 +11148,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["レビテト【Ⅵ】","ファイアエッジ"]
+		"enhancementSkills":["レビテト【VI】","ファイアエッジ"]
 	},
 	"206002705": {
 		"name":"Dashing Gambler Setzer",
@@ -11957,7 +11957,10 @@
 		"name":"Barret (FFVII REMAKE)",
 		"jpname":"バレット(FFVII REMAKE)",
 		"id":"207002105",
-		"max_rarity":"7",
+		"braveShift":"207002127",
+		"exAwakening": [{"hp":663,"mp":31,"atk":31,"def":24,"mag":20,"spr":24},{"hp":510,"mp":24,"atk":24,"def":19,"mag":15,"spr":18},{"hp":357,"mp":16,"atk":17,"def":13,"mag":10,"spr":13}],
+		"fragmentId": "250001200",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
@@ -11966,7 +11969,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"6_form": {
 			"name":"Barret (FFVII REMAKE)",
 			"jpname":"バレット(FFVII REMAKE)",
@@ -11982,7 +11985,42 @@
 			},
 			"stats_pattern":1,
 			"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+		},
+		"7_form": {
+			"name":"Barret (FFVII REMAKE)",
+			"jpname":"バレット(FFVII REMAKE)",
+			"id":"207002105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4872,"mp":236,"atk":208,"def":184,"mag":147,"spr":180},
+				"minStats":{"hp":1608,"mp":78,"atk":69,"def":61,"mag":49,"spr":59},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
+	},
+	"207002127": {
+		"name":"バレット(FFVII REMAKE) BS",
+		"jpname":"バレット(FFVII REMAKE) BS",
+		"id":"207002127",
+		"braveShifted":"207002105",
+		"exAwakening": [{"hp":663,"mp":31,"atk":31,"def":24,"mag":20,"spr":24},{"hp":510,"mp":24,"atk":24,"def":19,"mag":15,"spr":18},{"hp":357,"mp":16,"atk":17,"def":13,"mag":10,"spr":13}],
+		"fragmentId": "250001200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5117,"mp":252,"atk":236,"def":230,"mag":142,"spr":178},
+			"minStats":{"hp":1689,"mp":83,"atk":78,"def":76,"mag":47,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ア〜バ〜ランチ！","グランドブロウ","プロテガ"]
 	},
 	"207002207": {
 		"name":"Aerith (FFVII REMAKE)",
@@ -12059,6 +12097,75 @@
 		"stats_pattern":4,
 		"equip":["fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["掌打ラッシュ"]
+	},
+	"207002407": {
+		"name":"Legendary Hero Sephiroth",
+		"jpname":"伝説の英雄セフィロス",
+		"id":"207002407",
+		"braveShift":"207002417",
+		"exAwakening": [{"hp":650,"mp":39,"atk":70,"def":24,"mag":19,"spr":22},{"hp":500,"mp":30,"atk":54,"def":19,"mag":14,"spr":17},{"hp":350,"mp":21,"atk":37,"def":13,"mag":10,"spr":11}],
+		"fragmentId": "250001100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":300,"atk":270,"def":190,"mag":148,"spr":170},
+			"minStats":{"hp":1650,"mp":99,"atk":89,"def":63,"mag":49,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["滅刃"]
+	},
+	"207002417": {
+		"name":"One-Winged Angel Sephiroth BS",
+		"jpname":"片翼の天使セフィロス BS",
+		"id":"207002417",
+		"braveShifted":"207002407",
+		"exAwakening": [{"hp":650,"mp":39,"atk":70,"def":24,"mag":19,"spr":22},{"hp":500,"mp":30,"atk":54,"def":19,"mag":14,"spr":17},{"hp":350,"mp":21,"atk":37,"def":13,"mag":10,"spr":11}],
+		"fragmentId": "250001100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":300,"atk":270,"def":190,"mag":148,"spr":170},
+			"minStats":{"hp":1650,"mp":99,"atk":89,"def":63,"mag":49,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["絶空"]
+	},
+	"207002505": {
+		"name":"Avalanche Biggs & Wedge",
+		"jpname":"アバランチ ビッグス&ウェッジ",
+		"id":"207002505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5020,"mp":253,"atk":147,"def":168,"mag":115,"spr":244},
+			"minStats":{"hp":1657,"mp":83,"atk":49,"def":55,"mag":38,"spr":81},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Avalanche Biggs & Wedge",
+			"jpname":"アバランチ ビッグス&ウェッジ",
+			"id":"207002505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3861,"mp":194,"atk":113,"def":129,"mag":88,"spr":187},
+				"minStats":{"hp":1274,"mp":64,"atk":37,"def":43,"mag":29,"spr":62},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
 	},
 	"208000105": {
 		"name":"Squall",

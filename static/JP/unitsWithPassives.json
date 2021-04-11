@@ -5776,7 +5776,7 @@
 		}
 	},
 	"100018727": {
-		"name":"イグニシオ BS",
+		"name":"Ignacio BS",
 		"jpname":"イグニシオ BS",
 		"id":"100018727",
 		"braveShifted":"100018705",
@@ -16253,7 +16253,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["レビテト【Ⅵ】","フルブレイクチェイン"],
+		"enhancementSkills":["レビテト【VI】","フルブレイクチェイン"],
 		"skills": [
 			{"hp%":70, "mp%":50, "atk%":200, "def%":50, "spr%":50, "dualWielding":{"atk":150}, "lbFillRate":150, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "special":["dualWield"]},
 			{"evade":{"physical":30}, "lbPerTurn":{"min":4,"max":4}, "equipedConditions":[["315024200","504238390"]]},
@@ -16280,7 +16280,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["レビテト【Ⅵ】","ファイアエッジ"],
+		"enhancementSkills":["レビテト【VI】","ファイアエッジ"],
 		"skills": [
 			{"hp%":70, "mp%":50, "atk%":200, "def%":50, "spr%":50, "dualWielding":{"atk":150}, "lbFillRate":150, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "special":["dualWield"]},
 			{"evade":{"physical":30}, "lbPerTurn":{"min":4,"max":4}, "equipedConditions":[["315024200","504238390"]]},
@@ -16611,8 +16611,8 @@
 			{"name":"星を救う想い","levels":[[{"spr%":40,"levelCondition":120}],[{"spr%":60,"mag%":20,"def%":20,"levelCondition":120}],[{"spr%":80,"mag%":40,"def%":40,"replaceLb":{"name":"大いなる福音","minEffects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Cure all status effects for all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Revive all allies from KO (50% HP)"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Restore 50% HP to all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Remove ATK, DEF, MAG, SPR, Stop and Charm debuff from all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Auto-revive (100% HP) for 3 turns to all allies"}],"maxEffects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Cure all status effects for all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Revive all allies from KO (100% HP)"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Restore 100% HP to all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Remove ATK, DEF, MAG, SPR, Stop and Charm debuff from all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Auto-revive (100% HP) for 3 turns to all allies"}]},"levelCondition":120}]]}
 		],
 		"skills": [
-			{"hp%":20, "mp%":30, "spr%":80, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"ice","percent":20},{"name":"stop","percent":100}], "mpRefresh":5, "skillEnhancement":{"10060":2,"10170":1,"10210":3}},
-			{"hp%":30, "mp%":20, "mpRefresh":5, "equipedConditions":[["504229740","409026800"]]},
+			{"hp%":30, "mp%":30, "spr":500, "spr%":80, "chainMastery":100, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"ice","percent":20},{"name":"stop","percent":100}], "mpRefresh":5, "skillEnhancement":{"10060":2,"10170":1,"10210":3}},
+			{"hp%":40, "mp%":20, "mpRefresh":5, "equipedConditions":[["504229740","409026800"]]},
 			{"def%":20, "levelCondition":115}
 		],
 		"6_form": {
@@ -16635,7 +16635,7 @@
 			{"name":"古代種の秘術","levels":[[],[{"spr%":30,"mp%":30,"lbFillRate":100}]]}
 		],
 			"skills": [
-				{"hp%":20, "mp%":30, "spr%":80, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"ice","percent":20},{"name":"stop","percent":100}], "mpRefresh":5, "skillEnhancement":{"10060":2,"10170":1,"10210":3}}
+				{"hp%":30, "mp%":30, "spr%":80, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"ice","percent":20},{"name":"stop","percent":100}], "mpRefresh":5, "skillEnhancement":{"10060":2,"10170":1,"10210":3}}
 			]
 		}
 	},
@@ -16774,11 +16774,11 @@
 		"enhancementSkills":["血祭","しゅしゅしゅ","鎧袖一触","最終回『マテリアよ永遠に……』","五強の塔・試練突破者"],
 		"enhancements": [
 			{"name":"忍者の心得","levels":[[],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"poison","percent":100}]}]]},
-			{"name":"最終回『マテリアよ永遠に……』","levels":[[{"def%":20,"singleWielding":{"accuracy":25,"atk":50},"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"levelCondition":110}],[{"def%":20,"atk%":20,"hp%":20,"singleWielding":{"accuracy":25,"atk":50},"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"levelCondition":110}],[{"def%":20,"atk%":20,"hp%":20,"singleWielding":{"accuracy":25,"atk":100},"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"replaceLb":{"name":"森羅万象","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":28.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (28.1x * 2 = 56.2x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":120,"ice":120,"lightning":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 120% for 5 turns to all enemies"},{"effect":{"killers":[{"name":"bird","physical":75}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Avians by 75% to caster for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":31,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (31x * 2 = 62x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":120,"ice":120,"lightning":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 120% for 5 turns to all enemies"},{"effect":{"killers":[{"name":"bird","physical":75}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Avians by 75% to caster for 5 turns"}],"frames":[203,208,213,218,223,228,233,238,243,248,253,258,263,268,273,278,283,288,293,298],"move":"walk"},"levelCondition":110}]]},
+			{"name":"最終回『マテリアよ永遠に……』","levels":[[{"def%":20,"singleWielding":{"accuracy":25,"atk":50},"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"levelCondition":110}],[{"def%":20,"atk%":20,"hp%":20,"singleWielding":{"accuracy":25,"atk":50},"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"levelCondition":110}],[{"def%":20,"atk%":20,"hp%":20,"singleWielding":{"accuracy":25,"atk":100},"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"replaceLb":{"name":"森羅万象","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":48.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (48.1x * 2 = 96.2x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":120,"ice":120,"lightning":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 120% for 5 turns to all enemies"},{"effect":{"killers":[{"name":"bird","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Avians by 100% to caster for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":51,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (51x * 2 = 102x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":120,"ice":120,"lightning":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 120% for 5 turns to all enemies"},{"effect":{"killers":[{"name":"bird","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Avians by 100% to caster for 5 turns"}],"frames":[203,208,213,218,223,228,233,238,243,248,253,258,263,268,273,278,283,288,293,298],"move":"walk"},"levelCondition":110}]]},
 			{"name":"五強の塔・試練突破者","levels":[[{"spr%":40,"mp%":10,"killers":[{"name":"bird","physical":50}],"skillEnhancement":{"229902":3,"229909":2,"229910":2,"229911":2},"levelCondition":120}],[{"spr%":40,"mp%":30,"killers":[{"name":"bird","physical":50}],"skillEnhancement":{"229902":3,"229909":2,"229910":2,"229911":2},"levelCondition":120}],[{"spr%":40,"mp%":30,"killers":[{"name":"bird","physical":75}],"skillEnhancement":{"229902":30,"229909":30,"229910":30,"229911":30},"levelCondition":120}]]}
 		],
 		"skills": [
-			{"hp%":30, "mp%":40, "atk%":50, "def%":30, "mag%":30, "spr%":20, "evade":{"physical":10}, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":50}], "mpRefresh":7},
+			{"hp%":30, "mp%":40, "atk":500, "atk%":70, "def%":30, "mag%":30, "spr%":20, "evade":{"physical":10}, "singleWielding":{"accuracy":25,"atk":100}, "chainMastery":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":75}], "mpRefresh":7, "lbDamage":100},
 			{"atk%":30, "equipedConditions":["throwing"]},
 			{"atk%":30, "evade":{"physical":20}, "equipedConditions":[["504229874","315022500"]]},
 			{"atk%":30, "equipedConditions":["throwing",["504229874","315022500"]]},
@@ -16804,7 +16804,7 @@
 			{"name":"忍者の心得","levels":[[],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"poison","percent":100}]}]]}
 		],
 			"skills": [
-				{"hp%":30, "mp%":40, "atk%":50, "def%":30, "mag%":30, "spr%":20, "evade":{"physical":10}, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":50}], "mpRefresh":7},
+				{"hp%":30, "mp%":40, "atk%":70, "def%":30, "mag%":30, "spr%":20, "evade":{"physical":10}, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":75}], "mpRefresh":7, "lbDamage":100},
 				{"atk%":30, "equipedConditions":["throwing"]}
 			]
 		}
@@ -16851,8 +16851,8 @@
 			{"name":"タークスオブタークス","levels":[[{"atk%":30,"hp%":20,"killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}],"levelCondition":110}],[{"atk%":50,"hp%":40,"killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}],"levelCondition":110}],[{"atk%":50,"mp%":50,"hp%":40,"killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}],"skillEnhancement":{"227850":3,"227852":3,"227853":3,"227854":3,"227856":3,"708227":3,"708228":3,"708229":3,"708230":3,"708231":3,"708232":3,"708233":3,"708234":3},"levelCondition":110}]]}
 		],
 		"skills": [
-			{"hp%":30, "mp%":20, "atk%":30, "def%":30, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5},
-			{"atk%":40, "spr%":20, "resist":[{"name":"dark","percent":100}], "replaceLb":{"name":"サタンインパクト","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5,"ignore":{"def":-50}},"area":"AOE","target":"ENEMY"},"desc":"Cast Death (50%) or deal physical damage (5x * 2 = 10x, ATK) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 100% to caster for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.5,"ignore":{"def":-50}},"area":"AOE","target":"ENEMY"},"desc":"Cast Death (70%) or deal physical damage (6.5x * 2 = 13x, ATK) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 100% to caster for 5 turns"}],"frames":[520],"move":"none"}, "equipedConditions":[["504227865","313003900"]]},
+			{"hp%":30, "mp%":20, "atk":500, "atk%":30, "def%":30, "chainMastery":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "lbDamage":100},
+			{"atk%":40, "spr%":20, "resist":[{"name":"dark","percent":100}], "replaceLb":{"name":"サタンインパクト","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":47.1,"ignore":{"def":-50}},"area":"AOE","target":"ENEMY"},"desc":"Cast Death (50%) or deal physical damage (47.1x * 2 = 94.2x, ATK) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":150},{"name":"machine","physical":150}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 150% to caster for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":50,"ignore":{"def":-50}},"area":"AOE","target":"ENEMY"},"desc":"Cast Death (70%) or deal physical damage (50x * 2 = 100x, ATK) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":150},{"name":"machine","physical":150}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 150% to caster for 5 turns"}],"frames":[520],"move":"none"}, "equipedConditions":[["504227865","313003900"]]},
 			{"atk%":50, "equipedConditions":["gun"], "levelCondition":105},
 			{"spr%":20, "levelCondition":115},
 			{"def%":30, "spr%":30, "skillEnhancement":{"227850":2,"227851":2,"227852":1,"227853":2,"227854":2,"227856":1,"708227":2,"708228":2,"708229":2,"708230":2,"708231":1,"708232":1,"708233":1,"708234":1}, "levelCondition":120}
@@ -16878,7 +16878,7 @@
 			{"name":"ワンハンドガンナー","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":150}}],[{"singleWielding":{"accuracy":25,"atk":200}}]]}
 		],
 			"skills": [
-				{"hp%":30, "mp%":20, "atk%":30, "def%":30, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5}
+				{"hp%":30, "mp%":20, "atk%":30, "def%":30, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "lbDamage":100}
 			]
 		}
 	},
@@ -16952,13 +16952,13 @@
 		"enhancementSkills":["急所斬り","ラッキースター","ハードラッシュ","託された夢","エアリスとの約束"],
 		"enhancements": [
 			{"name":"いらっしゃいませ－！","levels":[[],[{"resist":[{"name":"paralysis","percent":100}],"lbPerTurn":{"min":3,"max":3}}]]},
-			{"name":"託された夢","levels":[[{"def%":30,"esperStatsBonus":{"all":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}},"levelCondition":110}],[{"def%":30,"atk%":20,"hp%":20,"esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}},"levelCondition":110}],[{"def%":30,"atk%":20,"hp%":20,"esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}},"singleWielding":{"accuracy":25,"atk":50},"killers":[{"name":"human","physical":100}],"levelCondition":110}]]},
-			{"name":"エアリスとの約束","levels":[[{"spr%":30,"skillEnhancement":{"229882":3,"229884":3,"229891":3,"708515":3,"708516":3},"levelCondition":120}],[{"spr%":50,"mag%":20,"def%":20,"skillEnhancement":{"229882":3,"229884":3,"229891":3,"708515":3,"708516":3},"levelCondition":120}],[{"spr%":50,"mag%":20,"def%":20,"skillEnhancement":{"229882":3,"229884":3,"229891":3,"708515":3,"708516":3},"lbDamage":70,"replaceLb":{"name":"連続斬","minEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":50},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 50% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":58.8},"area":"ST","target":"ENEMY"},"desc":"Physical damage (58.8x, ATK) to one enemy"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":50},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 50% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":67.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (67.5x, ATK) to one enemy"}],"frames":[96,104,152,160,214],"move":"walk"},"levelCondition":120}]]}
+			{"name":"託された夢","levels":[[{"def%":30,"esperStatsBonus":{"all":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}},"levelCondition":110}],[{"def%":30,"atk%":20,"hp%":20,"esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}},"levelCondition":110}],[{"def%":30,"atk%":20,"hp%":20,"esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}},"singleWielding":{"accuracy":25,"atk":50},"killers":[{"name":"human","physical":150}],"levelCondition":110}]]},
+			{"name":"エアリスとの約束","levels":[[{"spr%":30,"skillEnhancement":{"229882":3,"229884":3,"229891":3,"708515":3,"708516":3},"levelCondition":120}],[{"spr%":50,"mag%":20,"def%":20,"skillEnhancement":{"229882":3,"229884":3,"229891":3,"708515":3,"708516":3},"levelCondition":120}],[{"spr%":50,"mag%":20,"def%":20,"skillEnhancement":{"229882":3,"229884":3,"229891":3,"708515":3,"708516":3},"lbDamage":70,"replaceLb":{"name":"連続斬","minEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":200},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 200% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":141.3},"area":"ST","target":"ENEMY"},"desc":"Physical damage (141.3x, ATK) to one enemy"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":200},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 200% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":150},"area":"ST","target":"ENEMY"},"desc":"Physical damage (150x, ATK) to one enemy"}],"frames":[96,104,152,160,214],"move":"walk"},"levelCondition":120}]]}
 		],
 		"skills": [
-			{"hp%":50, "mp%":50, "atk%":70, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
+			{"hp%":50, "mp%":50, "atk":500, "atk%":70, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "chainMastery":100, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
 			{"atk%":30, "equipedConditions":["greatSword"]},
-			{"atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "lbDamage":30, "equipedConditions":[["303005800","504229873"]]},
+			{"atk%":50, "singleWielding":{"accuracy":25,"atk":150}, "lbDamage":150, "equipedConditions":[["303005800","504229873"]]},
 			{"atk%":20, "levelCondition":115}
 		],
 		"6_form": {
@@ -16981,7 +16981,7 @@
 			{"name":"いらっしゃいませ－！","levels":[[],[{"resist":[{"name":"paralysis","percent":100}],"lbPerTurn":{"min":3,"max":3}}]]}
 		],
 			"skills": [
-				{"hp%":50, "mp%":50, "atk%":70, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
+				{"hp%":50, "mp%":50, "atk%":70, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
 				{"atk%":30, "equipedConditions":["greatSword"]}
 			]
 		}
@@ -17519,7 +17519,10 @@
 		"name":"Barret (FFVII REMAKE)",
 		"jpname":"バレット(FFVII REMAKE)",
 		"id":"207002105",
-		"max_rarity":"7",
+		"braveShift":"207002127",
+		"exAwakening": [{"hp":663,"mp":31,"atk":31,"def":24,"mag":20,"spr":24},{"hp":510,"mp":24,"atk":24,"def":19,"mag":15,"spr":18},{"hp":357,"mp":16,"atk":17,"def":13,"mag":10,"spr":13}],
+		"fragmentId": "250001200",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
@@ -17528,7 +17531,7 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancements": [
 			{"name":"アバランチ魂","levels":[[],[{"atk%":20,"resist":[{"name":"fire","percent":30},{"name":"disease","percent":100}]}]]}
 		],
@@ -17536,7 +17539,12 @@
 			{"hp%":50, "mp%":30, "atk%":100, "def%":40, "mag%":30, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":7, "lbDamage":50},
 			{"hp%":20, "mp%":20, "atk%":30, "lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"machine","physical":50}], "equipedConditions":[["504236240","405011200"]]},
 			{"def%":20, "levelCondition":115},
-			{"atk%":50, "singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"236220":15,"236221":15,"236222":15,"236223":5.5,"236225":5,"236226":5}, "levelCondition":120}
+			{"atk%":50, "singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"236220":15,"236221":15,"236222":15,"236223":5.5,"236225":5,"236226":5}, "levelCondition":120},
+			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"human","physical":100,"magical":100}], "mpRefresh":7, "levelCondition":120},
+			{"atk%":50, "equipedConditions":["gun"], "levelCondition":120},
+			{"atk%":50, "equipedConditions":["fist"], "levelCondition":120},
+			{"oneWeaponMastery":{"atk":100,"def":100}, "levelCondition":120},
+			{"killers":[{"name":"bird","physical":200,"magical":200}], "lbDamage":150, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Barret (FFVII REMAKE)",
@@ -17559,7 +17567,60 @@
 			"skills": [
 				{"hp%":50, "mp%":30, "atk%":100, "def%":40, "mag%":30, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":7, "lbDamage":50}
 			]
+		},
+		"7_form": {
+			"name":"Barret (FFVII REMAKE)",
+			"jpname":"バレット(FFVII REMAKE)",
+			"id":"207002105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4872,"mp":236,"atk":208,"def":184,"mag":147,"spr":180},
+				"minStats":{"hp":1608,"mp":78,"atk":69,"def":61,"mag":49,"spr":59},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"stats_pattern":4,
+			"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"アバランチ魂","levels":[[],[{"atk%":20,"resist":[{"name":"fire","percent":30},{"name":"disease","percent":100}]}]]}
+		],
+			"skills": [
+				{"hp%":50, "mp%":30, "atk%":100, "def%":40, "mag%":30, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100}], "killers":[{"name":"machine","physical":100}], "mpRefresh":7, "lbDamage":50},
+				{"hp%":20, "mp%":20, "atk%":30, "lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"machine","physical":50}], "equipedConditions":[["504236240","405011200"]]},
+				{"def%":20, "levelCondition":115},
+				{"atk%":50, "singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"236220":15,"236221":15,"236222":15,"236223":5.5,"236225":5,"236226":5}, "levelCondition":120}
+			]
 		}
+	},
+	"207002127": {
+		"name":"バレット(FFVII REMAKE) BS",
+		"jpname":"バレット(FFVII REMAKE) BS",
+		"id":"207002127",
+		"braveShifted":"207002105",
+		"exAwakening": [{"hp":663,"mp":31,"atk":31,"def":24,"mag":20,"spr":24},{"hp":510,"mp":24,"atk":24,"def":19,"mag":15,"spr":18},{"hp":357,"mp":16,"atk":17,"def":13,"mag":10,"spr":13}],
+		"fragmentId": "250001200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5117,"mp":252,"atk":236,"def":230,"mag":142,"spr":178},
+			"minStats":{"hp":1689,"mp":83,"atk":78,"def":76,"mag":47,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ア〜バ〜ランチ！","グランドブロウ","プロテガ"],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"human","physical":100,"magical":100}], "mpRefresh":7, "levelCondition":120},
+			{"atk%":50, "equipedConditions":["gun"], "levelCondition":120},
+			{"atk%":50, "equipedConditions":["fist"], "levelCondition":120},
+			{"oneWeaponMastery":{"atk":100,"def":100}, "levelCondition":120},
+			{"oneWeaponMastery":{"def":100}, "lbFillRate":100, "killers":[{"name":"beast","physical":200,"magical":200}], "drawAttacks":50, "levelCondition":120},
+			{"hp%":100, "mp%":50, "atk%":100, "def%":140, "spr%":50, "levelCondition":120},
+			{"lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"fire","percent":30},{"name":"blind","percent":100},{"name":"disease","percent":100}], "mpRefresh":7, "equipedConditions":[["504236240","405011200"]], "levelCondition":120}
+		]
 	},
 	"207002207": {
 		"name":"Aerith (FFVII REMAKE)",
@@ -17662,6 +17723,100 @@
 			{"atk":500, "exLevelCondition":3},
 			{"evade":{"physical":30}, "equipedConditions":[["504241182","409051700"]]}
 		]
+	},
+	"207002407": {
+		"name":"Legendary Hero Sephiroth",
+		"jpname":"伝説の英雄セフィロス",
+		"id":"207002407",
+		"braveShift":"207002417",
+		"exAwakening": [{"hp":650,"mp":39,"atk":70,"def":24,"mag":19,"spr":22},{"hp":500,"mp":30,"atk":54,"def":19,"mag":14,"spr":17},{"hp":350,"mp":21,"atk":37,"def":13,"mag":10,"spr":11}],
+		"fragmentId": "250001100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":300,"atk":270,"def":190,"mag":148,"spr":170},
+			"minStats":{"hp":1650,"mp":99,"atk":89,"def":63,"mag":49,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["滅刃"],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk":500, "atk%":200, "def%":60, "mag%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"dark","percent":50},{"name":"sleep","percent":50},{"name":"confuse","percent":50}], "killers":[{"name":"human","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":7, "lbDamage":150},
+			{"atk%":140, "equipedConditions":["katana"]},
+			{"evade":{"physical":30}, "equipedConditions":[["504241340","405016400"]]}
+		]
+	},
+	"207002417": {
+		"name":"One-Winged Angel Sephiroth BS",
+		"jpname":"片翼の天使セフィロス BS",
+		"id":"207002417",
+		"braveShifted":"207002407",
+		"exAwakening": [{"hp":650,"mp":39,"atk":70,"def":24,"mag":19,"spr":22},{"hp":500,"mp":30,"atk":54,"def":19,"mag":14,"spr":17},{"hp":350,"mp":21,"atk":37,"def":13,"mag":10,"spr":11}],
+		"fragmentId": "250001100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":300,"atk":270,"def":190,"mag":148,"spr":170},
+			"minStats":{"hp":1650,"mp":99,"atk":89,"def":63,"mag":49,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["絶空"],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk":500, "atk%":200, "def%":60, "mag%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"dark","percent":50},{"name":"sleep","percent":50},{"name":"confuse","percent":50}], "killers":[{"name":"human","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":7, "lbDamage":150},
+			{"atk%":140, "equipedConditions":["katana"]},
+			{"evade":{"physical":30}, "equipedConditions":[["504241340","405016400"]]}
+		]
+	},
+	"207002505": {
+		"name":"Avalanche Biggs & Wedge",
+		"jpname":"アバランチ ビッグス&ウェッジ",
+		"id":"207002505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5020,"mp":253,"atk":147,"def":168,"mag":115,"spr":244},
+			"minStats":{"hp":1657,"mp":83,"atk":49,"def":55,"mag":38,"spr":81},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"最後まで戦い抜く決意","levels":[[],[]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":100, "def%":100, "spr%":100, "lbPerTurn":{"min":4,"max":4}, "killers":[{"name":"human","physical":100},{"name":"aquatic","physical":200}], "mpRefresh":7, "lbDamage":100, "drawAttacks":50},
+			{"spr%":100, "equipedConditions":["gun"]},
+			{"dualWielding":{"def":50,"spr":100}, "equipedConditions":[["504241342","313007900"]]}
+		],
+		"6_form": {
+			"name":"Avalanche Biggs & Wedge",
+			"jpname":"アバランチ ビッグス&ウェッジ",
+			"id":"207002505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3861,"mp":194,"atk":113,"def":129,"mag":88,"spr":187},
+				"minStats":{"hp":1274,"mp":64,"atk":37,"def":43,"mag":29,"spr":62},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"最後まで戦い抜く決意","levels":[[],[]]}
+		],
+			"skills": [
+				{"hp%":100, "mp%":100, "def%":100, "spr%":100, "lbPerTurn":{"min":4,"max":4}, "killers":[{"name":"human","physical":100},{"name":"aquatic","physical":200}], "mpRefresh":7, "lbDamage":100, "drawAttacks":50},
+				{"spr%":100, "equipedConditions":["gun"]}
+			]
+		}
 	},
 	"208000105": {
 		"name":"Squall",
