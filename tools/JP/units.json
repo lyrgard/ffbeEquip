@@ -8418,6 +8418,44 @@
 		"equip":["dagger","staff","rod","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["独・明鏡","真なる孤高の力"]
 	},
+	"100034707": {
+		"name":"Sea King Nichol",
+		"jpname":"海王ニコル",
+		"id":"100034707",
+		"braveShift":"100034717",
+		"exAwakening": [{"hp":601,"mp":35,"atk":20,"def":22,"mag":59,"spr":27},{"hp":462,"mp":27,"atk":15,"def":17,"mag":46,"spr":21},{"hp":323,"mp":18,"atk":10,"def":12,"mag":32,"spr":14}],
+		"fragmentId": "250001300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4628,"mp":270,"atk":155,"def":172,"mag":230,"spr":210},
+			"minStats":{"hp":1527,"mp":89,"atk":51,"def":57,"mag":76,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","throwing","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["フラッド","ウォタガ","プロテガ","シェルガ","真・水刃計"]
+	},
+	"100034717": {
+		"name":"Sea King Nichol BS",
+		"jpname":"海王ニコル BS",
+		"id":"100034717",
+		"braveShifted":"100034707",
+		"exAwakening": [{"hp":601,"mp":35,"atk":20,"def":22,"mag":59,"spr":27},{"hp":462,"mp":27,"atk":15,"def":17,"mag":46,"spr":21},{"hp":323,"mp":18,"atk":10,"def":12,"mag":32,"spr":14}],
+		"fragmentId": "250001300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4873,"mp":286,"atk":155,"def":176,"mag":265,"spr":235},
+			"minStats":{"hp":1608,"mp":94,"atk":51,"def":58,"mag":87,"spr":78},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","throwing","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["フラッド","ウォタガ","真・水刃計","タイダルウェイブ","水神の怒り"]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -15258,7 +15296,7 @@
 		}
 	},
 	"215001127": {
-		"name":"ニックス BS",
+		"name":"Nyx BS",
 		"jpname":"ニックス BS",
 		"id":"215001127",
 		"braveShifted":"215001105",
@@ -15538,7 +15576,7 @@
 		"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"]
 	},
 	"215002907": {
-		"name":"Azure Blade Noctis",
+		"name":"Cobalt Blade Noctis",
 		"jpname":"蒼穹の剣ノクティス",
 		"id":"215002907",
 		"braveShift":"215002917",
@@ -15557,7 +15595,7 @@
 		"enhancementSkills":["ラストソード"]
 	},
 	"215002917": {
-		"name":"Azure Blade Noctis BS",
+		"name":"Cobalt Blade Noctis BS",
 		"jpname":"蒼穹の剣ノクティス BS",
 		"id":"215002917",
 		"braveShifted":"215002907",
