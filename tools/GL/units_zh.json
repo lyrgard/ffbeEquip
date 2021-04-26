@@ -6390,8 +6390,8 @@
 		}
 	},
 	"100029305": {
-		"name":"Pone",
-		"wikiEntry":"ポネ",
+		"name":"珀妮",
+		"wikiEntry":"Poppy",
 		"id":"100029305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6404,8 +6404,8 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","throwing","hat","clothes","robe"],
 		"6_form": {
-			"name":"Pone",
-			"wikiEntry":"ポネ",
+			"name":"珀妮",
+			"wikiEntry":"Poppy",
 			"id":"100029305",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -20600,6 +20600,44 @@
 		"equip":["dagger","sword","greatSword","rod","throwing","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["Ice Coupé","Chilling Lunge"]
 	},
+	"401010907": {
+		"name":"國王凶惡巨獸",
+		"wikiEntry":"King_Behemy",
+		"id":"401010907",
+		"braveShift":"401010917",
+		"exAwakening": [{"hp":1300,"mp":31,"atk":26,"def":32,"mag":22,"spr":32},{"hp":1000,"mp":24,"atk":20,"def":25,"mag":17,"spr":25},{"hp":700,"mp":17,"atk":13,"def":17,"mag":12,"spr":17}],
+		"fragmentId": "310000700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":240,"atk":195,"def":245,"mag":170,"spr":245},
+			"minStats":{"hp":1650,"mp":79,"atk":64,"def":81,"mag":56,"spr":81},
+			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","axe","hammer","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Fierce Will","King's Barrier"]
+	},
+	"401010917": {
+		"name":"國王凶惡巨獸 BS",
+		"wikiEntry":"King_Behemy",
+		"id":"401010917",
+		"braveShifted":"401010907",
+		"exAwakening": [{"hp":1300,"mp":31,"atk":26,"def":32,"mag":22,"spr":32},{"hp":1000,"mp":24,"atk":20,"def":25,"mag":17,"spr":25},{"hp":700,"mp":17,"atk":13,"def":17,"mag":12,"spr":17}],
+		"fragmentId": "310000700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5200,"mp":250,"atk":195,"def":260,"mag":170,"spr":230},
+			"minStats":{"hp":1716,"mp":83,"atk":64,"def":86,"mag":56,"spr":76},
+			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","axe","hammer","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Fierce Will","Meteor Shield"]
+	},
 	"401011207": {
 		"name":"水玉",
 		"wikiEntry":"Shui_Yu",
@@ -20945,6 +20983,8 @@
   "100034317":{"name":"Shielding Blade Charlotte BS","jpname":"守護の剣シャルロット BS","id":"100034317","braveShifted":"100034307","exAwakening":[{"hp":651,"mp":35,"atk":69,"def":24,"mag":22,"spr":28},{"hp":501,"mp":27,"atk":53,"def":18,"mag":17,"spr":21},{"hp":350,"mp":19,"atk":37,"def":13,"mag":12,"spr":15}],"fragmentId":"250000890","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5011,"mp":280,"atk":265,"def":182,"mag":190,"spr":210},"minStats":{"hp":1654,"mp":92,"atk":87,"def":60,"mag":63,"spr":69},"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["雪雹落刃","風花落刃"]},
   "100034407":{"name":"Emperor Vlad","jpname":"皇帝ヴラド","id":"100034407","braveShift":"100034417","exAwakening":[{"hp":613,"mp":39,"atk":19,"def":20,"mag":62,"spr":28},{"hp":472,"mp":30,"atk":14,"def":15,"mag":48,"spr":21},{"hp":330,"mp":21,"atk":10,"def":10,"mag":33,"spr":15}],"fragmentId":"250000900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4722,"mp":300,"atk":147,"def":156,"mag":242,"spr":218},"minStats":{"hp":1558,"mp":99,"atk":49,"def":51,"mag":80,"spr":72},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","lightShield","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["ファイガ","サンダガ","フラッド","独・明鏡","怨・明鏡"]},
   "100034417":{"name":"Emperor Vlad BS","jpname":"皇帝ヴラド BS","id":"100034417","braveShifted":"100034407","exAwakening":[{"hp":613,"mp":39,"atk":19,"def":20,"mag":62,"spr":28},{"hp":472,"mp":30,"atk":14,"def":15,"mag":48,"spr":21},{"hp":330,"mp":21,"atk":10,"def":10,"mag":33,"spr":15}],"fragmentId":"250000900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4896,"mp":300,"atk":162,"def":181,"mag":285,"spr":210},"minStats":{"hp":1616,"mp":99,"atk":53,"def":60,"mag":94,"spr":69},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["独・明鏡","真なる孤高の力"]},
+  "100034707":{"name":"Sea King Nichol","jpname":"海王ニコル","id":"100034707","braveShift":"100034717","exAwakening":[{"hp":601,"mp":35,"atk":20,"def":22,"mag":59,"spr":27},{"hp":462,"mp":27,"atk":15,"def":17,"mag":46,"spr":21},{"hp":323,"mp":18,"atk":10,"def":12,"mag":32,"spr":14}],"fragmentId":"250001300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4628,"mp":270,"atk":155,"def":172,"mag":230,"spr":210},"minStats":{"hp":1527,"mp":89,"atk":51,"def":57,"mag":76,"spr":69},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","throwing","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["フラッド","ウォタガ","プロテガ","シェルガ","真・水刃計"]},
+  "100034717":{"name":"Sea King Nichol BS","jpname":"海王ニコル BS","id":"100034717","braveShifted":"100034707","exAwakening":[{"hp":601,"mp":35,"atk":20,"def":22,"mag":59,"spr":27},{"hp":462,"mp":27,"atk":15,"def":17,"mag":46,"spr":21},{"hp":323,"mp":18,"atk":10,"def":12,"mag":32,"spr":14}],"fragmentId":"250001300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4873,"mp":286,"atk":155,"def":176,"mag":265,"spr":235},"minStats":{"hp":1608,"mp":94,"atk":51,"def":58,"mag":87,"spr":78},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","throwing","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["フラッド","ウォタガ","真・水刃計","タイダルウェイブ","水神の怒り"]},
   "204001805":{"name":"Rubicante","jpname":"ルビカンテ","id":"204001805","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4683,"mp":264,"atk":140,"def":149,"mag":215,"spr":204},"minStats":{"hp":1545,"mp":87,"atk":46,"def":49,"mag":71,"spr":67},"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe"],"enhancementSkills":["メルトン","ゾファイ","なんだ　そのあわれな　じゅつは…","ほのおは　こうして　つかうものだ！","人間と決別せし者","狂える赤き戦士"],"6_form":{"name":"Rubicante","jpname":"ルビカンテ","id":"204001805","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3602,"mp":203,"atk":107,"def":114,"mag":165,"spr":156},"minStats":{"hp":1189,"mp":67,"atk":35,"def":38,"mag":54,"spr":51},"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}},"stats_pattern":1,"equip":["staff","rod","hat","clothes","robe"],"enhancementSkills":["メルトン","ゾファイ","なんだ　そのあわれな　じゅつは…","ほのおは　こうして　つかうものだ！","人間と決別せし者","狂える赤き戦士"]}},
   "204001904":{"name":"Barbariccia","jpname":"バルバリシア","id":"204001904","max_rarity":"6","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":3450,"mp":190,"atk":110,"def":118,"mag":152,"spr":143},"minStats":{"hp":1139,"mp":63,"atk":36,"def":39,"mag":50,"spr":47},"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}},"stats_pattern":1,"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"]},
   "204002003":{"name":"Scarmiglione","jpname":"スカルミリョーネ","id":"204002003","max_rarity":"5","min_rarity":"3","sex":"male","stats":{"maxStats":{"hp":2964,"mp":111,"atk":121,"def":119,"mag":85,"spr":81},"minStats":{"hp":978,"mp":37,"atk":40,"def":39,"mag":28,"spr":27},"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}},"stats_pattern":1,"equip":["dagger","sword","katana","throwing","fist","hat","clothes","lightArmor","robe"]},
