@@ -18272,6 +18272,9 @@
 	"215000205": {
 		"name":"Gladiolus",
 		"id":"215000205",
+		"braveShift":"215000227",
+		"exAwakening": [{"hp":714,"mp":25,"atk":25,"def":27,"mag":22,"spr":24},{"hp":549,"mp":19,"atk":19,"def":21,"mag":17,"spr":18},{"hp":384,"mp":13,"atk":13,"def":14,"mag":11,"spr":13}],
+		"fragmentId": "250000800",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -18281,19 +18284,20 @@
 			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","オービタルシールド","師弟の絆"],
+		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","Razor Shield","Master and Pupil"],
 		"enhancements": [
 			{"name":"King's Shield","levels":[[{"equipedConditions":["lightShield"],"hp%":30,"def%":30,"spr%":30},{"equipedConditions":["heavyShield"],"hp%":30,"def%":30,"spr%":30}],[{"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}]},{"equipedConditions":["lightShield"],"hp%":40,"def%":40,"spr%":40},{"equipedConditions":["heavyShield"],"hp%":40,"def%":40,"spr%":40}],[{"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}]},{"equipedConditions":["lightShield"],"hp%":50,"def%":50,"spr%":50},{"equipedConditions":["heavyShield"],"hp%":50,"def%":50,"spr%":50}]]},
 			{"name":"Large Sword Mastery","levels":[[{"equipedConditions":["greatSword"],"atk%":50}],[{"equipedConditions":["greatSword"],"atk%":75}],[{"equipedConditions":["greatSword"],"atk%":100}]]},
-			{"name":"師弟の絆","levels":[[{"skillEnhancement":{"216070":24,"216080":14,"216090":24},"oneWeaponMastery":{"def":100},"levelCondition":120}],[{"skillEnhancement":{"216070":28,"216080":16,"216090":28},"oneWeaponMastery":{"def":125},"levelCondition":120}],[{"skillEnhancement":{"216070":32,"216080":18,"216090":32},"oneWeaponMastery":{"def":150},"levelCondition":120}],[{"skillEnhancement":{"216070":36,"216080":20,"216090":36},"oneWeaponMastery":{"def":175},"levelCondition":120}],[{"skillEnhancement":{"216070":40,"216080":22,"216090":40},"oneWeaponMastery":{"def":200},"levelCondition":120}]]}
+			{"name":"Master and Pupil","levels":[[{"skillEnhancement":{"216070":24,"216080":14,"216090":24},"oneWeaponMastery":{"def":100},"levelCondition":120}],[{"skillEnhancement":{"216070":28,"216080":16,"216090":28},"oneWeaponMastery":{"def":125},"levelCondition":120}],[{"skillEnhancement":{"216070":32,"216080":18,"216090":32},"oneWeaponMastery":{"def":150},"levelCondition":120}],[{"skillEnhancement":{"216070":36,"216080":20,"216090":36},"oneWeaponMastery":{"def":175},"levelCondition":120}],[{"skillEnhancement":{"216070":40,"216080":22,"216090":40},"oneWeaponMastery":{"def":200},"levelCondition":120}]]}
 		],
 		"skills": [
-			{"hp%":10, "def%":30, "spr%":20, "mpRefresh":5},
+			{"hp%":60, "def%":80, "spr%":70, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "drawAttacks":50},
 			{"hp%":20, "def%":40, "spr%":20, "replaceLb":{"name":"Impulse","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (4.75x * 2 = 9.5x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"noUse":true,"globalMitigation":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":31},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 31% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.2x * 2 = 12.4x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"noUse":true,"globalMitigation":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 60% for 3 turns to all enemies"}],"frames":[200],"move":"walk"}, "equipedConditions":[["402002100","504227555"]]},
 			{"hp%":20, "levelCondition":115},
-			{"atk%":20, "def%":20, "spr%":20, "lbFillRate":50, "skillEnhancement":{"216070":2,"216080":2}, "levelCondition":120},
-			{"atk%":200, "equipedConditions":["304001100"], "levelCondition":120},
+			{"atk%":20, "def%":20, "spr%":20, "lbFillRate":50, "levelCondition":120},
+			{"atk%":200, "def%":100, "equipedConditions":["303009200"], "levelCondition":120},
+			{"atk%":200, "def%":100, "equipedConditions":["304001100"], "levelCondition":120},
 			{"hp":5000, "mp%":50, "levelCondition":120}
 		],
 		"6_form": {
@@ -18310,13 +18314,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","オービタルシールド","師弟の絆"],
+			"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","Razor Shield","Master and Pupil"],
 		"enhancements": [
 			{"name":"King's Shield","levels":[[{"equipedConditions":["lightShield"],"hp%":30,"def%":30,"spr%":30},{"equipedConditions":["heavyShield"],"hp%":30,"def%":30,"spr%":30}],[{"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}]},{"equipedConditions":["lightShield"],"hp%":40,"def%":40,"spr%":40},{"equipedConditions":["heavyShield"],"hp%":40,"def%":40,"spr%":40}],[{"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}]},{"equipedConditions":["lightShield"],"hp%":50,"def%":50,"spr%":50},{"equipedConditions":["heavyShield"],"hp%":50,"def%":50,"spr%":50}]]},
 			{"name":"Large Sword Mastery","levels":[[{"equipedConditions":["greatSword"],"atk%":50}],[{"equipedConditions":["greatSword"],"atk%":75}],[{"equipedConditions":["greatSword"],"atk%":100}]]}
 		],
 			"skills": [
-				{"hp%":10, "def%":30, "spr%":20, "mpRefresh":5}
+				{"hp%":60, "def%":80, "spr%":70, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "drawAttacks":50}
 			]
 		},
 		"7_form": {
@@ -18333,23 +18337,27 @@
 			},
 			"stats_pattern":4,
 			"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","オービタルシールド","師弟の絆"],
+			"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","Razor Shield","Master and Pupil"],
 		"enhancements": [
 			{"name":"King's Shield","levels":[[{"equipedConditions":["lightShield"],"hp%":30,"def%":30,"spr%":30},{"equipedConditions":["heavyShield"],"hp%":30,"def%":30,"spr%":30}],[{"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}]},{"equipedConditions":["lightShield"],"hp%":40,"def%":40,"spr%":40},{"equipedConditions":["heavyShield"],"hp%":40,"def%":40,"spr%":40}],[{"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}]},{"equipedConditions":["lightShield"],"hp%":50,"def%":50,"spr%":50},{"equipedConditions":["heavyShield"],"hp%":50,"def%":50,"spr%":50}]]},
 			{"name":"Large Sword Mastery","levels":[[{"equipedConditions":["greatSword"],"atk%":50}],[{"equipedConditions":["greatSword"],"atk%":75}],[{"equipedConditions":["greatSword"],"atk%":100}]]}
 		],
 			"skills": [
-				{"hp%":10, "def%":30, "spr%":20, "mpRefresh":5},
+				{"hp%":60, "def%":80, "spr%":70, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "drawAttacks":50},
 				{"hp%":20, "def%":40, "spr%":20, "replaceLb":{"name":"Impulse","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (4.75x * 2 = 9.5x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"noUse":true,"globalMitigation":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":31},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 31% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.2x * 2 = 12.4x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"noUse":true,"globalMitigation":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 60% for 3 turns to all enemies"}],"frames":[200],"move":"walk"}, "equipedConditions":[["402002100","504227555"]]},
 				{"hp%":20, "levelCondition":115},
-				{"atk%":20, "def%":20, "spr%":20, "lbFillRate":50, "skillEnhancement":{"216070":2,"216080":2}, "levelCondition":120},
-				{"atk%":200, "equipedConditions":["304001100"], "levelCondition":120}
+				{"atk%":20, "def%":20, "spr%":20, "lbFillRate":50, "levelCondition":120},
+				{"atk%":200, "def%":100, "equipedConditions":["303009200"], "levelCondition":120},
+				{"atk%":200, "def%":100, "equipedConditions":["304001100"], "levelCondition":120}
 			]
 		}
 	},
 	"215000227": {
-		"name":"グラディオラス",
+		"name":"Gladiolus BS",
 		"id":"215000227",
+		"braveShifted":"215000205",
+		"exAwakening": [{"hp":714,"mp":25,"atk":25,"def":27,"mag":22,"spr":24},{"hp":549,"mp":19,"atk":19,"def":21,"mag":17,"spr":18},{"hp":384,"mp":13,"atk":13,"def":14,"mag":11,"spr":13}],
+		"fragmentId": "250000800",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -18359,8 +18367,8 @@
 			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["ヘヴィストライク","剣聖が認めし実力"],
+		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Earthshatter","Strength Acknowledged by the Blademaster"],
 		"skills": [
 			{"special":["dualWield"], "levelCondition":120},
 			{"hp":5000, "mp%":50, "levelCondition":120},
@@ -18368,8 +18376,9 @@
 			{"hp%":150, "def%":120, "spr%":120, "levelCondition":120},
 			{"atk%":180, "dualWielding":{"atk":150}, "lbDamage":100, "levelCondition":120},
 			{"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}], "mpRefresh":7, "levelCondition":120},
-			{"atk%":20, "def%":20, "spr%":20, "lbFillRate":50, "skillEnhancement":{"216070":2,"216080":2}, "levelCondition":120},
-			{"atk%":200, "equipedConditions":["304001100"], "levelCondition":120}
+			{"atk%":20, "def%":20, "spr%":20, "lbFillRate":50, "levelCondition":120},
+			{"atk%":200, "def%":100, "equipedConditions":["303009200"], "levelCondition":120},
+			{"atk%":200, "def%":100, "equipedConditions":["304001100"], "levelCondition":120}
 		]
 	},
 	"215000304": {
@@ -18416,6 +18425,9 @@
 	"215000505": {
 		"name":"Ignis",
 		"id":"215000505",
+		"braveShift":"215000527",
+		"exAwakening": [{"hp":614,"mp":28,"atk":24,"def":20,"mag":25,"spr":28},{"hp":472,"mp":21,"atk":18,"def":16,"mag":19,"spr":22},{"hp":330,"mp":15,"atk":13,"def":11,"mag":13,"spr":15}],
+		"fragmentId": "250000790",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -18425,14 +18437,14 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","真の王を導きし軍師","ラウンドブースト","ラウンドガード"],
+		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","Hand of the True King","Reinforcement","Fortification"],
 		"enhancements": [
 			{"name":"Regalia Driver","levels":[[{"spr%":20,"def%":20,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"spr%":40,"def%":40,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"spr%":40,"def%":40,"hp%":20,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]},
-			{"name":"真の王を導きし軍師","levels":[[{"skillEnhancement":{"507870":22,"507871":6},"levelCondition":120}],[{"skillEnhancement":{"507870":24,"507871":8},"levelCondition":120}],[{"skillEnhancement":{"507870":26,"507871":10},"levelCondition":120}],[{"skillEnhancement":{"507870":28,"507871":12},"levelCondition":120}],[{"skillEnhancement":{"507870":30,"507871":14},"levelCondition":120}]]}
+			{"name":"Hand of the True King","levels":[[{"skillEnhancement":{"507870":22,"507871":6},"levelCondition":120}],[{"skillEnhancement":{"507870":24,"507871":8},"levelCondition":120}],[{"skillEnhancement":{"507870":26,"507871":10},"levelCondition":120}],[{"skillEnhancement":{"507870":28,"507871":12},"levelCondition":120}],[{"skillEnhancement":{"507870":30,"507871":14},"levelCondition":120}]]}
 		],
 		"skills": [
-			{"mag%":30, "spr%":30, "mpRefresh":5},
+			{"hp%":40, "atk%":40, "def%":40, "mag%":30, "spr%":70, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}], "mpRefresh":12},
 			{"replaceLb":{"name":"Sagefire","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.55,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (2.55x * 2 = 5.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 5 turns to one enemy"},{"effect":{"gainSkills":{"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Enhancement skills  [Fire (507872) / Ice (507873) / Lightning (507874)] for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (4x * 2 = 8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 100% for 5 turns to one enemy"},{"effect":{"gainSkills":{"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Enhancement skills  [Fire (507872) / Ice (507873) / Lightning (507874)] for one turn"}],"frames":[178],"move":"walk"}, "equipedConditions":[["409020400","301003300"]]},
 			{"atk%":30, "mag%":30, "resist":[{"name":"blind","percent":100}], "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
@@ -18454,12 +18466,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","真の王を導きし軍師","ラウンドブースト","ラウンドガード"],
+			"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","Hand of the True King","Reinforcement","Fortification"],
 		"enhancements": [
 			{"name":"Regalia Driver","levels":[[{"spr%":20,"def%":20,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"spr%":40,"def%":40,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"spr%":40,"def%":40,"hp%":20,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]}
 		],
 			"skills": [
-				{"mag%":30, "spr%":30, "mpRefresh":5}
+				{"hp%":40, "atk%":40, "def%":40, "mag%":30, "spr%":70, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}], "mpRefresh":12}
 			]
 		},
 		"7_form": {
@@ -18476,12 +18488,12 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","真の王を導きし軍師","ラウンドブースト","ラウンドガード"],
+			"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","Hand of the True King","Reinforcement","Fortification"],
 		"enhancements": [
 			{"name":"Regalia Driver","levels":[[{"spr%":20,"def%":20,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"spr%":40,"def%":40,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"spr%":40,"def%":40,"hp%":20,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]}
 		],
 			"skills": [
-				{"mag%":30, "spr%":30, "mpRefresh":5},
+				{"hp%":40, "atk%":40, "def%":40, "mag%":30, "spr%":70, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}], "mpRefresh":12},
 				{"replaceLb":{"name":"Sagefire","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.55,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (2.55x * 2 = 5.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 5 turns to one enemy"},{"effect":{"gainSkills":{"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Enhancement skills  [Fire (507872) / Ice (507873) / Lightning (507874)] for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (4x * 2 = 8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 100% for 5 turns to one enemy"},{"effect":{"gainSkills":{"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Enhancement skills  [Fire (507872) / Ice (507873) / Lightning (507874)] for one turn"}],"frames":[178],"move":"walk"}, "equipedConditions":[["409020400","301003300"]]},
 				{"atk%":30, "mag%":30, "resist":[{"name":"blind","percent":100}], "levelCondition":105},
 				{"atk%":20, "levelCondition":115},
@@ -18490,8 +18502,11 @@
 		}
 	},
 	"215000527": {
-		"name":"イグニス",
+		"name":"Ignis BS",
 		"id":"215000527",
+		"braveShifted":"215000505",
+		"exAwakening": [{"hp":614,"mp":28,"atk":24,"def":20,"mag":25,"spr":28},{"hp":472,"mp":21,"atk":18,"def":16,"mag":19,"spr":22},{"hp":330,"mp":15,"atk":13,"def":11,"mag":13,"spr":15}],
+		"fragmentId": "250000790",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -18501,10 +18516,10 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["もうひとつの可能性","ラウンドブースト","真・オーバーブースト"],
+		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Possibilities","Reinforcement","True Overboost"],
 		"enhancements": [
-			{"name":"もうひとつの可能性","levels":[[{"atk":200,"levelCondition":120}],[{"atk":250,"levelCondition":120}],[{"atk":300,"levelCondition":120}],[{"atk":350,"levelCondition":120}],[{"atk":400,"levelCondition":120}]]}
+			{"name":"Possibilities","levels":[[{"atk":200,"levelCondition":120}],[{"atk":250,"levelCondition":120}],[{"atk":300,"levelCondition":120}],[{"atk":350,"levelCondition":120}],[{"atk":400,"levelCondition":120}]]}
 		],
 		"skills": [
 			{"mp%":30, "atk%":60, "dualWielding":{"atk":150}, "levelCondition":120},
@@ -18626,6 +18641,9 @@
 	"215000705": {
 		"name":"Prompto",
 		"id":"215000705",
+		"braveShift":"215000727",
+		"exAwakening": [{"hp":605,"mp":31,"atk":28,"def":21,"mag":23,"spr":23},{"hp":465,"mp":24,"atk":21,"def":16,"mag":17,"spr":18},{"hp":325,"mp":17,"atk":15,"def":11,"mag":12,"spr":12}],
+		"fragmentId": "250000780",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -18635,14 +18653,14 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","アンダーマインショット"],
+		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","Undermining Shot"],
 		"enhancements": [
 			{"name":"Gun Mastery","levels":[[{"equipedConditions":["gun"],"atk%":50}],[{"equipedConditions":["gun"],"atk%":75}],[{"equipedConditions":["gun"],"atk%":120,"def%":30}]]}
 		],
 		"skills": [
-			{"mp%":10, "spr%":20, "evade":{"physical":20}, "lbFillRate":100},
-			{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "replaceLb":{"name":"Trigger-Happy","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"508080","name":"Crackshot"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10.7x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"508080","name":"Crackshot"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"frames":[180,188,196,204,212,220,228,236,268,276,284,292,300,308,404],"move":"walk"}, "equipedConditions":[["504221550","313003700"]]},
+			{"hp%":40, "mp%":50, "atk%":50, "spr%":20, "evade":{"physical":20}, "dualWielding":{"atk":50}, "lbFillRate":100, "mpRefresh":7, "skillEnhancement":{"221430":10,"221450":10,"508070":13,"508071":13,"508072":13,"508079":13,"508080":10,"707528":10,"707529":10,"707534":10,"707535":10}},
+			{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "replaceLb":{"name":"Trigger-Happy","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":45.5},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (45.5x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict all status effects (100%) on all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"508080","name":"Crackshot"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":60},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (60x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict all status effects (100%) on all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"508080","name":"Crackshot"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"frames":[180,188,196,204,212,220,228,236,268,276,284,292,300,308,404],"move":"walk"}, "equipedConditions":[["504221550","313003700"]]},
 			{"partialDualWield":["dagger","gun"], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"lbDamage":30, "levelCondition":120},
@@ -18666,12 +18684,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","アンダーマインショット"],
+			"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","Undermining Shot"],
 		"enhancements": [
 			{"name":"Gun Mastery","levels":[[{"equipedConditions":["gun"],"atk%":50}],[{"equipedConditions":["gun"],"atk%":75}],[{"equipedConditions":["gun"],"atk%":120,"def%":30}]]}
 		],
 			"skills": [
-				{"mp%":10, "spr%":20, "evade":{"physical":20}, "lbFillRate":100}
+				{"hp%":40, "mp%":50, "atk%":50, "spr%":20, "evade":{"physical":20}, "dualWielding":{"atk":50}, "lbFillRate":100, "mpRefresh":7, "skillEnhancement":{"221430":10,"221450":10,"508070":13,"508071":13,"508072":13,"508079":13,"508080":10,"707528":10,"707529":10,"707534":10,"707535":10}}
 			]
 		},
 		"7_form": {
@@ -18688,13 +18706,13 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","アンダーマインショット"],
+			"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","Undermining Shot"],
 		"enhancements": [
 			{"name":"Gun Mastery","levels":[[{"equipedConditions":["gun"],"atk%":50}],[{"equipedConditions":["gun"],"atk%":75}],[{"equipedConditions":["gun"],"atk%":120,"def%":30}]]}
 		],
 			"skills": [
-				{"mp%":10, "spr%":20, "evade":{"physical":20}, "lbFillRate":100},
-				{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "replaceLb":{"name":"Trigger-Happy","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"508080","name":"Crackshot"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10.7x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"508080","name":"Crackshot"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"frames":[180,188,196,204,212,220,228,236,268,276,284,292,300,308,404],"move":"walk"}, "equipedConditions":[["504221550","313003700"]]},
+				{"hp%":40, "mp%":50, "atk%":50, "spr%":20, "evade":{"physical":20}, "dualWielding":{"atk":50}, "lbFillRate":100, "mpRefresh":7, "skillEnhancement":{"221430":10,"221450":10,"508070":13,"508071":13,"508072":13,"508079":13,"508080":10,"707528":10,"707529":10,"707534":10,"707535":10}},
+				{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "replaceLb":{"name":"Trigger-Happy","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":45.5},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (45.5x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict all status effects (100%) on all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"508080","name":"Crackshot"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":60},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (60x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict all status effects (100%) on all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"508080","name":"Crackshot"}],"turns":1},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"frames":[180,188,196,204,212,220,228,236,268,276,284,292,300,308,404],"move":"walk"}, "equipedConditions":[["504221550","313003700"]]},
 				{"partialDualWield":["dagger","gun"], "levelCondition":105},
 				{"mp%":20, "levelCondition":115},
 				{"lbDamage":30, "levelCondition":120},
@@ -18704,8 +18722,11 @@
 		}
 	},
 	"215000727": {
-		"name":"プロンプト",
+		"name":"Prompto BS",
 		"id":"215000727",
+		"braveShifted":"215000705",
+		"exAwakening": [{"hp":605,"mp":31,"atk":28,"def":21,"mag":23,"spr":23},{"hp":465,"mp":24,"atk":21,"def":16,"mag":17,"spr":18},{"hp":325,"mp":17,"atk":15,"def":11,"mag":12,"spr":12}],
+		"fragmentId": "250000780",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -18715,8 +18736,8 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["アンダーマインショット","可変刀「アウダックス」"],
+		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Undermining Shot","Audax Blade"],
 		"skills": [
 			{"atk":100, "lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"machine","physical":150}], "levelCondition":120},
 			{"hp%":30, "mp%":30, "atk%":30, "def%":30, "mag%":30, "spr%":30, "equipedConditions":["clothes"], "levelCondition":120},
@@ -19085,7 +19106,7 @@
 		}
 	},
 	"215002407": {
-		"name":"Oracle Lunafreya",
+		"name":"Oracle Maiden Lunafreya",
 		"id":"215002407",
 		"braveShift":"215002417",
 		"exAwakening": [{"hp":580,"mp":33,"atk":20,"def":21,"mag":61,"spr":25},{"hp":446,"mp":25,"atk":15,"def":16,"mag":47,"spr":19},{"hp":312,"mp":18,"atk":11,"def":11,"mag":33,"spr":13}],
@@ -19100,14 +19121,14 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","spear","harp","lightShield","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["清浄なる光芒","甦星の耀き"],
+		"enhancementSkills":["Firaga","Blizzaga","Thundaga","Light of Virtue","Shining Star of Rebirth"],
 		"skills": [
 			{"hp%":50, "mp%":70, "def%":20, "mag%":180, "spr%":50, "evokeDamageBoost":{"all":60}, "singleWielding":{"mag":300}, "dualWielding":{"mag":100}, "chainMastery":100, "lbFillRate":150, "resist":[{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":50},{"name":"earth","percent":30},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"aquatic","magical":150},{"name":"dragon","magical":150}], "mpRefresh":10, "special":["dualWield"]},
 			{"lbDamage":50, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "equipedConditions":[["504240210","310009800"]]}
 		]
 	},
 	"215002417": {
-		"name":"Oracle Lunafreya BS",
+		"name":"Oracle Maiden Lunafreya BS",
 		"id":"215002417",
 		"braveShifted":"215002407",
 		"exAwakening": [{"hp":580,"mp":33,"atk":20,"def":21,"mag":61,"spr":25},{"hp":446,"mp":25,"atk":15,"def":16,"mag":47,"spr":19},{"hp":312,"mp":18,"atk":11,"def":11,"mag":33,"spr":13}],
@@ -19122,7 +19143,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","spear","harp","lightShield","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["清浄なる光芒","雷神の裁き"],
+		"enhancementSkills":["Light of Virtue","Judgement of the Fulgarian"],
 		"skills": [
 			{"hp%":50, "mp%":90, "def%":20, "mag%":200, "spr%":50, "evoMag":240, "evokeDamageBoost":{"all":60}, "singleWielding":{"mag":300}, "dualWielding":{"mag":100}, "chainMastery":100, "resist":[{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":50},{"name":"earth","percent":30},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"aquatic","magical":150},{"name":"dragon","magical":150}], "mpRefresh":10, "lbDamage":50, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "special":["dualWield"]},
 			{"lbDamage":50, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "equipedConditions":[["504240210","310009800"]]}
@@ -20434,7 +20455,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","hat","clothes","robe"],
-		"enhancementSkills":["Sharp Resolution","Curaga","Dagger Boomerang","Raise","Undying Wish"],
+		"enhancementSkills":["Firaga","Thundaga","Blizzaga","Sharp Resolution","Curaga","Dagger Boomerang","Raise","Undying Wish"],
 		"enhancements": [
 			{"name":"Sharp Resolution","levels":[[{"equipedConditions":["dagger"],"mag%":50,"spr%":50}],[{"hp%":20,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},{"equipedConditions":["dagger"],"mag%":50,"spr%":50}],[{"hp%":30,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},{"equipedConditions":["dagger"],"mag%":80,"spr%":80}]]}
 		],
@@ -20459,7 +20480,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","hat","clothes","robe"],
-			"enhancementSkills":["Sharp Resolution","Curaga","Dagger Boomerang","Raise","Undying Wish"],
+			"enhancementSkills":["Firaga","Thundaga","Blizzaga","Sharp Resolution","Curaga","Dagger Boomerang","Raise","Undying Wish"],
 		"enhancements": [
 			{"name":"Sharp Resolution","levels":[[{"equipedConditions":["dagger"],"mag%":50,"spr%":50}],[{"hp%":20,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},{"equipedConditions":["dagger"],"mag%":50,"spr%":50}],[{"hp%":30,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},{"equipedConditions":["dagger"],"mag%":80,"spr%":80}]]}
 		],

@@ -12574,6 +12574,9 @@
 	"215000205": {
 		"name":"Gladiolus",
 		"id":"215000205",
+		"braveShift":"215000227",
+		"exAwakening": [{"hp":714,"mp":25,"atk":25,"def":27,"mag":22,"spr":24},{"hp":549,"mp":19,"atk":19,"def":21,"mag":17,"spr":18},{"hp":384,"mp":13,"atk":13,"def":14,"mag":11,"spr":13}],
+		"fragmentId": "250000800",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -12583,8 +12586,8 @@
 			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","オービタルシールド","師弟の絆"],
+		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","Razor Shield","Master and Pupil"],
 		"6_form": {
 			"name":"Gladiolus",
 			"id":"215000205",
@@ -12599,7 +12602,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","オービタルシールド","師弟の絆"]
+			"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","Razor Shield","Master and Pupil"]
 		},
 		"7_form": {
 			"name":"Gladiolus",
@@ -12615,12 +12618,15 @@
 			},
 			"stats_pattern":4,
 			"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","オービタルシールド","師弟の絆"]
+			"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","Razor Shield","Master and Pupil"]
 		}
 	},
 	"215000227": {
-		"name":"グラディオラス",
+		"name":"Gladiolus BS",
 		"id":"215000227",
+		"braveShifted":"215000205",
+		"exAwakening": [{"hp":714,"mp":25,"atk":25,"def":27,"mag":22,"spr":24},{"hp":549,"mp":19,"atk":19,"def":21,"mag":17,"spr":18},{"hp":384,"mp":13,"atk":13,"def":14,"mag":11,"spr":13}],
+		"fragmentId": "250000800",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -12630,8 +12636,8 @@
 			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["ヘヴィストライク","剣聖が認めし実力"]
+		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Earthshatter","Strength Acknowledged by the Blademaster"]
 	},
 	"215000304": {
 		"name":"Cor",
@@ -12666,6 +12672,9 @@
 	"215000505": {
 		"name":"Ignis",
 		"id":"215000505",
+		"braveShift":"215000527",
+		"exAwakening": [{"hp":614,"mp":28,"atk":24,"def":20,"mag":25,"spr":28},{"hp":472,"mp":21,"atk":18,"def":16,"mag":19,"spr":22},{"hp":330,"mp":15,"atk":13,"def":11,"mag":13,"spr":15}],
+		"fragmentId": "250000790",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -12675,8 +12684,8 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","真の王を導きし軍師","ラウンドブースト","ラウンドガード"],
+		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","Hand of the True King","Reinforcement","Fortification"],
 		"6_form": {
 			"name":"Ignis",
 			"id":"215000505",
@@ -12691,7 +12700,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","真の王を導きし軍師","ラウンドブースト","ラウンドガード"]
+			"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","Hand of the True King","Reinforcement","Fortification"]
 		},
 		"7_form": {
 			"name":"Ignis",
@@ -12707,12 +12716,15 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","真の王を導きし軍師","ラウンドブースト","ラウンドガード"]
+			"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé","Hand of the True King","Reinforcement","Fortification"]
 		}
 	},
 	"215000527": {
-		"name":"イグニス",
+		"name":"Ignis BS",
 		"id":"215000527",
+		"braveShifted":"215000505",
+		"exAwakening": [{"hp":614,"mp":28,"atk":24,"def":20,"mag":25,"spr":28},{"hp":472,"mp":21,"atk":18,"def":16,"mag":19,"spr":22},{"hp":330,"mp":15,"atk":13,"def":11,"mag":13,"spr":15}],
+		"fragmentId": "250000790",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -12722,8 +12734,8 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["もうひとつの可能性","ラウンドブースト","真・オーバーブースト"]
+		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Possibilities","Reinforcement","True Overboost"]
 	},
 	"215000605": {
 		"name":"Aranea",
@@ -12790,6 +12802,9 @@
 	"215000705": {
 		"name":"Prompto",
 		"id":"215000705",
+		"braveShift":"215000727",
+		"exAwakening": [{"hp":605,"mp":31,"atk":28,"def":21,"mag":23,"spr":23},{"hp":465,"mp":24,"atk":21,"def":16,"mag":17,"spr":18},{"hp":325,"mp":17,"atk":15,"def":11,"mag":12,"spr":12}],
+		"fragmentId": "250000780",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -12799,8 +12814,8 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","アンダーマインショット"],
+		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","Undermining Shot"],
 		"6_form": {
 			"name":"Prompto",
 			"id":"215000705",
@@ -12815,7 +12830,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","アンダーマインショット"]
+			"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","Undermining Shot"]
 		},
 		"7_form": {
 			"name":"Prompto",
@@ -12831,12 +12846,15 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","アンダーマインショット"]
+			"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker","Undermining Shot"]
 		}
 	},
 	"215000727": {
-		"name":"プロンプト",
+		"name":"Prompto BS",
 		"id":"215000727",
+		"braveShifted":"215000705",
+		"exAwakening": [{"hp":605,"mp":31,"atk":28,"def":21,"mag":23,"spr":23},{"hp":465,"mp":24,"atk":21,"def":16,"mag":17,"spr":18},{"hp":325,"mp":17,"atk":15,"def":11,"mag":12,"spr":12}],
+		"fragmentId": "250000780",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -12846,8 +12864,8 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["アンダーマインショット","可変刀「アウダックス」"]
+		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Undermining Shot","Audax Blade"]
 	},
 	"215000805": {
 		"name":"Ardyn",
@@ -13093,7 +13111,7 @@
 		}
 	},
 	"215002407": {
-		"name":"Oracle Lunafreya",
+		"name":"Oracle Maiden Lunafreya",
 		"id":"215002407",
 		"braveShift":"215002417",
 		"exAwakening": [{"hp":580,"mp":33,"atk":20,"def":21,"mag":61,"spr":25},{"hp":446,"mp":25,"atk":15,"def":16,"mag":47,"spr":19},{"hp":312,"mp":18,"atk":11,"def":11,"mag":33,"spr":13}],
@@ -13108,10 +13126,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","spear","harp","lightShield","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["清浄なる光芒","甦星の耀き"]
+		"enhancementSkills":["Firaga","Blizzaga","Thundaga","Light of Virtue","Shining Star of Rebirth"]
 	},
 	"215002417": {
-		"name":"Oracle Lunafreya BS",
+		"name":"Oracle Maiden Lunafreya BS",
 		"id":"215002417",
 		"braveShifted":"215002407",
 		"exAwakening": [{"hp":580,"mp":33,"atk":20,"def":21,"mag":61,"spr":25},{"hp":446,"mp":25,"atk":15,"def":16,"mag":47,"spr":19},{"hp":312,"mp":18,"atk":11,"def":11,"mag":33,"spr":13}],
@@ -13126,7 +13144,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","spear","harp","lightShield","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["清浄なる光芒","雷神の裁き"]
+		"enhancementSkills":["Light of Virtue","Judgement of the Fulgarian"]
 	},
 	"215002605": {
 		"name":"Gentiana",
@@ -14020,7 +14038,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","hat","clothes","robe"],
-		"enhancementSkills":["Sharp Resolution","Curaga","Dagger Boomerang","Raise","Undying Wish"],
+		"enhancementSkills":["Firaga","Thundaga","Blizzaga","Sharp Resolution","Curaga","Dagger Boomerang","Raise","Undying Wish"],
 		"6_form": {
 			"name":"Rem",
 			"id":"254000905",
@@ -14035,7 +14053,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","hat","clothes","robe"],
-			"enhancementSkills":["Sharp Resolution","Curaga","Dagger Boomerang","Raise","Undying Wish"]
+			"enhancementSkills":["Firaga","Thundaga","Blizzaga","Sharp Resolution","Curaga","Dagger Boomerang","Raise","Undying Wish"]
 		}
 	},
 	"254001003": {
