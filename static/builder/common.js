@@ -1237,7 +1237,7 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     var calculatedValue = 0
     var currentPercentIncrease = {"value":0};
     var baseValue = 0;
-    var buffValue = 0
+    var buffValue = 0;
     if (baseStats.includes(stat)) {
         baseValue = unitBuild.baseValues[stat].total;
         if (itemAndPassives[10] && itemAndPassives[10][stat]) {
@@ -1349,6 +1349,7 @@ function calculateStateValueForIndex(items, index, baseValue, currentPercentIncr
             return value;
         } else {
             let value;
+            let staticValue = item.staticStats?.[stat] || 0;
             if (index === 10 && baseStats.includes(stat)) {
                 value = 0; // Vision Card flat stats are added to the base value directly earlier in the calculation
             } else {
@@ -1358,9 +1359,9 @@ function calculateStateValueForIndex(items, index, baseValue, currentPercentIncr
                 var itemPercentValue = getValue(item, percentValues[stat], notStackableSkillsAlreadyUsed);
                 var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(getStatBonusCap(stat) - currentPercentIncrease.value, 0));
                 currentPercentIncrease.value += itemPercentValue;
-                return value * equipmentStatBonus + percentTakenIntoAccount * baseValue / 100;
+                return value * equipmentStatBonus + percentTakenIntoAccount * baseValue / 100 + staticValue;
             } else {
-                return value * equipmentStatBonus;
+                return value * equipmentStatBonus + staticValue;
             }
         }
     }

@@ -669,6 +669,17 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         addStat(item, "mag%", effectData[2]);
         addStat(item, "spr%", effectData[3]);
 
+        // + static X to a stat
+    } else if (rawEffect[2] == 89) {
+        var effectData = rawEffect[3];
+        if (!item.staticStats) item.staticStats = {};
+        addStat(item.staticStats, "hp", effectData[4]);
+        addStat(item.staticStats, "mp", effectData[5]);
+        addStat(item.staticStats, "atk", effectData[0]);
+        addStat(item.staticStats, "def", effectData[1]);
+        addStat(item.staticStats, "mag", effectData[2]);
+        addStat(item.staticStats, "spr", effectData[3]);
+
     // DualWield
     } else if (rawEffect[1] == 3 && rawEffect[2] == 14 && (rawEffect[0] == 0 || rawEffect[0] == 1)) {
         if (rawEffect[3].length == 1 && rawEffect[3][0] == "none") {
@@ -1120,7 +1131,7 @@ function addLbPerTurn(item, min, max) {
     item.lbPerTurn.max += max;
 }
 
-const itemProperties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","oneWeaponMastery", "chainMastery","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks", "evokeDamageBoost","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills","rarity", "conditional"];
+const itemProperties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","staticStats","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","oneWeaponMastery", "chainMastery","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks", "evokeDamageBoost","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills","rarity", "conditional"];
 function formatOutput(items) {
     var result = "[\n";
     var first = true;
