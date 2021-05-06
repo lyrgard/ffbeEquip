@@ -420,6 +420,30 @@
 	{"atk":100, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
 	{"atk":110, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"jumpDamage":50,"exclusiveUnits":["215000205","215000227","215000505","215000527","215000605","215000627","215000705","215000727","215001105","215001127","215002407","215002417","215002907","215002917","215003007","215003017"],"resist":[{"name":"fire","percent":25},{"name":"dark","percent":25}]}]}
 ]},
+{"id":"215000201", "name":"Onward to the Disc", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_215000201.png", "sortId":46, "levels":[
+	{"atk":60},
+	{"atk":65},
+	{"atk":70},
+	{"atk":75, "conditional":[{"equipedConditions":["sword"],"atk%":40}]},
+	{"atk":80, "conditional":[{"equipedConditions":["sword"],"atk%":40}]},
+	{"atk":85, "conditional":[{"equipedConditions":["sword"],"atk%":40}]},
+	{"atk":90, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
+	{"atk":95, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
+	{"atk":100, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
+	{"atk":110, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"jumpDamage":50,"exclusiveUnits":["215000205","215000227","215000505","215000527","215000605","215000627","215000705","215000727","215001105","215001127","215002407","215002417","215002907","215002917","215003007","215003017"],"resist":[{"name":"light","percent":50}]}]}
+]},
+{"id":"215000301", "name":"Duty as the Oracle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_215000301.png", "sortId":50, "levels":[
+	{"mag":50},
+	{"mag":55},
+	{"mag":60},
+	{"mag":65, "mag%":30},
+	{"mag":70, "mag%":30},
+	{"mag":75, "mag%":30},
+	{"mag":80, "mag%":60},
+	{"mag":85, "mag%":60},
+	{"mag":90, "mag%":60},
+	{"mag":100, "mag%":60, "conditional":[{"evoMag":30,"exclusiveSex":"female"}]}
+]},
 {"id":"335000101", "name":"The Keyblade Graveyard Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},
 	{"atk":55},

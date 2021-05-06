@@ -206,6 +206,7 @@ class ItemPool {
                 }
                 if (baseStats.includes(stat)) {
                     comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "total_" + stat));
+                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "staticStats." + stat));
                     comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "esperStatsBonus.all." + stat));
                     if (includeSingleWielding) {
                         comparisionStatus.push(TreeComparator.compareByDoublehand(entry1.item, entry2.item, stat));
