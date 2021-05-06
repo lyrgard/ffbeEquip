@@ -493,7 +493,7 @@ class DataStorage {
             } else {
                 if (getValue(item, stats[index]) > 0) return true;
                 if (item[stats[index] + '%'] && item[stats[index] + '%'] > 0) return true;
-                if (item.staticStats?.[stats[index]]) return true;
+                if (item.staticStats && item.staticStats[stats[index]]) return true;
                 if (item.singleWielding && item.singleWielding[stats[index]]) return true;
                 if (item.singleWieldingGL && item.singleWieldingGL[stats[index]]) return true;
                 if (item.singleWieldingOneHanded && item.singleWieldingOneHanded[stats[index]]) return true;

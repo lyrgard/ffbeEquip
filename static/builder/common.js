@@ -1349,7 +1349,7 @@ function calculateStateValueForIndex(items, index, baseValue, currentPercentIncr
             return value;
         } else {
             let value;
-            let staticValue = item.staticStats?.[stat] || 0;
+            let staticValue = item.staticStats ? item.staticStats[stat] || 0 : 0;
             if (index === 10 && baseStats.includes(stat)) {
                 value = 0; // Vision Card flat stats are added to the base value directly earlier in the calculation
             } else {

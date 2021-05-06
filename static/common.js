@@ -573,13 +573,13 @@ var getStatDetail = function(item) {
             }
             detail += stat + '+' + item[stat+'%'] + '%';
         }
-        if (item.staticStats?.[stat]) {
+        if (item.staticStats && item.staticStats[stat]) {
             if (first) {
                 first = false;
             } else {
                 detail += ', ';
             }
-            detail += 'total ' + stat + '+' + item.staticStats?.[stat];
+            detail += 'total ' + stat + '+' + item.staticStats[stat];
         }
 
         detail += "</span>";
@@ -1259,7 +1259,7 @@ var calculateValue = function(item, baseStat, stat, ailments, elements, killers)
     if (item[stat + '%']) {
         calculatedValue += item[stat+'%'] * baseStat / 100;
     }
-    if (item.staticStats?.[stat]) {
+    if (item.staticStats && item.staticStats[stat]) {
         calculatedValue += item.staticStats[stat];
     }
     if (item[stat] && stat == "evade") {
@@ -1374,7 +1374,7 @@ function getSearchTokens(text) {
 
 // Return true if the item has the required stat
 var hasStat = function(stat, item) {
-    return item[stat] || item[stat+'%'] || item.staticStats?.[stat] || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist);
+    return item[stat] || item[stat+'%'] || (item.staticStats && item.staticStats[stat]) || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist);
 };
 
 // Return true if the item has all the required stats
