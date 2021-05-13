@@ -1,4 +1,4 @@
-var wikiBaseUrl = "http://exvius.gamepedia.com/";
+var wikiBaseUrl = "https://exvius.fandom.com/";
 
 var data;
 var units;

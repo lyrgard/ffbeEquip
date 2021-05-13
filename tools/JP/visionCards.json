@@ -408,6 +408,18 @@
 	{"atk":72, "conditional":[{"equipedConditions":["gun"],"atk%":60}]},
 	{"atk":80, "killers":[{"name":"spirit","physical":50,"magical":50}], "conditional":[{"equipedConditions":["gun"],"atk%":60}]}
 ]},
+{"id":"100003701", "name":"恐怖の料理人？", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003701.png", "sortId":67, "levels":[
+	{"hp":200, "def":40},
+	{"hp":220, "def":44},
+	{"hp":240, "def":48},
+	{"hp":260, "hp%":25, "def":52},
+	{"hp":280, "hp%":25, "def":56},
+	{"hp":300, "hp%":25, "def":60},
+	{"hp":320, "hp%":50, "def":64},
+	{"hp":340, "hp%":50, "def":68},
+	{"hp":360, "hp%":50, "def":72},
+	{"hp":400, "hp%":50, "def":80, "oneWeaponMastery":{"def":50}}
+]},
 {"id":"100003801", "name":"アクスターの記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003801.png", "sortId":59, "levels":[
 	{"atk":100, "atk%":20, "staticStats":{"atk":1000}, "conditional":[{"equipedConditions":["katana"],"atk%":80}]}
 ]},
@@ -600,7 +612,7 @@
 	{"atk":100, "conditional":[{"equipedConditions":["sword"],"atk%":80}]},
 	{"atk":110, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"jumpDamage":50},{"resist":[{"name":"fire","percent":25},{"name":"dark","percent":25}]}]}
 ]},
-{"id":"215000201", "name":"カーテスの大皿へ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_215000201.png", "sortId":46, "levels":[
+{"id":"215000201", "name":"Onward to the Disc", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_215000201.png", "sortId":46, "levels":[
 	{"atk":60},
 	{"atk":65},
 	{"atk":70},
@@ -623,6 +635,18 @@
 	{"mag":85, "mag%":60},
 	{"mag":90, "mag%":60},
 	{"mag":100, "mag%":60, "conditional":[{"evoMag":30,"exclusiveSex":"female"}]}
+]},
+{"id":"254000101", "name":"我ら来たれり", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_254000101.png", "sortId":66, "levels":[
+	{"atk":50, "mag":50},
+	{"atk":55, "mag":55},
+	{"atk":60, "mag":60},
+	{"atk":65, "mag":65, "lbDamage":25},
+	{"atk":70, "mag":70, "lbDamage":25},
+	{"atk":75, "mag":75, "lbDamage":25},
+	{"atk":80, "atk%":50, "mag":80, "mag%":50, "lbDamage":25},
+	{"atk":85, "atk%":50, "mag":85, "mag%":50, "lbDamage":25},
+	{"atk":90, "atk%":50, "mag":90, "mag%":50, "lbDamage":25},
+	{"atk":100, "atk%":50, "mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
 ]},
 {"id":"312000101", "name":"もうキスしちゃう！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_312000101.png", "sortId":54, "levels":[
 	{"atk":40},

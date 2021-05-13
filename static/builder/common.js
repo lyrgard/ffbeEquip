@@ -1403,13 +1403,17 @@ function calculateFlatStateValueForIndex(items, index, equipmentStatBonus, stat)
 }
 
 function calculatePercentStateValueForIndex(item, baseValue, currentPercentIncrease, stat) {
+    let result = 0;
     if (item && item[percentValues[stat]]) {
         var itemPercentValue = item[percentValues[stat]];
         var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(getStatBonusCap(stat) - currentPercentIncrease.value, 0));
         currentPercentIncrease.value += itemPercentValue;
-        return percentTakenIntoAccount * baseValue / 100;
+        result = percentTakenIntoAccount * baseValue / 100;
     }
-    return 0;
+    if (item && item.staticStats && item.staticStats[stat]) {
+        result += item.staticStats[stat];
+    }
+    return result;
 }
 
 function getElementCoef(elements, ennemyStats) {
