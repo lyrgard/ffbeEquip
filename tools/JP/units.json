@@ -5755,7 +5755,10 @@
 		"name":"Blue Mage Fina",
 		"jpname":"青魔道士フィーナ",
 		"id":"100025705",
-		"max_rarity":"7",
+		"braveShift":"100025727",
+		"exAwakening": [{"hp":608,"mp":35,"atk":18,"def":21,"mag":27,"spr":27},{"hp":468,"mp":27,"atk":14,"def":16,"mag":20,"spr":21},{"hp":327,"mp":19,"atk":10,"def":11,"mag":14,"spr":14}],
+		"fragmentId": "250001400",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
@@ -5764,7 +5767,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"],
+		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
 		"6_form": {
 			"name":"Blue Mage Fina",
 			"jpname":"青魔道士フィーナ",
@@ -5780,7 +5783,42 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"]
+		},
+		"7_form": {
+			"name":"Blue Mage Fina",
+			"jpname":"青魔道士フィーナ",
+			"id":"100025705",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4682,"mp":276,"atk":146,"def":162,"mag":209,"spr":214},
+				"minStats":{"hp":1545,"mp":91,"atk":48,"def":53,"mag":69,"spr":71},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"]
 		}
+	},
+	"100025727": {
+		"name":"青魔道士フィーナ BS",
+		"jpname":"青魔道士フィーナ BS",
+		"id":"100025727",
+		"braveShifted":"100025705",
+		"exAwakening": [{"hp":608,"mp":35,"atk":18,"def":21,"mag":27,"spr":27},{"hp":468,"mp":27,"atk":14,"def":16,"mag":20,"spr":21},{"hp":327,"mp":19,"atk":10,"def":11,"mag":14,"spr":14}],
+		"fragmentId": "250001400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5098,"mp":294,"atk":253,"def":195,"mag":223,"spr":225},
+			"minStats":{"hp":1682,"mp":97,"atk":83,"def":64,"mag":74,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["ピュアライトアサルト"]
 	},
 	"100025805": {
 		"name":"Sakura of the Delta Star",
@@ -8435,7 +8473,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","throwing","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["フラッド","ウォタガ","真・水刃計"]
+		"enhancementSkills":["フラッド","ウォタガ","プロテガ","シェルガ","真・水刃計"]
 	},
 	"100034717": {
 		"name":"Sea King Nichol BS",
@@ -15221,7 +15259,7 @@
 		}
 	},
 	"215000627": {
-		"name":"アラネア BS",
+		"name":"Aranea BS",
 		"jpname":"アラネア BS",
 		"id":"215000627",
 		"braveShifted":"215000605",
@@ -15732,7 +15770,7 @@
 		"enhancementSkills":["シフトブレイク"]
 	},
 	"215003007": {
-		"name":"Crimson Blade Ardyn",
+		"name":"Vermilion Blade Ardyn",
 		"jpname":"真紅の剣アーデン",
 		"id":"215003007",
 		"braveShift":"215003017",
@@ -15751,7 +15789,7 @@
 		"enhancementSkills":["インフェルノソード"]
 	},
 	"215003017": {
-		"name":"Crimson Blade Ardyn BS",
+		"name":"Vermilion Blade Ardyn BS",
 		"jpname":"真紅の剣アーデン BS",
 		"id":"215003017",
 		"braveShifted":"215003007",
@@ -16451,17 +16489,20 @@
 		"name":"Queen",
 		"jpname":"クイーン",
 		"id":"254000205",
-		"max_rarity":"7",
+		"braveShift":"254000227",
+		"exAwakening": [{"hp":605,"mp":25,"atk":29,"def":22,"mag":20,"spr":21},{"hp":465,"mp":19,"atk":22,"def":17,"mag":15,"spr":16},{"hp":325,"mp":13,"atk":15,"def":11,"mag":11,"spr":11}],
+		"fragmentId": "250001900",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4656,"mp":196,"atk":189,"def":170,"mag":159,"spr":164},
-			"minStats":{"hp":1536,"mp":65,"atk":62,"def":53,"mag":52,"spr":52},
+			"maxStats":{"hp":4656,"mp":196,"atk":225,"def":170,"mag":159,"spr":164},
+			"minStats":{"hp":1536,"mp":65,"atk":74,"def":56,"mag":52,"spr":54},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","hat","clothes"],
-		"enhancementSkills":["エナジーシェア","羅刹","デバステート"],
+		"equip":["dagger","sword","greatSword","hat","clothes","visionCard"],
+		"enhancementSkills":["エナジーシェア","羅刹","デバステート","ボルトスラスト"],
 		"6_form": {
 			"name":"Queen",
 			"jpname":"クイーン",
@@ -16477,8 +16518,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","hat","clothes"],
-			"enhancementSkills":["エナジーシェア","羅刹","デバステート"]
+			"enhancementSkills":["エナジーシェア","羅刹","デバステート","ボルトスラスト"]
+		},
+		"7_form": {
+			"name":"Queen",
+			"jpname":"クイーン",
+			"id":"254000205",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4656,"mp":196,"atk":189,"def":170,"mag":159,"spr":164},
+				"minStats":{"hp":1536,"mp":65,"atk":62,"def":53,"mag":52,"spr":52},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","hat","clothes"],
+			"enhancementSkills":["エナジーシェア","羅刹","デバステート","ボルトスラスト"]
 		}
+	},
+	"254000227": {
+		"name":"Queen BS",
+		"jpname":"クイーン BS",
+		"id":"254000227",
+		"braveShifted":"254000205",
+		"exAwakening": [{"hp":605,"mp":25,"atk":29,"def":22,"mag":20,"spr":21},{"hp":465,"mp":19,"atk":22,"def":17,"mag":15,"spr":16},{"hp":325,"mp":13,"atk":15,"def":11,"mag":11,"spr":11}],
+		"fragmentId": "250001900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4656,"mp":196,"atk":225,"def":170,"mag":159,"spr":164},
+			"minStats":{"hp":1536,"mp":65,"atk":74,"def":56,"mag":52,"spr":54},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","hat","clothes","visionCard"]
 	},
 	"254000304": {
 		"name":"Nine",
@@ -16732,17 +16808,20 @@
 		"name":"Machina",
 		"jpname":"マキナ",
 		"id":"254001805",
-		"max_rarity":"7",
+		"braveShift":"254001827",
+		"exAwakening": [{"hp":605,"mp":25,"atk":24,"def":22,"mag":20,"spr":21},{"hp":465,"mp":19,"atk":18,"def":17,"mag":15,"spr":16},{"hp":325,"mp":13,"atk":13,"def":11,"mag":11,"spr":11}],
+		"fragmentId": "250001800",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4623,"mp":209,"atk":201,"def":162,"mag":160,"spr":185},
-			"minStats":{"hp":1526,"mp":69,"atk":66,"def":53,"mag":53,"spr":61},
+			"maxStats":{"hp":4623,"mp":209,"atk":230,"def":162,"mag":160,"spr":185},
+			"minStats":{"hp":1526,"mp":69,"atk":76,"def":53,"mag":53,"spr":61},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","hat","clothes"],
-		"enhancementSkills":["ドレインソード","故郷の生き残り","スタンブレイド","エレメントアイガー","精神+20%"],
+		"equip":["dagger","sword","greatSword","katana","hat","clothes","visionCard"],
+		"enhancementSkills":["ドレインソード","故郷の生き残り","スタンブレイド","エレメントアイガー","精神+20%","ヴァーミリオンブレイド"],
 		"6_form": {
 			"name":"Machina",
 			"jpname":"マキナ",
@@ -16758,8 +16837,43 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","hat","clothes"],
-			"enhancementSkills":["ドレインソード","故郷の生き残り","スタンブレイド","エレメントアイガー","精神+20%"]
+			"enhancementSkills":["ドレインソード","故郷の生き残り","スタンブレイド","エレメントアイガー","精神+20%","ヴァーミリオンブレイド"]
+		},
+		"7_form": {
+			"name":"Machina",
+			"jpname":"マキナ",
+			"id":"254001805",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4623,"mp":209,"atk":201,"def":162,"mag":160,"spr":185},
+				"minStats":{"hp":1526,"mp":69,"atk":66,"def":53,"mag":53,"spr":61},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","hat","clothes"],
+			"enhancementSkills":["ドレインソード","故郷の生き残り","スタンブレイド","エレメントアイガー","精神+20%","ヴァーミリオンブレイド"]
 		}
+	},
+	"254001827": {
+		"name":"マキナ BS",
+		"jpname":"マキナ BS",
+		"id":"254001827",
+		"braveShifted":"254001805",
+		"exAwakening": [{"hp":605,"mp":25,"atk":24,"def":22,"mag":20,"spr":21},{"hp":465,"mp":19,"atk":18,"def":17,"mag":15,"spr":16},{"hp":325,"mp":13,"atk":13,"def":11,"mag":11,"spr":11}],
+		"fragmentId": "250001800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4623,"mp":209,"atk":230,"def":162,"mag":160,"spr":185},
+			"minStats":{"hp":1526,"mp":69,"atk":76,"def":53,"mag":53,"spr":61},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","clothes","visionCard"]
 	},
 	"254001905": {
 		"name":"Kurasame",
@@ -16840,6 +16954,43 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor","robe"]
 		}
+	},
+	"254002207": {
+		"name":"Ice Reaper Kurasame",
+		"jpname":"氷剣の死神クラサメ",
+		"id":"254002207",
+		"braveShift":"254002217",
+		"exAwakening": [{"hp":630,"mp":32,"atk":72,"def":17,"mag":36,"spr":20},{"hp":485,"mp":25,"atk":56,"def":13,"mag":28,"spr":16},{"hp":339,"mp":17,"atk":39,"def":9,"mag":19,"spr":11}],
+		"fragmentId": "250001700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4851,"mp":250,"atk":280,"def":138,"mag":280,"spr":161},
+			"minStats":{"hp":1601,"mp":83,"atk":92,"def":46,"mag":92,"spr":53},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["氷晶閃刃","幽冥閃刃","ブリザガ"]
+	},
+	"254002217": {
+		"name":"Ice Reaper Kurasame BS",
+		"jpname":"氷剣の死神クラサメ BS",
+		"id":"254002217",
+		"braveShifted":"254002207",
+		"exAwakening": [{"hp":630,"mp":32,"atk":72,"def":17,"mag":36,"spr":20},{"hp":485,"mp":25,"atk":56,"def":13,"mag":28,"spr":16},{"hp":339,"mp":17,"atk":39,"def":9,"mag":19,"spr":11}],
+		"fragmentId": "250001700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4851,"mp":250,"atk":280,"def":138,"mag":280,"spr":161},
+			"minStats":{"hp":1601,"mp":83,"atk":92,"def":46,"mag":92,"spr":53},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe","visionCard"]
 	},
 	"255000104": {
 		"name":"Juggler",

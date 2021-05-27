@@ -163,10 +163,12 @@ const unitRules = {
     7103: (item) => item.exclusiveSex = 'female',// Female units,
     7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
     7203: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10003], // FF3
-    7206: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10006], // FF3
+    7206: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10006], // FF6
+    7209: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10009], // FF9
     7212: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10012], // FF12
     7215: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10015], // FF15
     7216: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001], // FFBE units
+    7271: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20032], // FMA Brotherhood
     7272: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20033], // KH units
     7273: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10013] || []).concat(nvUnitIdsByGameId[11006] || []).concat(nvUnitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units
     9501: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001].concat(nvUnitIdsByGameId[11010]), // FFBE & WOTV units
@@ -566,6 +568,13 @@ function treatVisionCard(visionCard, visionCardId, skills) {
                                     addStat(sameCondition[0], stat.toLowerCase() + '%', conditional[stat.toLowerCase() + '%']);
                                 }
                             });
+                        }
+                        if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
+                            let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
+                            if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                                console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                            }
+                            unitRules[ruleId](conditional);
                         }
                     } else {
                         if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
