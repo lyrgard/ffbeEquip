@@ -2248,9 +2248,7 @@
 			{"atk%":50, "equipedConditions":["katana"], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"skillEnhancement":{"213820":2.4,"501960":2.3,"501970":1.25,"501980":1.1}, "levelCondition":120},
-			{"hp%":20, "mp%":20, "atk%":40, "def%":30, "spr%":30, "dualWielding":{"atk":50}, "levelCondition":120},
-			{"improvedDW":true, "levelCondition":120, "exLevelCondition":2},
-			{"atk":500, "levelCondition":120, "exLevelCondition":2}
+			{"hp%":20, "mp%":20, "atk%":40, "def%":30, "spr%":30, "dualWielding":{"atk":50}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Loren",
@@ -2333,9 +2331,7 @@
 			{"atk%":80, "dualWielding":{"atk":100}, "equipedConditions":[["504213800","303004500"]], "levelCondition":120},
 			{"hp%":20, "atk%":30, "def%":20, "spr%":20, "special":["dualWield"], "levelCondition":120},
 			{"hp%":30, "mp%":30, "atk%":30, "def%":20, "spr%":20, "lbPerTurn":{"min":3,"max":3}, "lbDamage":50, "levelCondition":120},
-			{"mp%":20, "atk%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "levelCondition":120},
-			{"improvedDW":true, "levelCondition":120, "exLevelCondition":2},
-			{"atk":500, "levelCondition":120, "exLevelCondition":2}
+			{"mp%":20, "atk%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "levelCondition":120}
 		]
 	},
 	"100009204": {
@@ -8866,7 +8862,7 @@
 	},
 	"100028705": {
 		"name":"Kalmia",
-		"wikiEntry":"カルミア",
+		"wikiEntry":"Kalmia",
 		"id":"100028705",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -8887,7 +8883,7 @@
 		],
 		"6_form": {
 			"name":"Kalmia",
-			"wikiEntry":"カルミア",
+			"wikiEntry":"Kalmia",
 			"id":"100028705",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -16540,6 +16536,7 @@
 			{"hp%":20, "atk%":20, "mag%":20, "replaceLb":{"name":"Rose of May","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.3,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5.3x * 2 = 10.6x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":45,"mag":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 3 turns to all enemies"},{"effect":{"noUse":true,"globalMitigation":30,"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 30% to all allies for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.75x * 2 = 13.5x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"mag":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"globalMitigation":30,"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 30% to all allies for 3 turns"}],"frames":[98,130,189,276],"move":"walk"}, "equipedConditions":[["303003500","303009400","303009500","504227273"]]},
 			{"mag%":20, "levelCondition":115},
 			{"atk%":20, "def%":20, "dualWielding":{"atk":30,"mag":30}, "resist":[{"name":"light","percent":50}], "lbDamage":100, "levelCondition":120},
+			{"improvedDW":true, "levelCondition":120},
 			{"atk%":140, "spr%":140, "equipedConditions":["greatSword"]}
 		],
 		"6_form": {
@@ -16590,7 +16587,8 @@
 				{"hp%":30, "atk%":20, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 				{"hp%":20, "atk%":20, "mag%":20, "replaceLb":{"name":"Rose of May","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.3,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5.3x * 2 = 10.6x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":45,"mag":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 3 turns to all enemies"},{"effect":{"noUse":true,"globalMitigation":30,"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 30% to all allies for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.75x * 2 = 13.5x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"mag":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"globalMitigation":30,"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 30% to all allies for 3 turns"}],"frames":[98,130,189,276],"move":"walk"}, "equipedConditions":[["303003500","303009400","303009500","504227273"]]},
 				{"mag%":20, "levelCondition":115},
-				{"atk%":20, "def%":20, "dualWielding":{"atk":30,"mag":30}, "resist":[{"name":"light","percent":50}], "lbDamage":100, "levelCondition":120}
+				{"atk%":20, "def%":20, "dualWielding":{"atk":30,"mag":30}, "resist":[{"name":"light","percent":50}], "lbDamage":100, "levelCondition":120},
+				{"improvedDW":true, "levelCondition":120}
 			]
 		}
 	},
@@ -30040,6 +30038,58 @@
 			{"atk%":60, "mag%":60, "equipedConditions":["sword"], "levelCondition":120}
 		]
 	},
+	"401010807": {
+		"name":"Kaktiria",
+		"wikiEntry":"Kaktiria",
+		"id":"401010807",
+		"braveShift":"401010817",
+		"exAwakening": [{"hp":611,"mp":36,"atk":18,"def":24,"mag":61,"spr":24},{"hp":470,"mp":28,"atk":14,"def":18,"mag":47,"spr":18},{"hp":329,"mp":20,"atk":10,"def":13,"mag":32,"spr":13}],
+		"fragmentId": "310000710",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4700,"mp":280,"atk":140,"def":182,"mag":234,"spr":182},
+			"minStats":{"hp":1551,"mp":92,"atk":46,"def":60,"mag":77,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","whip","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Thorny Teamwork","Protectga","Shellga","Cactus Break"],
+		"skills": [
+			{"hp%":20, "mp%":50, "def%":80, "spr%":80, "evade":{"physical":50,"magical":30}, "resist":[{"name":"disease","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100}]},
+			{"mag%":50, "resist":[{"name":"paralysis","percent":100}], "killers":[{"name":"beast","physical":100},{"name":"demon","physical":100}], "equipedConditions":[["1100000487","1100000488","401001101","1100000492"]]},
+			{"mag%":20, "levelCondition":115},
+			{"mpRefresh":10, "levelCondition":120},
+			{"def%":70, "spr%":70, "equipedConditions":["robe"], "levelCondition":120}
+		]
+	},
+	"401010817": {
+		"name":"Kaktiria BS",
+		"wikiEntry":"Kaktiria",
+		"id":"401010817",
+		"braveShifted":"401010807",
+		"exAwakening": [{"hp":611,"mp":36,"atk":18,"def":24,"mag":61,"spr":24},{"hp":470,"mp":28,"atk":14,"def":18,"mag":47,"spr":18},{"hp":329,"mp":20,"atk":10,"def":13,"mag":32,"spr":13}],
+		"fragmentId": "310000710",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4750,"mp":300,"atk":141,"def":171,"mag":256,"spr":171},
+			"minStats":{"hp":1568,"mp":99,"atk":47,"def":56,"mag":84,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","whip","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Cactus Break","Protectga","Shellga","Deadly Drought"],
+		"skills": [
+			{"hp%":20, "mp%":50, "def%":50, "mag%":50, "spr%":30, "dualWielding":{"mag":200}, "special":["dualWield"]},
+			{"mag%":50, "resist":[{"name":"paralysis","percent":100}], "killers":[{"name":"beast","physical":100},{"name":"demon","physical":100}], "equipedConditions":[["1100000487","1100000488","401001101","1100000492"]]},
+			{"mag%":20, "levelCondition":115},
+			{"mp%":50, "def%":30, "mag%":30, "spr%":50, "improvedDW":true, "mpRefresh":10, "levelCondition":120},
+			{"mag%":80, "equipedConditions":["fist"], "levelCondition":120}
+		]
+	},
 	"401010907": {
 		"name":"Roi Béhémy",
 		"wikiEntry":"King_Behemy",
@@ -30063,7 +30113,7 @@
 		],
 		"skills": [
 			{"hp%":50, "spr%":50, "evade":{"physical":30,"magical":50}, "lbFillRate":100, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "drawAttacks":70},
-			{"hp%":100, "mp%":30, "def%":30, "spr%":30, "oneWeaponMastery":{"def":100}, "equipedConditions":[["1100000482","1500000149","1100000483"]]},
+			{"hp%":100, "mp%":30, "def%":30, "spr%":30, "oneWeaponMastery":{"def":100}, "equipedConditions":[["1100000482","1500000149","401001201","1100000483"]]},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":50, "def%":50, "chainMastery":100, "levelCondition":120}
 		]
@@ -30091,7 +30141,7 @@
 		],
 		"skills": [
 			{"hp%":50, "spr%":50, "evade":{"physical":30,"magical":50}, "lbFillRate":100, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "drawAttacks":70},
-			{"hp%":100, "mp%":30, "def%":30, "spr%":30, "oneWeaponMastery":{"def":100}, "equipedConditions":[["1100000482","1500000149","1100000483"]]},
+			{"hp%":100, "mp%":30, "def%":30, "spr%":30, "oneWeaponMastery":{"def":100}, "equipedConditions":[["1100000482","1500000149","401001201","1100000483"]]},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":50, "def%":50, "chainMastery":100, "levelCondition":120}
 		]

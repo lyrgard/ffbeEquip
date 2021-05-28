@@ -6252,7 +6252,7 @@
 	},
 	"100028705": {
 		"name":"Kalmia",
-		"wikiEntry":"カルミア",
+		"wikiEntry":"Kalmia",
 		"id":"100028705",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6266,7 +6266,7 @@
 		"equip":["staff","rod","mace","lightShield","hat","clothes","robe"],
 		"6_form": {
 			"name":"Kalmia",
-			"wikiEntry":"カルミア",
+			"wikiEntry":"Kalmia",
 			"id":"100028705",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -21065,6 +21065,44 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","rod","throwing","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["Ice Coupé","Chilling Lunge"]
+	},
+	"401010807": {
+		"name":"Kaktilia",
+		"wikiEntry":"Kaktiria",
+		"id":"401010807",
+		"braveShift":"401010817",
+		"exAwakening": [{"hp":611,"mp":36,"atk":18,"def":24,"mag":61,"spr":24},{"hp":470,"mp":28,"atk":14,"def":18,"mag":47,"spr":18},{"hp":329,"mp":20,"atk":10,"def":13,"mag":32,"spr":13}],
+		"fragmentId": "310000710",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4700,"mp":280,"atk":140,"def":182,"mag":234,"spr":182},
+			"minStats":{"hp":1551,"mp":92,"atk":46,"def":60,"mag":77,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","whip","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Thorny Teamwork","Protectga","Shellga","Cactus Break"]
+	},
+	"401010817": {
+		"name":"Kaktilia BS",
+		"wikiEntry":"Kaktiria",
+		"id":"401010817",
+		"braveShifted":"401010807",
+		"exAwakening": [{"hp":611,"mp":36,"atk":18,"def":24,"mag":61,"spr":24},{"hp":470,"mp":28,"atk":14,"def":18,"mag":47,"spr":18},{"hp":329,"mp":20,"atk":10,"def":13,"mag":32,"spr":13}],
+		"fragmentId": "310000710",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4750,"mp":300,"atk":141,"def":171,"mag":256,"spr":171},
+			"minStats":{"hp":1568,"mp":99,"atk":47,"def":56,"mag":84,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","whip","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Cactus Break","Protectga","Shellga","Deadly Drought"]
 	},
 	"401010907": {
 		"name":"Rey Bégimy",
