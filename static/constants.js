@@ -80,6 +80,7 @@ const itemEnhancementLabels = {
     },
     "rare_5":{
         "dagger": "ATK +20%, +150% LB fill rate",
+        "throwing": "ATK/MAG +20%",
         "fake": "Rare++"
     },
     "special_1": {
@@ -211,6 +212,7 @@ const itemEnhancementAbilities = {
     },
     "rare_5":{
         "dagger": {"atk%":20, "lbFillRate":150},
+        "throwing": {"atk%":20, "mag%":20},
         "fake": {}
     },
     "special_1": {
@@ -383,6 +385,7 @@ const itemEnhancementBySkillId = {
     "410040": "rare_4", // HP +40%
     "910339": "rare_4", // ATK +40%
     "914847": "rare_5", // Twilight Tide
+    "914990": "rare_5", // Projectile Prowess, ATK/MAG +20%
     "451050": "special_1",
     "451054": "special_1",
     "451053": "special_1",
@@ -460,6 +463,7 @@ const skillIdByItemEnhancement = {
     },
     "rare_5":{
         "dagger": "914847",
+        "throwing": "914990",
     },
     "special_1": {
         "303007600":"451050",
