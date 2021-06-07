@@ -312,7 +312,7 @@
 	{"atk":56, "def":28, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}]},
 	{"atk":60, "def":30, "resist":[{"name":"wind","percent":15},{"name":"light","percent":15},{"name":"wind","percent":15},{"name":"light","percent":15}], "conditional":[{"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}]},{"atk%":20,"def%":20}]}
 ]},
-{"id":"100002801", "name":"未来に遺されたもの", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002801.png", "sortId":43, "levels":[
+{"id":"100002801", "name":"Entrusted for the Future", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002801.png", "sortId":43, "levels":[
 	{"atk":40, "def":20},
 	{"atk":42, "def":21},
 	{"atk":44, "def":22},
@@ -422,6 +422,30 @@
 ]},
 {"id":"100003801", "name":"アクスターの記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003801.png", "sortId":59, "levels":[
 	{"atk":100, "atk%":20, "staticStats":{"atk":1000}, "conditional":[{"equipedConditions":["katana"],"atk%":80}]}
+]},
+{"id":"100004001", "name":"華麗に変身！ 黒衣の二人組", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004001.png", "sortId":68, "levels":[
+	{"hp":400, "mag":40, "spr":40},
+	{"hp":440, "mag":44, "spr":44},
+	{"hp":480, "mag":48, "spr":48},
+	{"hp":520, "mp%":20, "mag":52, "spr":52},
+	{"hp":560, "mp%":20, "mag":56, "spr":56},
+	{"hp":600, "mp%":20, "mag":60, "spr":60},
+	{"hp":640, "mp%":40, "mag":64, "spr":64},
+	{"hp":680, "mp%":40, "mag":68, "spr":68},
+	{"hp":720, "mp%":40, "mag":72, "spr":72},
+	{"hp":800, "mp%":40, "mag":80, "spr":80, "conditional":[{"resist":[{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}]}]}
+]},
+{"id":"100004101", "name":"ロカの成長記", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004101.png", "sortId":69, "levels":[
+	{"atk":25, "def":25, "mag":25, "spr":25},
+	{"atk":27, "def":27, "mag":27, "spr":27},
+	{"atk":30, "def":30, "mag":30, "spr":30},
+	{"atk":32, "def":32, "mag":32, "spr":32, "mpRefresh":5},
+	{"atk":35, "def":35, "mag":35, "spr":35, "mpRefresh":5},
+	{"atk":37, "def":37, "mag":37, "spr":37, "mpRefresh":5},
+	{"atk":40, "def":40, "mag":40, "spr":40, "mpRefresh":10},
+	{"atk":42, "def":42, "mag":42, "spr":42, "mpRefresh":10},
+	{"atk":45, "def":45, "mag":45, "spr":45, "mpRefresh":10},
+	{"atk":50, "def":50, "mag":50, "spr":50, "mpRefresh":18}
 ]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
@@ -540,7 +564,7 @@
 {"id":"207000601", "name":"感動の再会だ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000601.png", "sortId":62, "levels":[
 	{"atk":125, "staticStats":{"atk":500}, "killers":[{"name":"undead","physical":100,"magical":100}], "lbDamage":50}
 ]},
-{"id":"209000101", "name":"この刃に懸けて", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_209000101.png", "sortId":51, "levels":[
+{"id":"209000101", "name":"Swords of Fury", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_209000101.png", "sortId":51, "levels":[
 	{"atk":40},
 	{"atk":47},
 	{"atk":54},
@@ -696,7 +720,7 @@
 	{"atk":64, "atk%":40, "spr":79, "spr%":40},
 	{"atk":72, "atk%":40, "spr":88, "spr%":40, "conditional":[{"atk%":30,"spr%":30},{"resist":[{"name":"light","percent":50}]}]}
 ]},
-{"id":"338000101", "name":"真理の扉", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_338000101.png", "sortId":44, "levels":[
+{"id":"338000101", "name":"The Portal of Truth", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_338000101.png", "sortId":44, "levels":[
 	{"atk":50},
 	{"atk":55},
 	{"atk":60},

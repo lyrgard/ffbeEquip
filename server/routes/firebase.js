@@ -184,20 +184,20 @@ const unitSchema = Joi.object().keys({
         spr: Joi.number().min(0).max(99),
     }),
     buffs: Joi.object().keys({
-        hp: Joi.number().min(0).max(10000),
-        mp: Joi.number().min(0).max(600),
-        atk: Joi.number().min(0).max(600),
-        def: Joi.number().min(0).max(600),
-        mag: Joi.number().min(0).max(600),
-        spr: Joi.number().min(0).max(600),
-        lbFillRate: Joi.number().min(0).max(600),
+        hp: Joi.number().min(0).max(30000),
+        mp: Joi.number().min(0).max(2000),
+        atk: Joi.number().min(0).max(2000),
+        def: Joi.number().min(0).max(2000),
+        mag: Joi.number().min(0).max(2000),
+        spr: Joi.number().min(0).max(2000),
+        lbFillRate: Joi.number().min(0).max(2000),
         mitigation: Joi.object().keys({
             global: Joi.number().min(0).max(100),
             physical: Joi.number().min(0).max(100),
             magical: Joi.number().min(0).max(100)
         }),
-        drawAttacks: Joi.number().min(0).max(600),
-        lbDamage: Joi.number().min(0).max(600),
+        drawAttacks: Joi.number().min(0).max(2000),
+        lbDamage: Joi.number().min(0).max(2000),
         killers: Joi.array().max(12).items(
             Joi.object().keys({
                 name: racesSchema,
