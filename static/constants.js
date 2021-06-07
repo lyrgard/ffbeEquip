@@ -463,7 +463,7 @@ const skillIdByItemEnhancement = {
     },
     "rare_5":{
         "dagger": "914847",
-        "throwing": "914990",
+        "throwing": "914990"
     },
     "special_1": {
         "303007600":"451050",
