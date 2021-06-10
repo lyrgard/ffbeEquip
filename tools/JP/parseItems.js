@@ -118,6 +118,7 @@ const unitRules = {
     7215: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10015], // FF15
     7216: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001], // FFBE units
     7218: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11003], // FF Type 0
+    7245: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20006], // DQMSL
     7271: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20032], // Fullmetal Alchemist units
     7272: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20033], // KH units
     7273: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10013] || []).concat(nvUnitIdsByGameId[11006] || []).concat(nvUnitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units

@@ -7650,8 +7650,8 @@
 		}
 	},
 	"100033907": {
-		"name":"Chorale",
-		"wikiEntry":"コラール",
+		"name":"克拉爾",
+		"wikiEntry":"Chorale",
 		"id":"100033907",
 		"braveShift":"100033917",
 		"exAwakening": [{"hp":575,"mp":31,"atk":61,"def":24,"mag":20,"spr":23},{"hp":442,"mp":24,"atk":47,"def":18,"mag":15,"spr":17},{"hp":309,"mp":17,"atk":33,"def":13,"mag":10,"spr":12}],
@@ -7666,11 +7666,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["whip","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["アビスウィップ","カッティングパニッシュ"]
+		"enhancementSkills":["Abyss Whip","Cutting Punishment"]
 	},
 	"100033917": {
-		"name":"Chorale BS",
-		"wikiEntry":"コラール",
+		"name":"克拉爾 BS",
+		"wikiEntry":"Chorale",
 		"id":"100033917",
 		"braveShifted":"100033907",
 		"exAwakening": [{"hp":575,"mp":31,"atk":61,"def":24,"mag":20,"spr":23},{"hp":442,"mp":24,"atk":47,"def":18,"mag":15,"spr":17},{"hp":309,"mp":17,"atk":33,"def":13,"mag":10,"spr":12}],
@@ -7685,7 +7685,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["whip","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["アビスウィップ","スパイラルシャドウウィップ"]
+		"enhancementSkills":["Abyss Whip","Shadow Whip Spiral"]
 	},
 	"100034005": {
 		"name":"Belmera",
@@ -7719,8 +7719,8 @@
 		}
 	},
 	"100034107": {
-		"name":"Diverti",
-		"wikiEntry":"ディベル",
+		"name":"狄貝爾",
+		"wikiEntry":"Diverti",
 		"id":"100034107",
 		"braveShift":"100034117",
 		"exAwakening": [{"hp":637,"mp":33,"atk":23,"def":20,"mag":24,"spr":62},{"hp":490,"mp":25,"atk":18,"def":16,"mag":19,"spr":48},{"hp":343,"mp":17,"atk":12,"def":11,"mag":13,"spr":33}],
@@ -7735,11 +7735,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["throwing","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["クレイヒートアップ","ダメージフォール"]
+		"enhancementSkills":["Fired Up Earth","Damage Card Cut"]
 	},
 	"100034117": {
-		"name":"Diverti BS",
-		"wikiEntry":"ディベル",
+		"name":"狄貝爾 BS",
+		"wikiEntry":"Diverti",
 		"id":"100034117",
 		"braveShifted":"100034107",
 		"exAwakening": [{"hp":637,"mp":33,"atk":23,"def":20,"mag":24,"spr":62},{"hp":490,"mp":25,"atk":18,"def":16,"mag":19,"spr":48},{"hp":343,"mp":17,"atk":12,"def":11,"mag":13,"spr":33}],
@@ -7754,11 +7754,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["throwing","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["クレイヒートアップ","アビスサモン"]
+		"enhancementSkills":["Fired Up Earth","Abyssal Summon"]
 	},
 	"100034205": {
-		"name":"Conche",
-		"wikiEntry":"コンチェ",
+		"name":"孔什",
+		"wikiEntry":"Conche",
 		"id":"100034205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7771,8 +7771,8 @@
 		"stats_pattern":4,
 		"equip":["harp","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"6_form": {
-			"name":"Conche",
-			"wikiEntry":"コンチェ",
+			"name":"孔什",
+			"wikiEntry":"Conche",
 			"id":"100034205",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -21523,6 +21523,12 @@
   "303000103":{"name":"Adel","jpname":"アデル","id":"303000103","max_rarity":"4","min_rarity":"3","sex":"male","stats":{"maxStats":{"hp":1856,"mp":84,"atk":79,"def":70,"mag":76,"spr":70},"minStats":{"hp":612,"mp":28,"atk":26,"def":23,"mag":25,"spr":23},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"]},
   "303000204":{"name":"Demigod Adel","jpname":"半神アデル","id":"303000204","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3582,"mp":154,"atk":132,"def":140,"mag":125,"spr":131},"minStats":{"hp":1182,"mp":51,"atk":44,"def":46,"mag":41,"spr":43},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","helm","lightArmor","heavyArmor"],"enhancementSkills":["ライトボール","閃き","皇帝"]},
   "303000305":{"name":"Emperor Adel","jpname":"皇帝アデル","id":"303000305","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4834,"mp":206,"atk":206,"def":187,"mag":166,"spr":175},"minStats":{"hp":1595,"mp":68,"atk":68,"def":62,"mag":55,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","helm","lightArmor","heavyArmor"],"6_form":{"name":"Emperor Adel","jpname":"皇帝アデル","id":"303000305","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3719,"mp":159,"atk":159,"def":144,"mag":128,"spr":135},"minStats":{"hp":1227,"mp":52,"atk":52,"def":48,"mag":42,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","helm","lightArmor","heavyArmor"]}},
+  "306000127":{"name":"竜王 BS","jpname":"竜王 BS","id":"306000127","braveShifted":"306000117","exAwakening":[{"hp":620,"mp":30,"atk":23,"def":21,"mag":32,"spr":22},{"hp":477,"mp":23,"atk":17,"def":16,"mag":25,"spr":17},{"hp":334,"mp":16,"atk":12,"def":11,"mag":17,"spr":12}],"fragmentId":"250002900","max_rarity":"NV","min_rarity":"NV","sex":"other","stats":{"maxStats":{"hp":5600,"mp":400,"atk":240,"def":260,"mag":300,"spr":220},"minStats":{"hp":1848,"mp":132,"atk":79,"def":86,"mag":99,"spr":73},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","mace","fist","hat","clothes","robe","visionCard"],"enhancementSkills":["覇者の竜牙","破滅の炎"]},
+  "306000627":{"name":"スライム BS","jpname":"スライム BS","id":"306000627","braveShifted":"306000603","exAwakening":[{"hp":600,"mp":29,"atk":26,"def":26,"mag":26,"spr":26},{"hp":462,"mp":23,"atk":20,"def":20,"mag":20,"spr":20},{"hp":323,"mp":16,"atk":14,"def":14,"mag":14,"spr":14}],"fragmentId":"250003000","max_rarity":"NV","min_rarity":"NV","sex":"other","stats":{"maxStats":{"hp":4620,"mp":230,"atk":200,"def":200,"mag":200,"spr":200},"minStats":{"hp":1525,"mp":76,"atk":66,"def":66,"mag":66,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes","visionCard"]},
+  "306001407":{"name":"Alena & Marquis de Leon","jpname":"剛拳の姫と獅子王","id":"306001407","braveShift":"306001417","exAwakening":[{"hp":715,"mp":26,"atk":70,"def":33,"mag":10,"spr":18},{"hp":550,"mp":20,"atk":54,"def":26,"mag":7,"spr":14},{"hp":385,"mp":14,"atk":37,"def":18,"mag":5,"spr":10}],"fragmentId":"250002700","max_rarity":"NV","min_rarity":"NV","sex":"other","stats":{"maxStats":{"hp":5500,"mp":200,"atk":270,"def":260,"mag":79,"spr":143},"minStats":{"hp":1815,"mp":66,"atk":89,"def":86,"mag":26,"spr":47},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["剛拳ラッシュ","せいけんづき"]},
+  "306001417":{"name":"Alena & Marquis de Leon BS","jpname":"剛拳の姫と獅子王 BS","id":"306001417","braveShifted":"306001407","exAwakening":[{"hp":715,"mp":26,"atk":70,"def":33,"mag":10,"spr":18},{"hp":550,"mp":20,"atk":54,"def":26,"mag":7,"spr":14},{"hp":385,"mp":14,"atk":37,"def":18,"mag":5,"spr":10}],"fragmentId":"250002700","max_rarity":"NV","min_rarity":"NV","sex":"other","stats":{"maxStats":{"hp":5500,"mp":200,"atk":270,"def":260,"mag":79,"spr":143},"minStats":{"hp":1815,"mp":66,"atk":89,"def":86,"mag":26,"spr":47},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]},
+  "306001507":{"name":"Zoma","jpname":"滅びの王ゾーマ","id":"306001507","braveShift":"306001517","exAwakening":[{"hp":546,"mp":32,"atk":15,"def":22,"mag":65,"spr":29},{"hp":420,"mp":25,"atk":12,"def":17,"mag":50,"spr":23},{"hp":294,"mp":17,"atk":8,"def":11,"mag":35,"spr":16}],"fragmentId":"250002800","max_rarity":"NV","min_rarity":"NV","sex":"other","stats":{"maxStats":{"hp":4200,"mp":250,"atk":120,"def":170,"mag":250,"spr":230},"minStats":{"hp":1386,"mp":83,"atk":40,"def":56,"mag":83,"spr":76},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","helm","clothes","robe","visionCard"],"enhancementSkills":["マヒャド"]},
+  "306001517":{"name":"Zoma BS","jpname":"全てを滅ぼす者ゾーマ BS","id":"306001517","braveShifted":"306001507","exAwakening":[{"hp":546,"mp":32,"atk":15,"def":22,"mag":65,"spr":29},{"hp":420,"mp":25,"atk":12,"def":17,"mag":50,"spr":23},{"hp":294,"mp":17,"atk":8,"def":11,"mag":35,"spr":16}],"fragmentId":"250002800","max_rarity":"NV","min_rarity":"NV","sex":"other","stats":{"maxStats":{"hp":5800,"mp":400,"atk":200,"def":240,"mag":300,"spr":270},"minStats":{"hp":1914,"mp":132,"atk":66,"def":79,"mag":99,"spr":89},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","helm","clothes","robe","visionCard"],"enhancementSkills":["闇の衣","マヒャデドス","かがやくいき"]},
   "307000204":{"name":"Kaliva","jpname":"カリバ","id":"307000204","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3281,"mp":189,"atk":116,"def":119,"mag":150,"spr":135},"minStats":{"hp":1083,"mp":62,"atk":38,"def":39,"mag":50,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","mace","lightShield","hat","clothes","robe"]},
   "307000303":{"name":"Barusa","jpname":"バルーサ","id":"307000303","max_rarity":"5","min_rarity":"3","sex":"male","stats":{"maxStats":{"hp":2919,"mp":106,"atk":107,"def":113,"mag":75,"spr":96},"minStats":{"hp":963,"mp":35,"atk":35,"def":37,"mag":25,"spr":32},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","axe","hammer","mace","fist","lightShield","heavyShield","hat","clothes","lightArmor","heavyArmor"]},
   "307000404":{"name":"Toby","jpname":"トビー","id":"307000404","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3522,"mp":151,"atk":144,"def":124,"mag":120,"spr":123},"minStats":{"hp":1162,"mp":50,"atk":48,"def":41,"mag":40,"spr":41},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","katana","bow","whip","throwing","hat","clothes","lightArmor","robe"]},

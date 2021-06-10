@@ -324,7 +324,7 @@
 	{"atk":56, "def":28, "resist":[{"name":"water","percent":15},{"name":"earth","percent":15},{"name":"water","percent":15},{"name":"earth","percent":15}]},
 	{"atk":60, "def":30, "resist":[{"name":"water","percent":15},{"name":"earth","percent":15},{"name":"water","percent":15},{"name":"earth","percent":15}], "conditional":[{"atk%":20,"def%":20},{"resist":[{"name":"water","percent":30},{"name":"earth","percent":30}]}]}
 ]},
-{"id":"100002901", "name":"マク爺のお手伝い", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002901.png", "sortId":49, "levels":[
+{"id":"100002901", "name":"Chores with Grandpa", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002901.png", "sortId":49, "levels":[
 	{"mag":50},
 	{"mag":53},
 	{"mag":56},
@@ -336,7 +336,7 @@
 	{"mag":74, "conditional":[{"equipedConditions":["clothes"],"mag%":40}]},
 	{"mag":80, "killers":[{"name":"machine","magical":25}], "conditional":[{"equipedConditions":["clothes"],"mag%":40}]}
 ]},
-{"id":"100003001", "name":"愛したのは……", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003001.png", "sortId":52, "levels":[
+{"id":"100003001", "name":"The One I've Loved...", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003001.png", "sortId":52, "levels":[
 	{"atk":35},
 	{"atk":42},
 	{"atk":50},
@@ -422,6 +422,18 @@
 ]},
 {"id":"100003801", "name":"アクスターの記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003801.png", "sortId":59, "levels":[
 	{"atk":100, "atk%":20, "staticStats":{"atk":1000}, "conditional":[{"equipedConditions":["katana"],"atk%":80}]}
+]},
+{"id":"100003901", "name":"幸せの記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003901.png", "sortId":71, "levels":[
+	{"atk":40},
+	{"atk":44},
+	{"atk":48},
+	{"atk":52, "conditional":[{"equipedConditions":["fist"],"atk%":30}]},
+	{"atk":56, "conditional":[{"equipedConditions":["fist"],"atk%":30}]},
+	{"atk":60, "conditional":[{"equipedConditions":["fist"],"atk%":30}]},
+	{"atk":64, "conditional":[{"equipedConditions":["fist"],"atk%":60}]},
+	{"atk":68, "conditional":[{"equipedConditions":["fist"],"atk%":60}]},
+	{"atk":72, "conditional":[{"equipedConditions":["fist"],"atk%":60}]},
+	{"atk":80, "killers":[{"name":"machine","physical":50,"magical":50}], "conditional":[{"equipedConditions":["fist"],"atk%":60}]}
 ]},
 {"id":"100004001", "name":"華麗に変身！ 黒衣の二人組", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004001.png", "sortId":68, "levels":[
 	{"hp":400, "mag":40, "spr":40},
@@ -671,6 +683,18 @@
 	{"atk":85, "atk%":50, "mag":85, "mag%":50, "lbDamage":25},
 	{"atk":90, "atk%":50, "mag":90, "mag%":50, "lbDamage":25},
 	{"atk":100, "atk%":50, "mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
+]},
+{"id":"306000101", "name":"アリーナVSベロリンマン", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_306000101.png", "sortId":70, "levels":[
+	{"atk":50, "mag":50},
+	{"atk":55, "mag":55},
+	{"atk":60, "mag":60},
+	{"atk":65, "mag":65, "lbDamage":25},
+	{"atk":70, "mag":70, "lbDamage":25},
+	{"atk":75, "mag":75, "lbDamage":25},
+	{"atk":80, "mag":80, "killers":[{"name":"dragon","physical":50,"magical":50}], "lbDamage":25},
+	{"atk":85, "mag":85, "killers":[{"name":"dragon","physical":50,"magical":50}], "lbDamage":25},
+	{"atk":90, "mag":90, "killers":[{"name":"dragon","physical":50,"magical":50}], "lbDamage":25},
+	{"atk":100, "mag":100, "killers":[{"name":"dragon","physical":50,"magical":50}], "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
 ]},
 {"id":"312000101", "name":"もうキスしちゃう！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_312000101.png", "sortId":54, "levels":[
 	{"atk":40},

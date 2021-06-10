@@ -7471,7 +7471,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","hammer","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["ライジングセイバー","アストラルエッジ"]
+		"enhancementSkills":["ライジングセイバー","アストラルエッジ","プロミネンスセイバー"]
 	},
 	"100031017": {
 		"name":"Rain -Neo Vision- BS",
@@ -7490,7 +7490,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["アッシュブレイド","アストラルエッジ"]
+		"enhancementSkills":["アッシュブレイド","アストラルエッジ","エクストリームブレイド"]
 	},
 	"100031105": {
 		"name":"Lively Steward Shinju",
@@ -13544,7 +13544,7 @@
 		"enhancementSkills":["スピードアヴォイド","真・ストラサークル5"]
 	},
 	"209002907": {
-		"name":"Pure Black Mage Vivi",
+		"name":"Pure-Hearted Vivi",
 		"jpname":"純真の黒魔道士ビビ",
 		"id":"209002907",
 		"braveShift":"209002917",
@@ -13563,7 +13563,7 @@
 		"enhancementSkills":["ためる【IX】","3連ファイガ剣付与","コメット","ファイガ","ブリザガ","サンダガ"]
 	},
 	"209002917": {
-		"name":"Pure Black Mage Vivi BS",
+		"name":"Pure-Hearted Vivi BS",
 		"jpname":"純真の黒魔道士ビビ BS",
 		"id":"209002917",
 		"braveShifted":"209002907",
@@ -17805,17 +17805,20 @@
 		"name":"Dragonlord",
 		"jpname":"りゅうおう",
 		"id":"306000105",
-		"max_rarity":"7",
+		"braveShift":"306000127",
+		"exAwakening": [{"hp":620,"mp":30,"atk":23,"def":21,"mag":32,"spr":22},{"hp":477,"mp":23,"atk":17,"def":16,"mag":25,"spr":17},{"hp":334,"mp":16,"atk":12,"def":11,"mag":17,"spr":12}],
+		"fragmentId": "250002900",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"other",
 		"stats": {
-			"maxStats":{"hp":4773,"mp":237,"atk":179,"def":163,"mag":193,"spr":174},
-			"minStats":{"hp":1575,"mp":78,"atk":59,"def":51,"mag":64,"spr":55},
+			"maxStats":{"hp":4773,"mp":237,"atk":179,"def":163,"mag":251,"spr":174},
+			"minStats":{"hp":1575,"mp":78,"atk":59,"def":54,"mag":83,"spr":57},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","mace","fist","hat","clothes","robe"],
-		"enhancementSkills":["竜王のまもり","光のはどう","メラガイアー"],
+		"equip":["staff","rod","mace","fist","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["竜王のまもり","光のはどう","メラガイアー","悪の化身の超魔力"],
 		"6_form": {
 			"name":"Dragonlord",
 			"jpname":"りゅうおう",
@@ -17831,8 +17834,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","mace","fist","hat","clothes","robe"],
-			"enhancementSkills":["竜王のまもり","光のはどう","メラガイアー"]
+			"enhancementSkills":["竜王のまもり","光のはどう","メラガイアー","悪の化身の超魔力"]
+		},
+		"7_form": {
+			"name":"Dragonlord",
+			"jpname":"りゅうおう",
+			"id":"306000105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":4773,"mp":237,"atk":179,"def":163,"mag":193,"spr":174},
+				"minStats":{"hp":1575,"mp":78,"atk":59,"def":51,"mag":64,"spr":55},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["staff","rod","mace","fist","hat","clothes","robe"],
+			"enhancementSkills":["竜王のまもり","光のはどう","メラガイアー","悪の化身の超魔力"]
 		}
+	},
+	"306000127": {
+		"name":"竜王 BS",
+		"jpname":"竜王 BS",
+		"id":"306000127",
+		"braveShifted":"306000117",
+		"exAwakening": [{"hp":620,"mp":30,"atk":23,"def":21,"mag":32,"spr":22},{"hp":477,"mp":23,"atk":17,"def":16,"mag":25,"spr":17},{"hp":334,"mp":16,"atk":12,"def":11,"mag":17,"spr":12}],
+		"fragmentId": "250002900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5600,"mp":400,"atk":240,"def":260,"mag":300,"spr":220},
+			"minStats":{"hp":1848,"mp":132,"atk":79,"def":86,"mag":99,"spr":73},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","mace","fist","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["覇者の竜牙","破滅の炎"]
 	},
 	"306000204": {
 		"name":"Orochi",
@@ -17902,18 +17941,72 @@
 		"name":"Slime",
 		"jpname":"スライム",
 		"id":"306000603",
-		"max_rarity":"5",
+		"braveShift":"306000627",
+		"exAwakening": [{"hp":600,"mp":29,"atk":26,"def":26,"mag":26,"spr":26},{"hp":462,"mp":23,"atk":20,"def":20,"mag":20,"spr":20},{"hp":323,"mp":16,"atk":14,"def":14,"mag":14,"spr":14}],
+		"fragmentId": "250003000",
+		"max_rarity":"NV",
 		"min_rarity":"3",
 		"sex":"other",
-		"materiaSlots":3,
 		"stats": {
-			"maxStats":{"hp":2100,"mp":102,"atk":84,"def":84,"mag":84,"spr":84},
-			"minStats":{"hp":693,"mp":34,"atk":28,"def":28,"mag":28,"spr":28},
+			"maxStats":{"hp":4620,"mp":230,"atk":200,"def":200,"mag":200,"spr":200},
+			"minStats":{"hp":1525,"mp":76,"atk":66,"def":66,"mag":66,"spr":66},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
-		"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes"],
-		"enhancementSkills":["ベギラマ","ザオラル"]
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes","visionCard"],
+		"enhancementSkills":["ベギラマ","ザオラル","息をすいこむ","いきなり息をすいこむ"],
+		"6_form": {
+			"name":"Slime",
+			"jpname":"スライム",
+			"id":"306000603",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"3",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":2730,"mp":130,"atk":110,"def":110,"mag":110,"spr":110},
+				"minStats":{"hp":901,"mp":43,"atk":36,"def":36,"mag":36,"spr":36},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes"],
+			"enhancementSkills":["ベギラマ","ザオラル","息をすいこむ","いきなり息をすいこむ"]
+		},
+		"7_form": {
+			"name":"Slime",
+			"jpname":"スライム",
+			"id":"306000603",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"3",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3549,"mp":169,"atk":143,"def":143,"mag":143,"spr":143},
+				"minStats":{"hp":1171,"mp":56,"atk":47,"def":47,"mag":47,"spr":47},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes"],
+			"enhancementSkills":["ベギラマ","ザオラル","息をすいこむ","いきなり息をすいこむ"]
+		}
+	},
+	"306000627": {
+		"name":"スライム BS",
+		"jpname":"スライム BS",
+		"id":"306000627",
+		"braveShifted":"306000603",
+		"exAwakening": [{"hp":600,"mp":29,"atk":26,"def":26,"mag":26,"spr":26},{"hp":462,"mp":23,"atk":20,"def":20,"mag":20,"spr":20},{"hp":323,"mp":16,"atk":14,"def":14,"mag":14,"spr":14}],
+		"fragmentId": "250003000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4620,"mp":230,"atk":200,"def":200,"mag":200,"spr":200},
+			"minStats":{"hp":1525,"mp":76,"atk":66,"def":66,"mag":66,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes","visionCard"]
 	},
 	"306000804": {
 		"name":"Liquid Metal Slime",
@@ -18003,34 +18096,69 @@
 		"name":"Überkilling Machine",
 		"jpname":"キラーマジンガ",
 		"id":"306001104",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"4",
 		"sex":"other",
 		"mitigation":{"physical":10,"magical":10},
 		"stats": {
-			"maxStats":{"hp":3444,"mp":143,"atk":155,"def":125,"mag":110,"spr":115},
-			"minStats":{"hp":1137,"mp":47,"atk":51,"def":41,"mag":36,"spr":38},
+			"maxStats":{"hp":4900,"mp":160,"atk":220,"def":208,"mag":126,"spr":131},
+			"minStats":{"hp":1617,"mp":53,"atk":73,"def":69,"mag":42,"spr":43},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","sword","katana","staff","rod","bow","hammer","lightShield","hat","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["ライトメタルボディ","二刀の心得","鉄球ぶんまわし"]
+		"enhancementSkills":["ライトメタルボディ","二刀の心得","鉄球ぶんまわし"],
+		"6_form": {
+			"name":"Überkilling Machine",
+			"jpname":"キラーマジンガ",
+			"id":"306001104",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"4",
+			"sex":"other",
+		"mitigation":{"physical":10,"magical":10},
+			"stats": {
+				"maxStats":{"hp":3444,"mp":143,"atk":155,"def":125,"mag":110,"spr":115},
+				"minStats":{"hp":1137,"mp":47,"atk":51,"def":41,"mag":36,"spr":38},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","staff","rod","bow","hammer","lightShield","hat","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["ライトメタルボディ","二刀の心得","鉄球ぶんまわし"]
+		}
 	},
 	"306001204": {
 		"name":"Slime Knight",
 		"jpname":"スライムナイト",
 		"id":"306001204",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"4",
 		"sex":"other",
 		"stats": {
-			"maxStats":{"hp":3540,"mp":180,"atk":142,"def":135,"mag":125,"spr":120},
-			"minStats":{"hp":1168,"mp":59,"atk":47,"def":45,"mag":41,"spr":40},
+			"maxStats":{"hp":4610,"mp":240,"atk":200,"def":181,"mag":200,"spr":177},
+			"minStats":{"hp":1521,"mp":79,"atk":66,"def":60,"mag":66,"spr":58},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","lightShield","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["全身全霊斬り","自動MP回復","超もろば斬り"]
+		"enhancementSkills":["全身全霊斬り","自動MP回復","超もろば斬り"],
+		"6_form": {
+			"name":"Slime Knight",
+			"jpname":"スライムナイト",
+			"id":"306001204",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"4",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3540,"mp":180,"atk":142,"def":135,"mag":125,"spr":120},
+				"minStats":{"hp":1168,"mp":59,"atk":47,"def":45,"mag":41,"spr":40},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","lightShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["全身全霊斬り","自動MP回復","超もろば斬り"]
+		}
 	},
 	"306001303": {
 		"name":"Dracky",
@@ -18046,6 +18174,81 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","hat","clothes","lightArmor","robe"]
+	},
+	"306001407": {
+		"name":"Alena & Marquis de Leon",
+		"jpname":"剛拳の姫と獅子王",
+		"id":"306001407",
+		"braveShift":"306001417",
+		"exAwakening": [{"hp":715,"mp":26,"atk":70,"def":33,"mag":10,"spr":18},{"hp":550,"mp":20,"atk":54,"def":26,"mag":7,"spr":14},{"hp":385,"mp":14,"atk":37,"def":18,"mag":5,"spr":10}],
+		"fragmentId": "250002700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5500,"mp":200,"atk":270,"def":260,"mag":79,"spr":143},
+			"minStats":{"hp":1815,"mp":66,"atk":89,"def":86,"mag":26,"spr":47},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["剛拳ラッシュ","せいけんづき"]
+	},
+	"306001417": {
+		"name":"Alena & Marquis de Leon BS",
+		"jpname":"剛拳の姫と獅子王 BS",
+		"id":"306001417",
+		"braveShifted":"306001407",
+		"exAwakening": [{"hp":715,"mp":26,"atk":70,"def":33,"mag":10,"spr":18},{"hp":550,"mp":20,"atk":54,"def":26,"mag":7,"spr":14},{"hp":385,"mp":14,"atk":37,"def":18,"mag":5,"spr":10}],
+		"fragmentId": "250002700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5500,"mp":200,"atk":270,"def":260,"mag":79,"spr":143},
+			"minStats":{"hp":1815,"mp":66,"atk":89,"def":86,"mag":26,"spr":47},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]
+	},
+	"306001507": {
+		"name":"Zoma",
+		"jpname":"滅びの王ゾーマ",
+		"id":"306001507",
+		"braveShift":"306001517",
+		"exAwakening": [{"hp":546,"mp":32,"atk":15,"def":22,"mag":65,"spr":29},{"hp":420,"mp":25,"atk":12,"def":17,"mag":50,"spr":23},{"hp":294,"mp":17,"atk":8,"def":11,"mag":35,"spr":16}],
+		"fragmentId": "250002800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4200,"mp":250,"atk":120,"def":170,"mag":250,"spr":230},
+			"minStats":{"hp":1386,"mp":83,"atk":40,"def":56,"mag":83,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","helm","clothes","robe","visionCard"],
+		"enhancementSkills":["マヒャド"]
+	},
+	"306001517": {
+		"name":"Zoma BS",
+		"jpname":"全てを滅ぼす者ゾーマ BS",
+		"id":"306001517",
+		"braveShifted":"306001507",
+		"exAwakening": [{"hp":546,"mp":32,"atk":15,"def":22,"mag":65,"spr":29},{"hp":420,"mp":25,"atk":12,"def":17,"mag":50,"spr":23},{"hp":294,"mp":17,"atk":8,"def":11,"mag":35,"spr":16}],
+		"fragmentId": "250002800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5800,"mp":400,"atk":200,"def":240,"mag":300,"spr":270},
+			"minStats":{"hp":1914,"mp":132,"atk":66,"def":79,"mag":99,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","helm","clothes","robe","visionCard"],
+		"enhancementSkills":["闇の衣","マヒャデドス","かがやくいき"]
 	},
 	"307000105": {
 		"name":"Ray Jack",

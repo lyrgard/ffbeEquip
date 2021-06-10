@@ -1232,7 +1232,7 @@ function updateItemEnhancementDisplay() {
     $("#modifyEnhancementModal .modal-header .title").html('<span class="item ' + currentEnhancementItem.id + '">' + getImageHtml(item) + getNameColumnHtml(item) + '</span>');
     $("#modifyEnhancementModal .value.rare_3").html(itemEnhancementLabels["rare_3"][item.type]);
     $("#modifyEnhancementModal .value.rare_4").html(itemEnhancementLabels["rare_4"][item.type]);
-    if (item.type == "dagger") {
+    if (itemEnhancementAbilities.rare_5[item.type]) {
         $("#modifyEnhancementModal .value.rare_5").removeClass('hidden');
         $("#modifyEnhancementModal .value.rare_5").html(itemEnhancementLabels["rare_5"][item.type]);
     } else {

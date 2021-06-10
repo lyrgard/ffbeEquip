@@ -2685,7 +2685,7 @@ function selectEnchantement(item) {
     $("#modifyEnhancementModal .modal-header .title").html(getImageHtml(currentEnchantmentItem) + getNameColumnHtml(currentEnchantmentItem));
     $("#modifyEnhancementModal .value.rare_3").html(itemEnhancementLabels["rare_3"][currentEnchantmentItem.type]);
     $("#modifyEnhancementModal .value.rare_4").html(itemEnhancementLabels["rare_4"][currentEnchantmentItem.type]);
-    if (item.type == "dagger") {
+    if (itemEnhancementAbilities.rare_5[item.type]) {
         $("#modifyEnhancementModal .value.rare_5").removeClass('hidden');
         $("#modifyEnhancementModal .value.rare_5").html(itemEnhancementLabels["rare_5"][item.type]);
     } else {
