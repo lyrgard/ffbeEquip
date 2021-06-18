@@ -691,7 +691,7 @@ function readSkills(itemIn, itemOut, skills) {
                                 masterySkills.push(rawEffect);
 
                                 // one weapon mastery
-                            } else if (rawEffect[1] == 3 && rawEffect[2] == 99 && rawEffect[3][2] && rawEffect[3][2].length < 16 && itemIn.type_id > 16) {
+                            } else if (rawEffect[1] == 3 && rawEffect[2] == 99 && rawEffect[3][2] && (!Array.isArray(rawEffect[3][2]) || rawEffect[3][2].length < 16)) {
                                 masterySkills.push(rawEffect);
 
 
@@ -823,16 +823,18 @@ function addMasterySkills(item, masterySkills, result) {
     var treatedItems = [];
     for (var masteryIndex in masterySkills) {
         var lenght = treatedItems.length;
-        var copy = JSON.parse(JSON.stringify(item));
+        let copy = JSON.parse(JSON.stringify(item));
 
         if (masterySkills[masteryIndex][2] === 99) {
+            if (!Array.isArray(masterySkills[masteryIndex][3][2])) masterySkills[masteryIndex][3][2] = [masterySkills[masteryIndex][3][2]];
             masterySkills[masteryIndex][3][2].forEach(weaponTypeId => {
-                addOneWeaponMastery(copy, masteryIndex[3][0], masteryIndex[3][1], weaponTypeId);
+                addOneWeaponMastery(copy, masterySkills[masteryIndex][3][0], masterySkills[masteryIndex][3][1], weaponTypeId);
+                console.log("!!!!!!!!!!", copy);
                 result.push(copy);
                 treatedItems.push(copy);
                 for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
                     if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
-                        var copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
+                        let copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
                         addOneWeaponMastery(copy, masteryIndex[3][0], masteryIndex[3][1], weaponTypeId);
                         result.push(copy);
                         treatedItems.push(copy);
@@ -844,7 +846,7 @@ function addMasterySkills(item, masterySkills, result) {
             treatedItems.push(copy);
             for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
                 if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
-                    var copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
+                    let copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
                     if (addMastery(copy, masterySkills[masteryIndex])) {
                         result.push(copy);
                         treatedItems.push(copy);
@@ -888,6 +890,26 @@ function addNotTreatedEffects(itemOut, effectsNotTreated, skill, skillId) {
             }
         }
         addSpecial(itemOut, special);
+    }
+}
+
+function addOneWeaponMastery(item, statId, value, weaponTypeId) {
+    var stat;
+    if (statId == 1) {
+        stat = "atk";
+    } else if (statId == 2) {
+        stat = "def";
+    } else if (statId == 3) {
+        stat = "mag";
+    } else if (statId == 4) {
+        stat = "spr";
+    }
+    if (!item.oneWeaponMastery) item.oneWeaponMastery = {};
+    addStat(item.oneWeaponMastery, stat, value);
+    if (weaponTypeId) {
+        if (!item.equipedConditions) item.equipedConditions = [];
+        let weaponType = typeMap[weaponTypeId];
+        if (!item.equipedConditions.includes(weaponType)) item.equipedConditions.push(weaponType);
     }
 }
 
@@ -1075,20 +1097,9 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
 
         // Increase EQ stat when armed with a single weapon (with or without shield)
     } else if (rawEffect[2] == 99) {
-        var stat;
-        if (rawEffect[3][0] == 1) {
-            stat = "atk";
-        } else if (rawEffect[3][0] == 2) {
-            stat = "def";
-        } else if (rawEffect[3][0] == 3) {
-            stat = "mag";
-        } else if (rawEffect[3][0] == 4) {
-            stat = "spr";
-        }
-        if (!item.oneWeaponMastery) item.oneWeaponMastery = {};
-        addStat(item.oneWeaponMastery, stat, rawEffect[3][1]);
+        addOneWeaponMastery(item, rawEffect[3][0], rawEffect[3][1]);
 
-    // MP refresh
+        // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
         var mpRefresh = rawEffect[3][0];
         addStat(item, "mpRefresh", mpRefresh);

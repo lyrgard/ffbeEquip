@@ -6159,8 +6159,8 @@
 		}
 	},
 	"100028305": {
-		"name":"Daisy",
-		"wikiEntry":"デイジー",
+		"name":"Margarita",
+		"wikiEntry":"Daisy",
 		"id":"100028305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6173,8 +6173,8 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Daisy",
-			"wikiEntry":"デイジー",
+			"name":"Margarita",
+			"wikiEntry":"Daisy",
 			"id":"100028305",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -21065,6 +21065,44 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","rod","throwing","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["Ice Coupé","Chilling Lunge"]
+	},
+	"401010407": {
+		"name":"Noppy",
+		"wikiEntry":"Noppy",
+		"id":"401010407",
+		"braveShift":"401010417",
+		"exAwakening": [{"hp":631,"mp":35,"atk":65,"def":33,"mag":19,"spr":27},{"hp":485,"mp":27,"atk":50,"def":25,"mag":14,"spr":21},{"hp":340,"mp":19,"atk":35,"def":18,"mag":10,"spr":15}],
+		"fragmentId": "310000720",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4850,"mp":269,"atk":250,"def":250,"mag":142,"spr":210},
+			"minStats":{"hp":1645,"mp":91,"atk":100,"def":81,"mag":39,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Kupo Barrage","Adorable Decoy"]
+	},
+	"401010417": {
+		"name":"Noppy BS",
+		"wikiEntry":"Noppy",
+		"id":"401010417",
+		"braveShifted":"401010407",
+		"exAwakening": [{"hp":631,"mp":35,"atk":65,"def":33,"mag":19,"spr":27},{"hp":485,"mp":27,"atk":50,"def":25,"mag":14,"spr":21},{"hp":340,"mp":19,"atk":35,"def":18,"mag":10,"spr":15}],
+		"fragmentId": "310000720",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":282,"atk":280,"def":225,"mag":142,"spr":183},
+			"minStats":{"hp":1683,"mp":99,"atk":102,"def":82,"mag":39,"spr":53},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Kupo Barrage","Ready to rock, kupo!"]
 	},
 	"401010807": {
 		"name":"Kaktilia",

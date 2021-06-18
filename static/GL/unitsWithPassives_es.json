@@ -8748,8 +8748,8 @@
 		}
 	},
 	"100028305": {
-		"name":"Daisy",
-		"wikiEntry":"デイジー",
+		"name":"Margarita",
+		"wikiEntry":"Daisy",
 		"id":"100028305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -8769,8 +8769,8 @@
 			{"def%":30, "spr%":30, "resist":[{"name":"earth","percent":30},{"name":"light","percent":30}], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Daisy",
-			"wikiEntry":"デイジー",
+			"name":"Margarita",
+			"wikiEntry":"Daisy",
 			"id":"100028305",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -9822,7 +9822,7 @@
 		"enhancementSkills":["Disciplined Blade - Grave Result","Reigning Blade - Nation Division"],
 		"skills": [
 			{"hp%":20, "mp%":30, "atk%":110, "def%":30, "spr%":60, "dualWielding":{"atk":100}, "resist":[{"name":"ice","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":150}], "mpRefresh":7, "special":["dualWield"]},
-			{"lbDamage":150, "skillEnhancement":{"236584":20,"236586":10,"236587":10,"236588":10,"236589":10,"236590":10,"512795":25}, "replaceLb":{"name":"Stellar Zenith - Astral Cross","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5x, ATK) to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":110.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (110.5x, ATK) to one enemy"},{"effect":{"imperil":{"ice":135},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 135% for 5 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5x, ATK) to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":130},"area":"ST","target":"ENEMY"},"desc":"Physical damage (130x, ATK) to one enemy"},{"effect":{"imperil":{"ice":135},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 135% for 5 turns to one enemy"}],"frames":[58,64,70,76,82,88,94,100,112,118,124,130,136,142,148,154,166,172,178,184,190,196,202,226,232,238,244],"move":"walk"}, "exLevelCondition":2},
+			{"lbDamage":150, "skillEnhancement":{"236584":20,"236586":10,"236587":10,"236588":10,"236589":10,"236590":10,"512795":25}, "replaceLb":{"name":"Stellar Zenith - Astral Cross","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5x, ATK) to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":130.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (130.5x, ATK) to one enemy"},{"effect":{"imperil":{"ice":135},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 135% for 5 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5x, ATK) to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":150},"area":"ST","target":"ENEMY"},"desc":"Physical damage (150x, ATK) to one enemy"},{"effect":{"imperil":{"ice":135},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 135% for 5 turns to one enemy"}],"frames":[58,64,70,76,82,88,94,100,112,118,124,130,136,142,148,154,166,172,178,184,190,196,202,226,232,238,244],"move":"walk"}, "exLevelCondition":2},
 			{"hp%":50, "atk%":50, "equipedConditions":["katana"]},
 			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":8,"max":8}, "equipedConditions":[["504236540","304007200"]]},
 			{"mp%":20, "levelCondition":115},
@@ -9876,7 +9876,7 @@
 		"skills": [
 			{"hp%":60, "mp%":80, "def%":30, "mag%":150, "spr%":30, "singleWielding":{"mag":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","magical":50}], "mpRefresh":10, "lbDamage":50},
 			{"mag%":50, "equipedConditions":["rod"]},
-			{"mag":500, "lbDamage":75, "replaceLb":{"name":"Icy Imprisonment","minEffects":[{"effect":{"imperil":{"ice":135},"turns":1,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 135% for one turn to one enemy"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":122.2,"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Magic ice damage (122.2x, MAG) to one enemy"}],"maxEffects":[{"effect":{"imperil":{"ice":135},"turns":1,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 135% for one turn to one enemy"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":130,"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Magic ice damage (130x, MAG) to one enemy"}],"frames":[110],"move":"walk"}, "exLevelCondition":2},
+			{"mag":500, "lbDamage":75, "replaceLb":{"name":"Icy Imprisonment","minEffects":[{"effect":{"imperil":{"ice":135},"turns":1,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 135% for one turn to one enemy"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":142.2,"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Magic ice damage (142.2x, MAG) to one enemy"}],"maxEffects":[{"effect":{"imperil":{"ice":135},"turns":1,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 135% for one turn to one enemy"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":150,"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Magic ice damage (150x, MAG) to one enemy"}],"frames":[110],"move":"walk"}, "exLevelCondition":2},
 			{"lbDamage":25, "equipedConditions":[["504236720","310009000"]]},
 			{"def%":20, "levelCondition":115},
 			{"singleWielding":{"mag":100}, "levelCondition":120}
@@ -28627,11 +28627,11 @@
 		],
 		"skills": [
 			{"hp%":30, "def%":20, "spr%":20, "evade":{"physical":20,"magical":20}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"earth","percent":50}], "mpRefresh":5},
-			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
-			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
-			{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]},
+			{"hp%":50, "def%":50, "spr%":50, "equipedConditions":["lightShield"]},
+			{"hp%":50, "def%":50, "spr%":50, "equipedConditions":["heavyShield"]},
+			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyArmor"]},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":10, "mp%":10, "def%":10, "spr%":10, "resist":[{"name":"stop","percent":100}], "levelCondition":120}
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"stop","percent":100}], "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Sylvie",
@@ -28651,9 +28651,9 @@
 			"enhancementSkills":["Withering Arms","Withering Guard","Growing Offense","Growing Defense","Protective Vines","Protective Petals","All pinned up!","Hop into battle!","Hop to the rescue!","Marian, watch over me!"],
 			"skills": [
 				{"hp%":30, "def%":20, "spr%":20, "evade":{"physical":20,"magical":20}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"earth","percent":50}], "mpRefresh":5},
-				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
-				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
-				{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]}
+				{"hp%":50, "def%":50, "spr%":50, "equipedConditions":["lightShield"]},
+				{"hp%":50, "def%":50, "spr%":50, "equipedConditions":["heavyShield"]},
+				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyArmor"]}
 			]
 		}
 	},
@@ -30043,6 +30043,61 @@
 			{"mp%":20, "levelCondition":115},
 			{"mp%":40, "def%":20, "spr%":20, "dualWielding":{"atk":100,"mag":100}, "levelCondition":120},
 			{"atk%":60, "mag%":60, "equipedConditions":["sword"], "levelCondition":120}
+		]
+	},
+	"401010407": {
+		"name":"Noppy",
+		"wikiEntry":"Noppy",
+		"id":"401010407",
+		"braveShift":"401010417",
+		"exAwakening": [{"hp":631,"mp":35,"atk":65,"def":33,"mag":19,"spr":27},{"hp":485,"mp":27,"atk":50,"def":25,"mag":14,"spr":21},{"hp":340,"mp":19,"atk":35,"def":18,"mag":10,"spr":15}],
+		"fragmentId": "310000720",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4850,"mp":269,"atk":250,"def":250,"mag":142,"spr":210},
+			"minStats":{"hp":1645,"mp":91,"atk":100,"def":81,"mag":39,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Kupo Barrage","Adorable Decoy"],
+		"skills": [
+			{"atk%":50, "def%":50, "oneWeaponMastery":{"atk":50}, "mpRefresh":7},
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"equipedConditions":[["1500000155","1100000491","1500000160","401000701"]]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":10, "atk%":70, "def%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
+			{"hp%":40, "def%":40, "oneWeaponMastery":{"atk":150}, "resist":[{"name":"charm","percent":100},{"name":"blind","percent":100}], "levelCondition":120}
+		]
+	},
+	"401010417": {
+		"name":"Noppy BS",
+		"wikiEntry":"Noppy",
+		"id":"401010417",
+		"braveShifted":"401010407",
+		"exAwakening": [{"hp":631,"mp":35,"atk":65,"def":33,"mag":19,"spr":27},{"hp":485,"mp":27,"atk":50,"def":25,"mag":14,"spr":21},{"hp":340,"mp":19,"atk":35,"def":18,"mag":10,"spr":15}],
+		"fragmentId": "310000720",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":282,"atk":280,"def":225,"mag":142,"spr":183},
+			"minStats":{"hp":1683,"mp":99,"atk":102,"def":82,"mag":39,"spr":53},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Kupo Barrage","Ready to rock, kupo!"],
+		"skills": [
+			{"oneWeaponMastery":{"atk":250}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100}], "killers":[{"name":"beast","physical":150}]},
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"equipedConditions":[["1500000155","1100000491","1500000160","401000701"]]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":10, "atk%":70, "def%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
+			{"mp%":50, "atk%":40, "killers":[{"name":"dragon","physical":150}], "mpRefresh":7, "levelCondition":120}
 		]
 	},
 	"401010807": {
