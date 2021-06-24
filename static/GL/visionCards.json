@@ -382,7 +382,7 @@
 	{"atk":76, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
 	{"atk":82, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
 	{"atk":88, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
-	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"atk%":100},{"atk%":30,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207002007","207002017","207002207","207002217"]}]}
+	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"atk%":100},{"atk%":30,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207001507","207001517","207002007","207002017","207002207","207002217","207002307","207002317"]}]}
 ]},
 {"id":"207000201", "name":"Scorpion Sentinel Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000201.png", "sortId":7, "levels":[
 	{"def":20},
@@ -406,7 +406,7 @@
 	{"mag":55, "spr":55, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
 	{"mag":57, "spr":57, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
 	{"mag":60, "spr":60, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
-	{"mag":65, "spr":65, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50},{"mag%":20,"spr%":20,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207002007","207002017","207002207","207002217"]}]}
+	{"mag":65, "spr":65, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50},{"mag%":20,"spr%":20,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207001507","207001517","207002007","207002017","207002207","207002217","207002307","207002317"]}]}
 ]},
 {"id":"209000101", "name":"Swords of Fury", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_209000101.png", "sortId":51, "levels":[
 	{"atk":40},
@@ -419,6 +419,18 @@
 	{"atk":89, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
 	{"atk":96, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
 	{"atk":110, "conditional":[{"equipedConditions":["dagger"],"atk%":80},{"lbDamage":50,"exclusiveUnits":["209001105","209001127","209002807","209002817","209002907","209002917"]}]}
+]},
+{"id":"211000101", "name":"Ragnarok", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_211000101.png", "sortId":58, "levels":[
+	{"hp":400, "def":40},
+	{"hp":440, "def":44},
+	{"hp":480, "def":48},
+	{"hp":520, "def":52, "conditional":[{"equipedConditions":["fist"],"def%":20}]},
+	{"hp":560, "def":56, "conditional":[{"equipedConditions":["fist"],"def%":20}]},
+	{"hp":600, "def":60, "conditional":[{"equipedConditions":["fist"],"def%":20}]},
+	{"hp":640, "def":64, "conditional":[{"equipedConditions":["fist"],"def%":40}]},
+	{"hp":680, "def":68, "conditional":[{"equipedConditions":["fist"],"def%":40}]},
+	{"hp":720, "def":72, "conditional":[{"equipedConditions":["fist"],"def%":40}]},
+	{"hp":800, "def":80, "oneWeaponMastery":{"def":50}, "conditional":[{"equipedConditions":["fist"],"def%":40}]}
 ]},
 {"id":"212000101", "name":"Judge Magister", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_212000101.png", "sortId":14, "levels":[
 	{"hp":400, "def":40},

@@ -756,6 +756,18 @@
 	{"atk":90, "atk%":60},
 	{"atk":100, "atk%":60, "conditional":[{"lbDamage":50}]}
 ]},
+{"id":"342000101", "name":"ただいま", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_342000101.png", "sortId":72, "levels":[
+	{"atk":50, "def":50},
+	{"atk":55, "def":55},
+	{"atk":60, "def":60},
+	{"atk":65, "def":65, "lbDamage":25},
+	{"atk":70, "def":70, "lbDamage":25},
+	{"atk":75, "def":75, "lbDamage":25},
+	{"atk":80, "def":80, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
+	{"atk":85, "def":85, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
+	{"atk":90, "def":90, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
+	{"atk":100, "def":100, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300},"exclusiveUnits":["312000205","312001007","312001017"]}]}
+]},
 {"id":"401000101", "name":"Virtual Training", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000101.png", "sortId":48, "levels":[
 	{"spr":50},
 	{"spr":55},

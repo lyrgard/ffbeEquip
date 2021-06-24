@@ -14095,7 +14095,7 @@
 		}
 	},
 	"211000827": {
-		"name":"口の院の元院長シャントット BS",
+		"name":"Former Orastery Minister Shantotto BS",
 		"jpname":"口の院の元院長シャントット BS",
 		"id":"211000827",
 		"braveShifted":"211000817",
@@ -14167,7 +14167,7 @@
 		}
 	},
 	"211000927": {
-		"name":"闇の王 BS",
+		"name":"Shadow Lord BS",
 		"jpname":"闇の王 BS",
 		"id":"211000927",
 		"braveShifted":"211000905",
@@ -17727,33 +17727,67 @@
 		"name":"Primm",
 		"jpname":"プリム",
 		"id":"304000204",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"4",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3235,"mp":180,"atk":119,"def":116,"mag":129,"spr":144},
-			"minStats":{"hp":1068,"mp":59,"atk":39,"def":38,"mag":43,"spr":48},
+			"maxStats":{"hp":4300,"mp":240,"atk":155,"def":160,"mag":200,"spr":210},
+			"minStats":{"hp":1419,"mp":79,"atk":51,"def":53,"mag":66,"spr":69},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["sword","katana","staff","rod","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
-		"enhancementSkills":["ヒールウォーター","リバイブ","セイントビーム"]
+		"enhancementSkills":["ヒールウォーター","リバイブ","セイントビーム"],
+		"6_form": {
+			"name":"Primm",
+			"jpname":"プリム",
+			"id":"304000204",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"4",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3235,"mp":180,"atk":119,"def":116,"mag":129,"spr":144},
+				"minStats":{"hp":1068,"mp":59,"atk":39,"def":38,"mag":43,"spr":48},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["sword","katana","staff","rod","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"enhancementSkills":["ヒールウォーター","リバイブ","セイントビーム"]
+		}
 	},
 	"304000303": {
 		"name":"Popoi",
 		"jpname":"ポポイ",
 		"id":"304000303",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"3",
 		"sex":"other",
 		"stats": {
-			"maxStats":{"hp":2858,"mp":184,"atk":113,"def":109,"mag":140,"spr":119},
-			"minStats":{"hp":943,"mp":61,"atk":37,"def":36,"mag":46,"spr":39},
+			"maxStats":{"hp":2900,"mp":320,"atk":120,"def":110,"mag":250,"spr":130},
+			"minStats":{"hp":957,"mp":106,"atk":40,"def":36,"mag":83,"spr":43},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["sword","katana","staff","rod","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
-		"enhancementSkills":["アシッドストーム","バースト"]
+		"enhancementSkills":["アシッドストーム","バースト"],
+		"6_form": {
+			"name":"Popoi",
+			"jpname":"ポポイ",
+			"id":"304000303",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"3",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":2858,"mp":184,"atk":113,"def":109,"mag":140,"spr":119},
+				"minStats":{"hp":943,"mp":61,"atk":37,"def":36,"mag":46,"spr":39},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["sword","katana","staff","rod","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"enhancementSkills":["アシッドストーム","バースト"]
+		}
 	},
 	"304000405": {
 		"name":"Flammie",
@@ -17769,6 +17803,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["剣噛み","白竜の咆哮"],
 		"6_form": {
 			"name":"Flammie",
 			"jpname":"フラミー",
@@ -17783,7 +17818,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","staff","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["剣噛み","白竜の咆哮"]
 		}
 	},
 	"304000503": {
@@ -18549,17 +18585,34 @@
 		"name":"Hero",
 		"jpname":"ヒーロー",
 		"id":"311000105",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3500,"mp":150,"atk":140,"def":130,"mag":120,"spr":120},
-			"minStats":{"hp":1155,"mp":50,"atk":46,"def":43,"mag":40,"spr":40},
+			"maxStats":{"hp":4800,"mp":250,"atk":200,"def":200,"mag":200,"spr":200},
+			"minStats":{"hp":1584,"mp":83,"atk":66,"def":66,"mag":66,"spr":66},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","staff","rod","axe","hammer","spear","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["レベルアップ・戦士タイプ","レベルアップ・魔道士タイプ","レベルアップ・モンクタイプ","レベルアップ・賢者タイプ"]
+		"enhancementSkills":["レベルアップ・戦士タイプ","レベルアップ・魔道士タイプ","レベルアップ・モンクタイプ","フレア","レベルアップ・賢者タイプ"],
+		"6_form": {
+			"name":"Hero",
+			"jpname":"ヒーロー",
+			"id":"311000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3500,"mp":150,"atk":140,"def":130,"mag":120,"spr":120},
+				"minStats":{"hp":1155,"mp":50,"atk":46,"def":43,"mag":40,"spr":40},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","staff","rod","axe","hammer","spear","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["レベルアップ・戦士タイプ","レベルアップ・魔道士タイプ","レベルアップ・モンクタイプ","フレア","レベルアップ・賢者タイプ"]
+		}
 	},
 	"312000105": {
 		"name":"Riesz",
@@ -20864,6 +20917,80 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor"]
 		}
+	},
+	"342000107": {
+		"name":"Elazul",
+		"jpname":"瑠璃",
+		"id":"342000107",
+		"braveShift":"342000117",
+		"exAwakening": [{"hp":715,"mp":26,"atk":78,"def":33,"mag":10,"spr":18},{"hp":550,"mp":20,"atk":60,"def":26,"mag":7,"spr":14},{"hp":385,"mp":14,"atk":42,"def":18,"mag":5,"spr":10}],
+		"fragmentId": "250003100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5500,"mp":200,"atk":300,"def":260,"mag":79,"spr":143},
+			"minStats":{"hp":1815,"mp":66,"atk":99,"def":86,"mag":26,"spr":47},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["エリアルブレード","十文字斬"]
+	},
+	"342000117": {
+		"name":"Elazul BS",
+		"jpname":"瑠璃 BS",
+		"id":"342000117",
+		"braveShifted":"342000107",
+		"exAwakening": [{"hp":715,"mp":26,"atk":78,"def":33,"mag":10,"spr":18},{"hp":550,"mp":20,"atk":60,"def":26,"mag":7,"spr":14},{"hp":385,"mp":14,"atk":42,"def":18,"mag":5,"spr":10}],
+		"fragmentId": "250003100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5500,"mp":200,"atk":300,"def":260,"mag":79,"spr":143},
+			"minStats":{"hp":1815,"mp":66,"atk":99,"def":86,"mag":26,"spr":47},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]
+	},
+	"342000207": {
+		"name":"Pearl",
+		"jpname":"真珠姫",
+		"id":"342000207",
+		"braveShift":"342000217",
+		"exAwakening": [{"hp":729,"mp":52,"atk":83,"def":35,"mag":10,"spr":33},{"hp":561,"mp":40,"atk":64,"def":27,"mag":7,"spr":26},{"hp":392,"mp":28,"atk":44,"def":18,"mag":5,"spr":18}],
+		"fragmentId": "250003200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2374,"mp":200,"atk":63,"def":77,"mag":81,"spr":22},
+			"minStats":{"hp":783,"mp":66,"atk":21,"def":25,"mag":27,"spr":7},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["hat","clothes","robe","visionCard"]
+	},
+	"342000217": {
+		"name":"Lady Blackpearl BS",
+		"jpname":"レディパール BS",
+		"id":"342000217",
+		"braveShifted":"342000207",
+		"exAwakening": [{"hp":729,"mp":52,"atk":83,"def":35,"mag":10,"spr":33},{"hp":561,"mp":40,"atk":64,"def":27,"mag":7,"spr":26},{"hp":392,"mp":28,"atk":44,"def":18,"mag":5,"spr":18}],
+		"fragmentId": "250003200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5611,"mp":400,"atk":320,"def":270,"mag":79,"spr":260},
+			"minStats":{"hp":1852,"mp":132,"atk":106,"def":89,"mag":26,"spr":86},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["hammer","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["ブレイジングハンマー","爆殺"]
 	},
 	"401000104": {
 		"name":"Dangerous Ariana",
