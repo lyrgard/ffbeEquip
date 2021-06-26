@@ -3550,6 +3550,7 @@
 		"name":"Sieghard",
 		"wikiEntry":"Sieghard",
 		"id":"100017905",
+		"braveShift":"100017927",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -3597,9 +3598,10 @@
 		}
 	},
 	"100017927": {
-		"name":"ジークハルト",
+		"name":"ジークハルト BS",
 		"wikiEntry":"ジークハルト",
 		"id":"100017927",
+		"braveShifted":"100017905",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -10969,6 +10971,7 @@
 		"name":"Rufus Shinra (FFVII REMAKE)",
 		"wikiEntry":"Rufus_Shinra (FFVII REMAKE)",
 		"id":"207001205",
+		"braveShift":"207001227",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -11013,9 +11016,10 @@
 		}
 	},
 	"207001227": {
-		"name":"ルーファウス神羅(FFVII REMAKE)",
+		"name":"ルーファウス神羅(FFVII REMAKE) BS",
 		"wikiEntry":"ルーファウス神羅(FFVII_REMAKE)",
 		"id":"207001227",
+		"braveShifted":"207001205",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -11031,6 +11035,7 @@
 		"name":"Réno (FFVII REMAKE)",
 		"wikiEntry":"Reno_(FFVII REMAKE)",
 		"id":"207001305",
+		"braveShift":"207001327",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -11075,9 +11080,10 @@
 		}
 	},
 	"207001327": {
-		"name":"レノ&ルード(FFVII REMAKE)",
+		"name":"レノ&ルード(FFVII REMAKE) BS",
 		"wikiEntry":"レノ(FFVII_REMAKE)",
 		"id":"207001327",
+		"braveShifted":"207001305",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -11126,6 +11132,7 @@
 		"name":"Descendant of Cetra Aerith",
 		"wikiEntry":"セトラの末裔_エアリス",
 		"id":"207001507",
+		"braveShift":"207001517",
 		"exAwakening": [{"hp":611,"mp":39,"atk":19,"def":19,"mag":62,"spr":33},{"hp":470,"mp":30,"atk":14,"def":15,"mag":48,"spr":26},{"hp":329,"mp":21,"atk":10,"def":10,"mag":33,"spr":18}],
 		"fragmentId": "250000970",
 		"max_rarity":"NV",
@@ -11141,9 +11148,12 @@
 		"enhancementSkills":["Shellga","Banishga","光芒の祈り"]
 	},
 	"207001517": {
-		"name":"Aerith & Red XIII",
+		"name":"Aerith & Red XIII BS",
 		"wikiEntry":"エアリス&レッドXIII",
 		"id":"207001517",
+		"braveShifted":"207001507",
+		"exAwakening": [{"hp":611,"mp":39,"atk":19,"def":19,"mag":62,"spr":33},{"hp":470,"mp":30,"atk":14,"def":15,"mag":48,"spr":26},{"hp":329,"mp":21,"atk":10,"def":10,"mag":33,"spr":18}],
+		"fragmentId": "250000970",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -11153,7 +11163,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","rod","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"equip":["sword","greatSword","rod","fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["Shellga","フレイムファング","火焔の祈り"]
 	},
 	"207001605": {
@@ -12801,6 +12811,7 @@
 		"name":"Shantotto furieuse",
 		"wikiEntry":"Livid_Shantotto",
 		"id":"211000805",
+		"braveShift":"211000827",
 		"exAwakening": [{"hp":399,"mp":37,"atk":17,"def":18,"mag":29,"spr":25},{"hp":307,"mp":28,"atk":13,"def":14,"mag":22,"spr":19},{"hp":215,"mp":20,"atk":9,"def":10,"mag":15,"spr":13}],
 		"fragmentId": "250000950",
 		"max_rarity":"NV",
@@ -12850,9 +12861,12 @@
 		}
 	},
 	"211000827": {
-		"name":"Shantotto, ancienne ministre de l'Orastère",
+		"name":"Shantotto, ancienne ministre de l'Orastère BS",
 		"wikiEntry":"Former_Orastery Minister Shantotto",
 		"id":"211000827",
+		"braveShifted":"211000805",
+		"exAwakening": [{"hp":399,"mp":37,"atk":17,"def":18,"mag":29,"spr":25},{"hp":307,"mp":28,"atk":13,"def":14,"mag":22,"spr":19},{"hp":215,"mp":20,"atk":9,"def":10,"mag":15,"spr":13}],
+		"fragmentId": "250000950",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -12862,7 +12876,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["Wind Crusher","Divine Crusher"]
 	},
 	"211000905": {
@@ -21874,7 +21888,7 @@
   "309000304":{"name":"Harid","jpname":"ハリード","id":"309000304","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3630,"mp":160,"atk":151,"def":121,"mag":120,"spr":124},"minStats":{"hp":1198,"mp":53,"atk":47,"def":40,"mag":40,"spr":41},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","katana","staff","bow","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],"enhancementSkills":["宿星:太白","閃き","トルネード"]},
   "309000403":{"name":"Robin","jpname":"ロビン","id":"309000403","max_rarity":"5","min_rarity":"3","sex":"male","stats":{"maxStats":{"hp":2672,"mp":114,"atk":108,"def":99,"mag":86,"spr":80},"minStats":{"hp":882,"mp":38,"atk":36,"def":33,"mag":28,"spr":26},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","katana","staff","bow","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]},
   "310000505":{"name":"A2","jpname":"A2","id":"310000505","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4825,"mp":222,"atk":206,"def":171,"mag":170,"spr":172},"minStats":{"hp":1592,"mp":73,"atk":68,"def":56,"mag":56,"spr":57},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],"6_form":{"name":"A2","jpname":"A2","id":"310000505","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3712,"mp":171,"atk":159,"def":135,"mag":131,"spr":135},"minStats":{"hp":1225,"mp":56,"atk":52,"def":45,"mag":43,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"]}},
-  "311000105":{"name":"Hero","jpname":"ヒーロー","id":"311000105","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3500,"mp":150,"atk":140,"def":130,"mag":120,"spr":120},"minStats":{"hp":1155,"mp":50,"atk":46,"def":43,"mag":40,"spr":40},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","staff","rod","axe","hammer","spear","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],"enhancementSkills":["レベルアップ・戦士タイプ","レベルアップ・魔道士タイプ","レベルアップ・モンクタイプ","レベルアップ・賢者タイプ"]},
+  "311000105":{"name":"Hero","jpname":"ヒーロー","id":"311000105","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4800,"mp":250,"atk":200,"def":200,"mag":200,"spr":200},"minStats":{"hp":1584,"mp":83,"atk":66,"def":66,"mag":66,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","staff","rod","axe","hammer","spear","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],"enhancementSkills":["レベルアップ・戦士タイプ","レベルアップ・魔道士タイプ","レベルアップ・モンクタイプ","フレア","レベルアップ・賢者タイプ"],"6_form":{"name":"Hero","jpname":"ヒーロー","id":"311000105","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3500,"mp":150,"atk":140,"def":130,"mag":120,"spr":120},"minStats":{"hp":1155,"mp":50,"atk":46,"def":43,"mag":40,"spr":40},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","staff","rod","axe","hammer","spear","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],"enhancementSkills":["レベルアップ・戦士タイプ","レベルアップ・魔道士タイプ","レベルアップ・モンクタイプ","フレア","レベルアップ・賢者タイプ"]}},
   "312000105":{"name":"Riesz","jpname":"リース","id":"312000105","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4669,"mp":218,"atk":184,"def":172,"mag":190,"spr":187},"minStats":{"hp":1541,"mp":72,"atk":61,"def":57,"mag":63,"spr":62},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","staff","bow","spear","whip","lightShield","hat","helm","clothes","lightArmor","robe"],"enhancementSkills":["パワーアップ","ラミアンナーガ","パワーダウン","ブリーシンガメン"],"6_form":{"name":"Riesz","jpname":"リース","id":"312000105","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3592,"mp":168,"atk":142,"def":133,"mag":140,"spr":140},"minStats":{"hp":1185,"mp":55,"atk":47,"def":44,"mag":46,"spr":46},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","staff","bow","spear","whip","lightShield","hat","helm","clothes","lightArmor","robe"],"enhancementSkills":["パワーアップ","ラミアンナーガ","パワーダウン","ブリーシンガメン"]}},
   "312000205":{"name":"Hawkeye","jpname":"ホークアイ","id":"312000205","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4703,"mp":211,"atk":199,"def":158,"mag":193,"spr":167},"minStats":{"hp":1552,"mp":70,"atk":66,"def":52,"mag":64,"spr":55},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","katana","staff","rod","bow","hammer","spear","whip","throwing","gun","mace","hat","clothes","robe"],"enhancementSkills":["グレネードボム","千枚斬り","短剣の極意","ブラックレイン"],"6_form":{"name":"Hawkeye","jpname":"ホークアイ","id":"312000205","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3618,"mp":150,"atk":147,"def":122,"mag":143,"spr":129},"minStats":{"hp":1194,"mp":50,"atk":49,"def":40,"mag":47,"spr":43},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","katana","staff","rod","bow","hammer","spear","whip","throwing","gun","mace","hat","clothes","robe"],"enhancementSkills":["グレネードボム","千枚斬り","短剣の極意","ブラックレイン"]}},
   "312000305":{"name":"Kevin","jpname":"ケヴィン","id":"312000305","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4751,"mp":195,"atk":203,"def":166,"mag":158,"spr":162},"minStats":{"hp":1568,"mp":64,"atk":67,"def":55,"mag":52,"spr":53},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","spear","mace","fist","hat","clothes","lightArmor","robe"],"enhancementSkills":["格闘の極意","獣人王の息子","リーフセイバー","獣化"],"6_form":{"name":"Kevin","jpname":"ケヴィン","id":"312000305","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3655,"mp":139,"atk":156,"def":128,"mag":122,"spr":125},"minStats":{"hp":1206,"mp":46,"atk":51,"def":42,"mag":40,"spr":41},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","spear","mace","fist","hat","clothes","lightArmor","robe"],"enhancementSkills":["格闘の極意","獣人王の息子","リーフセイバー","獣化"]}},
@@ -21892,6 +21906,10 @@
   "332000105":{"name":"Lara Croft","jpname":"ララ・クロフト","id":"332000105","max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3502,"mp":161,"atk":150,"def":137,"mag":127,"spr":133},"minStats":{"hp":1156,"mp":53,"atk":50,"def":45,"mag":42,"spr":44},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","staff","bow","axe","whip","throwing","gun","fist","hat","clothes","lightArmor","robe"]},
   "338000707":{"name":"King Bradley","jpname":"キング・ブラッドレイ","id":"338000707","braveShift":"338000717","exAwakening":[{"hp":643,"mp":26,"atk":63,"def":22,"mag":17,"spr":22},{"hp":495,"mp":20,"atk":48,"def":17,"mag":13,"spr":17},{"hp":346,"mp":14,"atk":34,"def":12,"mag":9,"spr":11}],"fragmentId":"250000680","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4950,"mp":200,"atk":243,"def":172,"mag":131,"spr":170},"minStats":{"hp":1634,"mp":66,"atk":80,"def":57,"mag":43,"spr":56},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor","visionCard"],"enhancementSkills":["反逆者への鉄槌","私を壊してみせろ!!"]},
   "338000717":{"name":"King Bradley BS","jpname":"キング・ブラッドレイ BS","id":"338000717","braveShifted":"338000707","exAwakening":[{"hp":643,"mp":26,"atk":63,"def":22,"mag":17,"spr":22},{"hp":495,"mp":20,"atk":48,"def":17,"mag":13,"spr":17},{"hp":346,"mp":14,"atk":34,"def":12,"mag":9,"spr":11}],"fragmentId":"250000680","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4890,"mp":203,"atk":265,"def":186,"mag":131,"spr":184},"minStats":{"hp":1614,"mp":67,"atk":87,"def":61,"mag":43,"spr":61},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor","visionCard"],"enhancementSkills":["反逆者への鉄槌","修羅の斬撃"]},
+  "342000107":{"name":"Elazul","jpname":"瑠璃","id":"342000107","braveShift":"342000117","exAwakening":[{"hp":715,"mp":26,"atk":78,"def":33,"mag":10,"spr":18},{"hp":550,"mp":20,"atk":60,"def":26,"mag":7,"spr":14},{"hp":385,"mp":14,"atk":42,"def":18,"mag":5,"spr":10}],"fragmentId":"250003100","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5500,"mp":200,"atk":300,"def":260,"mag":79,"spr":143},"minStats":{"hp":1815,"mp":66,"atk":99,"def":86,"mag":26,"spr":47},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["エリアルブレード","十文字斬"]},
+  "342000117":{"name":"Elazul BS","jpname":"瑠璃 BS","id":"342000117","braveShifted":"342000107","exAwakening":[{"hp":715,"mp":26,"atk":78,"def":33,"mag":10,"spr":18},{"hp":550,"mp":20,"atk":60,"def":26,"mag":7,"spr":14},{"hp":385,"mp":14,"atk":42,"def":18,"mag":5,"spr":10}],"fragmentId":"250003100","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5500,"mp":200,"atk":300,"def":260,"mag":79,"spr":143},"minStats":{"hp":1815,"mp":66,"atk":99,"def":86,"mag":26,"spr":47},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]},
+  "342000207":{"name":"Pearl","jpname":"真珠姫","id":"342000207","braveShift":"342000217","exAwakening":[{"hp":729,"mp":52,"atk":83,"def":35,"mag":10,"spr":33},{"hp":561,"mp":40,"atk":64,"def":27,"mag":7,"spr":26},{"hp":392,"mp":28,"atk":44,"def":18,"mag":5,"spr":18}],"fragmentId":"250003200","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":2374,"mp":200,"atk":63,"def":77,"mag":81,"spr":22},"minStats":{"hp":783,"mp":66,"atk":21,"def":25,"mag":27,"spr":7},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["hat","clothes","robe","visionCard"]},
+  "342000217":{"name":"Lady Blackpearl BS","jpname":"レディパール BS","id":"342000217","braveShifted":"342000207","exAwakening":[{"hp":729,"mp":52,"atk":83,"def":35,"mag":10,"spr":33},{"hp":561,"mp":40,"atk":64,"def":27,"mag":7,"spr":26},{"hp":392,"mp":28,"atk":44,"def":18,"mag":5,"spr":18}],"fragmentId":"250003200","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5611,"mp":400,"atk":320,"def":270,"mag":79,"spr":260},"minStats":{"hp":1852,"mp":132,"atk":106,"def":89,"mag":26,"spr":86},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["hammer","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["ブレイジングハンマー","爆殺"]},
   "401008507":{"name":"Yoshikiri","jpname":"ヨシキリ","id":"401008507","braveShift":"401008517","exAwakening":[{"hp":561,"mp":25,"atk":19,"def":22,"mag":20,"spr":58},{"hp":432,"mp":19,"atk":15,"def":17,"mag":16,"spr":45},{"hp":302,"mp":13,"atk":10,"def":11,"mag":11,"spr":31}],"fragmentId":"250000750","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4320,"mp":195,"atk":150,"def":170,"mag":160,"spr":226},"minStats":{"hp":1426,"mp":64,"atk":50,"def":56,"mag":53,"spr":75},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","katana","staff","rod","whip","throwing","mace","fist","hat","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["チャクラ放出"]},
   "401008517":{"name":"Yoshikiri BS","jpname":"ヨシキリ BS","id":"401008517","braveShifted":"401008507","exAwakening":[{"hp":561,"mp":25,"atk":19,"def":22,"mag":20,"spr":58},{"hp":432,"mp":19,"atk":15,"def":17,"mag":16,"spr":45},{"hp":302,"mp":13,"atk":10,"def":11,"mag":11,"spr":31}],"fragmentId":"250000750","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4190,"mp":288,"atk":156,"def":163,"mag":160,"spr":240},"minStats":{"hp":1383,"mp":95,"atk":51,"def":54,"mag":53,"spr":79},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","katana","staff","rod","whip","throwing","mace","fist","hat","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["忍法：速戦即決"]},
   "401008607":{"name":"Starlight Elena","jpname":"スターライトエレナ","id":"401008607","braveShift":"401008617","exAwakening":[{"hp":631,"mp":32,"atk":65,"def":18,"mag":65,"spr":20},{"hp":486,"mp":25,"atk":50,"def":14,"mag":50,"spr":15},{"hp":340,"mp":17,"atk":35,"def":10,"mag":35,"spr":10}],"fragmentId":"250000760","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4861,"mp":250,"atk":250,"def":146,"mag":250,"spr":154},"minStats":{"hp":1604,"mp":83,"atk":83,"def":48,"mag":83,"spr":51},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["斬り裂く輝きの刃","ジェミニブレード"]},

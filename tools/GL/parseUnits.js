@@ -185,36 +185,29 @@ function manageNV(units) {
                     skill.level = 0
                 });
         }
-        if (unitIn.base_id) {
-            unitIn.rarity_max = 'NV';
-            unitIn.rarity_min = 'NV';
-            unitIn.entries[unitId].rarity = 'NV';
-            if (unitIn.base_id != unitId)  {
-                braveShiftUnitIdByBaseUnitId.push({baseUnitId: unitIn.base_id, braveShiftedUnitId: unitId});
-            } else {
-                unitIn.nv_upgrade = unitIn.entries[unitId].nv_upgrade;
-            }
-        }
         if (unitIn.rarity_max == 7) {
             const baseUnitId = unitId.substr(0, unitId.length -1);
             nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
-            if (nvIds.length) {
+            nvIds.forEach(nvId => {
                 unitIn.rarity_max = 'NV';
-                unitIn.entries[nvIds[0]].rarity = 'NV';
-                baseUnitIdByNVUnitId[nvIds[0]] = unitId;
-                unitIn.nv_upgrade = unitIn.entries[nvIds[0]].nv_upgrade;
-            }
+                unitIn.entries[nvId].rarity = 'NV';
+                baseUnitIdByNVUnitId[nvId] = unitId;
+                unitIn.nv_upgrade = unitIn.entries[nvId].nv_upgrade;
+            });
             if (unitIn.rarity_min == 7) {
                 unitIn.rarity_max = 'NV';
                 unitIn.rarity_min = 'NV';
                 Object.values(unitIn.entries).forEach(e => e.rarity = 'NV');
                 //baseUnitIdByNVUnitId[nvIds[0]] = unitId;
                 unitIn.nv_upgrade = Object.values(unitIn.entries)[0].nv_upgrade;
-                let potentialBaseUnits = Object.keys(units).filter(k => units[k].name === unitIn.name && k < unitId).sort();
-                if (potentialBaseUnits.length) {
-                    baseUnitIdByNVUnitId[unitId] = potentialBaseUnits[0];
-                    braveShiftUnitIdByBaseUnitId.push({baseUnitId: potentialBaseUnits[0], braveShiftedUnitId: unitId});
-                    unitIn.base_id = potentialBaseUnits[0];
+                if (unitId.endsWith('17') || unitId.endsWith('27') || unitId.endsWith('37')) {
+                    const baseUnitCommonPart = unitId.substr(0, unitId.length - 2);
+                    let potentialBaseUnits = Object.keys(units).filter(k => k.startsWith(baseUnitCommonPart) && k !== unitId && (k.endsWith('5') || k.endsWith('7'))).sort();
+                    if (potentialBaseUnits.length) {
+                        baseUnitIdByNVUnitId[unitId] = potentialBaseUnits[0];
+                        braveShiftUnitIdByBaseUnitId.push({baseUnitId: potentialBaseUnits[0], braveShiftedUnitId: unitId});
+                        unitIn.base_id = potentialBaseUnits[0];
+                    }
                 }
             }
         }
