@@ -13682,17 +13682,34 @@
 		"name":"Wakka",
 		"jpname":"ワッカ",
 		"id":"210000303",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"3",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3589,"mp":145,"atk":144,"def":127,"mag":114,"spr":123},
-			"minStats":{"hp":1184,"mp":48,"atk":48,"def":42,"mag":38,"spr":41},
+			"maxStats":{"hp":4886,"mp":291,"atk":227,"def":174,"mag":193,"spr":165},
+			"minStats":{"hp":1612,"mp":96,"atk":75,"def":57,"mag":64,"spr":54},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor"],
-		"enhancementSkills":["ウォーターボンバー","水星の印","熱血ファイター"]
+		"enhancementSkills":["ウォーターボンバー","水星の印","熱血ファイター"],
+		"6_form": {
+			"name":"Wakka",
+			"jpname":"ワッカ",
+			"id":"210000303",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"3",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3589,"mp":145,"atk":144,"def":127,"mag":114,"spr":123},
+				"minStats":{"hp":1184,"mp":48,"atk":48,"def":42,"mag":38,"spr":41},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["ウォーターボンバー","水星の印","熱血ファイター"]
+		}
 	},
 	"210000405": {
 		"name":"Lulu",
@@ -13919,16 +13936,20 @@
 		"name":"Star Player Tidus",
 		"jpname":"ザナルカンドのティーダ",
 		"id":"210001805",
-		"max_rarity":"7",
+		"braveShift":"210001827",
+		"exAwakening": [{"hp":709,"mp":38,"atk":39,"def":28,"mag":27,"spr":27},{"hp":546,"mp":29,"atk":30,"def":21,"mag":20,"spr":21},{"hp":382,"mp":20,"atk":21,"def":15,"mag":14,"spr":14}],
+		"fragmentId": "250003400",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4980,"mp":247,"atk":207,"def":194,"mag":196,"spr":195},
-			"minStats":{"hp":1643,"mp":82,"atk":68,"def":64,"mag":65,"spr":64},
+			"maxStats":{"hp":5461,"mp":298,"atk":300,"def":216,"mag":208,"spr":212},
+			"minStats":{"hp":1802,"mp":98,"atk":99,"def":71,"mag":69,"spr":70},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["クイックトリック改","クイックシャイン","夢を終わらせる夢"],
 		"6_form": {
 			"name":"Star Player Tidus",
 			"jpname":"ザナルカンドのティーダ",
@@ -13943,8 +13964,44 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["クイックトリック改","クイックシャイン","夢を終わらせる夢"]
+		},
+		"7_form": {
+			"name":"Star Player Tidus",
+			"jpname":"ザナルカンドのティーダ",
+			"id":"210001805",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4980,"mp":247,"atk":207,"def":194,"mag":196,"spr":195},
+				"minStats":{"hp":1643,"mp":82,"atk":68,"def":64,"mag":65,"spr":64},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["クイックトリック改","クイックシャイン","夢を終わらせる夢"]
 		}
+	},
+	"210001827": {
+		"name":"ザナルカンドのティーダ BS",
+		"jpname":"ザナルカンドのティーダ BS",
+		"id":"210001827",
+		"braveShifted":"210001805",
+		"exAwakening": [{"hp":709,"mp":38,"atk":39,"def":28,"mag":27,"spr":27},{"hp":546,"mp":29,"atk":30,"def":21,"mag":20,"spr":21},{"hp":382,"mp":20,"atk":21,"def":15,"mag":14,"spr":14}],
+		"fragmentId": "250003400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5461,"mp":298,"atk":300,"def":216,"mag":208,"spr":212},
+			"minStats":{"hp":1802,"mp":98,"atk":99,"def":71,"mag":69,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"210001904": {
 		"name":"Belgemine",
@@ -13960,6 +14017,43 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","harp","whip","throwing","mace","hat","clothes","robe"]
+	},
+	"210002107": {
+		"name":"Braska's Daughter Yuna",
+		"jpname":"大召喚士の娘ユウナ",
+		"id":"210002107",
+		"braveShift":"210002117",
+		"exAwakening": [{"hp":555,"mp":40,"atk":20,"def":23,"mag":27,"spr":67},{"hp":427,"mp":31,"atk":16,"def":18,"mag":21,"spr":52},{"hp":299,"mp":21,"atk":11,"def":12,"mag":14,"spr":36}],
+		"fragmentId": "250003300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4273,"mp":310,"atk":160,"def":180,"mag":210,"spr":260},
+			"minStats":{"hp":1410,"mp":102,"atk":53,"def":59,"mag":69,"spr":86},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","hat","clothes","robe","visionCard"]
+	},
+	"210002117": {
+		"name":"Yuna & Valefor BS",
+		"jpname":"ユウナ&ヴァルファーレ BS",
+		"id":"210002117",
+		"braveShifted":"210002107",
+		"exAwakening": [{"hp":555,"mp":40,"atk":20,"def":23,"mag":27,"spr":67},{"hp":427,"mp":31,"atk":16,"def":18,"mag":21,"spr":52},{"hp":299,"mp":21,"atk":11,"def":12,"mag":14,"spr":36}],
+		"fragmentId": "250003300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5600,"mp":310,"atk":190,"def":210,"mag":270,"spr":300},
+			"minStats":{"hp":1848,"mp":102,"atk":63,"def":69,"mag":89,"spr":99},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["よだれでベタベタのなにか","シューティング・レイ"]
 	},
 	"211000103": {
 		"name":"Shantotto",

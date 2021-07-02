@@ -551,7 +551,7 @@ function treatVisionCard(visionCard, visionCardId, skills) {
         });
         for (let i = 1; i <= level; i++) {
             const conditionalByRuleId = {};
-            if (visionCard.skills && visionCard.skills[i]) {
+            if (visionCard.skills && visionCard.skills[i] && visionCard.skills[i].length) {
                 let skill = skills[visionCard.skills[i].toString()];
                 skill.effects_raw.forEach((rawEffect, index) => {
                     if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {

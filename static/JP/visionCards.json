@@ -588,7 +588,10 @@
 	{"atk":96, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
 	{"atk":110, "conditional":[{"equipedConditions":["dagger"],"atk%":80},{"lbDamage":50}]}
 ]},
-{"id":"211000101", "name":"ラグナロク", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_211000101.png", "sortId":58, "levels":[
+{"id":"210000101", "name":"異界送り", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000101.png", "sortId":73, "levels":[
+	{"spr":125, "spr%":80, "staticStats":{"spr":500}, "killers":[{"name":"spirit","physical":100,"magical":100}]}
+]},
+{"id":"211000101", "name":"Ragnarok", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_211000101.png", "sortId":58, "levels":[
 	{"hp":400, "def":40},
 	{"hp":440, "def":44},
 	{"hp":480, "def":48},
