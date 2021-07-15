@@ -13873,17 +13873,20 @@
 		"name":"Jecht",
 		"jpname":"ジェクト",
 		"id":"210001005",
-		"max_rarity":"7",
+		"braveShift":"210001027",
+		"exAwakening": [{"hp":624,"mp":27,"atk":35,"def":23,"mag":19,"spr":23},{"hp":480,"mp":21,"atk":27,"def":18,"mag":15,"spr":18},{"hp":336,"mp":14,"atk":19,"def":12,"mag":10,"spr":13}],
+		"fragmentId": "250003700",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4796,"mp":208,"atk":204,"def":178,"mag":145,"spr":180},
-			"minStats":{"hp":1583,"mp":69,"atk":67,"def":59,"mag":48,"spr":59},
+			"maxStats":{"hp":4796,"mp":208,"atk":266,"def":178,"mag":145,"spr":180},
+			"minStats":{"hp":1583,"mp":69,"atk":88,"def":59,"mag":48,"spr":59},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["スーパーインファイター","スーパースター","ジェクトラッシュ","クイックブロック","ジェクトキャンセル"],
+		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["スーパーインファイター","スーパースター","ジェクトラッシュ","クイックブロック","ジェクトキャンセル","祈り子になる覚悟","ジェクトフラッド","いっちょやるか!!"],
 		"6_form": {
 			"name":"Jecht",
 			"jpname":"ジェクト",
@@ -13899,7 +13902,73 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["スーパーインファイター","スーパースター","ジェクトラッシュ","クイックブロック","ジェクトキャンセル"]
+			"enhancementSkills":["スーパーインファイター","スーパースター","ジェクトラッシュ","クイックブロック","ジェクトキャンセル","祈り子になる覚悟","ジェクトフラッド","いっちょやるか!!"]
+		},
+		"7_form": {
+			"name":"Jecht",
+			"jpname":"ジェクト",
+			"id":"210001005",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4796,"mp":208,"atk":204,"def":178,"mag":145,"spr":180},
+				"minStats":{"hp":1583,"mp":69,"atk":67,"def":59,"mag":48,"spr":59},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["スーパーインファイター","スーパースター","ジェクトラッシュ","クイックブロック","ジェクトキャンセル","祈り子になる覚悟","ジェクトフラッド","いっちょやるか!!"]
+		}
+	},
+	"210001027": {
+		"name":"ジェクト BS",
+		"jpname":"ジェクト BS",
+		"id":"210001027",
+		"braveShifted":"210001005",
+		"exAwakening": [{"hp":624,"mp":27,"atk":35,"def":23,"mag":19,"spr":23},{"hp":480,"mp":21,"atk":27,"def":18,"mag":15,"spr":18},{"hp":336,"mp":14,"atk":19,"def":12,"mag":10,"spr":13}],
+		"fragmentId": "250003700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4796,"mp":208,"atk":266,"def":178,"mag":145,"spr":180},
+			"minStats":{"hp":1583,"mp":69,"atk":88,"def":59,"mag":48,"spr":59},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"210001105": {
+		"name":"High Summoner Braska",
+		"jpname":"大召喚士ブラスカ",
+		"id":"210001105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4983,"mp":241,"atk":118,"def":174,"mag":232,"spr":236},
+			"minStats":{"hp":1644,"mp":80,"atk":39,"def":57,"mag":77,"spr":78},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","hat","clothes","robe"],
+		"6_form": {
+			"name":"High Summoner Braska",
+			"jpname":"大召喚士ブラスカ",
+			"id":"210001105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3833,"mp":185,"atk":90,"def":133,"mag":178,"spr":181},
+				"minStats":{"hp":1265,"mp":61,"atk":30,"def":44,"mag":59,"spr":60},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["staff","hat","clothes","robe"]
 		}
 	},
 	"210001503": {
@@ -14054,6 +14123,80 @@
 		"stats_pattern":4,
 		"equip":["staff","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["よだれでベタベタのなにか","シューティング・レイ"]
+	},
+	"210002207": {
+		"name":"アルベド族の少女リュック",
+		"jpname":"アルベド族の少女リュック",
+		"id":"210002207",
+		"braveShift":"210002217",
+		"exAwakening": [{"hp":647,"mp":32,"atk":70,"def":25,"mag":25,"spr":25},{"hp":498,"mp":24,"atk":54,"def":19,"mag":19,"spr":19},{"hp":348,"mp":17,"atk":37,"def":13,"mag":13,"spr":13}],
+		"fragmentId": "250003500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4980,"mp":247,"atk":270,"def":194,"mag":196,"spr":195},
+			"minStats":{"hp":1643,"mp":82,"atk":89,"def":64,"mag":65,"spr":64},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["トールボーイ","ライトニングボルト"]
+	},
+	"210002217": {
+		"name":"アルベド族の少女リュック BS",
+		"jpname":"アルベド族の少女リュック BS",
+		"id":"210002217",
+		"braveShifted":"210002207",
+		"exAwakening": [{"hp":647,"mp":32,"atk":70,"def":25,"mag":25,"spr":25},{"hp":498,"mp":24,"atk":54,"def":19,"mag":19,"spr":19},{"hp":348,"mp":17,"atk":37,"def":13,"mag":13,"spr":13}],
+		"fragmentId": "250003500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4980,"mp":247,"atk":270,"def":194,"mag":196,"spr":195},
+			"minStats":{"hp":1643,"mp":82,"atk":89,"def":64,"mag":65,"spr":64},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["fist","hat","clothes","lightArmor","robe","visionCard"]
+	},
+	"210002307": {
+		"name":"Legendary Guardian Auron",
+		"jpname":"伝説のガード アーロン",
+		"id":"210002307",
+		"braveShift":"210002317",
+		"exAwakening": [{"hp":715,"mp":34,"atk":70,"def":25,"mag":16,"spr":23},{"hp":550,"mp":26,"atk":54,"def":19,"mag":12,"spr":18},{"hp":385,"mp":18,"atk":38,"def":13,"mag":8,"spr":13}],
+		"fragmentId": "250003600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5500,"mp":260,"atk":270,"def":190,"mag":120,"spr":180},
+			"minStats":{"hp":1815,"mp":86,"atk":89,"def":63,"mag":40,"spr":59},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["凶嵐","絶衝"]
+	},
+	"210002317": {
+		"name":"Legendary Guardian Auron BS",
+		"jpname":"伝説のガード アーロン BS",
+		"id":"210002317",
+		"braveShifted":"210002307",
+		"exAwakening": [{"hp":715,"mp":34,"atk":70,"def":25,"mag":16,"spr":23},{"hp":550,"mp":26,"atk":54,"def":19,"mag":12,"spr":18},{"hp":385,"mp":18,"atk":38,"def":13,"mag":8,"spr":13}],
+		"fragmentId": "250003600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5500,"mp":260,"atk":270,"def":190,"mag":120,"spr":180},
+			"minStats":{"hp":1815,"mp":86,"atk":89,"def":63,"mag":40,"spr":59},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"211000103": {
 		"name":"Shantotto",

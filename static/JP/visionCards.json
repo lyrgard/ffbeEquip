@@ -180,7 +180,7 @@
 	{"atk":56, "def":28, "resist":[{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"fire","percent":15},{"name":"ice","percent":15}]},
 	{"atk":60, "def":30, "resist":[{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"fire","percent":15},{"name":"ice","percent":15}], "conditional":[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30}]},{"atk%":20,"def%":20}]}
 ]},
-{"id":"100001701", "name":"祝祭準備・レインチーム", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001701.png", "sortId":30, "levels":[
+{"id":"100001701", "name":"5th Anniversary Celebration Preparations", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001701.png", "sortId":30, "levels":[
 	{"atk":45, "mag":45},
 	{"atk":48, "mag":48},
 	{"atk":52, "mag":52},
@@ -204,7 +204,7 @@
 	{"hp":180, "atk":80, "dualWielding":{"atk":50}},
 	{"hp":200, "hp%":20, "atk":90, "dualWielding":{"atk":50}}
 ]},
-{"id":"100001901", "name":"祝！ 5周年記念", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001901.png", "sortId":32, "levels":[
+{"id":"100001901", "name":"Happy Anniversary! 5 Years with FFBE", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100001901.png", "sortId":32, "levels":[
 	{"atk":30},
 	{"atk":34},
 	{"atk":38},
@@ -590,6 +590,18 @@
 ]},
 {"id":"210000101", "name":"異界送り", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000101.png", "sortId":73, "levels":[
 	{"spr":125, "spr%":80, "staticStats":{"spr":500}, "killers":[{"name":"spirit","physical":100,"magical":100}]}
+]},
+{"id":"210000301", "name":"雷平原", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000301.png", "sortId":75, "levels":[
+	{"def":40, "spr":40},
+	{"def":44, "spr":44},
+	{"def":48, "spr":48},
+	{"def":52, "def%":50, "spr":52, "spr%":50},
+	{"def":56, "def%":50, "spr":56, "spr%":50},
+	{"def":60, "def%":50, "spr":60, "spr%":50},
+	{"def":64, "def%":50, "spr":64, "spr%":50, "killers":[{"name":"spirit","physical":50,"magical":50}]},
+	{"def":68, "def%":50, "spr":68, "spr%":50, "killers":[{"name":"spirit","physical":50,"magical":50}]},
+	{"def":72, "def%":50, "spr":72, "spr%":50, "killers":[{"name":"spirit","physical":50,"magical":50}]},
+	{"def":80, "def%":50, "spr":80, "spr%":50, "killers":[{"name":"spirit","physical":50,"magical":50}], "conditional":[{"staticStats":{"def":300,"spr":300}}]}
 ]},
 {"id":"211000101", "name":"Ragnarok", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_211000101.png", "sortId":58, "levels":[
 	{"hp":400, "def":40},
