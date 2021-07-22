@@ -384,7 +384,7 @@
 	{"atk":88, "mag":70, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["rod"],"mag%":100}]},
 	{"atk":100, "mag":80, "conditional":[{"equipedConditions":["sword"],"atk%":80},{"equipedConditions":["greatSword"],"atk%":80},{"equipedConditions":["rod"],"mag%":100},{"lbDamage":50}]}
 ]},
-{"id":"100003501", "name":"泡沫の記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003501.png", "sortId":64, "levels":[
+{"id":"100003501", "name":"Memories Below the Surface", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003501.png", "sortId":64, "levels":[
 	{"hp":400, "mag":40, "spr":40},
 	{"hp":440, "mag":44, "spr":44},
 	{"hp":480, "mag":48, "spr":48},
@@ -458,6 +458,18 @@
 	{"atk":42, "def":42, "mag":42, "spr":42, "mpRefresh":10},
 	{"atk":45, "def":45, "mag":45, "spr":45, "mpRefresh":10},
 	{"atk":50, "def":50, "mag":50, "spr":50, "mpRefresh":18}
+]},
+{"id":"100004301", "name":"最高のバカンス", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004301.png", "sortId":77, "levels":[
+	{"mag":30, "spr":30},
+	{"mag":33, "spr":33},
+	{"mag":36, "spr":36},
+	{"mag":39, "mag%":25, "spr":39, "spr%":25},
+	{"mag":42, "mag%":25, "spr":42, "spr%":25},
+	{"mag":45, "mag%":25, "spr":45, "spr%":25},
+	{"mag":48, "mag%":50, "spr":48, "spr%":50},
+	{"mag":51, "mag%":50, "spr":51, "spr%":50},
+	{"mag":54, "mag%":50, "spr":54, "spr%":50},
+	{"mag":60, "mag%":50, "spr":60, "spr%":50, "conditional":[{"oneWeaponMastery":{"mag":50},"exclusiveSex":"female"},{"oneWeaponMastery":{"spr":50},"exclusiveSex":"female"},{"dualWielding":{"mag":50},"exclusiveSex":"female"},{"dualWielding":{"spr":50},"exclusiveSex":"female"}]}
 ]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},

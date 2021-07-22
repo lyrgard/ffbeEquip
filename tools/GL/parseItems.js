@@ -552,49 +552,51 @@ function treatVisionCard(visionCard, visionCardId, skills) {
         for (let i = 1; i <= level; i++) {
             const conditionalByRuleId = {};
             if (visionCard.skills && visionCard.skills[i] && visionCard.skills[i].length) {
-                let skill = skills[visionCard.skills[i].toString()];
-                skill.effects_raw.forEach((rawEffect, index) => {
-                    if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
-                        // mastery skill
-                        let conditional = {};
-                        addMastery(conditional, rawEffect);
-                        if (!levelData.conditional) levelData.conditional = [];
-                        const sameCondition = levelData.conditional.filter(cond => arrayEquivalents(cond.equipedConditions, conditional.equipedConditions));
-                        if (sameCondition.length === 0) {
-                            levelData.conditional.push(conditional);
-                        } else {
-                            stats.forEach(stat => {
-                                if (conditional[stat.toLowerCase() + '%']) {
-                                    addStat(sameCondition[0], stat.toLowerCase() + '%', conditional[stat.toLowerCase() + '%']);
-                                }
-                            });
-                        }
-                        if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
-                            let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
-                            if (!Object.keys(unitRules).includes(ruleId.toString())) {
-                                console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                for (let j = 0; j < visionCard.skills[i].length; j++) {
+                    let skill = skills[visionCard.skills[i][j].toString()];
+                    skill.effects_raw.forEach((rawEffect, index) => {
+                        if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
+                            // mastery skill
+                            let conditional = {};
+                            addMastery(conditional, rawEffect);
+                            if (!levelData.conditional) levelData.conditional = [];
+                            const sameCondition = levelData.conditional.filter(cond => arrayEquivalents(cond.equipedConditions, conditional.equipedConditions));
+                            if (sameCondition.length === 0) {
+                                levelData.conditional.push(conditional);
+                            } else {
+                                stats.forEach(stat => {
+                                    if (conditional[stat.toLowerCase() + '%']) {
+                                        addStat(sameCondition[0], stat.toLowerCase() + '%', conditional[stat.toLowerCase() + '%']);
+                                    }
+                                });
                             }
-                            unitRules[ruleId](conditional);
-                        }
-                    } else {
-                        if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
-                            let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
-                            let conditional = conditionalByRuleId[ruleId] || {};
-                            addEffectToItem(conditional, skill, index, skills);
-                            if (!conditionalByRuleId[ruleId]) {
-                                if (!levelData.conditional) levelData.conditional = [];
+                            if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
+                                let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
                                 if (!Object.keys(unitRules).includes(ruleId.toString())) {
                                     console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
                                 }
                                 unitRules[ruleId](conditional);
-                                levelData.conditional.push(conditional);
-                                conditionalByRuleId[ruleId] = conditional;
                             }
                         } else {
-                            addEffectToItem(levelData, skill, index, skills);
+                            if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
+                                let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
+                                let conditional = conditionalByRuleId[ruleId] || {};
+                                addEffectToItem(conditional, skill, index, skills);
+                                if (!conditionalByRuleId[ruleId]) {
+                                    if (!levelData.conditional) levelData.conditional = [];
+                                    if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                                        console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                                    }
+                                    unitRules[ruleId](conditional);
+                                    levelData.conditional.push(conditional);
+                                    conditionalByRuleId[ruleId] = conditional;
+                                }
+                            } else {
+                                addEffectToItem(levelData, skill, index, skills);
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         }
     }

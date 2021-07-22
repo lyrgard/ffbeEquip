@@ -8540,7 +8540,7 @@
 		}
 	},
 	"100034307": {
-		"name":"Shielding Blade Charlotte",
+		"name":"Guardian Blade Charlotte",
 		"jpname":"守護の剣シャルロット",
 		"id":"100034307",
 		"braveShift":"100034317",
@@ -8559,7 +8559,7 @@
 		"enhancementSkills":["シェルガ","フリージングストライク"]
 	},
 	"100034317": {
-		"name":"Shielding Blade Charlotte BS",
+		"name":"Guardian Blade Charlotte BS",
 		"jpname":"守護の剣シャルロット BS",
 		"id":"100034317",
 		"braveShifted":"100034307",
@@ -8616,7 +8616,7 @@
 		"enhancementSkills":["独・明鏡","真なる孤高の力"]
 	},
 	"100034707": {
-		"name":"Sea King Nichol",
+		"name":"Lord of the Seas Nichol",
 		"jpname":"海王ニコル",
 		"id":"100034707",
 		"braveShift":"100034717",
@@ -8635,7 +8635,7 @@
 		"enhancementSkills":["フラッド","ウォタガ","プロテガ","シェルガ","真・水刃計"]
 	},
 	"100034717": {
-		"name":"Sea King Nichol BS",
+		"name":"Lord of the Seas Nichol BS",
 		"jpname":"海王ニコル BS",
 		"id":"100034717",
 		"braveShifted":"100034707",
@@ -8727,6 +8727,43 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"]
 	},
+	"100035507": {
+		"name":"Shoreline Physalis",
+		"jpname":"ファイサリス2021夏",
+		"id":"100035507",
+		"braveShift":"100035517",
+		"exAwakening": [{"hp":624,"mp":30,"atk":18,"def":22,"mag":75,"spr":25},{"hp":480,"mp":23,"atk":14,"def":17,"mag":58,"spr":19},{"hp":336,"mp":16,"atk":10,"def":12,"mag":41,"spr":13}],
+		"fragmentId": "250003800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":230,"atk":140,"def":170,"mag":290,"spr":190},
+			"minStats":{"hp":1584,"mp":76,"atk":46,"def":56,"mag":96,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["ウォタガ","ブリザガ","F型最強オーシャン弾","F型最強かき氷弾"]
+	},
+	"100035517": {
+		"name":"Shoreline Physalis BS",
+		"jpname":"ファイサリス2021夏 BS",
+		"id":"100035517",
+		"braveShifted":"100035507",
+		"exAwakening": [{"hp":624,"mp":30,"atk":18,"def":22,"mag":75,"spr":25},{"hp":480,"mp":23,"atk":14,"def":17,"mag":58,"spr":19},{"hp":336,"mp":16,"atk":10,"def":12,"mag":41,"spr":13}],
+		"fragmentId": "250003800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":230,"atk":140,"def":170,"mag":290,"spr":190},
+			"minStats":{"hp":1584,"mp":76,"atk":46,"def":56,"mag":96,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","hat","helm","clothes","lightArmor","visionCard"]
+	},
 	"100035807": {
 		"name":"Youthful Thunder Sakura",
 		"jpname":"幼雷サクラ",
@@ -8764,6 +8801,43 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","spear","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["サンダジャ","サンダガ","真・闘雷石","老賢の助力","老賢の怒り"]
+	},
+	"100037107": {
+		"name":"Coastal Freesia",
+		"jpname":"フリージア2021夏",
+		"id":"100037107",
+		"braveShift":"100037117",
+		"exAwakening": [{"hp":572,"mp":35,"atk":19,"def":22,"mag":29,"spr":70},{"hp":440,"mp":27,"atk":15,"def":17,"mag":22,"spr":54},{"hp":308,"mp":19,"atk":10,"def":12,"mag":15,"spr":38}],
+		"fragmentId": "250003900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4400,"mp":270,"atk":148,"def":170,"mag":220,"spr":270},
+			"minStats":{"hp":1452,"mp":89,"atk":49,"def":56,"mag":73,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["ウォタガ","エアロガ","プロテガ","シェルガ","人魚姫の祈り"]
+	},
+	"100037117": {
+		"name":"Coastal Freesia BS",
+		"jpname":"フリージア2021夏 BS",
+		"id":"100037117",
+		"braveShifted":"100037107",
+		"exAwakening": [{"hp":572,"mp":35,"atk":19,"def":22,"mag":29,"spr":70},{"hp":440,"mp":27,"atk":15,"def":17,"mag":22,"spr":54},{"hp":308,"mp":19,"atk":10,"def":12,"mag":15,"spr":38}],
+		"fragmentId": "250003900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4400,"mp":270,"atk":148,"def":170,"mag":220,"spr":270},
+			"minStats":{"hp":1452,"mp":89,"atk":49,"def":56,"mag":73,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","lightShield","hat","clothes","robe","visionCard"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",

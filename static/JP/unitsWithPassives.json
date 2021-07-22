@@ -12196,7 +12196,7 @@
 		}
 	},
 	"100034307": {
-		"name":"Shielding Blade Charlotte",
+		"name":"Guardian Blade Charlotte",
 		"jpname":"守護の剣シャルロット",
 		"id":"100034307",
 		"braveShift":"100034317",
@@ -12221,7 +12221,7 @@
 		]
 	},
 	"100034317": {
-		"name":"Shielding Blade Charlotte BS",
+		"name":"Guardian Blade Charlotte BS",
 		"jpname":"守護の剣シャルロット BS",
 		"id":"100034317",
 		"braveShifted":"100034307",
@@ -12294,7 +12294,7 @@
 		]
 	},
 	"100034707": {
-		"name":"Sea King Nichol",
+		"name":"Lord of the Seas Nichol",
 		"jpname":"海王ニコル",
 		"id":"100034707",
 		"braveShift":"100034717",
@@ -12318,7 +12318,7 @@
 		]
 	},
 	"100034717": {
-		"name":"Sea King Nichol BS",
+		"name":"Lord of the Seas Nichol BS",
 		"jpname":"海王ニコル BS",
 		"id":"100034717",
 		"braveShifted":"100034707",
@@ -12433,6 +12433,53 @@
 			{"resist":[{"name":"stop","percent":100}], "lbDamage":50, "equipedConditions":[["408006800","504241803"]]}
 		]
 	},
+	"100035507": {
+		"name":"Shoreline Physalis",
+		"jpname":"ファイサリス2021夏",
+		"id":"100035507",
+		"braveShift":"100035517",
+		"exAwakening": [{"hp":624,"mp":30,"atk":18,"def":22,"mag":75,"spr":25},{"hp":480,"mp":23,"atk":14,"def":17,"mag":58,"spr":19},{"hp":336,"mp":16,"atk":10,"def":12,"mag":41,"spr":13}],
+		"fragmentId": "250003800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":230,"atk":140,"def":170,"mag":290,"spr":190},
+			"minStats":{"hp":1584,"mp":76,"atk":46,"def":56,"mag":96,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["ウォタガ","ブリザガ","F型最強オーシャン弾","F型最強かき氷弾"],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":200, "spr%":60, "evade":{"physical":30}, "dualWielding":{"mag":100}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"ice","percent":30},{"name":"water","percent":30},{"name":"poison","percent":100}], "killers":[{"name":"bug","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200}], "mpRefresh":5, "lbDamage":200, "special":["dualWield"]},
+			{"killers":[{"name":"bug","physical":100,"magical":100}], "equipedConditions":[["504242370","313008400"]]},
+			{"mag%":100, "equipedConditions":["gun",["504242370","313008400"]]}
+		]
+	},
+	"100035517": {
+		"name":"Shoreline Physalis BS",
+		"jpname":"ファイサリス2021夏 BS",
+		"id":"100035517",
+		"braveShifted":"100035507",
+		"exAwakening": [{"hp":624,"mp":30,"atk":18,"def":22,"mag":75,"spr":25},{"hp":480,"mp":23,"atk":14,"def":17,"mag":58,"spr":19},{"hp":336,"mp":16,"atk":10,"def":12,"mag":41,"spr":13}],
+		"fragmentId": "250003800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":230,"atk":140,"def":170,"mag":290,"spr":190},
+			"minStats":{"hp":1584,"mp":76,"atk":46,"def":56,"mag":96,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","hat","helm","clothes","lightArmor","visionCard"],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":200, "spr%":60, "evade":{"physical":30}, "dualWielding":{"mag":100}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"ice","percent":30},{"name":"water","percent":30},{"name":"poison","percent":100}], "killers":[{"name":"bug","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200}], "mpRefresh":5, "lbDamage":200, "special":["dualWield"]},
+			{"killers":[{"name":"bug","physical":100,"magical":100}], "equipedConditions":[["504242370","313008400"]]},
+			{"mag%":100, "equipedConditions":["gun",["504242370","313008400"]]}
+		]
+	},
 	"100035807": {
 		"name":"Youthful Thunder Sakura",
 		"jpname":"幼雷サクラ",
@@ -12479,6 +12526,51 @@
 			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":110, "spr%":60, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"lightning","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"mag%":140, "equipedConditions":["rod"]},
 			{"evoMag":200, "singleWielding":{"mag":100}, "esperStatsBonus":{"Ramuh":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}, "equipedConditions":[["504241700","405017200"]]}
+		]
+	},
+	"100037107": {
+		"name":"Coastal Freesia",
+		"jpname":"フリージア2021夏",
+		"id":"100037107",
+		"braveShift":"100037117",
+		"exAwakening": [{"hp":572,"mp":35,"atk":19,"def":22,"mag":29,"spr":70},{"hp":440,"mp":27,"atk":15,"def":17,"mag":22,"spr":54},{"hp":308,"mp":19,"atk":10,"def":12,"mag":15,"spr":38}],
+		"fragmentId": "250003900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4400,"mp":270,"atk":148,"def":170,"mag":220,"spr":270},
+			"minStats":{"hp":1452,"mp":89,"atk":49,"def":56,"mag":73,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["ウォタガ","エアロガ","プロテガ","シェルガ","人魚姫の祈り"],
+		"skills": [
+			{"mp%":100, "mag%":100, "spr%":200, "oneWeaponMastery":{"spr":100}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"aquatic","physical":200,"magical":200},{"name":"undead","physical":150,"magical":150}], "mpRefresh":8},
+			{"equipedConditions":[["311008400","504242374"]]}
+		]
+	},
+	"100037117": {
+		"name":"Coastal Freesia BS",
+		"jpname":"フリージア2021夏 BS",
+		"id":"100037117",
+		"braveShifted":"100037107",
+		"exAwakening": [{"hp":572,"mp":35,"atk":19,"def":22,"mag":29,"spr":70},{"hp":440,"mp":27,"atk":15,"def":17,"mag":22,"spr":54},{"hp":308,"mp":19,"atk":10,"def":12,"mag":15,"spr":38}],
+		"fragmentId": "250003900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4400,"mp":270,"atk":148,"def":170,"mag":220,"spr":270},
+			"minStats":{"hp":1452,"mp":89,"atk":49,"def":56,"mag":73,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","lightShield","hat","clothes","robe","visionCard"],
+		"skills": [
+			{"mp%":100, "mag%":100, "spr%":200, "oneWeaponMastery":{"spr":100}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"aquatic","physical":200,"magical":200},{"name":"undead","physical":150,"magical":150}], "mpRefresh":8},
+			{"equipedConditions":[["311008400","504242374"]]}
 		]
 	},
 	"201000104": {

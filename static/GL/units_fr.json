@@ -11054,8 +11054,8 @@
 		}
 	},
 	"207001227": {
-		"name":"ルーファウス神羅(FFVII REMAKE) BS",
-		"wikiEntry":"ルーファウス神羅(FFVII_REMAKE)",
+		"name":"Rufus Shinra (FFVII REMAKE) BS",
+		"wikiEntry":"Rufus_Shinra (FFVII REMAKE)",
 		"id":"207001227",
 		"braveShifted":"207001205",
 		"max_rarity":"NV",
@@ -11074,6 +11074,8 @@
 		"wikiEntry":"Reno_(FFVII REMAKE)",
 		"id":"207001305",
 		"braveShift":"207001327",
+		"exAwakening": [{"hp":624,"mp":32,"atk":26,"def":24,"mag":20,"spr":24},{"hp":480,"mp":24,"atk":20,"def":19,"mag":15,"spr":18},{"hp":336,"mp":17,"atk":14,"def":13,"mag":10,"spr":13}],
+		"fragmentId": "250001000",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -11083,7 +11085,8 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"],
+		"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Crashing Lightning"],
 		"6_form": {
 			"name":"Réno (FFVII REMAKE)",
 			"wikiEntry":"Reno_(FFVII REMAKE)",
@@ -11098,7 +11101,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Crashing Lightning"]
 		},
 		"7_form": {
 			"name":"Réno (FFVII REMAKE)",
@@ -11114,14 +11118,17 @@
 				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 			},
 			"stats_pattern":4,
-			"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Crashing Lightning"]
 		}
 	},
 	"207001327": {
-		"name":"レノ&ルード(FFVII REMAKE) BS",
-		"wikiEntry":"レノ(FFVII_REMAKE)",
+		"name":"Réno et Rude (FFVII REMAKE) BS",
+		"wikiEntry":"Reno_& Rude (FFVII REMAKE)",
 		"id":"207001327",
 		"braveShifted":"207001305",
+		"exAwakening": [{"hp":624,"mp":32,"atk":26,"def":24,"mag":20,"spr":24},{"hp":480,"mp":24,"atk":20,"def":19,"mag":15,"spr":18},{"hp":336,"mp":17,"atk":14,"def":13,"mag":10,"spr":13}],
+		"fragmentId": "250001000",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -11131,11 +11138,12 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"]
+		"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Triple Shockwave","Whirlwind (FFVII REMAKE)"]
 	},
 	"207001405": {
-		"name":"アバランチ ジェシー",
-		"wikiEntry":"アバランチ_ジェシー",
+		"name":"Jessie, membre d'Avalanche",
+		"wikiEntry":"Avalanche's_Jessie",
 		"id":"207001405",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -11147,10 +11155,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["Faith"],
+		"enhancementSkills":["Bravery","Faith"],
 		"6_form": {
-			"name":"アバランチ ジェシー",
-			"wikiEntry":"アバランチ_ジェシー",
+			"name":"Jessie, membre d'Avalanche",
+			"wikiEntry":"Avalanche's_Jessie",
 			"id":"207001405",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -11163,12 +11171,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["Faith"]
+			"enhancementSkills":["Bravery","Faith"]
 		}
 	},
 	"207001507": {
-		"name":"Descendant of Cetra Aerith",
-		"wikiEntry":"セトラの末裔_エアリス",
+		"name":"Aerith, descendante des Cétras",
+		"wikiEntry":"Cetra_Descendant Aerith",
 		"id":"207001507",
 		"braveShift":"207001517",
 		"exAwakening": [{"hp":611,"mp":39,"atk":19,"def":19,"mag":62,"spr":33},{"hp":470,"mp":30,"atk":14,"def":15,"mag":48,"spr":26},{"hp":329,"mp":21,"atk":10,"def":10,"mag":33,"spr":18}],
@@ -11183,18 +11191,18 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Shellga","Banishga","光芒の祈り"]
+		"enhancementSkills":["Protectga","Shellga","Holy","Banishga","Radiant Prayer"]
 	},
 	"207001517": {
-		"name":"Aerith & Red XIII BS",
-		"wikiEntry":"エアリス&レッドXIII",
+		"name":"Aerith et Rouge XIII BS",
+		"wikiEntry":"Aerith_& Red XIII",
 		"id":"207001517",
 		"braveShifted":"207001507",
 		"exAwakening": [{"hp":611,"mp":39,"atk":19,"def":19,"mag":62,"spr":33},{"hp":470,"mp":30,"atk":14,"def":15,"mag":48,"spr":26},{"hp":329,"mp":21,"atk":10,"def":10,"mag":33,"spr":18}],
 		"fragmentId": "250000970",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
-		"sex":"female",
+		"sex":"other",
 		"stats": {
 			"maxStats":{"hp":4700,"mp":300,"atk":148,"def":150,"mag":260,"spr":240},
 			"minStats":{"hp":1551,"mp":99,"atk":49,"def":50,"mag":86,"spr":79},
@@ -11202,7 +11210,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","rod","fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Shellga","フレイムファング","火焔の祈り"]
+		"enhancementSkills":["Protectga","Shellga","Flame Fang","Ardent Prayer"]
 	},
 	"207001605": {
 		"name":"Cloud (FFVII: AC)",
@@ -11399,8 +11407,8 @@
 		}
 	},
 	"207002127": {
-		"name":"バレット(FFVII REMAKE) BS",
-		"wikiEntry":"バレット(FFVII_REMAKE)",
+		"name":"Barret (FFVII REMAKE) BS",
+		"wikiEntry":"Barret_(FFVII REMAKE)",
 		"id":"207002127",
 		"braveShifted":"207002105",
 		"max_rarity":"NV",
@@ -21625,7 +21633,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","whip","fist","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Thorny Teamwork","Protectga","Shellga","Cactus Break"]
+		"enhancementSkills":["Thorny Teamwork","Cactus Break"]
 	},
 	"401010817": {
 		"name":"Kaktiria BS",
@@ -21644,7 +21652,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","whip","fist","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Cactus Break","Protectga","Shellga","Deadly Drought"]
+		"enhancementSkills":["Cactus Break","Deadly Drought"]
 	},
 	"401010907": {
 		"name":"Roi Béhémy",
@@ -22103,8 +22111,12 @@
   "100035117":{"name":"Roca BS","jpname":"ロカ BS","id":"100035117","braveShifted":"100035107","exAwakening":[{"hp":378,"mp":40,"atk":14,"def":23,"mag":67,"spr":30},{"hp":291,"mp":31,"atk":11,"def":18,"mag":52,"spr":23},{"hp":203,"mp":21,"atk":7,"def":12,"mag":36,"spr":16}],"fragmentId":"250002300","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":2913,"mp":310,"atk":110,"def":183,"mag":260,"spr":237},"minStats":{"hp":961,"mp":102,"atk":36,"def":60,"mag":86,"spr":78},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe","visionCard"]},
   "100035307":{"name":"Paus","jpname":"ポース","id":"100035307","braveShift":"100035317","exAwakening":[{"hp":570,"mp":31,"atk":19,"def":14,"mag":75,"spr":24},{"hp":439,"mp":24,"atk":14,"def":11,"mag":58,"spr":18},{"hp":307,"mp":16,"atk":10,"def":7,"mag":40,"spr":13}],"fragmentId":"250002400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4391,"mp":240,"atk":147,"def":112,"mag":290,"spr":189},"minStats":{"hp":1449,"mp":79,"atk":49,"def":37,"mag":96,"spr":62},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe","visionCard"],"enhancementSkills":["ウォタガ","アルテマ","ランブシークシフォス","ネロークシフォス"]},
   "100035317":{"name":"Paus BS","jpname":"ポース BS","id":"100035317","braveShifted":"100035307","exAwakening":[{"hp":570,"mp":31,"atk":19,"def":14,"mag":75,"spr":24},{"hp":439,"mp":24,"atk":14,"def":11,"mag":58,"spr":18},{"hp":307,"mp":16,"atk":10,"def":7,"mag":40,"spr":13}],"fragmentId":"250002400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4391,"mp":240,"atk":147,"def":112,"mag":290,"spr":189},"minStats":{"hp":1449,"mp":79,"atk":49,"def":37,"mag":96,"spr":62},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe","visionCard"]},
+  "100035507":{"name":"Shoreline Physalis","jpname":"ファイサリス2021夏","id":"100035507","braveShift":"100035517","exAwakening":[{"hp":624,"mp":30,"atk":18,"def":22,"mag":75,"spr":25},{"hp":480,"mp":23,"atk":14,"def":17,"mag":58,"spr":19},{"hp":336,"mp":16,"atk":10,"def":12,"mag":41,"spr":13}],"fragmentId":"250003800","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4800,"mp":230,"atk":140,"def":170,"mag":290,"spr":190},"minStats":{"hp":1584,"mp":76,"atk":46,"def":56,"mag":96,"spr":63},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["gun","hat","helm","clothes","lightArmor","visionCard"],"enhancementSkills":["ウォタガ","ブリザガ","F型最強オーシャン弾","F型最強かき氷弾"]},
+  "100035517":{"name":"Shoreline Physalis BS","jpname":"ファイサリス2021夏 BS","id":"100035517","braveShifted":"100035507","exAwakening":[{"hp":624,"mp":30,"atk":18,"def":22,"mag":75,"spr":25},{"hp":480,"mp":23,"atk":14,"def":17,"mag":58,"spr":19},{"hp":336,"mp":16,"atk":10,"def":12,"mag":41,"spr":13}],"fragmentId":"250003800","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4800,"mp":230,"atk":140,"def":170,"mag":290,"spr":190},"minStats":{"hp":1584,"mp":76,"atk":46,"def":56,"mag":96,"spr":63},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["gun","hat","helm","clothes","lightArmor","visionCard"]},
   "100035807":{"name":"Youthful Thunder Sakura","jpname":"幼雷サクラ","id":"100035807","braveShift":"100035817","exAwakening":[{"hp":601,"mp":35,"atk":20,"def":22,"mag":59,"spr":27},{"hp":462,"mp":27,"atk":15,"def":17,"mag":46,"spr":21},{"hp":323,"mp":18,"atk":10,"def":12,"mag":32,"spr":14}],"fragmentId":"250002000","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4628,"mp":270,"atk":155,"def":172,"mag":230,"spr":210},"minStats":{"hp":1527,"mp":89,"atk":51,"def":57,"mag":76,"spr":69},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","spear","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["サンダジャ","サンダガ","プロテガ","シェルガ","真・闘雷石"]},
   "100035817":{"name":"Youthful Thunder Sakura BS","jpname":"幼雷サクラ BS","id":"100035817","braveShifted":"100035807","exAwakening":[{"hp":601,"mp":35,"atk":20,"def":22,"mag":59,"spr":27},{"hp":462,"mp":27,"atk":15,"def":17,"mag":46,"spr":21},{"hp":323,"mp":18,"atk":10,"def":12,"mag":32,"spr":14}],"fragmentId":"250002000","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4873,"mp":286,"atk":155,"def":176,"mag":265,"spr":235},"minStats":{"hp":1608,"mp":94,"atk":51,"def":58,"mag":87,"spr":78},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","spear","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["サンダジャ","サンダガ","真・闘雷石","老賢の助力","老賢の怒り"]},
+  "100037107":{"name":"Coastal Freesia","jpname":"フリージア2021夏","id":"100037107","braveShift":"100037117","exAwakening":[{"hp":572,"mp":35,"atk":19,"def":22,"mag":29,"spr":70},{"hp":440,"mp":27,"atk":15,"def":17,"mag":22,"spr":54},{"hp":308,"mp":19,"atk":10,"def":12,"mag":15,"spr":38}],"fragmentId":"250003900","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4400,"mp":270,"atk":148,"def":170,"mag":220,"spr":270},"minStats":{"hp":1452,"mp":89,"atk":49,"def":56,"mag":73,"spr":89},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","lightShield","hat","clothes","robe","visionCard"],"enhancementSkills":["ウォタガ","エアロガ","プロテガ","シェルガ","人魚姫の祈り"]},
+  "100037117":{"name":"Coastal Freesia BS","jpname":"フリージア2021夏 BS","id":"100037117","braveShifted":"100037107","exAwakening":[{"hp":572,"mp":35,"atk":19,"def":22,"mag":29,"spr":70},{"hp":440,"mp":27,"atk":15,"def":17,"mag":22,"spr":54},{"hp":308,"mp":19,"atk":10,"def":12,"mag":15,"spr":38}],"fragmentId":"250003900","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4400,"mp":270,"atk":148,"def":170,"mag":220,"spr":270},"minStats":{"hp":1452,"mp":89,"atk":49,"def":56,"mag":73,"spr":89},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","lightShield","hat","clothes","robe","visionCard"]},
   "204001805":{"name":"Rubicante","jpname":"ルビカンテ","id":"204001805","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4683,"mp":264,"atk":140,"def":149,"mag":215,"spr":204},"minStats":{"hp":1545,"mp":87,"atk":46,"def":49,"mag":71,"spr":67},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe"],"enhancementSkills":["メルトン","ゾファイ","なんだ　そのあわれな　じゅつは…","ほのおは　こうして　つかうものだ！","人間と決別せし者","狂える赤き戦士"],"6_form":{"name":"Rubicante","jpname":"ルビカンテ","id":"204001805","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3602,"mp":203,"atk":107,"def":114,"mag":165,"spr":156},"minStats":{"hp":1189,"mp":67,"atk":35,"def":38,"mag":54,"spr":51},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","rod","hat","clothes","robe"],"enhancementSkills":["メルトン","ゾファイ","なんだ　そのあわれな　じゅつは…","ほのおは　こうして　つかうものだ！","人間と決別せし者","狂える赤き戦士"]}},
   "204001904":{"name":"Barbariccia","jpname":"バルバリシア","id":"204001904","max_rarity":"6","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":3450,"mp":190,"atk":110,"def":118,"mag":152,"spr":143},"minStats":{"hp":1139,"mp":63,"atk":36,"def":39,"mag":50,"spr":47},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"]},
   "204002003":{"name":"Scarmiglione","jpname":"スカルミリョーネ","id":"204002003","max_rarity":"5","min_rarity":"3","sex":"male","stats":{"maxStats":{"hp":2964,"mp":111,"atk":121,"def":119,"mag":85,"spr":81},"minStats":{"hp":978,"mp":37,"atk":40,"def":39,"mag":28,"spr":27},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","katana","throwing","fist","hat","clothes","lightArmor","robe"]},
