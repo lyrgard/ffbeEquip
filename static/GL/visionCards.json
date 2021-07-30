@@ -442,7 +442,7 @@
 	{"atk":76, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
 	{"atk":82, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
 	{"atk":88, "conditional":[{"equipedConditions":["greatSword"],"atk%":100}]},
-	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"atk%":100},{"atk%":30,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207001305","207001327","207001507","207001517","207002007","207002017","207002207","207002217","207002307","207002317"]}]}
+	{"atk":100, "conditional":[{"equipedConditions":["greatSword"],"atk%":100},{"atk%":30,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207001205","207001227","207001305","207001327","207001507","207001517","207002007","207002017","207002207","207002217","207002307","207002317"]}]}
 ]},
 {"id":"207000201", "name":"Scorpion Sentinel Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000201.png", "sortId":7, "levels":[
 	{"def":20},
@@ -466,7 +466,10 @@
 	{"mag":55, "spr":55, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
 	{"mag":57, "spr":57, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
 	{"mag":60, "spr":60, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
-	{"mag":65, "spr":65, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50},{"mag%":20,"spr%":20,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207001305","207001327","207001507","207001517","207002007","207002017","207002207","207002217","207002307","207002317"]}]}
+	{"mag":65, "spr":65, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50},{"mag%":20,"spr%":20,"exclusiveUnits":["207000105","207000127","207000305","207000327","207000505","207000527","207001205","207001227","207001305","207001327","207001507","207001517","207002007","207002017","207002207","207002217","207002307","207002317"]}]}
+]},
+{"id":"207000401", "name":"The Star of Seventh Heaven", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000401.png", "sortId":60, "levels":[
+	{"atk":125, "staticStats":{"atk":500}, "killers":[{"name":"beast","physical":100,"magical":100}], "lbDamage":50}
 ]},
 {"id":"207000501", "name":"Showdown with the Arsenal", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000501.png", "sortId":61, "levels":[
 	{"mag":100, "mag%":100, "spr":100, "spr%":100, "lbDamage":50}
