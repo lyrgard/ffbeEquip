@@ -274,7 +274,7 @@
 	{"atk":52, "def":26, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
 	{"atk":54, "def":27, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
 	{"atk":56, "def":28, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}]},
-	{"atk":60, "def":30, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15}], "conditional":[{"resist":[{"name":"lightning","percent":30},{"name":"earth","percent":30}]},{"atk%":20,"def%":20}]}
+	{"atk":60, "atk%":20, "def":30, "def%":20, "resist":[{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":15},{"name":"earth","percent":15},{"name":"lightning","percent":30},{"name":"earth","percent":30}]}
 ]},
 {"id":"100002501", "name":"Friends from Today!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100002501.png", "sortId":38, "levels":[
 	{"atk":40},
@@ -334,7 +334,7 @@
 	{"mag":68, "conditional":[{"equipedConditions":["clothes"],"mag%":40}]},
 	{"mag":71, "conditional":[{"equipedConditions":["clothes"],"mag%":40}]},
 	{"mag":74, "conditional":[{"equipedConditions":["clothes"],"mag%":40}]},
-	{"mag":80, "killers":[{"name":"machine","magical":25}], "conditional":[{"equipedConditions":["clothes"],"mag%":40}]}
+	{"mag":80, "staticStats":{"mag":500}, "killers":[{"name":"machine","magical":25}], "conditional":[{"equipedConditions":["clothes"],"mag%":40}]}
 ]},
 {"id":"100003001", "name":"The One I've Loved...", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003001.png", "sortId":52, "levels":[
 	{"atk":35},
@@ -406,7 +406,7 @@
 	{"atk":64, "conditional":[{"equipedConditions":["gun"],"atk%":60}]},
 	{"atk":68, "conditional":[{"equipedConditions":["gun"],"atk%":60}]},
 	{"atk":72, "conditional":[{"equipedConditions":["gun"],"atk%":60}]},
-	{"atk":80, "killers":[{"name":"spirit","physical":50,"magical":50}], "conditional":[{"equipedConditions":["gun"],"atk%":60}]}
+	{"atk":80, "staticStats":{"atk":500}, "killers":[{"name":"spirit","physical":50,"magical":50}], "conditional":[{"equipedConditions":["gun"],"atk%":60}]}
 ]},
 {"id":"100003701", "name":"恐怖の料理人？", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003701.png", "sortId":67, "levels":[
 	{"hp":200, "def":40},
@@ -470,6 +470,9 @@
 	{"mag":51, "mag%":50, "spr":51, "spr%":50},
 	{"mag":54, "mag%":50, "spr":54, "spr%":50},
 	{"mag":60, "mag%":50, "spr":60, "spr%":50, "conditional":[{"oneWeaponMastery":{"mag":50},"exclusiveSex":"female"},{"oneWeaponMastery":{"spr":50},"exclusiveSex":"female"},{"dualWielding":{"mag":50},"exclusiveSex":"female"},{"dualWielding":{"spr":50},"exclusiveSex":"female"}]}
+]},
+{"id":"100004401", "name":"わけありの任務", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004401.png", "sortId":78, "levels":[
+	{"atk":125, "atk%":80, "staticStats":{"atk":500}, "killers":[{"name":"machine","physical":100,"magical":100}]}
 ]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
@@ -579,10 +582,10 @@
 	{"mag":60, "spr":60, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50}]},
 	{"mag":65, "spr":65, "conditional":[{"equipedConditions":["rod"],"mag%":50,"spr%":50},{"mag%":20,"spr%":20}]}
 ]},
-{"id":"207000401", "name":"セブンスヘブンの看板娘", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000401.png", "sortId":60, "levels":[
+{"id":"207000401", "name":"The Star of Seventh Heaven", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000401.png", "sortId":60, "levels":[
 	{"atk":125, "staticStats":{"atk":500}, "killers":[{"name":"beast","physical":100,"magical":100}], "lbDamage":50}
 ]},
-{"id":"207000501", "name":"VSハンドレッドガンナー", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000501.png", "sortId":61, "levels":[
+{"id":"207000501", "name":"Showdown with the Arsenal", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000501.png", "sortId":61, "levels":[
 	{"mag":100, "mag%":100, "spr":100, "spr%":100, "lbDamage":50}
 ]},
 {"id":"207000601", "name":"感動の再会だ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000601.png", "sortId":62, "levels":[

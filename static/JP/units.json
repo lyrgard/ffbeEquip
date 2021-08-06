@@ -8556,7 +8556,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["シェルガ","フリージングストライク"]
+		"enhancementSkills":["私は守るだけの騎士ではない","シェルガ","フリージングストライク"]
 	},
 	"100034317": {
 		"name":"Guardian Blade Charlotte BS",
@@ -8575,7 +8575,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["雪雹落刃","風花落刃"]
+		"enhancementSkills":["私は守るだけの騎士ではない","雪雹落刃","風花落刃"]
 	},
 	"100034407": {
 		"name":"Emperor Vlad",
@@ -8802,6 +8802,43 @@
 		"equip":["staff","rod","spear","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["サンダジャ","サンダガ","真・闘雷石","老賢の助力","老賢の怒り"]
 	},
+	"100035907": {
+		"name":"Tyvas",
+		"jpname":"タイヴァス",
+		"id":"100035907",
+		"braveShift":"100035917",
+		"exAwakening": [{"hp":650,"mp":39,"atk":78,"def":29,"mag":19,"spr":38},{"hp":500,"mp":30,"atk":60,"def":22,"mag":15,"spr":29},{"hp":350,"mp":21,"atk":42,"def":15,"mag":10,"spr":20}],
+		"fragmentId": "250004100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":300,"atk":300,"def":220,"mag":148,"spr":290},
+			"minStats":{"hp":1650,"mp":99,"atk":99,"def":73,"mag":49,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["フランメスヴェード","イススヴェード"]
+	},
+	"100035917": {
+		"name":"Tyvas BS",
+		"jpname":"タイヴァス BS",
+		"id":"100035917",
+		"braveShifted":"100035907",
+		"exAwakening": [{"hp":650,"mp":39,"atk":78,"def":29,"mag":19,"spr":38},{"hp":500,"mp":30,"atk":60,"def":22,"mag":15,"spr":29},{"hp":350,"mp":21,"atk":42,"def":15,"mag":10,"spr":20}],
+		"fragmentId": "250004100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":300,"atk":300,"def":220,"mag":148,"spr":290},
+			"minStats":{"hp":1650,"mp":99,"atk":99,"def":73,"mag":49,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
 	"100037107": {
 		"name":"Coastal Freesia",
 		"jpname":"フリージア2021夏",
@@ -8838,6 +8875,43 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","lightShield","hat","clothes","robe","visionCard"]
+	},
+	"100037207": {
+		"name":"Shoreline Shinju",
+		"jpname":"シンジュ2021夏",
+		"id":"100037207",
+		"braveShift":"100037217",
+		"exAwakening": [{"hp":650,"mp":26,"atk":27,"def":17,"mag":75,"spr":22},{"hp":500,"mp":20,"atk":21,"def":13,"mag":58,"spr":17},{"hp":350,"mp":14,"atk":15,"def":9,"mag":41,"spr":12}],
+		"fragmentId": "250004000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":200,"atk":210,"def":130,"mag":290,"spr":170},
+			"minStats":{"hp":1650,"mp":66,"atk":69,"def":43,"mag":96,"spr":56},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","whip","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["ウォタガ","ストンガ","ビーチウィップ","セクシーサマーウィップ"]
+	},
+	"100037217": {
+		"name":"Shoreline Shinju BS",
+		"jpname":"シンジュ2021夏 BS",
+		"id":"100037217",
+		"braveShifted":"100037207",
+		"exAwakening": [{"hp":650,"mp":26,"atk":27,"def":17,"mag":75,"spr":22},{"hp":500,"mp":20,"atk":21,"def":13,"mag":58,"spr":17},{"hp":350,"mp":14,"atk":15,"def":9,"mag":41,"spr":12}],
+		"fragmentId": "250004000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":200,"atk":210,"def":130,"mag":290,"spr":170},
+			"minStats":{"hp":1650,"mp":66,"atk":69,"def":43,"mag":96,"spr":56},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","whip","hat","clothes","lightArmor","visionCard"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -12204,7 +12278,7 @@
 		}
 	},
 	"207001227": {
-		"name":"ルーファウス神羅(FFVII REMAKE) BS",
+		"name":"Rufus Shinra (FFVII REMAKE) BS",
 		"jpname":"ルーファウス神羅(FFVII REMAKE) BS",
 		"id":"207001227",
 		"braveShifted":"207001205",
@@ -12276,7 +12350,7 @@
 		}
 	},
 	"207001327": {
-		"name":"レノ&ルード(FFVII REMAKE) BS",
+		"name":"Reno & Rude (FFVII REMAKE) BS",
 		"jpname":"レノ&ルード(FFVII REMAKE) BS",
 		"id":"207001327",
 		"braveShifted":"207001317",
@@ -12295,7 +12369,7 @@
 		"enhancementSkills":["タイタンブロウ","コークスクリュー"]
 	},
 	"207001405": {
-		"name":"アバランチ ジェシー",
+		"name":"Avalanche's Jessie",
 		"jpname":"アバランチ ジェシー",
 		"id":"207001405",
 		"max_rarity":"7",
@@ -12310,7 +12384,7 @@
 		"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["ブレイブ","フェイス"],
 		"6_form": {
-			"name":"アバランチ ジェシー",
+			"name":"Avalanche's Jessie",
 			"jpname":"アバランチ ジェシー",
 			"id":"207001405",
 			"sixStarForm":true,
@@ -12328,7 +12402,7 @@
 		}
 	},
 	"207001507": {
-		"name":"Descendant of Cetra Aerith",
+		"name":"Cetra Descendant Aerith",
 		"jpname":"セトラの末裔 エアリス",
 		"id":"207001507",
 		"braveShift":"207001517",
@@ -12562,7 +12636,7 @@
 		}
 	},
 	"207002127": {
-		"name":"バレット(FFVII REMAKE) BS",
+		"name":"Barret (FFVII REMAKE) BS",
 		"jpname":"バレット(FFVII REMAKE) BS",
 		"id":"207002127",
 		"braveShifted":"207002105",
@@ -12619,7 +12693,7 @@
 		"enhancementSkills":["テンペスト","ジャッジメントレイ"]
 	},
 	"207002307": {
-		"name":"Avalanche Tifa",
+		"name":"Avalanche's Tifa",
 		"jpname":"アバランチ ティファ",
 		"id":"207002307",
 		"braveShift":"207002317",
@@ -12638,7 +12712,7 @@
 		"enhancementSkills":["オーバードライブ"]
 	},
 	"207002317": {
-		"name":"Avalanche Tifa BS",
+		"name":"Avalanche's Tifa BS",
 		"jpname":"アバランチ ティファ BS",
 		"id":"207002317",
 		"braveShifted":"207002307",
