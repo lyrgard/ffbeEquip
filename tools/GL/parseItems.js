@@ -554,6 +554,7 @@ function treatVisionCard(visionCard, visionCardId, skills) {
             if (visionCard.skills && visionCard.skills[i] && visionCard.skills[i].length) {
                 for (let j = 0; j < visionCard.skills[i].length; j++) {
                     let skill = skills[visionCard.skills[i][j].toString()];
+                    if (card.id == '207000401') console.log('WORKING ON SKILL', visionCard.skills[i][j].toString());
                     skill.effects_raw.forEach((rawEffect, index) => {
                         if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
                             // mastery skill
@@ -570,16 +571,17 @@ function treatVisionCard(visionCard, visionCardId, skills) {
                                     }
                                 });
                             }
-                            if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
-                                let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
+                            if (visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]) {
+                                let ruleId = visionCard.restriction[visionCard.skills[i][j].toString()][0];
                                 if (!Object.keys(unitRules).includes(ruleId.toString())) {
                                     console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
                                 }
                                 unitRules[ruleId](conditional);
                             }
                         } else {
-                            if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
-                                let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
+                            if (card.id == '207000401') console.log('HAS RESTRICTION ?', visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]);
+                            if (visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]) {
+                                let ruleId = visionCard.restriction[visionCard.skills[i][j].toString()][0];
                                 let conditional = conditionalByRuleId[ruleId] || {};
                                 addEffectToItem(conditional, skill, index, skills);
                                 if (!conditionalByRuleId[ruleId]) {

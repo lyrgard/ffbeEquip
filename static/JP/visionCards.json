@@ -474,6 +474,18 @@
 {"id":"100004401", "name":"わけありの任務", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004401.png", "sortId":78, "levels":[
 	{"atk":125, "atk%":80, "staticStats":{"atk":500}, "killers":[{"name":"machine","physical":100,"magical":100}]}
 ]},
+{"id":"100004501", "name":"ヒーロー参上！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004501.png", "sortId":79, "levels":[
+	{"atk":40, "def":40},
+	{"atk":44, "def":44},
+	{"atk":48, "def":48},
+	{"atk":52, "def":52, "drawAttacks":25},
+	{"atk":56, "def":56, "drawAttacks":25},
+	{"atk":60, "def":60, "drawAttacks":25},
+	{"atk":64, "def":64, "drawAttacks":50},
+	{"atk":68, "def":68, "drawAttacks":50},
+	{"atk":72, "def":72, "drawAttacks":50},
+	{"atk":80, "def":80, "evade":{"physical":30}, "drawAttacks":50}
+]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
 	{"atk":54},
@@ -509,6 +521,18 @@
 	{"atk":56, "mag":78, "conditional":[{"equipedConditions":["sword"],"atk%":60,"mag%":60}]},
 	{"atk":59, "mag":82, "conditional":[{"equipedConditions":["sword"],"atk%":60,"mag%":60}]},
 	{"atk":65, "mag":90, "conditional":[{"equipedConditions":["sword"],"atk%":60,"mag%":60},{"atk%":20,"mag%":20,"exclusiveSex":"female"},{"evokeDamageBoost":{"all":30},"exclusiveSex":"female"}]}
+]},
+{"id":"205000301", "name":"レナ、飛竜への想い", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000301.png", "sortId":80, "levels":[
+	{"atk":40, "mag":40},
+	{"atk":44, "mag":44},
+	{"atk":48, "mag":48},
+	{"atk":52, "atk%":40, "mag":52, "mag%":40},
+	{"atk":56, "atk%":40, "mag":56, "mag%":40},
+	{"atk":60, "atk%":40, "mag":60, "mag%":40},
+	{"atk":64, "atk%":40, "mag":64, "mag%":40, "lbDamage":25},
+	{"atk":68, "atk%":40, "mag":68, "mag%":40, "lbDamage":25},
+	{"atk":72, "atk%":40, "mag":72, "mag%":40, "lbDamage":25},
+	{"atk":80, "atk%":40, "mag":80, "mag%":40, "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"mag":300}}]}
 ]},
 {"id":"206000101", "name":"Search for the Esper", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000101.png", "sortId":26, "levels":[
 	{"mag":50},
@@ -588,7 +612,7 @@
 {"id":"207000501", "name":"Showdown with the Arsenal", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000501.png", "sortId":61, "levels":[
 	{"mag":100, "mag%":100, "spr":100, "spr%":100, "lbDamage":50}
 ]},
-{"id":"207000601", "name":"感動の再会だ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000601.png", "sortId":62, "levels":[
+{"id":"207000601", "name":"A Touching Reunion", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000601.png", "sortId":62, "levels":[
 	{"atk":125, "staticStats":{"atk":500}, "killers":[{"name":"undead","physical":100,"magical":100}], "lbDamage":50}
 ]},
 {"id":"209000101", "name":"Swords of Fury", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_209000101.png", "sortId":51, "levels":[

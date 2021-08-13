@@ -1642,6 +1642,14 @@ function combineTwoItems(item1, item2) {
             addKiller(sum, item2.killers[index].name, item2.killers[index].physical, item2.killers[index].magical);
         }
     }
+    if (item2.staticStats) {
+        if (!sum.staticStats) sum.staticStats = {};
+        baseStats.forEach(stat => {
+            if (item2.staticStats[stat]) {
+                addToStat(sum.staticStats, stat, item2.staticStats[stat]);
+            }
+        });
+    }
     if (item2.evokeDamageBoost) {
         if (!sum.evokeDamageBoost) {
             sum.evokeDamageBoost = {};

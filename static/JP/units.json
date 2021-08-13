@@ -8913,6 +8913,43 @@
 		"stats_pattern":4,
 		"equip":["rod","whip","hat","clothes","lightArmor","visionCard"]
 	},
+	"100037307": {
+		"name":"Turien",
+		"jpname":"トゥーリエン",
+		"id":"100037307",
+		"braveShift":"100037317",
+		"exAwakening": [{"hp":650,"mp":26,"atk":70,"def":20,"mag":19,"spr":22},{"hp":500,"mp":20,"atk":54,"def":15,"mag":15,"spr":17},{"hp":350,"mp":14,"atk":38,"def":11,"mag":10,"spr":12}],
+		"fragmentId": "250004500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":200,"atk":270,"def":150,"mag":148,"spr":170},
+			"minStats":{"hp":1650,"mp":66,"atk":89,"def":50,"mag":49,"spr":56},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["axe","spear","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["エールデクライス","フランメオクス"]
+	},
+	"100037317": {
+		"name":"Turien BS",
+		"jpname":"トゥーリエン BS",
+		"id":"100037317",
+		"braveShifted":"100037307",
+		"exAwakening": [{"hp":650,"mp":26,"atk":70,"def":20,"mag":19,"spr":22},{"hp":500,"mp":20,"atk":54,"def":15,"mag":15,"spr":17},{"hp":350,"mp":14,"atk":38,"def":11,"mag":10,"spr":12}],
+		"fragmentId": "250004500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":200,"atk":270,"def":150,"mag":148,"spr":170},
+			"minStats":{"hp":1650,"mp":66,"atk":89,"def":50,"mag":49,"spr":56},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["axe","spear","hat","helm","clothes","lightArmor","visionCard"]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -10661,17 +10698,20 @@
 		"name":"Warrior of Dawn Galuf",
 		"jpname":"暁の四戦士ガラフ",
 		"id":"205001005",
-		"max_rarity":"7",
+		"braveShift":"205001027",
+		"exAwakening": [{"hp":653,"mp":26,"atk":25,"def":29,"mag":18,"spr":26},{"hp":502,"mp":20,"atk":19,"def":23,"mag":14,"spr":20},{"hp":351,"mp":14,"atk":14,"def":16,"mag":10,"spr":14}],
+		"fragmentId": "250004400",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":5021,"mp":204,"atk":192,"def":206,"mag":136,"spr":200},
-			"minStats":{"hp":1657,"mp":67,"atk":63,"def":68,"mag":45,"spr":65},
+			"maxStats":{"hp":5021,"mp":204,"atk":192,"def":226,"mag":136,"spr":200},
+			"minStats":{"hp":1657,"mp":67,"atk":63,"def":75,"mag":45,"spr":66},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["守りの剣","誓約の護り","暁炎","暁光","バル国の王"],
+		"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["守りの剣","誓約の護り","暁炎","暁光","バル国の王","光の戦士たちを守り抜く強さ","勇往堅陣"],
 		"6_form": {
 			"name":"Warrior of Dawn Galuf",
 			"jpname":"暁の四戦士ガラフ",
@@ -10687,8 +10727,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["守りの剣","誓約の護り","暁炎","暁光","バル国の王"]
+			"enhancementSkills":["守りの剣","誓約の護り","暁炎","暁光","バル国の王","光の戦士たちを守り抜く強さ","勇往堅陣"]
+		},
+		"7_form": {
+			"name":"Warrior of Dawn Galuf",
+			"jpname":"暁の四戦士ガラフ",
+			"id":"205001005",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":5021,"mp":204,"atk":192,"def":206,"mag":136,"spr":200},
+				"minStats":{"hp":1657,"mp":67,"atk":63,"def":68,"mag":45,"spr":65},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["守りの剣","誓約の護り","暁炎","暁光","バル国の王","光の戦士たちを守り抜く強さ","勇往堅陣"]
 		}
+	},
+	"205001027": {
+		"name":"モンク ガラフ BS",
+		"jpname":"モンク ガラフ BS",
+		"id":"205001027",
+		"braveShifted":"205001017",
+		"exAwakening": [{"hp":653,"mp":26,"atk":25,"def":29,"mag":18,"spr":26},{"hp":502,"mp":20,"atk":19,"def":23,"mag":14,"spr":20},{"hp":351,"mp":14,"atk":14,"def":16,"mag":10,"spr":14}],
+		"fragmentId": "250004400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5733,"mp":182,"atk":250,"def":196,"mag":124,"spr":207},
+			"minStats":{"hp":1892,"mp":60,"atk":83,"def":65,"mag":41,"spr":68},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["砂塵拳"]
 	},
 	"205001105": {
 		"name":"Warrior of Light Bartz",
@@ -10845,7 +10921,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","rod","gun","hat","helm","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["砲撃Lv1"]
+		"enhancementSkills":["砲撃Lv1","幻獣解放"]
 	},
 	"205001417": {
 		"name":"Faris -Neo Vision- BS",
@@ -10864,7 +10940,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","rod","gun","hat","helm","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["勇気の剣"]
+		"enhancementSkills":["勇気の剣","幻獣解放"]
 	},
 	"205001505": {
 		"name":"Xezat",
@@ -10898,6 +10974,81 @@
 			"equip":["sword","staff","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 			"enhancementSkills":["プロテガ","シェルガ"]
 		}
+	},
+	"205001607": {
+		"name":"Summoner Lenna",
+		"jpname":"召喚士レナ",
+		"id":"205001607",
+		"braveShift":"205001617",
+		"exAwakening": [{"hp":604,"mp":26,"atk":17,"def":22,"mag":68,"spr":25},{"hp":465,"mp":20,"atk":13,"def":17,"mag":52,"spr":19},{"hp":325,"mp":14,"atk":9,"def":12,"mag":36,"spr":13}],
+		"fragmentId": "250004200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4645,"mp":200,"atk":132,"def":170,"mag":260,"spr":190},
+			"minStats":{"hp":1533,"mp":66,"atk":44,"def":56,"mag":86,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","rod","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["獄炎精霊召喚"]
+	},
+	"205001617": {
+		"name":"Summoner Lenna BS",
+		"jpname":"踊り子レナ BS",
+		"id":"205001617",
+		"braveShifted":"205001607",
+		"exAwakening": [{"hp":604,"mp":26,"atk":17,"def":22,"mag":68,"spr":25},{"hp":465,"mp":20,"atk":13,"def":17,"mag":52,"spr":19},{"hp":325,"mp":14,"atk":9,"def":12,"mag":36,"spr":13}],
+		"fragmentId": "250004200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4957,"mp":270,"atk":146,"def":181,"mag":255,"spr":203},
+			"minStats":{"hp":1636,"mp":89,"atk":48,"def":60,"mag":84,"spr":67},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","rod","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["シルフィードスピン"]
+	},
+	"205001707": {
+		"name":"Warrior of Dawn Dorgann",
+		"jpname":"暁の四戦士ドルガン",
+		"id":"205001707",
+		"braveShift":"205001717",
+		"exAwakening": [{"hp":639,"mp":32,"atk":70,"def":24,"mag":17,"spr":23},{"hp":492,"mp":25,"atk":54,"def":18,"mag":13,"spr":17},{"hp":344,"mp":17,"atk":38,"def":13,"mag":9,"spr":12}],
+		"fragmentId": "250004300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4916,"mp":248,"atk":270,"def":183,"mag":133,"spr":174},
+			"minStats":{"hp":1622,"mp":82,"atk":89,"def":60,"mag":44,"spr":57},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["雷絶衝剣","風絶衝剣"]
+	},
+	"205001717": {
+		"name":"Warrior of Dawn Dorgann BS",
+		"jpname":"暁の四戦士ドルガン BS",
+		"id":"205001717",
+		"braveShifted":"205001707",
+		"exAwakening": [{"hp":639,"mp":32,"atk":70,"def":24,"mag":17,"spr":23},{"hp":492,"mp":25,"atk":54,"def":18,"mag":13,"spr":17},{"hp":344,"mp":17,"atk":38,"def":13,"mag":9,"spr":12}],
+		"fragmentId": "250004300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4916,"mp":248,"atk":270,"def":183,"mag":133,"spr":174},
+			"minStats":{"hp":1622,"mp":82,"atk":89,"def":60,"mag":44,"spr":57},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"206000103": {
 		"name":"Terra",
@@ -12769,7 +12920,7 @@
 		"enhancementSkills":["絶空"]
 	},
 	"207002505": {
-		"name":"Avalanche Biggs & Wedge",
+		"name":"Avalanche's Biggs & Wedge",
 		"jpname":"アバランチ ビッグス&ウェッジ",
 		"id":"207002505",
 		"max_rarity":"7",
@@ -12783,7 +12934,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Avalanche Biggs & Wedge",
+			"name":"Avalanche's Biggs & Wedge",
 			"jpname":"アバランチ ビッグス&ウェッジ",
 			"id":"207002505",
 			"sixStarForm":true,
