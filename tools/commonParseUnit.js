@@ -996,6 +996,16 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
             addUnlockedSkill(autoCastedSkill.id, autoCastedSkill, unit, skillId);
             return [result];
         }
+
+    } else if (rawEffect[2] == 100) {
+        result = {};
+        var skillIn = skills[rawEffect[3][0]];
+        if (skillIn) {
+            var autoCastedSkill = parseActiveSkill(rawEffect[3][0].toString(), skillIn, skills, unit);
+            result.replaceNormalAttack = autoCastedSkill;
+            addUnlockedSkill(autoCastedSkill.id, autoCastedSkill, unit, skillId);
+            return [result];
+        }
         
     // Draw attacks
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 24) {

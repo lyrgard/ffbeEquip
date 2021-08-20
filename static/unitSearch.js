@@ -817,6 +817,7 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
         let cooldownHtml = "";
         let rarity = skill.rarity;
         let level = skill.level;
+        let exLevel = skill.exLevel;
         if (skill.effects[0].effect && skill.effects[0].effect.cooldownSkill) {
             cooldownHtml = '<span class="effect">Available turn ' + skill.effects[0].effect.startTurn + ' (' + skill.effects[0].effect.cooldownTurns + ' turns cooldown):</span>';
             skill = skill.effects[0].effect.cooldownSkill;
@@ -835,7 +836,12 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
             html += '<div class="mpCost">' + skill.mpCost + '<span class="mpCostLabel">MP</span></div>';
         }
         if (rarity && level) {
-            html += '<div class="rarityAndLevel"><span class="rarity">' + rarity + '★</span><span class="level">lvl ' + level + '</span></div>';
+            html += `<div class="rarityAndLevel"><span class="rarity">${rarity}${rarity === 'NV' ? '' : '★'}</span>`;
+            if (exLevel) {
+                html += '<span class="exLevel">EX+' + exLevel + '</span></div>';
+            } else {
+                html += '<span class="level">lvl ' + level + '</span></div>';
+            }
         }
 
         html += '</div>';
@@ -889,6 +895,11 @@ function getEffectHtml(effect, unit, alreadyDisplayedSkills, skillId) {
         html += '<div class="subSkill">';
         html += getSkillHtml(effect.effect.autoCastedSkill, unit, false, alreadyDisplayedSkills.concat(skillId));
         html += '</div>';
+    } else if (effect.effect && effect.effect.replaceNormalAttack) {
+        html += '<span class="effect">Replace normal attack by :</span>';
+        html += '<div class="subSkill">';
+        html += getSkillHtml(effect.effect.replaceNormalAttack, unit, false, alreadyDisplayedSkills.concat(skillId));
+        html += '</div>';
     } else if (effect.effect && effect.effect.gainSkills) {
         html += '<span class="effect">Gain ';
         if (typeof effect.effect.gainSkills.turns !== 'undefined') {
@@ -930,6 +941,11 @@ function getUnlockedByHtml(skillId, unlockerSkillIds, unit) {
                     if (effect.effect && effect.effect.autoCastedSkill) {
                         if (effect.effect.autoCastedSkill.id === skillId) {
                             html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Autocasted at start of battle by ' + skill.name + '</div>';
+                        }
+                    }
+                    if (effect.effect && effect.effect.replaceNormalAttack) {
+                        if (effect.effect.replaceNormalAttack.id === skillId) {
+                            html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Replace normal attack</div>';
                         }
                     }
                 });

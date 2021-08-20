@@ -177,14 +177,6 @@ function manageNV(units) {
     const baseUnitIdByNVUnitId = {};
     for (var unitId in units) {
         const unitIn = units[unitId];
-        if (unitIn.skills) {
-            unitIn.skills
-                .filter(skill => skill.brave_ability)
-                .forEach(skill => {
-                    skill.rarity = "NV"
-                    skill.level = 0
-                });
-        }
         if (unitIn.rarity_max == 7) {
             const baseUnitId = unitId.substr(0, unitId.length -1);
             nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));

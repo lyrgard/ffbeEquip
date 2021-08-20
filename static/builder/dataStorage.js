@@ -616,7 +616,7 @@ class DataStorage {
                         return {"total":0,"available":0,"totalOwnedNumber":0};
                     }
                 }
-                if (item.type === 'visionCard' && item.level != this.defaultVisionCardLevel) {
+                if (item.type === 'visionCard' && item.level != this.defaultVisionCardLevel && item.levels.length != 1) {
                     return {"total":0,"available":0,"totalOwnedNumber":0};
                 }
                 number = 4;

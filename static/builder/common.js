@@ -1454,8 +1454,11 @@ function isApplicable(item, unit) {
     return true;
 }
 
-function areConditionOK(item, equiped, level = 0) {
+function areConditionOK(item, equiped, level = 0, exLevel = 0) {
     if (level && item.levelCondition && item.levelCondition > level) {
+        return false;
+    }
+    if (exLevel && item.exLevelCondition && item.exLevelCondition > exLevel) {
         return false;
     }
     if (item.equipedConditions) {

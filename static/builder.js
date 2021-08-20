@@ -2396,7 +2396,7 @@ function recalculateApplicableSkills() {
     builds[currentUnitIndex].build = builds[currentUnitIndex].build.slice(0,12);
     for (var skillIndex = builds[currentUnitIndex].unit.skills.length; skillIndex--;) {
         var skill = builds[currentUnitIndex].unit.skills[skillIndex];
-        if (areConditionOK(skill, builds[currentUnitIndex].build, builds[currentUnitIndex].level)) {
+        if (areConditionOK(skill, builds[currentUnitIndex].build, builds[currentUnitIndex].level, builds[currentUnitIndex]._exAwakeningLevel)) {
             builds[currentUnitIndex].build.push(skill);
         }
     }
@@ -4675,6 +4675,7 @@ function startPage() {
             $(".panel.unit").addClass("braveShift");
         }
         updateUnitStats();
+        recalculateApplicableSkills();
         logCurrentBuild();
     });
     $("#useNewJpDamageFormula").change(function() {logCurrentBuild();});

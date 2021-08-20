@@ -60,7 +60,7 @@ class BuildOptimizer {
             var applicableSkills = [];
             for (var skillIndex = this._unitBuild.unit.skills.length; skillIndex--;) {
                 var skill = this._unitBuild.unit.skills[skillIndex];
-                if (this.areConditionOKBasedOnTypeCombination(skill, typeCombinations[index].combination, this._unitBuild.level)) {
+                if (this.areConditionOKBasedOnTypeCombination(skill, typeCombinations[index].combination, this._unitBuild.level, this._unitBuild._exAwakeningLevel)) {
                     applicableSkills.push(skill);
                 }
             }
@@ -229,8 +229,11 @@ class BuildOptimizer {
         return itemBasedSkills;
     }
     
-    areConditionOKBasedOnTypeCombination(item, typeCombination, level) {
+    areConditionOKBasedOnTypeCombination(item, typeCombination, level, exLevel) {
         if (level && item.levelCondition && item.levelCondition > level) {
+            return false;
+        }
+        if (level && item.exLevelCondition && item.exLevelCondition >= exLevel) {
             return false;
         }
         if (item.equipedConditions) {

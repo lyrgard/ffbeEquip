@@ -220,7 +220,7 @@ class UnitBuild {
                 let applicableSkills = [];
                 for (let skillIndex = this.unit.skills.length; skillIndex--;) {
                     let skill = this.unit.skills[skillIndex];
-                    if (areConditionOK(skill, this.fixedItems, this.level)) {
+                    if (areConditionOK(skill, this.fixedItems, this.level, this._exAwakeningLevel)) {
                         applicableSkills.push(skill);
                     }
                 }
