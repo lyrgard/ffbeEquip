@@ -233,7 +233,7 @@ class BuildOptimizer {
         if (level && item.levelCondition && item.levelCondition > level) {
             return false;
         }
-        if (level && item.exLevelCondition && item.exLevelCondition >= exLevel) {
+        if (exLevel && item.exLevelCondition && item.exLevelCondition > exLevel) {
             return false;
         }
         if (item.equipedConditions) {
