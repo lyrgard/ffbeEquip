@@ -1064,7 +1064,7 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
         return [{
             "multicast": {
                 "time": 2,
-                "type": "magic"
+                "type": ["whiteMagic", "greenMagic", "blackMagic"]
             }
         }];
         
@@ -1105,7 +1105,7 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
         return [{
             "multicast": {
                 "time": 2,
-                "type": "blackMagic"
+                "type": ["blackMagic"]
             }
         }]
         
@@ -1131,6 +1131,80 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
             }
         }
         
+        return [result];
+
+        // Global multicast
+    // } else if (rawEffect[2] == 102) {
+    //
+    //
+    //     let gainedSkillId = rawEffect[3][4].toString();
+    //     let gainedSkillIn = skills[gainedSkillId];
+    //     let gainedSkill = parseActiveSkill(gainedSkillId, gainedSkillIn, skills, unit);
+    //
+    //     let gainedEffect = parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId);
+    //     gainedSkill.effects[0].effect = gainedEffect;
+    //
+    //     addUnlockedSkill(gainedSkillId, gainedSkill, unit);
+    //
+    //     result = {
+    //         "gainSkills": {
+    //             "skills": [{
+    //                 "id": gainedSkillId,
+    //                 "name": gainedSkill.name
+    //             }]
+    //         }
+    //     }
+    //
+    //     return [result];
+        // global multicast
+    } else if (rawEffect[2] == 102) {
+
+        let result = {
+            "multicast": {
+                "time": rawEffect[3][3],
+                "type": [],
+            }
+        }
+
+        if (!Array.isArray(rawEffect[3][0])) rawEffect[3][0] = [rawEffect[3][0]];
+        if (rawEffect[3][0].includes(1)) {
+            result.multicast.type.push("whiteMagic");
+        }
+        if (rawEffect[3][0].includes(2)) {
+            result.multicast.type.push("greenMagic");
+        }
+        if (rawEffect[3][0].includes(3)) {
+            result.multicast.type.push("blackMagic");
+        }
+        if (rawEffect[3][0].includes(5)) {
+            result.multicast.type.push("allSkills");
+        }
+        if (rawEffect[3][1] && !result.multicast.type.includes("allSkills")) {
+            if (!Array.isArray(rawEffect[3][1])) rawEffect[3][1] = [rawEffect[3][1]];
+            result.multicast.type.push("skills");
+            result.multicast.skills = [];
+            rawEffect[3][1].forEach(multicastedSkillId => {
+                var skill = skills[multicastedSkillId];
+                if (!skill) {
+                    console.log('Unknown skill : ' + multicastedSkillId + ' - ' + JSON.stringify(rawEffect));
+                } else {
+                    result.multicast.skills.push({"id": multicastedSkillId.toString(), "name": skill.name});
+                }
+            });
+        }
+        if (rawEffect[3][2]) {
+            if (!Array.isArray(rawEffect[3][2])) rawEffect[3][2] = [rawEffect[3][2]];
+            result.multicast.excludedSkills = [];
+            rawEffect[3][2].forEach(multicastedSkillId => {
+                var skill = skills[multicastedSkillId];
+                if (!skill) {
+                    console.log('Unknown skill : ' + multicastedSkillId + ' - ' + JSON.stringify(rawEffect));
+                } else {
+                    result.multicast.excludedSkills.push({"id": multicastedSkillId.toString(), "name": skill.name});
+                }
+            });
+        }
+
         return [result];
 
         //return gainedSkill.effects.map(effect => effect.effect);
@@ -1281,6 +1355,7 @@ function parseLb(lb, unit, skills) {
 
 function addChainInfoToSkill(skill, effects, attackFrames, moveType, skills) {
     let hasDamage = false;
+    let chainTag = false;
     let chain = [];
     let attackFrameIndex = 0;
     effects.forEach((effect) => {
@@ -1289,12 +1364,18 @@ function addChainInfoToSkill(skill, effects, attackFrames, moveType, skills) {
             chain = chain.concat(attackFrames[attackFrameIndex]);
             attackFrameIndex++;
         }
+        if (effect.effect && effect.effect.chainTag) {
+            chainTag = true;
+        }
     });
     if (hasDamage) {
         skill.frames = chain;
         let chainId = moveTypes[moveType] + ',' + chain.join(',');
         if (chainingFamilies[chainId]) {
             skill.chainFamily = chainingFamilies[chainId];
+        }
+        if (chainTag) {
+            skill.chainTag = true;
         }
         skill.move = moveTypes[moveType];
     }
@@ -1518,7 +1599,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         return {
             "multicast": {
                 "time": 2,
-                "type": "blackMagic"
+                "type": ["blackMagic"]
             }
         }
 
@@ -1527,7 +1608,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         return {
             "multicast": {
                 "time": 2,
-                "type": "magic"
+                "type": ["whiteMagic", "greenMagic", "blackMagic"]
             }
         };
 
@@ -1560,7 +1641,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         return {
             "multicast": {
                 "time": rawEffect[3][1],
-                "type": magicType
+                "type": [magicType]
             }
         };
 
@@ -1583,7 +1664,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         let result = {
             "multicast": {
                 "time": rawEffect[3][0],
-                "type": "skills",
+                "type": ["skills"],
                 "skills":[]
             }
         }
@@ -1794,7 +1875,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             "icon":gainedSkill.icon,
             "effects":[{
                 "effect":{
-                    "multicast":{"time":rawEffect[3][1],"type":magicType}
+                    "multicast":{"time":rawEffect[3][1],"type":[magicType]}
                 },
                 "desc":"Enable unit to cast " + rawEffect[3][1] + " " + magicTypeLabel + " spells"
             }]
@@ -1820,7 +1901,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             gainedEffect = {
                 "multicast": {
                     "time": rawEffect[3][0],
-                    "type": "skills",
+                    "type": ["skills"],
                     "skills":[]
                 }
             }
@@ -2096,7 +2177,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
 
         // tag team effects - single unit chains an ability/lb cast
     } else if (rawEffect[2] == 165) {
-        result = {"noUse":true};
+        result = {"chainTag":true};
 
         // delay death timer
     } else if (rawEffect[2] == 1002) {
@@ -2722,6 +2803,7 @@ function formatForSearch(units) {
 }
 
 function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
+    let chainTag = effects.some(effect => effect.effect && effect.effect.chainTag);
     for (var i = effects.length; i--;) {
         var effect = effects[i];
         if (effect.effect) {
@@ -2729,10 +2811,6 @@ function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
             if (effectType == "passives") {
                 effectOut = unitOut.passives;
             } else {
-                if (unitOut.id === '401005305' && skill.chainFamily) {
-                    console.log(skill.name);
-                    console.log(i + ' - ' + effect.effect.area + ' - ' + effect.desc);
-                }
                 effectOut = unitOut[effectType][effect.effect.area];
                 if (!effectOut) {
                     continue;
@@ -2924,6 +3002,13 @@ function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
                 }
                 if (!effectOut.chain.includes(skill.chainFamily)) {
                     effectOut.chain.push(skill.chainFamily)
+                }
+            } else if (effect.effect.damage && chainTag) {
+                if (!effectOut.chain) {
+                    effectOut.chain = [];
+                }
+                if (!effectOut.chain.includes('chainTag')) {
+                    effectOut.chain.push('chainTag')
                 }
             }
         }

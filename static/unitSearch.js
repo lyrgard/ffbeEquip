@@ -207,7 +207,7 @@ function matchesSkill(unit) {
             let unitWithSkill = units[unit.id];
             let actives = unitWithSkill.actives.concat(unitWithSkill.passives);
             let magics = units[unit.id].magics;
-            let chainingActives = unitWithSkill.actives.filter(skill => skill.chainFamily === skillFilter.chainFamily);
+            let chainingActives = unitWithSkill.actives.filter(skill => skill.chainFamily === skillFilter.chainFamily || skillFilter.chainFamily === 'chainTag' && skill.chainTag);
             let chainingMagics = magics.filter(skill => skill.chainFamily === skillFilter.chainFamily);
             for (let z = 0; z < actives.length; z++) {
                 let active = actives[z];
@@ -227,15 +227,20 @@ function matchesSkill(unit) {
                 for (let i = 0; i < active.effects.length; i++) {
                     let effect = active.effects[i];
                     if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === skillFilter.multicastCount) {
-                        let multicastableSkills = null;
-                        if (effect.effect.multicast.type == 'magic') {
-                            multicastableSkills = chainingMagics;
-                        } else if (effect.effect.multicast.type == 'blackMagic') {
-                            multicastableSkills = chainingMagics.filter(magic => magic.magic == "black");
-                        } else if (effect.effect.multicast.type == 'whiteMagic') {
-                            multicastableSkills = chainingMagics.filter(magic => magic.magic == "white");
-                        } else if (effect.effect.multicast.type == 'skills') {
-                            multicastableSkills = chainingActives.filter(skill => effect.effect.multicast.skills.map(skill => skill.id).includes(skill.id));
+                        let multicastableSkills = [];
+                        if (effect.effect.multicast.type.includes('whiteMagic')) {
+                            multicastableSkills = multicastableSkills.concat(chainingMagics.filter(magic => magic.magic == "black"));
+                        }
+                        if (effect.effect.multicast.type.includes('greenMagic')) {
+                            multicastableSkills = multicastableSkills.concat(chainingMagics.filter(magic => magic.magic == "green"));
+                        }
+                        if (effect.effect.multicast.type.includes('blackMagic')) {
+                            multicastableSkills = multicastableSkills.concat(chainingMagics.filter(magic => magic.magic == "black"));
+                        }
+                        if (effect.effect.multicast.type.includes('allSkills')) {
+                            multicastableSkills = multicastableSkills.concat(chainingActives.filter(skill => !effect.effect.multicast.excludedSkills || !effect.effect.multicast.excludedSkills.some(excludedSkill => excludedSkill.id === skill.id)));
+                        } else if (effect.effect.multicast.type.includes('skills')) {
+                            multicastableSkills = multicastableSkills.concat(chainingActives.filter(skill => effect.effect.multicast.skills.some(includedSkill => includedSkill.id === skill.id)));
                         }
                         if (multicastableSkills && multicastableSkills.length > 0) {
                             return true;
@@ -1027,11 +1032,14 @@ function getDamageTypeHtml(effects) {
 }
 
 function getChainFamilyHtml(skill) {
+    let html = '';
     if (skill.chainFamily) {
-        return '<span class="chainFamily"><span class="bullet" title="' + chainFamilySkillName[skill.chainFamily] + '"><i class="fas fa-link"></i></span>' + skill.chainFamily + '</span>';
-    } else {
-        return '';
+        html += '<span class="chainFamily"><span class="bullet" title="' + chainFamilySkillName[skill.chainFamily] + '"><i class="fas fa-link"></i></span>' + skill.chainFamily + '</span>';
     }
+    if (skill.chainTag) {
+        html += '<span class="chainFamily"><span class="bullet" title="Chain Tag"><i class="fas fa-link"></i></span>Chain Tag</span>';
+    }
+    return html;
 }
 
 function getWarningStrangeStatsUsed(effects) {
@@ -1122,16 +1130,18 @@ function getSkillsToDisplay(unit) {
                 }
                 skill.effects.forEach(effect => {
                     if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === skillFilter.multicastCount) {
-                        switch(effect.effect.multicast.type) {
-                            case 'skills':
-                                multicastSkills[skill.id] = effect.effect.multicast.skills.map(skill => skill.id);
-                                break;
-                            case 'magic':
-                            case 'blackMagic':
-                            case 'whiteMagic':
-                                multicastMagic[skill.id] = effect.effect.multicast.type;
-                                break;
-                        }
+                        multicastSkills[skill.id] = unit.actives
+                            .filter(skill => {
+                                if (effect.effect.multicast.excludedSkills && effect.effect.multicast.excludedSkills.some(excludedSkill => excludedSkill.id === skill.id)) return false;
+                                if (effect.effect.multicast.type.includes('allSkills')) return true;
+                                if (effect.effect.multicast.skills && effect.effect.multicast.skills.some(includedSkill => skill.id === includedSkill.id)) return true;
+                                return false;
+                            }).map(skill => skill.id);
+
+                        multicastMagic[skill.id] = [];
+                        if (effect.effect.multicast.type.includes('whiteMagic')) multicastMagic[skill.id].push('white');
+                        if (effect.effect.multicast.type.includes('greenMagic')) multicastMagic[skill.id].push('green');
+                        if (effect.effect.multicast.type.includes('blackMagic')) multicastMagic[skill.id].push('black');
                     }
                 });
             });
@@ -1161,7 +1171,7 @@ function getSkillsToDisplay(unit) {
             }
         });
         unit.magics.forEach(magic => {
-            let multicastForThisSkill = Object.keys(multicastMagic).filter(id => multicastMagic[id] === 'magic' || multicastMagic[id] === 'blackMagic' && magic.magic === 'black' || multicastMagic[id] === 'white  Magic' && magic.magic === 'white');
+            let multicastForThisSkill = Object.keys(multicastMagic).filter(id => multicastMagic[id].includes(magic.magic));
             if (mustDisplaySkillForChainFamily(magic, magic.effects, 'actives', multicastForThisSkill)) {
                 if (!skillsDisplayedForChain.includes(magic.magic)) {
                     skillsDisplayedForChain.push(magic.magic);
@@ -1181,7 +1191,9 @@ function getSkillsToDisplay(unit) {
                    }
                 });
                 Object.keys(multicastMagic).forEach(id => {
-                   if ((multicastMagic[id] === 'magic' || multicastMagic[id] === 'blackMagic' && multicastedId === 'black' || multicastMagic[id] === 'whiteMagic' && multicastedId === 'white') && !result.includes(id)) {
+                   if ((multicastMagic[id].includes('whiteMagic') && multicastedId === 'white'
+                       || multicastMagic[id].includes('greenMagic') && multicastedId === 'green'
+                       || multicastMagic[id].includes('blackMagic') && multicastedId === 'black') && !result.includes(id)) {
                        result.push(id);
                    }
                 });
@@ -1283,7 +1295,7 @@ function mustDisplaySkill(skill, effects, type, skillName) {
 
 function mustDisplaySkillForChainFamily(skill, effects, type, multicastSkills = []) {
     let chainFamilyMatches = false;
-    if (skillFilter.chainFamily != 'none' && skill.chainFamily === skillFilter.chainFamily) {
+    if (skillFilter.chainFamily != 'none' && (skill.chainFamily === skillFilter.chainFamily || skill.chainTag && skillFilter.chainFamily === 'chainTag')) {
         if (skillFilter.multicastCount == 1 || multicastSkills.length > 0) {
             chainFamilyMatches = true;
         }
@@ -1514,6 +1526,7 @@ function populateSkillChain() {
     Object.keys(chainFamilySkillName).sort().forEach(chain => {
         options += '<option value="' + chain + '">' + chain + ' - ' + chainFamilySkillName[chain] + '</options>';
     });
+    options += '<option value="chainTag">Chain by itself</options>';
     $('#chainFamily').html(options);
 }
 

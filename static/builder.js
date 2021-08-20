@@ -1524,6 +1524,10 @@ function updateSkillSelectOptions(skillSelect) {
                         skillSelect.append(option);
                     }
                 }
+                if (effect && effect.multicast) {
+                    var option = '<option value="MULTICAST_' + passive.id + '">' + passive.name +'</option>';
+                    skillSelect.append(option);
+                }
             }
         }
         for (var skillIndex = unitWithSkills.actives.length; skillIndex--;) {
@@ -1927,27 +1931,27 @@ function manageMulticast(selectedSkills) {
                     }
                 }
                 var options = "";
-                var skillSource;
-                if (multicastEffect.type=="skills") {
-                    skillSource = multicastEffect.skills;
-                } else {
-                    skillSource = unitWithSkills.magics;
+
+                let multicastableSkills = unitWithSkills.magics.filter(magic =>
+                    magic.magic === 'white' && multicastEffect.type.includes('whiteMagic')
+                        || magic.magic === 'green' && multicastEffect.type.includes('greenMagic')
+                        || magic.magic === 'black' && multicastEffect.type.includes('blackMagic')
+                );
+                if (multicastEffect.type.includes('allSkills')) {
+                    multicastableSkills = multicastableSkills.concat(unitWithSkills.actives.filter(skill =>
+                        !multicastEffect.excludedSkills || !multicastEffect.excludedSkills.some(excludedSkill => excludedSkill.id === skill.id)
+                    ));
                 }
-                for (var j = 0, lenj = skillSource.length; j < lenj; j++) {
-                    var dcSkill = getSkillFromId(skillSource[j].id, unitWithSkills);
-                    if (dcSkill) {
-                        if (multicastEffect.type=="whiteMagic" && (!dcSkill.magic || dcSkill.magic != "white")) {
-                            continue;
-                        }
-                        if (multicastEffect.type=="blackMagic" && (!dcSkill.magic || dcSkill.magic != "black")) {
-                            continue;
-                        }
-                        var dcFormula = formulaFromSkill(dcSkill, true);
-                        if (dcFormula) {
-                            options += '<option value=' + '"SKILL_' + dcSkill.id + '" ' + (dcFormula.notSupported ? "disabled":"") + '>' + dcSkill.name + (dcFormula.notSupported ? " - Not supported yet":"") + '</option>';
-                        }
-                    }
+                if (multicastEffect.type.includes('skills')) {
+                    multicastableSkills = multicastableSkills.concat(unitWithSkills.actives.filter(skill =>
+                        multicastEffect.skills.some(includedSkill => includedSkill.id === skill.id)
+                    ));
                 }
+                options += multicastableSkills.map(skill => {
+                    var dcFormula = formulaFromSkill(skill, true);
+                    return dcFormula ? `<option value="SKILL_${skill.id}" ${dcFormula.notSupported ? 'disabled':''}>${skill.name} ${dcFormula.notSupported ? ' - Not supported yet':''}</option>` : '';
+                }).join('');
+
                 for (var i = 0, len = multicastEffect.time; i < len; i++) {
                     var select = $("#multicastSelect" + i);
 

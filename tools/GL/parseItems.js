@@ -1210,11 +1210,11 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         let skill = parseActiveSkill(rawEffect[3][2], skills[rawEffect[3][2]], skills);
         var magicType = "";
         if (rawEffect[3][0] ==  0) {
-            skill.effects[0].effect.multicast.type = "magic";
+            skill.effects[0].effect.multicast.type = ["whiteMagic", "blackMagic", "greenMagic"];
         } else if (rawEffect[3][0] ==  1) {
-            skill.effects[0].effect.multicast.type = "blackMagic";
+            skill.effects[0].effect.multicast.type = ["blackMagic"];
         } else if (rawEffect[3][0] ==  2) {
-            skill.effects[0].effect.multicast.type = "whiteMagic";
+            skill.effects[0].effect.multicast.type = ["whiteMagic"];
         }
         skill.effects[0].effect.multicast.time = rawEffect[3][1];
         if (!item.skills) {
@@ -1809,13 +1809,13 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         let magicType;
         let magicTypeLabel
         if (rawEffect[3][0] == 0) {
-            magicType = "magic";
+            magicType = ["whiteMagic", "blackMagic", "greenMagic"];
             magicTypeLabel = "magic";
         } else if(rawEffect[3][0] == 1) {
-            magicType = "blackMagic";
+            magicType = ["blackMagic"];
             magicTypeLabel = "black magic";
         } else if(rawEffect[3][0] == 2) {
-            magicType = "whiteMagic";
+            magicType = ["whiteMagic"];
             magicTypeLabel = "white magic";
         }
         var gainedSkillId = rawEffect[3][2].toString();
@@ -1827,7 +1827,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             "icon":gainedSkill.icon,
             "effects":[{
                     "effect":{
-                        "multicast":{"time":rawEffect[3][1],"type":magicType}
+                        "multicast":{"time":rawEffect[3][1],"type":[magicType]}
                     },
                     "desc":"Enable unit to cast " + rawEffect[3][1] + " " + magicTypeLabel + " spells"
             }]
@@ -1937,11 +1937,11 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 52) {    
         var magicType = "";
         if (rawEffect[3][0] ==  0) {
-            magicType = "magic";
+            magicType = ["whiteMagic", "blackMagic", "greenMagic"];
         } else if (rawEffect[3][0] ==  1) {
-            magicType = "blackMagic";
+            magicType = ["blackMagic"];
         } else if (rawEffect[3][0] ==  2) {
-            magicType = "whiteMagic";
+            magicType = ["whiteMagic"];
         }
         return {
             "multicast": {

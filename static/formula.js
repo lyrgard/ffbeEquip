@@ -888,33 +888,34 @@ function getMulticastSkillAbleToMulticast(skills, unit) {
             }
         }
     }
+    var passives = unit.passives;
+    for (var i = passives.length; i--;) {
+        var skill = passives[i];
+        var multicastEffect;
+        for (var j = skill.effects.length; j--;) {
+            if (skill.effects[j].effect && skill.effects[j].effect.multicast) {
+                multicastEffect = skill.effects[j].effect.multicast;
+                if (multicaEffectMatch(multicastEffect, skills)) {
+                    return skill;
+                }
+            }
+        }
+    }
 }
 
 function multicaEffectMatch(multicastEffect, skills) {
     if (multicastEffect.time === skills.length) {
-        switch(multicastEffect.type) {
-            case "skills":
-                var possibleSkillIds = multicastEffect.skills.map(x => x.id.toString());
-                if (skills.every(x => x && possibleSkillIds.includes(x.id))) {
-                    return true;
-                }
-                break;
-            case "magic":
-                if (skills.every(x => x && x.magic)) {
-                    return true;
-                }
-                break;
-            case "whiteMagic":
-                if (skills.every(x => x && x.magic == "white")) {
-                    return true;
-                }
-                break;
-            case "blackMagic":
-                if (skills.every(x => x && x.magic == "black")) {
-                    return true;
-                }
-                break;
-        }
+        return skills.every(skill => {
+            if (multicastEffect.excludedSkills && multicastEffect.excludedSkills.some(excludedSkill => excludedSkill.id === skill.id)) return false;
+            if (skill.magic === 'white' && multicastEffect.type.includes('whiteMagic')
+                || skill.magic === 'green' && multicastEffect.type.includes('greenMagic')
+                || skill.magic === 'black' && multicastEffect.type.includes('blackMagic')) {
+                return true;
+            }
+            if (!skill.magic && multicastEffect.type.includes('allSkills')) return true;
+            if (multicastEffect.skills && multicastEffect.skills.some(includedSkill => skill.id === includedSkill.id)) return true;
+            return false;
+        });
     }
     return false;
 }
