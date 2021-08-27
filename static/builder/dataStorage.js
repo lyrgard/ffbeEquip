@@ -17,6 +17,7 @@ class DataStorage {
         this.includeTmrMoogles = false;
         this.includeEasilyObtainableItems = false;
         this.includeChocoboItems = false;
+        this.includeFarmableStmr = false;
         this.alreadyUsedItems = {};
         this.unstackablePinnedItems = [];
         this.alreadyUsedEspers = [];
@@ -26,6 +27,7 @@ class DataStorage {
         this.defaultWeaponEnhancement = null;
         this.defaultVisionCardLevel = 10;
         this.useElementConditionedMateria = false;
+        this.farmableStmrs = {};
     }
     
     setData(data) {
@@ -41,6 +43,7 @@ class DataStorage {
     prepareAllItemsVersion() {
         this.allItemVersions = {};
         this.itemWithVariation = {};
+        this.farmableStmrs = computeFarmableStmr();
         var currentId = 0;
         var currentItemVersions = [];
         for (var index = 0, len = this.data.length; index < len; index++) {
@@ -683,6 +686,9 @@ class DataStorage {
         }
         if (this.includeChocoboItems && totalNumber == 0 && item.access.includes("chocobo")) {
             totalNumber += item.maxNumber ? item.maxNumber : 4;
+        }
+        if (this.includeFarmableStmr && totalNumber === 0 && this.farmableStmrs[item.id]) {
+            totalNumber += 1;
         }
 
         if (this.alreadyUsedItems[item.id]) {

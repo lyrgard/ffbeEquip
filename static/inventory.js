@@ -3,7 +3,7 @@ const sellableExclusionList = ["1100000302"];
 var equipments;
 var materia;
 let itemsById = {};
-var stmrs = [];
+var stmrs = {};
 var lastItemReleases;
 var units;
 var visionCards;
@@ -798,7 +798,7 @@ function search(textToSearch) {
         equipmentLastSearch = textToSearch;
     } else if (inFarmableStmr) {
         let availableStmrMoogle = $('#stmrMoogleAvailable').val() || 0;
-        itemsToSearch = stmrs.filter(stmr => stmr.stmrAccess.stmrMoogle <= availableStmrMoogle);
+        itemsToSearch = Object.keys(stmrs).map(id => stmrs[id]).filter(stmr => stmr.stmrAccess.stmrMoogle <= availableStmrMoogle);
         if (onlyTimeLimited) {
             itemsToSearch = itemsToSearch.filter(stmr => units[stmr.stmrUnit].summon_type === 'event')
         }
@@ -1041,41 +1041,6 @@ function keepOnlyOneOfEach(data) {
         itemsById[tempResult[index].id] = tempResult[index];
     }
     return result;
-}
-
-
-function keepOnlyStmrs() {
-    stmrs = equipments.filter(itemEntry => {
-        return itemEntry.item.stmrUnit && ownedUnits[itemEntry.item.stmrUnit] && (ownedUnits[itemEntry.item.stmrUnit].farmableStmr > 0 || ownedUnits[itemEntry.item.stmrUnit].number >= 2)
-    });
-    stmrs = stmrs.concat(materia.filter(itemEntry => itemEntry.item.stmrUnit && ownedUnits[itemEntry.item.stmrUnit] && (ownedUnits[itemEntry.item.stmrUnit].farmableStmr > 0 || ownedUnits[itemEntry.item.stmrUnit].number >= 2)));
-    stmrs = stmrs.map(s => getItemEntry(s.item.originalItem || s.item, itemInventory[s.item.id] || 0));
-    stmrs.forEach(stmr => {
-        stmr.stmrAccess = {
-            'base':"",
-            'sevenStar': 0,
-            'sixStar': 0,
-            'stmrMoogle': 100
-        }
-        if (ownedUnits[stmr.item.stmrUnit].farmableStmr) {
-            stmr.stmrAccess.base = "sevenStar";
-        } else {
-            stmr.stmrAccess.base = "sixStar";
-        }
-        if (ownedUnits[stmr.item.stmrUnit].farmableStmr > 1) {
-            stmr.stmrAccess.sevenStar = 1;
-            stmr.stmrAccess.stmrMoogle = 0;
-        } else {
-            let sixStarNumber = stmr.stmrAccess.base == "sixStar" ? ownedUnits[stmr.item.stmrUnit].number - 2 : ownedUnits[stmr.item.stmrUnit].number;
-            if (sixStarNumber >= 2) {
-                stmr.stmrAccess.sixStar = 2;
-                stmr.stmrAccess.stmrMoogle = 0;
-            } else if (sixStarNumber == 1) {
-                stmr.stmrAccess.sixStar = 1;
-                stmr.stmrAccess.stmrMoogle = 50;
-            }
-        }
-    });
 }
 
 var sortOrderDefault = ["atk","mag","def","spr", "sortId"];
@@ -1654,7 +1619,6 @@ function getCardInstance(vc, level) {
     return cardInstance;
 }
 
-let itemEntryId = 0;
 function getItemEntries(item) {
 
     let itemEntries = [];
@@ -1671,29 +1635,10 @@ function getItemEntries(item) {
     return itemEntries;
 }
 
-function getItemEntry(item, number, enhanced = false, enhancementPos = 0) {
-    let itemEntry = {
-        "item":item,
-        "name":item.name,
-        "defenseValue":0,
-        "mpValue":0,
-        "available":number,
-        "owned": number > 0,
-        "ownedNumber": number,
-        "id": (itemEntryId++) + '',
-        "enhanced": enhanced,
-        "enhancementPos": enhancementPos
-    }
-    for (var index = 0, len = baseStats.length; index < len; index++) {
-        item['total_' + baseStats[index]] = item[baseStats[index] + '%'] || 0;
-    }
-    return itemEntry;
-}
-
 function inventoryLoaded() {
     if (data) {
         prepareData();
-        keepOnlyStmrs();
+        stmrs = computeFarmableStmr();
     }
 }
 

@@ -558,7 +558,7 @@
 	{"atk":90, "conditional":[{"equipedConditions":["throwing"],"atk%":100}]},
 	{"atk":100, "conditional":[{"equipedConditions":["throwing"],"atk%":100},{"evade":{"physical":20}}]}
 ]},
-{"id":"206000301", "name":"色褪せぬ永遠の愛", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000301.png", "sortId":65, "levels":[
+{"id":"206000301", "name":"A Love for All Time", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000301.png", "sortId":65, "levels":[
 	{"atk":50, "mag":50},
 	{"atk":55, "mag":55},
 	{"atk":60, "mag":60},
@@ -764,6 +764,18 @@
 	{"atk":89, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
 	{"atk":96, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
 	{"atk":110, "conditional":[{"equipedConditions":["dagger"],"atk%":80},{"lbDamage":50,"exclusiveUnits":["312000205","312001007","312001017"]}]}
+]},
+{"id":"331000101", "name":"それはゼロじゃない", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_331000101.png", "sortId":82, "levels":[
+	{"atk":50},
+	{"atk":55},
+	{"atk":60},
+	{"atk":65, "atk%":50},
+	{"atk":70, "atk%":50},
+	{"atk":75, "atk%":50},
+	{"atk":80, "atk%":50, "lbDamage":25},
+	{"atk":85, "atk%":50, "lbDamage":25},
+	{"atk":90, "atk%":50, "lbDamage":25},
+	{"atk":100, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500}}]}
 ]},
 {"id":"335000101", "name":"The Keyblade Graveyard Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},

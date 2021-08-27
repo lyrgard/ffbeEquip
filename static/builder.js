@@ -474,6 +474,7 @@ function readItemsExcludeInclude() {
     dataStorage.excludeSTMR = $("#excludeSTMR").prop("checked");
     dataStorage.includeTMROfOwnedUnits = $("#includeTMROfOwnedUnits").prop("checked");
     dataStorage.includeTmrMoogles = $("#includeTmrMoogles").prop("checked");
+    dataStorage.includeFarmableStmr = $("#includeFarmableStmr").prop("checked");
     dataStorage.includeTrialRewards = $("#includeTrialRewards").prop("checked");
     dataStorage.includeEasilyObtainableItems = $("#includeEasilyObtainableItems").prop("checked");
     dataStorage.includeChocoboItems = $("#includeChocoboItems").prop("checked");
@@ -1014,6 +1015,8 @@ function getItemLine(index, short = false) {
             if (ownNumber.totalOwnedNumber <= alreadyUsed && ownNumber.total > alreadyUsed) {
                 if (item.tmrUnit) {
                     html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + units[item.tmrUnit].name + '"/></div>'
+                } else if (item.stmrUnit) {
+                    html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="STMR you can acquire. STMR of ' + units[item.stmrUnit].name + '"/></div>'
                 } else if (item.access.includes("trial")) {
                     html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="Trial reward"/></div>'
                 }
@@ -2033,6 +2036,7 @@ function onEquipmentsChange() {
         $("#includeTmrMoogles").parent().addClass("hidden");
         $("#includeTrialRewards").parent().addClass("hidden");
         $("#includeChocoboItems").parent().addClass("hidden");
+        $("#includeFarmableStmr").parent().addClass("hidden");
         $("#includeEasilyObtainableItems").parent().addClass("hidden");
         dataStorage.onlyUseOwnedItems = false;
         dataStorage.onlyUseShopRecipeItems = false;
@@ -2045,9 +2049,11 @@ function onEquipmentsChange() {
         if (ownedUnits && Object.keys(ownedUnits).length > 0) {
             $("#includeTMROfOwnedUnits").parent().removeClass("hidden");
             $("#includeTmrMoogles").parent().removeClass("hidden");
+            $("#includeFarmableStmr").parent().removeClass("hidden");
         } else {
             $("#includeTMROfOwnedUnits").parent().addClass("hidden");
             $("#includeTmrMoogles").parent().addClass("hidden");
+            $("#includeFarmableStmr").parent().addClass("hidden");
         }
         $("#includeTrialRewards").parent().removeClass("hidden");
         $("#includeChocoboItems").parent().removeClass("hidden");
@@ -2067,6 +2073,7 @@ function onEquipmentsChange() {
         $("#excludeSTMR").parent().addClass("hidden");
         $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         $("#includeTmrMoogles").parent().addClass("hidden");
+        $("#includeFarmableStmr").parent().addClass("hidden");
         $("#includeTrialRewards").parent().addClass("hidden");
         $("#includeChocoboItems").parent().addClass("hidden");
         $("#includeEasilyObtainableItems").parent().addClass("hidden");
@@ -2942,7 +2949,7 @@ function getStateHash(onlyCurrent = true) {
         "mainSelector": $(".equipments select").val(),
         "additionalFilters": []
     }
-    var additionalFilters = ["includeEasilyObtainableItems", "includeChocoboItems", "includeTMROfOwnedUnits", "includeTmrMoogles", "includeTrialRewards", "exludeEvent", "excludePremium", "excludeTMR5", "excludeSTMR", "excludeNotReleasedYet"];
+    var additionalFilters = ["includeEasilyObtainableItems", "includeChocoboItems", "includeTMROfOwnedUnits", "includeTmrMoogles", "includeFarmableStmr", "includeTrialRewards", "exludeEvent", "excludePremium", "excludeTMR5", "excludeSTMR", "excludeNotReleasedYet"];
     for (var i = 0; i < additionalFilters.length; i++) {
         if ($("#" + additionalFilters[i]).prop('checked')) {
             data.itemSelector.additionalFilters.push(additionalFilters[i]);
@@ -3066,7 +3073,7 @@ function oldLinkFormatToNew(oldData) {
         "mainSelector": oldData.equipmentToUse,
         "additionalFilters": []
     }
-    var additionalFilters = ["includeTMROfOwnedUnits", "includeTmrMoogles", "includeTrialRewards", "exludeEvent", "excludePremium", "excludeTMR5", "excludeSTMR", "excludeNotReleasedYet"];
+    var additionalFilters = ["includeTMROfOwnedUnits", "includeTmrMoogles", "includeFarmableStmr", "includeTrialRewards", "exludeEvent", "excludePremium", "excludeTMR5", "excludeSTMR", "excludeNotReleasedYet"];
     for (var i = 0; i < additionalFilters.length; i++) {
         if (oldData[additionalFilters[i]]) {
             data.itemSelector.additionalFilters.push(additionalFilters[i]);

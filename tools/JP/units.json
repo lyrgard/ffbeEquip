@@ -291,7 +291,7 @@
 	},
 	"100000901": {
 		"name":"Rizer",
-		"jpname":"ライザ―",
+		"jpname":"ライザー",
 		"id":"100000901",
 		"max_rarity":"2",
 		"min_rarity":"1",
@@ -10405,7 +10405,7 @@
 	},
 	"204002605": {
 		"name":"Palom & Porom",
-		"jpname":"パロム＆ポロム",
+		"jpname":"パロム&ポロム",
 		"id":"204002605",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -10419,7 +10419,7 @@
 		"equip":["dagger","staff","rod","bow","mace","hat","helm","clothes","robe"],
 		"6_form": {
 			"name":"Palom & Porom",
-			"jpname":"パロム＆ポロム",
+			"jpname":"パロム&ポロム",
 			"id":"204002605",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -17868,7 +17868,7 @@
 	},
 	"256000101": {
 		"name":"Riko",
-		"jpname":"リコ（リコドキッ！）",
+		"jpname":"リコ(リコドキッ！)",
 		"id":"256000101",
 		"max_rarity":"6",
 		"min_rarity":"1",
@@ -20007,16 +20007,19 @@
 		"name":"Fei",
 		"jpname":"フェイ",
 		"id":"331000105",
-		"max_rarity":"7",
+		"braveShift":"331000127",
+		"exAwakening": [{"hp":650,"mp":35,"atk":35,"def":26,"mag":23,"spr":30},{"hp":500,"mp":27,"atk":27,"def":20,"mag":17,"spr":23},{"hp":350,"mp":19,"atk":19,"def":14,"mag":12,"spr":16}],
+		"fragmentId": "250004900",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4823,"mp":210,"atk":205,"def":192,"mag":165,"spr":184},
-			"minStats":{"hp":1592,"mp":69,"atk":68,"def":63,"mag":54,"spr":61},
+			"maxStats":{"hp":4997,"mp":271,"atk":270,"def":198,"mag":174,"spr":231},
+			"minStats":{"hp":1649,"mp":89,"atk":89,"def":65,"mag":57,"spr":76},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","spear","mace","fist","hat","clothes","lightArmor","robe"],
+		"equip":["dagger","spear","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["磨き抜かれた武術","眠れる破壊衝動","武技虎咆","超武技闇勁","4つのフェイ"],
 		"6_form": {
 			"name":"Fei",
@@ -20034,7 +20037,43 @@
 			"stats_pattern":1,
 			"equip":["dagger","spear","mace","fist","hat","clothes","lightArmor","robe"],
 			"enhancementSkills":["磨き抜かれた武術","眠れる破壊衝動","武技虎咆","超武技闇勁","4つのフェイ"]
+		},
+		"7_form": {
+			"name":"Fei",
+			"jpname":"フェイ",
+			"id":"331000105",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4823,"mp":210,"atk":205,"def":192,"mag":165,"spr":184},
+				"minStats":{"hp":1592,"mp":69,"atk":68,"def":63,"mag":54,"spr":61},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","spear","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["磨き抜かれた武術","眠れる破壊衝動","武技虎咆","超武技闇勁","4つのフェイ"]
 		}
+	},
+	"331000127": {
+		"name":"ゼノギアス BS",
+		"jpname":"ゼノギアス BS",
+		"id":"331000127",
+		"braveShifted":"331000117",
+		"exAwakening": [{"hp":650,"mp":35,"atk":35,"def":26,"mag":23,"spr":30},{"hp":500,"mp":27,"atk":27,"def":20,"mag":17,"spr":23},{"hp":350,"mp":19,"atk":19,"def":14,"mag":12,"spr":16}],
+		"fragmentId": "250004900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6500,"mp":270,"atk":300,"def":210,"mag":174,"spr":260},
+			"minStats":{"hp":2145,"mp":89,"atk":99,"def":69,"mag":57,"spr":86},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["visionCard"],
+		"enhancementSkills":["OMEGA100","超武技冥境","超武技轟天"]
 	},
 	"331000205": {
 		"name":"Elly",
@@ -20073,17 +20112,34 @@
 		"name":"Emeralda",
 		"jpname":"エメラダ",
 		"id":"331000304",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"4",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3667,"mp":182,"atk":143,"def":141,"mag":135,"spr":144},
-			"minStats":{"hp":1210,"mp":60,"atk":47,"def":47,"mag":45,"spr":48},
+			"maxStats":{"hp":3777,"mp":260,"atk":201,"def":141,"mag":240,"spr":152},
+			"minStats":{"hp":1246,"mp":86,"atk":66,"def":47,"mag":79,"spr":50},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","hat","clothes","robe"],
-		"enhancementSkills":["レイカウント","トルネードハンド","変幻自在","ダークビースト"]
+		"enhancementSkills":["レイカウント","トルネードハンド","変幻自在","ダークビースト"],
+		"6_form": {
+			"name":"Emeralda",
+			"jpname":"エメラダ",
+			"id":"331000304",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"4",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3667,"mp":182,"atk":143,"def":141,"mag":135,"spr":144},
+				"minStats":{"hp":1210,"mp":60,"atk":47,"def":47,"mag":45,"spr":48},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","hat","clothes","robe"],
+			"enhancementSkills":["レイカウント","トルネードハンド","変幻自在","ダークビースト"]
+		}
 	},
 	"331000405": {
 		"name":"Bart",
@@ -20220,17 +20276,110 @@
 		"name":"Billy",
 		"jpname":"ビリー",
 		"id":"331000904",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"4",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3641,"mp":169,"atk":152,"def":135,"mag":131,"spr":148},
-			"minStats":{"hp":1202,"mp":56,"atk":50,"def":45,"mag":43,"spr":49},
+			"maxStats":{"hp":3965,"mp":250,"atk":201,"def":139,"mag":148,"spr":233},
+			"minStats":{"hp":1308,"mp":83,"atk":66,"def":46,"mag":49,"spr":77},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","bow","gun","mace","lightShield","hat","lightArmor","robe"],
-		"enhancementSkills":["浄化の光","ヘブンズゲート","トゥルードリーム","穢れなき信仰心"]
+		"enhancementSkills":["浄化の光","聖なる光","ヘブンズゲート","トゥルードリーム","穢れなき信仰心"],
+		"6_form": {
+			"name":"Billy",
+			"jpname":"ビリー",
+			"id":"331000904",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"4",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3641,"mp":169,"atk":152,"def":135,"mag":131,"spr":148},
+				"minStats":{"hp":1202,"mp":56,"atk":50,"def":45,"mag":43,"spr":49},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","bow","gun","mace","lightShield","hat","lightArmor","robe"],
+			"enhancementSkills":["浄化の光","聖なる光","ヘブンズゲート","トゥルードリーム","穢れなき信仰心"]
+		}
+	},
+	"331001007": {
+		"name":"Id",
+		"jpname":"イド",
+		"id":"331001007",
+		"braveShift":"331001017",
+		"exAwakening": [{"hp":650,"mp":39,"atk":70,"def":25,"mag":19,"spr":22},{"hp":500,"mp":30,"atk":54,"def":19,"mag":15,"spr":17},{"hp":350,"mp":21,"atk":38,"def":13,"mag":10,"spr":12}],
+		"fragmentId": "250004700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":300,"atk":270,"def":190,"mag":148,"spr":170},
+			"minStats":{"hp":1650,"mp":99,"atk":89,"def":63,"mag":49,"spr":56},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["fist","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["格闘の極意","壊炎掌"]
+	},
+	"331001017": {
+		"name":"Weltall-Id BS",
+		"jpname":"ヴェルトール・イド BS",
+		"id":"331001017",
+		"braveShifted":"331001007",
+		"exAwakening": [{"hp":650,"mp":39,"atk":70,"def":25,"mag":19,"spr":22},{"hp":500,"mp":30,"atk":54,"def":19,"mag":15,"spr":17},{"hp":350,"mp":21,"atk":38,"def":13,"mag":10,"spr":12}],
+		"fragmentId": "250004700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6500,"mp":300,"atk":300,"def":240,"mag":148,"spr":210},
+			"minStats":{"hp":2145,"mp":99,"atk":99,"def":79,"mag":49,"spr":69},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["visionCard"],
+		"enhancementSkills":["OMEGA100","炎獄殺"]
+	},
+	"331001107": {
+		"name":"Grahf",
+		"jpname":"グラーフ",
+		"id":"331001107",
+		"braveShift":"331001117",
+		"exAwakening": [{"hp":650,"mp":39,"atk":70,"def":25,"mag":19,"spr":22},{"hp":500,"mp":30,"atk":54,"def":19,"mag":15,"spr":17},{"hp":350,"mp":21,"atk":38,"def":13,"mag":10,"spr":12}],
+		"fragmentId": "250004800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":300,"atk":270,"def":190,"mag":148,"spr":170},
+			"minStats":{"hp":1650,"mp":99,"atk":89,"def":63,"mag":49,"spr":56},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["fist","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["格闘の極意","武技荒龍"]
+	},
+	"331001117": {
+		"name":"Alpha Weltall BS",
+		"jpname":"ORヴェルトール BS",
+		"id":"331001117",
+		"braveShifted":"331001107",
+		"exAwakening": [{"hp":650,"mp":39,"atk":70,"def":25,"mag":19,"spr":22},{"hp":500,"mp":30,"atk":54,"def":19,"mag":15,"spr":17},{"hp":350,"mp":21,"atk":38,"def":13,"mag":10,"spr":12}],
+		"fragmentId": "250004800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6500,"mp":300,"atk":300,"def":240,"mag":148,"spr":210},
+			"minStats":{"hp":2145,"mp":99,"atk":99,"def":79,"mag":49,"spr":69},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["visionCard"],
+		"enhancementSkills":["OMEGA100","武技暴虎"]
 	},
 	"332000105": {
 		"name":"Lara Croft",

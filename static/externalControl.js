@@ -12,6 +12,7 @@ FFBEEquipExternalControl = {
         'includeChocoboItems',
         'includeTMROfOwnedUnits',
         'includeTmrMoogles',
+        'includeFarmableStmr',
         'includeTrialRewards',
         'exludeEvent',
         'excludePremium',
