@@ -127,7 +127,8 @@ FFBEEquipBuildAsImage = {
                 {"name":"LB/turn", "value":unit.calculatedValues.lbPerTurn.value, "buff":0},
                 {"name":"LB fill", "value":unit.calculatedValues.lbFillRate.value, "buff":unit.buffs.lbFillRate},
                 {"name":"Jmp Dmg", "value":unit.calculatedValues.jumpDamage.value, "buff":0},
-
+                {"name":"EVO mag", "value":unit.calculatedValues.evoMag.value, "buff":0},
+                {"name":"Evoke", "value":unit.calculatedValues.evokeDamageBoost.value, "buff":0},
             ];
             x = 25;
             y = 110 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
