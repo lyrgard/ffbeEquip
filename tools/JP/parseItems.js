@@ -112,6 +112,7 @@ const unitRules = {
     7103: (item) => item.exclusiveSex = 'female',// Female units,
     7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
     7203: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10003], // FF3
+    7204: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10004], // FF4
     7205: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10005], // FF5
     7206: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10006], // FF6
     7209: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10009], // FF9

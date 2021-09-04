@@ -2223,6 +2223,29 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 1014) {
         result = {"noUse":true};
 
+        // CoW morale boost
+    } else if (rawEffect[2] == 1015) {
+        result = {"noUse":true, "moraleFill": rawEffect[3][0]};
+
+        // CoW morale boost
+    } else if (rawEffect[2] == 1016) {
+        let baseCoef = rawEffect[3][0] / 100;
+        let damageType = rawEffect[3][1];
+        let monsterReceivingStatType = rawEffect[3][0];
+        let coefIncreaseByStep = rawEffect[3][3] / 100;
+        let coefIncreaseMoraleStep = rawEffect[3][4];
+        let coefIncreaseMoraleBottomThreshold = rawEffect[3][5];
+        result = {damage:{coef:baseCoef, coefIncreaseByStep: coefIncreaseByStep, coefIncreaseMoraleStep: coefIncreaseMoraleStep, coefIncreaseMoraleBottomThreshold: coefIncreaseMoraleBottomThreshold}};
+        if (damageType === 1) {
+            result.damage.mecanism = "physical";
+            result.damage.damageType = "body";
+        } else if (damageType === 2) {
+            result.damage.mecanism = "magical";
+            result.damage.damageType = "mind";
+        } else if (damageType === 3) {
+            result.damage.mecanism = "hybrid";
+        }
+
         // empty skill - skill a randomly calls skill b or skill c. skill b has effects, skill c does not.
     } else if (skillId == 500410) {
         result = {"noUse":true};

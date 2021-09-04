@@ -510,6 +510,30 @@
 	{"atk":72, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
 	{"atk":80, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30},{"atk%":20,"def%":20,"mag%":20,"spr%":20},{"resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}]}]}
 ]},
+{"id":"204000101", "name":"VSバルバリシア", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_204000101.png", "sortId":83, "levels":[
+	{"atk":50},
+	{"atk":55},
+	{"atk":60},
+	{"atk":65, "atk%":50},
+	{"atk":70, "atk%":50},
+	{"atk":75, "atk%":50},
+	{"atk":80, "atk%":50, "lbDamage":25},
+	{"atk":85, "atk%":50, "lbDamage":25},
+	{"atk":90, "atk%":50, "lbDamage":25},
+	{"atk":100, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500}}]}
+]},
+{"id":"204000301", "name":"幻界からの帰還", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_204000301.png", "sortId":84, "levels":[
+	{"mag":50},
+	{"mag":55},
+	{"mag":60},
+	{"mag":65, "mag%":50},
+	{"mag":70, "mag%":50},
+	{"mag":75, "mag%":50},
+	{"mag":80, "mag%":50, "lbDamage":25},
+	{"mag":85, "mag%":50, "lbDamage":25},
+	{"mag":90, "mag%":50, "lbDamage":25},
+	{"mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500}}]}
+]},
 {"id":"205000101", "name":"Syldra! Come Up and Say Hello!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000101.png", "sortId":41, "levels":[
 	{"atk":35, "mag":50},
 	{"atk":38, "mag":54},

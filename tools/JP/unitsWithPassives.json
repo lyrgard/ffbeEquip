@@ -14494,6 +14494,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","hat","clothes","robe"],
+		"enhancementSkills":["メテオ"],
 		"enhancements": [
 			{"name":"全ての魔法を極めし者","levels":[[],[{"mag%":40,"mp%":40}]]}
 		],
@@ -14754,7 +14755,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["参れ、黒龍！","黒き威圧感","双月","アビスクエーサー","Wメテオ","星をも超える力"],
+		"enhancementSkills":["メテオ","参れ、黒龍！","黒き威圧感","双月","アビスクエーサー","Wメテオ","星をも超える力"],
 		"enhancements": [
 			{"name":"弟に託した想い","levels":[[],[{"mp%":30,"singleWielding":{"mag":50},"dualWielding":{"mag":50}}]]},
 			{"name":"黒き威圧感","levels":[[{"mag%":50,"lbFillRate":50}],[{"mag%":50,"lbFillRate":50,"skillEnhancement":{"229446":28,"229447":14,"229448":14,"229449":14}}],[{"mag%":50,"lbFillRate":50,"skillEnhancement":{"229446":28,"229447":14,"229448":14,"229449":14},"singleWielding":{"mag":50}}]]},
@@ -14780,7 +14781,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["参れ、黒龍！","黒き威圧感","双月","アビスクエーサー","Wメテオ","星をも超える力"],
+			"enhancementSkills":["メテオ","参れ、黒龍！","黒き威圧感","双月","アビスクエーサー","Wメテオ","星をも超える力"],
 		"enhancements": [
 			{"name":"弟に託した想い","levels":[[],[{"mp%":30,"singleWielding":{"mag":50},"dualWielding":{"mag":50}}]]},
 			{"name":"黒き威圧感","levels":[[{"mag%":50,"lbFillRate":50}],[{"mag%":50,"lbFillRate":50,"skillEnhancement":{"229446":28,"229447":14,"229448":14,"229449":14}}],[{"mag%":50,"lbFillRate":50,"skillEnhancement":{"229446":28,"229447":14,"229448":14,"229449":14},"singleWielding":{"mag":50}}]]}
@@ -14843,23 +14844,112 @@
 		"name":"Barbariccia",
 		"jpname":"バルバリシア",
 		"id":"204001904",
-		"max_rarity":"6",
+		"braveShift":"204001927",
+		"exAwakening": [{"hp":583,"mp":32,"atk":19,"def":20,"mag":35,"spr":24},{"hp":449,"mp":25,"atk":14,"def":15,"mag":27,"spr":19},{"hp":314,"mp":17,"atk":10,"def":11,"mag":19,"spr":13}],
+		"fragmentId": "250005200",
+		"max_rarity":"NV",
 		"min_rarity":"4",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3450,"mp":190,"atk":110,"def":118,"mag":152,"spr":143},
-			"minStats":{"hp":1139,"mp":63,"atk":36,"def":39,"mag":50,"spr":47},
+			"maxStats":{"hp":4485,"mp":247,"atk":143,"def":154,"mag":270,"spr":186},
+			"minStats":{"hp":1480,"mp":82,"atk":47,"def":51,"mag":89,"spr":61},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
-		"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["エアロガ","トルネド"],
 		"enhancements": [
 			{"name":"高まる風威","levels":[[],[{"mag%":30,"mpRefresh":5,"skillEnhancement":{"509052":2,"509053":2}}]]}
 		],
 		"skills": [
 			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":150},{"name":"light","percent":-50}], "mpRefresh":5},
 			{"mag%":30, "equipedConditions":["rod"]},
-			{"spr%":30, "equipedConditions":["lightShield"]}
+			{"spr%":30, "equipedConditions":["lightShield"]},
+			{"lbDamage":150, "equipedConditions":[["504229432","504242896"]]},
+			{"lbPerTurn":{"min":4,"max":4}, "levelCondition":120},
+			{"killers":[{"name":"human","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"undead","physical":150,"magical":150}], "levelCondition":120},
+			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
+			{"mag":500, "levelCondition":120, "exLevelCondition":3}
+		],
+		"6_form": {
+			"name":"Barbariccia",
+			"jpname":"バルバリシア",
+			"id":"204001904",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"4",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3450,"mp":190,"atk":110,"def":118,"mag":152,"spr":143},
+				"minStats":{"hp":1139,"mp":63,"atk":36,"def":39,"mag":50,"spr":47},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["エアロガ","トルネド"],
+		"enhancements": [
+			{"name":"高まる風威","levels":[[],[{"mag%":30,"mpRefresh":5,"skillEnhancement":{"509052":2,"509053":2}}]]}
+		],
+			"skills": [
+				{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":150},{"name":"light","percent":-50}], "mpRefresh":5},
+				{"mag%":30, "equipedConditions":["rod"]},
+				{"spr%":30, "equipedConditions":["lightShield"]}
+			]
+		},
+		"7_form": {
+			"name":"Barbariccia",
+			"jpname":"バルバリシア",
+			"id":"204001904",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"4",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4485,"mp":247,"atk":143,"def":154,"mag":198,"spr":186},
+				"minStats":{"hp":1480,"mp":82,"atk":47,"def":51,"mag":65,"spr":61},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["エアロガ","トルネド"],
+		"enhancements": [
+			{"name":"高まる風威","levels":[[],[{"mag%":30,"mpRefresh":5,"skillEnhancement":{"509052":2,"509053":2}}]]}
+		],
+			"skills": [
+				{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":150},{"name":"light","percent":-50}], "mpRefresh":5},
+				{"mag%":30, "equipedConditions":["rod"]},
+				{"spr%":30, "equipedConditions":["lightShield"]},
+				{"lbDamage":150, "equipedConditions":[["504229432","504242896"]]}
+			]
+		}
+	},
+	"204001927": {
+		"name":"バルバリシア BS",
+		"id":"204001927",
+		"braveShifted":"204001904",
+		"exAwakening": [{"hp":583,"mp":32,"atk":19,"def":20,"mag":35,"spr":24},{"hp":449,"mp":25,"atk":14,"def":15,"mag":27,"spr":19},{"hp":314,"mp":17,"atk":10,"def":11,"mag":19,"spr":13}],
+		"fragmentId": "250005200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5102,"mp":256,"atk":121,"def":240,"mag":270,"spr":215},
+			"minStats":{"hp":1684,"mp":84,"atk":40,"def":79,"mag":89,"spr":71},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["エアロガ","トルネド","ミラージュウィンド"],
+		"skills": [
+			{"resist":[{"name":"light","percent":-50},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]},
+			{"mag":500, "levelCondition":120, "exLevelCondition":3},
+			{"lbPerTurn":{"min":4,"max":4}, "levelCondition":120},
+			{"killers":[{"name":"human","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"undead","physical":150,"magical":150}], "levelCondition":120},
+			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
+			{"mp%":100, "def%":100, "mag%":100, "spr%":100, "evade":{"physical":65}, "lbDamage":150, "equipedConditions":[["504229432","504242896"]], "levelCondition":120},
+			{"mpRefresh":5, "levelCondition":120}
 		]
 	},
 	"204002003": {
@@ -15145,6 +15235,99 @@
 				{"spr%":30, "equipedConditions":["clothes"]}
 			]
 		}
+	},
+	"204002907": {
+		"name":"竜騎士カイン",
+		"id":"204002907",
+		"braveShift":"204002917",
+		"exAwakening": [{"hp":678,"mp":28,"atk":70,"def":23,"mag":17,"spr":20},{"hp":522,"mp":22,"atk":54,"def":18,"mag":13,"spr":15},{"hp":365,"mp":15,"atk":38,"def":12,"mag":9,"spr":11}],
+		"fragmentId": "250005000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5217,"mp":216,"atk":270,"def":178,"mag":131,"spr":152},
+			"minStats":{"hp":1722,"mp":71,"atk":89,"def":59,"mag":43,"spr":50},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["インパルスドライブ","サンダージャンプ"],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk":500, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":50,"atk":300}, "chainMastery":100, "jumpDamage":500, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":30},{"name":"light","percent":30},{"name":"blind","percent":100},{"name":"confuse","percent":-50},{"name":"disease","percent":100}], "killers":[{"name":"dragon","physical":200,"magical":200},{"name":"spirit","physical":150,"magical":150}], "mpRefresh":5, "lbDamage":150},
+			{"equipedConditions":[["504242890","407005700"]]},
+			{"hp%":60, "mp%":60, "atk%":100, "def%":60, "spr%":60, "equipedConditions":["spear",["504242890","407005700"]]}
+		]
+	},
+	"204002917": {
+		"name":"聖竜騎士カイン BS",
+		"id":"204002917",
+		"braveShifted":"204002907",
+		"exAwakening": [{"hp":678,"mp":28,"atk":70,"def":23,"mag":17,"spr":20},{"hp":522,"mp":22,"atk":54,"def":18,"mag":13,"spr":15},{"hp":365,"mp":15,"atk":38,"def":12,"mag":9,"spr":11}],
+		"fragmentId": "250005000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5308,"mp":245,"atk":270,"def":196,"mag":131,"spr":241},
+			"minStats":{"hp":1752,"mp":81,"atk":89,"def":65,"mag":43,"spr":80},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["インパルスドライブ","ホーリージャンプ"],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk":500, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":50,"atk":300}, "chainMastery":100, "jumpDamage":500, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"charm","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":30},{"name":"light","percent":30},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"dragon","physical":200,"magical":200},{"name":"spirit","physical":150,"magical":150}], "mpRefresh":5, "lbDamage":150},
+			{"equipedConditions":[["504242890","407005700"]]},
+			{"hp%":60, "mp%":60, "atk%":100, "def%":60, "spr%":60, "equipedConditions":["spear",["504242890","407005700"]]}
+		]
+	},
+	"204003007": {
+		"name":"召喚士リディア",
+		"id":"204003007",
+		"braveShift":"204003017",
+		"exAwakening": [{"hp":511,"mp":36,"atk":15,"def":23,"mag":70,"spr":25},{"hp":393,"mp":28,"atk":11,"def":18,"mag":54,"spr":19},{"hp":275,"mp":20,"atk":8,"def":12,"mag":38,"spr":14}],
+		"fragmentId": "250005100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3931,"mp":280,"atk":113,"def":178,"mag":270,"spr":192},
+			"minStats":{"hp":1297,"mp":92,"atk":37,"def":59,"mag":89,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","whip","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["ブリザガ","サンダガ","トルネド","幻界で開花した才能"],
+		"enhancements": [
+			{"name":"幻界で開花した才能","levels":[[{"skillEnhancement":{"0":20}}],[{"skillEnhancement":{"0":25}}],[{"skillEnhancement":{"0":30}}],[{"skillEnhancement":{"0":35}}],[{"skillEnhancement":{"0":40}}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"confuse","percent":100}], "killers":[{"name":"spirit","physical":200,"magical":200},{"name":"undead","physical":150,"magical":150}], "mpRefresh":5, "lbDamage":200},
+			{"hp%":100, "mp%":100, "mag%":100, "equipedConditions":[["504242893","405020000"]]}
+		]
+	},
+	"204003017": {
+		"name":"リディア&ミストドラゴン BS",
+		"id":"204003017",
+		"braveShifted":"204003007",
+		"exAwakening": [{"hp":511,"mp":36,"atk":15,"def":23,"mag":70,"spr":25},{"hp":393,"mp":28,"atk":11,"def":18,"mag":54,"spr":19},{"hp":275,"mp":20,"atk":8,"def":12,"mag":38,"spr":14}],
+		"fragmentId": "250005100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4784,"mp":290,"atk":104,"def":232,"mag":300,"spr":199},
+			"minStats":{"hp":1579,"mp":96,"atk":34,"def":77,"mag":99,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","whip","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["フローズンブレス"],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":200, "spr%":60, "evoMag":100, "evokeDamageBoost":{"all":160}, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"confuse","percent":100}], "mpRefresh":5, "lbDamage":200},
+			{"hp%":100, "mp%":100, "mag%":100, "equipedConditions":[["504242893","405020000"]]}
+		]
 	},
 	"205000103": {
 		"name":"Bartz",
