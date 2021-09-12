@@ -351,6 +351,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
     if (!data.name) {
         data.name = unitIn.name;
     }
+    data.roles = unitIn.roles.map(role => commonParse.unitRoles[role]);
     if (languageId != 0) {
         data.wikiEntry = unitIn.name.replace(' ', '_');
     }

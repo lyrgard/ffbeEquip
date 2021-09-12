@@ -396,7 +396,7 @@
 	{"hp":720, "mp%":40, "mag":72, "spr":72},
 	{"hp":800, "mp%":40, "mag":80, "spr":80, "conditional":[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20}]}]}
 ]},
-{"id":"100003601", "name":"はじまりの物語", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003601.png", "sortId":63, "levels":[
+{"id":"100003601", "name":"A Story of Beginnings", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003601.png", "sortId":63, "levels":[
 	{"atk":40},
 	{"atk":44},
 	{"atk":48},
@@ -521,6 +521,18 @@
 	{"atk":85, "atk%":50, "lbDamage":25},
 	{"atk":90, "atk%":50, "lbDamage":25},
 	{"atk":100, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500}}]}
+]},
+{"id":"204000201", "name":"VSルビカンテ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_204000201.png", "sortId":86, "levels":[
+	{"atk":35, "mag":35},
+	{"atk":38, "mag":38},
+	{"atk":42, "mag":42},
+	{"atk":45, "atk%":25, "mag":45, "mag%":25},
+	{"atk":49, "atk%":25, "mag":49, "mag%":25},
+	{"atk":52, "atk%":25, "mag":52, "mag%":25},
+	{"atk":56, "atk%":25, "mag":56, "mag%":25, "killers":[{"name":"human","physical":100,"magical":100}]},
+	{"atk":59, "atk%":25, "mag":59, "mag%":25, "killers":[{"name":"human","physical":100,"magical":100}]},
+	{"atk":63, "atk%":25, "mag":63, "mag%":25, "killers":[{"name":"human","physical":100,"magical":100}]},
+	{"atk":70, "atk%":25, "mag":70, "mag%":25, "killers":[{"name":"human","physical":100,"magical":100}], "lbDamage":100}
 ]},
 {"id":"204000301", "name":"幻界からの帰還", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_204000301.png", "sortId":84, "levels":[
 	{"mag":50},
@@ -836,6 +848,18 @@
 	{"atk":61, "atk%":40, "spr":74, "spr%":40},
 	{"atk":64, "atk%":40, "spr":79, "spr%":40},
 	{"atk":72, "atk%":40, "spr":88, "spr%":40, "conditional":[{"atk%":30,"spr%":30},{"resist":[{"name":"light","percent":50}]}]}
+]},
+{"id":"336000101", "name":"ライブラリ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_336000101.png", "sortId":85, "levels":[
+	{"atk":50},
+	{"atk":55},
+	{"atk":60},
+	{"atk":65, "atk%":50},
+	{"atk":70, "atk%":50},
+	{"atk":75, "atk%":50},
+	{"atk":80, "atk%":50, "lbDamage":25},
+	{"atk":85, "atk%":50, "lbDamage":25},
+	{"atk":90, "atk%":50, "lbDamage":25},
+	{"atk":100, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500},"exclusiveRoles":["breaker"]}]}
 ]},
 {"id":"338000101", "name":"The Portal of Truth", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_338000101.png", "sortId":44, "levels":[
 	{"atk":50},

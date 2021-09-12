@@ -126,9 +126,6 @@ function manageNV(units) {
                 unitIn.nv_upgrade = unitIn.entries[unitId].nv_upgrade;
             }
         }
-        if (unitId == "100011727") {
-            console.log("PG Lasswell BS", unitIn.name, unitIn);
-        }
         if (unitIn.rarity_max == 7 || unitIn.rarity_max == 'NV') {
             const baseUnitId = unitId.substr(0, unitId.length -1);
             nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
@@ -211,6 +208,11 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
     } else {
         data["name"] = unitIn["name"];    
     }
+    data.roles = unitIn["roles"].map(role => {
+        const mappedRole = commonParse.unitRoles[role];
+        if (!mappedRole) console.log('MISSING ROLE', role);
+        return mappedRole;
+    });
 
     data["max_rarity"] = maxRariry;
     data["min_rarity"] = unitIn["rarity_min"];

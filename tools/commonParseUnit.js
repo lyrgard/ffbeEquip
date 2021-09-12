@@ -145,6 +145,16 @@ let espersById = {
     "17":"Anima",
     "18":"Asura",
     "19":"Black Dragon"
+};
+
+const unitRoles = {
+    "Physical Attacker": 'physicalAttacker',
+    "Magic Attacker": 'magicalAttacker',
+    "Physical Tank": 'physicalTank',
+    "Magic Tank": 'magicalTank',
+    "Breaker": 'debuffer',
+    "Support": 'support',
+    "Healer": 'healer',
 }
 
 String.prototype.hashCode = function() {
@@ -2607,7 +2617,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding", "oneWeaponMastery","improvedDW", "chainMastery","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","exLevelCondition" ,"tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","roles","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding", "oneWeaponMastery","improvedDW", "chainMastery","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits", "exclusiveRoles","equipedConditions", "equipedConditionIsOr","levelCondition","exLevelCondition" ,"tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";
@@ -2708,6 +2718,7 @@ function getUnitBasicInfo(unit, prefix = "", form = null) {
     if (unit.jpname) {
         result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname.replace(/"/g, '\\"').replace(/ - Brave Shifted/g, "") + (unit.braveShifted ? " BS" : '') + "\",";
     }
+    result += "\n" + prefix + "\t\t\"roles\":" + JSON.stringify(unit.roles) + ",";
     if (unit.wikiEntry) {
         result += "\n" + prefix + "\t\t\"wikiEntry\":\"" + unit.wikiEntry + "\",";
     }
@@ -2770,6 +2781,7 @@ function formatForSearch(units) {
             unitOut.id = unit.id;
             unitOut.minRarity = unit.min_rarity.toString();
             unitOut.maxRarity = unit.max_rarity.toString();
+            unitOut.roles = unit.roles;
             
             
             if (unit.innates.resist) {
@@ -3116,5 +3128,6 @@ module.exports = {
     formatForSkills:formatForSkills,
     stats: stats,
     elements: elements,
-    ailments: ailments
+    ailments: ailments,
+    unitRoles: unitRoles,
 }

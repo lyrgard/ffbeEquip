@@ -694,6 +694,9 @@ function getAccessHtml(item) {
     if (item.exclusiveSex) {
         html += "<div class='exclusive'>Only " + item.exclusiveSex + "</div>";
     }
+    if (item.exclusiveRoles) {
+        html += "<div class='exclusive'>Only " + item.exclusiveRoles.join(', ') + "</div>";
+    }
     if (item.equipedConditions) {
         html += getEquipedConditionHtml(item);
     }
@@ -1337,6 +1340,9 @@ var exclusiveForbidAccess = function(item, selectedUnitId) {
     if (item.exclusiveUnits && !item.exclusiveUnits.includes(selectedUnitId)) {
         return true;
     }
+    if (item.exclusiveRoles && item.exclusiveRoles.some(role => !units[selectedUnitId].roles.includes(role))) {
+        return true;
+    }
     return false;
 }
 
@@ -1592,6 +1598,9 @@ function prepareSearch(data) {
         }
         if (item["exclusiveSex"]) {
             textToSearch += "|Only " + item["exclusiveSex"];
+        }
+        if (item.exclusiveRoles) {
+            textToSearch += "|Only " + item.exclusiveRoles.join(', ');
         }
         if (item["condition"]) {
             textToSearch += "|Only " + item["condition"];

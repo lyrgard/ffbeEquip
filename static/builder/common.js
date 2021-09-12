@@ -1448,6 +1448,9 @@ function isApplicable(item, unit) {
     if (item.exclusiveSex && item.exclusiveSex != unit.sex) {
         return false;
     }
+    if (item.exclusiveRoles && item.exclusiveRoles.every(role => unit.roles.includes(role))) {
+        return false;
+    }
     if (item.exclusiveUnits && !item.exclusiveUnits.includes(unit.id)) {
         return false;
     }
@@ -1525,6 +1528,9 @@ function findBestItemVersion(build, item, itemWithVariation, unit) {
             if (item1.exclusiveSex) {
                 conditionNumber1++;
             }
+            if (item1.exclusiveRoles) {
+                conditionNumber1++;
+            }
             if (item2.equipedConditions) {
                 conditionNumber2 = item2.equipedConditions.length;
             }
@@ -1532,6 +1538,9 @@ function findBestItemVersion(build, item, itemWithVariation, unit) {
                 conditionNumber2++;
             }
             if (item2.exclusiveSex) {
+                conditionNumber2++;
+            }
+            if (item2.exclusiveRoles) {
                 conditionNumber2++;
             }
             return conditionNumber2 - conditionNumber1;
