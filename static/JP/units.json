@@ -9492,6 +9492,118 @@
 		"stats_pattern":4,
 		"equip":["axe","spear","hat","helm","clothes","lightArmor","visionCard"]
 	},
+	"100037407": {
+		"name":"ルンド",
+		"roles":["physicalTank"],
+		"id":"100037407",
+		"braveShift":"100037417",
+		"exAwakening": [{"hp":667,"mp":35,"atk":24,"def":68,"mag":10,"spr":34},{"hp":513,"mp":27,"atk":19,"def":52,"mag":8,"spr":26},{"hp":359,"mp":19,"atk":13,"def":37,"mag":6,"spr":18}],
+		"fragmentId": "250004600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5129,"mp":270,"atk":187,"def":262,"mag":80,"spr":262},
+			"minStats":{"hp":1693,"mp":89,"atk":62,"def":86,"mag":26,"spr":86},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","staff","axe","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["かばう・物理I","人に近づくために","プロテガ","シェルガ","ルンドレーザー"]
+	},
+	"100037417": {
+		"name":"ルンド BS",
+		"roles":["physicalTank"],
+		"id":"100037417",
+		"braveShifted":"100037407",
+		"exAwakening": [{"hp":667,"mp":35,"atk":24,"def":68,"mag":10,"spr":34},{"hp":513,"mp":27,"atk":19,"def":52,"mag":8,"spr":26},{"hp":359,"mp":19,"atk":13,"def":37,"mag":6,"spr":18}],
+		"fragmentId": "250004600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5129,"mp":270,"atk":187,"def":262,"mag":80,"spr":262},
+			"minStats":{"hp":1693,"mp":89,"atk":62,"def":86,"mag":26,"spr":86},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","staff","axe","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]
+	},
+	"100037507": {
+		"name":"Leftia",
+		"roles":["support","healer"],
+		"id":"100037507",
+		"braveShift":"100037517",
+		"exAwakening": [{"hp":533,"mp":35,"atk":19,"def":16,"mag":31,"spr":65},{"hp":410,"mp":27,"atk":15,"def":12,"mag":24,"spr":50},{"hp":287,"mp":19,"atk":10,"def":8,"mag":17,"spr":35}],
+		"fragmentId": "250005700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4100,"mp":270,"atk":148,"def":120,"mag":240,"spr":250},
+			"minStats":{"hp":1353,"mp":89,"atk":49,"def":40,"mag":79,"spr":83},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["プロテガ","シェルガ","フランメガルディン"]
+	},
+	"100037517": {
+		"name":"Leftia BS",
+		"roles":["support","healer"],
+		"id":"100037517",
+		"braveShifted":"100037507",
+		"exAwakening": [{"hp":533,"mp":35,"atk":19,"def":16,"mag":31,"spr":65},{"hp":410,"mp":27,"atk":15,"def":12,"mag":24,"spr":50},{"hp":287,"mp":19,"atk":10,"def":8,"mag":17,"spr":35}],
+		"fragmentId": "250005700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4100,"mp":270,"atk":148,"def":120,"mag":240,"spr":250},
+			"minStats":{"hp":1353,"mp":89,"atk":49,"def":40,"mag":79,"spr":83},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["プロテガ","シェルガ"]
+	},
+	"100037607": {
+		"name":"Harve",
+		"roles":["debuffer","support"],
+		"id":"100037607",
+		"braveShift":"100037617",
+		"exAwakening": [{"hp":520,"mp":30,"atk":57,"def":20,"mag":34,"spr":17},{"hp":400,"mp":23,"atk":44,"def":15,"mag":26,"spr":13},{"hp":280,"mp":16,"atk":31,"def":11,"mag":18,"spr":9}],
+		"fragmentId": "250005800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3998,"mp":230,"atk":220,"def":150,"mag":260,"spr":133},
+			"minStats":{"hp":1319,"mp":76,"atk":73,"def":50,"mag":86,"spr":44},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","harp","throwing","fist","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["メッサータンツ"]
+	},
+	"100037617": {
+		"name":"Harve BS",
+		"roles":["debuffer","support"],
+		"id":"100037617",
+		"braveShifted":"100037607",
+		"exAwakening": [{"hp":520,"mp":30,"atk":57,"def":20,"mag":34,"spr":17},{"hp":400,"mp":23,"atk":44,"def":15,"mag":26,"spr":13},{"hp":280,"mp":16,"atk":31,"def":11,"mag":18,"spr":9}],
+		"fragmentId": "250005800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3998,"mp":230,"atk":220,"def":150,"mag":260,"spr":133},
+			"minStats":{"hp":1319,"mp":76,"atk":73,"def":50,"mag":86,"spr":44},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","harp","throwing","fist","hat","clothes","lightArmor","visionCard"]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -11238,7 +11350,7 @@
 		}
 	},
 	"204002907": {
-		"name":"竜騎士カイン",
+		"name":"Dragoon Kain",
 		"jpname":"竜騎士カイン",
 		"roles":["physicalAttacker"],
 		"id":"204002907",
@@ -11258,7 +11370,7 @@
 		"enhancementSkills":["インパルスドライブ","サンダージャンプ"]
 	},
 	"204002917": {
-		"name":"聖竜騎士カイン BS",
+		"name":"Holy Dragoon Kain BS",
 		"jpname":"聖竜騎士カイン BS",
 		"roles":["physicalAttacker"],
 		"id":"204002917",
@@ -11278,7 +11390,7 @@
 		"enhancementSkills":["インパルスドライブ","ホーリージャンプ"]
 	},
 	"204003007": {
-		"name":"召喚士リディア",
+		"name":"Summoner Rydia",
 		"jpname":"召喚士リディア",
 		"roles":["magicalAttacker"],
 		"id":"204003007",
@@ -11298,7 +11410,7 @@
 		"enhancementSkills":["ブリザガ","サンダガ","トルネド","幻界で開花した才能"]
 	},
 	"204003017": {
-		"name":"リディア&ミストドラゴン BS",
+		"name":"Rydia & Mist Dragon BS",
 		"jpname":"リディア&ミストドラゴン BS",
 		"roles":["magicalAttacker"],
 		"id":"204003017",
@@ -11318,7 +11430,7 @@
 		"enhancementSkills":["フローズンブレス"]
 	},
 	"204003107": {
-		"name":"忍者エッジ",
+		"name":"Ninja Edge",
 		"jpname":"忍者エッジ",
 		"roles":["debuffer"],
 		"id":"204003107",
@@ -11338,7 +11450,7 @@
 		"enhancementSkills":["らいじん・改","かとん・改"]
 	},
 	"204003117": {
-		"name":"忍者エッジ BS",
+		"name":"Ninja Edge BS",
 		"jpname":"忍者エッジ BS",
 		"roles":["debuffer"],
 		"id":"204003117",
@@ -17796,7 +17908,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["ラストソード"]
+		"enhancementSkills":["真王の証","ラストソード"]
 	},
 	"215002917": {
 		"name":"Cobalt Blade Noctis BS",
@@ -17816,7 +17928,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["シフトブレイク"]
+		"enhancementSkills":["真王の証","シフトブレイク"]
 	},
 	"215003007": {
 		"name":"Vermilion Blade Ardyn",
@@ -17836,7 +17948,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","spear","throwing","gun","lightShield","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["インフェルノソード"]
+		"enhancementSkills":["復讐に燃える心","インフェルノソード"]
 	},
 	"215003017": {
 		"name":"Vermilion Blade Ardyn BS",
@@ -17856,7 +17968,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","spear","throwing","gun","lightShield","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["ディストラクション"]
+		"enhancementSkills":["復讐に燃える心","ディストラクション"]
 	},
 	"249000105": {
 		"name":"Yuna (FFX-2)",
