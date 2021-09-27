@@ -71,6 +71,12 @@ class TypeCombinationGenerator {
         }
 
         var unitPartialDualWield = this.unitBuild.getPartialDualWield();
+        if (unitPartialDualWield) {
+            unitPartialDualWield = unitPartialDualWield.filter(type => !this.unitBuild.bannedEquipableTypes.includes(type));
+            if (!unitPartialDualWield.length) {
+                unitPartialDualWield = null;
+            }
+        }
         if (!this.forceDoubleHand && unitPartialDualWield && (!this.unitBuild.fixedItems[0] || unitPartialDualWield.includes(this.unitBuild.fixedItems[0].type))) { // Only try partial dual wield if no weapon fixed, or one weapon fixed of the partial dual wield type
             var savedEquipable0 = this.unitBuild.equipable[0];
             var savedEquipable1 = this.unitBuild.equipable[1];
