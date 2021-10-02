@@ -2813,7 +2813,7 @@
 			{"atk%":20, "levelCondition":115},
 			{"killers":[{"name":"demon","physical":100},{"name":"human","physical":100}], "levelCondition":120},
 			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "levelCondition":120},
-			{"hp%":90, "mp%":90, "def%":90, "mag%":90, "spr%":90, "dualWielding":{"atk":90}, "levelCondition":120}
+			{"hp%":90, "mp%":90, "atk%":90, "def%":90, "mag%":90, "spr%":90, "dualWielding":{"atk":90}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Raegen",
@@ -5377,7 +5377,7 @@
 		}
 	},
 	"100016927": {
-		"name":"シトラ BS",
+		"name":"Citra BS",
 		"jpname":"シトラ BS",
 		"roles":["magicalAttacker"],
 		"id":"100016927",
@@ -13013,7 +13013,7 @@
 		]
 	},
 	"100035807": {
-		"name":"Youthful Thunder Sakura",
+		"name":"Sage of Thunder Sakura",
 		"jpname":"幼雷サクラ",
 		"roles":["support"],
 		"id":"100035807",
@@ -13038,7 +13038,7 @@
 		]
 	},
 	"100035817": {
-		"name":"Youthful Thunder Sakura BS",
+		"name":"Sage of Thunder Sakura BS",
 		"jpname":"幼雷サクラ BS",
 		"roles":["support"],
 		"id":"100035817",
@@ -13254,6 +13254,7 @@
 	},
 	"100037407": {
 		"name":"ルンド",
+		"jpname":"ルンド",
 		"roles":["physicalTank"],
 		"id":"100037407",
 		"braveShift":"100037417",
@@ -13279,6 +13280,7 @@
 	},
 	"100037417": {
 		"name":"ルンド BS",
+		"jpname":"ルンド BS",
 		"roles":["physicalTank"],
 		"id":"100037417",
 		"braveShifted":"100037407",
@@ -13302,7 +13304,8 @@
 		]
 	},
 	"100037507": {
-		"name":"レフティア",
+		"name":"Leftia",
+		"jpname":"レフティア",
 		"roles":["support","healer"],
 		"id":"100037507",
 		"braveShift":"100037517",
@@ -13325,7 +13328,8 @@
 		]
 	},
 	"100037517": {
-		"name":"レフティア BS",
+		"name":"Leftia BS",
+		"jpname":"レフティア BS",
 		"roles":["support","healer"],
 		"id":"100037517",
 		"braveShifted":"100037507",
@@ -13348,7 +13352,8 @@
 		]
 	},
 	"100037607": {
-		"name":"ハーヴェ",
+		"name":"Harve",
+		"jpname":"ハーヴェ",
 		"roles":["debuffer","support"],
 		"id":"100037607",
 		"braveShift":"100037617",
@@ -13371,7 +13376,8 @@
 		]
 	},
 	"100037617": {
-		"name":"ハーヴェ BS",
+		"name":"Harve BS",
+		"jpname":"ハーヴェ BS",
 		"roles":["debuffer","support"],
 		"id":"100037617",
 		"braveShifted":"100037607",
@@ -13390,6 +13396,150 @@
 		"skills": [
 			{"mp%":60, "atk%":150, "mag%":150, "evade":{"physical":40,"magical":40}, "dualWielding":{"atk":50,"mag":50}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"undead","physical":200,"magical":200},{"name":"machine","physical":150,"magical":150}], "mpRefresh":5, "special":["dualWield"]},
 			{"mag%":150, "skillEnhancement":{"20460":30,"20470":60}, "equipedConditions":[["504020470","316003800"]]}
+		]
+	},
+	"100037707": {
+		"name":"Golden Rizer",
+		"jpname":"ゴールデンライザー",
+		"roles":["physicalAttacker","support"],
+		"id":"100037707",
+		"braveShift":"100037717",
+		"exAwakening": [{"hp":404,"mp":31,"atk":64,"def":6,"mag":4,"spr":5},{"hp":311,"mp":24,"atk":49,"def":4,"mag":3,"spr":4},{"hp":217,"mp":17,"atk":35,"def":3,"mag":2,"spr":3}],
+		"fragmentId": "250006100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3108,"mp":240,"atk":247,"def":44,"mag":31,"spr":35},
+			"minStats":{"hp":1026,"mp":79,"atk":82,"def":15,"mag":10,"spr":12},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["金色の守護者","フェニックススラッシュ","ぜんぎり"],
+		"enhancements": [
+			{"name":"金色の守護者","levels":[[{"spr%":300,"def%":300,"atk%":200,"mp%":200,"hp%":200,"killers":[{"name":"beast","physical":20},{"name":"bird","physical":20},{"name":"aquatic","physical":20},{"name":"demon","physical":20},{"name":"human","physical":20},{"name":"machine","physical":20},{"name":"dragon","physical":20},{"name":"spirit","physical":20},{"name":"bug","physical":20},{"name":"stone","physical":20},{"name":"plant","physical":20},{"name":"undead","physical":20}]}],[{"spr%":300,"def%":300,"atk%":200,"mp%":200,"hp%":200,"killers":[{"name":"beast","physical":40},{"name":"bird","physical":40},{"name":"aquatic","physical":40},{"name":"demon","physical":40},{"name":"human","physical":40},{"name":"machine","physical":40},{"name":"dragon","physical":40},{"name":"spirit","physical":40},{"name":"bug","physical":40},{"name":"stone","physical":40},{"name":"plant","physical":40},{"name":"undead","physical":40}]}],[{"spr%":300,"def%":300,"atk%":200,"mp%":200,"hp%":200,"killers":[{"name":"beast","physical":60},{"name":"bird","physical":60},{"name":"aquatic","physical":60},{"name":"demon","physical":60},{"name":"human","physical":60},{"name":"machine","physical":60},{"name":"dragon","physical":60},{"name":"spirit","physical":60},{"name":"bug","physical":60},{"name":"stone","physical":60},{"name":"plant","physical":60},{"name":"undead","physical":60}]}],[{"spr%":300,"def%":300,"atk%":200,"mp%":200,"hp%":200,"killers":[{"name":"beast","physical":80},{"name":"bird","physical":80},{"name":"aquatic","physical":80},{"name":"demon","physical":80},{"name":"human","physical":80},{"name":"machine","physical":80},{"name":"dragon","physical":80},{"name":"spirit","physical":80},{"name":"bug","physical":80},{"name":"stone","physical":80},{"name":"plant","physical":80},{"name":"undead","physical":80}]}],[{"spr%":300,"def%":300,"atk%":200,"mp%":200,"hp%":200,"killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}]}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk":500, "atk%":200, "def%":60, "spr%":60, "dualWielding":{"atk":100}, "chainMastery":200, "lbFillRate":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "lbDamage":150, "special":["dualWield"]},
+			{"dualWielding":{"atk":100}, "lbDamage":150, "equipedConditions":[["504243282","404006400"]]}
+		]
+	},
+	"100037717": {
+		"name":"Golden Rizer BS",
+		"jpname":"ゴールデンライザー BS",
+		"roles":["physicalAttacker","support"],
+		"id":"100037717",
+		"braveShifted":"100037707",
+		"exAwakening": [{"hp":404,"mp":31,"atk":64,"def":6,"mag":4,"spr":5},{"hp":311,"mp":24,"atk":49,"def":4,"mag":3,"spr":4},{"hp":217,"mp":17,"atk":35,"def":3,"mag":2,"spr":3}],
+		"fragmentId": "250006100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3108,"mp":240,"atk":247,"def":44,"mag":31,"spr":35},
+			"minStats":{"hp":1026,"mp":79,"atk":82,"def":15,"mag":10,"spr":12},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"skills": [
+			{"hp%":260, "mp%":260, "atk":500, "atk%":400, "def%":360, "spr%":360, "dualWielding":{"atk":100}, "chainMastery":200, "lbFillRate":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":20},{"name":"bird","physical":20},{"name":"aquatic","physical":20},{"name":"demon","physical":20},{"name":"human","physical":20},{"name":"machine","physical":20},{"name":"dragon","physical":20},{"name":"spirit","physical":20},{"name":"bug","physical":20},{"name":"stone","physical":20},{"name":"plant","physical":20},{"name":"undead","physical":20}], "mpRefresh":5, "lbDamage":150, "special":["dualWield"]},
+			{"dualWielding":{"atk":100}, "lbDamage":150, "equipedConditions":[["504243282","404006400"]]}
+		]
+	},
+	"100037807": {
+		"name":"Dark Rain",
+		"jpname":"ダークレイン",
+		"roles":["magicalAttacker"],
+		"id":"100037807",
+		"braveShift":"100037817",
+		"exAwakening": [{"hp":637,"mp":35,"atk":26,"def":23,"mag":78,"spr":26},{"hp":490,"mp":27,"atk":20,"def":18,"mag":60,"spr":20},{"hp":343,"mp":19,"atk":14,"def":13,"mag":42,"spr":14}],
+		"fragmentId": "250005900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4900,"mp":270,"atk":197,"def":181,"mag":300,"spr":198},
+			"minStats":{"hp":1617,"mp":89,"atk":65,"def":60,"mag":99,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["ダーガ","ジハード","ダークサプレッション","カオティックミラージュ"],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":200, "spr%":60, "dualWielding":{"mag":100}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"light","percent":30},{"name":"dark","percent":100},{"name":"poison","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "lbDamage":150, "special":["dualWield"]},
+			{"dualWielding":{"mag":100}, "killers":[{"name":"beast","magical":200},{"name":"bird","magical":200},{"name":"aquatic","magical":200},{"name":"demon","magical":200},{"name":"human","magical":200},{"name":"machine","magical":200},{"name":"dragon","magical":200},{"name":"spirit","magical":200},{"name":"bug","magical":200},{"name":"stone","magical":200},{"name":"plant","magical":200},{"name":"undead","magical":200}], "equipedConditions":[["504243280","308009700"]]}
+		]
+	},
+	"100037817": {
+		"name":"Dark Rain BS",
+		"jpname":"ダークレイン BS",
+		"roles":["magicalAttacker"],
+		"id":"100037817",
+		"braveShifted":"100037807",
+		"exAwakening": [{"hp":637,"mp":35,"atk":26,"def":23,"mag":78,"spr":26},{"hp":490,"mp":27,"atk":20,"def":18,"mag":60,"spr":20},{"hp":343,"mp":19,"atk":14,"def":13,"mag":42,"spr":14}],
+		"fragmentId": "250005900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4900,"mp":270,"atk":197,"def":181,"mag":300,"spr":198},
+			"minStats":{"hp":1617,"mp":89,"atk":65,"def":60,"mag":99,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":200, "spr%":60, "dualWielding":{"mag":100}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"light","percent":30},{"name":"dark","percent":100},{"name":"poison","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "lbDamage":150, "special":["dualWield"]},
+			{"dualWielding":{"mag":100}, "killers":[{"name":"beast","magical":200},{"name":"bird","magical":200},{"name":"aquatic","magical":200},{"name":"demon","magical":200},{"name":"human","magical":200},{"name":"machine","magical":200},{"name":"dragon","magical":200},{"name":"spirit","magical":200},{"name":"bug","magical":200},{"name":"stone","magical":200},{"name":"plant","magical":200},{"name":"undead","magical":200}], "equipedConditions":[["504243280","308009700"]]}
+		]
+	},
+	"100037907": {
+		"name":"Raegen -The Second Emperor",
+		"jpname":"レーゲン -再臨の帝王-",
+		"roles":["debuffer"],
+		"id":"100037907",
+		"braveShift":"100037917",
+		"exAwakening": [{"hp":677,"mp":39,"atk":70,"def":27,"mag":19,"spr":25},{"hp":521,"mp":30,"atk":54,"def":21,"mag":15,"spr":19},{"hp":365,"mp":21,"atk":38,"def":14,"mag":10,"spr":14}],
+		"fragmentId": "250006000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5210,"mp":300,"atk":270,"def":207,"mag":148,"spr":192},
+			"minStats":{"hp":1719,"mp":99,"atk":89,"def":68,"mag":49,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["絶・明鏡","暁光の刃","黎明の炎"],
+		"skills": [
+			{"hp%":90, "mp%":150, "atk":500, "atk%":240, "def%":90, "mag%":240, "spr%":90, "evade":{"physical":30}, "dualWielding":{"atk":140,"mag":50}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"light","percent":20},{"name":"dark","percent":20}], "killers":[{"name":"demon","physical":150,"magical":150},{"name":"human","physical":50}], "mpRefresh":8, "lbDamage":75, "drawAttacks":50, "special":["dualWield"]},
+			{"hp%":100, "killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":[["504243281","405020300"]]}
+		]
+	},
+	"100037917": {
+		"name":"Raegen -The Second Emperor BS",
+		"jpname":"レーゲン -再臨の帝王- BS",
+		"roles":["debuffer"],
+		"id":"100037917",
+		"braveShifted":"100037907",
+		"exAwakening": [{"hp":677,"mp":39,"atk":70,"def":27,"mag":19,"spr":25},{"hp":521,"mp":30,"atk":54,"def":21,"mag":15,"spr":19},{"hp":365,"mp":21,"atk":38,"def":14,"mag":10,"spr":14}],
+		"fragmentId": "250006000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5210,"mp":300,"atk":270,"def":207,"mag":148,"spr":192},
+			"minStats":{"hp":1719,"mp":99,"atk":89,"def":68,"mag":49,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"],
+		"skills": [
+			{"hp%":90, "mp%":150, "atk":500, "atk%":240, "def%":90, "mag%":240, "spr%":90, "evade":{"physical":30}, "dualWielding":{"atk":140,"mag":50}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"light","percent":20},{"name":"dark","percent":20}], "killers":[{"name":"demon","physical":150,"magical":150},{"name":"human","physical":50}], "mpRefresh":8, "lbDamage":75, "drawAttacks":50, "special":["dualWield"]},
+			{"hp%":100, "killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":[["504243281","405020300"]]}
 		]
 	},
 	"201000104": {
@@ -16090,7 +16240,7 @@
 		}
 	},
 	"204002907": {
-		"name":"竜騎士カイン",
+		"name":"Dragoon Kain",
 		"jpname":"竜騎士カイン",
 		"roles":["physicalAttacker"],
 		"id":"204002907",
@@ -16115,7 +16265,7 @@
 		]
 	},
 	"204002917": {
-		"name":"聖竜騎士カイン BS",
+		"name":"Holy Dragoon Kain BS",
 		"jpname":"聖竜騎士カイン BS",
 		"roles":["physicalAttacker"],
 		"id":"204002917",
@@ -16140,7 +16290,7 @@
 		]
 	},
 	"204003007": {
-		"name":"召喚士リディア",
+		"name":"Summoner Rydia",
 		"jpname":"召喚士リディア",
 		"roles":["magicalAttacker"],
 		"id":"204003007",
@@ -16167,7 +16317,7 @@
 		]
 	},
 	"204003017": {
-		"name":"リディア&ミストドラゴン BS",
+		"name":"Rydia & Mist Dragon BS",
 		"jpname":"リディア&ミストドラゴン BS",
 		"roles":["magicalAttacker"],
 		"id":"204003017",
@@ -16191,7 +16341,7 @@
 		]
 	},
 	"204003107": {
-		"name":"忍者エッジ",
+		"name":"Ninja Edge",
 		"jpname":"忍者エッジ",
 		"roles":["debuffer"],
 		"id":"204003107",
@@ -16215,7 +16365,7 @@
 		]
 	},
 	"204003117": {
-		"name":"忍者エッジ BS",
+		"name":"Ninja Edge BS",
 		"jpname":"忍者エッジ BS",
 		"roles":["debuffer"],
 		"id":"204003117",
@@ -21617,7 +21767,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["ためる【IX】","3連ファイガ剣付与","コメット","ファイガ","ブリザガ","サンダガ"],
+		"enhancementSkills":["ためる【IX】","3連ファイガ剣付与","コメット","ファイガ","ブリザガ","サンダガ","ジハード"],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "chainMastery":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":30},{"name":"lightning","percent":30}], "killers":[{"name":"bird","physical":100,"magical":100}], "mpRefresh":7},
 			{"mag%":140, "equipedConditions":["rod"]},
@@ -21642,7 +21792,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["ためる【IX】","コメット","ファイガ","ブリザガ","サンダガ","こころのありか"],
+		"enhancementSkills":["ためる【IX】","コメット","ファイガ","ブリザガ","サンダガ","ジハード","こころのありか"],
 		"enhancements": [
 			{"name":"こころのありか","levels":[[{"mag":300}],[{"mag":375}],[{"mag":450}],[{"mag":525}],[{"mag":600}]]}
 		],
@@ -27753,7 +27903,7 @@
 		}
 	},
 	"254001827": {
-		"name":"マキナ BS",
+		"name":"Machina BS",
 		"jpname":"マキナ BS",
 		"roles":["physicalAttacker","debuffer"],
 		"id":"254001827",

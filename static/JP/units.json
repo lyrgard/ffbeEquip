@@ -3832,7 +3832,7 @@
 		}
 	},
 	"100016927": {
-		"name":"シトラ BS",
+		"name":"Citra BS",
 		"jpname":"シトラ BS",
 		"roles":["magicalAttacker"],
 		"id":"100016927",
@@ -9297,7 +9297,7 @@
 		"equip":["gun","hat","helm","clothes","lightArmor","visionCard"]
 	},
 	"100035807": {
-		"name":"Youthful Thunder Sakura",
+		"name":"Sage of Thunder Sakura",
 		"jpname":"幼雷サクラ",
 		"roles":["support"],
 		"id":"100035807",
@@ -9317,7 +9317,7 @@
 		"enhancementSkills":["サンダジャ","サンダガ","プロテガ","シェルガ","真・闘雷石"]
 	},
 	"100035817": {
-		"name":"Youthful Thunder Sakura BS",
+		"name":"Sage of Thunder Sakura BS",
 		"jpname":"幼雷サクラ BS",
 		"roles":["support"],
 		"id":"100035817",
@@ -9494,6 +9494,7 @@
 	},
 	"100037407": {
 		"name":"ルンド",
+		"jpname":"ルンド",
 		"roles":["physicalTank"],
 		"id":"100037407",
 		"braveShift":"100037417",
@@ -9513,6 +9514,7 @@
 	},
 	"100037417": {
 		"name":"ルンド BS",
+		"jpname":"ルンド BS",
 		"roles":["physicalTank"],
 		"id":"100037417",
 		"braveShifted":"100037407",
@@ -9531,6 +9533,7 @@
 	},
 	"100037507": {
 		"name":"Leftia",
+		"jpname":"レフティア",
 		"roles":["support","healer"],
 		"id":"100037507",
 		"braveShift":"100037517",
@@ -9550,6 +9553,7 @@
 	},
 	"100037517": {
 		"name":"Leftia BS",
+		"jpname":"レフティア BS",
 		"roles":["support","healer"],
 		"id":"100037517",
 		"braveShifted":"100037507",
@@ -9569,6 +9573,7 @@
 	},
 	"100037607": {
 		"name":"Harve",
+		"jpname":"ハーヴェ",
 		"roles":["debuffer","support"],
 		"id":"100037607",
 		"braveShift":"100037617",
@@ -9588,6 +9593,7 @@
 	},
 	"100037617": {
 		"name":"Harve BS",
+		"jpname":"ハーヴェ BS",
 		"roles":["debuffer","support"],
 		"id":"100037617",
 		"braveShifted":"100037607",
@@ -9603,6 +9609,123 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","harp","throwing","fist","hat","clothes","lightArmor","visionCard"]
+	},
+	"100037707": {
+		"name":"Golden Rizer",
+		"jpname":"ゴールデンライザー",
+		"roles":["physicalAttacker","support"],
+		"id":"100037707",
+		"braveShift":"100037717",
+		"exAwakening": [{"hp":404,"mp":31,"atk":64,"def":6,"mag":4,"spr":5},{"hp":311,"mp":24,"atk":49,"def":4,"mag":3,"spr":4},{"hp":217,"mp":17,"atk":35,"def":3,"mag":2,"spr":3}],
+		"fragmentId": "250006100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3108,"mp":240,"atk":247,"def":44,"mag":31,"spr":35},
+			"minStats":{"hp":1026,"mp":79,"atk":82,"def":15,"mag":10,"spr":12},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["金色の守護者","フェニックススラッシュ","ぜんぎり"]
+	},
+	"100037717": {
+		"name":"Golden Rizer BS",
+		"jpname":"ゴールデンライザー BS",
+		"roles":["physicalAttacker","support"],
+		"id":"100037717",
+		"braveShifted":"100037707",
+		"exAwakening": [{"hp":404,"mp":31,"atk":64,"def":6,"mag":4,"spr":5},{"hp":311,"mp":24,"atk":49,"def":4,"mag":3,"spr":4},{"hp":217,"mp":17,"atk":35,"def":3,"mag":2,"spr":3}],
+		"fragmentId": "250006100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3108,"mp":240,"atk":247,"def":44,"mag":31,"spr":35},
+			"minStats":{"hp":1026,"mp":79,"atk":82,"def":15,"mag":10,"spr":12},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"100037807": {
+		"name":"Dark Rain",
+		"jpname":"ダークレイン",
+		"roles":["magicalAttacker"],
+		"id":"100037807",
+		"braveShift":"100037817",
+		"exAwakening": [{"hp":637,"mp":35,"atk":26,"def":23,"mag":78,"spr":26},{"hp":490,"mp":27,"atk":20,"def":18,"mag":60,"spr":20},{"hp":343,"mp":19,"atk":14,"def":13,"mag":42,"spr":14}],
+		"fragmentId": "250005900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4900,"mp":270,"atk":197,"def":181,"mag":300,"spr":198},
+			"minStats":{"hp":1617,"mp":89,"atk":65,"def":60,"mag":99,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["ダーガ","ジハード","ダークサプレッション","カオティックミラージュ"]
+	},
+	"100037817": {
+		"name":"Dark Rain BS",
+		"jpname":"ダークレイン BS",
+		"roles":["magicalAttacker"],
+		"id":"100037817",
+		"braveShifted":"100037807",
+		"exAwakening": [{"hp":637,"mp":35,"atk":26,"def":23,"mag":78,"spr":26},{"hp":490,"mp":27,"atk":20,"def":18,"mag":60,"spr":20},{"hp":343,"mp":19,"atk":14,"def":13,"mag":42,"spr":14}],
+		"fragmentId": "250005900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4900,"mp":270,"atk":197,"def":181,"mag":300,"spr":198},
+			"minStats":{"hp":1617,"mp":89,"atk":65,"def":60,"mag":99,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"]
+	},
+	"100037907": {
+		"name":"Raegen -The Second Emperor",
+		"jpname":"レーゲン -再臨の帝王-",
+		"roles":["debuffer"],
+		"id":"100037907",
+		"braveShift":"100037917",
+		"exAwakening": [{"hp":677,"mp":39,"atk":70,"def":27,"mag":19,"spr":25},{"hp":521,"mp":30,"atk":54,"def":21,"mag":15,"spr":19},{"hp":365,"mp":21,"atk":38,"def":14,"mag":10,"spr":14}],
+		"fragmentId": "250006000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5210,"mp":300,"atk":270,"def":207,"mag":148,"spr":192},
+			"minStats":{"hp":1719,"mp":99,"atk":89,"def":68,"mag":49,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["絶・明鏡","暁光の刃","黎明の炎"]
+	},
+	"100037917": {
+		"name":"Raegen -The Second Emperor BS",
+		"jpname":"レーゲン -再臨の帝王- BS",
+		"roles":["debuffer"],
+		"id":"100037917",
+		"braveShifted":"100037907",
+		"exAwakening": [{"hp":677,"mp":39,"atk":70,"def":27,"mag":19,"spr":25},{"hp":521,"mp":30,"atk":54,"def":21,"mag":15,"spr":19},{"hp":365,"mp":21,"atk":38,"def":14,"mag":10,"spr":14}],
+		"fragmentId": "250006000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5210,"mp":300,"atk":270,"def":207,"mag":148,"spr":192},
+			"minStats":{"hp":1719,"mp":99,"atk":89,"def":68,"mag":49,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -15031,7 +15154,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["ためる【IX】","3連ファイガ剣付与","コメット","ファイガ","ブリザガ","サンダガ"]
+		"enhancementSkills":["ためる【IX】","3連ファイガ剣付与","コメット","ファイガ","ブリザガ","サンダガ","ジハード"]
 	},
 	"209002917": {
 		"name":"Pure-Hearted Vivi BS",
@@ -15051,7 +15174,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["ためる【IX】","コメット","ファイガ","ブリザガ","サンダガ","こころのありか"]
+		"enhancementSkills":["ためる【IX】","コメット","ファイガ","ブリザガ","サンダガ","ジハード","こころのありか"]
 	},
 	"209003005": {
 		"name":"Loyal Knight Steiner",
@@ -19086,7 +19209,7 @@
 		}
 	},
 	"254001827": {
-		"name":"マキナ BS",
+		"name":"Machina BS",
 		"jpname":"マキナ BS",
 		"roles":["physicalAttacker","debuffer"],
 		"id":"254001827",
