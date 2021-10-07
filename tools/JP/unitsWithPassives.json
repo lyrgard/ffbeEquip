@@ -13542,6 +13542,53 @@
 			{"hp%":100, "killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":[["504243281","405020300"]]}
 		]
 	},
+	"100038007": {
+		"name":"Akstar -The Second Emperor",
+		"jpname":"アクスター -再臨の帝王-",
+		"roles":["debuffer"],
+		"id":"100038007",
+		"braveShift":"100038017",
+		"exAwakening": [{"hp":663,"mp":42,"atk":70,"def":25,"mag":19,"spr":28},{"hp":510,"mp":32,"atk":54,"def":19,"mag":15,"spr":21},{"hp":357,"mp":22,"atk":38,"def":13,"mag":10,"spr":15}],
+		"fragmentId": "250006200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5100,"mp":320,"atk":270,"def":189,"mag":148,"spr":212},
+			"minStats":{"hp":1683,"mp":106,"atk":89,"def":62,"mag":49,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","katana","spear","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["暗剣・無月天","炎剣・紅蓮閃","真・明鏡","絶・明鏡"],
+		"skills": [
+			{"mp%":60, "atk":500, "atk%":150, "mag%":150, "evade":{"physical":30}, "oneWeaponMastery":{"atk":100,"mag":100}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":20},{"name":"light","percent":20},{"name":"sleep","percent":100}], "killers":[{"name":"demon","physical":150,"magical":150},{"name":"beast","physical":50}], "mpRefresh":15, "lbDamage":100, "drawAttacks":50},
+			{"hp%":60, "atk%":90, "spr%":60, "killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":[["504243300","405020400"]]}
+		]
+	},
+	"100038017": {
+		"name":"アクスター -再臨の帝王- BS",
+		"jpname":"アクスター -再臨の帝王- BS",
+		"roles":["debuffer"],
+		"id":"100038017",
+		"braveShifted":"100038007",
+		"exAwakening": [{"hp":663,"mp":42,"atk":70,"def":25,"mag":19,"spr":28},{"hp":510,"mp":32,"atk":54,"def":19,"mag":15,"spr":21},{"hp":357,"mp":22,"atk":38,"def":13,"mag":10,"spr":15}],
+		"fragmentId": "250006200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5100,"mp":320,"atk":270,"def":189,"mag":148,"spr":212},
+			"minStats":{"hp":1683,"mp":106,"atk":89,"def":62,"mag":49,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","katana","spear","hat","helm","clothes","lightArmor","visionCard"],
+		"skills": [
+			{"mp%":60, "atk":500, "atk%":150, "mag%":150, "evade":{"physical":30}, "oneWeaponMastery":{"atk":100,"mag":100}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":20},{"name":"light","percent":20},{"name":"sleep","percent":100}], "killers":[{"name":"demon","physical":150,"magical":150},{"name":"beast","physical":50}], "mpRefresh":15, "lbDamage":100, "drawAttacks":50},
+			{"hp%":60, "atk%":90, "spr%":60, "killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":[["504243300","405020400"]]}
+		]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",

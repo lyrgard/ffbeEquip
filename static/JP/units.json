@@ -9727,6 +9727,45 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"]
 	},
+	"100038007": {
+		"name":"Akstar -The Second Emperor",
+		"jpname":"アクスター -再臨の帝王-",
+		"roles":["debuffer"],
+		"id":"100038007",
+		"braveShift":"100038017",
+		"exAwakening": [{"hp":663,"mp":42,"atk":70,"def":25,"mag":19,"spr":28},{"hp":510,"mp":32,"atk":54,"def":19,"mag":15,"spr":21},{"hp":357,"mp":22,"atk":38,"def":13,"mag":10,"spr":15}],
+		"fragmentId": "250006200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5100,"mp":320,"atk":270,"def":189,"mag":148,"spr":212},
+			"minStats":{"hp":1683,"mp":106,"atk":89,"def":62,"mag":49,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","katana","spear","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["暗剣・無月天","炎剣・紅蓮閃","真・明鏡","絶・明鏡"]
+	},
+	"100038017": {
+		"name":"アクスター -再臨の帝王- BS",
+		"jpname":"アクスター -再臨の帝王- BS",
+		"roles":["debuffer"],
+		"id":"100038017",
+		"braveShifted":"100038007",
+		"exAwakening": [{"hp":663,"mp":42,"atk":70,"def":25,"mag":19,"spr":28},{"hp":510,"mp":32,"atk":54,"def":19,"mag":15,"spr":21},{"hp":357,"mp":22,"atk":38,"def":13,"mag":10,"spr":15}],
+		"fragmentId": "250006200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5100,"mp":320,"atk":270,"def":189,"mag":148,"spr":212},
+			"minStats":{"hp":1683,"mp":106,"atk":89,"def":62,"mag":49,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","katana","spear","hat","helm","clothes","lightArmor","visionCard"]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
