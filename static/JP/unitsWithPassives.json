@@ -13589,6 +13589,53 @@
 			{"hp%":60, "atk%":90, "spr%":60, "killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":[["504243300","405020400"]]}
 		]
 	},
+	"100038107": {
+		"name":"Fina -The Second Emperor-",
+		"jpname":"フィーナ -再臨の帝王-",
+		"roles":["healer","support"],
+		"id":"100038107",
+		"braveShift":"100038117",
+		"exAwakening": [{"hp":600,"mp":39,"atk":20,"def":17,"mag":33,"spr":75},{"hp":462,"mp":30,"atk":16,"def":13,"mag":25,"spr":58},{"hp":323,"mp":21,"atk":11,"def":9,"mag":18,"spr":41}],
+		"fragmentId": "250006300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4615,"mp":300,"atk":155,"def":131,"mag":250,"spr":290},
+			"minStats":{"hp":1523,"mp":99,"atk":51,"def":43,"mag":83,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["プロテガ","シェルガ","バニシュガ","ブリリアンスヴェール"],
+		"skills": [
+			{"mp":200, "mp%":60, "spr%":150, "oneWeaponMastery":{"spr":200}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"light","percent":25},{"name":"dark","percent":50},{"name":"silence","percent":100}], "killers":[{"name":"demon","physical":100,"magical":100}], "mpRefresh":15},
+			{"killers":[{"name":"beast","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "equipedConditions":[["504243310","403055300"]]}
+		]
+	},
+	"100038117": {
+		"name":"Fina -The Second Emperor- BS",
+		"jpname":"フィーナ -再臨の帝王- BS",
+		"roles":["healer","support"],
+		"id":"100038117",
+		"braveShifted":"100038107",
+		"exAwakening": [{"hp":600,"mp":39,"atk":20,"def":17,"mag":33,"spr":75},{"hp":462,"mp":30,"atk":16,"def":13,"mag":25,"spr":58},{"hp":323,"mp":21,"atk":11,"def":9,"mag":18,"spr":41}],
+		"fragmentId": "250006300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4615,"mp":300,"atk":155,"def":131,"mag":250,"spr":290},
+			"minStats":{"hp":1523,"mp":99,"atk":51,"def":43,"mag":83,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"],
+		"skills": [
+			{"mp":200, "mp%":60, "spr%":150, "oneWeaponMastery":{"spr":200}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"light","percent":25},{"name":"dark","percent":50},{"name":"silence","percent":100}], "killers":[{"name":"demon","physical":100,"magical":100}], "mpRefresh":15},
+			{"killers":[{"name":"beast","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "equipedConditions":[["504243310","403055300"]]}
+		]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",

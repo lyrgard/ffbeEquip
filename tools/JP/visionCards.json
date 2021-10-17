@@ -447,7 +447,7 @@
 	{"hp":720, "mp%":40, "mag":72, "spr":72},
 	{"hp":800, "mp%":40, "mag":80, "spr":80, "conditional":[{"resist":[{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}]}]}
 ]},
-{"id":"100004101", "name":"ロカの成長記", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004101.png", "sortId":69, "levels":[
+{"id":"100004101", "name":"La Vida Roca", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004101.png", "sortId":69, "levels":[
 	{"atk":25, "def":25, "mag":25, "spr":25},
 	{"atk":27, "def":27, "mag":27, "spr":27},
 	{"atk":30, "def":30, "mag":30, "spr":30},
@@ -536,6 +536,9 @@
 	{"atk":51, "atk%":40, "mag":51, "mag%":40},
 	{"atk":54, "atk%":40, "mag":54, "mag%":40},
 	{"atk":60, "atk%":40, "mag":60, "mag%":40, "lbDamage":25}
+]},
+{"id":"100005301", "name":"大地が起こした奇跡", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005301.png", "sortId":92, "levels":[
+	{"hp":1000, "def":100, "spr":100, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":15}
 ]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},

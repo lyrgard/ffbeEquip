@@ -9766,6 +9766,45 @@
 		"stats_pattern":4,
 		"equip":["greatSword","katana","spear","hat","helm","clothes","lightArmor","visionCard"]
 	},
+	"100038107": {
+		"name":"Fina -The Second Emperor-",
+		"jpname":"フィーナ -再臨の帝王-",
+		"roles":["healer","support"],
+		"id":"100038107",
+		"braveShift":"100038117",
+		"exAwakening": [{"hp":600,"mp":39,"atk":20,"def":17,"mag":33,"spr":75},{"hp":462,"mp":30,"atk":16,"def":13,"mag":25,"spr":58},{"hp":323,"mp":21,"atk":11,"def":9,"mag":18,"spr":41}],
+		"fragmentId": "250006300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4615,"mp":300,"atk":155,"def":131,"mag":250,"spr":290},
+			"minStats":{"hp":1523,"mp":99,"atk":51,"def":43,"mag":83,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["プロテガ","シェルガ","バニシュガ","ブリリアンスヴェール"]
+	},
+	"100038117": {
+		"name":"Fina -The Second Emperor- BS",
+		"jpname":"フィーナ -再臨の帝王- BS",
+		"roles":["healer","support"],
+		"id":"100038117",
+		"braveShifted":"100038107",
+		"exAwakening": [{"hp":600,"mp":39,"atk":20,"def":17,"mag":33,"spr":75},{"hp":462,"mp":30,"atk":16,"def":13,"mag":25,"spr":58},{"hp":323,"mp":21,"atk":11,"def":9,"mag":18,"spr":41}],
+		"fragmentId": "250006300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4615,"mp":300,"atk":155,"def":131,"mag":250,"spr":290},
+			"minStats":{"hp":1523,"mp":99,"atk":51,"def":43,"mag":83,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
