@@ -408,7 +408,7 @@
 	{"atk":72, "conditional":[{"equipedConditions":["gun"],"atk%":60}]},
 	{"atk":80, "staticStats":{"atk":500}, "killers":[{"name":"spirit","physical":50,"magical":50}], "conditional":[{"equipedConditions":["gun"],"atk%":60}]}
 ]},
-{"id":"100003701", "name":"恐怖の料理人？", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003701.png", "sortId":67, "levels":[
+{"id":"100003701", "name":"A Kooky Chef!?", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003701.png", "sortId":67, "levels":[
 	{"hp":200, "def":40},
 	{"hp":220, "def":44},
 	{"hp":240, "def":48},
@@ -539,6 +539,18 @@
 ]},
 {"id":"100005301", "name":"大地が起こした奇跡", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005301.png", "sortId":92, "levels":[
 	{"hp":1000, "def":100, "spr":100, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":15}
+]},
+{"id":"100005401", "name":"補佐官たちの手腕", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005401.png", "sortId":93, "levels":[
+	{"mag":50},
+	{"mag":55},
+	{"mag":60},
+	{"mag":65, "killers":[{"name":"demon","magical":50}]},
+	{"mag":70, "killers":[{"name":"demon","magical":50}]},
+	{"mag":75, "killers":[{"name":"demon","magical":50}]},
+	{"mag":80, "killers":[{"name":"demon","magical":50},{"name":"demon","magical":50}]},
+	{"mag":85, "killers":[{"name":"demon","magical":50},{"name":"demon","magical":50}]},
+	{"mag":90, "killers":[{"name":"demon","magical":50},{"name":"demon","magical":50}]},
+	{"mag":100, "killers":[{"name":"demon","magical":50},{"name":"demon","magical":50},{"name":"human","magical":100}]}
 ]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
