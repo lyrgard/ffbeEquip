@@ -292,7 +292,7 @@ getData('equipment.json', function (items) {
 
                                                                                 Object.keys(units).forEach(unitId => {
                                                                                     let unit = units[unitId];
-                                                                                    if (unit.game_id && unit.skills && unit.skills.some(s => s.rarity === 'NV')) {
+                                                                                    if (unit.game_id && Object.keys(unit.entries).some(entry => unit.entries[entry].brave_shift)) {
                                                                                         if (!nvUnitIdsByGameId[unit.game_id]) nvUnitIdsByGameId[unit.game_id] = [];
                                                                                         nvUnitIdsByGameId[unit.game_id].push(unitId);
                                                                                     }

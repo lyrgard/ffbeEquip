@@ -2023,7 +2023,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
 
         // mp-based m_damage - raw doesn't make sense
     } else if (rawEffect[2] == 105) {
-        result = {"noUse":true};
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, use: {"stat":"mp", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
 
         // cure breaks
     } else if (rawEffect[2] == 111) {
