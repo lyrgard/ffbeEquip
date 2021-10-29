@@ -23989,6 +23989,46 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["Symphonic Harmony","Inspiring Finale"]
+	},
+	"401012207": {
+		"name":"Karsten bei Vollmond",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Full_Moon Karten",
+		"id":"401012207",
+		"braveShift":"401012217",
+		"exAwakening": [{"hp":634,"mp":34,"atk":69,"def":26,"mag":20,"spr":24},{"hp":488,"mp":26,"atk":53,"def":20,"mag":15,"spr":19},{"hp":342,"mp":18,"atk":37,"def":13,"mag":11,"spr":13}],
+		"fragmentId": "310000820",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4880,"mp":260,"atk":265,"def":196,"mag":153,"spr":186},
+			"minStats":{"hp":1610,"mp":86,"atk":87,"def":65,"mag":50,"spr":61},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","spear","fist","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Cursed Precursor","Haunting Barrage"]
+	},
+	"401012217": {
+		"name":"Karsten bei Vollmond BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Full_Moon Karten",
+		"id":"401012217",
+		"braveShifted":"401012207",
+		"exAwakening": [{"hp":634,"mp":34,"atk":69,"def":26,"mag":20,"spr":24},{"hp":488,"mp":26,"atk":53,"def":20,"mag":15,"spr":19},{"hp":342,"mp":18,"atk":37,"def":13,"mag":11,"spr":13}],
+		"fragmentId": "310000820",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":240,"atk":291,"def":183,"mag":143,"spr":183},
+			"minStats":{"hp":1650,"mp":79,"atk":96,"def":60,"mag":47,"spr":60},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","spear","fist","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Cursed Precursor","Feral Frenzy"]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker"],"id":"100000115","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"]},

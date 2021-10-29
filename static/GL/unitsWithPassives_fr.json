@@ -33628,6 +33628,61 @@
 			{"mp":500, "exLevelCondition":3},
 			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "equipedConditions":[["1500000178","1100000541"]]}
 		]
+	},
+	"401012207": {
+		"name":"Karten de la pleine lune",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Full_Moon Karten",
+		"id":"401012207",
+		"braveShift":"401012217",
+		"exAwakening": [{"hp":634,"mp":34,"atk":69,"def":26,"mag":20,"spr":24},{"hp":488,"mp":26,"atk":53,"def":20,"mag":15,"spr":19},{"hp":342,"mp":18,"atk":37,"def":13,"mag":11,"spr":13}],
+		"fragmentId": "310000820",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4880,"mp":260,"atk":265,"def":196,"mag":153,"spr":186},
+			"minStats":{"hp":1610,"mp":86,"atk":87,"def":65,"mag":50,"spr":61},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","spear","fist","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Cursed Precursor","Haunting Barrage"],
+		"enhancements": [
+			{"name":"Cursed Precursor","levels":[[{"dualWielding":{"atk":150},"improvedDW":true,"resist":[{"name":"charm","percent":100}],"killers":[{"name":"demon","physical":70},{"name":"human","physical":70},{"name":"undead","physical":70}],"equipedConditions":[["1100000534","1500000177","1100000343","1100000344"]]},{"equipedConditions":["fist",["1100000534","1500000177","1100000343","1100000344"]],"atk%":40}],[{"dualWielding":{"atk":150},"improvedDW":true,"resist":[{"name":"charm","percent":100}],"killers":[{"name":"demon","physical":90},{"name":"human","physical":90},{"name":"undead","physical":90}],"equipedConditions":[["1100000534","1500000177","1100000343","1100000344"]]},{"equipedConditions":["fist",["1100000534","1500000177","1100000343","1100000344"]],"atk%":40}],[{"dualWielding":{"atk":150},"improvedDW":true,"resist":[{"name":"charm","percent":100}],"killers":[{"name":"demon","physical":110},{"name":"human","physical":110},{"name":"undead","physical":110}],"equipedConditions":[["1100000534","1500000177","1100000343","1100000344"]]},{"equipedConditions":["fist",["1100000534","1500000177","1100000343","1100000344"]],"atk%":50}],[{"dualWielding":{"atk":150},"improvedDW":true,"resist":[{"name":"charm","percent":100}],"killers":[{"name":"demon","physical":130},{"name":"human","physical":130},{"name":"undead","physical":130}],"equipedConditions":[["1100000534","1500000177","1100000343","1100000344"]]},{"equipedConditions":["fist",["1100000534","1500000177","1100000343","1100000344"]],"atk%":50}],[{"dualWielding":{"atk":150},"improvedDW":true,"resist":[{"name":"charm","percent":100}],"killers":[{"name":"demon","physical":150},{"name":"human","physical":150},{"name":"undead","physical":150}],"equipedConditions":[["1100000534","1500000177","1100000343","1100000344"]]},{"equipedConditions":["fist",["1100000534","1500000177","1100000343","1100000344"]],"atk%":60}]]}
+		],
+		"skills": [
+			{"hp%":90, "mp%":50, "atk%":160, "def%":60, "spr%":60, "evade":{"physical":40}, "resist":[{"name":"light","percent":25},{"name":"dark","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10, "special":["dualWield"]},
+			{"atk":500, "exLevelCondition":3}
+		]
+	},
+	"401012217": {
+		"name":"Karten de la pleine lune BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Full_Moon Karten",
+		"id":"401012217",
+		"braveShifted":"401012207",
+		"exAwakening": [{"hp":634,"mp":34,"atk":69,"def":26,"mag":20,"spr":24},{"hp":488,"mp":26,"atk":53,"def":20,"mag":15,"spr":19},{"hp":342,"mp":18,"atk":37,"def":13,"mag":11,"spr":13}],
+		"fragmentId": "310000820",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":240,"atk":291,"def":183,"mag":143,"spr":183},
+			"minStats":{"hp":1650,"mp":79,"atk":96,"def":60,"mag":47,"spr":60},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","spear","fist","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Cursed Precursor","Feral Frenzy"],
+		"enhancements": [
+			{"name":"Cursed Precursor","levels":[[{"dualWielding":{"atk":150},"improvedDW":true,"resist":[{"name":"charm","percent":100}],"killers":[{"name":"demon","physical":70},{"name":"human","physical":70},{"name":"undead","physical":70}],"equipedConditions":[["1100000534","1500000177","1100000343","1100000344"]]},{"equipedConditions":["fist",["1100000534","1500000177","1100000343","1100000344"]],"atk%":40}],[{"dualWielding":{"atk":150},"improvedDW":true,"resist":[{"name":"charm","percent":100}],"killers":[{"name":"demon","physical":90},{"name":"human","physical":90},{"name":"undead","physical":90}],"equipedConditions":[["1100000534","1500000177","1100000343","1100000344"]]},{"equipedConditions":["fist",["1100000534","1500000177","1100000343","1100000344"]],"atk%":40}],[{"dualWielding":{"atk":150},"improvedDW":true,"resist":[{"name":"charm","percent":100}],"killers":[{"name":"demon","physical":110},{"name":"human","physical":110},{"name":"undead","physical":110}],"equipedConditions":[["1100000534","1500000177","1100000343","1100000344"]]},{"equipedConditions":["fist",["1100000534","1500000177","1100000343","1100000344"]],"atk%":50}],[{"dualWielding":{"atk":150},"improvedDW":true,"resist":[{"name":"charm","percent":100}],"killers":[{"name":"demon","physical":130},{"name":"human","physical":130},{"name":"undead","physical":130}],"equipedConditions":[["1100000534","1500000177","1100000343","1100000344"]]},{"equipedConditions":["fist",["1100000534","1500000177","1100000343","1100000344"]],"atk%":50}],[{"dualWielding":{"atk":150},"improvedDW":true,"resist":[{"name":"charm","percent":100}],"killers":[{"name":"demon","physical":150},{"name":"human","physical":150},{"name":"undead","physical":150}],"equipedConditions":[["1100000534","1500000177","1100000343","1100000344"]]},{"equipedConditions":["fist",["1100000534","1500000177","1100000343","1100000344"]],"atk%":60}]]}
+		],
+		"skills": [
+			{"hp%":90, "mp%":50, "atk%":160, "def%":60, "spr%":60, "evade":{"physical":40}, "resist":[{"name":"light","percent":25},{"name":"dark","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10, "drawAttacks":100, "special":["dualWield"]},
+			{"atk":500, "exLevelCondition":3},
+			{"atk%":40, "equipedConditions":["fist"]}
+		]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker"],"id":"100000115","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"],"skills":[{"hp%":30,"def%":30,"singleWieldingOneHanded":{"accuracy":25,"atk":75},"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50}],"killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25},{"name":"dragon","physical":25},{"name":"bug","physical":25}]},{"def%":60,"equipedConditions":["heavyArmor"]},{"atk%":50,"equipedConditions":["greatSword"]}]},
