@@ -26208,11 +26208,13 @@
 		]
 	},
 	"312000517": {
-		"name":"듀란 BS",
+		"name":"듀란",
 		"roles":["physicalAttacker","physicalTank"],
 		"wikiEntry":"Duran",
 		"id":"312000517",
-		"braveShifted":"312000505",
+		"braveShift":"312000527",
+		"exAwakening": [{"hp":676,"mp":33,"atk":57,"def":57,"mag":18,"spr":29},{"hp":520,"mp":25,"atk":44,"def":44,"mag":14,"spr":22},{"hp":364,"mp":18,"atk":31,"def":31,"mag":10,"spr":15}],
+		"fragmentId": "250000870",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -26222,7 +26224,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Triple Slash (Trials of Mana)","Cover - Physical"],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":180, "def%":160, "spr%":160, "oneWeaponMastery":{"atk":250,"def":200,"spr":100}, "chainMastery":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"charm","percent":100},{"name":"fire","percent":100},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"earth","percent":50},{"name":"dark","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
@@ -26235,7 +26237,9 @@
 		"roles":["physicalAttacker"],
 		"wikiEntry":"Duelist_Duran",
 		"id":"312000527",
-		"braveShifted":"312000505",
+		"braveShifted":"312000517",
+		"exAwakening": [{"hp":676,"mp":33,"atk":57,"def":57,"mag":18,"spr":29},{"hp":520,"mp":25,"atk":44,"def":44,"mag":14,"spr":22},{"hp":364,"mp":18,"atk":31,"def":31,"mag":10,"spr":15}],
+		"fragmentId": "250000870",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -26245,7 +26249,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Triple Slash (Trials of Mana)","True Spin Slash"],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":230, "def%":160, "spr%":160, "oneWeaponMastery":{"atk":250,"def":200,"spr":100}, "chainMastery":100, "lbPerTurn":{"min":15,"max":15}, "resist":[{"name":"charm","percent":100},{"name":"dark","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":100,"magical":100}], "mpRefresh":7, "lbDamage":150},
@@ -26254,11 +26258,13 @@
 		]
 	},
 	"312000617": {
-		"name":"안젤라 BS",
+		"name":"안젤라",
 		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Angela",
 		"id":"312000617",
-		"braveShifted":"312000605",
+		"braveShift":"312000627",
+		"exAwakening": [{"hp":611,"mp":39,"atk":20,"def":25,"mag":57,"spr":29},{"hp":470,"mp":30,"atk":15,"def":19,"mag":44,"spr":22},{"hp":329,"mp":21,"atk":10,"def":13,"mag":31,"spr":15}],
+		"fragmentId": "250000880",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -26268,7 +26274,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+		"equip":["dagger","staff","rod","whip","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["Mana Control","Double Slash (Trials of Mana)"],
 		"skills": [
 			{"hp%":20, "mp%":30, "mag":500, "mag%":120, "spr%":30, "singleWielding":{"mag":250}, "chainMastery":100, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"ice","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"stop","percent":100}], "mpRefresh":5, "lbDamage":50},
@@ -26281,7 +26287,9 @@
 		"roles":["magicalAttacker"],
 		"wikiEntry":"Magus_Angela",
 		"id":"312000627",
-		"braveShifted":"312000605",
+		"braveShifted":"312000617",
+		"exAwakening": [{"hp":611,"mp":39,"atk":20,"def":25,"mag":57,"spr":29},{"hp":470,"mp":30,"atk":15,"def":19,"mag":44,"spr":22},{"hp":329,"mp":21,"atk":10,"def":13,"mag":31,"spr":15}],
+		"fragmentId": "250000880",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -26291,7 +26299,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+		"equip":["dagger","staff","rod","whip","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["Mana Control","Hotshot"],
 		"skills": [
 			{"hp%":20, "mp%":130, "mag":500, "mag%":190, "spr%":100, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"ice","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"fire","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":50},{"name":"dark","percent":50}], "killers":[{"name":"beast","physical":100,"magical":100}], "mpRefresh":5, "lbDamage":200},

@@ -18765,11 +18765,13 @@
 		"equip":["dagger","sword","staff","rod","bow","harp","whip","mace","lightShield","hat","clothes","robe"]
 	},
 	"312000517": {
-		"name":"듀란 BS",
+		"name":"듀란",
 		"roles":["physicalAttacker","physicalTank"],
 		"wikiEntry":"Duran",
 		"id":"312000517",
-		"braveShifted":"312000505",
+		"braveShift":"312000527",
+		"exAwakening": [{"hp":676,"mp":33,"atk":57,"def":57,"mag":18,"spr":29},{"hp":520,"mp":25,"atk":44,"def":44,"mag":14,"spr":22},{"hp":364,"mp":18,"atk":31,"def":31,"mag":10,"spr":15}],
+		"fragmentId": "250000870",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -18779,7 +18781,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Triple Slash (Trials of Mana)","Cover - Physical"]
 	},
 	"312000527": {
@@ -18787,7 +18789,9 @@
 		"roles":["physicalAttacker"],
 		"wikiEntry":"Duelist_Duran",
 		"id":"312000527",
-		"braveShifted":"312000505",
+		"braveShifted":"312000517",
+		"exAwakening": [{"hp":676,"mp":33,"atk":57,"def":57,"mag":18,"spr":29},{"hp":520,"mp":25,"atk":44,"def":44,"mag":14,"spr":22},{"hp":364,"mp":18,"atk":31,"def":31,"mag":10,"spr":15}],
+		"fragmentId": "250000870",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -18797,15 +18801,17 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Triple Slash (Trials of Mana)","True Spin Slash"]
 	},
 	"312000617": {
-		"name":"안젤라 BS",
+		"name":"안젤라",
 		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Angela",
 		"id":"312000617",
-		"braveShifted":"312000605",
+		"braveShift":"312000627",
+		"exAwakening": [{"hp":611,"mp":39,"atk":20,"def":25,"mag":57,"spr":29},{"hp":470,"mp":30,"atk":15,"def":19,"mag":44,"spr":22},{"hp":329,"mp":21,"atk":10,"def":13,"mag":31,"spr":15}],
+		"fragmentId": "250000880",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -18815,7 +18821,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+		"equip":["dagger","staff","rod","whip","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["Mana Control","Double Slash (Trials of Mana)"]
 	},
 	"312000627": {
@@ -18823,7 +18829,9 @@
 		"roles":["magicalAttacker"],
 		"wikiEntry":"Magus_Angela",
 		"id":"312000627",
-		"braveShifted":"312000605",
+		"braveShifted":"312000617",
+		"exAwakening": [{"hp":611,"mp":39,"atk":20,"def":25,"mag":57,"spr":29},{"hp":470,"mp":30,"atk":15,"def":19,"mag":44,"spr":22},{"hp":329,"mp":21,"atk":10,"def":13,"mag":31,"spr":15}],
+		"fragmentId": "250000880",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"female",
@@ -18833,7 +18841,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+		"equip":["dagger","staff","rod","whip","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["Mana Control","Hotshot"]
 	},
 	"312000805": {

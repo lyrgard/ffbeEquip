@@ -6,7 +6,7 @@ var commonParse = require('../commonParseUnit');
 
 
 filterGame = [20001, 20002, 20007, 20008, 20011];
-filterUnits = ["100014604","100014504","100014703","100014405", "199000101", "332000105", "256000301", "204002104", "204002003", "204001904", "204001805", "100017005", "307000303", "307000404", "307000204", "100027005", "318000205"]
+filterUnits = ["100014604","100014504","100014703","100014405", "199000101", "332000105", "256000301", "204002104", "204002003", "204001904", "204001805", "100017005", "307000303", "307000404", "307000204", "100027005", "318000205", "312000505", "312000605"]
 
 const languages = ["en", "zh", "ko", "fr", "de", "es"];
 
@@ -115,12 +115,14 @@ getData('units.json', function (units) {
                                             });
 
                                             let unitIds = [];
-                                            for (var unitId in units) {
+                                            Object.keys(units).forEach(unitId => {
                                                 var unitIn = units[unitId];
                                                 if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && !unitId.startsWith("7") && unitIn.name && !filterUnits.includes(unitId)) {
                                                     unitIds.push(unitId);
+                                                } else {
+                                                    delete units[unitId];
                                                 }
-                                            }
+                                            });
                                             getJPUnitData(unitIds, function (jpUnitsString, jpUnitsWithPassiveString, jpUnitsWithSkillString, jpUnitSearchString) {
                                                 getCustomUnitData(function (customUnitsString, customUnitsWithPassiveString, customUnitsWithSkillString, customUnitSearchString) {
                                                     for (languageId = 0; languageId < languages.length; languageId++) {
@@ -194,7 +196,7 @@ function manageNV(units) {
                 unitIn.nv_upgrade = Object.values(unitIn.entries)[0].nv_upgrade;
                 if (unitId.endsWith('17') || unitId.endsWith('27') || unitId.endsWith('37')) {
                     const baseUnitCommonPart = unitId.substr(0, unitId.length - 2);
-                    let potentialBaseUnits = Object.keys(units).filter(k => k.startsWith(baseUnitCommonPart) && k !== unitId && (k.endsWith('5') || k.endsWith('7'))).sort();
+                    let potentialBaseUnits = Object.keys(units).filter(k => k.startsWith(baseUnitCommonPart) && k < unitId && (k.endsWith('5') || k.endsWith('7'))).sort();
                     if (potentialBaseUnits.length) {
                         baseUnitIdByNVUnitId[unitId] = potentialBaseUnits[0];
                         braveShiftUnitIdByBaseUnitId.push({baseUnitId: potentialBaseUnits[0], braveShiftedUnitId: unitId});
