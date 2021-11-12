@@ -423,7 +423,7 @@
 {"id":"100003801", "name":"アクスターの記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003801.png", "sortId":59, "levels":[
 	{"atk":100, "atk%":20, "conditional":[{"equipedConditions":["katana"],"atk%":80},{"staticStats":{"atk":1000},"exclusiveUnits":["100031507","100031517"]}]}
 ]},
-{"id":"100003901", "name":"幸せの記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003901.png", "sortId":71, "levels":[
+{"id":"100003901", "name":"Fond Memory", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003901.png", "sortId":71, "levels":[
 	{"atk":40},
 	{"atk":44},
 	{"atk":48},
@@ -726,17 +726,17 @@
 	{"atk":90, "mag":90, "killers":[{"name":"dragon","physical":50,"magical":50}], "lbDamage":25},
 	{"atk":100, "mag":100, "killers":[{"name":"dragon","physical":50,"magical":50}], "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
 ]},
-{"id":"312000101", "name":"もうキスしちゃう！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_312000101.png", "sortId":54, "levels":[
-	{"atk":40},
-	{"atk":47},
-	{"atk":54},
-	{"atk":61, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
-	{"atk":68, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
-	{"atk":75, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
-	{"atk":82, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
-	{"atk":89, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
-	{"atk":96, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
-	{"atk":110, "conditional":[{"equipedConditions":["dagger"],"atk%":80},{"lbDamage":50,"exclusiveUnits":["312000205","312001007","312001017"]}]}
+{"id":"312000101", "name":"I Could Kiss You!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_312000101.png", "sortId":54, "levels":[
+	{"atk":40, "mag":40},
+	{"atk":47, "mag":47},
+	{"atk":54, "mag":54},
+	{"atk":61, "atk%":40, "mag":61, "mag%":40},
+	{"atk":68, "atk%":40, "mag":68, "mag%":40},
+	{"atk":75, "atk%":40, "mag":75, "mag%":40},
+	{"atk":82, "atk%":80, "mag":82, "mag%":80},
+	{"atk":89, "atk%":80, "mag":89, "mag%":80},
+	{"atk":96, "atk%":80, "mag":96, "mag%":80},
+	{"atk":110, "atk%":80, "mag":110, "mag%":80, "conditional":[{"lbDamage":50,"exclusiveUnits":["312000205","312001007","312001017"]}]}
 ]},
 {"id":"335000101", "name":"The Keyblade Graveyard Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},
