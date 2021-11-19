@@ -611,7 +611,7 @@ class DataStorage {
                         if ((this.excludeNotReleasedYet && access == "not released yet")
                            || (this.excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].unit.id)
                            || (this.excludePremium && access == "premium")
-                           || (this.excludeSTMR && access == "STMR")) {
+                           || (this.excludeSTMR && (access == "STMR" || access == 'stmrUpgrade'))) {
                             return {"total":0,"available":0,"totalOwnedNumber":0};
                         }        
                     }

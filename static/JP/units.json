@@ -10331,7 +10331,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["ソードファイター","ブラッドウェポン"]
+		"enhancementSkills":["ソードファイター","祖国解放の烈士","ブラッドウェポン"]
 	},
 	"202001917": {
 		"name":"Firion -Neo Vision- BS",
@@ -19937,8 +19937,8 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["axe","fist","lightShield","hat","clothes","visionCard"],
-		"enhancementSkills":["イモータルガード","混沌の闘気・物理"]
+		"equip":["axe","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["イモータルガード","ATBチャージ","混沌の闘気・物理"]
 	},
 	"258000117": {
 		"name":"Solitary Patron Snow BS",
@@ -19957,8 +19957,8 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["axe","fist","lightShield","hat","clothes","visionCard"],
-		"enhancementSkills":["イモータルガード","混沌の闘気・魔法"]
+		"equip":["axe","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["イモータルガード","ATBチャージ","混沌の闘気・魔法"]
 	},
 	"258000207": {
 		"name":"Savior of Souls Lightning",
@@ -21359,7 +21359,7 @@
 		}
 	},
 	"312000527": {
-		"name":"デュエリスト デュラン BS",
+		"name":"Duelist Duran BS",
 		"jpname":"デュエリスト デュラン BS",
 		"roles":["physicalAttacker"],
 		"id":"312000527",
@@ -23650,17 +23650,20 @@
 		"jpname":"シュテル",
 		"roles":["physicalAttacker","debuffer"],
 		"id":"339000305",
-		"max_rarity":"7",
+		"braveShift":"339000327",
+		"exAwakening": [{"hp":671,"mp":36,"atk":34,"def":28,"mag":20,"spr":24},{"hp":516,"mp":28,"atk":26,"def":21,"mag":16,"spr":19},{"hp":361,"mp":20,"atk":18,"def":15,"mag":11,"spr":13}],
+		"fragmentId": "250007400",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4842,"mp":243,"atk":209,"def":193,"mag":153,"spr":179},
-			"minStats":{"hp":1598,"mp":80,"atk":69,"def":64,"mag":50,"spr":59},
+			"maxStats":{"hp":5163,"mp":281,"atk":260,"def":212,"mag":157,"spr":187},
+			"minStats":{"hp":1704,"mp":93,"atk":86,"def":70,"mag":52,"spr":62},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
-		"enhancementSkills":["HPアップLv1","捨て身"],
+		"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["HPアップLv1","捨て身","ハザードブースト"],
 		"6_form": {
 			"name":"Sterne Leonis",
 			"jpname":"シュテル",
@@ -23677,8 +23680,46 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
-			"enhancementSkills":["HPアップLv1","捨て身"]
+			"enhancementSkills":["HPアップLv1","捨て身","ハザードブースト"]
+		},
+		"7_form": {
+			"name":"Sterne Leonis",
+			"jpname":"シュテル",
+			"roles":["physicalAttacker","debuffer"],
+			"id":"339000305",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4842,"mp":243,"atk":209,"def":193,"mag":153,"spr":179},
+				"minStats":{"hp":1598,"mp":80,"atk":69,"def":64,"mag":50,"spr":59},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"enhancementSkills":["HPアップLv1","捨て身","ハザードブースト"]
 		}
+	},
+	"339000327": {
+		"name":"破滅の騎士シュテル BS",
+		"jpname":"破滅の騎士シュテル BS",
+		"roles":["physicalAttacker"],
+		"id":"339000327",
+		"braveShifted":"339000317",
+		"exAwakening": [{"hp":671,"mp":36,"atk":34,"def":28,"mag":20,"spr":24},{"hp":516,"mp":28,"atk":26,"def":21,"mag":16,"spr":19},{"hp":361,"mp":20,"atk":18,"def":15,"mag":11,"spr":13}],
+		"fragmentId": "250007400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5163,"mp":281,"atk":270,"def":232,"mag":163,"spr":201},
+			"minStats":{"hp":1704,"mp":93,"atk":89,"def":77,"mag":54,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["ハザードクラッシュ"]
 	},
 	"339000405": {
 		"name":"Kitone",
@@ -23714,6 +23755,85 @@
 			"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes"],
 			"enhancementSkills":["夢幻三段・真","夢幻三段・極","シノビとしての覚悟"]
 		}
+	},
+	"339000507": {
+		"name":"Vinera Fennes",
+		"jpname":"ヴィネラ",
+		"roles":["debuffer"],
+		"id":"339000507",
+		"braveShift":"339000517",
+		"exAwakening": [{"hp":723,"mp":28,"atk":65,"def":16,"mag":19,"spr":24},{"hp":556,"mp":22,"atk":50,"def":12,"mag":15,"spr":18},{"hp":389,"mp":15,"atk":35,"def":9,"mag":10,"spr":13}],
+		"fragmentId": "250007300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5563,"mp":218,"atk":250,"def":124,"mag":148,"spr":183},
+			"minStats":{"hp":1836,"mp":72,"atk":83,"def":41,"mag":49,"spr":60},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","gun","hat","clothes","visionCard"],
+		"enhancementSkills":["天刃"]
+	},
+	"339000517": {
+		"name":"Vinera Fennes BS",
+		"jpname":"ヴィネラ BS",
+		"roles":["debuffer","physicalAttacker"],
+		"id":"339000517",
+		"braveShifted":"339000507",
+		"exAwakening": [{"hp":723,"mp":28,"atk":65,"def":16,"mag":19,"spr":24},{"hp":556,"mp":22,"atk":50,"def":12,"mag":15,"spr":18},{"hp":389,"mp":15,"atk":35,"def":9,"mag":10,"spr":13}],
+		"fragmentId": "250007300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5563,"mp":218,"atk":270,"def":131,"mag":157,"spr":192},
+			"minStats":{"hp":1836,"mp":72,"atk":89,"def":43,"mag":52,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","gun","hat","clothes","visionCard"],
+		"enhancementSkills":["宿りし命を守る力","天刃"]
+	},
+	"339000607": {
+		"name":"King of Leonis Mont",
+		"jpname":"リオニス王モント",
+		"roles":["physicalTank"],
+		"id":"339000607",
+		"braveShift":"339000617",
+		"exAwakening": [{"hp":821,"mp":36,"atk":34,"def":75,"mag":17,"spr":30},{"hp":632,"mp":28,"atk":26,"def":58,"mag":13,"spr":23},{"hp":442,"mp":20,"atk":18,"def":41,"mag":9,"spr":16}],
+		"fragmentId": "250007200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6318,"mp":281,"atk":260,"def":290,"mag":133,"spr":231},
+			"minStats":{"hp":2085,"mp":93,"atk":86,"def":96,"mag":44,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","staff","axe","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["プロテガ","かばう・物理I","ツインブレイク"]
+	},
+	"339000617": {
+		"name":"King of Leonis Mont BS",
+		"jpname":"リオニス王モント BS",
+		"roles":["physicalTank"],
+		"id":"339000617",
+		"braveShifted":"339000607",
+		"exAwakening": [{"hp":821,"mp":36,"atk":34,"def":75,"mag":17,"spr":30},{"hp":632,"mp":28,"atk":26,"def":58,"mag":13,"spr":23},{"hp":442,"mp":20,"atk":18,"def":41,"mag":9,"spr":16}],
+		"fragmentId": "250007200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6318,"mp":281,"atk":260,"def":290,"mag":133,"spr":231},
+			"minStats":{"hp":2085,"mp":93,"atk":86,"def":96,"mag":44,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","staff","axe","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"340000107": {
 		"name":"Sora (KHIII)",

@@ -1511,7 +1511,11 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
 
         // hp drain - [%drain, dmgCoef, ?]
     } else if (rawEffect[2] == 25) {
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][1]/100}};
+
+        result = {"damage":{"mecanism":"magical", "coef":rawEffect[3][1]/100}};
+        if (skillIn.attack_type) {
+            result.damage.mecanism = skillIn.attack_type.toLocaleLowerCase();
+        }
 
         // % hp restore
     } else if (rawEffect[2] == 26) {
@@ -2256,6 +2260,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             result.damage.mecanism = "hybrid";
         }
 
+        // Absorb dark damage
+    } else if (skillId == 1017) {
+        result = {"noUse":true};
+
         // empty skill - skill a randomly calls skill b or skill c. skill b has effects, skill c does not.
     } else if (skillId == 500410) {
         result = {"noUse":true};
@@ -2309,12 +2317,20 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         } else {
             result.damage.mecanism = skillIn.damage_type.toLocaleLowerCase();
         }
+        if (!result.damage.damageType) {
+            if (result.damage.mecanism == 'physical') {
+                result.damage.damageType = 'body';
+            } else if (result.damage.mecanism == 'magical') {
+                result.damage.damageType = 'mind';
+            }
+        }
         if (result.damage.mecanism == "magic") {
             result.damage.mecanism = "magical";
         }
         if(result.damage.damageType == "evoke"){
             result.damage.mecanism = "summonerSkill";
         }
+
 
         if (skillIn.element_inflict) {
             result.damage.elements = [];

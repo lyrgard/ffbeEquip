@@ -423,7 +423,7 @@
 {"id":"100003801", "name":"アクスターの記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003801.png", "sortId":59, "levels":[
 	{"atk":100, "atk%":20, "staticStats":{"atk":1000}, "conditional":[{"equipedConditions":["katana"],"atk%":80}]}
 ]},
-{"id":"100003901", "name":"幸せの記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003901.png", "sortId":71, "levels":[
+{"id":"100003901", "name":"Fond Memory", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003901.png", "sortId":71, "levels":[
 	{"atk":40},
 	{"atk":44},
 	{"atk":48},
@@ -966,6 +966,18 @@
 	{"atk":90, "atk%":60},
 	{"atk":100, "atk%":60, "conditional":[{"lbDamage":50}]}
 ]},
+{"id":"339000101", "name":"謎の巨大クリスタル", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_339000101.png", "sortId":97, "levels":[
+	{"hp":500, "def":50},
+	{"hp":550, "def":55},
+	{"hp":600, "def":60},
+	{"hp":650, "def":65},
+	{"hp":700, "def":70},
+	{"hp":750, "def":75},
+	{"hp":800, "def":80, "staticStats":{"hp":500,"def":300}},
+	{"hp":850, "def":85, "staticStats":{"hp":500,"def":300}},
+	{"hp":900, "def":90, "staticStats":{"hp":500,"def":300}},
+	{"hp":1000, "def":100, "staticStats":{"hp":500,"def":300}, "killers":[{"name":"beast","physical":100,"magical":100}]}
+]},
 {"id":"342000101", "name":"ただいま", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_342000101.png", "sortId":72, "levels":[
 	{"atk":50, "def":50},
 	{"atk":55, "def":55},
@@ -1013,6 +1025,18 @@
 	{"atk":69, "atk%":50, "mag":69, "mag%":50},
 	{"atk":73, "atk%":50, "mag":73, "mag%":50},
 	{"atk":80, "atk%":50, "mag":80, "mag%":50, "conditional":[{"lbDamage":50,"exclusiveSex":"female"}]}
+]},
+{"id":"401001401", "name":"By Lord Dario's Side", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401001401.png", "sortId":98, "levels":[
+	{"atk":50},
+	{"atk":55},
+	{"atk":60},
+	{"atk":65, "atk%":50},
+	{"atk":70, "atk%":50},
+	{"atk":75, "atk%":50},
+	{"atk":80, "atk%":50, "lbDamage":25},
+	{"atk":85, "atk%":50, "lbDamage":25},
+	{"atk":90, "atk%":50, "lbDamage":25},
+	{"atk":100, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500},"exclusiveUnits":[null]}]}
 ]},
 {"id":"900020101", "name":"Metal Gigantuar's Here!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_900020101.png", "sortId":6, "levels":[
 	{"hp":10, "mp":10}

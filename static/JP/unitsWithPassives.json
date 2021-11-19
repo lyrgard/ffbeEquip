@@ -2487,7 +2487,7 @@
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
 			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"キングダムオーダー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.05x * 2 = 14.1x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":50,"wind":50,"light":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain 疾風の剣 (501960), 疾風迅雷 (501980) and 迅雷の剣 (501970) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8.5x * 2 = 17x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":79,"wind":79,"light":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain 疾風の剣 (501960), 疾風迅雷 (501980) and 迅雷の剣 (501970) for 3 turns"}],"frames":[34,44,57,71,85,95,108,122,146,158,192,210,228,246,262],"move":"walk"}, "equipedConditions":[["504213800","303004500"]]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"], "levelCondition":105},
-			{"atk%":50, "equipedConditions":["dagger"], "levelCondition":105},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"], "levelCondition":105},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"skillEnhancement":{"213820":2.4,"501960":2.3,"501970":1.25,"501980":1.1}, "levelCondition":120},
@@ -2545,7 +2545,7 @@
 				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
 				{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"キングダムオーダー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.05x * 2 = 14.1x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":50,"wind":50,"light":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain 疾風の剣 (501960), 疾風迅雷 (501980) and 迅雷の剣 (501970) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8.5x * 2 = 17x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":79,"wind":79,"light":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}],"turns":3},"area":"SELF","target":"SELF"},"desc":"Gain 疾風の剣 (501960), 疾風迅雷 (501980) and 迅雷の剣 (501970) for 3 turns"}],"frames":[34,44,57,71,85,95,108,122,146,158,192,210,228,246,262],"move":"walk"}, "equipedConditions":[["504213800","303004500"]]},
 				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"], "levelCondition":105},
-				{"atk%":50, "equipedConditions":["dagger"], "levelCondition":105},
+				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"], "levelCondition":105},
 				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"], "levelCondition":105},
 				{"mp%":20, "levelCondition":115},
 				{"skillEnhancement":{"213820":2.4,"501960":2.3,"501970":1.25,"501980":1.1}, "levelCondition":120}
@@ -2805,7 +2805,7 @@
 		],
 		"skills": [
 			{"hp%":30, "mag%":20, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":10, "special":["dualWield"]},
-			{"atk%":50, "equipedConditions":["dagger"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]},
@@ -2838,7 +2838,7 @@
 		],
 			"skills": [
 				{"hp%":30, "mag%":20, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":10, "special":["dualWield"]},
-				{"atk%":50, "equipedConditions":["dagger"]},
+				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]},
 				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
 				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"]},
 				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]}
@@ -2869,7 +2869,7 @@
 		],
 			"skills": [
 				{"hp%":30, "mag%":20, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":10, "special":["dualWield"]},
-				{"atk%":50, "equipedConditions":["dagger"]},
+				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]},
 				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
 				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"]},
 				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]},
@@ -9700,7 +9700,7 @@
 		"skills": [
 			{"hp%":40, "mp%":30, "def%":30, "evokeDamageBoost":{"all":150}, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":50},{"name":"undead","physical":50}], "mpRefresh":10, "lbDamage":50, "esperStatsBonus":{"Odin":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "special":["dualWield"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
-			{"atk%":50, "equipedConditions":["dagger"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]},
 			{"spr%":20, "equipedConditions":["katana"]},
 			{"hp%":20, "equipedConditions":["sword"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"]},
@@ -9730,7 +9730,7 @@
 			"skills": [
 				{"hp%":40, "mp%":30, "def%":30, "evokeDamageBoost":{"all":150}, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":50},{"name":"undead","physical":50}], "mpRefresh":10, "lbDamage":50, "esperStatsBonus":{"Odin":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "special":["dualWield"]},
 				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
-				{"atk%":50, "equipedConditions":["dagger"]},
+				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]},
 				{"spr%":20, "equipedConditions":["katana"]},
 				{"hp%":20, "equipedConditions":["sword"]},
 				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"]},
@@ -12007,7 +12007,7 @@
 		"enhancementSkills":["蒼き氷の刃","火氷の蒼刃"],
 		"skills": [
 			{"hp%":70, "mp%":50, "atk%":180, "def%":70, "spr%":50, "singleWielding":{"accuracy":25,"atk":200}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":50},{"name":"ice","percent":50}], "killers":[{"name":"human","physical":50,"magical":50},{"name":"dragon","physical":200,"magical":200}], "mpRefresh":7, "lbDamage":100, "special":["dualWield"]},
-			{"atk%":50, "equipedConditions":["dagger"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]},
@@ -12036,7 +12036,7 @@
 		"enhancementSkills":["火焔ノ双剣","火氷の蒼刃"],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":180, "def%":30, "spr%":30, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"dark","percent":40}], "killers":[{"name":"human","physical":50,"magical":50},{"name":"dragon","physical":200,"magical":200}], "mpRefresh":7, "lbDamage":100, "special":["dualWield"]},
-			{"atk%":50, "equipedConditions":["dagger"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]},
@@ -14469,16 +14469,19 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["ソードファイター","ブラッドウェポン"],
+		"enhancementSkills":["ソードファイター","祖国解放の烈士","ブラッドウェポン"],
+		"enhancements": [
+			{"name":"祖国解放の烈士","levels":[[{"def%":10,"hp%":20,"killers":[{"name":"beast","physical":100},{"name":"demon","physical":25},{"name":"human","physical":25},{"name":"stone","physical":25},{"name":"plant","physical":25}]}],[{"def%":10,"hp%":20,"killers":[{"name":"beast","physical":100},{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"stone","physical":50},{"name":"plant","physical":50}],"replaceLb":{"name":"ロードオブアームズ","minEffects":[{"effect":{"weaponImperil":{"value":15},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by undefined to one enemy by 15% for 3 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":146.1,"stack":55,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (146.1x, ATK) with consecutive damage increase (max. 1 times, +55x ATK each, 201.1x total) to one enemy"},{"effect":{"gainSkills":{"skills":[{"id":"512971","name":"ブラッシュランス"},{"id":"512972","name":"リードアックス"},{"id":"512973","name":"シーズナイフ"},{"id":"512974","name":"グランドフィスト"},{"id":"512975","name":"シールドバッシュ"}],"turns":5},"area":"SELF","target":"SELF"},"desc":"Gain グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), ブラッシュランス (512971) and リードアックス (512972) for 5 turns"},{"effect":{"skillEnhancement":{"237097":20,"237098":20,"237099":20,"237100":20,"237101":20,"237107":20,"237108":20,"237109":20,"237110":20,"237111":20,"512971":20,"512972":20,"512973":20,"512974":20,"512975":20,"512979":20,"512981":20},"turn":6},"desc":"Increase damage of エンパイアリベリオン (237107, 237108, 237109, 237110, 237111), クリティカルインパクト (512981), グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), フィン・ブライアII (512979), ブラッシュランス (512971), ブラッドウェポン (237097, 237098, 237099, 237100, 237101) and リードアックス (512972) by 2000% for 6 turns"}],"maxEffects":[{"effect":{"weaponImperil":{"value":15},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by undefined to one enemy by 15% for 3 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":150,"stack":55,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (150x, ATK) with consecutive damage increase (max. 1 times, +55x ATK each, 205x total) to one enemy"},{"effect":{"gainSkills":{"skills":[{"id":"512971","name":"ブラッシュランス"},{"id":"512972","name":"リードアックス"},{"id":"512973","name":"シーズナイフ"},{"id":"512974","name":"グランドフィスト"},{"id":"512975","name":"シールドバッシュ"}],"turns":5},"area":"SELF","target":"SELF"},"desc":"Gain グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), ブラッシュランス (512971) and リードアックス (512972) for 5 turns"},{"effect":{"skillEnhancement":{"237097":20,"237098":20,"237099":20,"237100":20,"237101":20,"237107":20,"237108":20,"237109":20,"237110":20,"237111":20,"512971":20,"512972":20,"512973":20,"512974":20,"512975":20,"512979":20,"512981":20},"turn":6},"desc":"Increase damage of エンパイアリベリオン (237107, 237108, 237109, 237110, 237111), クリティカルインパクト (512981), グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), フィン・ブライアII (512979), ブラッシュランス (512971), ブラッドウェポン (237097, 237098, 237099, 237100, 237101) and リードアックス (512972) by 2000% for 6 turns"}],"frames":[64,74,84,100,172,179,186,193],"move":"walk"},"atk":500}],[{"def%":10,"hp%":20,"killers":[{"name":"beast","physical":100},{"name":"demon","physical":75},{"name":"human","physical":75},{"name":"stone","physical":75},{"name":"plant","physical":75}],"replaceLb":{"name":"ロードオブアームズ","minEffects":[{"effect":{"weaponImperil":{"value":20},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by undefined to one enemy by 20% for 3 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":161.1,"stack":70,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (161.1x, ATK) with consecutive damage increase (max. 1 times, +70x ATK each, 231.1x total) to one enemy"},{"effect":{"gainSkills":{"skills":[{"id":"512971","name":"ブラッシュランス"},{"id":"512972","name":"リードアックス"},{"id":"512973","name":"シーズナイフ"},{"id":"512974","name":"グランドフィスト"},{"id":"512975","name":"シールドバッシュ"}],"turns":5},"area":"SELF","target":"SELF"},"desc":"Gain グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), ブラッシュランス (512971) and リードアックス (512972) for 5 turns"},{"effect":{"skillEnhancement":{"237097":35,"237098":35,"237099":35,"237100":35,"237101":35,"237107":35,"237108":35,"237109":35,"237110":35,"237111":35,"512971":35,"512972":35,"512973":35,"512974":35,"512975":35,"512979":35,"512981":35},"turn":6},"desc":"Increase damage of エンパイアリベリオン (237107, 237108, 237109, 237110, 237111), クリティカルインパクト (512981), グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), フィン・ブライアII (512979), ブラッシュランス (512971), ブラッドウェポン (237097, 237098, 237099, 237100, 237101) and リードアックス (512972) by 3500% for 6 turns"}],"maxEffects":[{"effect":{"weaponImperil":{"value":20},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by undefined to one enemy by 20% for 3 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":165,"stack":70,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (165x, ATK) with consecutive damage increase (max. 1 times, +70x ATK each, 235x total) to one enemy"},{"effect":{"gainSkills":{"skills":[{"id":"512971","name":"ブラッシュランス"},{"id":"512972","name":"リードアックス"},{"id":"512973","name":"シーズナイフ"},{"id":"512974","name":"グランドフィスト"},{"id":"512975","name":"シールドバッシュ"}],"turns":5},"area":"SELF","target":"SELF"},"desc":"Gain グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), ブラッシュランス (512971) and リードアックス (512972) for 5 turns"},{"effect":{"skillEnhancement":{"237097":35,"237098":35,"237099":35,"237100":35,"237101":35,"237107":35,"237108":35,"237109":35,"237110":35,"237111":35,"512971":35,"512972":35,"512973":35,"512974":35,"512975":35,"512979":35,"512981":35},"turn":6},"desc":"Increase damage of エンパイアリベリオン (237107, 237108, 237109, 237110, 237111), クリティカルインパクト (512981), グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), フィン・ブライアII (512979), ブラッシュランス (512971), ブラッドウェポン (237097, 237098, 237099, 237100, 237101) and リードアックス (512972) by 3500% for 6 turns"}],"frames":[64,74,84,100,172,179,186,193],"move":"walk"},"atk":1000}],[{"def%":10,"hp%":20,"killers":[{"name":"beast","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100}],"replaceLb":{"name":"ロードオブアームズ","minEffects":[{"effect":{"weaponImperil":{"value":25},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by undefined to one enemy by 25% for 3 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":168.6,"stack":77.5,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (168.6x, ATK) with consecutive damage increase (max. 1 times, +77.5x ATK each, 246.1x total) to one enemy"},{"effect":{"gainSkills":{"skills":[{"id":"512971","name":"ブラッシュランス"},{"id":"512972","name":"リードアックス"},{"id":"512973","name":"シーズナイフ"},{"id":"512974","name":"グランドフィスト"},{"id":"512975","name":"シールドバッシュ"}],"turns":5},"area":"SELF","target":"SELF"},"desc":"Gain グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), ブラッシュランス (512971) and リードアックス (512972) for 5 turns"},{"effect":{"skillEnhancement":{"237097":50,"237098":50,"237099":50,"237100":50,"237101":50,"237107":50,"237108":50,"237109":50,"237110":50,"237111":50,"512971":50,"512972":50,"512973":50,"512974":50,"512975":50,"512979":50,"512981":50},"turn":6},"desc":"Increase damage of エンパイアリベリオン (237107, 237108, 237109, 237110, 237111), クリティカルインパクト (512981), グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), フィン・ブライアII (512979), ブラッシュランス (512971), ブラッドウェポン (237097, 237098, 237099, 237100, 237101) and リードアックス (512972) by 5000% for 6 turns"}],"maxEffects":[{"effect":{"weaponImperil":{"value":25},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by undefined to one enemy by 25% for 3 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":172.5,"stack":77.5,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (172.5x, ATK) with consecutive damage increase (max. 1 times, +77.5x ATK each, 250x total) to one enemy"},{"effect":{"gainSkills":{"skills":[{"id":"512971","name":"ブラッシュランス"},{"id":"512972","name":"リードアックス"},{"id":"512973","name":"シーズナイフ"},{"id":"512974","name":"グランドフィスト"},{"id":"512975","name":"シールドバッシュ"}],"turns":5},"area":"SELF","target":"SELF"},"desc":"Gain グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), ブラッシュランス (512971) and リードアックス (512972) for 5 turns"},{"effect":{"skillEnhancement":{"237097":50,"237098":50,"237099":50,"237100":50,"237101":50,"237107":50,"237108":50,"237109":50,"237110":50,"237111":50,"512971":50,"512972":50,"512973":50,"512974":50,"512975":50,"512979":50,"512981":50},"turn":6},"desc":"Increase damage of エンパイアリベリオン (237107, 237108, 237109, 237110, 237111), クリティカルインパクト (512981), グランドフィスト (512974), シーズナイフ (512973), シールドバッシュ (512975), フィン・ブライアII (512979), ブラッシュランス (512971), ブラッドウェポン (237097, 237098, 237099, 237100, 237101) and リードアックス (512972) by 5000% for 6 turns"}],"frames":[64,74,84,100,172,179,186,193],"move":"walk"},"atk":1500}]]}
+		],
 		"skills": [
-			{"hp%":70, "mp%":50, "atk%":50, "def%":40, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":25},{"name":"human","physical":25},{"name":"stone","physical":25},{"name":"plant","physical":25},{"name":"beast","physical":100}], "mpRefresh":10, "special":["dualWield"]},
+			{"hp%":70, "mp%":70, "atk":1000, "atk%":50, "def%":50, "spr%":70, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"poison","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"atk%":50, "equipedConditions":["greatSword"]},
 			{"atk%":50, "equipedConditions":["bow"]},
 			{"atk%":50, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"machine","physical":50},{"name":"dragon","physical":50},{"name":"bug","physical":50},{"name":"stone","physical":50},{"name":"plant","physical":50}], "equipedConditions":[["504237060","312004600"]]},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "def%":20, "lbPerTurn":{"min":4,"max":4}, "skillEnhancement":{"237097":5,"237098":5,"237099":5,"237100":5,"237101":5,"237107":5,"237108":5,"237109":5,"237110":5,"237111":5,"512971":5,"512972":5,"512973":5,"512974":5,"512975":5,"512979":5,"512981":5}, "levelCondition":120},
-			{"atk%":40, "dualWielding":{"atk":100}, "lbPerTurn":{"min":4,"max":4}, "levelCondition":120}
+			{"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"aquatic","physical":50},{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"machine","physical":50},{"name":"dragon","physical":50},{"name":"spirit","physical":50},{"name":"bug","physical":50},{"name":"stone","physical":50},{"name":"plant","physical":50},{"name":"undead","physical":50}], "lbDamage":50, "skillEnhancement":{"237097":20,"237098":20,"237099":20,"237100":20,"237101":20,"237107":20,"237108":20,"237109":20,"237110":20,"237111":20,"512971":20,"512972":20,"512973":20,"512974":20,"512975":20,"512979":20,"512981":20}, "levelCondition":120},
+			{"atk%":40, "evade":{"physical":60}, "dualWielding":{"atk":100}, "lbPerTurn":{"min":4,"max":4}, "levelCondition":120}
 		]
 	},
 	"202001917": {
@@ -14501,13 +14504,13 @@
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["ソードファイター","エンパイアリベリオン"],
 		"skills": [
-			{"hp%":70, "mp%":50, "atk%":50, "def%":30, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":25},{"name":"machine","physical":25},{"name":"dragon","physical":25},{"name":"bug","physical":25},{"name":"bird","physical":100}], "mpRefresh":10, "lbDamage":50, "special":["dualWield"]},
+			{"hp%":90, "mp%":70, "atk":1000, "atk%":50, "def%":50, "spr%":70, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":100}, "chainMastery":100, "lbFillRate":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":25},{"name":"machine","physical":25},{"name":"dragon","physical":25},{"name":"bug","physical":25},{"name":"bird","physical":100}], "mpRefresh":10, "lbDamage":50, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"atk%":50, "equipedConditions":["greatSword"]},
 			{"atk%":50, "equipedConditions":["bow"]},
 			{"atk%":50, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"machine","physical":50},{"name":"dragon","physical":50},{"name":"bug","physical":50},{"name":"stone","physical":50},{"name":"plant","physical":50}], "equipedConditions":[["504237060","312004600"]]},
 			{"spr%":20, "levelCondition":115},
-			{"hp%":20, "def%":20, "lbPerTurn":{"min":4,"max":4}, "skillEnhancement":{"237097":5,"237098":5,"237099":5,"237100":5,"237101":5,"237107":5,"237108":5,"237109":5,"237110":5,"237111":5,"512971":5,"512972":5,"512973":5,"512974":5,"512975":5,"512979":5,"512981":5}, "levelCondition":120},
+			{"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"aquatic","physical":50},{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"machine","physical":50},{"name":"dragon","physical":50},{"name":"spirit","physical":50},{"name":"bug","physical":50},{"name":"stone","physical":50},{"name":"plant","physical":50},{"name":"undead","physical":50}], "lbDamage":50, "skillEnhancement":{"237097":20,"237098":20,"237099":20,"237100":20,"237101":20,"237107":20,"237108":20,"237109":20,"237110":20,"237111":20,"512971":20,"512972":20,"512973":20,"512974":20,"512975":20,"512979":20,"512981":20}, "levelCondition":120},
 			{"mp%":10, "atk%":50, "singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"512977":35}, "levelCondition":120}
 		]
 	},
@@ -18416,7 +18419,7 @@
 		],
 		"skills": [
 			{"hp%":30, "mp%":20, "atk%":30, "def%":50, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "special":["dualWield"]},
-			{"atk%":50, "equipedConditions":["dagger"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]},
 			{"mp%":30, "atk%":30, "dualWielding":{"atk":50}, "equipedConditions":[["504230911","301004600"]]},
 			{"atk%":40, "esperStatsBonus":{"Phoenix":{"hp":150}}, "levelCondition":105},
 			{"spr%":20, "levelCondition":115}
@@ -18444,7 +18447,7 @@
 		],
 			"skills": [
 				{"hp%":30, "mp%":20, "atk%":30, "def%":50, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "special":["dualWield"]},
-				{"atk%":50, "equipedConditions":["dagger"]}
+				{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]}
 			]
 		}
 	},
@@ -21384,7 +21387,7 @@
 		],
 		"skills": [
 			{"hp%":20, "def%":10, "evade":{"physical":20}, "resist":[{"name":"confuse","percent":100},{"name":"sleep","percent":100}]},
-			{"atk%":50, "equipedConditions":["dagger"]}
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]}
 		]
 	},
 	"209000203": {
@@ -26230,7 +26233,7 @@
 		"enhancementSkills":["短剣の極意","シフトチャージ","シフトブレイク","王の剣","賜りし魔法の力","渾身の刃"],
 		"enhancements": [
 			{"name":"誇りに身命を賭す者","levels":[[],[]]},
-			{"name":"短剣の極意","levels":[[{"equipedConditions":["dagger"],"atk%":50}],[{"equipedConditions":["dagger"],"atk%":75}],[{"equipedConditions":["dagger"],"atk%":100}]]},
+			{"name":"短剣の極意","levels":[[{"equipedConditions":["dagger"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["dagger"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["dagger"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
 			{"name":"賜りし魔法の力","levels":[[{"skillEnhancement":{"213330":24,"706830":24,"706840":24},"levelCondition":120}],[{"skillEnhancement":{"213330":28,"706830":28,"706840":28},"levelCondition":120}],[{"skillEnhancement":{"213330":32,"706830":32,"706840":32},"levelCondition":120}],[{"skillEnhancement":{"213330":36,"706830":36,"706840":36},"levelCondition":120}],[{"skillEnhancement":{"213330":40,"706830":40,"706840":40},"levelCondition":120}]]}
 		],
 		"skills": [
@@ -26262,7 +26265,7 @@
 			"enhancementSkills":["短剣の極意","シフトチャージ","シフトブレイク","王の剣","賜りし魔法の力","渾身の刃"],
 		"enhancements": [
 			{"name":"誇りに身命を賭す者","levels":[[],[]]},
-			{"name":"短剣の極意","levels":[[{"equipedConditions":["dagger"],"atk%":50}],[{"equipedConditions":["dagger"],"atk%":75}],[{"equipedConditions":["dagger"],"atk%":100}]]}
+			{"name":"短剣の極意","levels":[[{"equipedConditions":["dagger"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["dagger"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["dagger"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
 		],
 			"skills": [
 				{"hp%":20, "atk%":20, "mag%":20, "evade":{"physical":30}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]}
@@ -26287,7 +26290,7 @@
 			"enhancementSkills":["短剣の極意","シフトチャージ","シフトブレイク","王の剣","賜りし魔法の力","渾身の刃"],
 		"enhancements": [
 			{"name":"誇りに身命を賭す者","levels":[[],[]]},
-			{"name":"短剣の極意","levels":[[{"equipedConditions":["dagger"],"atk%":50}],[{"equipedConditions":["dagger"],"atk%":75}],[{"equipedConditions":["dagger"],"atk%":100}]]}
+			{"name":"短剣の極意","levels":[[{"equipedConditions":["dagger"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["dagger"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["dagger"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
 		],
 			"skills": [
 				{"hp%":20, "atk%":20, "mag%":20, "evade":{"physical":30}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]},
@@ -28930,10 +28933,10 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["axe","fist","lightShield","hat","clothes","visionCard"],
-		"enhancementSkills":["イモータルガード","混沌の闘気・物理"],
+		"equip":["axe","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["イモータルガード","ATBチャージ","混沌の闘気・物理"],
 		"skills": [
-			{"hp%":70, "mp%":70, "atk%":70, "def%":150, "mag%":70, "dualWielding":{"def":100,"spr":100}, "oneWeaponMastery":{"def":250}, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":-50},{"name":"ice","percent":100},{"name":"water","percent":50},{"name":"light","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"spirit","physical":150}], "mpRefresh":7, "lbDamage":150, "special":["dualWield"]},
+			{"hp%":170, "mp%":170, "atk%":70, "def":2000, "def%":350, "mag%":70, "spr%":100, "evade":{"physical":30}, "dualWielding":{"def":100,"spr":100}, "oneWeaponMastery":{"def":450}, "chainMastery":100, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":-50},{"name":"ice","percent":100},{"name":"water","percent":50},{"name":"light","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"spirit","physical":225,"magical":75},{"name":"human","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75}], "mpRefresh":7, "lbDamage":300, "drawAttacks":50, "special":["dualWield"]},
 			{"equipedConditions":[["504239340","309006900"]]}
 		]
 	},
@@ -28954,10 +28957,10 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["axe","fist","lightShield","hat","clothes","visionCard"],
-		"enhancementSkills":["イモータルガード","混沌の闘気・魔法"],
+		"equip":["axe","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["イモータルガード","ATBチャージ","混沌の闘気・魔法"],
 		"skills": [
-			{"hp%":70, "mp%":70, "atk%":70, "mag%":70, "spr%":150, "dualWielding":{"def":100,"spr":100}, "oneWeaponMastery":{"spr":250}, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":-50},{"name":"ice","percent":100},{"name":"water","percent":50},{"name":"dark","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"spirit","physical":150}], "mpRefresh":7, "lbDamage":150, "special":["dualWield"]},
+			{"hp%":170, "mp%":170, "atk%":70, "def%":100, "mag%":70, "spr":2000, "spr%":350, "evade":{"physical":30}, "dualWielding":{"def":100,"spr":100}, "oneWeaponMastery":{"spr":450}, "chainMastery":100, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":-50},{"name":"ice","percent":100},{"name":"water","percent":50},{"name":"dark","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"spirit","physical":225,"magical":75},{"name":"human","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75}], "mpRefresh":7, "lbDamage":300, "drawAttacks":50, "special":["dualWield"]},
 			{"equipedConditions":[["504239340","309006900"]]}
 		]
 	},
@@ -30649,7 +30652,7 @@
 		"equip":["dagger","sword","katana","staff","rod","bow","hammer","spear","whip","throwing","gun","mace","hat","clothes","robe"],
 		"enhancementSkills":["グレネードボム","千枚斬り","短剣の極意","ブラックレイン"],
 		"enhancements": [
-			{"name":"短剣の極意","levels":[[{"equipedConditions":["dagger"],"atk%":50}],[{"equipedConditions":["dagger"],"atk%":75}],[{"equipedConditions":["dagger"],"atk%":100}]]}
+			{"name":"短剣の極意","levels":[[{"equipedConditions":["dagger"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["dagger"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["dagger"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
 		],
 		"skills": [
 			{"hp%":20, "mag%":30, "evade":{"physical":20}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100}], "special":["dualWield"]},
@@ -30677,7 +30680,7 @@
 			"equip":["dagger","sword","katana","staff","rod","bow","hammer","spear","whip","throwing","gun","mace","hat","clothes","robe"],
 			"enhancementSkills":["グレネードボム","千枚斬り","短剣の極意","ブラックレイン"],
 		"enhancements": [
-			{"name":"短剣の極意","levels":[[{"equipedConditions":["dagger"],"atk%":50}],[{"equipedConditions":["dagger"],"atk%":75}],[{"equipedConditions":["dagger"],"atk%":100}]]}
+			{"name":"短剣の極意","levels":[[{"equipedConditions":["dagger"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["dagger"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["dagger"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
 		],
 			"skills": [
 				{"hp%":20, "mag%":30, "evade":{"physical":20}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100}], "special":["dualWield"]}
@@ -30839,7 +30842,7 @@
 		}
 	},
 	"312000527": {
-		"name":"デュエリスト デュラン BS",
+		"name":"Duelist Duran BS",
 		"jpname":"デュエリスト デュラン BS",
 		"roles":["physicalAttacker"],
 		"id":"312000527",
@@ -34080,26 +34083,32 @@
 		"jpname":"シュテル",
 		"roles":["physicalAttacker","debuffer"],
 		"id":"339000305",
-		"max_rarity":"7",
+		"braveShift":"339000327",
+		"exAwakening": [{"hp":671,"mp":36,"atk":34,"def":28,"mag":20,"spr":24},{"hp":516,"mp":28,"atk":26,"def":21,"mag":16,"spr":19},{"hp":361,"mp":20,"atk":18,"def":15,"mag":11,"spr":13}],
+		"fragmentId": "250007400",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4842,"mp":243,"atk":209,"def":193,"mag":153,"spr":179},
-			"minStats":{"hp":1598,"mp":80,"atk":69,"def":64,"mag":50,"spr":59},
+			"maxStats":{"hp":5163,"mp":281,"atk":260,"def":212,"mag":157,"spr":187},
+			"minStats":{"hp":1704,"mp":93,"atk":86,"def":70,"mag":52,"spr":62},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
-		"enhancementSkills":["HPアップLv1","捨て身"],
+		"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["HPアップLv1","捨て身","ハザードブースト"],
 		"enhancements": [
-			{"name":"HPアップLv1","levels":[[{"def%":20,"hp%":20,"killers":[{"name":"human","physical":75}]}],[{"def%":20,"atk%":20,"hp%":20,"killers":[{"name":"human","physical":75}]}],[{"def%":20,"atk%":20,"hp%":20,"killers":[{"name":"human","physical":125}],"lbDamage":100}]]}
+			{"name":"HPアップLv1","levels":[[{"def%":20,"hp%":20,"killers":[{"name":"human","physical":75}]}],[{"def%":20,"atk%":20,"hp%":20,"killers":[{"name":"human","physical":75}]}],[{"def%":20,"atk%":20,"hp%":20,"killers":[{"name":"human","physical":125}],"lbDamage":100}]]},
+			{"name":"ハザードブースト","levels":[[{"skillEnhancement":{"235517":5,"235518":5,"512283":5},"levelCondition":120}],[{"skillEnhancement":{"235517":10,"235518":10,"512283":10},"levelCondition":120}],[{"skillEnhancement":{"235517":15,"235518":15,"512283":15},"levelCondition":120}],[{"skillEnhancement":{"235517":20,"235518":20,"512283":20},"levelCondition":120}],[{"skillEnhancement":{"235517":25,"235518":25,"512283":25},"levelCondition":120}]]}
 		],
 		"skills": [
-			{"hp%":20, "mp%":30, "atk":500, "atk%":70, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"dark","percent":30},{"name":"blind","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10},
+			{"hp%":20, "mp%":30, "atk":500, "atk%":70, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"dark","percent":60},{"name":"blind","percent":200},{"name":"confuse","percent":200}], "mpRefresh":10},
 			{"atk%":50, "lbPerTurn":{"min":4,"max":4}, "lbDamage":50, "equipedConditions":[["504235500","406004700"]]},
 			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "killers":[{"name":"human","physical":75}], "skillEnhancement":{"235514":15,"235515":17.5,"235516":17.5,"235517":15,"235518":15,"235521":7.5,"512283":7.5,"512284":15}, "levelCondition":110},
 			{"spr%":20, "levelCondition":115},
-			{"atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120}
+			{"atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120},
+			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
+			{"atk":500, "levelCondition":120, "exLevelCondition":3}
 		],
 		"6_form": {
 			"name":"Sterne Leonis",
@@ -34117,14 +34126,74 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
-			"enhancementSkills":["HPアップLv1","捨て身"],
+			"enhancementSkills":["HPアップLv1","捨て身","ハザードブースト"],
 		"enhancements": [
 			{"name":"HPアップLv1","levels":[[{"def%":20,"hp%":20,"killers":[{"name":"human","physical":75}]}],[{"def%":20,"atk%":20,"hp%":20,"killers":[{"name":"human","physical":75}]}],[{"def%":20,"atk%":20,"hp%":20,"killers":[{"name":"human","physical":125}],"lbDamage":100}]]}
 		],
 			"skills": [
 				{"hp%":20, "mp%":30, "atk":500, "atk%":70, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"dark","percent":30},{"name":"blind","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10}
 			]
+		},
+		"7_form": {
+			"name":"Sterne Leonis",
+			"jpname":"シュテル",
+			"roles":["physicalAttacker","debuffer"],
+			"id":"339000305",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4842,"mp":243,"atk":209,"def":193,"mag":153,"spr":179},
+				"minStats":{"hp":1598,"mp":80,"atk":69,"def":64,"mag":50,"spr":59},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","axe","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"enhancementSkills":["HPアップLv1","捨て身","ハザードブースト"],
+		"enhancements": [
+			{"name":"HPアップLv1","levels":[[{"def%":20,"hp%":20,"killers":[{"name":"human","physical":75}]}],[{"def%":20,"atk%":20,"hp%":20,"killers":[{"name":"human","physical":75}]}],[{"def%":20,"atk%":20,"hp%":20,"killers":[{"name":"human","physical":125}],"lbDamage":100}]]}
+		],
+			"skills": [
+				{"hp%":20, "mp%":30, "atk":500, "atk%":70, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"dark","percent":30},{"name":"blind","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10},
+				{"atk%":50, "lbPerTurn":{"min":4,"max":4}, "lbDamage":50, "equipedConditions":[["504235500","406004700"]]},
+				{"hp%":20, "mp%":20, "atk%":20, "def%":20, "killers":[{"name":"human","physical":75}], "skillEnhancement":{"235514":15,"235515":17.5,"235516":17.5,"235517":15,"235518":15,"235521":7.5,"512283":7.5,"512284":15}, "levelCondition":110},
+				{"spr%":20, "levelCondition":115},
+				{"atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120}
+			]
 		}
+	},
+	"339000327": {
+		"name":"破滅の騎士シュテル BS",
+		"jpname":"破滅の騎士シュテル BS",
+		"roles":["physicalAttacker"],
+		"id":"339000327",
+		"braveShifted":"339000317",
+		"exAwakening": [{"hp":671,"mp":36,"atk":34,"def":28,"mag":20,"spr":24},{"hp":516,"mp":28,"atk":26,"def":21,"mag":16,"spr":19},{"hp":361,"mp":20,"atk":18,"def":15,"mag":11,"spr":13}],
+		"fragmentId": "250007400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5163,"mp":281,"atk":270,"def":232,"mag":163,"spr":201},
+			"minStats":{"hp":1704,"mp":93,"atk":89,"def":77,"mag":54,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["ハザードクラッシュ"],
+		"skills": [
+			{"resist":[{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100}]},
+			{"killers":[{"name":"stone","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"human","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"dragon","physical":200,"magical":200}], "levelCondition":120},
+			{"mpRefresh":8, "levelCondition":120},
+			{"lbPerTurn":{"min":8,"max":8}, "levelCondition":120},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"], "levelCondition":120},
+			{"hp%":60, "mp%":60, "atk%":50, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "lbDamage":150, "equipedConditions":[["504235500","406004700"]], "levelCondition":120},
+			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
+			{"atk":500, "levelCondition":120, "exLevelCondition":3}
+		]
 	},
 	"339000405": {
 		"name":"Kitone",
@@ -34172,6 +34241,114 @@
 				{"hp%":50, "mp%":40, "atk":1000, "atk%":80, "def%":20, "mag%":30, "spr%":20, "dualWielding":{"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"earth","percent":30}], "mpRefresh":7, "special":["dualWield"]}
 			]
 		}
+	},
+	"339000507": {
+		"name":"Vinera Fennes",
+		"jpname":"ヴィネラ",
+		"roles":["debuffer"],
+		"id":"339000507",
+		"braveShift":"339000517",
+		"exAwakening": [{"hp":723,"mp":28,"atk":65,"def":16,"mag":19,"spr":24},{"hp":556,"mp":22,"atk":50,"def":12,"mag":15,"spr":18},{"hp":389,"mp":15,"atk":35,"def":9,"mag":10,"spr":13}],
+		"fragmentId": "250007300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5563,"mp":218,"atk":250,"def":124,"mag":148,"spr":183},
+			"minStats":{"hp":1836,"mp":72,"atk":83,"def":41,"mag":49,"spr":60},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","gun","hat","clothes","visionCard"],
+		"enhancementSkills":["天刃"],
+		"skills": [
+			{"mp%":60, "atk":500, "atk%":150, "mag%":150, "evade":{"physical":50}, "dualWielding":{"atk":50,"mag":50}, "chainMastery":200, "lbFillRate":200, "lbPerTurn":{"min":12,"max":12}, "resist":[{"name":"light","percent":20},{"name":"poison","percent":100},{"name":"sleep","percent":100}], "killers":[{"name":"beast","physical":150,"magical":150},{"name":"human","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"plant","physical":150,"magical":150}], "mpRefresh":5, "special":["dualWield"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["gun"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]},
+			{"lbDamage":75, "drawAttacks":30, "equipedConditions":[["504243380","409064400"]]}
+		]
+	},
+	"339000517": {
+		"name":"Vinera Fennes BS",
+		"jpname":"ヴィネラ BS",
+		"roles":["debuffer","physicalAttacker"],
+		"id":"339000517",
+		"braveShifted":"339000507",
+		"exAwakening": [{"hp":723,"mp":28,"atk":65,"def":16,"mag":19,"spr":24},{"hp":556,"mp":22,"atk":50,"def":12,"mag":15,"spr":18},{"hp":389,"mp":15,"atk":35,"def":9,"mag":10,"spr":13}],
+		"fragmentId": "250007300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5563,"mp":218,"atk":270,"def":131,"mag":157,"spr":192},
+			"minStats":{"hp":1836,"mp":72,"atk":89,"def":43,"mag":52,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","gun","hat","clothes","visionCard"],
+		"enhancementSkills":["宿りし命を守る力","天刃"],
+		"enhancements": [
+			{"name":"宿りし命を守る力","levels":[[{"skillEnhancement":{"515940":10,"1014020":10,"1014030":10,"1014040":10,"1014050":10,"1014060":10},"lbDamage":75}],[{"skillEnhancement":{"515940":15,"1014020":15,"1014030":15,"1014040":15,"1014050":15,"1014060":15},"lbDamage":75}],[{"skillEnhancement":{"515940":20,"1014020":20,"1014030":20,"1014040":20,"1014050":20,"1014060":20},"lbDamage":75}],[{"skillEnhancement":{"515940":25,"1014020":25,"1014030":25,"1014040":25,"1014050":25,"1014060":25},"lbDamage":75}],[{"skillEnhancement":{"515940":30,"1014020":30,"1014030":30,"1014040":30,"1014050":30,"1014060":30},"lbDamage":75}]]}
+		],
+		"skills": [
+			{"mp%":60, "atk":500, "atk%":150, "mag%":150, "evade":{"physical":50}, "dualWielding":{"atk":50,"mag":50}, "chainMastery":200, "lbFillRate":200, "lbPerTurn":{"min":12,"max":12}, "resist":[{"name":"light","percent":20},{"name":"poison","percent":100},{"name":"sleep","percent":100}], "killers":[{"name":"beast","physical":150,"magical":150},{"name":"human","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"plant","physical":150,"magical":150}], "mpRefresh":5, "special":["dualWield"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["gun"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["dagger"]},
+			{"lbDamage":75, "drawAttacks":30, "equipedConditions":[["504243380","409064400"]]}
+		]
+	},
+	"339000607": {
+		"name":"King of Leonis Mont",
+		"jpname":"リオニス王モント",
+		"roles":["physicalTank"],
+		"id":"339000607",
+		"braveShift":"339000617",
+		"exAwakening": [{"hp":821,"mp":36,"atk":34,"def":75,"mag":17,"spr":30},{"hp":632,"mp":28,"atk":26,"def":58,"mag":13,"spr":23},{"hp":442,"mp":20,"atk":18,"def":41,"mag":9,"spr":16}],
+		"fragmentId": "250007200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6318,"mp":281,"atk":260,"def":290,"mag":133,"spr":231},
+			"minStats":{"hp":2085,"mp":93,"atk":86,"def":96,"mag":44,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","staff","axe","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["プロテガ","かばう・物理I","ツインブレイク"],
+		"skills": [
+			{"hp%":200, "mp%":100, "def":500, "def%":200, "spr%":100, "evade":{"physical":30}, "oneWeaponMastery":{"def":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"fire","percent":80},{"name":"ice","percent":80},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"poison","percent":50},{"name":"blind","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100}], "mpRefresh":8, "drawAttacks":70},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["lightShield"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["heavyShield"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
+			{"oneWeaponMastery":{"def":100}, "lbDamage":100, "equipedConditions":[["504243382","409064300"]]}
+		]
+	},
+	"339000617": {
+		"name":"King of Leonis Mont BS",
+		"jpname":"リオニス王モント BS",
+		"roles":["physicalTank"],
+		"id":"339000617",
+		"braveShifted":"339000607",
+		"exAwakening": [{"hp":821,"mp":36,"atk":34,"def":75,"mag":17,"spr":30},{"hp":632,"mp":28,"atk":26,"def":58,"mag":13,"spr":23},{"hp":442,"mp":20,"atk":18,"def":41,"mag":9,"spr":16}],
+		"fragmentId": "250007200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6318,"mp":281,"atk":260,"def":290,"mag":133,"spr":231},
+			"minStats":{"hp":2085,"mp":93,"atk":86,"def":96,"mag":44,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","staff","axe","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"skills": [
+			{"hp%":200, "mp%":100, "def":500, "def%":200, "spr%":100, "evade":{"physical":30}, "oneWeaponMastery":{"def":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"fire","percent":80},{"name":"ice","percent":80},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"poison","percent":50},{"name":"blind","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100}], "mpRefresh":8, "drawAttacks":70},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["lightShield"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["heavyShield"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
+			{"oneWeaponMastery":{"def":100}, "lbDamage":100, "equipedConditions":[["504243382","409064300"]]}
+		]
 	},
 	"340000107": {
 		"name":"Sora (KHIII)",
