@@ -13902,7 +13902,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor"],
-		"enhancementSkills":["Water Ball","Mercury Crest","Zealous Fighter"],
+		"enhancementSkills":["Water Ball","Jupiter Crest","Zealous Fighter"],
 		"6_form": {
 			"name":"Wakka",
 			"roles":["physicalAttacker"],
@@ -13919,7 +13919,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor"],
-			"enhancementSkills":["Water Ball","Mercury Crest","Zealous Fighter"]
+			"enhancementSkills":["Water Ball","Jupiter Crest","Zealous Fighter"]
 		}
 	},
 	"210000405": {
@@ -14195,23 +14195,27 @@
 		"roles":["physicalAttacker"],
 		"wikiEntry":"Star_Player Tidus",
 		"id":"210001805",
-		"max_rarity":"7",
+		"braveShift":"210001827",
+		"exAwakening": [{"hp":709,"mp":38,"atk":39,"def":28,"mag":27,"spr":27},{"hp":546,"mp":29,"atk":30,"def":21,"mag":20,"spr":21},{"hp":382,"mp":20,"atk":21,"def":15,"mag":14,"spr":14}],
+		"fragmentId": "250003400",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4980,"mp":247,"atk":207,"def":194,"mag":196,"spr":195},
-			"minStats":{"hp":1643,"mp":82,"atk":68,"def":64,"mag":65,"spr":64},
+			"maxStats":{"hp":5461,"mp":298,"atk":300,"def":216,"mag":208,"spr":212},
+			"minStats":{"hp":1802,"mp":98,"atk":99,"def":71,"mag":69,"spr":70},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Quick Hit+","Quick Flash","Dream to End Dreams"],
 		"6_form": {
 			"name":"Tidus, star du blitzball",
 			"roles":["physicalAttacker"],
 			"wikiEntry":"Star_Player Tidus",
 			"id":"210001805",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -14220,8 +14224,46 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Quick Hit+","Quick Flash","Dream to End Dreams"]
+		},
+		"7_form": {
+			"name":"Tidus, star du blitzball",
+			"roles":["physicalAttacker"],
+			"wikiEntry":"Star_Player Tidus",
+			"id":"210001805",
+			"sevenStarForm":true,
+			"max_rarity":"NV",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4980,"mp":247,"atk":207,"def":194,"mag":196,"spr":195},
+				"minStats":{"hp":1643,"mp":82,"atk":68,"def":64,"mag":65,"spr":64},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Quick Hit+","Quick Flash","Dream to End Dreams"]
 		}
+	},
+	"210001827": {
+		"name":"Tidus, star du blitzball BS",
+		"roles":["physicalAttacker","support","debuffer"],
+		"wikiEntry":"Star_Player Tidus",
+		"id":"210001827",
+		"braveShifted":"210001805",
+		"exAwakening": [{"hp":709,"mp":38,"atk":39,"def":28,"mag":27,"spr":27},{"hp":546,"mp":29,"atk":30,"def":21,"mag":20,"spr":21},{"hp":382,"mp":20,"atk":21,"def":15,"mag":14,"spr":14}],
+		"fragmentId": "250003400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5461,"mp":298,"atk":300,"def":216,"mag":208,"spr":212},
+			"minStats":{"hp":1802,"mp":98,"atk":99,"def":71,"mag":69,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"210001904": {
 		"name":"Belgemine",
@@ -14240,9 +14282,9 @@
 		"equip":["dagger","staff","rod","harp","whip","throwing","mace","hat","clothes","robe"]
 	},
 	"210002107": {
-		"name":"Braska's Daughter Yuna",
+		"name":"Yuna Invokeur",
 		"roles":["support"],
-		"wikiEntry":"大召喚士の娘ユウナ",
+		"wikiEntry":"Summoner_Yuna",
 		"id":"210002107",
 		"braveShift":"210002117",
 		"exAwakening": [{"hp":555,"mp":40,"atk":20,"def":23,"mag":27,"spr":67},{"hp":427,"mp":31,"atk":16,"def":18,"mag":21,"spr":52},{"hp":299,"mp":21,"atk":11,"def":12,"mag":14,"spr":36}],
@@ -14259,9 +14301,9 @@
 		"equip":["staff","hat","clothes","robe","visionCard"]
 	},
 	"210002117": {
-		"name":"Yuna & Valefor BS",
+		"name":"Yuna et Valefore BS",
 		"roles":["magicalAttacker"],
-		"wikiEntry":"ユウナ&ヴァルファーレ",
+		"wikiEntry":"Yuna_& Valefor",
 		"id":"210002117",
 		"braveShifted":"210002107",
 		"exAwakening": [{"hp":555,"mp":40,"atk":20,"def":23,"mag":27,"spr":67},{"hp":427,"mp":31,"atk":16,"def":18,"mag":21,"spr":52},{"hp":299,"mp":21,"atk":11,"def":12,"mag":14,"spr":36}],
@@ -14276,12 +14318,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["よだれでベタベタのなにか","シューティング・レイ"]
+		"enhancementSkills":["Something Mangled and Slobbery","Energy Ray (Summoner Yuna)"]
 	},
 	"210002207": {
-		"name":"Al Bhed Girl Rikku",
+		"name":"Rikku, jeune Al Bhede",
 		"roles":["physicalAttacker","support"],
-		"wikiEntry":"アルベド族の少女リュック",
+		"wikiEntry":"Al_Bhed Girl Rikku",
 		"id":"210002207",
 		"braveShift":"210002217",
 		"exAwakening": [{"hp":647,"mp":32,"atk":70,"def":25,"mag":25,"spr":25},{"hp":498,"mp":24,"atk":54,"def":19,"mag":19,"spr":19},{"hp":348,"mp":17,"atk":37,"def":13,"mag":13,"spr":13}],
@@ -14296,12 +14338,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["トールボーイ"]
+		"enhancementSkills":["Tallboy"]
 	},
 	"210002217": {
-		"name":"Al Bhed Girl Rikku BS",
+		"name":"Rikku, jeune Al Bhede BS",
 		"roles":["physicalAttacker","support"],
-		"wikiEntry":"アルベド族の少女リュック",
+		"wikiEntry":"Al_Bhed Girl Rikku",
 		"id":"210002217",
 		"braveShifted":"210002207",
 		"exAwakening": [{"hp":647,"mp":32,"atk":70,"def":25,"mag":25,"spr":25},{"hp":498,"mp":24,"atk":54,"def":19,"mag":19,"spr":19},{"hp":348,"mp":17,"atk":37,"def":13,"mag":13,"spr":13}],
@@ -18725,8 +18767,6 @@
 		"roles":["magicalAttacker","healer"],
 		"wikiEntry":"Slime",
 		"id":"306000603",
-		"exAwakening": [{"hp":600,"mp":29,"atk":26,"def":26,"mag":26,"spr":26},{"hp":462,"mp":23,"atk":20,"def":20,"mag":20,"spr":20},{"hp":323,"mp":16,"atk":14,"def":14,"mag":14,"spr":14}],
-		"fragmentId": "250003000",
 		"max_rarity":"NV",
 		"min_rarity":"3",
 		"sex":"other",
@@ -18736,8 +18776,8 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes","visionCard"],
-		"enhancementSkills":["Sizzle","Zing","息をすいこむ","いきなり息をすいこむ"],
+		"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes"],
+		"enhancementSkills":["Sizzle","Zing"],
 		"6_form": {
 			"name":"Gluant",
 			"roles":["magicalAttacker","healer"],
@@ -18754,7 +18794,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes"],
-			"enhancementSkills":["Sizzle","Zing","息をすいこむ","いきなり息をすいこむ"]
+			"enhancementSkills":["Sizzle","Zing"]
 		},
 		"7_form": {
 			"name":"Gluant",
@@ -18772,7 +18812,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes"],
-			"enhancementSkills":["Sizzle","Zing","息をすいこむ","いきなり息をすいこむ"]
+			"enhancementSkills":["Sizzle","Zing"]
 		}
 	},
 	"306000627": {
@@ -25021,7 +25061,6 @@
   "208002307":{"name":"Kiros & Ward","jpname":"キロス&ウォード","roles":["physicalAttacker"],"id":"208002307","braveShift":"208002317","exAwakening":[{"hp":637,"mp":32,"atk":78,"def":26,"mag":20,"spr":26},{"hp":490,"mp":25,"atk":60,"def":20,"mag":15,"spr":20},{"hp":343,"mp":17,"atk":42,"def":14,"mag":11,"spr":14}],"fragmentId":"250007100","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4900,"mp":248,"atk":300,"def":200,"mag":150,"spr":200},"minStats":{"hp":1617,"mp":82,"atk":99,"def":66,"mag":50,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["スプラッシュアンカー","ブラッドストーム"]},
   "208002317":{"name":"Kiros & Ward BS","jpname":"キロス&ウォード BS","roles":["physicalAttacker"],"id":"208002317","braveShifted":"208002307","exAwakening":[{"hp":637,"mp":32,"atk":78,"def":26,"mag":20,"spr":26},{"hp":490,"mp":25,"atk":60,"def":20,"mag":15,"spr":20},{"hp":343,"mp":17,"atk":42,"def":14,"mag":11,"spr":14}],"fragmentId":"250007100","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4900,"mp":248,"atk":300,"def":200,"mag":150,"spr":200},"minStats":{"hp":1617,"mp":82,"atk":99,"def":66,"mag":50,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
   "210001027":{"name":"ジェクト BS","jpname":"ジェクト BS","roles":["physicalAttacker"],"id":"210001027","braveShifted":"210001005","exAwakening":[{"hp":624,"mp":27,"atk":35,"def":23,"mag":19,"spr":23},{"hp":480,"mp":21,"atk":27,"def":18,"mag":15,"spr":18},{"hp":336,"mp":14,"atk":19,"def":12,"mag":10,"spr":13}],"fragmentId":"250003700","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4796,"mp":208,"atk":266,"def":178,"mag":145,"spr":180},"minStats":{"hp":1583,"mp":69,"atk":88,"def":59,"mag":48,"spr":59},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
-  "210001827":{"name":"ザナルカンドのティーダ BS","jpname":"ザナルカンドのティーダ BS","roles":["physicalAttacker","support","debuffer"],"id":"210001827","braveShifted":"210001805","exAwakening":[{"hp":709,"mp":38,"atk":39,"def":28,"mag":27,"spr":27},{"hp":546,"mp":29,"atk":30,"def":21,"mag":20,"spr":21},{"hp":382,"mp":20,"atk":21,"def":15,"mag":14,"spr":14}],"fragmentId":"250003400","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5461,"mp":298,"atk":300,"def":216,"mag":208,"spr":212},"minStats":{"hp":1802,"mp":98,"atk":99,"def":71,"mag":69,"spr":70},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
   "301000103":{"name":"Samantha","jpname":"サマサ","roles":["physicalAttacker"],"id":"301000103","max_rarity":"4","min_rarity":"3","sex":"female","stats":{"maxStats":{"hp":1798,"mp":89,"atk":75,"def":61,"mag":86,"spr":78},"minStats":{"hp":593,"mp":29,"atk":25,"def":20,"mag":28,"spr":26},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["spear","hat","clothes","lightArmor","robe"]},
   "303000103":{"name":"Adel","jpname":"アデル","roles":["physicalAttacker"],"id":"303000103","max_rarity":"4","min_rarity":"3","sex":"male","stats":{"maxStats":{"hp":1856,"mp":84,"atk":79,"def":70,"mag":76,"spr":70},"minStats":{"hp":612,"mp":28,"atk":26,"def":23,"mag":25,"spr":23},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"]},
   "303000204":{"name":"Demigod Adel","jpname":"半神アデル","roles":["physicalAttacker"],"id":"303000204","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3582,"mp":154,"atk":132,"def":140,"mag":125,"spr":131},"minStats":{"hp":1182,"mp":51,"atk":44,"def":46,"mag":41,"spr":43},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","helm","lightArmor","heavyArmor"],"enhancementSkills":["ライトボール","閃き","皇帝"]},
