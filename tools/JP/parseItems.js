@@ -110,6 +110,7 @@ const unitRules = {
     4008: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10007], // FF7 units
     7102: (item) => item.exclusiveSex = 'male',// Male units
     7103: (item) => item.exclusiveSex = 'female',// Female units,
+    7201: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10001], // FF1
     7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
     7203: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10003], // FF3
     7204: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10004], // FF4
@@ -130,6 +131,7 @@ const unitRules = {
     7272: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20033], // KH units
     7273: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10013] || []).concat(nvUnitIdsByGameId[11006] || []).concat(nvUnitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units
     7274: (item) => item.exclusiveUnits = ["312000205", "312001007", "312001017"],
+    7275: (item) => item.exclusiveRoles = ['physicalTank'],          // Physical tank role
 }
 
 var unitNamesById = {};

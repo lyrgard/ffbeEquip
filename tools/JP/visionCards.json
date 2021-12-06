@@ -555,6 +555,30 @@
 {"id":"100005501", "name":"最強の戦士の誕生", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005501.png", "sortId":94, "levels":[
 	{"atk":130, "atk%":80, "staticStats":{"atk":500}, "lbDamage":100}
 ]},
+{"id":"201000101", "name":"そして……探求の旅は始まった", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000101.png", "sortId":100, "levels":[
+	{"hp":500, "def":50},
+	{"hp":550, "def":55},
+	{"hp":600, "def":60},
+	{"hp":650, "def":65},
+	{"hp":700, "def":70},
+	{"hp":750, "def":75},
+	{"hp":800, "def":80, "staticStats":{"hp":500,"def":300}},
+	{"hp":850, "def":85, "staticStats":{"hp":500,"def":300}},
+	{"hp":900, "def":90, "staticStats":{"hp":500,"def":300}},
+	{"hp":1000, "def":100, "staticStats":{"hp":500,"def":300}, "killers":[{"name":"demon","physical":100,"magical":100}]}
+]},
+{"id":"201000201", "name":"VSマリリス", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000201.png", "sortId":101, "levels":[
+	{"mag":50},
+	{"mag":55},
+	{"mag":60},
+	{"mag":65, "mag%":50},
+	{"mag":70, "mag%":50},
+	{"mag":75, "mag%":50},
+	{"mag":80, "mag%":50, "lbDamage":25},
+	{"mag":85, "mag%":50, "lbDamage":25},
+	{"mag":90, "mag%":50, "lbDamage":25},
+	{"mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500}}]}
+]},
 {"id":"202000101", "name":"Battle with the Black Knights", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000101.png", "sortId":15, "levels":[
 	{"atk":50},
 	{"atk":54},
@@ -756,13 +780,13 @@
 	{"atk":96, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
 	{"atk":110, "conditional":[{"equipedConditions":["dagger"],"atk%":80},{"lbDamage":50}]}
 ]},
-{"id":"210000101", "name":"異界送り", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000101.png", "sortId":73, "levels":[
+{"id":"210000101", "name":"The Sending", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000101.png", "sortId":73, "levels":[
 	{"spr":125, "spr%":80, "staticStats":{"spr":500}, "killers":[{"name":"spirit","physical":100,"magical":100}]}
 ]},
-{"id":"210000201", "name":"これはおまえの物語だ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000201.png", "sortId":74, "levels":[
+{"id":"210000201", "name":"This Is Your Story", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000201.png", "sortId":74, "levels":[
 	{"atk":125, "atk%":80, "staticStats":{"atk":500}, "killers":[{"name":"spirit","physical":100,"magical":100}]}
 ]},
-{"id":"210000301", "name":"雷平原", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000301.png", "sortId":75, "levels":[
+{"id":"210000301", "name":"Thunder Plains", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000301.png", "sortId":75, "levels":[
 	{"def":40, "spr":40},
 	{"def":44, "spr":44},
 	{"def":48, "spr":48},
@@ -989,6 +1013,18 @@
 	{"atk":85, "def":85, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
 	{"atk":90, "def":90, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
 	{"atk":100, "def":100, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300},"exclusiveUnits":["312000205","312001007","312001017"]}]}
+]},
+{"id":"343000101", "name":"神様の降臨", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_343000101.png", "sortId":99, "levels":[
+	{"atk":40, "mag":40},
+	{"atk":44, "mag":44},
+	{"atk":48, "mag":48},
+	{"atk":52, "mag":52, "singleWielding":{"atk":50,"accuracy":25,"mag":50}},
+	{"atk":56, "mag":56, "singleWielding":{"atk":50,"accuracy":25,"mag":50}},
+	{"atk":60, "mag":60, "singleWielding":{"atk":50,"accuracy":25,"mag":50}},
+	{"atk":64, "mag":64, "singleWielding":{"atk":100,"accuracy":50,"mag":100}},
+	{"atk":68, "mag":68, "singleWielding":{"atk":100,"accuracy":50,"mag":100}},
+	{"atk":72, "mag":72, "singleWielding":{"atk":100,"accuracy":50,"mag":100}},
+	{"atk":80, "mag":80, "singleWielding":{"atk":100,"accuracy":50,"mag":100}, "conditional":[{"staticStats":{"atk":400,"mag":400},"exclusiveRoles":["physicalTank"]}]}
 ]},
 {"id":"401000101", "name":"Virtual Training", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000101.png", "sortId":48, "levels":[
 	{"spr":50},
