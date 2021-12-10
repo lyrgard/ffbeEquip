@@ -459,7 +459,7 @@
 	{"atk":45, "def":45, "mag":45, "spr":45, "mpRefresh":10},
 	{"atk":50, "def":50, "mag":50, "spr":50, "mpRefresh":18}
 ]},
-{"id":"100004301", "name":"最高のバカンス", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004301.png", "sortId":77, "levels":[
+{"id":"100004301", "name":"Vacation, All I Ever Wanted", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004301.png", "sortId":77, "levels":[
 	{"mag":30, "spr":30},
 	{"mag":33, "spr":33},
 	{"mag":36, "spr":36},
@@ -554,6 +554,30 @@
 ]},
 {"id":"100005501", "name":"最強の戦士の誕生", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005501.png", "sortId":94, "levels":[
 	{"atk":130, "atk%":80, "staticStats":{"atk":500}, "lbDamage":100}
+]},
+{"id":"100005601", "name":"傷心のライバル", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005601.png", "sortId":102, "levels":[
+	{"atk":35, "mag":35},
+	{"atk":38, "mag":38},
+	{"atk":42, "mag":42},
+	{"atk":45, "atk%":25, "mag":45, "mag%":25},
+	{"atk":49, "atk%":25, "mag":49, "mag%":25},
+	{"atk":52, "atk%":25, "mag":52, "mag%":25},
+	{"atk":56, "atk%":25, "mag":56, "mag%":25, "killers":[{"name":"bug","physical":100,"magical":100}]},
+	{"atk":59, "atk%":25, "mag":59, "mag%":25, "killers":[{"name":"bug","physical":100,"magical":100}]},
+	{"atk":63, "atk%":25, "mag":63, "mag%":25, "killers":[{"name":"bug","physical":100,"magical":100}]},
+	{"atk":70, "atk%":25, "mag":70, "mag%":25, "killers":[{"name":"bug","physical":100,"magical":100}], "lbDamage":100}
+]},
+{"id":"100005701", "name":"イシェ隊の名にかけて", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005701.png", "sortId":103, "levels":[
+	{"atk":40, "def":20, "mag":40, "spr":20},
+	{"atk":44, "def":22, "mag":44, "spr":22},
+	{"atk":48, "def":24, "mag":48, "spr":24},
+	{"atk":52, "atk%":30, "def":26, "def%":30, "mag":52, "mag%":30, "spr":26, "spr%":30},
+	{"atk":56, "atk%":30, "def":28, "def%":30, "mag":56, "mag%":30, "spr":28, "spr%":30},
+	{"atk":60, "atk%":30, "def":30, "def%":30, "mag":60, "mag%":30, "spr":30, "spr%":30},
+	{"atk":64, "atk%":30, "def":32, "def%":30, "mag":64, "mag%":30, "spr":32, "spr%":30, "lbDamage":25},
+	{"atk":68, "atk%":30, "def":34, "def%":30, "mag":68, "mag%":30, "spr":34, "spr%":30, "lbDamage":25},
+	{"atk":72, "atk%":30, "def":36, "def%":30, "mag":72, "mag%":30, "spr":36, "spr%":30, "lbDamage":25},
+	{"atk":80, "atk%":30, "def":40, "def%":30, "mag":80, "mag%":30, "spr":40, "spr%":30, "singleWielding":{"atk":100,"accuracy":25,"mag":100}, "lbDamage":25}
 ]},
 {"id":"201000101", "name":"そして……探求の旅は始まった", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000101.png", "sortId":100, "levels":[
 	{"hp":500, "def":50},

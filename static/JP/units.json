@@ -3165,7 +3165,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","whip","mace","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["サンダジャ","永遠の魔女","ロッドの極意","ブリザジャ","フリーズ","ゾブリザ","トルネド","千の魔法を識る女","気まぐれな魔女","アルテマ","アイスインベイジョン"],
+		"enhancementSkills":["ブリザガ","サンダジャ","永遠の魔女","ロッドの極意","ブリザジャ","フリーズ","ゾブリザ","トルネド","千の魔法を識る女","気まぐれな魔女","アルテマ","アイスインベイジョン"],
 		"6_form": {
 			"name":"Mediena",
 			"jpname":"メディエナ",
@@ -3182,7 +3182,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","whip","mace","hat","clothes","robe"],
-			"enhancementSkills":["サンダジャ","永遠の魔女","ロッドの極意","ブリザジャ","フリーズ","ゾブリザ","トルネド","千の魔法を識る女","気まぐれな魔女","アルテマ","アイスインベイジョン"]
+			"enhancementSkills":["ブリザガ","サンダジャ","永遠の魔女","ロッドの極意","ブリザジャ","フリーズ","ゾブリザ","トルネド","千の魔法を識る女","気まぐれな魔女","アルテマ","アイスインベイジョン"]
 		},
 		"7_form": {
 			"name":"Mediena",
@@ -3200,7 +3200,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","staff","rod","whip","mace","hat","clothes","robe"],
-			"enhancementSkills":["サンダジャ","永遠の魔女","ロッドの極意","ブリザジャ","フリーズ","ゾブリザ","トルネド","千の魔法を識る女","気まぐれな魔女","アルテマ","アイスインベイジョン"]
+			"enhancementSkills":["ブリザガ","サンダジャ","永遠の魔女","ロッドの極意","ブリザジャ","フリーズ","ゾブリザ","トルネド","千の魔法を識る女","気まぐれな魔女","アルテマ","アイスインベイジョン"]
 		}
 	},
 	"100014027": {
@@ -4554,17 +4554,20 @@
 		"jpname":"シド",
 		"roles":["physicalAttacker"],
 		"id":"100019505",
-		"max_rarity":"7",
+		"braveShift":"100019527",
+		"exAwakening": [{"hp":649,"mp":33,"atk":34,"def":23,"mag":21,"spr":28},{"hp":499,"mp":25,"atk":26,"def":18,"mag":16,"spr":22},{"hp":349,"mp":18,"atk":18,"def":12,"mag":11,"spr":15}],
+		"fragmentId": "250008200",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4802,"mp":204,"atk":203,"def":165,"mag":154,"spr":195},
-			"minStats":{"hp":1585,"mp":67,"atk":67,"def":54,"mag":51,"spr":64},
+			"maxStats":{"hp":4990,"mp":250,"atk":264,"def":178,"mag":162,"spr":216},
+			"minStats":{"hp":1647,"mp":83,"atk":87,"def":59,"mag":53,"spr":71},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["娘たちへの愛","スパインダイブ零式・改","マスタージャンパー","初代シド"],
+		"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["エアロガ","娘たちへの愛","スパインダイブ零式・改","マスタージャンパー","エアロジャ","初代シド","蒼穹からの一撃","エアロラ","トルネードブラスト","ジャンプ"],
 		"6_form": {
 			"name":"Cid",
 			"jpname":"シド",
@@ -4581,8 +4584,46 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["娘たちへの愛","スパインダイブ零式・改","マスタージャンパー","初代シド"]
+			"enhancementSkills":["エアロガ","娘たちへの愛","スパインダイブ零式・改","マスタージャンパー","エアロジャ","初代シド","蒼穹からの一撃","エアロラ","トルネードブラスト","ジャンプ"]
+		},
+		"7_form": {
+			"name":"Cid",
+			"jpname":"シド",
+			"roles":["physicalAttacker"],
+			"id":"100019505",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4802,"mp":204,"atk":203,"def":165,"mag":154,"spr":195},
+				"minStats":{"hp":1585,"mp":67,"atk":67,"def":54,"mag":51,"spr":64},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["エアロガ","娘たちへの愛","スパインダイブ零式・改","マスタージャンパー","エアロジャ","初代シド","蒼穹からの一撃","エアロラ","トルネードブラスト","ジャンプ"]
 		}
+	},
+	"100019527": {
+		"name":"シド BS",
+		"jpname":"シド BS",
+		"roles":["physicalAttacker"],
+		"id":"100019527",
+		"braveShifted":"100019505",
+		"exAwakening": [{"hp":649,"mp":33,"atk":34,"def":23,"mag":21,"spr":28},{"hp":499,"mp":25,"atk":26,"def":18,"mag":16,"spr":22},{"hp":349,"mp":18,"atk":18,"def":12,"mag":11,"spr":15}],
+		"fragmentId": "250008200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5200,"mp":250,"atk":270,"def":260,"mag":200,"spr":230},
+			"minStats":{"hp":1716,"mp":83,"atk":89,"def":86,"mag":66,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["スパインダイブ終式","エアロガ","エアロジャ","エアロラ","トルネードブラスト","ジャンプ"]
 	},
 	"100019604": {
 		"name":"Melete",
@@ -8454,7 +8495,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["明鏡・蒼穹","絶魔剣"]
+		"enhancementSkills":["明鏡・蒼穹","絶魔剣","落雪の構え"]
 	},
 	"100032707": {
 		"name":"Rain & Fina",
@@ -8694,7 +8735,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["ブルームジャンプ"]
+		"enhancementSkills":["ジャンプ","ブルームジャンプ"]
 	},
 	"100033305": {
 		"name":"Trot",
@@ -9922,6 +9963,123 @@
 		"stats_pattern":4,
 		"equip":["greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["光刃繚乱","スプレマシーインパクト","シャイニングブレイクダウン"]
+	},
+	"100038807": {
+		"name":"Ishe",
+		"jpname":"イシェ",
+		"roles":["debuffer"],
+		"id":"100038807",
+		"braveShift":"100038817",
+		"exAwakening": [{"hp":664,"mp":26,"atk":70,"def":20,"mag":35,"spr":23},{"hp":511,"mp":20,"atk":54,"def":16,"mag":27,"spr":18},{"hp":357,"mp":14,"atk":38,"def":11,"mag":19,"spr":12}],
+		"fragmentId": "250007900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5107,"mp":203,"atk":270,"def":155,"mag":270,"spr":178},
+			"minStats":{"hp":1685,"mp":67,"atk":89,"def":51,"mag":89,"spr":59},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["katana","rod","spear","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ブリザラ","ブリザガ","ブリザジャ","ダーラ","ヴィンタアンファル","ぜんぎり"]
+	},
+	"100038817": {
+		"name":"Ishe BS",
+		"jpname":"イシェ BS",
+		"roles":["debuffer"],
+		"id":"100038817",
+		"braveShifted":"100038807",
+		"exAwakening": [{"hp":664,"mp":26,"atk":70,"def":20,"mag":35,"spr":23},{"hp":511,"mp":20,"atk":54,"def":16,"mag":27,"spr":18},{"hp":357,"mp":14,"atk":38,"def":11,"mag":19,"spr":12}],
+		"fragmentId": "250007900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5107,"mp":203,"atk":270,"def":155,"mag":270,"spr":178},
+			"minStats":{"hp":1685,"mp":67,"atk":89,"def":51,"mag":89,"spr":59},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["katana","rod","spear","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"100038907": {
+		"name":"Carl",
+		"jpname":"カル",
+		"roles":["magicalAttacker","physicalAttacker"],
+		"id":"100038907",
+		"braveShift":"100038917",
+		"exAwakening": [{"hp":690,"mp":37,"atk":70,"def":23,"mag":78,"spr":25},{"hp":531,"mp":29,"atk":54,"def":17,"mag":60,"spr":19},{"hp":371,"mp":20,"atk":37,"def":12,"mag":42,"spr":13}],
+		"fragmentId": "250008000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5311,"mp":290,"atk":270,"def":178,"mag":300,"spr":198},
+			"minStats":{"hp":1753,"mp":96,"atk":89,"def":59,"mag":99,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["katana","rod","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["刀の極意","ブリザラ","ブリザガ","ブリザジャ","アンチマスキーネ","ヴィンタストルム"]
+	},
+	"100038917": {
+		"name":"Carl BS",
+		"jpname":"カル BS",
+		"roles":["magicalAttacker","physicalAttacker"],
+		"id":"100038917",
+		"braveShifted":"100038907",
+		"exAwakening": [{"hp":690,"mp":37,"atk":70,"def":23,"mag":78,"spr":25},{"hp":531,"mp":29,"atk":54,"def":17,"mag":60,"spr":19},{"hp":371,"mp":20,"atk":37,"def":12,"mag":42,"spr":13}],
+		"fragmentId": "250008000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5311,"mp":290,"atk":270,"def":178,"mag":300,"spr":198},
+			"minStats":{"hp":1753,"mp":96,"atk":89,"def":59,"mag":99,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["katana","rod","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"100039007": {
+		"name":"Elmateil",
+		"jpname":"エルマティル",
+		"roles":["support","healer"],
+		"id":"100039007",
+		"braveShift":"100039017",
+		"exAwakening": [{"hp":690,"mp":37,"atk":44,"def":23,"mag":62,"spr":29},{"hp":531,"mp":29,"atk":34,"def":17,"mag":48,"spr":23},{"hp":371,"mp":20,"atk":24,"def":12,"mag":33,"spr":16}],
+		"fragmentId": "250008100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5311,"mp":290,"atk":172,"def":178,"mag":240,"spr":230},
+			"minStats":{"hp":1753,"mp":96,"atk":57,"def":59,"mag":79,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["katana","staff","rod","spear","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["オーラ","ブリザラ","ブリザガ","スピリットキュアー"]
+	},
+	"100039017": {
+		"name":"Elmateil BS",
+		"jpname":"エルマティル BS",
+		"roles":["support","healer"],
+		"id":"100039017",
+		"braveShifted":"100039007",
+		"exAwakening": [{"hp":690,"mp":37,"atk":44,"def":23,"mag":62,"spr":29},{"hp":531,"mp":29,"atk":34,"def":17,"mag":48,"spr":23},{"hp":371,"mp":20,"atk":24,"def":12,"mag":33,"spr":16}],
+		"fragmentId": "250008100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5311,"mp":290,"atk":172,"def":178,"mag":240,"spr":230},
+			"minStats":{"hp":1753,"mp":96,"atk":57,"def":59,"mag":79,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["katana","staff","rod","spear","hat","clothes","robe","visionCard"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -11809,7 +11967,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["インパルスドライブ","サンダージャンプ"]
+		"enhancementSkills":["インパルスドライブ","サンダージャンプ","ジャンプ"]
 	},
 	"204002917": {
 		"name":"Holy Dragoon Kain BS",
@@ -11829,7 +11987,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["インパルスドライブ","ホーリージャンプ"]
+		"enhancementSkills":["インパルスドライブ","ホーリージャンプ","ジャンプ"]
 	},
 	"204003007": {
 		"name":"Summoner Rydia",
@@ -14557,7 +14715,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
-		"enhancementSkills":["アンジェロリカバー","ペット通信","アンジェロタックル","G.F.","MP+20%"],
+		"enhancementSkills":["オーラ","アンジェロリカバー","ペット通信","アンジェロタックル","G.F.","MP+20%"],
 		"6_form": {
 			"name":"Rinoa",
 			"jpname":"リノア",
@@ -14574,7 +14732,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
-			"enhancementSkills":["アンジェロリカバー","ペット通信","アンジェロタックル","G.F.","MP+20%"]
+			"enhancementSkills":["オーラ","アンジェロリカバー","ペット通信","アンジェロタックル","G.F.","MP+20%"]
 		}
 	},
 	"208000305": {
@@ -14909,7 +15067,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","throwing","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["エアロガ","トルネド","クエイク","メテオ【VIII】"]
+		"enhancementSkills":["エアロガ","トルネド","クエイク","オーラ","メテオ【VIII】"]
 	},
 	"208002117": {
 		"name":"Sorceress Rinoa BS",
@@ -16076,7 +16234,7 @@
 		}
 	},
 	"210001027": {
-		"name":"ジェクト BS",
+		"name":"Jecht BS",
 		"jpname":"ジェクト BS",
 		"roles":["physicalAttacker"],
 		"id":"210001027",
@@ -19869,7 +20027,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["氷晶閃刃","幽冥閃刃","ブリザガ"]
+		"enhancementSkills":["氷晶閃刃","幽冥閃刃","ブリザジャ","ブリザガ"]
 	},
 	"254002217": {
 		"name":"Ice Reaper Kurasame BS",
@@ -20191,7 +20349,7 @@
 	},
 	"302000204": {
 		"name":"Karl",
-		"jpname":"カル",
+		"jpname":"カル(ブレフロ)",
 		"roles":["physicalAttacker"],
 		"id":"302000204",
 		"max_rarity":"5",
