@@ -4244,17 +4244,20 @@
 		"jpname":"フォルカ",
 		"roles":["healer","support"],
 		"id":"100018305",
-		"max_rarity":"7",
+		"braveShift":"100018327",
+		"exAwakening": [{"hp":634,"mp":39,"atk":26,"def":27,"mag":29,"spr":34},{"hp":488,"mp":30,"atk":20,"def":21,"mag":22,"spr":26},{"hp":341,"mp":21,"atk":14,"def":15,"mag":16,"spr":18}],
+		"fragmentId": "250008500",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4384,"mp":289,"atk":104,"def":160,"mag":154,"spr":215},
-			"minStats":{"hp":1447,"mp":95,"atk":34,"def":53,"mag":51,"spr":71},
+			"maxStats":{"hp":4875,"mp":300,"atk":197,"def":211,"mag":222,"spr":260},
+			"minStats":{"hp":1609,"mp":99,"atk":65,"def":70,"mag":73,"spr":86},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","harp","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["初代水の巫女","正気の水","アンチディジーズ","流動の水","ブルーミラージュ"],
+		"equip":["dagger","staff","rod","harp","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["ウォタガ","ウォタラ","初代水の巫女","正気の水","ウォタジャ","アンチディジーズ","流動の水","ブルーミラージュ","フラッド"],
 		"6_form": {
 			"name":"Folka",
 			"jpname":"フォルカ",
@@ -4271,8 +4274,46 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["初代水の巫女","正気の水","アンチディジーズ","流動の水","ブルーミラージュ"]
+			"enhancementSkills":["ウォタガ","ウォタラ","初代水の巫女","正気の水","ウォタジャ","アンチディジーズ","流動の水","ブルーミラージュ","フラッド"]
+		},
+		"7_form": {
+			"name":"Folka",
+			"jpname":"フォルカ",
+			"roles":["healer","support"],
+			"id":"100018305",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4384,"mp":289,"atk":104,"def":160,"mag":154,"spr":215},
+				"minStats":{"hp":1447,"mp":95,"atk":34,"def":53,"mag":51,"spr":71},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","staff","rod","harp","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["ウォタガ","ウォタラ","初代水の巫女","正気の水","ウォタジャ","アンチディジーズ","流動の水","ブルーミラージュ","フラッド"]
 		}
+	},
+	"100018327": {
+		"name":"フォルカ BS",
+		"jpname":"フォルカ BS",
+		"roles":["magicalAttacker"],
+		"id":"100018327",
+		"braveShifted":"100018305",
+		"exAwakening": [{"hp":634,"mp":39,"atk":26,"def":27,"mag":29,"spr":34},{"hp":488,"mp":30,"atk":20,"def":21,"mag":22,"spr":26},{"hp":341,"mp":21,"atk":14,"def":15,"mag":16,"spr":18}],
+		"fragmentId": "250008500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5382,"mp":300,"atk":199,"def":233,"mag":275,"spr":234},
+			"minStats":{"hp":1776,"mp":99,"atk":66,"def":77,"mag":91,"spr":77},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","mace","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["ウォタガ","ウォタラ","フラッド","ウォタジャ","真・マインドブラスト"]
 	},
 	"100018403": {
 		"name":"Ichor",
@@ -9299,7 +9340,7 @@
 		"equip":["staff","rod","hat","clothes","robe","visionCard"]
 	},
 	"100035507": {
-		"name":"Shoreline Physalis",
+		"name":"Summer Sniper Physalis",
 		"jpname":"ファイサリス2021夏",
 		"roles":["magicalAttacker"],
 		"id":"100035507",
@@ -9319,7 +9360,7 @@
 		"enhancementSkills":["ウォタガ","ブリザガ","F型最強オーシャン弾","F型最強かき氷弾"]
 	},
 	"100035517": {
-		"name":"Shoreline Physalis BS",
+		"name":"Summer Sniper Physalis BS",
 		"jpname":"ファイサリス2021夏 BS",
 		"roles":["magicalAttacker"],
 		"id":"100035517",
@@ -9417,7 +9458,7 @@
 		"equip":["greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"100037107": {
-		"name":"Coastal Freesia",
+		"name":"Magic Mermaid Freesia",
 		"jpname":"フリージア2021夏",
 		"roles":["support"],
 		"id":"100037107",
@@ -9437,7 +9478,7 @@
 		"enhancementSkills":["ウォタガ","エアロガ","プロテガ","シェルガ","人魚姫の祈り"]
 	},
 	"100037117": {
-		"name":"Coastal Freesia BS",
+		"name":"Magic Mermaid Freesia BS",
 		"jpname":"フリージア2021夏 BS",
 		"roles":["support"],
 		"id":"100037117",
@@ -9456,7 +9497,7 @@
 		"equip":["staff","lightShield","hat","clothes","robe","visionCard"]
 	},
 	"100037207": {
-		"name":"Shoreline Shinju",
+		"name":"Beach Buoy Shinju",
 		"jpname":"シンジュ2021夏",
 		"roles":["magicalAttacker"],
 		"id":"100037207",
@@ -9476,7 +9517,7 @@
 		"enhancementSkills":["ウォタガ","ストンガ","ビーチウィップ","セクシーサマーウィップ"]
 	},
 	"100037217": {
-		"name":"Shoreline Shinju BS",
+		"name":"Beach Buoy Shinju BS",
 		"jpname":"シンジュ2021夏 BS",
 		"roles":["magicalAttacker"],
 		"id":"100037217",
@@ -10080,6 +10121,84 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","staff","rod","spear","hat","clothes","robe","visionCard"]
+	},
+	"100039107": {
+		"name":"Christmas Charlotte",
+		"jpname":"クリスマスシャルロット",
+		"roles":["magicalTank"],
+		"id":"100039107",
+		"braveShift":"100039117",
+		"exAwakening": [{"hp":795,"mp":35,"atk":29,"def":32,"mag":19,"spr":75},{"hp":612,"mp":27,"atk":22,"def":24,"mag":15,"spr":58},{"hp":428,"mp":19,"atk":15,"def":17,"mag":10,"spr":41}],
+		"fragmentId": "250008300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":6118,"mp":271,"atk":220,"def":243,"mag":147,"spr":290},
+			"minStats":{"hp":2019,"mp":89,"atk":73,"def":80,"mag":49,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","staff","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["シェルガ","バニシュガ","かばう・魔法I","オルネート・ゲイル"]
+	},
+	"100039117": {
+		"name":"Christmas Charlotte BS",
+		"jpname":"クリスマスシャルロット BS",
+		"roles":["magicalTank"],
+		"id":"100039117",
+		"braveShifted":"100039107",
+		"exAwakening": [{"hp":795,"mp":35,"atk":29,"def":32,"mag":19,"spr":75},{"hp":612,"mp":27,"atk":22,"def":24,"mag":15,"spr":58},{"hp":428,"mp":19,"atk":15,"def":17,"mag":10,"spr":41}],
+		"fragmentId": "250008300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":6118,"mp":271,"atk":220,"def":243,"mag":147,"spr":290},
+			"minStats":{"hp":2019,"mp":89,"atk":73,"def":80,"mag":49,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","staff","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]
+	},
+	"100039207": {
+		"name":"Christmas Domino",
+		"jpname":"クリスマスドミノ",
+		"roles":["physicalAttacker"],
+		"id":"100039207",
+		"braveShift":"100039217",
+		"exAwakening": [{"hp":647,"mp":30,"atk":74,"def":21,"mag":5,"spr":26},{"hp":498,"mp":23,"atk":57,"def":16,"mag":4,"spr":20},{"hp":348,"mp":16,"atk":40,"def":11,"mag":3,"spr":14}],
+		"fragmentId": "250008400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4977,"mp":230,"atk":284,"def":164,"mag":37,"spr":199},
+			"minStats":{"hp":1642,"mp":76,"atk":94,"def":54,"mag":12,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","gun","mace","fist","hat","clothes","visionCard"],
+		"enhancementSkills":["銃の極意","格闘の極意","ボリアススマッシュ","オーロラシュート","けり"]
+	},
+	"100039217": {
+		"name":"Christmas Domino BS",
+		"jpname":"クリスマスドミノ BS",
+		"roles":["physicalAttacker"],
+		"id":"100039217",
+		"braveShifted":"100039207",
+		"exAwakening": [{"hp":647,"mp":30,"atk":74,"def":21,"mag":5,"spr":26},{"hp":498,"mp":23,"atk":57,"def":16,"mag":4,"spr":20},{"hp":348,"mp":16,"atk":40,"def":11,"mag":3,"spr":14}],
+		"fragmentId": "250008400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4977,"mp":230,"atk":284,"def":164,"mag":37,"spr":199},
+			"minStats":{"hp":1642,"mp":76,"atk":94,"def":54,"mag":12,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","gun","mace","fist","hat","clothes","visionCard"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
