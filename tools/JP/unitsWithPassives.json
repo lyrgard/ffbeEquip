@@ -13878,6 +13878,118 @@
 			{"mag":500, "singleWielding":{"mag":100}, "killers":[{"name":"beast","magical":100},{"name":"bird","magical":100},{"name":"aquatic","magical":100},{"name":"demon","magical":100},{"name":"human","magical":100},{"name":"machine","magical":100},{"name":"dragon","magical":100},{"name":"spirit","magical":100},{"name":"bug","magical":100},{"name":"stone","magical":100},{"name":"plant","magical":100},{"name":"undead","magical":100}], "equipedConditions":[["504243330","308009900"]]}
 		]
 	},
+	"100038407": {
+		"name":"Lasswell -FFIV Form-",
+		"jpname":"ラスウェル -FFIVフォーム-",
+		"roles":["physicalAttacker"],
+		"id":"100038407",
+		"braveShift":"100038417",
+		"exAwakening": [{"hp":664,"mp":38,"atk":70,"def":30,"mag":70,"spr":21},{"hp":511,"mp":29,"atk":54,"def":23,"mag":54,"spr":16},{"hp":357,"mp":20,"atk":37,"def":16,"mag":37,"spr":11}],
+		"fragmentId": "250008900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5113,"mp":298,"atk":270,"def":235,"mag":217,"spr":167},
+			"minStats":{"hp":1687,"mp":98,"atk":89,"def":78,"mag":72,"spr":55},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["刀の極意","極星の覇刀・改","絶・明鏡"],
+		"enhancements": [
+			{"name":"刀の極意","levels":[[{"equipedConditions":["katana"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["katana"],"atk%":80,"def%":80,"mag%":80,"spr%":80}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}},{"equipedConditions":["katana"],"atk%":80,"def%":80,"mag%":80,"spr%":80}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":80, "atk":500, "atk%":190, "def%":60, "mag%":150, "spr%":80, "singleWielding":{"accuracy":25,"atk":200,"mag":200}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bug","physical":300,"magical":300},{"name":"demon","physical":150,"magical":150},{"name":"dragon","physical":150,"magical":150},{"name":"beast","physical":150,"magical":150}], "mpRefresh":11, "lbDamage":300},
+			{"atk":500, "equipedConditions":[["504243486","504243487"]]}
+		]
+	},
+	"100038417": {
+		"name":"Lasswell -FFIV Form- BS",
+		"jpname":"ラスウェル -FFIVフォーム- BS",
+		"roles":["magicalAttacker"],
+		"id":"100038417",
+		"braveShifted":"100038407",
+		"exAwakening": [{"hp":664,"mp":38,"atk":70,"def":30,"mag":70,"spr":21},{"hp":511,"mp":29,"atk":54,"def":23,"mag":54,"spr":16},{"hp":357,"mp":20,"atk":37,"def":16,"mag":37,"spr":11}],
+		"fragmentId": "250008900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5113,"mp":298,"atk":217,"def":192,"mag":270,"spr":222},
+			"minStats":{"hp":1687,"mp":98,"atk":72,"def":63,"mag":89,"spr":73},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["刀の極意","極星の覇刀・改","絶魔剣・改"],
+		"enhancements": [
+			{"name":"刀の極意","levels":[[{"equipedConditions":["katana"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["katana"],"atk%":80,"def%":80,"mag%":80,"spr%":80}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}},{"equipedConditions":["katana"],"atk%":80,"def%":80,"mag%":80,"spr%":80}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":80, "atk%":190, "def%":60, "mag":500, "mag%":150, "spr%":80, "singleWielding":{"accuracy":25,"atk":200,"mag":200}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bug","physical":300,"magical":300},{"name":"demon","physical":150,"magical":150},{"name":"dragon","physical":150,"magical":150},{"name":"beast","physical":150,"magical":150}], "mpRefresh":11, "lbDamage":300},
+			{"mag":500, "mag%":150, "equipedConditions":[["504243486","504243487"]]}
+		]
+	},
+	"100038507": {
+		"name":"Rain -FFI Form-",
+		"jpname":"レイン -FFIフォーム-",
+		"roles":["physicalAttacker"],
+		"id":"100038507",
+		"braveShift":"100038517",
+		"exAwakening": [{"hp":679,"mp":41,"atk":70,"def":31,"mag":21,"spr":33},{"hp":522,"mp":31,"atk":54,"def":24,"mag":16,"spr":26},{"hp":365,"mp":22,"atk":38,"def":17,"mag":11,"spr":18}],
+		"fragmentId": "250008800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5220,"mp":312,"atk":270,"def":240,"mag":162,"spr":255},
+			"minStats":{"hp":1723,"mp":103,"atk":89,"def":79,"mag":53,"spr":84},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["大剣の極意","ブレイズセイバー・改","ソイルセイバー・改","絶・明鏡"],
+		"enhancements": [
+			{"name":"大剣の極意","levels":[[{"equipedConditions":["greatSword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["greatSword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["greatSword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":60, "atk":500, "atk%":240, "def%":60, "spr%":60, "singleWielding":{"accuracy":50,"atk":300}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"demon","physical":150,"magical":150},{"name":"plant","physical":150,"magical":150},{"name":"machine","physical":150,"magical":150}], "mpRefresh":5, "lbDamage":150},
+			{"def%":30, "spr%":30, "equipedConditions":["lightArmor"]},
+			{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]},
+			{"atk":500, "equipedConditions":[["504243484","504243485"]]}
+		]
+	},
+	"100038517": {
+		"name":"Rain -FFI Form- BS",
+		"jpname":"レイン -FFIフォーム- BS",
+		"roles":["physicalAttacker"],
+		"id":"100038517",
+		"braveShifted":"100038507",
+		"exAwakening": [{"hp":679,"mp":41,"atk":70,"def":31,"mag":21,"spr":33},{"hp":522,"mp":31,"atk":54,"def":24,"mag":16,"spr":26},{"hp":365,"mp":22,"atk":38,"def":17,"mag":11,"spr":18}],
+		"fragmentId": "250008800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5220,"mp":312,"atk":300,"def":187,"mag":177,"spr":212},
+			"minStats":{"hp":1723,"mp":103,"atk":99,"def":62,"mag":58,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["大剣の極意","ブレイズセイバー・改","ソイルセイバー・改","絶・明鏡","マグマセイバー"],
+		"enhancements": [
+			{"name":"大剣の極意","levels":[[{"equipedConditions":["greatSword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["greatSword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["greatSword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":60, "atk":500, "atk%":240, "def%":60, "spr%":60, "singleWielding":{"accuracy":50,"atk":300}, "chainMastery":100, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"demon","physical":150,"magical":150},{"name":"plant","physical":150,"magical":150},{"name":"machine","physical":150,"magical":150}], "lbDamage":200},
+			{"def%":30, "spr%":30, "equipedConditions":["lightArmor"]},
+			{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]},
+			{"atk":500, "equipedConditions":[["504243484","504243485"]]}
+		]
+	},
 	"100038607": {
 		"name":"Knights of Grandshelt",
 		"jpname":"ナイツ オブ グランシェルト",
@@ -14191,6 +14303,105 @@
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["gun"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["fist"]},
 			{"atk":500, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["504243469","309008600"]]}
+		]
+	},
+	"100039307": {
+		"name":"Rain -Asura's Shrine Pilgrimage-",
+		"jpname":"レイン -武神参詣-",
+		"roles":["physicalAttacker"],
+		"id":"100039307",
+		"braveShift":"100039317",
+		"exAwakening": [{"hp":638,"mp":39,"atk":75,"def":26,"mag":22,"spr":29},{"hp":491,"mp":30,"atk":58,"def":20,"mag":17,"spr":23},{"hp":343,"mp":21,"atk":41,"def":14,"mag":12,"spr":16}],
+		"fragmentId": "250008600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4906,"mp":300,"atk":290,"def":198,"mag":167,"spr":228},
+			"minStats":{"hp":1619,"mp":99,"atk":96,"def":65,"mag":55,"spr":75},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["漆黒の太刀","ぜんぎり","絶・明鏡"],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk":500, "atk%":300, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"stone","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":250},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]},
+			{"atk":500, "oneWeaponMastery":{"atk":150}, "equipedConditions":[["403056200","405021100"]]}
+		]
+	},
+	"100039317": {
+		"name":"Rain -Asura's Shrine Pilgrimage- BS",
+		"jpname":"レイン -武神参詣- BS",
+		"roles":["physicalAttacker"],
+		"id":"100039317",
+		"braveShifted":"100039307",
+		"exAwakening": [{"hp":638,"mp":39,"atk":75,"def":26,"mag":22,"spr":29},{"hp":491,"mp":30,"atk":58,"def":20,"mag":17,"spr":23},{"hp":343,"mp":21,"atk":41,"def":14,"mag":12,"spr":16}],
+		"fragmentId": "250008600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4906,"mp":300,"atk":290,"def":198,"mag":167,"spr":228},
+			"minStats":{"hp":1619,"mp":99,"atk":96,"def":65,"mag":55,"spr":75},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk":500, "atk%":300, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"stone","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":250},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]},
+			{"atk":500, "oneWeaponMastery":{"atk":150}, "equipedConditions":[["403056200","405021100"]]}
+		]
+	},
+	"100039407": {
+		"name":"Dark Fina -Asura's Shrine Pilgrimage-",
+		"jpname":"魔人フィーナ -武神参詣-",
+		"roles":["support","magicalAttacker"],
+		"id":"100039407",
+		"braveShift":"100039417",
+		"exAwakening": [{"hp":621,"mp":42,"atk":23,"def":23,"mag":65,"spr":30},{"hp":477,"mp":32,"atk":17,"def":18,"mag":50,"spr":23},{"hp":334,"mp":22,"atk":12,"def":12,"mag":35,"spr":16}],
+		"fragmentId": "250008700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4772,"mp":320,"atk":172,"def":178,"mag":250,"spr":230},
+			"minStats":{"hp":1575,"mp":106,"atk":57,"def":59,"mag":83,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["ダーラ","ストンラ","ダーガ","ストンガ","アルテマ","両手持ちの奥義(魔)","蛇鞭九閃"],
+		"enhancements": [
+			{"name":"両手持ちの奥義(魔)","levels":[[{"singleWielding":{"mag":50}}],[{"singleWielding":{"mag":75}}],[{"singleWielding":{"mag":100}}]]}
+		],
+		"skills": [
+			{"mp%":100, "mag%":100, "spr%":100, "oneWeaponMastery":{"spr":100}, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"earth","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"beast","physical":150,"magical":150},{"name":"human","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":13},
+			{"mag":500, "mag%":200, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "equipedConditions":[["405021200","314004300"]]}
+		]
+	},
+	"100039417": {
+		"name":"Dark Fina -Asura's Shrine Pilgrimage- BS",
+		"jpname":"魔人フィーナ -武神参詣- BS",
+		"roles":["support","magicalAttacker"],
+		"id":"100039417",
+		"braveShifted":"100039407",
+		"exAwakening": [{"hp":621,"mp":42,"atk":23,"def":23,"mag":65,"spr":30},{"hp":477,"mp":32,"atk":17,"def":18,"mag":50,"spr":23},{"hp":334,"mp":22,"atk":12,"def":12,"mag":35,"spr":16}],
+		"fragmentId": "250008700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4772,"mp":320,"atk":172,"def":178,"mag":250,"spr":230},
+			"minStats":{"hp":1575,"mp":106,"atk":57,"def":59,"mag":83,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","mace","hat","clothes","robe","visionCard"],
+		"skills": [
+			{"mp%":100, "mag%":100, "spr%":100, "singleWielding":{"mag":50}, "oneWeaponMastery":{"spr":100}, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"earth","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"beast","physical":150,"magical":150},{"name":"human","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":13},
+			{"mag":500, "mag%":200, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "equipedConditions":[["405021200","314004300"]]}
 		]
 	},
 	"201000104": {
@@ -30146,7 +30357,7 @@
 		}
 	},
 	"306000127": {
-		"name":"竜王 BS",
+		"name":"The Dragonlord's True Form BS",
 		"jpname":"竜王 BS",
 		"roles":["magicalAttacker"],
 		"id":"306000127",
@@ -30330,7 +30541,7 @@
 		}
 	},
 	"306000627": {
-		"name":"スライム BS",
+		"name":"Slime BS",
 		"jpname":"スライム BS",
 		"roles":["magicalAttacker","healer"],
 		"id":"306000627",
@@ -30608,7 +30819,7 @@
 		]
 	},
 	"306001407": {
-		"name":"Alena & Marquis de Leon",
+		"name":"Alena & Marquis de Léon",
 		"jpname":"剛拳の姫と獅子王",
 		"roles":["physicalAttacker"],
 		"id":"306001407",
@@ -30633,7 +30844,7 @@
 		]
 	},
 	"306001417": {
-		"name":"Alena & Marquis de Leon BS",
+		"name":"Alena & Marquis de Léon BS",
 		"jpname":"剛拳の姫と獅子王 BS",
 		"roles":["physicalAttacker"],
 		"id":"306001417",
@@ -30657,7 +30868,7 @@
 		]
 	},
 	"306001507": {
-		"name":"Zoma",
+		"name":"King of Destruction Zoma",
 		"jpname":"滅びの王ゾーマ",
 		"roles":["magicalAttacker"],
 		"id":"306001507",
@@ -30681,7 +30892,7 @@
 		]
 	},
 	"306001517": {
-		"name":"Zoma BS",
+		"name":"Destroyer of All Zoma BS",
 		"jpname":"全てを滅ぼす者ゾーマ BS",
 		"roles":["magicalAttacker"],
 		"id":"306001517",

@@ -839,7 +839,6 @@ function addMasterySkills(item, masterySkills, result) {
             if (!Array.isArray(masterySkills[masteryIndex][3][2])) masterySkills[masteryIndex][3][2] = [masterySkills[masteryIndex][3][2]];
             masterySkills[masteryIndex][3][2].forEach(weaponTypeId => {
                 addOneWeaponMastery(copy, masterySkills[masteryIndex][3][0], masterySkills[masteryIndex][3][1], weaponTypeId);
-                console.log("!!!!!!!!!!", copy);
                 result.push(copy);
                 treatedItems.push(copy);
                 for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {

@@ -603,6 +603,21 @@
 	{"atk":99, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}},
 	{"atk":110, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}, "conditional":[{"lbDamage":50}]}
 ]},
+{"id":"100006001", "name":"新年の演武", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006001.png", "sortId":106, "levels":[
+	{"atk":55},
+	{"atk":60},
+	{"atk":66},
+	{"atk":71, "atk%":50},
+	{"atk":77, "atk%":50},
+	{"atk":82, "atk%":50},
+	{"atk":88, "atk%":50, "lbDamage":25},
+	{"atk":93, "atk%":50, "lbDamage":25},
+	{"atk":99, "atk%":50, "lbDamage":25},
+	{"atk":110, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":300}}]}
+]},
+{"id":"100006101", "name":"蛇と魔人と", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006101.png", "sortId":107, "levels":[
+	{"hp":1500, "mag":100, "spr":100, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":15}
+]},
 {"id":"201000101", "name":"そして……探求の旅は始まった", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000101.png", "sortId":100, "levels":[
 	{"hp":500, "def":50},
 	{"hp":550, "def":55},

@@ -597,13 +597,14 @@ function addMasterySkills(item, masterySkills, result) {
         var copy = JSON.parse(JSON.stringify(item));
 
         if (masterySkills[masteryIndex][2] === 99) {
+            if (!Array.isArray(masterySkills[masteryIndex][3][2])) masterySkills[masteryIndex][3][2] = [masterySkills[masteryIndex][3][2]];
             masterySkills[masteryIndex][3][2].forEach(weaponTypeId => {
-                addOneWeaponMastery(copy, masteryIndex[3][0], masteryIndex[3][1], weaponTypeId);
+                addOneWeaponMastery(copy, masterySkills[masteryIndex][3][0], masterySkills[masteryIndex][3][1], weaponTypeId);
                 result.push(copy);
                 treatedItems.push(copy);
                 for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
                     if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
-                        var copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
+                        let copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
                         addOneWeaponMastery(copy, masteryIndex[3][0], masteryIndex[3][1], weaponTypeId);
                         result.push(copy);
                         treatedItems.push(copy);
@@ -629,7 +630,7 @@ function addMasterySkills(item, masterySkills, result) {
 function addOneWeaponMastery(item, statId, value, weaponTypeId) {
     // Increase EQ stat when armed with a single weapon (with or without shield)
     var stat;
-    if (rstatId == 1) {
+    if (statId == 1) {
         stat = "atk";
     } else if (statId == 2) {
         stat = "def";
