@@ -223,6 +223,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
 function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, baseEffects, rarity,  level, exLevel, latentSkill) {
     var skillIn = skills[skillId];
     var skill;
+    if (!skillIn) console.log(skillId, unitOut.name, unitOut.id);
     if (skillIn.active && skillIn.type != "MAGIC") {
         skill = parseActiveSkill(skillId, skillIn, skills, unitOut);
         skill.rarity = rarity;
