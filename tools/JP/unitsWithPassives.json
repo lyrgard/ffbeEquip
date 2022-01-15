@@ -13207,7 +13207,7 @@
 		]
 	},
 	"100035907": {
-		"name":"Tyvas",
+		"name":"Taivas",
 		"jpname":"タイヴァス",
 		"roles":["physicalAttacker"],
 		"id":"100035907",
@@ -13232,7 +13232,7 @@
 		]
 	},
 	"100035917": {
-		"name":"Tyvas BS",
+		"name":"Taivas BS",
 		"jpname":"タイヴァス BS",
 		"roles":["physicalAttacker"],
 		"id":"100035917",
@@ -14402,6 +14402,110 @@
 		"skills": [
 			{"mp%":100, "mag%":100, "spr%":100, "singleWielding":{"mag":50}, "oneWeaponMastery":{"spr":100}, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"earth","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"beast","physical":150,"magical":150},{"name":"human","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":13},
 			{"mag":500, "mag%":200, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "equipedConditions":[["405021200","314004300"]]}
+		]
+	},
+	"100039507": {
+		"name":"Poppy -Asura's Shrine Pilgrimage-",
+		"jpname":"ポネ -武神参詣-",
+		"roles":["magicalAttacker"],
+		"id":"100039507",
+		"braveShift":"100039517",
+		"exAwakening": [{"hp":625,"mp":40,"atk":16,"def":23,"mag":73,"spr":29},{"hp":481,"mp":31,"atk":12,"def":17,"mag":56,"spr":23},{"hp":336,"mp":22,"atk":9,"def":12,"mag":39,"spr":16}],
+		"fragmentId": "250009000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4806,"mp":310,"atk":124,"def":173,"mag":280,"spr":228},
+			"minStats":{"hp":1586,"mp":102,"atk":41,"def":57,"mag":92,"spr":75},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["魔力強化I","ウォタラ","エアロラ","ウォタガ","エアロガ","トルネド","エアロジャ","メイスの極意","描くよ！ 光の柱ッ！！"],
+		"enhancements": [
+			{"name":"魔力強化I","levels":[[{"mag":500}],[{"mag":750}],[{"mag":1000}]]},
+			{"name":"メイスの極意","levels":[[{"equipedConditions":["mace"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["mace"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["mace"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"undead","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"stone","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":250},
+			{"equipedConditions":[["403056400","307005000"]]}
+		]
+	},
+	"100039517": {
+		"name":"Poppy -Asura's Shrine Pilgrimage- BS",
+		"jpname":"ポネ -武神参詣- BS",
+		"roles":["magicalAttacker"],
+		"id":"100039517",
+		"braveShifted":"100039507",
+		"exAwakening": [{"hp":625,"mp":40,"atk":16,"def":23,"mag":73,"spr":29},{"hp":481,"mp":31,"atk":12,"def":17,"mag":56,"spr":23},{"hp":336,"mp":22,"atk":9,"def":12,"mag":39,"spr":16}],
+		"fragmentId": "250009000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4806,"mp":310,"atk":124,"def":173,"mag":280,"spr":228},
+			"minStats":{"hp":1586,"mp":102,"atk":41,"def":57,"mag":92,"spr":75},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","mace","hat","clothes","robe","visionCard"],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag":1000, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"undead","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"stone","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":250},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["mace"]},
+			{"equipedConditions":[["403056400","307005000"]]}
+		]
+	},
+	"100039607": {
+		"name":"Lehftia -Asura's Shrine Pilgrimage-",
+		"jpname":"レフティア -武神参詣-",
+		"roles":["magicalAttacker"],
+		"id":"100039607",
+		"braveShift":"100039617",
+		"exAwakening": [{"hp":625,"mp":40,"atk":16,"def":23,"mag":75,"spr":29},{"hp":481,"mp":31,"atk":12,"def":17,"mag":58,"spr":23},{"hp":336,"mp":22,"atk":9,"def":12,"mag":41,"spr":16}],
+		"fragmentId": "250009100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4806,"mp":310,"atk":124,"def":173,"mag":290,"spr":228},
+			"minStats":{"hp":1586,"mp":102,"atk":41,"def":57,"mag":96,"spr":75},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","throwing","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["ストンラ","ストンガ","ストンジャ","ファイラ","ファイガ","クエイク","ダーラ","投擲の極意","魔力強化I","来福の舞"],
+		"enhancements": [
+			{"name":"投擲の極意","levels":[[{"equipedConditions":["throwing"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["throwing"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["throwing"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"魔力強化I","levels":[[{"mag":500}],[{"mag":750}],[{"mag":1000}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":300, "spr%":160, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"undead","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150},{"name":"machine","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":250},
+			{"mag":500, "equipedConditions":[["409065200","315025800"]]}
+		]
+	},
+	"100039617": {
+		"name":"Lehftia -Asura's Shrine Pilgrimage- BS",
+		"jpname":"レフティア -武神参詣- BS",
+		"roles":["magicalAttacker"],
+		"id":"100039617",
+		"braveShifted":"100039607",
+		"exAwakening": [{"hp":625,"mp":40,"atk":16,"def":23,"mag":75,"spr":29},{"hp":481,"mp":31,"atk":12,"def":17,"mag":58,"spr":23},{"hp":336,"mp":22,"atk":9,"def":12,"mag":41,"spr":16}],
+		"fragmentId": "250009100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4806,"mp":310,"atk":124,"def":173,"mag":290,"spr":228},
+			"minStats":{"hp":1586,"mp":102,"atk":41,"def":57,"mag":96,"spr":75},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","throwing","hat","clothes","robe","visionCard"],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag":1000, "mag%":300, "spr%":160, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"undead","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150},{"name":"machine","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":250},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["throwing"]},
+			{"mag":500, "equipedConditions":[["409065200","315025800"]]}
 		]
 	},
 	"201000104": {

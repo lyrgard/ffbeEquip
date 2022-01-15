@@ -13,7 +13,7 @@ var imgUrls;
 
 function getData(filename, callback) {
     if (!dev) {
-        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-jp/master/' + filename, function (error, response, body) {
+        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-jp/master/' + filename, {"gzip": true}, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(filename + " downloaded");
                 var result = JSON.parse(body);

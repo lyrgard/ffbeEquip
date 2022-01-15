@@ -471,7 +471,7 @@
 	{"mag":54, "mag%":50, "spr":54, "spr%":50},
 	{"mag":60, "mag%":50, "spr":60, "spr%":50, "conditional":[{"oneWeaponMastery":{"mag":50},"exclusiveSex":"female"},{"oneWeaponMastery":{"spr":50},"exclusiveSex":"female"},{"dualWielding":{"mag":50},"exclusiveSex":"female"},{"dualWielding":{"spr":50},"exclusiveSex":"female"}]}
 ]},
-{"id":"100004401", "name":"わけありの任務", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004401.png", "sortId":78, "levels":[
+{"id":"100004401", "name":"A Special Mission", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004401.png", "sortId":78, "levels":[
 	{"atk":125, "atk%":80, "staticStats":{"atk":500}, "killers":[{"name":"machine","physical":100,"magical":100}]}
 ]},
 {"id":"100004501", "name":"ヒーロー参上！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004501.png", "sortId":79, "levels":[
@@ -617,6 +617,18 @@
 ]},
 {"id":"100006101", "name":"蛇と魔人と", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006101.png", "sortId":107, "levels":[
 	{"hp":1500, "mag":100, "spr":100, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":15}
+]},
+{"id":"100006201", "name":"いざ魑魅魍魎退治！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006201.png", "sortId":108, "levels":[
+	{"mag":55},
+	{"mag":60},
+	{"mag":66},
+	{"mag":71, "mag%":50},
+	{"mag":77, "mag%":50},
+	{"mag":82, "mag%":50},
+	{"mag":88, "mag%":50, "lbDamage":25},
+	{"mag":93, "mag%":50, "lbDamage":25},
+	{"mag":99, "mag%":50, "lbDamage":25},
+	{"mag":110, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":300}}]}
 ]},
 {"id":"201000101", "name":"そして……探求の旅は始まった", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000101.png", "sortId":100, "levels":[
 	{"hp":500, "def":50},
