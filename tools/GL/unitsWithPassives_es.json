@@ -14914,17 +14914,22 @@
 		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Warrior_of Dawn Galuf",
 		"id":"205001005",
-		"max_rarity":"7",
+		"braveShift":"205001027",
+		"exAwakening": [{"hp":653,"mp":26,"atk":25,"def":29,"mag":18,"spr":26},{"hp":502,"mp":20,"atk":19,"def":23,"mag":14,"spr":20},{"hp":351,"mp":14,"atk":14,"def":16,"mag":10,"spr":14}],
+		"fragmentId": "250004400",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":5021,"mp":204,"atk":192,"def":206,"mag":136,"spr":200},
-			"minStats":{"hp":1657,"mp":67,"atk":63,"def":68,"mag":45,"spr":65},
+			"maxStats":{"hp":5021,"mp":204,"atk":192,"def":226,"mag":136,"spr":200},
+			"minStats":{"hp":1657,"mp":67,"atk":63,"def":75,"mag":45,"spr":66},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Strength to Protect the Warriors of Light","Stronghold Advance"],
 		"enhancements": [
+			{"name":"Strength to Protect the Warriors of Light","levels":[[{"atk":500,"hp":3000,"skillEnhancement":{"0":20},"levelCondition":120}],[{"atk":500,"hp":3000,"skillEnhancement":{"0":25},"levelCondition":120}],[{"atk":500,"hp":3000,"skillEnhancement":{"0":30},"levelCondition":120}],[{"atk":500,"hp":3000,"skillEnhancement":{"0":35},"levelCondition":120}],[{"atk":500,"hp":3000,"skillEnhancement":{"0":40},"levelCondition":120}]]},
 			{"name":"Fiery Spirit","levels":[[],[{"spr%":5,"mp%":5,"resist":[{"name":"fire","percent":10},{"name":"light","percent":10}]}],[{"spr%":7,"mp%":7,"resist":[{"name":"fire","percent":20},{"name":"light","percent":20}]}],[{"spr%":10,"mp%":10,"resist":[{"name":"fire","percent":30},{"name":"light","percent":30}]}]]}
 		],
 		"skills": [
@@ -14932,9 +14937,13 @@
 			{"def%":20, "spr%":20, "equipedConditions":["sword"]},
 			{"atk%":30, "equipedConditions":["sword"]},
 			{"hp%":40, "def%":40, "equipedConditions":[["302007900","504230564"]]},
-			{"hp%":30, "mp%":30, "atk%":30, "resist":[{"name":"fire","percent":50},{"name":"light","percent":50}], "levelCondition":110},
+			{"hp%":30, "mp%":30, "atk%":30, "spr%":30, "resist":[{"name":"fire","percent":70},{"name":"light","percent":70}], "skillEnhancement":{"230638":20,"230639":20,"230648":20}, "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
-			{"def%":50, "levelCondition":120}
+			{"def%":50, "levelCondition":120},
+			{"killers":[{"name":"plant","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"beast","physical":150,"magical":150}], "levelCondition":120},
+			{"hp%":100, "mp%":100, "def%":200, "spr%":100, "oneWeaponMastery":{"def":200}, "chainMastery":100, "levelCondition":120},
+			{"def":500, "levelCondition":120, "exLevelCondition":3}
 		],
 		"6_form": {
 			"name":"Guerrero del Alba Galuf",
@@ -14942,7 +14951,7 @@
 			"wikiEntry":"Warrior_of Dawn Galuf",
 			"id":"205001005",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -14952,6 +14961,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Strength to Protect the Warriors of Light","Stronghold Advance"],
 		"enhancements": [
 			{"name":"Fiery Spirit","levels":[[],[{"spr%":5,"mp%":5,"resist":[{"name":"fire","percent":10},{"name":"light","percent":10}]}],[{"spr%":7,"mp%":7,"resist":[{"name":"fire","percent":20},{"name":"light","percent":20}]}],[{"spr%":10,"mp%":10,"resist":[{"name":"fire","percent":30},{"name":"light","percent":30}]}]]}
 		],
@@ -14960,7 +14970,69 @@
 				{"def%":20, "spr%":20, "equipedConditions":["sword"]},
 				{"atk%":30, "equipedConditions":["sword"]}
 			]
+		},
+		"7_form": {
+			"name":"Guerrero del Alba Galuf",
+			"roles":["physicalAttacker","support"],
+			"wikiEntry":"Warrior_of Dawn Galuf",
+			"id":"205001005",
+			"sevenStarForm":true,
+			"max_rarity":"NV",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":5021,"mp":204,"atk":192,"def":206,"mag":136,"spr":200},
+				"minStats":{"hp":1657,"mp":67,"atk":63,"def":68,"mag":45,"spr":65},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Strength to Protect the Warriors of Light","Stronghold Advance"],
+		"enhancements": [
+			{"name":"Fiery Spirit","levels":[[],[{"spr%":5,"mp%":5,"resist":[{"name":"fire","percent":10},{"name":"light","percent":10}]}],[{"spr%":7,"mp%":7,"resist":[{"name":"fire","percent":20},{"name":"light","percent":20}]}],[{"spr%":10,"mp%":10,"resist":[{"name":"fire","percent":30},{"name":"light","percent":30}]}]]}
+		],
+			"skills": [
+				{"hp%":70, "mp%":20, "atk%":50, "def%":80, "spr%":30, "evade":{"physical":10}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "drawAttacks":80},
+				{"def%":20, "spr%":20, "equipedConditions":["sword"]},
+				{"atk%":30, "equipedConditions":["sword"]},
+				{"hp%":40, "def%":40, "equipedConditions":[["302007900","504230564"]]},
+				{"hp%":30, "mp%":30, "atk%":30, "spr%":30, "resist":[{"name":"fire","percent":70},{"name":"light","percent":70}], "skillEnhancement":{"230638":20,"230639":20,"230648":20}, "levelCondition":110},
+				{"atk%":20, "levelCondition":115},
+				{"def%":50, "levelCondition":120}
+			]
 		}
+	},
+	"205001027": {
+		"name":"Galuf monje BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Monk_Galuf",
+		"id":"205001027",
+		"braveShifted":"205001005",
+		"exAwakening": [{"hp":653,"mp":26,"atk":25,"def":29,"mag":18,"spr":26},{"hp":502,"mp":20,"atk":19,"def":23,"mag":14,"spr":20},{"hp":351,"mp":14,"atk":14,"def":16,"mag":10,"spr":14}],
+		"fragmentId": "250004400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5733,"mp":182,"atk":250,"def":196,"mag":124,"spr":207},
+			"minStats":{"hp":1892,"mp":60,"atk":83,"def":65,"mag":41,"spr":68},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Sandstorm Fist"],
+		"skills": [
+			{"resist":[{"name":"fire","percent":80},{"name":"light","percent":80},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
+			{"killers":[{"name":"plant","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"beast","physical":150,"magical":150}], "levelCondition":120},
+			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "dualWielding":{"atk":100}, "chainMastery":200, "lbDamage":150, "special":["dualWield"], "levelCondition":120},
+			{"mpRefresh":5, "levelCondition":120},
+			{"lbPerTurn":{"min":4,"max":4}, "levelCondition":120},
+			{"resist":[{"name":"charm","percent":100}], "levelCondition":120},
+			{"hp%":100, "mp%":100, "atk%":100, "def%":100, "spr%":100, "equipedConditions":["fist"], "levelCondition":120},
+			{"atk":1000, "equipedConditions":[["302007900","504230564"]], "levelCondition":120},
+			{"atk":500, "levelCondition":120, "exLevelCondition":3}
+		]
 	},
 	"205001105": {
 		"name":"Guerrero de la Luz Bartz",
@@ -15194,7 +15266,7 @@
 		"enhancementSkills":["Artillery Fire"],
 		"skills": [
 			{"hp%":70, "mp%":70, "atk%":70, "def%":70, "mag%":200, "spr%":70, "evoMag":60, "evokeDamageBoost":{"all":180}, "dualWielding":{"mag":150}, "improvedDW":true, "resist":[{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"aquatic","physical":150,"magical":150}], "lbDamage":100, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "special":["dualWield"]},
-			{"equipedConditions":[["504239430","302013900"]]}
+			{"equipedConditions":[["504239430","302013900","302017300","302017400","302017500","302017600"]]}
 		]
 	},
 	"205001417": {
@@ -15218,7 +15290,7 @@
 		"enhancementSkills":["Blade of Courage"],
 		"skills": [
 			{"hp%":70, "mp%":70, "atk%":200, "def%":70, "mag%":70, "spr%":70, "evoMag":60, "evokeDamageBoost":{"all":180}, "dualWielding":{"atk":150}, "improvedDW":true, "resist":[{"name":"fire","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"aquatic","physical":150,"magical":150}], "mpRefresh":7, "lbDamage":100, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "special":["dualWield"]},
-			{"equipedConditions":[["504239430","302013900"]]}
+			{"equipedConditions":[["504239430","302013900","302017300","302017400","302017500","302017600"]]}
 		]
 	},
 	"205001505": {
@@ -15268,9 +15340,9 @@
 		}
 	},
 	"205001607": {
-		"name":"Summoner Lenna",
+		"name":"Lenna invocadora",
 		"roles":["magicalAttacker"],
-		"wikiEntry":"召喚士レナ",
+		"wikiEntry":"Summoner_Lenna",
 		"id":"205001607",
 		"braveShift":"205001617",
 		"exAwakening": [{"hp":604,"mp":26,"atk":17,"def":22,"mag":68,"spr":25},{"hp":465,"mp":20,"atk":13,"def":17,"mag":52,"spr":19},{"hp":325,"mp":14,"atk":9,"def":12,"mag":36,"spr":13}],
@@ -15285,16 +15357,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","rod","lightShield","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["獄炎精霊召喚"],
+		"enhancementSkills":["Summon Flaming Spirit"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":200, "spr%":60, "evoMag":100, "evokeDamageBoost":{"all":160}, "dualWielding":{"mag":100}, "chainMastery":200, "resist":[{"name":"fire","percent":30},{"name":"wind","percent":30}], "mpRefresh":8, "lbDamage":200, "special":["dualWield"]},
 			{"hp%":100, "mp%":100, "mag%":100, "equipedConditions":[["504242540","405017700"]]}
 		]
 	},
 	"205001617": {
-		"name":"Summoner Lenna BS",
+		"name":"Lenna bailarina BS",
 		"roles":["debuffer"],
-		"wikiEntry":"踊り子レナ",
+		"wikiEntry":"Dancer_Lenna",
 		"id":"205001617",
 		"braveShifted":"205001607",
 		"exAwakening": [{"hp":604,"mp":26,"atk":17,"def":22,"mag":68,"spr":25},{"hp":465,"mp":20,"atk":13,"def":17,"mag":52,"spr":19},{"hp":325,"mp":14,"atk":9,"def":12,"mag":36,"spr":13}],
@@ -15309,16 +15381,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","rod","lightShield","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["シルフィードスピン"],
+		"enhancementSkills":["Sylph Spin"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":200, "spr%":60, "evade":{"physical":30}, "dualWielding":{"mag":100}, "chainMastery":200, "resist":[{"name":"fire","percent":30},{"name":"wind","percent":30}], "killers":[{"name":"plant","physical":150,"magical":150},{"name":"beast","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":200, "drawAttacks":50, "special":["dualWield"]},
 			{"hp%":100, "mp%":100, "mag%":100, "equipedConditions":[["504242540","405017700"]]}
 		]
 	},
 	"205001707": {
-		"name":"Warrior of Dawn Dorgann",
+		"name":"Guerrero del Alba Dorgann",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"暁の四戦士ドルガン",
+		"wikiEntry":"Warrior_of Dawn Dorgann",
 		"id":"205001707",
 		"braveShift":"205001717",
 		"exAwakening": [{"hp":639,"mp":32,"atk":70,"def":24,"mag":17,"spr":23},{"hp":492,"mp":25,"atk":54,"def":18,"mag":13,"spr":17},{"hp":344,"mp":17,"atk":38,"def":13,"mag":9,"spr":12}],
@@ -15333,16 +15405,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["雷絶衝剣","風絶衝剣"],
+		"enhancementSkills":["Lightning-Shattering Blade","Wind-Shattering Blade"],
 		"skills": [
 			{"hp%":120, "mp%":120, "atk":500, "atk%":300, "def%":120, "spr%":120, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"lightning","percent":30},{"name":"wind","percent":30},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"plant","physical":200,"magical":200},{"name":"beast","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":200},
 			{"equipedConditions":[["504242543","302017200"]]}
 		]
 	},
 	"205001717": {
-		"name":"Warrior of Dawn Dorgann BS",
+		"name":"Guerrero del Alba Dorgann BS",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"暁の四戦士ドルガン",
+		"wikiEntry":"Warrior_of Dawn Dorgann",
 		"id":"205001717",
 		"braveShifted":"205001707",
 		"exAwakening": [{"hp":639,"mp":32,"atk":70,"def":24,"mag":17,"spr":23},{"hp":492,"mp":25,"atk":54,"def":18,"mag":13,"spr":17},{"hp":344,"mp":17,"atk":38,"def":13,"mag":9,"spr":12}],
@@ -35370,7 +35442,6 @@
   "204003017":{"name":"Rydia & Mist Dragon BS","jpname":"リディア&ミストドラゴン BS","roles":["magicalAttacker"],"id":"204003017","braveShifted":"204003007","exAwakening":[{"hp":511,"mp":36,"atk":15,"def":23,"mag":70,"spr":25},{"hp":393,"mp":28,"atk":11,"def":18,"mag":54,"spr":19},{"hp":275,"mp":20,"atk":8,"def":12,"mag":38,"spr":14}],"fragmentId":"250005100","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4784,"mp":290,"atk":104,"def":232,"mag":300,"spr":199},"minStats":{"hp":1579,"mp":96,"atk":34,"def":77,"mag":99,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["rod","whip","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["フローズンブレス"],"skills":[{"hp%":60,"mp%":60,"def%":60,"mag":500,"mag%":200,"spr%":60,"evoMag":100,"evokeDamageBoost":{"all":160},"singleWielding":{"mag":200},"chainMastery":100,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"confuse","percent":100}],"mpRefresh":5,"lbDamage":200},{"hp%":100,"mp%":100,"mag%":100,"equipedConditions":[["504242893","405020000"]]}]},
   "204003107":{"name":"Ninja Edge","jpname":"忍者エッジ","roles":["debuffer"],"id":"204003107","braveShift":"204003117","exAwakening":[{"hp":650,"mp":26,"atk":70,"def":20,"mag":19,"spr":22},{"hp":500,"mp":20,"atk":54,"def":15,"mag":15,"spr":17},{"hp":350,"mp":14,"atk":38,"def":11,"mag":10,"spr":12}],"fragmentId":"250005500","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5000,"mp":200,"atk":270,"def":150,"mag":148,"spr":170},"minStats":{"hp":1650,"mp":66,"atk":89,"def":50,"mag":49,"spr":56},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["katana","throwing","fist","hat","clothes","lightArmor","visionCard"],"enhancementSkills":["らいじん・改","かとん・改"],"skills":[{"mp%":60,"atk":500,"atk%":150,"mag%":150,"dualWielding":{"atk":50,"mag":50},"chainMastery":200,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"fire","percent":50},{"name":"lightning","percent":20},{"name":"poison","percent":100},{"name":"disease","percent":100}],"killers":[{"name":"bug","physical":200,"magical":200},{"name":"undead","physical":150,"magical":150}],"mpRefresh":5,"drawAttacks":50,"special":["dualWield"]},{"evade":{"physical":40},"lbDamage":75,"equipedConditions":[["504243109","304011000"]]}]},
   "204003117":{"name":"Ninja Edge BS","jpname":"忍者エッジ BS","roles":["debuffer"],"id":"204003117","braveShifted":"204003107","exAwakening":[{"hp":650,"mp":26,"atk":70,"def":20,"mag":19,"spr":22},{"hp":500,"mp":20,"atk":54,"def":15,"mag":15,"spr":17},{"hp":350,"mp":14,"atk":38,"def":11,"mag":10,"spr":12}],"fragmentId":"250005500","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5000,"mp":200,"atk":270,"def":150,"mag":148,"spr":170},"minStats":{"hp":1650,"mp":66,"atk":89,"def":50,"mag":49,"spr":56},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["katana","throwing","fist","hat","clothes","lightArmor","visionCard"],"skills":[{"mp%":60,"atk":500,"atk%":150,"mag%":150,"dualWielding":{"atk":50,"mag":50},"chainMastery":200,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"fire","percent":50},{"name":"lightning","percent":20},{"name":"poison","percent":100},{"name":"disease","percent":100}],"killers":[{"name":"bug","physical":200,"magical":200},{"name":"undead","physical":150,"magical":150}],"mpRefresh":5,"drawAttacks":50,"special":["dualWield"]},{"evade":{"physical":40},"lbDamage":75,"equipedConditions":[["504243109","304011000"]]}]},
-  "205001027":{"name":"モンク ガラフ BS","jpname":"モンク ガラフ BS","roles":["physicalAttacker"],"id":"205001027","braveShifted":"205001017","exAwakening":[{"hp":653,"mp":26,"atk":25,"def":29,"mag":18,"spr":26},{"hp":502,"mp":20,"atk":19,"def":23,"mag":14,"spr":20},{"hp":351,"mp":14,"atk":14,"def":16,"mag":10,"spr":14}],"fragmentId":"250004400","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5733,"mp":182,"atk":250,"def":196,"mag":124,"spr":207},"minStats":{"hp":1892,"mp":60,"atk":83,"def":65,"mag":41,"spr":68},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["砂塵拳"],"skills":[{"resist":[{"name":"fire","percent":80},{"name":"light","percent":80},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},{"killers":[{"name":"plant","physical":200,"magical":200}],"levelCondition":120},{"killers":[{"name":"beast","physical":150,"magical":150}],"levelCondition":120},{"hp%":60,"mp%":60,"atk%":200,"def%":60,"spr%":60,"dualWielding":{"atk":100},"chainMastery":200,"lbDamage":150,"special":["dualWield"],"levelCondition":120},{"mpRefresh":5,"levelCondition":120},{"lbPerTurn":{"min":4,"max":4},"levelCondition":120},{"resist":[{"name":"charm","percent":100}],"levelCondition":120},{"hp%":100,"mp%":100,"atk%":100,"def%":100,"spr%":100,"equipedConditions":["fist"],"levelCondition":120},{"atk":1000,"equipedConditions":[["302007900","504230564"]],"levelCondition":120},{"atk":500,"levelCondition":120,"exLevelCondition":3}]},
   "208000427":{"name":"ゼル BS","jpname":"ゼル BS","roles":["physicalAttacker"],"id":"208000427","braveShifted":"208000404","exAwakening":[{"hp":589,"mp":26,"atk":32,"def":22,"mag":16,"spr":23},{"hp":453,"mp":20,"atk":25,"def":17,"mag":13,"spr":17},{"hp":317,"mp":14,"atk":17,"def":12,"mag":9,"spr":12}],"fragmentId":"250006900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4534,"mp":197,"atk":246,"def":169,"mag":128,"spr":172},"minStats":{"hp":1496,"mp":65,"atk":81,"def":56,"mag":42,"spr":57},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["fist","hat","clothes","lightArmor","visionCard"],"skills":[{"resist":[{"name":"water","percent":30}]},{"dualWielding":{"atk":50},"lbDamage":75,"equipedConditions":[["309002600","309008500","405020600"]]},{"skillEnhancement":{"507210":5,"507211":5,"507212":5,"507213":5,"507214":5,"507215":5,"507216":5,"507217":5,"507218":5,"507219":5,"507220":5,"507221":5,"507222":5,"507223":5},"levelCondition":120},{"hp%":60,"mp%":60,"atk%":200,"def%":60,"spr%":60,"dualWielding":{"atk":100},"chainMastery":200,"lbDamage":150,"special":["dualWield"],"levelCondition":120},{"killers":[{"name":"human","physical":200,"magical":200}],"levelCondition":120},{"killers":[{"name":"stone","physical":150,"magical":150}],"levelCondition":120},{"killers":[{"name":"bug","physical":150,"magical":150}],"levelCondition":120},{"killers":[{"name":"undead","physical":100,"magical":100}],"levelCondition":120},{"atk":500,"levelCondition":120,"exLevelCondition":3},{"atk%":200,"equipedConditions":["unarmed"],"levelCondition":120},{"hp%":60,"atk%":50,"levelCondition":120},{"hp%":20,"resist":[{"name":"paralysis","percent":100}],"levelCondition":120},{"evade":{"physical":10},"levelCondition":120},{"spr%":20,"mpRefresh":5,"levelCondition":120},{"atk%":30,"levelCondition":120},{"atk%":30,"equipedConditions":["fist"],"levelCondition":120},{"esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}},"levelCondition":120}]},
   "208001527":{"name":"孤高の獅子スコール BS","jpname":"孤高の獅子スコール BS","roles":["physicalAttacker","debuffer"],"id":"208001527","braveShifted":"208001505","exAwakening":[{"hp":710,"mp":39,"atk":39,"def":28,"mag":27,"spr":28},{"hp":546,"mp":30,"atk":30,"def":22,"mag":21,"spr":21},{"hp":382,"mp":21,"atk":21,"def":15,"mag":14,"spr":15}],"fragmentId":"250006800","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5461,"mp":298,"atk":300,"def":216,"mag":208,"spr":212},"minStats":{"hp":1802,"mp":98,"atk":99,"def":71,"mag":69,"spr":70},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"skills":[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},{"skillEnhancement":{"226620":5,"226621":5,"234544":5,"800416":5},"levelCondition":120},{"hp%":60,"mp%":60,"atk%":200,"def%":60,"spr%":60,"singleWielding":{"accuracy":25,"atk":200},"chainMastery":100,"lbDamage":150,"levelCondition":120},{"killers":[{"name":"human","physical":150,"magical":150}],"levelCondition":120},{"killers":[{"name":"beast","physical":150,"magical":150}],"levelCondition":120},{"killers":[{"name":"dragon","physical":100,"magical":100}],"levelCondition":120},{"killers":[{"name":"demon","physical":100,"magical":100}],"levelCondition":120},{"lbDamage":25,"levelCondition":120},{"chainMastery":100,"levelCondition":120,"exLevelCondition":2},{"atk":1000,"levelCondition":120,"exLevelCondition":3},{"hp%":20,"atk%":20,"levelCondition":120},{"atk%":30,"singleWielding":{"accuracy":25,"atk":50},"killers":[{"name":"beast","physical":25},{"name":"machine","physical":25}],"levelCondition":120},{"mp%":20,"esperStatsBonus":{"all":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},"levelCondition":120},{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}],"levelCondition":120},{"mp%":20,"atk%":30,"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100}],"esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}},"levelCondition":120},{"killers":[{"name":"beast","physical":75},{"name":"machine","physical":75}],"mpRefresh":7,"levelCondition":120},{"atk%":50,"singleWielding":{"accuracy":25,"atk":100},"levelCondition":120},{"hp%":20,"atk%":30,"def%":30,"spr%":30,"equipedConditions":[["504234520","303007900","303011800","303011900","303012000","303012100"]],"levelCondition":120},{"lbFillRate":50,"levelCondition":120},{"lbDamage":25,"levelCondition":120},{"atk%":20,"levelCondition":120},{"hp%":20,"mp%":10,"atk%":20,"def%":40,"spr%":40,"singleWielding":{"accuracy":25,"atk":50},"skillEnhancement":{"234544":4,"234545":4,"234546":4,"234547":9},"levelCondition":120}]},
   "208002107":{"name":"Rinoa & Angelo","jpname":"リノア&アンジェロ","roles":["magicalAttacker"],"id":"208002107","braveShift":"208002117","exAwakening":[{"hp":613,"mp":38,"atk":23,"def":14,"mag":70,"spr":23},{"hp":472,"mp":29,"atk":17,"def":11,"mag":54,"spr":18},{"hp":330,"mp":20,"atk":12,"def":8,"mag":38,"spr":13}],"fragmentId":"250006700","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4716,"mp":290,"atk":174,"def":110,"mag":270,"spr":181},"minStats":{"hp":1556,"mp":96,"atk":57,"def":36,"mag":89,"spr":60},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["rod","throwing","hat","clothes","robe","visionCard"],"enhancementSkills":["エアロガ","トルネド","クエイク","オーラ","メテオ【VIII】"],"skills":[{"hp%":60,"mp%":60,"def%":60,"mag":500,"mag%":200,"spr%":60,"dualWielding":{"mag":100},"chainMastery":200,"killers":[{"name":"bird","physical":200,"magical":200},{"name":"human","physical":150,"magical":150},{"name":"dragon","physical":100,"magical":100},{"name":"beast","physical":100,"magical":100}],"mpRefresh":8,"lbDamage":150,"special":["dualWield"]},{"equipedConditions":[["504243343","315025700"]]}]},
