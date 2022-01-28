@@ -474,7 +474,7 @@
 {"id":"100004401", "name":"A Special Mission", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004401.png", "sortId":78, "levels":[
 	{"atk":125, "atk%":80, "staticStats":{"atk":500}, "killers":[{"name":"machine","physical":100,"magical":100}]}
 ]},
-{"id":"100004501", "name":"ヒーロー参上！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004501.png", "sortId":79, "levels":[
+{"id":"100004501", "name":"A Hero Arrives!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004501.png", "sortId":79, "levels":[
 	{"atk":40, "def":40},
 	{"atk":44, "def":44},
 	{"atk":48, "def":48},
@@ -1100,6 +1100,42 @@
 	{"atk":68, "mag":68, "singleWielding":{"atk":100,"accuracy":50,"mag":100}},
 	{"atk":72, "mag":72, "singleWielding":{"atk":100,"accuracy":50,"mag":100}},
 	{"atk":80, "mag":80, "singleWielding":{"atk":100,"accuracy":50,"mag":100}, "conditional":[{"staticStats":{"atk":400,"mag":400},"exclusiveRoles":["physicalTank"]}]}
+]},
+{"id":"344000101", "name":"父子竜出陣！！！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000101.png", "sortId":110, "levels":[
+	{"hp":750, "atk":60, "mag":60},
+	{"hp":825, "atk":66, "mag":66},
+	{"hp":900, "atk":72, "mag":72},
+	{"hp":975, "atk":78, "atk%":50, "mag":78, "mag%":50},
+	{"hp":1050, "atk":84, "atk%":50, "mag":84, "mag%":50},
+	{"hp":1125, "atk":90, "atk%":50, "mag":90, "mag%":50},
+	{"hp":1200, "atk":96, "atk%":50, "mag":96, "mag%":50, "lbDamage":25},
+	{"hp":1275, "atk":102, "atk%":50, "mag":102, "mag%":50, "lbDamage":25},
+	{"hp":1350, "atk":108, "atk%":50, "mag":108, "mag%":50, "lbDamage":25},
+	{"hp":1500, "atk":120, "atk%":50, "mag":120, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500,"mag":500}}]}
+]},
+{"id":"344000201", "name":"集結！アバンの使徒！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000201.png", "sortId":111, "levels":[
+	{"hp":750, "atk":50, "mag":50},
+	{"hp":825, "atk":55, "mag":55},
+	{"hp":900, "atk":60, "mag":60},
+	{"hp":975, "atk":65, "atk%":50, "def%":50, "mag":65, "mag%":50, "spr%":50},
+	{"hp":1050, "atk":70, "atk%":50, "def%":50, "mag":70, "mag%":50, "spr%":50},
+	{"hp":1125, "atk":75, "atk%":50, "def%":50, "mag":75, "mag%":50, "spr%":50},
+	{"hp":1200, "atk":80, "atk%":50, "def%":50, "mag":80, "mag%":50, "spr%":50, "lbDamage":25},
+	{"hp":1275, "atk":85, "atk%":50, "def%":50, "mag":85, "mag%":50, "spr%":50, "lbDamage":25},
+	{"hp":1350, "atk":90, "atk%":50, "def%":50, "mag":90, "mag%":50, "spr%":50, "lbDamage":25},
+	{"hp":1500, "atk":100, "atk%":50, "def%":50, "mag":100, "mag%":50, "spr%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
+]},
+{"id":"344000301", "name":"一刀両断！！！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000301.png", "sortId":112, "levels":[
+	{"hp":1500, "atk":55, "def":55, "mag":55, "spr":55},
+	{"hp":1650, "atk":60, "def":60, "mag":60, "spr":60},
+	{"hp":1800, "atk":66, "def":66, "mag":66, "spr":66},
+	{"hp":1950, "atk":71, "def":71, "mag":71, "spr":71},
+	{"hp":2100, "atk":77, "def":77, "mag":77, "spr":77},
+	{"hp":2250, "atk":82, "def":82, "mag":82, "spr":82},
+	{"hp":2400, "atk":88, "def":88, "mag":88, "spr":88},
+	{"hp":2550, "atk":93, "def":93, "mag":93, "spr":93},
+	{"hp":2700, "atk":99, "def":99, "mag":99, "spr":99},
+	{"hp":3000, "atk":110, "def":110, "mag":110, "spr":110}
 ]},
 {"id":"401000101", "name":"Virtual Training", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000101.png", "sortId":48, "levels":[
 	{"spr":50},

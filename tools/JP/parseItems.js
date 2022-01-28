@@ -132,6 +132,7 @@ const unitRules = {
     7273: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10013] || []).concat(nvUnitIdsByGameId[11006] || []).concat(nvUnitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units
     7274: (item) => item.exclusiveUnits = ["312000205", "312001007", "312001017"],
     7275: (item) => item.exclusiveRoles = ['physicalTank'],          // Physical tank role
+    7276: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20037],  // Dragon Quest Dai
 }
 
 var unitNamesById = {};
