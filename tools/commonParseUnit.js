@@ -2246,7 +2246,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 1016) {
         let baseCoef = rawEffect[3][0] / 100;
         let damageType = rawEffect[3][1];
-        let statUsedForDamage = rawEffect[3][0];
+        let statUsedForDamage = rawEffect[3][2];
         let coefIncreaseByStep = rawEffect[3][3] / 100;
         let coefIncreaseMoraleStep = rawEffect[3][4];
         let coefIncreaseMoraleBottomThreshold = rawEffect[3][5];
