@@ -726,7 +726,7 @@
 	{"atk":59, "mag":82, "conditional":[{"equipedConditions":["sword"],"atk%":60,"mag%":60}]},
 	{"atk":65, "mag":90, "conditional":[{"equipedConditions":["sword"],"atk%":60,"mag%":60},{"atk%":20,"mag%":20,"exclusiveSex":"female"},{"evokeDamageBoost":{"all":30},"exclusiveSex":"female"}]}
 ]},
-{"id":"205000301", "name":"レナ、飛竜への想い", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000301.png", "sortId":80, "levels":[
+{"id":"205000301", "name":"Lenna's Bond with Hiryu", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000301.png", "sortId":80, "levels":[
 	{"atk":40, "mag":40},
 	{"atk":44, "mag":44},
 	{"atk":48, "mag":48},
@@ -1136,6 +1136,18 @@
 	{"hp":2550, "atk":93, "def":93, "mag":93, "spr":93},
 	{"hp":2700, "atk":99, "def":99, "mag":99, "spr":99},
 	{"hp":3000, "atk":110, "def":110, "mag":110, "spr":110}
+]},
+{"id":"344000401", "name":"集結！六大軍団長！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000401.png", "sortId":113, "levels":[
+	{"hp":750, "atk":50, "def":50, "mag":50, "spr":50},
+	{"hp":825, "atk":55, "def":55, "mag":55, "spr":55},
+	{"hp":900, "atk":60, "def":60, "mag":60, "spr":60},
+	{"hp":975, "atk":65, "def":65, "mag":65, "spr":65, "lbDamage":25},
+	{"hp":1050, "atk":70, "def":70, "mag":70, "spr":70, "lbDamage":25},
+	{"hp":1125, "atk":75, "def":75, "mag":75, "spr":75, "lbDamage":25},
+	{"hp":1200, "atk":80, "def":80, "mag":80, "spr":80, "lbDamage":50},
+	{"hp":1275, "atk":85, "def":85, "mag":85, "spr":85, "lbDamage":50},
+	{"hp":1350, "atk":90, "def":90, "mag":90, "spr":90, "lbDamage":50},
+	{"hp":1500, "atk":100, "def":100, "mag":100, "spr":100, "lbDamage":50, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
 ]},
 {"id":"401000101", "name":"Virtual Training", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000101.png", "sortId":48, "levels":[
 	{"spr":50},

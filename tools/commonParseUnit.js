@@ -2246,7 +2246,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 1016) {
         let baseCoef = rawEffect[3][0] / 100;
         let damageType = rawEffect[3][1];
-        let monsterReceivingStatType = rawEffect[3][0];
+        let statUsedForDamage = rawEffect[3][0];
         let coefIncreaseByStep = rawEffect[3][3] / 100;
         let coefIncreaseMoraleStep = rawEffect[3][4];
         let coefIncreaseMoraleBottomThreshold = rawEffect[3][5];
@@ -2259,6 +2259,11 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             result.damage.damageType = "mind";
         } else if (damageType === 3) {
             result.damage.mecanism = "hybrid";
+        }
+        if (statUsedForDamage === 2) {
+            result.damage.use = {"stat":"def","percent":100,"max":99999};
+        } else if (statUsedForDamage === 4) {
+            result.damage.use = {"stat":"spr","percent":100,"max":99999};
         }
 
         // Absorb dark damage
