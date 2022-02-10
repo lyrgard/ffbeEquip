@@ -75,16 +75,19 @@ const statsSchema = [
 
 const itemEnchantmentsSchema =  [
     Joi.string().valid('rare_3'),Joi.string().valid('rare_4'),Joi.string().valid('rare_5'),Joi.string().valid('special_1'),
-    Joi.string().valid('hp_15'),Joi.string().valid('hp_12'),Joi.string().valid('hp_10'),Joi.string().valid('hp_7'),Joi.string().valid('hp_5'),Joi.string().valid('hp_3'),Joi.string().valid('hp_1'),
-    Joi.string().valid('mp_15'),Joi.string().valid('mp_12'),Joi.string().valid('mp_10'),Joi.string().valid('mp_7'),Joi.string().valid('mp_5'),Joi.string().valid('mp_3'),Joi.string().valid('mp_1'),
-    Joi.string().valid('atk_15'),Joi.string().valid('atk_12'),Joi.string().valid('atk_10'),Joi.string().valid('atk_7'),Joi.string().valid('atk_5'),Joi.string().valid('atk_3'),Joi.string().valid('atk_1'),
-    Joi.string().valid('def_15'),Joi.string().valid('def_12'),Joi.string().valid('def_10'),Joi.string().valid('def_7'),Joi.string().valid('def_5'),Joi.string().valid('def_3'),Joi.string().valid('def_1'),
-    Joi.string().valid('mag_15'),Joi.string().valid('mag_12'),Joi.string().valid('mag_10'),Joi.string().valid('mag_7'),Joi.string().valid('mag_5'),Joi.string().valid('mag_3'),Joi.string().valid('mag_1'),
-    Joi.string().valid('spr_15'),Joi.string().valid('spr_12'),Joi.string().valid('spr_10'),Joi.string().valid('spr_7'),Joi.string().valid('spr_5'),Joi.string().valid('spr_3'),Joi.string().valid('spr_1'),
+    Joi.string().valid('hp_20'),Joi.string().valid('hp_15'),Joi.string().valid('hp_12'),Joi.string().valid('hp_10'),Joi.string().valid('hp_7'),Joi.string().valid('hp_5'),Joi.string().valid('hp_3'),Joi.string().valid('hp_1'),
+    Joi.string().valid('mp_20'),Joi.string().valid('mp_15'),Joi.string().valid('mp_12'),Joi.string().valid('mp_10'),Joi.string().valid('mp_7'),Joi.string().valid('mp_5'),Joi.string().valid('mp_3'),Joi.string().valid('mp_1'),
+    Joi.string().valid('atk_20'),Joi.string().valid('atk_15'),Joi.string().valid('atk_12'),Joi.string().valid('atk_10'),Joi.string().valid('atk_7'),Joi.string().valid('atk_5'),Joi.string().valid('atk_3'),Joi.string().valid('atk_1'),
+    Joi.string().valid('def_20'),Joi.string().valid('def_15'),Joi.string().valid('def_12'),Joi.string().valid('def_10'),Joi.string().valid('def_7'),Joi.string().valid('def_5'),Joi.string().valid('def_3'),Joi.string().valid('def_1'),
+    Joi.string().valid('mag_20'),Joi.string().valid('mag_15'),Joi.string().valid('mag_12'),Joi.string().valid('mag_10'),Joi.string().valid('mag_7'),Joi.string().valid('mag_5'),Joi.string().valid('mag_3'),Joi.string().valid('mag_1'),
+    Joi.string().valid('spr_20'),Joi.string().valid('spr_15'),Joi.string().valid('spr_12'),Joi.string().valid('spr_10'),Joi.string().valid('spr_7'),Joi.string().valid('spr_5'),Joi.string().valid('spr_3'),Joi.string().valid('spr_1'),
     Joi.string().valid('autoRegen_4'),Joi.string().valid('autoRegen_3'),Joi.string().valid('autoRegen_2'),Joi.string().valid('autoRegen_1'),
     Joi.string().valid('autoRefresh_4'),Joi.string().valid('autoRefresh_3'),Joi.string().valid('autoRefresh_2'),Joi.string().valid('autoRefresh_1'),
     Joi.string().valid('autoProtect_5'),Joi.string().valid('autoProtect_4'),Joi.string().valid('autoProtect_3'),Joi.string().valid('autoProtect_2'),Joi.string().valid('autoProtect_1'),
-    Joi.string().valid('autoShell_5'),Joi.string().valid('autoShell_4'),Joi.string().valid('autoShell_3'),Joi.string().valid('autoShell_2'),Joi.string().valid('autoShell_1')
+    Joi.string().valid('autoShell_5'),Joi.string().valid('autoShell_4'),Joi.string().valid('autoShell_3'),Joi.string().valid('autoShell_2'),Joi.string().valid('autoShell_1'),
+    Joi.string().valid('autoFillLb_2'),Joi.string().valid('autoFillLb_1'),
+    Joi.string().valid('reduceMp_2'),Joi.string().valid('reduceMp_1'),
+    Joi.string().valid('atk_mag_1'),Joi.string().valid('hp_def_1'),Joi.string().valid('hp_spr_1')
 ];
 const esperSchema = Joi.object().keys({
     id:Joi.string().max(50),

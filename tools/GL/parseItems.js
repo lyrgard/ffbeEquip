@@ -161,8 +161,10 @@ const unitRules = {
     4008: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10007], // FF7 units
     7102: (item) => item.exclusiveSex = 'male',// Male units
     7103: (item) => item.exclusiveSex = 'female',// Female units,
+    7114: (item) => item.exclusiveRoles = ['healer'],
     7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
     7203: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10003], // FF3
+    7204: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10004], // FF4
     7205: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10005], // FF5
     7206: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10006], // FF6
     7209: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10009], // FF9
@@ -172,6 +174,8 @@ const unitRules = {
     7216: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001], // FFBE units
     7218: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11003], // FF Type 0
     7245: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20006], // DQMSL
+    7263: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20024], // Xenogear
+    7269: (item) => item.exclusiveRoles = ['breaker'],              // Breaker role
     7271: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20032], // FMA Brotherhood
     7272: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20033], // KH units
     7273: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10013] || []).concat(nvUnitIdsByGameId[11006] || []).concat(nvUnitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units

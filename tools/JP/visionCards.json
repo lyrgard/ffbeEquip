@@ -664,7 +664,31 @@
 	{"atk":74, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
 	{"atk":78, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
 	{"atk":82, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
-	{"atk":90, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40},{}]}
+	{"atk":90, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40},{},{"staticStats":{"atk":600}}]}
+]},
+{"id":"202000201", "name":"蘇る皇帝", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000201.png", "sortId":114, "levels":[
+	{"mag":50},
+	{"mag":55},
+	{"mag":60},
+	{"mag":65, "mag%":50},
+	{"mag":70, "mag%":50},
+	{"mag":75, "mag%":50},
+	{"mag":80, "mag%":50, "lbDamage":25},
+	{"mag":85, "mag%":50, "lbDamage":25},
+	{"mag":90, "mag%":50, "lbDamage":25},
+	{"mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500}}]}
+]},
+{"id":"202000301", "name":"VSラウンドウォーム", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000301.png", "sortId":115, "levels":[
+	{"atk":55},
+	{"atk":60},
+	{"atk":66},
+	{"atk":71, "atk%":50},
+	{"atk":77, "atk%":50},
+	{"atk":82, "atk%":50},
+	{"atk":88, "atk%":50, "jumpDamage":50},
+	{"atk":93, "atk%":50, "jumpDamage":50},
+	{"atk":99, "atk%":50, "jumpDamage":50},
+	{"atk":110, "atk%":50, "jumpDamage":50}
 ]},
 {"id":"203000101", "name":"Crystal's Revelation", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_203000101.png", "sortId":25, "levels":[
 	{"atk":40},

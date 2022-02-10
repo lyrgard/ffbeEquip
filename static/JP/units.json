@@ -10715,16 +10715,75 @@
 		"jpname":"ガイ",
 		"roles":["physicalTank"],
 		"id":"202000303",
-		"max_rarity":"5",
+		"braveShift":"202000327",
+		"exAwakening": [{"hp":843,"mp":35,"atk":33,"def":38,"mag":14,"spr":29},{"hp":649,"mp":27,"atk":25,"def":29,"mag":11,"spr":22},{"hp":454,"mp":19,"atk":18,"def":20,"mag":7,"spr":15}],
+		"fragmentId": "250009900",
+		"max_rarity":"NV",
 		"min_rarity":"3",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":2720,"mp":110,"atk":108,"def":98,"mag":85,"spr":96},
-			"minStats":{"hp":898,"mp":36,"atk":36,"def":32,"mag":28,"spr":32},
+			"maxStats":{"hp":6488,"mp":271,"atk":250,"def":290,"mag":108,"spr":221},
+			"minStats":{"hp":2141,"mp":89,"atk":83,"def":96,"mag":36,"spr":73},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
-		"equip":["dagger","sword","axe","hammer","spear","fist","lightShield","hat","helm","clothes","lightArmor"]
+		"stats_pattern":4,
+		"equip":["dagger","sword","axe","hammer","spear","fist","lightShield","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["かばう・物理I","盾熟練度レベルアップ","ギガントアタック"],
+		"6_form": {
+			"name":"Guy",
+			"jpname":"ガイ",
+			"roles":["physicalTank"],
+			"id":"202000303",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"3",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3859,"mp":175,"atk":148,"def":159,"mag":97,"spr":124},
+				"minStats":{"hp":1273,"mp":58,"atk":49,"def":52,"mag":32,"spr":41},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","axe","hammer","spear","fist","lightShield","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["かばう・物理I","盾熟練度レベルアップ","ギガントアタック"]
+		},
+		"7_form": {
+			"name":"Guy",
+			"jpname":"ガイ",
+			"roles":["physicalTank"],
+			"id":"202000303",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"3",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4998,"mp":240,"atk":187,"def":220,"mag":108,"spr":152},
+				"minStats":{"hp":1649,"mp":79,"atk":62,"def":73,"mag":36,"spr":50},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","axe","hammer","spear","fist","lightShield","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["かばう・物理I","盾熟練度レベルアップ","ギガントアタック"]
+		}
+	},
+	"202000327": {
+		"name":"ガイ BS",
+		"jpname":"ガイ BS",
+		"roles":["physicalTank","debuffer"],
+		"id":"202000327",
+		"braveShifted":"202000303",
+		"exAwakening": [{"hp":843,"mp":35,"atk":33,"def":38,"mag":14,"spr":29},{"hp":649,"mp":27,"atk":25,"def":29,"mag":11,"spr":22},{"hp":454,"mp":19,"atk":18,"def":20,"mag":7,"spr":15}],
+		"fragmentId": "250009900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6488,"mp":271,"atk":250,"def":290,"mag":108,"spr":221},
+			"minStats":{"hp":2141,"mp":89,"atk":83,"def":96,"mag":36,"spr":73},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","axe","hammer","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"202000404": {
 		"name":"Leon",
@@ -10760,8 +10819,8 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["地獄の業火","わたしは死なん！","君臨","私にひざまずけ","レッドソウル","世界征服を企む暴君"],
+		"equip":["staff","rod","hat","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["ファイア","地獄の業火","わたしは死なん！","君臨","私にひざまずけ","レッドソウル","世界征服を企む暴君","ロッドの極意"],
 		"6_form": {
 			"name":"Emperor",
 			"jpname":"皇帝",
@@ -10777,8 +10836,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","hat","clothes","robe"],
-			"enhancementSkills":["地獄の業火","わたしは死なん！","君臨","私にひざまずけ","レッドソウル","世界征服を企む暴君"]
+			"equip":["staff","rod","hat","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["ファイア","地獄の業火","わたしは死なん！","君臨","私にひざまずけ","レッドソウル","世界征服を企む暴君","ロッドの極意"]
 		},
 		"7_form": {
 			"name":"Emperor",
@@ -10795,8 +10854,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":4,
-			"equip":["staff","rod","hat","clothes","robe"],
-			"enhancementSkills":["地獄の業火","わたしは死なん！","君臨","私にひざまずけ","レッドソウル","世界征服を企む暴君"]
+			"equip":["staff","rod","hat","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["ファイア","地獄の業火","わたしは死なん！","君臨","私にひざまずけ","レッドソウル","世界征服を企む暴君","ロッドの極意"]
 		}
 	},
 	"202000527": {
@@ -10816,8 +10875,8 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["staff","rod","whip","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["私にひざまずけ","地獄の業火","バリアボム","我が支配を受け入れよ"]
+		"equip":["staff","rod","whip","hat","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["ファイア","私にひざまずけ","地獄の業火","バリアボム","我が支配を受け入れよ","ロッドの極意"]
 	},
 	"202001402": {
 		"name":"Paul",
@@ -11052,6 +11111,85 @@
 			"stats_pattern":1,
 			"equip":["staff","rod","lightShield","hat","clothes","lightArmor","robe"]
 		}
+	},
+	"202002307": {
+		"name":"Emperor of Palamecia",
+		"jpname":"パラメキア皇帝",
+		"roles":["debuffer"],
+		"id":"202002307",
+		"braveShift":"202002317",
+		"exAwakening": [{"hp":620,"mp":35,"atk":9,"def":7,"mag":66,"spr":20},{"hp":477,"mp":27,"atk":7,"def":5,"mag":51,"spr":16},{"hp":334,"mp":19,"atk":5,"def":4,"mag":36,"spr":11}],
+		"fragmentId": "250010000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4769,"mp":270,"atk":70,"def":50,"mag":255,"spr":158},
+			"minStats":{"hp":1574,"mp":89,"atk":23,"def":17,"mag":84,"spr":52},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","staff","rod","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["サンダー","真・いんせき"]
+	},
+	"202002317": {
+		"name":"Emperor of Palamecia BS",
+		"jpname":"パラメキア皇帝 BS",
+		"roles":["debuffer"],
+		"id":"202002317",
+		"braveShifted":"202002307",
+		"exAwakening": [{"hp":620,"mp":35,"atk":9,"def":7,"mag":66,"spr":20},{"hp":477,"mp":27,"atk":7,"def":5,"mag":51,"spr":16},{"hp":334,"mp":19,"atk":5,"def":4,"mag":36,"spr":11}],
+		"fragmentId": "250010000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4769,"mp":270,"atk":70,"def":50,"mag":255,"spr":158},
+			"minStats":{"hp":1574,"mp":89,"atk":23,"def":17,"mag":84,"spr":52},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","staff","rod","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]
+	},
+	"202002407": {
+		"name":"Ricard & Wyvern",
+		"jpname":"リチャード&ひりゅう",
+		"roles":["physicalAttacker"],
+		"id":"202002407",
+		"braveShift":"202002417",
+		"exAwakening": [{"hp":676,"mp":37,"atk":70,"def":29,"mag":1,"spr":29},{"hp":520,"mp":29,"atk":54,"def":22,"mag":1,"spr":22},{"hp":364,"mp":20,"atk":38,"def":16,"mag":0,"spr":16}],
+		"fragmentId": "250010100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5197,"mp":288,"atk":270,"def":223,"mag":5,"spr":224},
+			"minStats":{"hp":1715,"mp":95,"atk":89,"def":74,"mag":2,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ウィングソード","バーニングブレス"]
+	},
+	"202002417": {
+		"name":"Dragoon Ricard BS",
+		"jpname":"竜騎士リチャード BS",
+		"roles":["physicalAttacker"],
+		"id":"202002417",
+		"braveShifted":"202002407",
+		"exAwakening": [{"hp":676,"mp":37,"atk":70,"def":29,"mag":1,"spr":29},{"hp":520,"mp":29,"atk":54,"def":22,"mag":1,"spr":22},{"hp":364,"mp":20,"atk":38,"def":16,"mag":0,"spr":16}],
+		"fragmentId": "250010100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4897,"mp":288,"atk":270,"def":188,"mag":5,"spr":163},
+			"minStats":{"hp":1616,"mp":95,"atk":89,"def":62,"mag":2,"spr":54},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ディストジャンプ","ジャンプ"]
 	},
 	"203000105": {
 		"name":"Onion Knight",
