@@ -10761,6 +10761,8 @@
 		"enhancementSkills":["Rapid Magic Bullet","Ruin Expedition Order"],
 		"skills": [
 			{"hp%":80, "mp%":50, "atk%":100, "def%":50, "spr%":50, "dualWielding":{"atk":100}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":12, "special":["dualWield"]},
+			{"improvedDW":true, "exLevelCondition":1},
+			{"atk":500, "exLevelCondition":3},
 			{"lbDamage":50, "equipedConditions":[["504237400","309005700"]]},
 			{"mp%":20, "levelCondition":115},
 			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"stone","physical":100}], "levelCondition":120},
@@ -10785,9 +10787,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","gun","fist","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["Rapid Magic Bullet","Smashing Magic Fist"],
+		"enhancementSkills":["Rapid Magic Bullet","Smashing Magic Fist","Shining Art - Ultimate Descending Gem Strike"],
 		"skills": [
 			{"hp%":70, "mp%":50, "atk%":200, "def%":50, "spr%":50, "dualWielding":{"atk":100}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"demon","physical":100}], "mpRefresh":7, "lbDamage":100, "special":["dualWield"]},
+			{"improvedDW":true, "exLevelCondition":1},
+			{"atk":500, "exLevelCondition":3},
 			{"lbDamage":50, "equipedConditions":[["504237400","309005700"]]},
 			{"hp%":20, "levelCondition":115},
 			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"stone","physical":100}], "levelCondition":120},
@@ -10905,6 +10909,7 @@
 		"enhancementSkills":["F-Type Strongest Ice Shot (Physalis -Neo Vision-)","F-Type Strongest Wind Shot"],
 		"skills": [
 			{"hp%":50, "mp%":30, "mag%":40, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "special":["dualWield"]},
+			{"mag":1000, "exLevelCondition":3},
 			{"mag%":50, "equipedConditions":["gun"]},
 			{"lbFillRate":200, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["504237720","409045700"]]},
 			{"spr%":20, "levelCondition":115},
@@ -10931,9 +10936,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["F-Type Strongest Ice Shot (Physalis -Neo Vision-)","F-Type Strongest Water Shot"],
+		"enhancementSkills":["Load Super Strong Ice Bullets!","F-Type Strongest Ice Shot (Physalis -Neo Vision-)","F-Type Strongest Water Shot"],
+		"enhancements": [
+			{"name":"Load Super Strong Ice Bullets!","levels":[[{"replaceLb":{"name":"Super Ice Bullet","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":162.2,"stack":40,"maxStack":1,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (162.2x, MAG) with consecutive damage increase (max. 1 times, +40x MAG each, 202.2x total) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":170,"stack":40,"maxStack":1,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (170x, MAG) with consecutive damage increase (max. 1 times, +40x MAG each, 210x total) to all enemies"}],"frames":[195],"move":"none"},"exLevelCondition":2}],[{"replaceLb":{"name":"Super Ice Bullet","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":177.2,"stack":55,"maxStack":1,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (177.2x, MAG) with consecutive damage increase (max. 1 times, +55x MAG each, 232.2x total) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":185,"stack":55,"maxStack":1,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (185x, MAG) with consecutive damage increase (max. 1 times, +55x MAG each, 240x total) to all enemies"}],"frames":[195],"move":"none"},"exLevelCondition":2}],[{"replaceLb":{"name":"Super Ice Bullet","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":192.2,"stack":70,"maxStack":1,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (192.2x, MAG) with consecutive damage increase (max. 1 times, +70x MAG each, 262.2x total) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":200,"stack":70,"maxStack":1,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (200x, MAG) with consecutive damage increase (max. 1 times, +70x MAG each, 270x total) to all enemies"}],"frames":[195],"move":"none"},"exLevelCondition":2}],[{"replaceLb":{"name":"Super Ice Bullet","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":207.2,"stack":85,"maxStack":1,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (207.2x, MAG) with consecutive damage increase (max. 1 times, +85x MAG each, 292.2x total) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":215,"stack":85,"maxStack":1,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (215x, MAG) with consecutive damage increase (max. 1 times, +85x MAG each, 300x total) to all enemies"}],"frames":[195],"move":"none"},"exLevelCondition":2}]]}
+		],
 		"skills": [
 			{"hp%":30, "mp%":50, "mag%":40, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]},
+			{"mag":1000, "exLevelCondition":3},
 			{"mag%":50, "equipedConditions":["gun"]},
 			{"lbFillRate":200, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["504237720","409045700"]]},
 			{"spr%":20, "levelCondition":115},
@@ -14620,9 +14629,9 @@
 		]
 	},
 	"205000203": {
-		"name":"Lenna",
+		"name":"Lenna (FFV)",
 		"roles":["healer"],
-		"wikiEntry":"Lenna",
+		"wikiEntry":"Lenna_(FFV)",
 		"id":"205000203",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -14724,9 +14733,9 @@
 		]
 	},
 	"205000805": {
-		"name":"Gilgamesh",
+		"name":"Gilgamesh (FFV)",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"Gilgamesh",
+		"wikiEntry":"Gilgamesh_(FFV)",
 		"id":"205000805",
 		"braveShift":"205000827",
 		"exAwakening": [{"hp":613,"mp":25,"atk":32,"def":24,"mag":19,"spr":20},{"hp":471,"mp":19,"atk":25,"def":18,"mag":14,"spr":15},{"hp":330,"mp":13,"atk":17,"def":12,"mag":10,"spr":11}],
@@ -14796,9 +14805,9 @@
 			{"improvedDW":true, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Gilgamesh",
+			"name":"Gilgamesh (FFV)",
 			"roles":["physicalAttacker"],
-			"wikiEntry":"Gilgamesh",
+			"wikiEntry":"Gilgamesh_(FFV)",
 			"id":"205000805",
 			"sixStarForm":true,
 			"max_rarity":"NV",
@@ -14820,9 +14829,9 @@
 			]
 		},
 		"7_form": {
-			"name":"Gilgamesh",
+			"name":"Gilgamesh (FFV)",
 			"roles":["physicalAttacker"],
-			"wikiEntry":"Gilgamesh",
+			"wikiEntry":"Gilgamesh_(FFV)",
 			"id":"205000805",
 			"sevenStarForm":true,
 			"max_rarity":"NV",
@@ -14887,9 +14896,9 @@
 		}
 	},
 	"205000827": {
-		"name":"Gilgamesh BS",
+		"name":"Gilgamesh (FFV) BS",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"Gilgamesh",
+		"wikiEntry":"Gilgamesh_(FFV)",
 		"id":"205000827",
 		"braveShifted":"205000805",
 		"exAwakening": [{"hp":613,"mp":25,"atk":32,"def":24,"mag":19,"spr":20},{"hp":471,"mp":19,"atk":25,"def":18,"mag":14,"spr":15},{"hp":330,"mp":13,"atk":17,"def":12,"mag":10,"spr":11}],
@@ -35694,6 +35703,65 @@
 			{"spr":500, "exLevelCondition":3},
 			{"def%":40, "spr%":40, "equipedConditions":["lightShield"]},
 			{"def%":40, "spr%":40, "equipedConditions":["heavyShield"]}
+		]
+	},
+	"401012807": {
+		"name":"Pâquerette, chasseuse de tempêtes",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Storm_Seeker Esther",
+		"id":"401012807",
+		"braveShift":"401012817",
+		"exAwakening": [{"hp":689,"mp":40,"atk":78,"def":33,"mag":18,"spr":25},{"hp":530,"mp":31,"atk":60,"def":25,"mag":14,"spr":19},{"hp":371,"mp":22,"atk":42,"def":18,"mag":10,"spr":13}],
+		"fragmentId": "310000870",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":310,"atk":300,"def":250,"mag":140,"spr":190},
+			"minStats":{"hp":1749,"mp":102,"atk":99,"def":83,"mag":46,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Charged Atmosphere","Power of the Precursor - Storm"],
+		"enhancements": [
+			{"name":"Charged Atmosphere","levels":[[],[{"chainMastery":100}],[{"chainMastery":100,"lbDamage":100}],[{"chainMastery":100,"lbDamage":200}],[{"chainMastery":100,"lbDamage":200,"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"aquatic","physical":50},{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"machine","physical":50},{"name":"dragon","physical":50},{"name":"spirit","physical":50},{"name":"bug","physical":50},{"name":"stone","physical":50},{"name":"plant","physical":50},{"name":"undead","physical":50}]}]]},
+			{"name":"Power of the Precursor - Storm","levels":[[{"singleWielding":{"accuracy":50,"atk":150},"killers":[{"name":"demon","physical":50},{"name":"machine","physical":50},{"name":"stone","physical":50},{"name":"undead","physical":50}],"equipedConditions":[["1100000269","1100000270","1500000180","1100000591"]]}],[{"singleWielding":{"accuracy":50,"atk":200},"killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"stone","physical":75},{"name":"undead","physical":75}],"equipedConditions":[["1100000269","1100000270","1500000180","1100000591"]]}],[{"singleWielding":{"accuracy":50,"atk":250},"killers":[{"name":"demon","physical":100},{"name":"machine","physical":100},{"name":"stone","physical":100},{"name":"undead","physical":100}],"equipedConditions":[["1100000269","1100000270","1500000180","1100000591"]]}],[{"singleWielding":{"accuracy":50,"atk":300},"killers":[{"name":"demon","physical":125},{"name":"machine","physical":125},{"name":"stone","physical":125},{"name":"undead","physical":125}],"equipedConditions":[["1100000269","1100000270","1500000180","1100000591"]]}],[{"singleWielding":{"accuracy":50,"atk":300},"killers":[{"name":"demon","physical":150},{"name":"machine","physical":150},{"name":"stone","physical":150},{"name":"undead","physical":150}],"equipedConditions":[["1100000269","1100000270","1500000180","1100000591"]]}]]}
+		],
+		"skills": [
+			{"hp%":150, "mp%":60, "atk%":200, "def%":150, "spr%":60, "evade":{"physical":50}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"lightning","percent":50},{"name":"earth","percent":25},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"atk":500, "exLevelCondition":2},
+			{"atk%":100, "equipedConditions":["greatSword"]}
+		]
+	},
+	"401012817": {
+		"name":"Pâquerette, chasseuse de tempêtes BS",
+		"roles":["physicalTank","physicalAttacker"],
+		"wikiEntry":"Storm_Seeker Esther",
+		"id":"401012817",
+		"braveShifted":"401012807",
+		"exAwakening": [{"hp":689,"mp":40,"atk":78,"def":33,"mag":18,"spr":25},{"hp":530,"mp":31,"atk":60,"def":25,"mag":14,"spr":19},{"hp":371,"mp":22,"atk":42,"def":18,"mag":10,"spr":13}],
+		"fragmentId": "310000870",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5500,"mp":270,"atk":220,"def":290,"mag":140,"spr":270},
+			"minStats":{"hp":1815,"mp":89,"atk":73,"def":96,"mag":46,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Charged Atmosphere","Overcharged Physique"],
+		"enhancements": [
+			{"name":"Charged Atmosphere","levels":[[],[{"chainMastery":100}],[{"chainMastery":100,"lbDamage":100}],[{"chainMastery":100,"lbDamage":200}],[{"chainMastery":100,"lbDamage":200,"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"aquatic","physical":50},{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"machine","physical":50},{"name":"dragon","physical":50},{"name":"spirit","physical":50},{"name":"bug","physical":50},{"name":"stone","physical":50},{"name":"plant","physical":50},{"name":"undead","physical":50}]}]]},
+			{"name":"Overcharged Physique","levels":[[{"oneWeaponMastery":{"def":200},"equipedConditions":[["1100000269","1100000270","1500000180","1100000591"]]}],[{"oneWeaponMastery":{"def":250},"equipedConditions":[["1100000269","1100000270","1500000180","1100000591"]]}],[{"oneWeaponMastery":{"def":300},"equipedConditions":[["1100000269","1100000270","1500000180","1100000591"]]}],[{"oneWeaponMastery":{"def":350},"equipedConditions":[["1100000269","1100000270","1500000180","1100000591"]]}],[{"oneWeaponMastery":{"def":400},"equipedConditions":[["1100000269","1100000270","1500000180","1100000591"]]}]]}
+		],
+		"skills": [
+			{"hp%":150, "mp%":60, "atk%":200, "def%":150, "spr%":60, "evade":{"physical":50}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"lightning","percent":50},{"name":"earth","percent":25},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10, "drawAttacks":70},
+			{"def":500, "exLevelCondition":2},
+			{"def%":60, "equipedConditions":["greatSword"]},
+			{"def%":40, "spr%":40, "equipedConditions":["clothes"]}
 		]
 	}
 ,

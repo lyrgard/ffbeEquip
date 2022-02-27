@@ -161,7 +161,7 @@ class UnitShift {
                     }
             }
         }
-        for (let index = 0; index < 10; index++) {
+        for (let index = 0; index < 11; index++) {
             if (ignoreSlot !== index) {
                 if (this.fixedItems[index] && this.fixedItems[index].special && this.fixedItems[index].special.includes("dualWield")) {
                     return true;

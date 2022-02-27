@@ -7765,7 +7765,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","gun","fist","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["Rapid Magic Bullet","Smashing Magic Fist"]
+		"enhancementSkills":["Rapid Magic Bullet","Smashing Magic Fist","Shining Art - Ultimate Descending Gem Strike"]
 	},
 	"100032005": {
 		"name":"無敵鋼筋艾爾比斯",
@@ -7871,7 +7871,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["F-Type Strongest Ice Shot (Physalis -Neo Vision-)","F-Type Strongest Water Shot"]
+		"enhancementSkills":["Load Super Strong Ice Bullets!","F-Type Strongest Ice Shot (Physalis -Neo Vision-)","F-Type Strongest Water Shot"]
 	},
 	"100032305": {
 		"name":"騎士團第一暖男勞倫斯",
@@ -10126,7 +10126,7 @@
 		"enhancementSkills":["Bare Knuckle Extreme","All-out Scuffle","Martial Arts Mastery"]
 	},
 	"204001004": {
-		"name":"希德（FFIV)",
+		"name":"希德(FFIV)",
 		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Cid_(FFIV)",
 		"id":"204001004",
@@ -10558,9 +10558,9 @@
 		"enhancementSkills":["Boko's Pendant","Life Giver","Wind Shear"]
 	},
 	"205000203": {
-		"name":"蕾娜",
+		"name":"蕾娜(FFV)",
 		"roles":["healer"],
-		"wikiEntry":"Lenna",
+		"wikiEntry":"Lenna_(FFV)",
 		"id":"205000203",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -10640,9 +10640,9 @@
 		"enhancementSkills":["Transcender","Meteor","Wicked Light"]
 	},
 	"205000805": {
-		"name":"吉爾伽美什",
+		"name":"吉爾伽美什(FFV)",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"Gilgamesh",
+		"wikiEntry":"Gilgamesh_(FFV)",
 		"id":"205000805",
 		"braveShift":"205000827",
 		"exAwakening": [{"hp":613,"mp":25,"atk":32,"def":24,"mag":19,"spr":20},{"hp":471,"mp":19,"atk":25,"def":18,"mag":14,"spr":15},{"hp":330,"mp":13,"atk":17,"def":12,"mag":10,"spr":11}],
@@ -10659,9 +10659,9 @@
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Snowpetal","Weapon Collector","Tri-Attack","Military Way of Life"],
 		"6_form": {
-			"name":"吉爾伽美什",
+			"name":"吉爾伽美什(FFV)",
 			"roles":["physicalAttacker"],
-			"wikiEntry":"Gilgamesh",
+			"wikiEntry":"Gilgamesh_(FFV)",
 			"id":"205000805",
 			"sixStarForm":true,
 			"max_rarity":"NV",
@@ -10677,9 +10677,9 @@
 			"enhancementSkills":["Snowpetal","Weapon Collector","Tri-Attack","Military Way of Life"]
 		},
 		"7_form": {
-			"name":"吉爾伽美什",
+			"name":"吉爾伽美什(FFV)",
 			"roles":["physicalAttacker"],
-			"wikiEntry":"Gilgamesh",
+			"wikiEntry":"Gilgamesh_(FFV)",
 			"id":"205000805",
 			"sevenStarForm":true,
 			"max_rarity":"NV",
@@ -10696,9 +10696,9 @@
 		}
 	},
 	"205000827": {
-		"name":"吉爾伽美什 BS",
+		"name":"吉爾伽美什(FFV) BS",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"Gilgamesh",
+		"wikiEntry":"Gilgamesh_(FFV)",
 		"id":"205000827",
 		"braveShifted":"205000805",
 		"exAwakening": [{"hp":613,"mp":25,"atk":32,"def":24,"mag":19,"spr":20},{"hp":471,"mp":19,"atk":25,"def":18,"mag":14,"spr":15},{"hp":330,"mp":13,"atk":17,"def":12,"mag":10,"spr":11}],
@@ -25517,6 +25517,46 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["Canine's Instincts","Guardian of Prosperity"]
+	},
+	"401012807": {
+		"name":"風暴追尋者艾斯德爾",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Storm_Seeker Esther",
+		"id":"401012807",
+		"braveShift":"401012817",
+		"exAwakening": [{"hp":689,"mp":40,"atk":78,"def":33,"mag":18,"spr":25},{"hp":530,"mp":31,"atk":60,"def":25,"mag":14,"spr":19},{"hp":371,"mp":22,"atk":42,"def":18,"mag":10,"spr":13}],
+		"fragmentId": "310000870",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":310,"atk":300,"def":250,"mag":140,"spr":190},
+			"minStats":{"hp":1749,"mp":102,"atk":99,"def":83,"mag":46,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Charged Atmosphere","Power of the Precursor - Storm"]
+	},
+	"401012817": {
+		"name":"風暴追尋者艾斯德爾 BS",
+		"roles":["physicalTank","physicalAttacker"],
+		"wikiEntry":"Storm_Seeker Esther",
+		"id":"401012817",
+		"braveShifted":"401012807",
+		"exAwakening": [{"hp":689,"mp":40,"atk":78,"def":33,"mag":18,"spr":25},{"hp":530,"mp":31,"atk":60,"def":25,"mag":14,"spr":19},{"hp":371,"mp":22,"atk":42,"def":18,"mag":10,"spr":13}],
+		"fragmentId": "310000870",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5500,"mp":270,"atk":220,"def":290,"mag":140,"spr":270},
+			"minStats":{"hp":1815,"mp":89,"atk":73,"def":96,"mag":46,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Charged Atmosphere","Overcharged Physique"]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker"],"id":"100000115","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"]},
