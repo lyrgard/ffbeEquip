@@ -7726,16 +7726,20 @@
 		"jpname":"ネリネ",
 		"roles":["physicalAttacker"],
 		"id":"100030205",
-		"max_rarity":"7",
+		"braveShift":"100030227",
+		"exAwakening": [{"hp":647,"mp":38,"atk":31,"def":25,"mag":20,"spr":23},{"hp":497,"mp":29,"atk":24,"def":19,"mag":15,"spr":17},{"hp":348,"mp":20,"atk":17,"def":13,"mag":11,"spr":12}],
+		"fragmentId": "250010400",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4866,"mp":246,"atk":209,"def":152,"mag":151,"spr":170},
-			"minStats":{"hp":1606,"mp":81,"atk":69,"def":50,"mag":50,"spr":56},
+			"maxStats":{"hp":4973,"mp":290,"atk":240,"def":189,"mag":152,"spr":174},
+			"minStats":{"hp":1641,"mp":96,"atk":79,"def":62,"mag":50,"spr":57},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["瑞雲の風剣"],
 		"6_form": {
 			"name":"Nerine",
 			"jpname":"ネリネ",
@@ -7751,8 +7755,47 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["瑞雲の風剣"]
+		},
+		"7_form": {
+			"name":"Nerine",
+			"jpname":"ネリネ",
+			"roles":["physicalAttacker"],
+			"id":"100030205",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4866,"mp":246,"atk":209,"def":152,"mag":151,"spr":170},
+				"minStats":{"hp":1606,"mp":81,"atk":69,"def":50,"mag":50,"spr":56},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["瑞雲の風剣"]
 		}
+	},
+	"100030227": {
+		"name":"ネリネ BS",
+		"jpname":"ネリネ BS",
+		"roles":["physicalAttacker"],
+		"id":"100030227",
+		"braveShifted":"100030205",
+		"exAwakening": [{"hp":647,"mp":38,"atk":31,"def":25,"mag":20,"spr":23},{"hp":497,"mp":29,"atk":24,"def":19,"mag":15,"spr":17},{"hp":348,"mp":20,"atk":17,"def":13,"mag":11,"spr":12}],
+		"fragmentId": "250010400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5673,"mp":290,"atk":270,"def":216,"mag":167,"spr":188},
+			"minStats":{"hp":1872,"mp":96,"atk":89,"def":71,"mag":55,"spr":62},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["翠嵐の風剣"]
 	},
 	"100030305": {
 		"name":"Owl",
@@ -8184,7 +8227,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["壊刀・裂氷河","覇刀・国崩し","誅刀・落星凍刃"]
+		"enhancementSkills":["誅刀・落星凍刃","壊刀・裂氷河","覇刀・国崩し"]
 	},
 	"100031517": {
 		"name":"Awakened Dragon Akstar BS",
@@ -8463,7 +8506,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","spear","throwing","gun","hat","helm","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["超強力アイスバレット装填！","F型最強アイス弾","F型最強ウォータ弾"]
+		"enhancementSkills":["F型最強アイス弾","F型最強ウォータ弾"]
 	},
 	"100032305": {
 		"name":"Knightly Paragon Lawrence",
@@ -10435,6 +10478,86 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","throwing","hat","clothes","robe","visionCard"]
+	},
+	"100039807": {
+		"name":"Rhus",
+		"jpname":"リュース",
+		"roles":["physicalAttacker"],
+		"id":"100039807",
+		"braveShift":"100039817",
+		"exAwakening": [{"hp":647,"mp":38,"atk":70,"def":25,"mag":22,"spr":23},{"hp":497,"mp":29,"atk":54,"def":19,"mag":17,"spr":17},{"hp":348,"mp":20,"atk":38,"def":13,"mag":12,"spr":12}],
+		"fragmentId": "250010200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4973,"mp":290,"atk":270,"def":189,"mag":166,"spr":174},
+			"minStats":{"hp":1641,"mp":96,"atk":89,"def":62,"mag":55,"spr":57},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["瀑穿剣","ぜんぎり"]
+	},
+	"100039817": {
+		"name":"Rhus BS",
+		"jpname":"リュース BS",
+		"roles":["physicalAttacker"],
+		"id":"100039817",
+		"braveShifted":"100039807",
+		"exAwakening": [{"hp":647,"mp":38,"atk":70,"def":25,"mag":22,"spr":23},{"hp":497,"mp":29,"atk":54,"def":19,"mag":17,"spr":17},{"hp":348,"mp":20,"atk":38,"def":13,"mag":12,"spr":12}],
+		"fragmentId": "250010200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5673,"mp":290,"atk":300,"def":260,"mag":196,"spr":260},
+			"minStats":{"hp":1872,"mp":96,"atk":99,"def":86,"mag":65,"spr":86},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","visionCard"],
+		"enhancementSkills":["瀑穿剣・超越"]
+	},
+	"100039907": {
+		"name":"Neilikka",
+		"jpname":"ネイリッカ",
+		"roles":["physicalAttacker"],
+		"id":"100039907",
+		"braveShift":"100039917",
+		"exAwakening": [{"hp":647,"mp":38,"atk":70,"def":25,"mag":22,"spr":23},{"hp":497,"mp":29,"atk":54,"def":19,"mag":17,"spr":17},{"hp":348,"mp":20,"atk":38,"def":13,"mag":12,"spr":12}],
+		"fragmentId": "250010300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4973,"mp":290,"atk":270,"def":189,"mag":166,"spr":174},
+			"minStats":{"hp":1641,"mp":96,"atk":89,"def":62,"mag":55,"spr":57},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["暴れ殴り","殴りまくる"]
+	},
+	"100039917": {
+		"name":"Neilikka BS",
+		"jpname":"ネイリッカ BS",
+		"roles":["physicalAttacker"],
+		"id":"100039917",
+		"braveShifted":"100039907",
+		"exAwakening": [{"hp":647,"mp":38,"atk":70,"def":25,"mag":22,"spr":23},{"hp":497,"mp":29,"atk":54,"def":19,"mag":17,"spr":17},{"hp":348,"mp":20,"atk":38,"def":13,"mag":12,"spr":12}],
+		"fragmentId": "250010300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5673,"mp":290,"atk":300,"def":260,"mag":196,"spr":260},
+			"minStats":{"hp":1872,"mp":96,"atk":99,"def":86,"mag":65,"spr":86},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["fist","visionCard"],
+		"enhancementSkills":["重機甲拳"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -12579,7 +12702,7 @@
 		"enhancementSkills":["ボコのお守り","いのちをたくす","旋風斬"]
 	},
 	"205000203": {
-		"name":"Lenna",
+		"name":"Lenna (FFV)",
 		"jpname":"レナ(FFV)",
 		"roles":["healer"],
 		"id":"205000203",
@@ -12661,7 +12784,7 @@
 		"enhancementSkills":["種の超越者","メテオ","邪悪なる光"]
 	},
 	"205000805": {
-		"name":"Gilgamesh",
+		"name":"Gilgamesh (FFV)",
 		"jpname":"ギルガメッシュ(FFV)",
 		"roles":["physicalAttacker"],
 		"id":"205000805",
@@ -12680,7 +12803,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["雪月花","武器コレクター","三対の剣","武人の生き様"],
 		"6_form": {
-			"name":"Gilgamesh",
+			"name":"Gilgamesh (FFV)",
 			"jpname":"ギルガメッシュ(FFV)",
 			"roles":["physicalAttacker"],
 			"id":"205000805",
@@ -12698,7 +12821,7 @@
 			"enhancementSkills":["雪月花","武器コレクター","三対の剣","武人の生き様"]
 		},
 		"7_form": {
-			"name":"Gilgamesh",
+			"name":"Gilgamesh (FFV)",
 			"jpname":"ギルガメッシュ(FFV)",
 			"roles":["physicalAttacker"],
 			"id":"205000805",
@@ -12717,7 +12840,7 @@
 		}
 	},
 	"205000827": {
-		"name":"Gilgamesh BS",
+		"name":"Gilgamesh (FFV) BS",
 		"jpname":"ギルガメッシュ(FFV) BS",
 		"roles":["physicalAttacker"],
 		"id":"205000827",
@@ -17766,16 +17889,20 @@
 		"jpname":"蒼穹の麗人フラン",
 		"roles":["physicalAttacker"],
 		"id":"212001705",
-		"max_rarity":"7",
+		"braveShift":"212001727",
+		"exAwakening": [{"hp":648,"mp":41,"atk":36,"def":31,"mag":38,"spr":29},{"hp":499,"mp":31,"atk":28,"def":24,"mag":29,"spr":22},{"hp":349,"mp":22,"atk":20,"def":17,"mag":20,"spr":16}],
+		"fragmentId": "250010700",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4912,"mp":239,"atk":205,"def":188,"mag":184,"spr":190},
-			"minStats":{"hp":1621,"mp":79,"atk":68,"def":62,"mag":61,"spr":63},
+			"maxStats":{"hp":4988,"mp":314,"atk":280,"def":235,"mag":290,"spr":223},
+			"minStats":{"hp":1646,"mp":104,"atk":92,"def":78,"mag":96,"spr":74},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"],
+		"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["ファイラ","ブリザガ","サンダラ","ダーラ","ダーガ","バーニングボウ【XII TZA】"],
 		"6_form": {
 			"name":"Blue Sky Belle Fran",
 			"jpname":"蒼穹の麗人フラン",
@@ -17791,8 +17918,46 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"]
+			"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"],
+			"enhancementSkills":["ファイラ","ブリザガ","サンダラ","ダーラ","ダーガ","バーニングボウ【XII TZA】"]
+		},
+		"7_form": {
+			"name":"Blue Sky Belle Fran",
+			"jpname":"蒼穹の麗人フラン",
+			"roles":["physicalAttacker"],
+			"id":"212001705",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4912,"mp":239,"atk":205,"def":188,"mag":184,"spr":190},
+				"minStats":{"hp":1621,"mp":79,"atk":68,"def":62,"mag":61,"spr":63},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"],
+			"enhancementSkills":["ファイラ","ブリザガ","サンダラ","ダーラ","ダーガ","バーニングボウ【XII TZA】"]
 		}
+	},
+	"212001727": {
+		"name":"蒼穹の麗人フラン BS",
+		"jpname":"蒼穹の麗人フラン BS",
+		"roles":["physicalAttacker","magicalAttacker"],
+		"id":"212001727",
+		"braveShifted":"212001705",
+		"exAwakening": [{"hp":648,"mp":41,"atk":36,"def":31,"mag":38,"spr":29},{"hp":499,"mp":31,"atk":28,"def":24,"mag":29,"spr":22},{"hp":349,"mp":22,"atk":20,"def":17,"mag":20,"spr":16}],
+		"fragmentId": "250010700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4988,"mp":314,"atk":280,"def":235,"mag":290,"spr":223},
+			"minStats":{"hp":1646,"mp":104,"atk":92,"def":78,"mag":96,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","bow","axe","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]
 	},
 	"212001804": {
 		"name":"Reks",
@@ -17964,6 +18129,86 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","harp","whip","hat","clothes"]
 		}
+	},
+	"212002407": {
+		"name":"Fastest Sky Pirate Balthier",
+		"jpname":"最速の空賊バルフレア",
+		"roles":["physicalAttacker"],
+		"id":"212002407",
+		"braveShift":"212002417",
+		"exAwakening": [{"hp":718,"mp":41,"atk":78,"def":23,"mag":23,"spr":26},{"hp":552,"mp":31,"atk":60,"def":18,"mag":17,"spr":20},{"hp":387,"mp":22,"atk":42,"def":12,"mag":12,"spr":14}],
+		"fragmentId": "250010500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5522,"mp":314,"atk":300,"def":177,"mag":173,"spr":202},
+			"minStats":{"hp":1822,"mp":104,"atk":99,"def":58,"mag":57,"spr":67},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","katana","spear","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["アクアバレット【XII TZA】","ソイルショット【XII TZA】"]
+	},
+	"212002417": {
+		"name":"Fastest Sky Pirate Balthier BS",
+		"jpname":"最速の空賊バルフレア BS",
+		"roles":["physicalAttacker"],
+		"id":"212002417",
+		"braveShifted":"212002407",
+		"exAwakening": [{"hp":718,"mp":41,"atk":78,"def":23,"mag":23,"spr":26},{"hp":552,"mp":31,"atk":60,"def":18,"mag":17,"spr":20},{"hp":387,"mp":22,"atk":42,"def":12,"mag":12,"spr":14}],
+		"fragmentId": "250010500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4988,"mp":314,"atk":300,"def":235,"mag":233,"spr":211},
+			"minStats":{"hp":1646,"mp":104,"atk":99,"def":78,"mag":77,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","katana","spear","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ファイガ","ブリザラ","サンダラ","グングニル【XII TZA】"]
+	},
+	"212002507": {
+		"name":"Dynast King Descendant Ashe",
+		"jpname":"覇王の末裔アーシェ",
+		"roles":["magicalTank"],
+		"id":"212002507",
+		"braveShift":"212002517",
+		"exAwakening": [{"hp":793,"mp":40,"atk":33,"def":22,"mag":35,"spr":70},{"hp":610,"mp":31,"atk":25,"def":17,"mag":27,"spr":54},{"hp":427,"mp":22,"atk":18,"def":12,"mag":19,"spr":38}],
+		"fragmentId": "250010600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":6103,"mp":310,"atk":250,"def":168,"mag":270,"spr":270},
+			"minStats":{"hp":2014,"mp":102,"atk":83,"def":55,"mag":89,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["盾の極意","シェルガ","ファイラ","ファイガ","サンダラ","サンダガ","かばう・魔法I","剣の極意","メイスの極意","無双乱撃斬"]
+	},
+	"212002517": {
+		"name":"Dynast King Descendant Ashe BS",
+		"jpname":"覇王の末裔アーシェ BS",
+		"roles":["support","healer"],
+		"id":"212002517",
+		"braveShifted":"212002507",
+		"exAwakening": [{"hp":793,"mp":40,"atk":33,"def":22,"mag":35,"spr":70},{"hp":610,"mp":31,"atk":25,"def":17,"mag":27,"spr":54},{"hp":427,"mp":22,"atk":18,"def":12,"mag":19,"spr":38}],
+		"fragmentId": "250010600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4765,"mp":310,"atk":168,"def":172,"mag":197,"spr":270},
+			"minStats":{"hp":1572,"mp":102,"atk":55,"def":57,"mag":65,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","staff","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["盾の極意","プロテガ","バブル","シェルガ"]
 	},
 	"213000105": {
 		"name":"Lightning",
@@ -22916,7 +23161,7 @@
 		}
 	},
 	"331000127": {
-		"name":"ゼノギアス BS",
+		"name":"Xenogears BS",
 		"jpname":"ゼノギアス BS",
 		"roles":["physicalAttacker"],
 		"id":"331000127",
