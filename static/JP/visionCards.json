@@ -486,7 +486,7 @@
 	{"atk":72, "def":72, "drawAttacks":50},
 	{"atk":80, "def":80, "evade":{"physical":30}, "drawAttacks":50}
 ]},
-{"id":"100004801", "name":"タイヴァス、ありがとう", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004801.png", "sortId":87, "levels":[
+{"id":"100004801", "name":"Thank You, Taivas", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004801.png", "sortId":87, "levels":[
 	{"hp":400, "def":40, "spr":40},
 	{"hp":440, "def":44, "spr":44},
 	{"hp":480, "def":48, "spr":48},
@@ -498,7 +498,7 @@
 	{"hp":720, "def":72, "spr":72, "mpRefresh":10},
 	{"hp":800, "def":80, "spr":80, "mpRefresh":10, "conditional":[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"earth","percent":20},{"name":"dark","percent":20}]}]}
 ]},
-{"id":"100004901", "name":"少女との出会い", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004901.png", "sortId":88, "levels":[
+{"id":"100004901", "name":"Meeting with a Girl", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100004901.png", "sortId":88, "levels":[
 	{"atk":30, "mag":30},
 	{"atk":33, "mag":33},
 	{"atk":36, "mag":36},
@@ -726,7 +726,7 @@
 	{"atk":90, "atk%":50, "lbDamage":25},
 	{"atk":100, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500}}]}
 ]},
-{"id":"204000201", "name":"VSルビカンテ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_204000201.png", "sortId":86, "levels":[
+{"id":"204000201", "name":"Battle with Rubicante", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_204000201.png", "sortId":86, "levels":[
 	{"atk":35, "mag":35},
 	{"atk":38, "mag":38},
 	{"atk":42, "mag":42},
@@ -956,6 +956,18 @@
 	{"spr":85, "spr%":50, "oneWeaponMastery":{"spr":50}},
 	{"spr":90, "spr%":50, "oneWeaponMastery":{"spr":50}},
 	{"spr":100, "spr%":50, "oneWeaponMastery":{"spr":50}, "conditional":[{"staticStats":{"spr":500}}]}
+]},
+{"id":"212000501", "name":"初めての空", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_212000501.png", "sortId":119, "levels":[
+	{"atk":45},
+	{"atk":49},
+	{"atk":54},
+	{"atk":58, "lbDamage":25},
+	{"atk":63, "lbDamage":25},
+	{"atk":67, "lbDamage":25},
+	{"atk":72, "lbDamage":50},
+	{"atk":76, "lbDamage":50},
+	{"atk":81, "lbDamage":50},
+	{"atk":90, "staticStats":{"atk":300}, "lbDamage":50}
 ]},
 {"id":"213000101", "name":"The Savior's Descent", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000101.png", "sortId":37, "levels":[
 	{"atk":40, "mag":40},

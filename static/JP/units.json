@@ -17773,17 +17773,74 @@
 		"jpname":"ヴェイン",
 		"roles":["physicalAttacker","support"],
 		"id":"212001204",
-		"max_rarity":"6",
+		"braveShift":"212001227",
+		"exAwakening": [{"hp":691,"mp":42,"atk":38,"def":32,"mag":36,"spr":39},{"hp":531,"mp":32,"atk":29,"def":24,"mag":28,"spr":30},{"hp":372,"mp":22,"atk":20,"def":17,"mag":20,"spr":21}],
+		"fragmentId": "250010900",
+		"max_rarity":"NV",
 		"min_rarity":"4",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3610,"mp":160,"atk":134,"def":120,"mag":129,"spr":117},
-			"minStats":{"hp":1191,"mp":53,"atk":44,"def":40,"mag":43,"spr":39},
+			"maxStats":{"hp":5312,"mp":320,"atk":290,"def":243,"mag":280,"spr":300},
+			"minStats":{"hp":1753,"mp":106,"atk":96,"def":80,"mag":92,"spr":99},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
-		"equip":["dagger","rod","fist","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["アルケイディア帝国皇帝","バマジク","カタスト"]
+		"stats_pattern":4,
+		"equip":["dagger","rod","fist","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["ブレイブ","フェイス","ファイガ","サンダガ","アルケイディア帝国皇帝","バマジク","カタスト","不撓邁進"],
+		"6_form": {
+			"name":"Vayne",
+			"jpname":"ヴェイン",
+			"roles":["physicalAttacker","support"],
+			"id":"212001204",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"4",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3610,"mp":160,"atk":134,"def":120,"mag":129,"spr":117},
+				"minStats":{"hp":1191,"mp":53,"atk":44,"def":40,"mag":43,"spr":39},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","rod","fist","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["ブレイブ","フェイス","ファイガ","サンダガ","アルケイディア帝国皇帝","バマジク","カタスト","不撓邁進"]
+		},
+		"7_form": {
+			"name":"Vayne",
+			"jpname":"ヴェイン",
+			"roles":["physicalAttacker","support"],
+			"id":"212001204",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"4",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4999,"mp":241,"atk":187,"def":187,"mag":168,"spr":220},
+				"minStats":{"hp":1650,"mp":80,"atk":62,"def":62,"mag":55,"spr":73},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","rod","fist","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["ブレイブ","フェイス","ファイガ","サンダガ","アルケイディア帝国皇帝","バマジク","カタスト","不撓邁進"]
+		}
+	},
+	"212001227": {
+		"name":"ヴェイン BS",
+		"roles":["physicalAttacker","support","magicalAttacker"],
+		"id":"212001227",
+		"braveShifted":"212001204",
+		"exAwakening": [{"hp":691,"mp":42,"atk":38,"def":32,"mag":36,"spr":39},{"hp":531,"mp":32,"atk":29,"def":24,"mag":28,"spr":30},{"hp":372,"mp":22,"atk":20,"def":17,"mag":20,"spr":21}],
+		"fragmentId": "250010900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5312,"mp":320,"atk":290,"def":243,"mag":280,"spr":300},
+			"minStats":{"hp":1753,"mp":106,"atk":96,"def":80,"mag":92,"spr":99},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","rod","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]
 	},
 	"212001303": {
 		"name":"Larsa",
@@ -18095,7 +18152,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["センテンス","アグレッサー"]
+		"enhancementSkills":["センテンス","アグレッサー","夜叉の執念"]
 	},
 	"212002305": {
 		"name":"Ray of Hope Larsa",
@@ -18209,6 +18266,43 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","staff","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["盾の極意","プロテガ","バブル","シェルガ"]
+	},
+	"212002607": {
+		"name":"ラバナスタの少年ヴァン",
+		"roles":["debuffer"],
+		"id":"212002607",
+		"braveShift":"212002617",
+		"exAwakening": [{"hp":664,"mp":35,"atk":70,"def":23,"mag":34,"spr":23},{"hp":511,"mp":27,"atk":54,"def":18,"mag":26,"spr":18},{"hp":357,"mp":19,"atk":38,"def":12,"mag":18,"spr":12}],
+		"fragmentId": "250010800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5106,"mp":270,"atk":270,"def":177,"mag":260,"spr":178},
+			"minStats":{"hp":1685,"mp":89,"atk":89,"def":58,"mag":86,"spr":59},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["格闘の極意","オイル","フレイムスマッシュ","エアリアル【XII TZA】"]
+	},
+	"212002617": {
+		"name":"ラバナスタの少年ヴァン BS",
+		"roles":["debuffer"],
+		"id":"212002617",
+		"braveShifted":"212002607",
+		"exAwakening": [{"hp":664,"mp":35,"atk":70,"def":23,"mag":34,"spr":23},{"hp":511,"mp":27,"atk":54,"def":18,"mag":26,"spr":18},{"hp":357,"mp":19,"atk":38,"def":12,"mag":18,"spr":12}],
+		"fragmentId": "250010800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5106,"mp":270,"atk":270,"def":177,"mag":260,"spr":178},
+			"minStats":{"hp":1685,"mp":89,"atk":89,"def":58,"mag":86,"spr":59},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"213000105": {
 		"name":"Lightning",
