@@ -9024,6 +9024,123 @@
 		"stats_pattern":4,
 		"equip":["dagger","harp","throwing","fist","hat","clothes","lightArmor","visionCard"]
 	},
+	"100037707": {
+		"name":"Rizer doré",
+		"roles":["physicalAttacker","support"],
+		"wikiEntry":"Golden_Rizer",
+		"id":"100037707",
+		"braveShift":"100037717",
+		"exAwakening": [{"hp":404,"mp":31,"atk":64,"def":6,"mag":4,"spr":5},{"hp":311,"mp":24,"atk":49,"def":4,"mag":3,"spr":4},{"hp":217,"mp":17,"atk":35,"def":3,"mag":2,"spr":3}],
+		"fragmentId": "250006100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3108,"mp":240,"atk":247,"def":44,"mag":31,"spr":35},
+			"minStats":{"hp":1026,"mp":79,"atk":82,"def":15,"mag":10,"spr":12},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Golden Guardian","Phoenix Slash","Bladeblitz"]
+	},
+	"100037717": {
+		"name":"Rizer doré BS",
+		"roles":["physicalAttacker","support"],
+		"wikiEntry":"Golden_Rizer",
+		"id":"100037717",
+		"braveShifted":"100037707",
+		"exAwakening": [{"hp":404,"mp":31,"atk":64,"def":6,"mag":4,"spr":5},{"hp":311,"mp":24,"atk":49,"def":4,"mag":3,"spr":4},{"hp":217,"mp":17,"atk":35,"def":3,"mag":2,"spr":3}],
+		"fragmentId": "250006100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3108,"mp":240,"atk":247,"def":44,"mag":31,"spr":35},
+			"minStats":{"hp":1026,"mp":79,"atk":82,"def":15,"mag":10,"spr":12},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"100037807": {
+		"name":"Rain obscur",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Dark_Rain",
+		"id":"100037807",
+		"braveShift":"100037817",
+		"exAwakening": [{"hp":637,"mp":35,"atk":26,"def":23,"mag":78,"spr":26},{"hp":490,"mp":27,"atk":20,"def":18,"mag":60,"spr":20},{"hp":343,"mp":19,"atk":14,"def":13,"mag":42,"spr":14}],
+		"fragmentId": "250005900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4900,"mp":270,"atk":197,"def":181,"mag":300,"spr":198},
+			"minStats":{"hp":1617,"mp":89,"atk":65,"def":60,"mag":99,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Darkga","Doomsday","Dark Suppression","Chaotic Mirage"]
+	},
+	"100037817": {
+		"name":"Rain obscur BS",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Dark_Rain",
+		"id":"100037817",
+		"braveShifted":"100037807",
+		"exAwakening": [{"hp":637,"mp":35,"atk":26,"def":23,"mag":78,"spr":26},{"hp":490,"mp":27,"atk":20,"def":18,"mag":60,"spr":20},{"hp":343,"mp":19,"atk":14,"def":13,"mag":42,"spr":14}],
+		"fragmentId": "250005900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4900,"mp":270,"atk":197,"def":181,"mag":300,"spr":198},
+			"minStats":{"hp":1617,"mp":89,"atk":65,"def":60,"mag":99,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"]
+	},
+	"100037907": {
+		"name":"Raegen de la nouvelle ère",
+		"roles":["debuffer"],
+		"wikiEntry":"Raegen_-The Return-",
+		"id":"100037907",
+		"braveShift":"100037917",
+		"exAwakening": [{"hp":677,"mp":39,"atk":70,"def":27,"mag":19,"spr":25},{"hp":521,"mp":30,"atk":54,"def":21,"mag":15,"spr":19},{"hp":365,"mp":21,"atk":38,"def":14,"mag":10,"spr":14}],
+		"fragmentId": "250006000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5210,"mp":300,"atk":270,"def":207,"mag":148,"spr":192},
+			"minStats":{"hp":1719,"mp":99,"atk":89,"def":68,"mag":49,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Obliterating Mirror of Equity","Dawn's Edge","Daybreak's Flame"]
+	},
+	"100037917": {
+		"name":"Raegen de la nouvelle ère BS",
+		"roles":["debuffer"],
+		"wikiEntry":"Raegen_-The Return-",
+		"id":"100037917",
+		"braveShifted":"100037907",
+		"exAwakening": [{"hp":677,"mp":39,"atk":70,"def":27,"mag":19,"spr":25},{"hp":521,"mp":30,"atk":54,"def":21,"mag":15,"spr":19},{"hp":365,"mp":21,"atk":38,"def":14,"mag":10,"spr":14}],
+		"fragmentId": "250006000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5210,"mp":300,"atk":270,"def":207,"mag":148,"spr":192},
+			"minStats":{"hp":1719,"mp":99,"atk":89,"def":68,"mag":49,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"]
+	},
 	"201000104": {
 		"name":"Guerrier de la lumière",
 		"roles":["physicalTank"],
@@ -13869,6 +13986,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","hat","clothes","robe"],
+		"enhancementSkills":["Doomsday"],
 		"6_form": {
 			"name":"Vivi, mage noir",
 			"roles":["magicalAttacker"],
@@ -13884,7 +14002,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","hat","clothes","robe"]
+			"equip":["dagger","staff","rod","hat","clothes","robe"],
+			"enhancementSkills":["Doomsday"]
 		}
 	},
 	"209001505": {
@@ -14240,7 +14359,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Focus (FFIX)","Three-Fold Firaga Blade Infusion","Comet","Firaga","Blizzaga","Thundaga"]
+		"enhancementSkills":["Focus (FFIX)","Three-Fold Firaga Blade Infusion","Comet","Firaga","Blizzaga","Thundaga","Doomsday"]
 	},
 	"209002917": {
 		"name":"Vivi, enfant au cœur pur BS",
@@ -14260,7 +14379,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Focus (FFIX)","Comet","Firaga","Blizzaga","Thundaga","Where the Heart Lies"]
+		"enhancementSkills":["Focus (FFIX)","Comet","Firaga","Blizzaga","Thundaga","Doomsday","Where the Heart Lies"]
 	},
 	"209003005": {
 		"name":"Steiner, chevalier dévoué",
@@ -25740,12 +25859,6 @@
   "100030605":{"name":"Sakura & Ayaka","jpname":"サクラ&アヤカ","roles":["healer","magicalAttacker"],"id":"100030605","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4550,"mp":260,"atk":158,"def":169,"mag":170,"spr":215},"minStats":{"hp":1502,"mp":86,"atk":52,"def":56,"mag":56,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","bow","axe","spear","harp","whip","throwing","mace","fist","hat","clothes","lightArmor","robe"],"6_form":{"name":"Sakura & Ayaka","jpname":"サクラ&アヤカ","roles":["healer","magicalAttacker"],"id":"100030605","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3500,"mp":200,"atk":121,"def":130,"mag":130,"spr":165},"minStats":{"hp":1155,"mp":66,"atk":40,"def":43,"mag":43,"spr":54},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","bow","axe","spear","harp","whip","throwing","mace","fist","hat","clothes","lightArmor","robe"]}},
   "100033605":{"name":"Grim Lord Sakura","jpname":"グリムロードサクラ","roles":["support"],"id":"100033605","braveShift":"100033627","exAwakening":[{"hp":659,"mp":44,"atk":21,"def":27,"mag":33,"spr":33},{"hp":507,"mp":34,"atk":16,"def":21,"mag":25,"spr":26},{"hp":355,"mp":23,"atk":11,"def":14,"mag":17,"spr":18}],"fragmentId":"250000560","max_rarity":"NV","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":5072,"mp":342,"atk":165,"def":213,"mag":255,"spr":261},"minStats":{"hp":1674,"mp":113,"atk":54,"def":70,"mag":84,"spr":86},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["rod","spear","lightShield","hat","clothes","robe","visionCard"],"enhancementSkills":["グリムロードの魔力鎌【雷】","グリムロードの魔力鎌【火】"],"6_form":{"name":"Grim Lord Sakura","jpname":"グリムロードサクラ","roles":["support"],"id":"100033605","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3901,"mp":202,"atk":125,"def":126,"mag":156,"spr":154},"minStats":{"hp":1287,"mp":67,"atk":41,"def":42,"mag":51,"spr":51},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["rod","spear","lightShield","hat","clothes","robe"],"enhancementSkills":["グリムロードの魔力鎌【雷】","グリムロードの魔力鎌【火】"]},"7_form":{"name":"Grim Lord Sakura","jpname":"グリムロードサクラ","roles":["support"],"id":"100033605","sevenStarForm":true,"max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":5072,"mp":263,"atk":163,"def":164,"mag":204,"spr":201},"minStats":{"hp":1674,"mp":87,"atk":54,"def":54,"mag":67,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["rod","spear","lightShield","hat","clothes","robe"],"enhancementSkills":["グリムロードの魔力鎌【雷】","グリムロードの魔力鎌【火】"]}},
   "100033627":{"name":"Grim Lord Sakura BS","jpname":"グリムロードサクラ BS","roles":["magicalAttacker","support"],"id":"100033627","braveShifted":"100033605","exAwakening":[{"hp":659,"mp":44,"atk":21,"def":27,"mag":33,"spr":33},{"hp":507,"mp":34,"atk":16,"def":21,"mag":25,"spr":26},{"hp":355,"mp":23,"atk":11,"def":14,"mag":17,"spr":18}],"fragmentId":"250000560","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5072,"mp":342,"atk":165,"def":216,"mag":265,"spr":255},"minStats":{"hp":1674,"mp":113,"atk":54,"def":71,"mag":87,"spr":84},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["rod","spear","hat","clothes","robe","visionCard"],"enhancementSkills":["グリムロードの魔力鎌【雷】","グリムロードの魔力鎌【闇】"]},
-  "100037707":{"name":"Golden Rizer","jpname":"ゴールデンライザー","roles":["physicalAttacker","support"],"id":"100037707","braveShift":"100037717","exAwakening":[{"hp":404,"mp":31,"atk":64,"def":6,"mag":4,"spr":5},{"hp":311,"mp":24,"atk":49,"def":4,"mag":3,"spr":4},{"hp":217,"mp":17,"atk":35,"def":3,"mag":2,"spr":3}],"fragmentId":"250006100","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":3108,"mp":240,"atk":247,"def":44,"mag":31,"spr":35},"minStats":{"hp":1026,"mp":79,"atk":82,"def":15,"mag":10,"spr":12},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["金色の守護者","フェニックススラッシュ","ぜんぎり"]},
-  "100037717":{"name":"Golden Rizer BS","jpname":"ゴールデンライザー BS","roles":["physicalAttacker","support"],"id":"100037717","braveShifted":"100037707","exAwakening":[{"hp":404,"mp":31,"atk":64,"def":6,"mag":4,"spr":5},{"hp":311,"mp":24,"atk":49,"def":4,"mag":3,"spr":4},{"hp":217,"mp":17,"atk":35,"def":3,"mag":2,"spr":3}],"fragmentId":"250006100","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":3108,"mp":240,"atk":247,"def":44,"mag":31,"spr":35},"minStats":{"hp":1026,"mp":79,"atk":82,"def":15,"mag":10,"spr":12},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
-  "100037807":{"name":"Dark Rain","jpname":"ダークレイン","roles":["magicalAttacker"],"id":"100037807","braveShift":"100037817","exAwakening":[{"hp":637,"mp":35,"atk":26,"def":23,"mag":78,"spr":26},{"hp":490,"mp":27,"atk":20,"def":18,"mag":60,"spr":20},{"hp":343,"mp":19,"atk":14,"def":13,"mag":42,"spr":14}],"fragmentId":"250005900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4900,"mp":270,"atk":197,"def":181,"mag":300,"spr":198},"minStats":{"hp":1617,"mp":89,"atk":65,"def":60,"mag":99,"spr":65},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["ダーガ","ジハード","ダークサプレッション","カオティックミラージュ"]},
-  "100037817":{"name":"Dark Rain BS","jpname":"ダークレイン BS","roles":["magicalAttacker"],"id":"100037817","braveShifted":"100037807","exAwakening":[{"hp":637,"mp":35,"atk":26,"def":23,"mag":78,"spr":26},{"hp":490,"mp":27,"atk":20,"def":18,"mag":60,"spr":20},{"hp":343,"mp":19,"atk":14,"def":13,"mag":42,"spr":14}],"fragmentId":"250005900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4900,"mp":270,"atk":197,"def":181,"mag":300,"spr":198},"minStats":{"hp":1617,"mp":89,"atk":65,"def":60,"mag":99,"spr":65},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"]},
-  "100037907":{"name":"Raegen -The Second Emperor","jpname":"レーゲン -再臨の帝王-","roles":["debuffer"],"id":"100037907","braveShift":"100037917","exAwakening":[{"hp":677,"mp":39,"atk":70,"def":27,"mag":19,"spr":25},{"hp":521,"mp":30,"atk":54,"def":21,"mag":15,"spr":19},{"hp":365,"mp":21,"atk":38,"def":14,"mag":10,"spr":14}],"fragmentId":"250006000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5210,"mp":300,"atk":270,"def":207,"mag":148,"spr":192},"minStats":{"hp":1719,"mp":99,"atk":89,"def":68,"mag":49,"spr":63},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"],"enhancementSkills":["絶・明鏡","暁光の刃","黎明の炎"]},
-  "100037917":{"name":"Raegen -The Second Emperor BS","jpname":"レーゲン -再臨の帝王- BS","roles":["debuffer"],"id":"100037917","braveShifted":"100037907","exAwakening":[{"hp":677,"mp":39,"atk":70,"def":27,"mag":19,"spr":25},{"hp":521,"mp":30,"atk":54,"def":21,"mag":15,"spr":19},{"hp":365,"mp":21,"atk":38,"def":14,"mag":10,"spr":14}],"fragmentId":"250006000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5210,"mp":300,"atk":270,"def":207,"mag":148,"spr":192},"minStats":{"hp":1719,"mp":99,"atk":89,"def":68,"mag":49,"spr":63},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"]},
   "100038007":{"name":"Akstar -The Second Emperor","jpname":"アクスター -再臨の帝王-","roles":["debuffer"],"id":"100038007","braveShift":"100038017","exAwakening":[{"hp":663,"mp":42,"atk":70,"def":25,"mag":19,"spr":28},{"hp":510,"mp":32,"atk":54,"def":19,"mag":15,"spr":21},{"hp":357,"mp":22,"atk":38,"def":13,"mag":10,"spr":15}],"fragmentId":"250006200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5100,"mp":320,"atk":270,"def":189,"mag":148,"spr":212},"minStats":{"hp":1683,"mp":106,"atk":89,"def":62,"mag":49,"spr":70},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["greatSword","katana","spear","hat","helm","clothes","lightArmor","visionCard"],"enhancementSkills":["暗剣・無月天","炎剣・紅蓮閃","真・明鏡","絶・明鏡"]},
   "100038017":{"name":"アクスター -再臨の帝王- BS","jpname":"アクスター -再臨の帝王- BS","roles":["debuffer"],"id":"100038017","braveShifted":"100038007","exAwakening":[{"hp":663,"mp":42,"atk":70,"def":25,"mag":19,"spr":28},{"hp":510,"mp":32,"atk":54,"def":19,"mag":15,"spr":21},{"hp":357,"mp":22,"atk":38,"def":13,"mag":10,"spr":15}],"fragmentId":"250006200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5100,"mp":320,"atk":270,"def":189,"mag":148,"spr":212},"minStats":{"hp":1683,"mp":106,"atk":89,"def":62,"mag":49,"spr":70},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["greatSword","katana","spear","hat","helm","clothes","lightArmor","visionCard"]},
   "100038107":{"name":"Fina -The Second Emperor-","jpname":"フィーナ -再臨の帝王-","roles":["healer","support"],"id":"100038107","braveShift":"100038117","exAwakening":[{"hp":600,"mp":39,"atk":20,"def":17,"mag":33,"spr":75},{"hp":462,"mp":30,"atk":16,"def":13,"mag":25,"spr":58},{"hp":323,"mp":21,"atk":11,"def":9,"mag":18,"spr":41}],"fragmentId":"250006300","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4615,"mp":300,"atk":155,"def":131,"mag":250,"spr":290},"minStats":{"hp":1523,"mp":99,"atk":51,"def":43,"mag":83,"spr":96},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"],"enhancementSkills":["プロテガ","シェルガ","バニシュガ","ブリリアンスヴェール"]},
