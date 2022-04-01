@@ -1,24 +1,46 @@
 const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMecanism", "sprDamageWithPhysicalMecanism", "defDamageWithPhysicalMecanism", "magDamageWithPhysicalMecanismMultiCast", "sprDamageWithPhysicalMecanismMultiCast", "defDamageWithPhysicalMecanismMultiCast", "atkDamageWithMagicalMecanism", "atkDamageWithMagicalMecanismMulticast", "sprDamageWithMagicalMecanism", "atkDamageWithFixedMecanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMecanism","summonerSkill"];
 const operatorsInFormula = ["/","*","+","-","OR","AND",">"];
-const weaponBaseDamageVariance = {
-    "dagger" : {"min":0.95,"avg":1,"max":1.05},
-    "sword" : {"min":0.9,"avg":1,"max":1.1},
-    "greatSword" : {"min":0.85,"avg":1,"max":1.15},
-    "katana" : {"min":0.9,"avg":1,"max":1.1},
-    "staff" : {"min":0.95,"avg":1,"max":1.05},
-    "rod" : {"min":0.95,"avg":1,"max":1.05},
-    "bow" : {"min":0.95,"avg":1,"max":1.05},
-    "axe" : {"min":0.7,"avg":1,"max":1.3},
-    "hammer" : {"min":0.8,"avg":1,"max":1.2},
-    "spear" : {"min":0.85,"avg":1,"max":1.15},
-    "harp" : {"min":0.9,"avg":1,"max":1.1},
-    "whip" : {"min":0.9,"avg":1,"max":1.1},
-    "throwing" : {"min":0.9,"avg":1,"max":1.1},
-    "gun" : {"min":0.95,"avg":1,"max":1.05},
-    "mace" : {"min":0.95,"avg":1,"max":1.05},
-    "fist" : {"min":1,"avg":1,"max":1},
-    "none" : {"min":1,"avg":1,"max":1}
-}
+const weaponBaseDamageVariance =
+    {
+        "1h": {
+            "dagger" : {"min":1.1,"avg":1.15,"max":1.2},
+            "sword" : {"min":1.05,"avg":1.15,"max":1.25},
+            "greatSword" : {"min":1,"avg":1.15,"max":1.3},
+            "katana" : {"min":1.05,"avg":1.15,"max":1.25},
+            "staff" : {"min":1.1,"avg":1.15,"max":1.2},
+            "rod" : {"min":1.1,"avg":1.15,"max":1.2},
+            "bow" : {"min":1.35,"avg":1.6,"max":1.85},
+            "axe" : {"min":0.85,"avg":1.3,"max":1.45},
+            "hammer" : {"min":0.95,"avg":1.3,"max":1.35},
+            "spear" : {"min":1,"avg":1.3,"max":1.3},
+            "harp" : {"min":1.05,"avg":1.15,"max":1.25},
+            "whip" : {"min":1.05,"avg":1.15,"max":1.25},
+            "throwing" : {"min":1.05,"avg":1.15,"max":1.25},
+            "gun" : {"min":1.1,"avg":1.15,"max":1.2},
+            "mace" : {"min":1.1,"avg":1.15,"max":1.2},
+            "fist" : {"min":1.15,"avg":1.15,"max":1.15},
+        },
+        "2h": {
+            "dagger" : {"min":1.1,"avg":1.15,"max":1.2},
+            "sword" : {"min":1.25,"avg":1.5,"max":1.75},
+            "greatSword" : {"min":1.25,"avg":1.5,"max":1.75},
+            "katana" : {"min":1.25,"avg":1.5,"max":1.75},
+            "staff" : {"min":1.1,"avg":1.15,"max":1.2},
+            "rod" : {"min":1.25,"avg":1.5,"max":1.75},
+            "bow" : {"min":1.35,"avg":1.6,"max":1.85},
+            "axe" : {"min":1.15,"avg":1.55,"max":1.95},
+            "hammer" : {"min":1.15,"avg":1.55,"max":1.95},
+            "spear" : {"min":1.25,"avg":1.5,"max":1.75},
+            "harp" : {"min":1.35,"avg":1.55,"max":1.75},
+            "whip" : {"min":1.30,"avg":1.5,"max":1.70},
+            "throwing" : {"min":1.30,"avg":1.5,"max":1.70},
+            "gun" : {"min":1.35,"avg":1.55,"max":1.75},
+            "mace" : {"min":1.4,"avg":1.5,"max":1.6},
+            "fist" : {"min":1.4,"avg":1.55,"max":1.65},
+        },
+        "none": {"min":1,"avg":1,"max":1},
+    }
+
 
 const valuesToNotRoundDown = ["lbPerTurn"];
 
@@ -275,10 +297,14 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                     if (itemAndPassives[0].damageVariance) {
                         variance = itemAndPassives[0].damageVariance;
                     } else {
-                        variance = weaponBaseDamageVariance[itemAndPassives[0].type];
+                        variance = weaponBaseDamageVariance[isTwoHanded(itemAndPassives[0]) ? '2h' : '1h'][itemAndPassives[0].type];
                     }
                 }  else {
                     variance = weaponBaseDamageVariance["none"];
+                }
+                if (unitBuild.involvedStats.includes("jumpDamage") && (isTwoHanded(itemAndPassives[0]) || isTwoHanded(itemAndPassives[1]))) {
+                    // variance override for two handed weapons and jumps
+                    variance = {"min":2.3,"avg":2.45,"max":2.6};
                 }
 
                 var switchWeapons = false;
@@ -288,7 +314,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                         if (itemAndPassives[1].damageVariance) {
                             variance1 = itemAndPassives[1].damageVariance;
                         } else {
-                            variance1 = weaponBaseDamageVariance[itemAndPassives[1].type];
+                            variance1 = weaponBaseDamageVariance[isTwoHanded(itemAndPassives[1]) ? '2h' : '1h'][itemAndPassives[1].type];
                         }
                     }  else {
                         variance1 = weaponBaseDamageVariance["none"];
@@ -686,10 +712,14 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                             if (itemAndPassives[0].damageVariance) {
                                 variance = itemAndPassives[0].damageVariance;
                             } else {
-                                variance = weaponBaseDamageVariance[itemAndPassives[0].type];
+                                variance = weaponBaseDamageVariance[isTwoHanded(itemAndPassives[0]) ? '2h' : '1h'][itemAndPassives[0].type];
                             }
                         } else {
                             variance = weaponBaseDamageVariance["none"];
+                        }
+                        if (unitBuild.involvedStats.includes("jumpDamage") && (isTwoHanded(itemAndPassives[0]) || isTwoHanded(itemAndPassives[1]))) {
+                            // variance override for two handed weapons and jumps
+                            variance = {"min":2.3,"avg":2.45,"max":2.6};
                         }
 
                         if (goalVariance &&
@@ -700,7 +730,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                                 if (itemAndPassives[1].damageVariance) {
                                     variance1 = itemAndPassives[1].damageVariance;
                                 } else {
-                                    variance1 = weaponBaseDamageVariance[itemAndPassives[1].type];
+                                    variance1 = weaponBaseDamageVariance[isTwoHanded(itemAndPassives[1]) ? '2h' : '1h'][itemAndPassives[1].type];
                                 }
                             } else {
                                 variance1 = weaponBaseDamageVariance["none"];

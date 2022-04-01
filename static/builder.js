@@ -2976,8 +2976,8 @@ function getItemDataForStateHash(unitBuild, index) {
                 };
             } else {
                 itemData.damageVariance = {
-                    min: weaponBaseDamageVariance[item.type].min,
-                    max: weaponBaseDamageVariance[item.type].max
+                    min: weaponBaseDamageVariance[isTwoHanded(item) ? '2h' : '1h'][item.type].min,
+                    max: weaponBaseDamageVariance[isTwoHanded(item) ? '2h' : '1h'][item.type].max
                 };
             }
         }
@@ -4376,7 +4376,7 @@ function exportUnitForCombat() {
         if (unitBuild.build[0].damageVariance) {
             unit.rightDamageVariance = [unitBuild.build[0].damageVariance.min, unitBuild.build[0].damageVariance.max];
         } else {
-            unit.rightDamageVariance = [weaponBaseDamageVariance[unitBuild.build[0].type].min, weaponBaseDamageVariance[unitBuild.build[0].type].max];
+            unit.rightDamageVariance = [weaponBaseDamageVariance[isTwoHanded(unitBuild.build[0]) ? '2h' : '1h'][unitBuild.build[0].type].min, weaponBaseDamageVariance[isTwoHanded(unitBuild.build[0]) ? '2h' : '1h'][unitBuild.build[0].type].max];
         }
         if (unitBuild.build[0].enhancements) {
             unit.autoCastedSkills = unit.autoCastedSkills.concat(unitBuild.build[0].enhancements.filter(enh => skillByItemEnhancement[enh]).map(enh => skillByItemEnhancement[enh]));
@@ -4503,7 +4503,7 @@ function ensureInitUnitWithSkills(unitId) {
 // will be called by common.js at page load
 function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
-    $('#useNewJpDamageFormula').prop('checked', true);
+    $('#useNewJpDamageFormula').prop('checked', false);
     resetMonsterAttack();
 
     registerWaitingCallback(["data", "unitsWithPassives", "defaultBuilderEspers"], () => {

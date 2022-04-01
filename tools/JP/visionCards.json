@@ -510,10 +510,10 @@
 	{"atk":54, "mag":54, "killers":[{"name":"plant","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}]},
 	{"atk":60, "mag":60, "killers":[{"name":"plant","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50},{"name":"machine","physical":50,"magical":50}]}
 ]},
-{"id":"100005001", "name":"強襲！ダークレイン", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005001.png", "sortId":89, "levels":[
+{"id":"100005001", "name":"Dark Rain Descends", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005001.png", "sortId":89, "levels":[
 	{"mag":130, "mag%":80, "staticStats":{"mag":500}, "lbDamage":100}
 ]},
-{"id":"100005101", "name":"演説前の一幕", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005101.png", "sortId":90, "levels":[
+{"id":"100005101", "name":"Moments Before the Address", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005101.png", "sortId":90, "levels":[
 	{"atk":35, "mag":35},
 	{"atk":38, "mag":38},
 	{"atk":42, "mag":42},
@@ -1268,6 +1268,30 @@
 	{"atk":85, "atk%":50, "lbDamage":25},
 	{"atk":90, "atk%":50, "lbDamage":25},
 	{"atk":100, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500},"exclusiveUnits":[null]}]}
+]},
+{"id":"401002201", "name":"A Crimson-Colored Light", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401002201.png", "sortId":122, "levels":[
+	{"mag":70},
+	{"mag":77},
+	{"mag":84},
+	{"mag":91, "lbFillRate":50},
+	{"mag":98, "lbFillRate":50},
+	{"mag":105, "lbFillRate":50},
+	{"mag":112, "lbFillRate":100},
+	{"mag":119, "lbFillRate":100},
+	{"mag":126, "lbFillRate":100},
+	{"mag":140, "lbFillRate":200}
+]},
+{"id":"401002301", "name":"Dramatic Costume Change", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401002301.png", "sortId":123, "levels":[
+	{"mag":40, "spr":40},
+	{"mag":44, "spr":44},
+	{"mag":48, "spr":48},
+	{"mag":52, "mag%":50, "spr":52},
+	{"mag":56, "mag%":50, "spr":56},
+	{"mag":60, "mag%":50, "spr":60},
+	{"mag":64, "mag%":50, "spr":64, "lbDamage":25},
+	{"mag":68, "mag%":50, "spr":68, "lbDamage":25},
+	{"mag":72, "mag%":50, "spr":72, "lbDamage":25},
+	{"mag":80, "mag%":50, "spr":80, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "lbDamage":25}
 ]},
 {"id":"900020101", "name":"Metal Gigantuar's Here!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_900020101.png", "sortId":6, "levels":[
 	{"hp":10, "mp":10}
