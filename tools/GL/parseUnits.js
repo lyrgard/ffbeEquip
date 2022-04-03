@@ -371,7 +371,14 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
     data["sex"] = unitIn.sex.toLowerCase();
     data["equip"] = commonParse.getEquip(unitIn.equip);
     data["id"] = unitId;
-    
+
+    for (skillIndex in unitIn.skills) {
+        if (unitIn.skills[skillIndex].rarity.startsWith && unitIn.skills[skillIndex].rarity.startsWith('NV+')) {
+            unitIn.skills[skillIndex].exLevel = parseInt(unitIn.skills[skillIndex].rarity.substr(3,1));
+            unitIn.skills[skillIndex].rarity = 'NV';
+        }
+    }
+
     data["enhancementSkills"] = [];
     for (skillIndex in unitIn.skills) {
         if (unitIn.skills[skillIndex].rarity > unitIn.rarity_max) {
@@ -439,7 +446,7 @@ function verifyImage(serieId, minRarity, maxRarity) {
             // } else {
             //     console.log("!! Img url not known : " + illus);
             // }
-            console.log("Missing image : " + illus);
+            // console.log("Missing image : " + illus);
         }
         var filePath = basePath + icon;
         if (!fs.existsSync(filePath)) {
@@ -448,7 +455,7 @@ function verifyImage(serieId, minRarity, maxRarity) {
             // } else {
             //     console.log("!! Img url not known : " + icon);
             // }
-            console.log("Missing image : " + icon);
+            // console.log("Missing image : " + icon);
         }
     }
 }

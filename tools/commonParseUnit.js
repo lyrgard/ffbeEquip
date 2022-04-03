@@ -186,7 +186,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
             console.log(skillsIn[skillIndex]);
             continue;
         }
-        manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, baseEffects, skillsIn[skillIndex].rarity, skillsIn[skillIndex].level, skillsIn[skillIndex].ex_level, false);
+        manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, baseEffects, skillsIn[skillIndex].rarity, skillsIn[skillIndex].level, skillsIn[skillIndex].exLevel, false);
     }
     if (latentSkillsByUnitId && latentSkillsByUnitId[unitId]) {
         latentSkillsByUnitId[unitId].forEach(skillId => {
@@ -1197,7 +1197,7 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
             rawEffect[3][1].forEach(multicastedSkillId => {
                 var skill = skills[multicastedSkillId];
                 if (!skill) {
-                    console.log('Unknown skill : ' + multicastedSkillId + ' - ' + JSON.stringify(rawEffect));
+                    // console.log('Unknown skill : ' + multicastedSkillId + ' - ' + JSON.stringify(rawEffect));
                 } else {
                     result.multicast.skills.push({"id": multicastedSkillId.toString(), "name": skill.name});
                 }
@@ -1209,7 +1209,7 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
             rawEffect[3][2].forEach(multicastedSkillId => {
                 var skill = skills[multicastedSkillId];
                 if (!skill) {
-                    console.log('Unknown skill : ' + multicastedSkillId + ' - ' + JSON.stringify(rawEffect));
+                    // console.log('Unknown skill : ' + multicastedSkillId + ' - ' + JSON.stringify(rawEffect));
                 } else {
                     result.multicast.excludedSkills.push({"id": multicastedSkillId.toString(), "name": skill.name});
                 }
@@ -2313,9 +2313,9 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         } else if (rawEffect[2] == 1007) {
             console.log(skillId + " - physical damage with mod boost next turn");
         } else {
-            console.log("Unknown effect" + skillId);
+            // console.log("Unknown effect" + skillId);
         }
-        console.log(rawEffect);
+        // console.log(rawEffect);
     }
     if (result && result.damage) {
         if (skillIn.attack_type) {
@@ -2575,8 +2575,8 @@ function addImperil(item, values) {
         if (values[index]) {
             item.imperil[elements[index]] = -values[index];
             if (values[index] > 0) {
-                console.log("Positive imperil !");
-                console.log(values);
+                // console.log("Positive imperil !");
+                // console.log(values);
             }
         }
     }
