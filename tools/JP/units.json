@@ -9895,7 +9895,7 @@
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"]
 	},
 	"100038007": {
-		"name":"Akstar -The Second Emperor",
+		"name":"Akstar -The Return-",
 		"jpname":"アクスター -再臨の帝王-",
 		"roles":["debuffer"],
 		"id":"100038007",
@@ -9915,7 +9915,7 @@
 		"enhancementSkills":["暗剣・無月天","炎剣・紅蓮閃","真・明鏡","絶・明鏡"]
 	},
 	"100038017": {
-		"name":"アクスター -再臨の帝王- BS",
+		"name":"Akstar -The Return- BS",
 		"jpname":"アクスター -再臨の帝王- BS",
 		"roles":["debuffer"],
 		"id":"100038017",
@@ -16637,17 +16637,20 @@
 		"jpname":"ワッカ",
 		"roles":["physicalAttacker"],
 		"id":"210000303",
-		"max_rarity":"7",
+		"braveShift":"210000327",
+		"exAwakening": [{"hp":717,"mp":42,"atk":38,"def":24,"mag":25,"spr":22},{"hp":551,"mp":32,"atk":29,"def":19,"mag":19,"spr":17},{"hp":386,"mp":22,"atk":20,"def":13,"mag":14,"spr":12}],
+		"fragmentId": "250011500",
+		"max_rarity":"NV",
 		"min_rarity":"3",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4886,"mp":291,"atk":227,"def":174,"mag":193,"spr":165},
-			"minStats":{"hp":1612,"mp":96,"atk":75,"def":57,"mag":64,"spr":54},
+			"maxStats":{"hp":5512,"mp":320,"atk":290,"def":188,"mag":194,"spr":167},
+			"minStats":{"hp":1819,"mp":106,"atk":96,"def":62,"mag":64,"spr":55},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor"],
-		"enhancementSkills":["ウォーターボンバー","水星の印","熱血ファイター"],
+		"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["ウォーターボンバー","水星の印","熱血ファイター","投擲の極意","ドレインタックル","ブリッツ魂"],
 		"6_form": {
 			"name":"Wakka",
 			"jpname":"ワッカ",
@@ -16664,8 +16667,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor"],
-			"enhancementSkills":["ウォーターボンバー","水星の印","熱血ファイター"]
+			"enhancementSkills":["ウォーターボンバー","水星の印","熱血ファイター","投擲の極意","ドレインタックル","ブリッツ魂"]
+		},
+		"7_form": {
+			"name":"Wakka",
+			"jpname":"ワッカ",
+			"roles":["physicalAttacker"],
+			"id":"210000303",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"3",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4886,"mp":291,"atk":227,"def":174,"mag":193,"spr":165},
+				"minStats":{"hp":1612,"mp":96,"atk":75,"def":57,"mag":64,"spr":54},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["ウォーターボンバー","水星の印","熱血ファイター","投擲の極意","ドレインタックル","ブリッツ魂"]
 		}
+	},
+	"210000327": {
+		"name":"ワッカ BS",
+		"roles":["physicalAttacker","support","debuffer"],
+		"id":"210000327",
+		"braveShifted":"210000303",
+		"exAwakening": [{"hp":717,"mp":42,"atk":38,"def":24,"mag":25,"spr":22},{"hp":551,"mp":32,"atk":29,"def":19,"mag":19,"spr":17},{"hp":386,"mp":22,"atk":20,"def":13,"mag":14,"spr":12}],
+		"fragmentId": "250011500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5512,"mp":320,"atk":290,"def":188,"mag":194,"spr":167},
+			"minStats":{"hp":1819,"mp":106,"atk":96,"def":62,"mag":64,"spr":55},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor","visionCard"]
 	},
 	"210000405": {
 		"name":"Lulu",
@@ -16790,17 +16829,74 @@
 		"jpname":"シーモア",
 		"roles":["magicalAttacker","debuffer"],
 		"id":"210000804",
-		"max_rarity":"6",
+		"braveShift":"210000827",
+		"exAwakening": [{"hp":648,"mp":42,"atk":27,"def":26,"mag":35,"spr":36},{"hp":499,"mp":32,"atk":21,"def":20,"mag":27,"spr":28},{"hp":349,"mp":23,"atk":15,"def":14,"mag":19,"spr":20}],
+		"fragmentId": "250011700",
+		"max_rarity":"NV",
 		"min_rarity":"4",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3512,"mp":180,"atk":95,"def":122,"mag":142,"spr":122},
-			"minStats":{"hp":1159,"mp":59,"atk":31,"def":40,"mag":47,"spr":40},
+			"maxStats":{"hp":4988,"mp":322,"atk":210,"def":202,"mag":270,"spr":280},
+			"minStats":{"hp":1646,"mp":106,"atk":69,"def":67,"mag":89,"spr":92},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
-		"equip":["dagger","staff","rod","lightShield","hat","clothes","robe"],
-		"enhancementSkills":["インサニティダーク","死刃の交撃","暗き執念"]
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["インサニティダーク","死刃の交撃","暗き執念","かばう・魔法I","幻光虫操作"],
+		"6_form": {
+			"name":"Seymour",
+			"jpname":"シーモア",
+			"roles":["magicalAttacker","debuffer"],
+			"id":"210000804",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"4",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3512,"mp":180,"atk":95,"def":122,"mag":142,"spr":122},
+				"minStats":{"hp":1159,"mp":59,"atk":31,"def":40,"mag":47,"spr":40},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["インサニティダーク","死刃の交撃","暗き執念","かばう・魔法I","幻光虫操作"]
+		},
+		"7_form": {
+			"name":"Seymour",
+			"jpname":"シーモア",
+			"roles":["magicalAttacker","debuffer"],
+			"id":"210000804",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"4",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4566,"mp":288,"atk":162,"def":171,"mag":228,"spr":196},
+				"minStats":{"hp":1507,"mp":95,"atk":53,"def":56,"mag":75,"spr":65},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","staff","rod","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["インサニティダーク","死刃の交撃","暗き執念","かばう・魔法I","幻光虫操作"]
+		}
+	},
+	"210000827": {
+		"name":"シーモア BS",
+		"roles":["magicalAttacker","debuffer","magicalTank"],
+		"id":"210000827",
+		"braveShifted":"210000804",
+		"exAwakening": [{"hp":648,"mp":42,"atk":27,"def":26,"mag":35,"spr":36},{"hp":499,"mp":32,"atk":21,"def":20,"mag":27,"spr":28},{"hp":349,"mp":23,"atk":15,"def":14,"mag":19,"spr":20}],
+		"fragmentId": "250011700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4988,"mp":322,"atk":210,"def":202,"mag":270,"spr":280},
+			"minStats":{"hp":1646,"mp":106,"atk":69,"def":67,"mag":89,"spr":92},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","lightShield","hat","clothes","robe","visionCard"]
 	},
 	"210000905": {
 		"name":"Yunalesca",
@@ -17083,7 +17179,8 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["staff","hat","clothes","robe","visionCard"]
+		"equip":["staff","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["幻獣解放"]
 	},
 	"210002117": {
 		"name":"Yuna & Valefor BS",
@@ -17103,7 +17200,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["よだれでベタベタのなにか","シューティング・レイ"]
+		"enhancementSkills":["幻獣解放","よだれでベタベタのなにか","シューティング・レイ"]
 	},
 	"210002207": {
 		"name":"Al Bhed Girl Rikku",
@@ -17162,7 +17259,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["凶嵐","絶衝"]
+		"enhancementSkills":["秘伝の太刀筋","凶嵐","絶衝"]
 	},
 	"210002317": {
 		"name":"Legendary Guardian Auron BS",
@@ -17182,6 +17279,118 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"210002407": {
+		"name":"新米ガード ティーダ",
+		"roles":["physicalAttacker"],
+		"id":"210002407",
+		"braveShift":"210002417",
+		"exAwakening": [{"hp":653,"mp":41,"atk":86,"def":28,"mag":23,"spr":26},{"hp":502,"mp":31,"atk":66,"def":22,"mag":17,"spr":20},{"hp":352,"mp":22,"atk":46,"def":15,"mag":12,"spr":14}],
+		"fragmentId": "250011300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5022,"mp":314,"atk":330,"def":217,"mag":173,"spr":202},
+			"minStats":{"hp":1657,"mp":104,"atk":109,"def":72,"mag":57,"spr":67},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","throwing","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["これがオレの物語だ！","クイックトリック改","ユウナのガードII"]
+	},
+	"210002417": {
+		"name":"エースストライカー ティーダ BS",
+		"roles":["physicalAttacker"],
+		"id":"210002417",
+		"braveShifted":"210002407",
+		"exAwakening": [{"hp":653,"mp":41,"atk":86,"def":28,"mag":23,"spr":26},{"hp":502,"mp":31,"atk":66,"def":22,"mag":17,"spr":20},{"hp":352,"mp":22,"atk":46,"def":15,"mag":12,"spr":14}],
+		"fragmentId": "250011300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5788,"mp":322,"atk":270,"def":315,"mag":188,"spr":280},
+			"minStats":{"hp":1910,"mp":106,"atk":89,"def":104,"mag":62,"spr":92},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","throwing","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["投擲の極意","ドレインタックルS"]
+	},
+	"210002507": {
+		"name":"ビサイドの魔道士ルールー",
+		"roles":["debuffer"],
+		"id":"210002507",
+		"braveShift":"210002517",
+		"exAwakening": [{"hp":634,"mp":42,"atk":25,"def":23,"mag":70,"spr":23},{"hp":488,"mp":32,"atk":19,"def":18,"mag":54,"spr":18},{"hp":342,"mp":22,"atk":13,"def":12,"mag":38,"spr":12}],
+		"fragmentId": "250011400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4880,"mp":320,"atk":191,"def":177,"mag":270,"spr":178},
+			"minStats":{"hp":1610,"mp":106,"atk":63,"def":58,"mag":89,"spr":59},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","throwing","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["フラッド","ウォタラ","ウォタガ","サンダラ","ファイラ","ロッドの極意","サブマージゾーン"]
+	},
+	"210002517": {
+		"name":"ビサイドの魔道士ルールー BS",
+		"roles":["debuffer"],
+		"id":"210002517",
+		"braveShifted":"210002507",
+		"exAwakening": [{"hp":634,"mp":42,"atk":25,"def":23,"mag":70,"spr":23},{"hp":488,"mp":32,"atk":19,"def":18,"mag":54,"spr":18},{"hp":342,"mp":22,"atk":13,"def":12,"mag":38,"spr":12}],
+		"fragmentId": "250011400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4880,"mp":320,"atk":191,"def":177,"mag":270,"spr":178},
+			"minStats":{"hp":1610,"mp":106,"atk":63,"def":58,"mag":89,"spr":59},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","throwing","hat","clothes","robe","visionCard"]
+	},
+	"210002607": {
+		"name":"幻のガード ジェクト",
+		"roles":["physicalTank","physicalAttacker"],
+		"id":"210002607",
+		"braveShift":"210002617",
+		"exAwakening": [{"hp":821,"mp":36,"atk":35,"def":86,"mag":17,"spr":30},{"hp":632,"mp":28,"atk":27,"def":66,"mag":13,"spr":23},{"hp":442,"mp":20,"atk":19,"def":46,"mag":9,"spr":16}],
+		"fragmentId": "250011600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6318,"mp":281,"atk":270,"def":330,"mag":133,"spr":231},
+			"minStats":{"hp":2085,"mp":93,"atk":89,"def":109,"mag":44,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","axe","throwing","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["剣の極意","大剣の極意","投擲の極意","プロテガ","ツインブレイク","いっちょやるか!!","かばう・物理I"]
+	},
+	"210002617": {
+		"name":"幻のガード ジェクト BS",
+		"roles":["physicalTank","physicalAttacker"],
+		"id":"210002617",
+		"braveShifted":"210002607",
+		"exAwakening": [{"hp":821,"mp":36,"atk":35,"def":86,"mag":17,"spr":30},{"hp":632,"mp":28,"atk":27,"def":66,"mag":13,"spr":23},{"hp":442,"mp":20,"atk":19,"def":46,"mag":9,"spr":16}],
+		"fragmentId": "250011600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6318,"mp":281,"atk":270,"def":330,"mag":133,"spr":231},
+			"minStats":{"hp":2085,"mp":93,"atk":89,"def":109,"mag":44,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","axe","throwing","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"211000103": {
 		"name":"Shantotto",
@@ -22720,7 +22929,7 @@
 	"312001007": {
 		"name":"Ninja Master Hawkeye",
 		"jpname":"ニンジャマスター ホークアイ",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"312001007",
 		"braveShift":"312001017",
 		"exAwakening": [{"hp":507,"mp":39,"atk":62,"def":23,"mag":18,"spr":27},{"hp":390,"mp":30,"atk":48,"def":18,"mag":14,"spr":21},{"hp":273,"mp":21,"atk":33,"def":12,"mag":9,"spr":14}],
@@ -22735,12 +22944,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["残影斬","真・雷神の術"]
+		"enhancementSkills":["ニキータの援護","残影斬","真・雷神の術"]
 	},
 	"312001017": {
 		"name":"Nightblade Hawkeye BS",
 		"jpname":"ナイトブレード ホークアイ BS",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"312001017",
 		"braveShifted":"312001007",
 		"exAwakening": [{"hp":507,"mp":39,"atk":62,"def":23,"mag":18,"spr":27},{"hp":390,"mp":30,"atk":48,"def":18,"mag":14,"spr":21},{"hp":273,"mp":21,"atk":33,"def":12,"mag":9,"spr":14}],
@@ -22755,7 +22964,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["残影斬","真・ブラックレイン"]
+		"enhancementSkills":["ニキータの援護","残影斬","真・ブラックレイン","真・凶器攻撃"]
 	},
 	"313000105": {
 		"name":"Tiz",

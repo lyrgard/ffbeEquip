@@ -162,15 +162,18 @@ const unitRules = {
     7102: (item) => item.exclusiveSex = 'male',// Male units
     7103: (item) => item.exclusiveSex = 'female',// Female units,
     7110: (item) => item.exclusiveRoles = ['physicalAttacker'],
+    7111: (item) => item.exclusiveRoles = ['physicalAttacker', 'magicalAttacker'],
     7112: (item) => item.exclusiveRoles = ['physicalTank'],
     7113: (item) => item.exclusiveRoles = ['physicalTank', 'magicalTank'],
     7114: (item) => item.exclusiveRoles = ['healer'],
     7116: (item) => item.exclusiveRoles = ['debuffer'],
+    7201: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF1
     7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
     7203: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10003], // FF3
     7204: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10004], // FF4
     7205: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10005], // FF5
     7206: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10006], // FF6
+    7208: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10008], // FF8
     7209: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10009], // FF9
     7210: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10010], // FF10
     7212: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10012], // FF12
@@ -184,7 +187,9 @@ const unitRules = {
     7272: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20033], // KH units
     7273: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10013] || []).concat(nvUnitIdsByGameId[11006] || []).concat(nvUnitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units
     7274: (item) => item.exclusiveUnits = ["312000205", "312001007", "312001017"],
+    7275: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20036], // ActRaiser Renaissance
     7401: (item) => item.exclusiveUnits = ["100031507", "100031517"],
+    7601: (item) => {}, // not implemented yet. Only for unit max 7*
     9501: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001].concat(nvUnitIdsByGameId[11010]), // FFBE & WOTV units
     9502: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[90003] || []).concat((nvUnitIdsByGameId[90008] || [])), // Tomb raider units
 }

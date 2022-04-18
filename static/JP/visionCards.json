@@ -537,7 +537,7 @@
 	{"atk":54, "atk%":40, "mag":54, "mag%":40},
 	{"atk":60, "atk%":40, "mag":60, "mag%":40, "lbDamage":25}
 ]},
-{"id":"100005301", "name":"大地が起こした奇跡", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005301.png", "sortId":92, "levels":[
+{"id":"100005301", "name":"Miracle of the Earth", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005301.png", "sortId":92, "levels":[
 	{"hp":1000, "def":100, "spr":100, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":15}
 ]},
 {"id":"100005401", "name":"補佐官たちの手腕", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005401.png", "sortId":93, "levels":[
@@ -908,6 +908,24 @@
 	{"def":68, "def%":50, "spr":68, "spr%":50, "killers":[{"name":"spirit","physical":50,"magical":50}]},
 	{"def":72, "def%":50, "spr":72, "spr%":50, "killers":[{"name":"spirit","physical":50,"magical":50}]},
 	{"def":80, "def%":50, "spr":80, "spr%":50, "killers":[{"name":"spirit","physical":50,"magical":50}], "conditional":[{"staticStats":{"def":300,"spr":300}}]}
+]},
+{"id":"210000401", "name":"最後じゃなくて……ずっと", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000401.png", "sortId":124, "levels":[
+	{"atk":150, "staticStats":{"atk":300}, "chainMastery":100, "lbDamage":50}
+]},
+{"id":"210000501", "name":"聖ベベル宮突入", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000501.png", "sortId":125, "levels":[
+	{"mag":55},
+	{"mag":60},
+	{"mag":66},
+	{"mag":71, "mag%":50},
+	{"mag":77, "mag%":50},
+	{"mag":82, "mag%":50},
+	{"mag":88, "mag%":50, "lbDamage":25},
+	{"mag":93, "mag%":50, "lbDamage":25},
+	{"mag":99, "mag%":50, "lbDamage":25},
+	{"mag":110, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500}}]}
+]},
+{"id":"210000601", "name":"ジェクトシュート", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000601.png", "sortId":126, "levels":[
+	{"hp":5000, "def":130, "staticStats":{"hp":500,"def":500}, "lbDamage":50}
 ]},
 {"id":"211000101", "name":"Ragnarok", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_211000101.png", "sortId":58, "levels":[
 	{"hp":400, "def":40},
