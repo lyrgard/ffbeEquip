@@ -3204,7 +3204,7 @@
 		}
 	},
 	"100014027": {
-		"name":"メディエナ BS",
+		"name":"Mediena BS",
 		"jpname":"メディエナ BS",
 		"roles":["magicalAttacker","debuffer"],
 		"id":"100014027",
@@ -8934,7 +8934,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","mace","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["ウォタガ","エアロガ","ウォタジャ","フラッド","めんどいなんて言ってられないか"]
+		"enhancementSkills":["隠していた魔力","ウォタガ","エアロガ","ウォタジャ","フラッド","めんどいなんて言ってられないか"]
 	},
 	"100033505": {
 		"name":"Freesia",
@@ -9934,7 +9934,7 @@
 		"equip":["greatSword","katana","spear","hat","helm","clothes","lightArmor","visionCard"]
 	},
 	"100038107": {
-		"name":"Fina -The Second Emperor-",
+		"name":"Fina -The Return-",
 		"jpname":"フィーナ -再臨の帝王-",
 		"roles":["healer","support"],
 		"id":"100038107",
@@ -9954,7 +9954,7 @@
 		"enhancementSkills":["プロテガ","シェルガ","バニシュガ","ブリリアンスヴェール"]
 	},
 	"100038117": {
-		"name":"Fina -The Second Emperor- BS",
+		"name":"Fina -The Return- BS",
 		"jpname":"フィーナ -再臨の帝王- BS",
 		"roles":["healer","support"],
 		"id":"100038117",
@@ -9973,7 +9973,7 @@
 		"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"]
 	},
 	"100038207": {
-		"name":"Nichol -The Second Emperor-",
+		"name":"Nichol -The Return-",
 		"jpname":"ニコル -再臨の帝王-",
 		"roles":["magicalAttacker"],
 		"id":"100038207",
@@ -9993,7 +9993,7 @@
 		"enhancementSkills":["ブリザガ","ウォタガ","サンダガ","フラッド","バースト(FFBE)","滝落しの計","流氷双陣","勇猛果敢の陣","洞天福地の陣"]
 	},
 	"100038217": {
-		"name":"Nichol -The Second Emperor- BS",
+		"name":"Nichol -The Return- BS",
 		"jpname":"ニコル -再臨の帝王- BS",
 		"roles":["magicalAttacker"],
 		"id":"100038217",
@@ -10012,7 +10012,7 @@
 		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"]
 	},
 	"100038307": {
-		"name":"Sakura -The Second Emperor-",
+		"name":"Sakura -The Return-",
 		"jpname":"サクラ -再臨の帝王-",
 		"roles":["magicalAttacker"],
 		"id":"100038307",
@@ -10032,7 +10032,7 @@
 		"enhancementSkills":["エアロガ","ウォタガ","サンダガ","フラッド","バースト(FFBE)","迅・震撼の雷撃"]
 	},
 	"100038317": {
-		"name":"Sakura -The Second Emperor- BS",
+		"name":"Sakura -The Return- BS",
 		"jpname":"サクラ -再臨の帝王- BS",
 		"roles":["magicalAttacker"],
 		"id":"100038317",
@@ -10600,6 +10600,43 @@
 		"stats_pattern":4,
 		"equip":["fist","visionCard"],
 		"enhancementSkills":["重機甲拳"]
+	},
+	"100040007": {
+		"name":"アルティメットレジーナ",
+		"roles":["magicalAttacker"],
+		"id":"100040007",
+		"braveShift":"100040017",
+		"exAwakening": [{"hp":575,"mp":37,"atk":35,"def":21,"mag":86,"spr":21},{"hp":442,"mp":28,"atk":27,"def":16,"mag":66,"spr":16},{"hp":309,"mp":20,"atk":19,"def":11,"mag":46,"spr":11}],
+		"fragmentId": "250012000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4420,"mp":282,"atk":270,"def":163,"mag":330,"spr":163},
+			"minStats":{"hp":1459,"mp":93,"atk":89,"def":54,"mag":109,"spr":54},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["throwing","gun","fist","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["レジーナキャノン","ファイナル・レジーナキャノン"]
+	},
+	"100040017": {
+		"name":"アルティメットレジーナ BS",
+		"roles":["magicalAttacker"],
+		"id":"100040017",
+		"braveShifted":"100040007",
+		"exAwakening": [{"hp":575,"mp":37,"atk":35,"def":21,"mag":86,"spr":21},{"hp":442,"mp":28,"atk":27,"def":16,"mag":66,"spr":16},{"hp":309,"mp":20,"atk":19,"def":11,"mag":46,"spr":11}],
+		"fragmentId": "250012000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4420,"mp":282,"atk":270,"def":163,"mag":330,"spr":163},
+			"minStats":{"hp":1459,"mp":93,"atk":89,"def":54,"mag":109,"spr":54},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["throwing","gun","fist","hat","helm","clothes","lightArmor","visionCard"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -16690,6 +16727,7 @@
 	},
 	"210000327": {
 		"name":"ワッカ BS",
+		"jpname":"ワッカ BS",
 		"roles":["physicalAttacker","support","debuffer"],
 		"id":"210000327",
 		"braveShifted":"210000303",
@@ -16882,6 +16920,7 @@
 	},
 	"210000827": {
 		"name":"シーモア BS",
+		"jpname":"シーモア BS",
 		"roles":["magicalAttacker","debuffer","magicalTank"],
 		"id":"210000827",
 		"braveShifted":"210000804",
@@ -16903,16 +16942,20 @@
 		"jpname":"ユウナレスカ",
 		"roles":["magicalAttacker"],
 		"id":"210000905",
-		"max_rarity":"7",
+		"braveShift":"210000927",
+		"exAwakening": [{"hp":598,"mp":44,"atk":18,"def":22,"mag":34,"spr":34},{"hp":460,"mp":34,"atk":14,"def":17,"mag":26,"spr":26},{"hp":322,"mp":24,"atk":10,"def":12,"mag":18,"spr":18}],
+		"fragmentId": "250011900",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4571,"mp":289,"atk":128,"def":166,"mag":219,"spr":210},
-			"minStats":{"hp":1508,"mp":95,"atk":42,"def":55,"mag":72,"spr":69},
+			"maxStats":{"hp":4598,"mp":340,"atk":136,"def":169,"mag":260,"spr":260},
+			"minStats":{"hp":1517,"mp":112,"atk":45,"def":56,"mag":86,"spr":86},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+		"equip":["dagger","staff","rod","harp","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["偽りの教え","ロッドの極意","両手持ちの奥義(魔)"],
 		"6_form": {
 			"name":"Yunalesca",
 			"jpname":"ユウナレスカ",
@@ -16928,8 +16971,46 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","harp","hat","clothes","robe"]
+			"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+			"enhancementSkills":["偽りの教え","ロッドの極意","両手持ちの奥義(魔)"]
+		},
+		"7_form": {
+			"name":"Yunalesca",
+			"jpname":"ユウナレスカ",
+			"roles":["magicalAttacker"],
+			"id":"210000905",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4571,"mp":289,"atk":128,"def":166,"mag":219,"spr":210},
+				"minStats":{"hp":1508,"mp":95,"atk":42,"def":55,"mag":72,"spr":69},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+			"enhancementSkills":["偽りの教え","ロッドの極意","両手持ちの奥義(魔)"]
 		}
+	},
+	"210000927": {
+		"name":"ユウナレスカ BS",
+		"roles":["magicalAttacker","support"],
+		"id":"210000927",
+		"braveShifted":"210000905",
+		"exAwakening": [{"hp":598,"mp":44,"atk":18,"def":22,"mag":34,"spr":34},{"hp":460,"mp":34,"atk":14,"def":17,"mag":26,"spr":26},{"hp":322,"mp":24,"atk":10,"def":12,"mag":18,"spr":18}],
+		"fragmentId": "250011900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4598,"mp":340,"atk":136,"def":169,"mag":260,"spr":260},
+			"minStats":{"hp":1517,"mp":112,"atk":45,"def":56,"mag":86,"spr":86},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["偽りの教え"]
 	},
 	"210001005": {
 		"name":"Jecht",
@@ -17220,7 +17301,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["トールボーイ","ライトニングボルト"]
+		"enhancementSkills":["アルベドの早業","トールボーイ","ライトニングボルト"]
 	},
 	"210002217": {
 		"name":"Al Bhed Girl Rikku BS",
@@ -17282,6 +17363,7 @@
 	},
 	"210002407": {
 		"name":"新米ガード ティーダ",
+		"jpname":"新米ガード ティーダ",
 		"roles":["physicalAttacker"],
 		"id":"210002407",
 		"braveShift":"210002417",
@@ -17301,6 +17383,7 @@
 	},
 	"210002417": {
 		"name":"エースストライカー ティーダ BS",
+		"jpname":"エースストライカー ティーダ BS",
 		"roles":["physicalAttacker"],
 		"id":"210002417",
 		"braveShifted":"210002407",
@@ -17320,6 +17403,7 @@
 	},
 	"210002507": {
 		"name":"ビサイドの魔道士ルールー",
+		"jpname":"ビサイドの魔道士ルールー",
 		"roles":["debuffer"],
 		"id":"210002507",
 		"braveShift":"210002517",
@@ -17339,6 +17423,7 @@
 	},
 	"210002517": {
 		"name":"ビサイドの魔道士ルールー BS",
+		"jpname":"ビサイドの魔道士ルールー BS",
 		"roles":["debuffer"],
 		"id":"210002517",
 		"braveShifted":"210002507",
@@ -17357,6 +17442,7 @@
 	},
 	"210002607": {
 		"name":"幻のガード ジェクト",
+		"jpname":"幻のガード ジェクト",
 		"roles":["physicalTank","physicalAttacker"],
 		"id":"210002607",
 		"braveShift":"210002617",
@@ -17376,6 +17462,7 @@
 	},
 	"210002617": {
 		"name":"幻のガード ジェクト BS",
+		"jpname":"幻のガード ジェクト BS",
 		"roles":["physicalTank","physicalAttacker"],
 		"id":"210002617",
 		"braveShifted":"210002607",
@@ -17391,6 +17478,43 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","axe","throwing","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"210002707": {
+		"name":"ロンゾの戦士キマリ",
+		"roles":["magicalAttacker","physicalAttacker"],
+		"id":"210002707",
+		"braveShift":"210002717",
+		"exAwakening": [{"hp":652,"mp":42,"atk":70,"def":26,"mag":75,"spr":27},{"hp":501,"mp":33,"atk":54,"def":20,"mag":58,"spr":21},{"hp":351,"mp":23,"atk":37,"def":14,"mag":40,"spr":14}],
+		"fragmentId": "250011800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5017,"mp":330,"atk":270,"def":207,"mag":290,"spr":213},
+			"minStats":{"hp":1656,"mp":109,"atk":89,"def":68,"mag":96,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["axe","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["槍の極意","タネ大砲・改"]
+	},
+	"210002717": {
+		"name":"ロンゾの戦士キマリ BS",
+		"roles":["magicalAttacker","physicalAttacker"],
+		"id":"210002717",
+		"braveShifted":"210002707",
+		"exAwakening": [{"hp":652,"mp":42,"atk":70,"def":26,"mag":75,"spr":27},{"hp":501,"mp":33,"atk":54,"def":20,"mag":58,"spr":21},{"hp":351,"mp":23,"atk":37,"def":14,"mag":40,"spr":14}],
+		"fragmentId": "250011800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5017,"mp":330,"atk":270,"def":207,"mag":290,"spr":213},
+			"minStats":{"hp":1656,"mp":109,"atk":89,"def":68,"mag":96,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["axe","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"211000103": {
 		"name":"Shantotto",

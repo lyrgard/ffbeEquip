@@ -400,13 +400,13 @@
 	{"atk":40},
 	{"atk":44},
 	{"atk":48},
-	{"atk":52, "conditional":[{"equipedConditions":["gun"],"atk%":30}]},
-	{"atk":56, "conditional":[{"equipedConditions":["gun"],"atk%":30}]},
-	{"atk":60, "conditional":[{"equipedConditions":["gun"],"atk%":30}]},
-	{"atk":64, "conditional":[{"equipedConditions":["gun"],"atk%":60}]},
-	{"atk":68, "conditional":[{"equipedConditions":["gun"],"atk%":60}]},
-	{"atk":72, "conditional":[{"equipedConditions":["gun"],"atk%":60}]},
-	{"atk":80, "staticStats":{"atk":500}, "killers":[{"name":"spirit","physical":50,"magical":50}], "conditional":[{"equipedConditions":["gun"],"atk%":60}]}
+	{"atk":52, "conditional":[{"equipedConditions":["gun"],"atk%":60,"mag%":60}]},
+	{"atk":56, "conditional":[{"equipedConditions":["gun"],"atk%":60,"mag%":60}]},
+	{"atk":60, "conditional":[{"equipedConditions":["gun"],"atk%":60,"mag%":60}]},
+	{"atk":64, "staticStats":{"atk":200,"mag":600}, "conditional":[{"equipedConditions":["gun"],"atk%":60,"mag%":60}]},
+	{"atk":68, "staticStats":{"atk":200,"mag":600}, "conditional":[{"equipedConditions":["gun"],"atk%":60,"mag%":60}]},
+	{"atk":72, "staticStats":{"atk":200,"mag":600}, "conditional":[{"equipedConditions":["gun"],"atk%":60,"mag%":60}]},
+	{"atk":80, "staticStats":{"atk":700,"mag":600}, "killers":[{"name":"spirit","physical":50,"magical":50}], "conditional":[{"equipedConditions":["gun"],"atk%":60,"mag%":60}]}
 ]},
 {"id":"100003701", "name":"A Kooky Chef!?", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100003701.png", "sortId":67, "levels":[
 	{"hp":200, "def":40},
@@ -540,7 +540,7 @@
 {"id":"100005301", "name":"Miracle of the Earth", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005301.png", "sortId":92, "levels":[
 	{"hp":1000, "def":100, "spr":100, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":15}
 ]},
-{"id":"100005401", "name":"補佐官たちの手腕", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005401.png", "sortId":93, "levels":[
+{"id":"100005401", "name":"With a Little Help", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005401.png", "sortId":93, "levels":[
 	{"mag":50},
 	{"mag":55},
 	{"mag":60},
@@ -926,6 +926,18 @@
 ]},
 {"id":"210000601", "name":"ジェクトシュート", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000601.png", "sortId":126, "levels":[
 	{"hp":5000, "def":130, "staticStats":{"hp":500,"def":500}, "lbDamage":50}
+]},
+{"id":"210000701", "name":"キマリは通さない", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000701.png", "sortId":127, "levels":[
+	{"atk":55, "mag":55},
+	{"atk":60, "mag":60},
+	{"atk":66, "mag":66},
+	{"atk":71, "mag":71, "singleWielding":{"atk":50,"accuracy":25}},
+	{"atk":77, "mag":77, "singleWielding":{"atk":50,"accuracy":25}},
+	{"atk":82, "mag":82, "singleWielding":{"atk":50,"accuracy":25}},
+	{"atk":88, "mag":88, "singleWielding":{"atk":50,"accuracy":25,"mag":50}},
+	{"atk":93, "mag":93, "singleWielding":{"atk":50,"accuracy":25,"mag":50}},
+	{"atk":99, "mag":99, "singleWielding":{"atk":50,"accuracy":25,"mag":50}},
+	{"atk":110, "mag":110, "singleWielding":{"atk":50,"accuracy":25,"mag":50}, "lbDamage":50}
 ]},
 {"id":"211000101", "name":"Ragnarok", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_211000101.png", "sortId":58, "levels":[
 	{"hp":400, "def":40},
