@@ -3753,7 +3753,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"],
+		"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Quake","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"],
 		"6_form": {
 			"name":"Yuraisha",
 			"roles":["support"],
@@ -3770,7 +3770,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"]
+			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Quake","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"]
 		},
 		"7_form": {
 			"name":"Yuraisha",
@@ -3788,7 +3788,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"]
+			"enhancementSkills":["Anti-Force Stratagem","Anti-Magic Stratagem","Royal Virtue","Dual Stratagem","Hunter's Stratagem","Exorcist's Stratagem","Sustainment Stratagem","Quake","Unyielding Stratagem","Mother of Hess","Protector's Stratagem","Four Element Barrier","Standing Against Aldore"]
 		}
 	},
 	"100017627": {
@@ -9338,9 +9338,9 @@
 		"equip":["rod","spear","hat","clothes","lightArmor","robe","visionCard"]
 	},
 	"100038607": {
-		"name":"Knights of Grandshelt",
+		"name":"Ritter von Grandshelt",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"ナイツ_オブ グランシェルト",
+		"wikiEntry":"Knights_of Grandshelt",
 		"id":"100038607",
 		"braveShift":"100038617",
 		"exAwakening": [{"hp":649,"mp":38,"atk":70,"def":28,"mag":20,"spr":26},{"hp":499,"mp":29,"atk":54,"def":21,"mag":15,"spr":20},{"hp":349,"mp":20,"atk":38,"def":15,"mag":11,"spr":14}],
@@ -9355,12 +9355,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["光刃繚乱"]
+		"enhancementSkills":["Profusing Light"]
 	},
 	"100038617": {
-		"name":"Knights of Grandshelt BS",
+		"name":"Ritter von Grandshelt BS",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"ナイツ_オブ グランシェルト",
+		"wikiEntry":"Knights_of Grandshelt",
 		"id":"100038617",
 		"braveShifted":"100038607",
 		"exAwakening": [{"hp":649,"mp":38,"atk":70,"def":28,"mag":20,"spr":26},{"hp":499,"mp":29,"atk":54,"def":21,"mag":15,"spr":20},{"hp":349,"mp":20,"atk":38,"def":15,"mag":11,"spr":14}],
@@ -9375,7 +9375,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["光刃繚乱","スプレマシーインパクト","シャイニングブレイクダウン"]
+		"enhancementSkills":["Profusing Light","Supreme Impact","Shining Breakdown"]
 	},
 	"201000104": {
 		"name":"Krieger des Lichts",
@@ -10505,6 +10505,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe"],
+		"enhancementSkills":["Quake"],
 		"6_form": {
 			"name":"Schwarzmagier Arc",
 			"roles":["magicalAttacker"],
@@ -10520,7 +10521,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","hat","clothes","robe"]
+			"equip":["staff","rod","hat","clothes","robe"],
+			"enhancementSkills":["Quake"]
 		}
 	},
 	"204000103": {
@@ -10755,7 +10757,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","bow","whip","hat","clothes","robe"],
-		"enhancementSkills":["Mother's Teachings","Tornado","Eidolon Mindflayer's Chant","Tradition","Eidolon King's Prayer","Burst Storm"],
+		"enhancementSkills":["Mother's Teachings","Quake","Tornado","Eidolon Mindflayer's Chant","Tradition","Eidolon King's Prayer","Burst Storm"],
 		"6_form": {
 			"name":"Reine Beschwörerin Rydia",
 			"roles":["magicalAttacker"],
@@ -10772,7 +10774,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","bow","whip","hat","clothes","robe"],
-			"enhancementSkills":["Mother's Teachings","Tornado","Eidolon Mindflayer's Chant","Tradition","Eidolon King's Prayer","Burst Storm"]
+			"enhancementSkills":["Mother's Teachings","Quake","Tornado","Eidolon Mindflayer's Chant","Tradition","Eidolon King's Prayer","Burst Storm"]
 		}
 	},
 	"204001605": {
@@ -13758,7 +13760,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
-		"enhancementSkills":["Angelo Recover","Pet Pals","Angelo Tackle","Angel Wing","GF","MP +20%"],
+		"enhancementSkills":["Aura","Angelo Recover","Pet Pals","Angelo Tackle","Angel Wing","GF","MP +20%"],
 		"6_form": {
 			"name":"Rinoa",
 			"roles":["magicalAttacker","debuffer"],
@@ -13775,7 +13777,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
-			"enhancementSkills":["Angelo Recover","Pet Pals","Angelo Tackle","Angel Wing","GF","MP +20%"]
+			"enhancementSkills":["Aura","Angelo Recover","Pet Pals","Angelo Tackle","Angel Wing","GF","MP +20%"]
 		}
 	},
 	"208000305": {
@@ -13948,23 +13950,27 @@
 		"roles":["physicalAttacker"],
 		"wikiEntry":"Lone_Lion Squall",
 		"id":"208001505",
-		"max_rarity":"7",
+		"braveShift":"208001527",
+		"exAwakening": [{"hp":710,"mp":39,"atk":39,"def":28,"mag":27,"spr":28},{"hp":546,"mp":30,"atk":30,"def":22,"mag":21,"spr":21},{"hp":382,"mp":21,"atk":21,"def":15,"mag":14,"spr":15}],
+		"fragmentId": "250006800",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4808,"mp":241,"atk":210,"def":184,"mag":161,"spr":182},
-			"minStats":{"hp":1587,"mp":80,"atk":69,"def":61,"mag":53,"spr":60},
+			"maxStats":{"hp":5461,"mp":298,"atk":300,"def":216,"mag":208,"spr":212},
+			"minStats":{"hp":1802,"mp":98,"atk":99,"def":71,"mag":69,"spr":70},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Noble Griever","Accelerator Edge"],
 		"6_form": {
 			"name":"Einsamer Löwe Squall",
 			"roles":["physicalAttacker"],
 			"wikiEntry":"Lone_Lion Squall",
 			"id":"208001505",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -13973,8 +13979,46 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Noble Griever","Accelerator Edge"]
+		},
+		"7_form": {
+			"name":"Einsamer Löwe Squall",
+			"roles":["physicalAttacker"],
+			"wikiEntry":"Lone_Lion Squall",
+			"id":"208001505",
+			"sevenStarForm":true,
+			"max_rarity":"NV",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4808,"mp":241,"atk":210,"def":184,"mag":161,"spr":182},
+				"minStats":{"hp":1587,"mp":80,"atk":69,"def":61,"mag":53,"spr":60},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Noble Griever","Accelerator Edge"]
 		}
+	},
+	"208001527": {
+		"name":"Einsamer Löwe Squall BS",
+		"roles":["physicalAttacker","debuffer"],
+		"wikiEntry":"Lone_Lion Squall",
+		"id":"208001527",
+		"braveShifted":"208001505",
+		"exAwakening": [{"hp":710,"mp":39,"atk":39,"def":28,"mag":27,"spr":28},{"hp":546,"mp":30,"atk":30,"def":22,"mag":21,"spr":21},{"hp":382,"mp":21,"atk":21,"def":15,"mag":14,"spr":15}],
+		"fragmentId": "250006800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5461,"mp":298,"atk":300,"def":216,"mag":208,"spr":212},
+			"minStats":{"hp":1802,"mp":98,"atk":99,"def":71,"mag":69,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"208001604": {
 		"name":"Fu-Jin und Rai-Jin",
@@ -13993,9 +14037,9 @@
 		"equip":["dagger","hammer","throwing","mace","fist","hat","clothes","lightArmor"]
 	},
 	"208002107": {
-		"name":"Rinoa & Angelo",
+		"name":"Rinoa & Angel",
 		"roles":["magicalAttacker"],
-		"wikiEntry":"リノア&アンジェロ",
+		"wikiEntry":"Rinoa_& Angelo",
 		"id":"208002107",
 		"braveShift":"208002117",
 		"exAwakening": [{"hp":613,"mp":38,"atk":23,"def":14,"mag":70,"spr":23},{"hp":472,"mp":29,"atk":17,"def":11,"mag":54,"spr":18},{"hp":330,"mp":20,"atk":12,"def":8,"mag":38,"spr":13}],
@@ -14010,12 +14054,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","throwing","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["メテオ【VIII】"]
+		"enhancementSkills":["Aeroga","Tornado","Quake","Aura","Meteor (FFVIII)"]
 	},
 	"208002117": {
-		"name":"Sorceress Rinoa BS",
+		"name":"Rinoa, Nachfahrin der Hexe BS",
 		"roles":["magicalAttacker"],
-		"wikiEntry":"次代の魔女リノア",
+		"wikiEntry":"Successor_Sorceress Rinoa",
 		"id":"208002117",
 		"braveShifted":"208002107",
 		"exAwakening": [{"hp":613,"mp":38,"atk":23,"def":14,"mag":70,"spr":23},{"hp":472,"mp":29,"atk":17,"def":11,"mag":54,"spr":18},{"hp":330,"mp":20,"atk":12,"def":8,"mag":38,"spr":13}],
@@ -14030,12 +14074,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","throwing","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["目覚めし魔女の力"]
+		"enhancementSkills":["Awoken Sorceress's Power","Aeroga","Tornado","Quake","Apocalypse"]
 	},
 	"208002207": {
 		"name":"Laguna",
 		"roles":["debuffer"],
-		"wikiEntry":"ラグナ",
+		"wikiEntry":"Laguna",
 		"id":"208002207",
 		"braveShift":"208002217",
 		"exAwakening": [{"hp":664,"mp":26,"atk":70,"def":21,"mag":19,"spr":25},{"hp":511,"mp":20,"atk":54,"def":16,"mag":15,"spr":19},{"hp":357,"mp":14,"atk":38,"def":11,"mag":10,"spr":13}],
@@ -14074,7 +14118,7 @@
 	"208002307": {
 		"name":"Kiros & Ward",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"キロス&ウォード",
+		"wikiEntry":"Kiros_& Ward",
 		"id":"208002307",
 		"braveShift":"208002317",
 		"exAwakening": [{"hp":637,"mp":32,"atk":78,"def":26,"mag":20,"spr":26},{"hp":490,"mp":25,"atk":60,"def":20,"mag":15,"spr":20},{"hp":343,"mp":17,"atk":42,"def":14,"mag":11,"spr":14}],
@@ -26531,7 +26575,6 @@
   "204002003":{"name":"Scarmiglione","jpname":"スカルミリョーネ","roles":["physicalAttacker","debuffer"],"id":"204002003","max_rarity":"5","min_rarity":"3","sex":"male","stats":{"maxStats":{"hp":2964,"mp":111,"atk":121,"def":119,"mag":85,"spr":81},"minStats":{"hp":978,"mp":37,"atk":40,"def":39,"mag":28,"spr":27},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","katana","throwing","fist","hat","clothes","lightArmor","robe"]},
   "204002104":{"name":"Cagnazzo","jpname":"カイナッツォ","roles":["physicalTank"],"id":"204002104","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3901,"mp":145,"atk":120,"def":146,"mag":105,"spr":124},"minStats":{"hp":1287,"mp":48,"atk":40,"def":48,"mag":35,"spr":41},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["fist","helm","lightArmor","heavyArmor"]},
   "208000427":{"name":"ゼル BS","jpname":"ゼル BS","roles":["physicalAttacker"],"id":"208000427","braveShifted":"208000404","exAwakening":[{"hp":589,"mp":26,"atk":32,"def":22,"mag":16,"spr":23},{"hp":453,"mp":20,"atk":25,"def":17,"mag":13,"spr":17},{"hp":317,"mp":14,"atk":17,"def":12,"mag":9,"spr":12}],"fragmentId":"250006900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4534,"mp":197,"atk":246,"def":169,"mag":128,"spr":172},"minStats":{"hp":1496,"mp":65,"atk":81,"def":56,"mag":42,"spr":57},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["fist","hat","clothes","lightArmor","visionCard"]},
-  "208001527":{"name":"孤高の獅子スコール BS","jpname":"孤高の獅子スコール BS","roles":["physicalAttacker","debuffer"],"id":"208001527","braveShifted":"208001505","exAwakening":[{"hp":710,"mp":39,"atk":39,"def":28,"mag":27,"spr":28},{"hp":546,"mp":30,"atk":30,"def":22,"mag":21,"spr":21},{"hp":382,"mp":21,"atk":21,"def":15,"mag":14,"spr":15}],"fragmentId":"250006800","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5461,"mp":298,"atk":300,"def":216,"mag":208,"spr":212},"minStats":{"hp":1802,"mp":98,"atk":99,"def":71,"mag":69,"spr":70},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
   "210000327":{"name":"ワッカ BS","jpname":"ワッカ BS","roles":["physicalAttacker","support","debuffer"],"id":"210000327","braveShifted":"210000303","exAwakening":[{"hp":717,"mp":42,"atk":38,"def":24,"mag":25,"spr":22},{"hp":551,"mp":32,"atk":29,"def":19,"mag":19,"spr":17},{"hp":386,"mp":22,"atk":20,"def":13,"mag":14,"spr":12}],"fragmentId":"250011500","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5512,"mp":320,"atk":290,"def":188,"mag":194,"spr":167},"minStats":{"hp":1819,"mp":106,"atk":96,"def":62,"mag":64,"spr":55},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor","visionCard"]},
   "210000827":{"name":"シーモア BS","jpname":"シーモア BS","roles":["magicalAttacker","debuffer","magicalTank"],"id":"210000827","braveShifted":"210000804","exAwakening":[{"hp":648,"mp":42,"atk":27,"def":26,"mag":35,"spr":36},{"hp":499,"mp":32,"atk":21,"def":20,"mag":27,"spr":28},{"hp":349,"mp":23,"atk":15,"def":14,"mag":19,"spr":20}],"fragmentId":"250011700","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4988,"mp":322,"atk":210,"def":202,"mag":270,"spr":280},"minStats":{"hp":1646,"mp":106,"atk":69,"def":67,"mag":89,"spr":92},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","lightShield","hat","clothes","robe","visionCard"]},
   "210000927":{"name":"ユウナレスカ BS","roles":["magicalAttacker","support"],"id":"210000927","braveShifted":"210000905","exAwakening":[{"hp":598,"mp":44,"atk":18,"def":22,"mag":34,"spr":34},{"hp":460,"mp":34,"atk":14,"def":17,"mag":26,"spr":26},{"hp":322,"mp":24,"atk":10,"def":12,"mag":18,"spr":18}],"fragmentId":"250011900","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4598,"mp":340,"atk":136,"def":169,"mag":260,"spr":260},"minStats":{"hp":1517,"mp":112,"atk":45,"def":56,"mag":86,"spr":86},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","hat","clothes","robe","visionCard"],"enhancementSkills":["偽りの教え"]},
