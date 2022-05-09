@@ -525,7 +525,7 @@
 	{"atk":63, "atk%":25, "mag":63, "mag%":25, "killers":[{"name":"demon","physical":100,"magical":100}]},
 	{"atk":70, "atk%":25, "mag":70, "mag%":25, "killers":[{"name":"demon","physical":100,"magical":100}], "lbDamage":100}
 ]},
-{"id":"100005201", "name":"再臨の帝王", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005201.png", "sortId":91, "levels":[
+{"id":"100005201", "name":"The Return", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005201.png", "sortId":91, "levels":[
 	{"atk":30, "mag":30},
 	{"atk":33, "mag":33},
 	{"atk":36, "mag":36},
@@ -552,7 +552,7 @@
 	{"mag":90, "killers":[{"name":"demon","magical":50},{"name":"demon","magical":50}]},
 	{"mag":100, "killers":[{"name":"demon","magical":50},{"name":"demon","magical":50},{"name":"human","magical":100}]}
 ]},
-{"id":"100005501", "name":"最強の戦士の誕生", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005501.png", "sortId":94, "levels":[
+{"id":"100005501", "name":"Birth of a Champion", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005501.png", "sortId":94, "levels":[
 	{"atk":130, "atk%":80, "staticStats":{"atk":500}, "lbDamage":100}
 ]},
 {"id":"100005601", "name":"傷心のライバル", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005601.png", "sortId":102, "levels":[
@@ -855,7 +855,7 @@
 {"id":"207000601", "name":"A Touching Reunion", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000601.png", "sortId":62, "levels":[
 	{"atk":125, "staticStats":{"atk":500}, "killers":[{"name":"undead","physical":100,"magical":100}], "lbDamage":50}
 ]},
-{"id":"208000101", "name":"本当の心", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_208000101.png", "sortId":95, "levels":[
+{"id":"208000101", "name":"True Feelings", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_208000101.png", "sortId":95, "levels":[
 	{"mag":50},
 	{"mag":55},
 	{"mag":60},
@@ -1058,6 +1058,18 @@
 	{"mag":85, "mag%":60},
 	{"mag":90, "mag%":60},
 	{"mag":100, "mag%":60, "conditional":[{"evoMag":30,"exclusiveSex":"female"}]}
+]},
+{"id":"249000101", "name":"ユ・リ・パ　ミッションスタート！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_249000101.png", "sortId":128, "levels":[
+	{"atk":55, "mag":55},
+	{"atk":60, "mag":60},
+	{"atk":66, "mag":66},
+	{"atk":71, "mag":71, "killers":[{"name":"undead","physical":75,"magical":75}]},
+	{"atk":77, "mag":77, "killers":[{"name":"undead","physical":75,"magical":75}]},
+	{"atk":82, "mag":82, "killers":[{"name":"undead","physical":75,"magical":75}]},
+	{"atk":88, "mag":88, "killers":[{"name":"undead","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75}]},
+	{"atk":93, "mag":93, "killers":[{"name":"undead","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75}]},
+	{"atk":99, "mag":99, "killers":[{"name":"undead","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75}]},
+	{"atk":110, "mag":110, "killers":[{"name":"undead","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75},{"name":"human","physical":75,"magical":75}]}
 ]},
 {"id":"254000101", "name":"We Have Arrived", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_254000101.png", "sortId":66, "levels":[
 	{"atk":50, "mag":50},

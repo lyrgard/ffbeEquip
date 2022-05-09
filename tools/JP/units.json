@@ -10603,6 +10603,7 @@
 	},
 	"100040007": {
 		"name":"アルティメットレジーナ",
+		"jpname":"アルティメットレジーナ",
 		"roles":["magicalAttacker"],
 		"id":"100040007",
 		"braveShift":"100040017",
@@ -10622,6 +10623,7 @@
 	},
 	"100040017": {
 		"name":"アルティメットレジーナ BS",
+		"jpname":"アルティメットレジーナ BS",
 		"roles":["magicalAttacker"],
 		"id":"100040017",
 		"braveShifted":"100040007",
@@ -15710,7 +15712,7 @@
 		}
 	},
 	"208001527": {
-		"name":"孤高の獅子スコール BS",
+		"name":"Lone Lion Squall BS",
 		"jpname":"孤高の獅子スコール BS",
 		"roles":["physicalAttacker","debuffer"],
 		"id":"208001527",
@@ -15765,7 +15767,7 @@
 		"enhancementSkills":["エアロガ","トルネド","クエイク","オーラ","メテオ【VIII】"]
 	},
 	"208002117": {
-		"name":"Sorceress Rinoa BS",
+		"name":"Successor Sorceress Rinoa BS",
 		"jpname":"次代の魔女リノア BS",
 		"roles":["magicalAttacker"],
 		"id":"208002117",
@@ -16995,6 +16997,7 @@
 	},
 	"210000927": {
 		"name":"ユウナレスカ BS",
+		"jpname":"ユウナレスカ BS",
 		"roles":["magicalAttacker","support"],
 		"id":"210000927",
 		"braveShifted":"210000905",
@@ -17481,6 +17484,7 @@
 	},
 	"210002707": {
 		"name":"ロンゾの戦士キマリ",
+		"jpname":"ロンゾの戦士キマリ",
 		"roles":["magicalAttacker","physicalAttacker"],
 		"id":"210002707",
 		"braveShift":"210002717",
@@ -17500,6 +17504,7 @@
 	},
 	"210002717": {
 		"name":"ロンゾの戦士キマリ BS",
+		"jpname":"ロンゾの戦士キマリ BS",
 		"roles":["magicalAttacker","physicalAttacker"],
 		"id":"210002717",
 		"braveShifted":"210002707",
@@ -20096,6 +20101,126 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"]
 		}
+	},
+	"249000407": {
+		"name":"歌姫ユウナ",
+		"jpname":"歌姫ユウナ",
+		"roles":["support"],
+		"id":"249000407",
+		"braveShift":"249000417",
+		"exAwakening": [{"hp":794,"mp":44,"atk":35,"def":30,"mag":78,"spr":39},{"hp":611,"mp":34,"atk":27,"def":23,"mag":60,"spr":30},{"hp":428,"mp":24,"atk":19,"def":16,"mag":42,"spr":21}],
+		"fragmentId": "250012100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3978,"mp":288,"atk":117,"def":164,"mag":250,"spr":231},
+			"minStats":{"hp":1313,"mp":95,"atk":39,"def":54,"mag":83,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["harp","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["カーニバルダンス"]
+	},
+	"249000417": {
+		"name":"フロラフルル ユウナ BS",
+		"jpname":"フロラフルル ユウナ BS",
+		"roles":["magicalAttacker"],
+		"id":"249000417",
+		"braveShifted":"249000407",
+		"exAwakening": [{"hp":794,"mp":44,"atk":35,"def":30,"mag":78,"spr":39},{"hp":611,"mp":34,"atk":27,"def":23,"mag":60,"spr":30},{"hp":428,"mp":24,"atk":19,"def":16,"mag":42,"spr":21}],
+		"fragmentId": "250012100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":6111,"mp":340,"atk":270,"def":230,"mag":300,"spr":300},
+			"minStats":{"hp":2017,"mp":112,"atk":89,"def":76,"mag":99,"spr":99},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","gun","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["銃の極意","ロッドの極意","アクア乱舞(魔)"]
+	},
+	"249000507": {
+		"name":"バーサーカー リュック",
+		"jpname":"バーサーカー リュック",
+		"roles":["physicalAttacker"],
+		"id":"249000507",
+		"braveShift":"249000517",
+		"exAwakening": [{"hp":874,"mp":41,"atk":78,"def":39,"mag":16,"spr":13},{"hp":672,"mp":31,"atk":60,"def":30,"mag":12,"spr":10},{"hp":471,"mp":22,"atk":42,"def":21,"mag":9,"spr":7}],
+		"fragmentId": "250012200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5511,"mp":288,"atk":280,"def":280,"mag":86,"spr":68},
+			"minStats":{"hp":1819,"mp":95,"atk":92,"def":92,"mag":28,"spr":22},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["fist","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["格闘の極意","うちけす"]
+	},
+	"249000517": {
+		"name":"マキナマズル リュック BS",
+		"jpname":"マキナマズル リュック BS",
+		"roles":["physicalAttacker"],
+		"id":"249000517",
+		"braveShifted":"249000507",
+		"exAwakening": [{"hp":874,"mp":41,"atk":78,"def":39,"mag":16,"spr":13},{"hp":672,"mp":31,"atk":60,"def":30,"mag":12,"spr":10},{"hp":471,"mp":22,"atk":42,"def":21,"mag":9,"spr":7}],
+		"fragmentId": "250012200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":6723,"mp":312,"atk":300,"def":300,"mag":122,"spr":95},
+			"minStats":{"hp":2219,"mp":103,"atk":99,"def":99,"mag":40,"spr":31},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["bow","throwing","gun","fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["銃の極意","力の覚醒","ショックストーム"]
+	},
+	"249000607": {
+		"name":"ダークナイト パイン",
+		"jpname":"ダークナイト パイン",
+		"roles":["physicalAttacker"],
+		"id":"249000607",
+		"braveShift":"249000617",
+		"exAwakening": [{"hp":794,"mp":44,"atk":78,"def":39,"mag":11,"spr":14},{"hp":611,"mp":34,"atk":60,"def":30,"mag":8,"spr":11},{"hp":428,"mp":24,"atk":42,"def":21,"mag":6,"spr":8}],
+		"fragmentId": "250012300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5617,"mp":288,"atk":270,"def":270,"mag":76,"spr":109},
+			"minStats":{"hp":1854,"mp":95,"atk":89,"def":89,"mag":25,"spr":36},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["大剣の極意","暗黒の空"]
+	},
+	"249000617": {
+		"name":"斬騎王パイン BS",
+		"jpname":"斬騎王パイン BS",
+		"roles":["physicalAttacker"],
+		"id":"249000617",
+		"braveShifted":"249000607",
+		"exAwakening": [{"hp":794,"mp":44,"atk":78,"def":39,"mag":11,"spr":14},{"hp":611,"mp":34,"atk":60,"def":30,"mag":8,"spr":11},{"hp":428,"mp":24,"atk":42,"def":21,"mag":6,"spr":8}],
+		"fragmentId": "250012300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":6111,"mp":340,"atk":300,"def":300,"mag":84,"spr":111},
+			"minStats":{"hp":2017,"mp":112,"atk":99,"def":99,"mag":28,"spr":37},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["大剣の極意","剣の極意","刀の極意","力の覚醒","恐怖！"]
 	},
 	"250000105": {
 		"name":"Serah",
