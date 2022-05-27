@@ -642,7 +642,19 @@
 	{"atk":126, "lbFillRate":100},
 	{"atk":140, "lbFillRate":200}
 ]},
-{"id":"201000101", "name":"そして……探求の旅は始まった", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000101.png", "sortId":100, "levels":[
+{"id":"100006601", "name":"信念と信念の邂逅", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006601.png", "sortId":131, "levels":[
+	{"atk":65},
+	{"atk":71},
+	{"atk":78},
+	{"atk":84, "killers":[{"name":"plant","physical":75,"magical":75}]},
+	{"atk":91, "killers":[{"name":"plant","physical":75,"magical":75}]},
+	{"atk":97, "killers":[{"name":"plant","physical":75,"magical":75}]},
+	{"atk":104, "killers":[{"name":"plant","physical":75,"magical":75},{"name":"stone","physical":75,"magical":75}]},
+	{"atk":110, "killers":[{"name":"plant","physical":75,"magical":75},{"name":"stone","physical":75,"magical":75}]},
+	{"atk":117, "killers":[{"name":"plant","physical":75,"magical":75},{"name":"stone","physical":75,"magical":75}]},
+	{"atk":130, "killers":[{"name":"plant","physical":75,"magical":75},{"name":"stone","physical":75,"magical":75},{"name":"human","physical":75,"magical":75}]}
+]},
+{"id":"201000101", "name":"And So Their Quest Began", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000101.png", "sortId":100, "levels":[
 	{"hp":500, "def":50},
 	{"hp":550, "def":55},
 	{"hp":600, "def":60},
@@ -654,7 +666,7 @@
 	{"hp":900, "def":90, "staticStats":{"hp":500,"def":300}},
 	{"hp":1000, "def":100, "staticStats":{"hp":500,"def":300}, "killers":[{"name":"demon","physical":100,"magical":100}]}
 ]},
-{"id":"201000201", "name":"VSマリリス", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000201.png", "sortId":101, "levels":[
+{"id":"201000201", "name":"Battle with Marilith", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000201.png", "sortId":101, "levels":[
 	{"mag":50},
 	{"mag":55},
 	{"mag":60},
@@ -867,7 +879,7 @@
 	{"mag":90, "mag%":50, "lbDamage":25},
 	{"mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500}}]}
 ]},
-{"id":"208000201", "name":"役者デビュー！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_208000201.png", "sortId":96, "levels":[
+{"id":"208000201", "name":"Acting Debut!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_208000201.png", "sortId":96, "levels":[
 	{"atk":50},
 	{"atk":55},
 	{"atk":60},
@@ -890,6 +902,18 @@
 	{"atk":89, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
 	{"atk":96, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
 	{"atk":110, "conditional":[{"equipedConditions":["dagger"],"atk%":80},{"lbDamage":50}]}
+]},
+{"id":"209000201", "name":"聖なる審判", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_209000201.png", "sortId":130, "levels":[
+	{"mag":60, "spr":60},
+	{"mag":66, "spr":66},
+	{"mag":72, "spr":72},
+	{"mag":78, "spr":78, "evoMag":50},
+	{"mag":84, "spr":84, "evoMag":50},
+	{"mag":90, "spr":90, "evoMag":50},
+	{"mag":96, "spr":96, "evoMag":50, "evokeDamageBoost":{"all":50}},
+	{"mag":102, "spr":102, "evoMag":50, "evokeDamageBoost":{"all":50}},
+	{"mag":108, "spr":108, "evoMag":50, "evokeDamageBoost":{"all":50}},
+	{"mag":120, "spr":120, "evoMag":50, "lbDamage":50, "evokeDamageBoost":{"all":50}}
 ]},
 {"id":"210000101", "name":"The Sending", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000101.png", "sortId":73, "levels":[
 	{"spr":125, "spr%":80, "staticStats":{"spr":500}, "killers":[{"name":"spirit","physical":100,"magical":100}]}
@@ -1179,7 +1203,7 @@
 	{"atk":90, "atk%":60},
 	{"atk":100, "atk%":60, "conditional":[{"lbDamage":50}]}
 ]},
-{"id":"339000101", "name":"謎の巨大クリスタル", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_339000101.png", "sortId":97, "levels":[
+{"id":"339000101", "name":"Gigantic Crystal of Mystery", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_339000101.png", "sortId":97, "levels":[
 	{"hp":500, "def":50},
 	{"hp":550, "def":55},
 	{"hp":600, "def":60},
