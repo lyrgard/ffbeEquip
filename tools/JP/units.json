@@ -10642,6 +10642,7 @@
 	},
 	"100040107": {
 		"name":"ヴァンヘルマー",
+		"jpname":"ヴァンヘルマー",
 		"roles":["physicalAttacker"],
 		"id":"100040107",
 		"braveShift":"100040117",
@@ -10661,6 +10662,7 @@
 	},
 	"100040117": {
 		"name":"ヴァンヘルマー BS",
+		"jpname":"ヴァンヘルマー BS",
 		"roles":["physicalAttacker"],
 		"id":"100040117",
 		"braveShifted":"100040107",
@@ -10679,6 +10681,7 @@
 	},
 	"100040207": {
 		"name":"イハナ",
+		"jpname":"イハナ",
 		"roles":["support","healer"],
 		"id":"100040207",
 		"braveShift":"100040217",
@@ -10698,6 +10701,7 @@
 	},
 	"100040217": {
 		"name":"イハナ BS",
+		"jpname":"イハナ BS",
 		"roles":["support","healer"],
 		"id":"100040217",
 		"braveShifted":"100040207",
@@ -10857,7 +10861,7 @@
 		}
 	},
 	"201000527": {
-		"name":"輪廻の騎士ガーランド BS",
+		"name":"Immortal Knight Garland BS",
 		"jpname":"輪廻の騎士ガーランド BS",
 		"roles":["physicalAttacker","support","debuffer"],
 		"id":"201000527",
@@ -12339,17 +12343,20 @@
 		"jpname":"漆黒の魔道士ゴルベーザ",
 		"roles":["magicalAttacker","debuffer"],
 		"id":"204001705",
-		"max_rarity":"7",
+		"braveShift":"204001727",
+		"exAwakening": [{"hp":665,"mp":41,"atk":26,"def":33,"mag":35,"spr":26},{"hp":512,"mp":32,"atk":20,"def":25,"mag":27,"spr":20},{"hp":358,"mp":22,"atk":14,"def":18,"mag":19,"spr":14}],
+		"fragmentId": "250013100",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4496,"mp":282,"atk":137,"def":170,"mag":217,"spr":191},
-			"minStats":{"hp":1484,"mp":93,"atk":45,"def":56,"mag":72,"spr":63},
+			"maxStats":{"hp":5118,"mp":318,"atk":199,"def":250,"mag":270,"spr":200},
+			"minStats":{"hp":1689,"mp":105,"atk":66,"def":83,"mag":89,"spr":66},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["メテオ","参れ、黒龍！","黒き威圧感","双月","アビスクエーサー","Wメテオ","星をも超える力"],
+		"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["バイオガ","メテオ","参れ、黒龍！","黒き威圧感","双月","アビスクエーサー","Wメテオ","星をも超える力","黒き魔人の強大な力","ナイトルーラー","ロッドの極意"],
 		"6_form": {
 			"name":"Black Mage Golbez",
 			"jpname":"漆黒の魔道士ゴルベーザ",
@@ -12366,8 +12373,45 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["メテオ","参れ、黒龍！","黒き威圧感","双月","アビスクエーサー","Wメテオ","星をも超える力"]
+			"enhancementSkills":["バイオガ","メテオ","参れ、黒龍！","黒き威圧感","双月","アビスクエーサー","Wメテオ","星をも超える力","黒き魔人の強大な力","ナイトルーラー","ロッドの極意"]
+		},
+		"7_form": {
+			"name":"Black Mage Golbez",
+			"jpname":"漆黒の魔道士ゴルベーザ",
+			"roles":["magicalAttacker","debuffer"],
+			"id":"204001705",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4496,"mp":282,"atk":137,"def":170,"mag":217,"spr":191},
+				"minStats":{"hp":1484,"mp":93,"atk":45,"def":56,"mag":72,"spr":63},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["バイオガ","メテオ","参れ、黒龍！","黒き威圧感","双月","アビスクエーサー","Wメテオ","星をも超える力","黒き魔人の強大な力","ナイトルーラー","ロッドの極意"]
 		}
+	},
+	"204001727": {
+		"name":"漆黒の魔道士ゴルベーザ BS",
+		"roles":["magicalAttacker","debuffer"],
+		"id":"204001727",
+		"braveShifted":"204001705",
+		"exAwakening": [{"hp":665,"mp":41,"atk":26,"def":33,"mag":35,"spr":26},{"hp":512,"mp":32,"atk":20,"def":25,"mag":27,"spr":20},{"hp":358,"mp":22,"atk":14,"def":18,"mag":19,"spr":14}],
+		"fragmentId": "250013100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5118,"mp":318,"atk":199,"def":250,"mag":270,"spr":200},
+			"minStats":{"hp":1689,"mp":105,"atk":66,"def":83,"mag":89,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["ロッドの極意"]
 	},
 	"204001805": {
 		"name":"Rubicante",
@@ -12818,7 +12862,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","throwing","fist","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["らいじん・改","かとん・改"]
+		"enhancementSkills":["らいじん・改","かとん・改","見せてやるぜえ…！！","刀の極意","投擲の極意"]
 	},
 	"204003117": {
 		"name":"Ninja Edge BS",
@@ -12838,6 +12882,81 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","throwing","fist","hat","clothes","lightArmor","visionCard"]
+	},
+	"204003207": {
+		"name":"赤い翼のセシル",
+		"roles":["physicalAttacker"],
+		"id":"204003207",
+		"braveShift":"204003217",
+		"exAwakening": [{"hp":738,"mp":41,"atk":78,"def":34,"mag":26,"spr":86},{"hp":568,"mp":32,"atk":60,"def":26,"mag":20,"spr":66},{"hp":397,"mp":22,"atk":42,"def":18,"mag":14,"spr":46}],
+		"fragmentId": "250012900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5142,"mp":297,"atk":300,"def":197,"mag":143,"spr":188},
+			"minStats":{"hp":1697,"mp":98,"atk":99,"def":65,"mag":47,"spr":62},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["イビルソード"]
+	},
+	"204003217": {
+		"name":"パラディン セシル BS",
+		"roles":["magicalTank"],
+		"id":"204003217",
+		"braveShifted":"204003207",
+		"exAwakening": [{"hp":738,"mp":41,"atk":78,"def":34,"mag":26,"spr":86},{"hp":568,"mp":32,"atk":60,"def":26,"mag":20,"spr":66},{"hp":397,"mp":22,"atk":42,"def":18,"mag":14,"spr":46}],
+		"fragmentId": "250012900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5677,"mp":317,"atk":270,"def":260,"mag":199,"spr":330},
+			"minStats":{"hp":1873,"mp":105,"atk":89,"def":86,"mag":66,"spr":109},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","staff","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["パラディンソード","かばう・魔法I","シェルガ"]
+	},
+	"204003307": {
+		"name":"祈りの白魔道士ローザ",
+		"roles":["healer","support"],
+		"id":"204003307",
+		"braveShift":"204003317",
+		"exAwakening": [{"hp":621,"mp":43,"atk":62,"def":20,"mag":28,"spr":70},{"hp":478,"mp":33,"atk":48,"def":16,"mag":22,"spr":54},{"hp":334,"mp":23,"atk":34,"def":11,"mag":15,"spr":38}],
+		"fragmentId": "250013000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4777,"mp":330,"atk":240,"def":155,"mag":217,"spr":270},
+			"minStats":{"hp":1576,"mp":109,"atk":79,"def":51,"mag":72,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["活力の祈り","真・光明の連矢","杖の極意","弓の極意","シェルガ","プロテガ"]
+	},
+	"204003317": {
+		"name":"祈りの白魔道士ローザ BS",
+		"roles":["healer","support"],
+		"id":"204003317",
+		"braveShifted":"204003307",
+		"exAwakening": [{"hp":621,"mp":43,"atk":62,"def":20,"mag":28,"spr":70},{"hp":478,"mp":33,"atk":48,"def":16,"mag":22,"spr":54},{"hp":334,"mp":23,"atk":34,"def":11,"mag":15,"spr":38}],
+		"fragmentId": "250013000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4777,"mp":330,"atk":240,"def":155,"mag":217,"spr":270},
+			"minStats":{"hp":1576,"mp":109,"atk":79,"def":51,"mag":72,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"]
 	},
 	"205000103": {
 		"name":"Bartz",
@@ -16115,6 +16234,7 @@
 	},
 	"209000827": {
 		"name":"サラマンダー BS",
+		"jpname":"サラマンダー BS",
 		"roles":["physicalAttacker"],
 		"id":"209000827",
 		"braveShifted":"209000803",
@@ -16736,6 +16856,7 @@
 	},
 	"209003107": {
 		"name":"決意のダガー",
+		"jpname":"決意のダガー",
 		"roles":["healer"],
 		"id":"209003107",
 		"braveShift":"209003117",
@@ -16755,6 +16876,7 @@
 	},
 	"209003117": {
 		"name":"決意のダガー BS",
+		"jpname":"決意のダガー BS",
 		"roles":["magicalAttacker","healer"],
 		"id":"209003117",
 		"braveShifted":"209003107",
@@ -16774,6 +16896,7 @@
 	},
 	"209003207": {
 		"name":"星の破壊者クジャ",
+		"jpname":"星の破壊者クジャ",
 		"roles":["debuffer","magicalAttacker"],
 		"id":"209003207",
 		"braveShift":"209003217",
@@ -16793,6 +16916,7 @@
 	},
 	"209003217": {
 		"name":"トランス・クジャ BS",
+		"jpname":"トランス・クジャ BS",
 		"roles":["debuffer","magicalAttacker"],
 		"id":"209003217",
 		"braveShifted":"209003207",
@@ -25527,7 +25651,7 @@
 		}
 	},
 	"339000327": {
-		"name":"破滅の騎士シュテル BS",
+		"name":"Knight of Ruin Sterne BS",
 		"jpname":"破滅の騎士シュテル BS",
 		"roles":["physicalAttacker"],
 		"id":"339000327",

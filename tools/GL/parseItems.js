@@ -188,7 +188,10 @@ const unitRules = {
     7273: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10013] || []).concat(nvUnitIdsByGameId[11006] || []).concat(nvUnitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units
     7274: (item) => item.exclusiveUnits = ["312000205", "312001007", "312001017"],
     7275: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20036], // ActRaiser Renaissance
+    7276: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20037], // Dragon Quest
+
     7401: (item) => item.exclusiveUnits = ["100031507", "100031517"],
+    7402: (item) => item.exclusiveUnits = ["100039407"],
     7601: (item) => {}, // not implemented yet. Only for unit max 7*
     9501: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001].concat(nvUnitIdsByGameId[11010]), // FFBE & WOTV units
     9502: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[90003] || []).concat((nvUnitIdsByGameId[90008] || [])), // Tomb raider units
@@ -867,7 +870,7 @@ function addMasterySkills(item, masterySkills, result) {
                 for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
                     if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
                         let copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
-                        addOneWeaponMastery(copy, masteryIndex[3][0], masteryIndex[3][1], weaponTypeId);
+                        addOneWeaponMastery(copy, masterySkills[masteryIndex][3][0], masterySkills[masteryIndex][3][1], weaponTypeId);
                         result.push(copy);
                         treatedItems.push(copy);
                     }
