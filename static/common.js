@@ -2475,6 +2475,9 @@ function computeConditionalCombinations(item, conditionals, onCombinationFound,i
         if (conditionals[index].exclusiveSex) {
             item.exclusiveSex = conditionals[index].exclusiveSex;
         }
+        if (conditionals[index].max7StarUnit) {
+            item.max7StarUnit = conditionals[index].max7StarUnit;
+        }
         computeConditionalCombinations(item, conditionals, onCombinationFound, index + 1);
     }
 }

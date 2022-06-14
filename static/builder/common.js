@@ -1515,6 +1515,9 @@ function isApplicable(item, unit) {
     if (item.exclusiveUnits && !item.exclusiveUnits.includes(unit.id)) {
         return false;
     }
+    if (item.max7StarUnit && unit.max_rarity === 'NV') {
+        return false;
+    }
     return true;
 }
 
@@ -1604,7 +1607,12 @@ function findBestItemVersion(build, item, itemWithVariation, unit) {
             if (item2.exclusiveRoles) {
                 conditionNumber2++;
             }
-            return conditionNumber2 - conditionNumber1;
+            let result = conditionNumber2 - conditionNumber1;
+            if (result != 0) {
+                return result;
+            } else {
+                return Object.keys(item2).length - Object.keys(item1).length;
+            }
         });
         for (var index in itemVersions) {
             if (isApplicable(itemVersions[index], unit) && areConditionOK(itemVersions[index], build)) {

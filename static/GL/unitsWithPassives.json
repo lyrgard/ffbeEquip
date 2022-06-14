@@ -31508,7 +31508,7 @@
 		],
 		"skills": [
 			{"hp%":300, "mp%":100, "def%":200, "spr%":100, "oneWeaponMastery":{"def":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"charm","percent":100},{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"lightning","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"earth","percent":40},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"stone","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"undead","physical":150,"magical":150},{"name":"beast","physical":150,"magical":150}], "mpRefresh":8, "drawAttacks":100},
-			{"oneWeaponMastery":{"atk":100,"def":100}, "lbDamage":200, "equipedConditions":[["409065900","305004500"]]},
+			{"oneWeaponMastery":{"atk":100,"def":100}, "lbDamage":200, "equipedConditions":[["409065900","305004500","305004600","305004700","305004800","305004900"]]},
 			{"def":500, "exLevelCondition":3}
 		]
 	},
@@ -31532,7 +31532,7 @@
 		"skills": [
 			{"hp%":300, "mp%":100, "def%":200, "spr%":100, "oneWeaponMastery":{"def":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"charm","percent":100},{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"lightning","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"earth","percent":40},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"stone","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"undead","physical":150,"magical":150},{"name":"beast","physical":150,"magical":150}], "mpRefresh":8, "drawAttacks":100},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["axe"]},
-			{"oneWeaponMastery":{"atk":100,"def":100}, "lbDamage":200, "equipedConditions":[["409065900","305004500"]]},
+			{"oneWeaponMastery":{"atk":100,"def":100}, "lbDamage":200, "equipedConditions":[["409065900","305004500","305004600","305004700","305004800","305004900"]]},
 			{"def":500, "exLevelCondition":3}
 		]
 	},
@@ -31553,7 +31553,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["紋章閃"],
+		"enhancementSkills":["Crest Beam"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag%":300, "spr%":60, "singleWielding":{"mag":400}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"charm","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":150},
 			{"atk%":200, "singleWielding":{"accuracy":25,"atk":300}, "lbDamage":100, "equipedConditions":[["409066000","302019100"]]},
@@ -31578,9 +31578,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["竜魔人の破壊衝動","紋章閃"],
+		"enhancementSkills":["Dragonoid's Urge to Destroy","Crest Beam"],
 		"enhancements": [
-			{"name":"竜魔人の破壊衝動","levels":[[{"skillEnhancement":{"1097170":60,"1101010":60,"1101020":60,"1101030":60,"1101040":60,"1101050":60}}],[{"skillEnhancement":{"1097170":70,"1101010":70,"1101020":70,"1101030":70,"1101040":70,"1101050":70}}],[{"skillEnhancement":{"1097170":80,"1101010":80,"1101020":80,"1101030":80,"1101040":80,"1101050":80}}],[{"skillEnhancement":{"1097170":90,"1101010":90,"1101020":90,"1101030":90,"1101040":90,"1101050":90}}],[{"skillEnhancement":{"1097170":100,"1101010":100,"1101020":100,"1101030":100,"1101040":100,"1101050":100}}]]}
+			{"name":"Dragonoid's Urge to Destroy","levels":[[{"skillEnhancement":{"1097170":60,"1101010":60,"1101020":60,"1101030":60,"1101040":60,"1101050":60}}],[{"skillEnhancement":{"1097170":70,"1101010":70,"1101020":70,"1101030":70,"1101040":70,"1101050":70}}],[{"skillEnhancement":{"1097170":80,"1101010":80,"1101020":80,"1101030":80,"1101040":80,"1101050":80}}],[{"skillEnhancement":{"1097170":90,"1101010":90,"1101020":90,"1101030":90,"1101040":90,"1101050":90}}],[{"skillEnhancement":{"1097170":100,"1101010":100,"1101020":100,"1101030":100,"1101040":100,"1101050":100}}]]}
 		],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk":250, "atk%":100, "def":250, "def%":160, "mag":250, "mag%":400, "spr":250, "spr%":160, "singleWielding":{"mag":400}, "chainMastery":200, "resist":[{"name":"fire","percent":25},{"name":"ice","percent":25},{"name":"lightning","percent":25},{"name":"confuse","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200}], "lbDamage":150},
@@ -31606,7 +31606,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["虚空閃","地雷閃"],
+		"enhancementSkills":["Cover - Magic I","Air Strike","Earth Strike"],
 		"skills": [
 			{"hp%":200, "mp%":100, "atk%":300, "def%":200, "spr%":300, "evade":{"physical":40,"magical":50}, "oneWeaponMastery":{"atk":275,"spr":325}, "chainMastery":100, "lbPerTurn":{"min":12,"max":12}, "resist":[{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"earth","percent":60},{"name":"light","percent":75},{"name":"dark","percent":75},{"name":"confuse","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200}], "lbDamage":300, "drawAttacks":30},
 			{"equipedConditions":[["409066100","308010200"]]},
@@ -31653,7 +31653,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","rod","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["ヘルズチェーン","魔炎気"],
+		"enhancementSkills":["Hell's Chain","Dark Fire Energy"],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":240, "def%":60, "mag%":400, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":150},{"name":"ice","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"human","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":150},
 			{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"water","percent":30},{"name":"dark","percent":30}], "lbDamage":150, "equipedConditions":[["504243560","309008800"]]},

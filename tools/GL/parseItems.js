@@ -192,7 +192,7 @@ const unitRules = {
 
     7401: (item) => item.exclusiveUnits = ["100031507", "100031517"],
     7402: (item) => item.exclusiveUnits = ["100039407"],
-    7601: (item) => {}, // not implemented yet. Only for unit max 7*
+    7601: (item) => item.max7StarUnit = true, // not implemented yet. Only for unit max 7*
     9501: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001].concat(nvUnitIdsByGameId[11010]), // FFBE & WOTV units
     9502: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[90003] || []).concat((nvUnitIdsByGameId[90008] || [])), // Tomb raider units
 }
