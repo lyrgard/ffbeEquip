@@ -110,6 +110,7 @@ const unitRules = {
     4008: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10007], // FF7 units
     7102: (item) => item.exclusiveSex = 'male',// Male units
     7103: (item) => item.exclusiveSex = 'female',// Female units,
+    7111: (item) => item.exclusiveRoles = ['physicalAttacker', 'magicalAttacker'],
     7201: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10001], // FF1
     7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
     7203: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10003], // FF3
@@ -133,6 +134,7 @@ const unitRules = {
     7274: (item) => item.exclusiveUnits = ["312000205", "312001007", "312001017"],
     7275: (item) => item.exclusiveRoles = ['physicalTank'],          // Physical tank role
     7276: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20037],  // Dragon Quest Dai
+    7403: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20033], // KH units
 }
 
 var unitNamesById = {};

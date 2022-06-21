@@ -251,6 +251,43 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             "min": 1,
             "avg": 1,
             "max": 1
+        };
+
+        if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
+            if (itemAndPassives[0].damageVariance) {
+                variance = itemAndPassives[0].damageVariance;
+            } else {
+                variance = weaponBaseDamageVariance[isTwoHanded(itemAndPassives[0]) ? '2h' : '1h'][itemAndPassives[0].type];
+            }
+        }  else {
+            variance = weaponBaseDamageVariance["none"];
+        }
+        if (unitBuild.involvedStats.includes("jumpDamage") && (isTwoHanded(itemAndPassives[0]) || isTwoHanded(itemAndPassives[1]))) {
+            // variance override for two handed weapons and jumps
+            variance = {"min":2.3,"avg":2.45,"max":2.6};
+        }
+
+        var switchWeapons = false;
+        if (canSwitchWeapon && goalVariance && dualWielding) {
+            var variance1;
+            if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+                if (itemAndPassives[1].damageVariance) {
+                    variance1 = itemAndPassives[1].damageVariance;
+                } else {
+                    variance1 = weaponBaseDamageVariance[isTwoHanded(itemAndPassives[1]) ? '2h' : '1h'][itemAndPassives[1].type];
+                }
+            }  else {
+                variance1 = weaponBaseDamageVariance["none"];
+            }
+
+            switchWeapons = canSwitchWeapon && ((variance[goalVariance] < variance1[goalVariance]) || (stat == "atk" && (variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk));
+            if (context.multicast) {
+                // in normal DW, we want the strongest attack to be the second one. In multicast, it's the contrary
+                switchWeapons = !switchWeapons
+            }
+            if (switchWeapons) {
+                variance = variance1;
+            }
         }
 
         var statValueToUse = 0;
@@ -292,43 +329,6 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 }
 
                 var calculatedValue = getStatCalculatedValue(context, itemAndPassives, stat, unitBuild);
-
-                if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
-                    if (itemAndPassives[0].damageVariance) {
-                        variance = itemAndPassives[0].damageVariance;
-                    } else {
-                        variance = weaponBaseDamageVariance[isTwoHanded(itemAndPassives[0]) ? '2h' : '1h'][itemAndPassives[0].type];
-                    }
-                }  else {
-                    variance = weaponBaseDamageVariance["none"];
-                }
-                if (unitBuild.involvedStats.includes("jumpDamage") && (isTwoHanded(itemAndPassives[0]) || isTwoHanded(itemAndPassives[1]))) {
-                    // variance override for two handed weapons and jumps
-                    variance = {"min":2.3,"avg":2.45,"max":2.6};
-                }
-
-                var switchWeapons = false;
-                if (canSwitchWeapon && goalVariance && dualWielding) {
-                    var variance1;
-                    if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
-                        if (itemAndPassives[1].damageVariance) {
-                            variance1 = itemAndPassives[1].damageVariance;
-                        } else {
-                            variance1 = weaponBaseDamageVariance[isTwoHanded(itemAndPassives[1]) ? '2h' : '1h'][itemAndPassives[1].type];
-                        }
-                    }  else {
-                        variance1 = weaponBaseDamageVariance["none"];
-                    }
-
-                    switchWeapons = canSwitchWeapon && ((variance[goalVariance] < variance1[goalVariance]) || (stat == "atk" && (variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk));
-                    if (context.multicast) {
-                        // in normal DW, we want the strongest attack to be the second one. In multicast, it's the contrary
-                        switchWeapons = !switchWeapons
-                    }
-                    if (switchWeapons) {
-                        variance = variance1;
-                    }
-                }
 
                 if (stat == "atk") {
                     if (switchWeapons ? !context.treatingLeftHandAttacks: context.treatingLeftHandAttacks) {
@@ -529,9 +529,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
 
             result = {
-                "min": (baseDamage * variance.min + magDamage) * context.damageMultiplier.min / 2,
-                "avg": (baseDamage * variance.avg + magDamage) * context.damageMultiplier.avg / 2,
-                "max": (baseDamage * variance.max + magDamage) * context.damageMultiplier.max / 2,
+                "min": (baseDamage + magDamage) * context.damageMultiplier.min * variance.min / 2,
+                "avg": (baseDamage + magDamage) * context.damageMultiplier.avg * variance.avg / 2,
+                "max": (baseDamage + magDamage) * context.damageMultiplier.max * variance.max / 2,
                 "switchWeapons": switchWeapons
             }
         } else if(formula.value.mecanism == "summonerSkill"){
@@ -553,9 +553,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 sprDamage = 0;
             }
             result = {
-                "min" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.min,
-                "avg" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.avg,
-                "max" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.max,
+                "min" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.min * variance.min,
+                "avg" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.avg * variance.avg,
+                "max" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.max * variance.max,
                 "switchWeapons" : switchWeapons
             }
         } else {
