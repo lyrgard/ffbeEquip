@@ -555,7 +555,7 @@
 {"id":"100005501", "name":"Birth of a Champion", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005501.png", "sortId":94, "levels":[
 	{"atk":130, "atk%":80, "staticStats":{"atk":500}, "lbDamage":100}
 ]},
-{"id":"100005601", "name":"傷心のライバル", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005601.png", "sortId":102, "levels":[
+{"id":"100005601", "name":"The Grief-Stricken Rival", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005601.png", "sortId":102, "levels":[
 	{"atk":35, "mag":35},
 	{"atk":38, "mag":38},
 	{"atk":42, "mag":42},
@@ -567,7 +567,7 @@
 	{"atk":63, "atk%":25, "mag":63, "mag%":25, "killers":[{"name":"bug","physical":100,"magical":100}]},
 	{"atk":70, "atk%":25, "mag":70, "mag%":25, "killers":[{"name":"bug","physical":100,"magical":100}], "lbDamage":100}
 ]},
-{"id":"100005701", "name":"イシェ隊の名にかけて", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005701.png", "sortId":103, "levels":[
+{"id":"100005701", "name":"In the Name of Yshe's Elites", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005701.png", "sortId":103, "levels":[
 	{"atk":40, "def":20, "mag":40, "spr":20},
 	{"atk":44, "def":22, "mag":44, "spr":22},
 	{"atk":48, "def":24, "mag":48, "spr":24},
@@ -845,6 +845,18 @@
 	{"atk":85, "atk%":50, "mag":85, "mag%":50, "lbDamage":25},
 	{"atk":90, "atk%":50, "mag":90, "mag%":50, "lbDamage":25},
 	{"atk":100, "atk%":50, "mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
+]},
+{"id":"206000401", "name":"運命のコイン", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000401.png", "sortId":138, "levels":[
+	{"atk":65},
+	{"atk":71},
+	{"atk":78},
+	{"atk":84, "atk%":50},
+	{"atk":91, "atk%":50},
+	{"atk":97, "atk%":50},
+	{"atk":104, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}},
+	{"atk":110, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}},
+	{"atk":117, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}},
+	{"atk":130, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}, "conditional":[{"staticStats":{"atk":500}}]}
 ]},
 {"id":"207000101", "name":"Mad Dash", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
 	{"atk":40},

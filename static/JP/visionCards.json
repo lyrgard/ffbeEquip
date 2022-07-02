@@ -555,7 +555,7 @@
 {"id":"100005501", "name":"Birth of a Champion", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005501.png", "sortId":94, "levels":[
 	{"atk":130, "atk%":80, "staticStats":{"atk":500}, "lbDamage":100}
 ]},
-{"id":"100005601", "name":"傷心のライバル", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005601.png", "sortId":102, "levels":[
+{"id":"100005601", "name":"The Grief-Stricken Rival", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005601.png", "sortId":102, "levels":[
 	{"atk":35, "mag":35},
 	{"atk":38, "mag":38},
 	{"atk":42, "mag":42},
@@ -567,7 +567,7 @@
 	{"atk":63, "atk%":25, "mag":63, "mag%":25, "killers":[{"name":"bug","physical":100,"magical":100}]},
 	{"atk":70, "atk%":25, "mag":70, "mag%":25, "killers":[{"name":"bug","physical":100,"magical":100}], "lbDamage":100}
 ]},
-{"id":"100005701", "name":"イシェ隊の名にかけて", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005701.png", "sortId":103, "levels":[
+{"id":"100005701", "name":"In the Name of Yshe's Elites", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100005701.png", "sortId":103, "levels":[
 	{"atk":40, "def":20, "mag":40, "spr":20},
 	{"atk":44, "def":22, "mag":44, "spr":22},
 	{"atk":48, "def":24, "mag":48, "spr":24},
@@ -690,7 +690,7 @@
 	{"atk":82, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40}]},
 	{"atk":90, "conditional":[{"equipedConditions":["bow"],"atk%":80},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["axe"],"atk%":40},{"equipedConditions":["spear"],"atk%":40},{},{"staticStats":{"atk":600}}]}
 ]},
-{"id":"202000201", "name":"蘇る皇帝", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000201.png", "sortId":114, "levels":[
+{"id":"202000201", "name":"The Emperor Reborn", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000201.png", "sortId":114, "levels":[
 	{"mag":50},
 	{"mag":55},
 	{"mag":60},
@@ -702,7 +702,7 @@
 	{"mag":90, "mag%":50, "lbDamage":25},
 	{"mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500}}]}
 ]},
-{"id":"202000301", "name":"VSラウンドウォーム", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000301.png", "sortId":115, "levels":[
+{"id":"202000301", "name":"VS Roundworm", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_202000301.png", "sortId":115, "levels":[
 	{"atk":55},
 	{"atk":60},
 	{"atk":66},
@@ -725,6 +725,18 @@
 	{"atk":68, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
 	{"atk":72, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30}]},
 	{"atk":80, "resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "conditional":[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["katana"],"atk%":30},{"atk%":20,"def%":20,"mag%":20,"spr%":20},{"resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}]}]}
+]},
+{"id":"203000201", "name":"バハムートから逃げろ！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_203000201.png", "sortId":137, "levels":[
+	{"atk":55, "mag":55},
+	{"atk":60, "mag":60},
+	{"atk":66, "mag":66},
+	{"atk":71, "mag":71},
+	{"atk":77, "mag":77},
+	{"atk":82, "mag":82},
+	{"atk":88, "mag":88, "lbDamage":50},
+	{"atk":93, "mag":93, "lbDamage":50},
+	{"atk":99, "mag":99, "lbDamage":50},
+	{"atk":110, "mag":110, "lbDamage":50, "conditional":[{"staticStats":{"atk":500,"mag":500}}]}
 ]},
 {"id":"204000101", "name":"Battle with Barbariccia", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_204000101.png", "sortId":83, "levels":[
 	{"atk":50},
@@ -761,6 +773,18 @@
 	{"mag":85, "mag%":50, "lbDamage":25},
 	{"mag":90, "mag%":50, "lbDamage":25},
 	{"mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500}}]}
+]},
+{"id":"204000401", "name":"そして、パラディンへ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_204000401.png", "sortId":132, "levels":[
+	{"atk":60, "spr":60},
+	{"atk":66, "spr":66},
+	{"atk":72, "spr":72},
+	{"atk":78, "spr":78, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":84, "spr":84, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":90, "spr":90, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":96, "spr":96, "oneWeaponMastery":{"atk":50,"spr":50}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":102, "spr":102, "oneWeaponMastery":{"atk":50,"spr":50}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":108, "spr":108, "oneWeaponMastery":{"atk":50,"spr":50}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":120, "spr":120, "oneWeaponMastery":{"atk":50,"spr":50}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "conditional":[{"staticStats":{"atk":500,"spr":500}}]}
 ]},
 {"id":"205000101", "name":"Syldra! Come Up and Say Hello!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000101.png", "sortId":41, "levels":[
 	{"atk":35, "mag":50},
@@ -821,6 +845,18 @@
 	{"atk":85, "atk%":50, "mag":85, "mag%":50, "lbDamage":25},
 	{"atk":90, "atk%":50, "mag":90, "mag%":50, "lbDamage":25},
 	{"atk":100, "atk%":50, "mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
+]},
+{"id":"206000401", "name":"運命のコイン", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000401.png", "sortId":138, "levels":[
+	{"atk":65},
+	{"atk":71},
+	{"atk":78},
+	{"atk":84, "atk%":50},
+	{"atk":91, "atk%":50},
+	{"atk":97, "atk%":50},
+	{"atk":104, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}},
+	{"atk":110, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}},
+	{"atk":117, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}},
+	{"atk":130, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}, "conditional":[{"staticStats":{"atk":500}}]}
 ]},
 {"id":"207000101", "name":"Mad Dash", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
 	{"atk":40},
@@ -1239,7 +1275,7 @@
 	{"atk":72, "mag":72, "singleWielding":{"atk":100,"accuracy":50,"mag":100}},
 	{"atk":80, "mag":80, "singleWielding":{"atk":100,"accuracy":50,"mag":100}, "conditional":[{"staticStats":{"atk":400,"mag":400},"exclusiveRoles":["physicalTank"]}]}
 ]},
-{"id":"344000101", "name":"父子竜出陣！！！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000101.png", "sortId":110, "levels":[
+{"id":"344000101", "name":"Father and Son Dragons Set Out", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000101.png", "sortId":110, "levels":[
 	{"hp":750, "atk":60, "mag":60},
 	{"hp":825, "atk":66, "mag":66},
 	{"hp":900, "atk":72, "mag":72},
@@ -1251,7 +1287,7 @@
 	{"hp":1350, "atk":108, "atk%":50, "mag":108, "mag%":50, "lbDamage":25},
 	{"hp":1500, "atk":120, "atk%":50, "mag":120, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500,"mag":500}}]}
 ]},
-{"id":"344000201", "name":"集結！アバンの使徒！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000201.png", "sortId":111, "levels":[
+{"id":"344000201", "name":"Assemble, Disciples of Avan!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000201.png", "sortId":111, "levels":[
 	{"hp":750, "atk":50, "mag":50},
 	{"hp":825, "atk":55, "mag":55},
 	{"hp":900, "atk":60, "mag":60},
@@ -1263,7 +1299,7 @@
 	{"hp":1350, "atk":90, "atk%":50, "def%":50, "mag":90, "mag%":50, "spr%":50, "lbDamage":25},
 	{"hp":1500, "atk":100, "atk%":50, "def%":50, "mag":100, "mag%":50, "spr%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
 ]},
-{"id":"344000301", "name":"一刀両断！！！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000301.png", "sortId":112, "levels":[
+{"id":"344000301", "name":"Power Cut!!!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000301.png", "sortId":112, "levels":[
 	{"hp":1500, "atk":55, "def":55, "mag":55, "spr":55},
 	{"hp":1650, "atk":60, "def":60, "mag":60, "spr":60},
 	{"hp":1800, "atk":66, "def":66, "mag":66, "spr":66},
@@ -1275,7 +1311,7 @@
 	{"hp":2700, "atk":99, "def":99, "mag":99, "spr":99},
 	{"hp":3000, "atk":110, "def":110, "mag":110, "spr":110}
 ]},
-{"id":"344000401", "name":"集結！六大軍団長！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000401.png", "sortId":113, "levels":[
+{"id":"344000401", "name":"Assemble, Six Legion Commanders!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_344000401.png", "sortId":113, "levels":[
 	{"hp":750, "atk":50, "def":50, "mag":50, "spr":50},
 	{"hp":825, "atk":55, "def":55, "mag":55, "spr":55},
 	{"hp":900, "atk":60, "def":60, "mag":60, "spr":60},
@@ -1286,6 +1322,42 @@
 	{"hp":1275, "atk":85, "def":85, "mag":85, "spr":85, "lbDamage":50},
 	{"hp":1350, "atk":90, "def":90, "mag":90, "spr":90, "lbDamage":50},
 	{"hp":1500, "atk":100, "def":100, "mag":100, "spr":100, "lbDamage":50, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
+]},
+{"id":"345000101", "name":"はるか時の呼び声", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_345000101.png", "sortId":134, "levels":[
+	{"atk":55, "mag":55},
+	{"atk":60, "mag":60},
+	{"atk":66, "mag":66},
+	{"atk":71, "mag":71, "lbDamage":25},
+	{"atk":77, "mag":77, "lbDamage":25},
+	{"atk":82, "mag":82, "lbDamage":25},
+	{"atk":88, "mag":88, "killers":[{"name":"demon","physical":75,"magical":75}], "lbDamage":25},
+	{"atk":93, "mag":93, "killers":[{"name":"demon","physical":75,"magical":75}], "lbDamage":25},
+	{"atk":99, "mag":99, "killers":[{"name":"demon","physical":75,"magical":75}], "lbDamage":25},
+	{"atk":110, "mag":110, "killers":[{"name":"demon","physical":75,"magical":75}], "lbDamage":25, "conditional":[{"staticStats":{"mag":300},"exclusiveRoles":["physicalAttacker","magicalAttacker"]}]}
+]},
+{"id":"345000201", "name":"キッド参上！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_345000201.png", "sortId":135, "levels":[
+	{"mag":50},
+	{"mag":55},
+	{"mag":60},
+	{"mag":65, "mag%":50},
+	{"mag":70, "mag%":50},
+	{"mag":75, "mag%":50},
+	{"mag":80, "mag%":50, "killers":[{"name":"machine","physical":100,"magical":100}]},
+	{"mag":85, "mag%":50, "killers":[{"name":"machine","physical":100,"magical":100}]},
+	{"mag":90, "mag%":50, "killers":[{"name":"machine","physical":100,"magical":100}]},
+	{"mag":100, "mag%":50, "killers":[{"name":"machine","physical":100,"magical":100}], "lbDamage":100}
+]},
+{"id":"345000301", "name":"龍の涙", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_345000301.png", "sortId":136, "levels":[
+	{"mag":60},
+	{"mag":66},
+	{"mag":72},
+	{"mag":78, "mag%":50},
+	{"mag":84, "mag%":50},
+	{"mag":90, "mag%":50},
+	{"mag":96, "mag%":50, "killers":[{"name":"human","physical":50,"magical":50}]},
+	{"mag":102, "mag%":50, "killers":[{"name":"human","physical":50,"magical":50}]},
+	{"mag":108, "mag%":50, "killers":[{"name":"human","physical":50,"magical":50}]},
+	{"mag":120, "mag%":50, "killers":[{"name":"human","physical":50,"magical":50}], "conditional":[{"lbDamage":50,"exclusiveRoles":["physicalAttacker","magicalAttacker"]}]}
 ]},
 {"id":"401000101", "name":"Virtual Training", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000101.png", "sortId":48, "levels":[
 	{"spr":50},

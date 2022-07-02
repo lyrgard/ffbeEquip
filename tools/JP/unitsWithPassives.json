@@ -15383,7 +15383,7 @@
 		}
 	},
 	"202000327": {
-		"name":"ガイ BS",
+		"name":"Guy BS",
 		"jpname":"ガイ BS",
 		"roles":["physicalTank","debuffer"],
 		"id":"202000327",
@@ -16729,6 +16729,7 @@
 	},
 	"203001627": {
 		"name":"賢者 BS",
+		"jpname":"賢者 BS",
 		"roles":["healer","magicalAttacker"],
 		"id":"203001627",
 		"braveShifted":"203001617",
@@ -17020,6 +17021,7 @@
 	},
 	"203004407": {
 		"name":"赤魔道師イングズ",
+		"jpname":"赤魔道師イングズ",
 		"roles":["magicalAttacker","support"],
 		"id":"203004407",
 		"braveShift":"203004417",
@@ -17047,6 +17049,7 @@
 	},
 	"203004417": {
 		"name":"風水師イングズ BS",
+		"jpname":"風水師イングズ BS",
 		"roles":["debuffer"],
 		"id":"203004417",
 		"braveShifted":"203004407",
@@ -19756,21 +19759,105 @@
 		"jpname":"ガウ",
 		"roles":["physicalAttacker"],
 		"id":"206001103",
-		"max_rarity":"5",
+		"braveShift":"206001127",
+		"exAwakening": [{"hp":689,"mp":51,"atk":36,"def":27,"mag":27,"spr":36},{"hp":530,"mp":39,"atk":28,"def":21,"mag":21,"spr":28},{"hp":371,"mp":28,"atk":20,"def":14,"mag":15,"spr":20}],
+		"fragmentId": "250013900",
+		"max_rarity":"NV",
 		"min_rarity":"3",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":2704,"mp":112,"atk":116,"def":98,"mag":81,"spr":80},
-			"minStats":{"hp":892,"mp":37,"atk":38,"def":32,"mag":27,"spr":26},
+			"maxStats":{"hp":5300,"mp":394,"atk":280,"def":207,"mag":210,"spr":280},
+			"minStats":{"hp":1749,"mp":130,"atk":92,"def":68,"mag":69,"spr":92},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
-		"stats_pattern":1,
-		"equip":["dagger","fist","clothes","lightArmor"],
+		"stats_pattern":4,
+		"equip":["dagger","fist","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["1まんボルト","とびこむ","格闘の極意","ほしにくパワー"],
+		"enhancements": [
+			{"name":"獣ヶ原の野生児","levels":[[],[{"atk%":20,"hp%":30,"killers":[{"name":"beast","physical":50}]}]]},
+			{"name":"格闘の極意","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"ほしにくパワー","levels":[[{"hp%":60}],[{"hp%":70}],[{"hp%":80}],[{"hp%":90}],[{"hp%":100}]]}
+		],
+		"skills": [
+			{"hp%":70, "mp%":60, "atk%":220, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":150,"magical":150},{"name":"bug","physical":200,"magical":200},{"name":"aquatic","physical":150,"magical":150}], "mpRefresh":13, "lbDamage":250},
+			{"atk":1500, "equipedConditions":[["504208570","409072000"]]}
+		],
+		"6_form": {
+			"name":"Gau",
+			"jpname":"ガウ",
+			"roles":["physicalAttacker"],
+			"id":"206001103",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"3",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3600,"mp":222,"atk":198,"def":155,"mag":171,"spr":160},
+				"minStats":{"hp":1188,"mp":73,"atk":65,"def":51,"mag":56,"spr":53},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","fist","clothes","lightArmor"],
+			"enhancementSkills":["1まんボルト","とびこむ","格闘の極意","ほしにくパワー"],
+		"enhancements": [
+			{"name":"獣ヶ原の野生児","levels":[[],[{"atk%":20,"hp%":30,"killers":[{"name":"beast","physical":50}]}]]},
+			{"name":"格闘の極意","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+			"skills": [
+				{"hp%":10, "atk":500, "atk%":20, "lbDamage":100}
+			]
+		},
+		"7_form": {
+			"name":"Gau",
+			"jpname":"ガウ",
+			"roles":["physicalAttacker"],
+			"id":"206001103",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"3",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4700,"mp":310,"atk":211,"def":187,"mag":190,"spr":240},
+				"minStats":{"hp":1551,"mp":102,"atk":70,"def":62,"mag":63,"spr":79},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","fist","clothes","lightArmor"],
+			"enhancementSkills":["1まんボルト","とびこむ","格闘の極意","ほしにくパワー"],
+		"enhancements": [
+			{"name":"獣ヶ原の野生児","levels":[[],[{"atk%":20,"hp%":30,"killers":[{"name":"beast","physical":50}]}]]},
+			{"name":"格闘の極意","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+			"skills": [
+				{"hp%":70, "mp%":60, "atk":500, "atk%":220, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":150,"magical":150}], "lbDamage":250},
+				{"atk":1500, "equipedConditions":[["504208570","409072000"]]}
+			]
+		}
+	},
+	"206001127": {
+		"name":"ガウ BS",
+		"roles":["physicalAttacker"],
+		"id":"206001127",
+		"braveShifted":"206001103",
+		"exAwakening": [{"hp":689,"mp":51,"atk":36,"def":27,"mag":27,"spr":36},{"hp":530,"mp":39,"atk":28,"def":21,"mag":21,"spr":28},{"hp":371,"mp":28,"atk":20,"def":14,"mag":15,"spr":20}],
+		"fragmentId": "250013900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":394,"atk":280,"def":207,"mag":210,"spr":280},
+			"minStats":{"hp":1749,"mp":130,"atk":92,"def":68,"mag":69,"spr":92},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","fist","hat","clothes","lightArmor","visionCard"],
 		"enhancements": [
 			{"name":"獣ヶ原の野生児","levels":[[],[{"atk%":20,"hp%":30,"killers":[{"name":"beast","physical":50}]}]]}
 		],
 		"skills": [
-			{"hp%":10, "atk%":20}
+			{"hp%":130, "mp%":60, "atk%":220, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":150,"magical":150},{"name":"bug","physical":200,"magical":200},{"name":"aquatic","physical":150,"magical":150}], "mpRefresh":13, "lbDamage":250},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["fist"]},
+			{"atk":1500, "equipedConditions":[["504208570","409072000"]]}
 		]
 	},
 	"206001502": {
@@ -20000,7 +20087,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","マッシュ・レネ・フィガロ","活心術","かばう・物理","頼れる熱血漢"],
+		"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","マッシュ・レネ・フィガロ","活心術","かばう・物理","かばう・魔法","頼れる熱血漢"],
 		"enhancements": [
 			{"name":"ダンカン仕込みの気合","levels":[[],[{"atk%":30,"mp%":30}]]},
 			{"name":"マッシュ・レネ・フィガロ","levels":[[{"spr%":20,"atk%":40,"mp%":20,"hp%":20,"mpRefresh":5,"levelCondition":120}],[{"spr%":20,"atk%":60,"mp%":20,"hp%":20,"mpRefresh":5,"lbDamage":50,"levelCondition":120}],[{"spr%":20,"atk%":60,"mp%":20,"hp%":20,"mpRefresh":5,"lbDamage":50,"singleWielding":{"accuracy":25,"atk":50},"lbPerTurn":{"min":6,"max":6},"levelCondition":120}]]},
@@ -20030,7 +20117,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","マッシュ・レネ・フィガロ","活心術","かばう・物理","頼れる熱血漢"],
+			"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","マッシュ・レネ・フィガロ","活心術","かばう・物理","かばう・魔法","頼れる熱血漢"],
 		"enhancements": [
 			{"name":"ダンカン仕込みの気合","levels":[[],[{"atk%":30,"mp%":30}]]}
 		],
@@ -20056,7 +20143,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","マッシュ・レネ・フィガロ","活心術","かばう・物理","頼れる熱血漢"],
+			"enhancementSkills":["鳳凰の舞","真空波","夢幻闘舞","タイガーブレイク","無尽根性","マッシュ・レネ・フィガロ","活心術","かばう・物理","かばう・魔法","頼れる熱血漢"],
 		"enhancements": [
 			{"name":"ダンカン仕込みの気合","levels":[[],[{"atk%":30,"mp%":30}]]},
 			{"name":"マッシュ・レネ・フィガロ","levels":[[{"spr%":20,"atk%":40,"mp%":20,"hp%":20,"mpRefresh":5,"levelCondition":120}],[{"spr%":20,"atk%":60,"mp%":20,"hp%":20,"mpRefresh":5,"lbDamage":50,"levelCondition":120}],[{"spr%":20,"atk%":60,"mp%":20,"hp%":20,"mpRefresh":5,"lbDamage":50,"singleWielding":{"accuracy":25,"atk":50},"lbPerTurn":{"min":6,"max":6},"levelCondition":120}]]}
@@ -20809,6 +20896,108 @@
 				{"atk%":200, "equipedConditions":["unarmed"]}
 			]
 		}
+	},
+	"206003207": {
+		"name":"国を選びし兄エドガー",
+		"roles":["physicalAttacker","debuffer"],
+		"id":"206003207",
+		"braveShift":"206003217",
+		"exAwakening": [{"hp":679,"mp":41,"atk":78,"def":26,"mag":19,"spr":24},{"hp":522,"mp":31,"atk":60,"def":20,"mag":15,"spr":18},{"hp":366,"mp":22,"atk":42,"def":14,"mag":10,"spr":13}],
+		"fragmentId": "250013700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5222,"mp":312,"atk":300,"def":255,"mag":143,"spr":255},
+			"minStats":{"hp":1723,"mp":103,"atk":99,"def":84,"mag":47,"spr":84},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ドリル","剣の極意","銃の極意"],
+		"enhancements": [
+			{"name":"剣の極意","levels":[[{"equipedConditions":["sword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["sword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["sword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"銃の極意","levels":[[{"equipedConditions":["gun"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["gun"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["gun"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"mp%":60, "atk":500, "atk%":150, "mag%":150, "evade":{"physical":30}, "oneWeaponMastery":{"atk":300,"mag":100}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":8},
+			{"atk":1000, "lbDamage":150, "equipedConditions":[["406007300","308011100"]]}
+		]
+	},
+	"206003217": {
+		"name":"国を選びし兄エドガー BS",
+		"roles":["physicalAttacker"],
+		"id":"206003217",
+		"braveShifted":"206003207",
+		"exAwakening": [{"hp":679,"mp":41,"atk":78,"def":26,"mag":19,"spr":24},{"hp":522,"mp":31,"atk":60,"def":20,"mag":15,"spr":18},{"hp":366,"mp":22,"atk":42,"def":14,"mag":10,"spr":13}],
+		"fragmentId": "250013700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5222,"mp":312,"atk":300,"def":197,"mag":147,"spr":183},
+			"minStats":{"hp":1723,"mp":103,"atk":99,"def":65,"mag":49,"spr":60},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["フィガロジャンプ","槍の極意","ジャンプ"],
+		"enhancements": [
+			{"name":"槍の極意","levels":[[{"equipedConditions":["spear"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["spear"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["spear"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk":500, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "jumpDamage":500, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":150},
+			{"atk":1000, "lbDamage":150, "equipedConditions":[["406007300","308011100"]]}
+		]
+	},
+	"206003307": {
+		"name":"自由を選びし弟マッシュ",
+		"roles":["physicalAttacker"],
+		"id":"206003307",
+		"braveShift":"206003317",
+		"exAwakening": [{"hp":806,"mp":39,"atk":82,"def":35,"mag":27,"spr":31},{"hp":620,"mp":30,"atk":63,"def":27,"mag":21,"spr":24},{"hp":434,"mp":21,"atk":44,"def":19,"mag":15,"spr":17}],
+		"fragmentId": "250013800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6200,"mp":297,"atk":315,"def":270,"mag":210,"spr":240},
+			"minStats":{"hp":2046,"mp":98,"atk":104,"def":89,"mag":69,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["fist","lightShield","heavyShield","hat","clothes","visionCard"],
+		"enhancementSkills":["真・ばくれつけん","格闘の極意","鳳凰の舞"],
+		"enhancements": [
+			{"name":"格闘の極意","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk":500, "atk%":200, "def%":160, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":200},
+			{"atk":1500, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["405024100","309009300"]]}
+		]
+	},
+	"206003317": {
+		"name":"自由を選びし弟マッシュ BS",
+		"roles":["physicalAttacker"],
+		"id":"206003317",
+		"braveShifted":"206003307",
+		"exAwakening": [{"hp":806,"mp":39,"atk":82,"def":35,"mag":27,"spr":31},{"hp":620,"mp":30,"atk":63,"def":27,"mag":21,"spr":24},{"hp":434,"mp":21,"atk":44,"def":19,"mag":15,"spr":17}],
+		"fragmentId": "250013800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6200,"mp":297,"atk":315,"def":270,"mag":210,"spr":240},
+			"minStats":{"hp":2046,"mp":98,"atk":104,"def":89,"mag":69,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["fist","lightShield","heavyShield","hat","clothes","visionCard"],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk":500, "atk%":200, "def%":160, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":200},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["fist"]},
+			{"atk":1500, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["405024100","309009300"]]}
+		]
 	},
 	"207000105": {
 		"name":"Cloud",
@@ -37971,6 +38160,7 @@
 	},
 	"345000107": {
 		"name":"セルジュ",
+		"jpname":"セルジュ",
 		"roles":["magicalAttacker","support"],
 		"id":"345000107",
 		"braveShift":"345000117",
@@ -37997,6 +38187,7 @@
 	},
 	"345000117": {
 		"name":"セルジュ BS",
+		"jpname":"セルジュ BS",
 		"roles":["magicalAttacker","support"],
 		"id":"345000117",
 		"braveShifted":"345000107",
@@ -38020,6 +38211,7 @@
 	},
 	"345000207": {
 		"name":"キッド",
+		"jpname":"キッド",
 		"roles":["debuffer","support"],
 		"id":"345000207",
 		"braveShift":"345000217",
@@ -38047,6 +38239,7 @@
 	},
 	"345000217": {
 		"name":"キッド BS",
+		"jpname":"キッド BS",
 		"roles":["debuffer","support"],
 		"id":"345000217",
 		"braveShifted":"345000207",
@@ -38071,6 +38264,7 @@
 	},
 	"345000307": {
 		"name":"ヤマネコ",
+		"jpname":"ヤマネコ",
 		"roles":["magicalAttacker","support"],
 		"id":"345000307",
 		"braveShift":"345000317",
@@ -38097,6 +38291,7 @@
 	},
 	"345000317": {
 		"name":"ヤマネコ BS",
+		"jpname":"ヤマネコ BS",
 		"roles":["magicalAttacker","support"],
 		"id":"345000317",
 		"braveShifted":"345000307",
