@@ -6561,7 +6561,7 @@
 		}
 	},
 	"100019527": {
-		"name":"シド BS",
+		"name":"Cid BS",
 		"jpname":"シド BS",
 		"roles":["physicalAttacker"],
 		"id":"100019527",
@@ -14155,7 +14155,7 @@
 		]
 	},
 	"100038807": {
-		"name":"Ishe",
+		"name":"Yshe",
 		"jpname":"イシェ",
 		"roles":["debuffer"],
 		"id":"100038807",
@@ -14180,7 +14180,7 @@
 		]
 	},
 	"100038817": {
-		"name":"Ishe BS",
+		"name":"Yshe BS",
 		"jpname":"イシェ BS",
 		"roles":["debuffer"],
 		"id":"100038817",
@@ -14204,7 +14204,7 @@
 		]
 	},
 	"100038907": {
-		"name":"Carl",
+		"name":"Kall",
 		"jpname":"カル",
 		"roles":["magicalAttacker","physicalAttacker"],
 		"id":"100038907",
@@ -14231,7 +14231,7 @@
 		]
 	},
 	"100038917": {
-		"name":"Carl BS",
+		"name":"Kall BS",
 		"jpname":"カル BS",
 		"roles":["magicalAttacker","physicalAttacker"],
 		"id":"100038917",
@@ -14255,7 +14255,7 @@
 		]
 	},
 	"100039007": {
-		"name":"Elmateil",
+		"name":"Ilmatalle",
 		"jpname":"エルマティル",
 		"roles":["support","healer"],
 		"id":"100039007",
@@ -14279,7 +14279,7 @@
 		]
 	},
 	"100039017": {
-		"name":"Elmateil BS",
+		"name":"Ilmatalle BS",
 		"jpname":"エルマティル BS",
 		"roles":["support","healer"],
 		"id":"100039017",
@@ -19836,6 +19836,7 @@
 	},
 	"206001127": {
 		"name":"ガウ BS",
+		"jpname":"ガウ BS",
 		"roles":["physicalAttacker"],
 		"id":"206001127",
 		"braveShifted":"206001103",
@@ -20899,6 +20900,7 @@
 	},
 	"206003207": {
 		"name":"国を選びし兄エドガー",
+		"jpname":"国を選びし兄エドガー",
 		"roles":["physicalAttacker","debuffer"],
 		"id":"206003207",
 		"braveShift":"206003217",
@@ -20926,6 +20928,7 @@
 	},
 	"206003217": {
 		"name":"国を選びし兄エドガー BS",
+		"jpname":"国を選びし兄エドガー BS",
 		"roles":["physicalAttacker"],
 		"id":"206003217",
 		"braveShifted":"206003207",
@@ -20952,6 +20955,7 @@
 	},
 	"206003307": {
 		"name":"自由を選びし弟マッシュ",
+		"jpname":"自由を選びし弟マッシュ",
 		"roles":["physicalAttacker"],
 		"id":"206003307",
 		"braveShift":"206003317",
@@ -20978,6 +20982,7 @@
 	},
 	"206003317": {
 		"name":"自由を選びし弟マッシュ BS",
+		"jpname":"自由を選びし弟マッシュ BS",
 		"roles":["physicalAttacker"],
 		"id":"206003317",
 		"braveShifted":"206003307",
@@ -34983,17 +34988,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","spear","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["磨き抜かれた武術","眠れる破壊衝動","武技虎咆","超武技闇勁","4つのフェイ"],
+		"enhancementSkills":["磨き抜かれた武術","眠れる破壊衝動","武技虎咆","千光","銀牙","超武技火勁","超武技地勁","超武技風勁","超武技水勁","超武技光勁","超武技闇勁","4つのフェイ"],
 		"enhancements": [
 			{"name":"磨き抜かれた武術","levels":[[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["fist"],"atk%":20}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["fist"],"atk%":50}],[{"singleWielding":{"accuracy":25,"atk":100},"mpRefresh":10},{"equipedConditions":["fist"],"atk%":50}]]},
 			{"name":"眠れる破壊衝動","levels":[[{"killers":[{"name":"machine","physical":50,"magical":50}]}],[{"killers":[{"name":"machine","physical":75,"magical":75}]}],[{"killers":[{"name":"machine","physical":100,"magical":100}]}]]},
-			{"name":"4つのフェイ","levels":[[{"spr%":30,"def%":30,"atk%":30,"lbDamage":30,"levelCondition":110}],[{"spr%":30,"def%":30,"atk%":30,"lbDamage":50,"levelCondition":110}],[{"spr%":30,"def%":30,"atk%":30,"lbDamage":50,"skillEnhancement":{"228731":4,"228732":4,"228733":4,"228734":4,"228735":4,"228736":4,"508704":4,"707931":4,"707932":4,"708997":4},"lbPerTurn":{"min":4,"max":4},"levelCondition":110}]]}
+			{"name":"4つのフェイ","levels":[[{"spr%":30,"def%":30,"atk%":30,"lbDamage":30,"levelCondition":110}],[{"spr%":30,"def%":30,"atk%":30,"lbDamage":50,"levelCondition":110}],[{"spr%":30,"def%":30,"atk%":30,"lbDamage":50,"skillEnhancement":{"228731":4,"228732":4,"228733":4,"228734":4,"228735":4,"228736":4,"508704":4,"516244":4,"516245":4,"707931":4,"707932":4,"708997":4,"709316":4,"709317":4,"709318":4,"709319":4,"709320":4},"lbPerTurn":{"min":4,"max":4},"levelCondition":110}]]}
 		],
 		"skills": [
 			{"hp%":30, "mp%":30, "atk%":30, "def%":30, "mag%":20, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":5},
 			{"atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"machine","physical":50,"magical":50}], "equipedConditions":[["504228693","405005700"]]},
 			{"atk%":20, "levelCondition":115},
-			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "skillEnhancement":{"228713":2.5,"228714":1.2,"228715":2.5,"228716":2.5,"228724":1.5,"228725":1.5,"707929":1.5,"707930":1.5}, "levelCondition":120},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "skillEnhancement":{"228713":2.5,"228714":1.2,"228715":2.5,"228716":2.5,"228724":1.5,"228725":1.5,"707929":1.5,"707930":1.5,"709313":1.5}, "levelCondition":120},
 			{"killers":[{"name":"machine","physical":200,"magical":200}], "levelCondition":120},
 			{"killers":[{"name":"demon","physical":200,"magical":200}], "levelCondition":120},
 			{"lbPerTurn":{"min":8,"max":8}, "levelCondition":120},
@@ -35018,7 +35023,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","spear","mace","fist","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["磨き抜かれた武術","眠れる破壊衝動","武技虎咆","超武技闇勁","4つのフェイ"],
+			"enhancementSkills":["磨き抜かれた武術","眠れる破壊衝動","武技虎咆","千光","銀牙","超武技火勁","超武技地勁","超武技風勁","超武技水勁","超武技光勁","超武技闇勁","4つのフェイ"],
 		"enhancements": [
 			{"name":"磨き抜かれた武術","levels":[[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["fist"],"atk%":20}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["fist"],"atk%":50}],[{"singleWielding":{"accuracy":25,"atk":100},"mpRefresh":10},{"equipedConditions":["fist"],"atk%":50}]]},
 			{"name":"眠れる破壊衝動","levels":[[{"killers":[{"name":"machine","physical":50,"magical":50}]}],[{"killers":[{"name":"machine","physical":75,"magical":75}]}],[{"killers":[{"name":"machine","physical":100,"magical":100}]}]]}
@@ -35044,17 +35049,17 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","spear","mace","fist","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["磨き抜かれた武術","眠れる破壊衝動","武技虎咆","超武技闇勁","4つのフェイ"],
+			"enhancementSkills":["磨き抜かれた武術","眠れる破壊衝動","武技虎咆","千光","銀牙","超武技火勁","超武技地勁","超武技風勁","超武技水勁","超武技光勁","超武技闇勁","4つのフェイ"],
 		"enhancements": [
 			{"name":"磨き抜かれた武術","levels":[[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["fist"],"atk%":20}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["fist"],"atk%":50}],[{"singleWielding":{"accuracy":25,"atk":100},"mpRefresh":10},{"equipedConditions":["fist"],"atk%":50}]]},
 			{"name":"眠れる破壊衝動","levels":[[{"killers":[{"name":"machine","physical":50,"magical":50}]}],[{"killers":[{"name":"machine","physical":75,"magical":75}]}],[{"killers":[{"name":"machine","physical":100,"magical":100}]}]]},
-			{"name":"4つのフェイ","levels":[[{"spr%":30,"def%":30,"atk%":30,"lbDamage":30,"levelCondition":110}],[{"spr%":30,"def%":30,"atk%":30,"lbDamage":50,"levelCondition":110}],[{"spr%":30,"def%":30,"atk%":30,"lbDamage":50,"skillEnhancement":{"228731":4,"228732":4,"228733":4,"228734":4,"228735":4,"228736":4,"508704":4,"707931":4,"707932":4,"708997":4},"lbPerTurn":{"min":4,"max":4},"levelCondition":110}]]}
+			{"name":"4つのフェイ","levels":[[{"spr%":30,"def%":30,"atk%":30,"lbDamage":30,"levelCondition":110}],[{"spr%":30,"def%":30,"atk%":30,"lbDamage":50,"levelCondition":110}],[{"spr%":30,"def%":30,"atk%":30,"lbDamage":50,"skillEnhancement":{"228731":4,"228732":4,"228733":4,"228734":4,"228735":4,"228736":4,"508704":4,"516244":4,"516245":4,"707931":4,"707932":4,"708997":4,"709316":4,"709317":4,"709318":4,"709319":4,"709320":4},"lbPerTurn":{"min":4,"max":4},"levelCondition":110}]]}
 		],
 			"skills": [
 				{"hp%":30, "mp%":30, "atk%":30, "def%":30, "mag%":20, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":5},
 				{"atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"machine","physical":50,"magical":50}], "equipedConditions":[["504228693","405005700"]]},
 				{"atk%":20, "levelCondition":115},
-				{"hp%":20, "mp%":20, "def%":20, "spr%":20, "skillEnhancement":{"228713":2.5,"228714":1.2,"228715":2.5,"228716":2.5,"228724":1.5,"228725":1.5,"707929":1.5,"707930":1.5}, "levelCondition":120},
+				{"hp%":20, "mp%":20, "def%":20, "spr%":20, "skillEnhancement":{"228713":2.5,"228714":1.2,"228715":2.5,"228716":2.5,"228724":1.5,"228725":1.5,"707929":1.5,"707930":1.5,"709313":1.5}, "levelCondition":120},
 				{"atk":500, "levelCondition":120}
 			]
 		}
@@ -35077,8 +35082,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["visionCard"],
-		"enhancementSkills":["OMEGA100","超武技冥境","超武技轟天"],
+		"enhancementSkills":["千光","銀牙","Xeno304","OMEGA100","超武技冥境","超武技轟天"],
 		"enhancements": [
+			{"name":"Xeno304","levels":[[{"spr%":300,"def%":300,"hp%":250,"levelCondition":120}],[{"spr%":300,"def%":300,"hp%":250,"atk":500,"replaceLb":{"name":"機神黒掌","minEffects":[{"effect":{"imperil":{"dark":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Dark by 130% for 4 turns to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":162,"elements":["dark"]},"area":"ST","target":"ENEMY"},"desc":"Physical dark damage (162x, ATK) to one enemy"}],"maxEffects":[{"effect":{"imperil":{"dark":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Dark by 130% for 4 turns to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":220,"elements":["dark"]},"area":"ST","target":"ENEMY"},"desc":"Physical dark damage (220x, ATK) to one enemy"}],"frames":[21],"move":"walk"},"levelCondition":120}],[{"spr%":300,"def%":300,"hp%":250,"atk":1000,"replaceLb":{"name":"機神黒掌","minEffects":[{"effect":{"imperil":{"dark":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Dark by 130% for 4 turns to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":202,"elements":["dark"]},"area":"ST","target":"ENEMY"},"desc":"Physical dark damage (202x, ATK) to one enemy"}],"maxEffects":[{"effect":{"imperil":{"dark":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Dark by 130% for 4 turns to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":260,"elements":["dark"]},"area":"ST","target":"ENEMY"},"desc":"Physical dark damage (260x, ATK) to one enemy"}],"frames":[21],"move":"walk"},"levelCondition":120}],[{"spr%":300,"def%":300,"hp%":250,"atk":1500,"replaceLb":{"name":"機神黒掌","minEffects":[{"effect":{"imperil":{"dark":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Dark by 130% for 4 turns to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":242,"elements":["dark"]},"area":"ST","target":"ENEMY"},"desc":"Physical dark damage (242x, ATK) to one enemy"}],"maxEffects":[{"effect":{"imperil":{"dark":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Dark by 130% for 4 turns to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":300,"elements":["dark"]},"area":"ST","target":"ENEMY"},"desc":"Physical dark damage (300x, ATK) to one enemy"}],"frames":[21],"move":"walk"},"levelCondition":120}]]},
 			{"name":"OMEGA100","levels":[[{"atk%":120,"lbDamage":120,"levelCondition":120},{"equipedConditions":["unarmed"],"atk%":1000,"levelCondition":120}],[{"atk%":140,"lbDamage":140,"levelCondition":120},{"equipedConditions":["unarmed"],"atk%":1000,"levelCondition":120}],[{"atk%":160,"lbDamage":160,"levelCondition":120},{"equipedConditions":["unarmed"],"atk%":1000,"levelCondition":120}],[{"atk%":180,"lbDamage":180,"levelCondition":120},{"equipedConditions":["unarmed"],"atk%":1000,"levelCondition":120}],[{"atk%":200,"lbDamage":200,"levelCondition":120},{"equipedConditions":["unarmed"],"atk%":1000,"levelCondition":120}]]}
 		],
 		"skills": [
@@ -35087,7 +35093,6 @@
 			{"killers":[{"name":"demon","physical":200,"magical":200}], "levelCondition":120},
 			{"lbPerTurn":{"min":8,"max":8}, "levelCondition":120},
 			{"atk":1000, "atk%":100, "lbFillRate":100, "lbDamage":100, "equipedConditions":[["504228693","405005700"]], "levelCondition":120},
-			{"hp%":250, "def%":300, "spr%":300, "levelCondition":120},
 			{"chainMastery":100, "levelCondition":120}
 		]
 	},
@@ -35473,7 +35478,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","hat","helm","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["格闘の極意","壊炎掌"],
+		"enhancementSkills":["格闘の極意","壊炎掌","武技雷迅"],
 		"enhancements": [
 			{"name":"格闘の極意","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
 		],
@@ -35500,12 +35505,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["visionCard"],
-		"enhancementSkills":["OMEGA100","炎獄殺"],
+		"enhancementSkills":["WELT177","OMEGA100","炎獄殺"],
 		"enhancements": [
+			{"name":"WELT177","levels":[[{"spr%":300,"def%":300,"hp%":200}],[{"spr%":300,"def%":300,"hp%":200,"atk":500,"replaceLb":{"name":"滅尽滅相","minEffects":[{"effect":{"imperil":{"fire":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 130% for 4 turns to one enemy"},{"effect":{"statsBuff":{"lbDamage":150},"turns":4,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% to caster for 4 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":230,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Physical fire damage (230x, ATK) to one enemy"}],"maxEffects":[{"effect":{"imperil":{"fire":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 130% for 4 turns to one enemy"},{"effect":{"statsBuff":{"lbDamage":150},"turns":4,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% to caster for 4 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":230,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Physical fire damage (230x, ATK) to one enemy"}],"frames":[79],"move":"walk"}}],[{"spr%":300,"def%":300,"hp%":200,"atk":1000,"replaceLb":{"name":"滅尽滅相","minEffects":[{"effect":{"imperil":{"fire":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 130% for 4 turns to one enemy"},{"effect":{"statsBuff":{"lbDamage":150},"turns":4,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% to caster for 4 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":260,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Physical fire damage (260x, ATK) to one enemy"}],"maxEffects":[{"effect":{"imperil":{"fire":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 130% for 4 turns to one enemy"},{"effect":{"statsBuff":{"lbDamage":150},"turns":4,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% to caster for 4 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":260,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Physical fire damage (260x, ATK) to one enemy"}],"frames":[79],"move":"walk"}}],[{"spr%":300,"def%":300,"hp%":200,"atk":1500,"replaceLb":{"name":"滅尽滅相","minEffects":[{"effect":{"imperil":{"fire":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 130% for 4 turns to one enemy"},{"effect":{"statsBuff":{"lbDamage":150},"turns":4,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% to caster for 4 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":300,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Physical fire damage (300x, ATK) to one enemy"}],"maxEffects":[{"effect":{"imperil":{"fire":130},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 130% for 4 turns to one enemy"},{"effect":{"statsBuff":{"lbDamage":150},"turns":4,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% to caster for 4 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":300,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Physical fire damage (300x, ATK) to one enemy"}],"frames":[79],"move":"walk"}}]]},
 			{"name":"OMEGA100","levels":[[{"atk%":120,"lbDamage":120},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":140,"lbDamage":140},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":160,"lbDamage":160},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":180,"lbDamage":180},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":200,"lbDamage":200},{"equipedConditions":["unarmed"],"atk%":1000}]]}
 		],
 		"skills": [
-			{"hp%":200, "def%":300, "spr%":300, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200}]},
+			{"chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200}]},
 			{"atk%":100, "lbFillRate":100, "lbDamage":100, "equipedConditions":[["504242660","405017900"]]}
 		]
 	},
@@ -35561,6 +35567,111 @@
 		"skills": [
 			{"hp%":200, "def%":300, "spr%":300, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":200,"magical":200},{"name":"human","physical":200,"magical":200}]},
 			{"atk%":100, "lbFillRate":100, "lbDamage":100, "equipedConditions":[["504242662","403055100"]]}
+		]
+	},
+	"331001307": {
+		"name":"聖母の再来エリィ",
+		"roles":["magicalAttacker"],
+		"id":"331001307",
+		"braveShift":"331001317",
+		"exAwakening": [{"hp":794,"mp":43,"atk":26,"def":30,"mag":78,"spr":31},{"hp":611,"mp":33,"atk":20,"def":23,"mag":60,"spr":24},{"hp":428,"mp":23,"atk":14,"def":16,"mag":42,"spr":17}],
+		"fragmentId": "250014000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3978,"mp":288,"atk":117,"def":164,"mag":270,"spr":197},
+			"minStats":{"hp":1313,"mp":95,"atk":39,"def":54,"mag":89,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["リグ・ウェイブ","ロッドの極意"],
+		"enhancements": [
+			{"name":"ロッドの極意","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"silence","percent":100}], "killers":[{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":150},
+			{"mag":1000, "equipedConditions":[["405024200","409072200"]]}
+		]
+	},
+	"331001317": {
+		"name":"ヴィエルジェ BS",
+		"roles":["magicalAttacker"],
+		"id":"331001317",
+		"braveShifted":"331001307",
+		"exAwakening": [{"hp":794,"mp":43,"atk":26,"def":30,"mag":78,"spr":31},{"hp":611,"mp":33,"atk":20,"def":23,"mag":60,"spr":24},{"hp":428,"mp":23,"atk":14,"def":16,"mag":42,"spr":17}],
+		"fragmentId": "250014000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":6111,"mp":330,"atk":197,"def":230,"mag":300,"spr":240},
+			"minStats":{"hp":2017,"mp":109,"atk":65,"def":76,"mag":99,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","visionCard"],
+		"enhancementSkills":["OMEGA100","リグ・ウェイブ","ロッドの極意"],
+		"enhancements": [
+			{"name":"OMEGA100","levels":[[{"mag%":120,"lbDamage":120},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":140,"lbDamage":140},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":160,"lbDamage":160},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":180,"lbDamage":180},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":200,"lbDamage":200},{"equipedConditions":["unarmed"],"atk%":1000}]]},
+			{"name":"ロッドの極意","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":260, "mp%":60, "def%":360, "mag%":200, "spr%":360, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":150, "skillEnhancement":{"1148040":250,"1148050":250,"1148060":250,"1148070":250,"1148080":250,"1148090":200,"1148100":200,"1148110":200}},
+			{"mag":1000, "equipedConditions":[["405024200","409072200"]]}
+		]
+	},
+	"331001407": {
+		"name":"天帝の密使シタン",
+		"roles":["physicalAttacker"],
+		"id":"331001407",
+		"braveShift":"331001417",
+		"exAwakening": [{"hp":852,"mp":44,"atk":82,"def":31,"mag":14,"spr":27},{"hp":656,"mp":34,"atk":63,"def":24,"mag":11,"spr":21},{"hp":459,"mp":24,"atk":44,"def":17,"mag":7,"spr":15}],
+		"fragmentId": "250014100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3978,"mp":288,"atk":300,"def":188,"mag":177,"spr":223},
+			"minStats":{"hp":1313,"mp":95,"atk":99,"def":62,"mag":58,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["katana","fist","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["翔鳥","刀の極意"],
+		"enhancements": [
+			{"name":"刀の極意","levels":[[{"equipedConditions":["katana"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["katana"],"atk%":80,"def%":80,"mag%":80,"spr%":80}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}},{"equipedConditions":["katana"],"atk%":80,"def%":80,"mag%":80,"spr%":80}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":12,"max":12}, "resist":[{"name":"silence","percent":100}], "killers":[{"name":"human","physical":100,"magical":100}], "mpRefresh":8, "lbDamage":150},
+			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "equipedConditions":[["405024300","409072300"]]}
+		]
+	},
+	"331001417": {
+		"name":"E・フェンリル BS",
+		"roles":["physicalAttacker"],
+		"id":"331001417",
+		"braveShifted":"331001407",
+		"exAwakening": [{"hp":852,"mp":44,"atk":82,"def":31,"mag":14,"spr":27},{"hp":656,"mp":34,"atk":63,"def":24,"mag":11,"spr":21},{"hp":459,"mp":24,"atk":44,"def":17,"mag":7,"spr":15}],
+		"fragmentId": "250014100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6555,"mp":340,"atk":315,"def":240,"mag":108,"spr":211},
+			"minStats":{"hp":2163,"mp":112,"atk":104,"def":79,"mag":36,"spr":70},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","katana","visionCard"],
+		"enhancementSkills":["OMEGA100","烈風"],
+		"enhancements": [
+			{"name":"OMEGA100","levels":[[{"atk%":120,"lbDamage":120},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":140,"lbDamage":140},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":160,"lbDamage":160},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":180,"lbDamage":180},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":200,"lbDamage":200},{"equipedConditions":["unarmed"],"atk%":1000}]]}
+		],
+		"skills": [
+			{"hp%":210, "mp%":60, "atk%":200, "def%":260, "spr%":260, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":12,"max":12}, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100,"magical":100}], "mpRefresh":8, "lbDamage":150},
+			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "equipedConditions":[["405024300","409072300"]]}
 		]
 	},
 	"332000105": {

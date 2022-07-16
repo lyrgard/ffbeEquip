@@ -603,7 +603,7 @@
 	{"atk":99, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}},
 	{"atk":110, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}, "conditional":[{"lbDamage":50}]}
 ]},
-{"id":"100006001", "name":"新年の演武", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006001.png", "sortId":106, "levels":[
+{"id":"100006001", "name":"A Dynamic Demonstration", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006001.png", "sortId":106, "levels":[
 	{"atk":55},
 	{"atk":60},
 	{"atk":66},
@@ -615,7 +615,7 @@
 	{"atk":99, "atk%":50, "lbDamage":25},
 	{"atk":110, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":300}}]}
 ]},
-{"id":"100006101", "name":"蛇と魔人と", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006101.png", "sortId":107, "levels":[
+{"id":"100006101", "name":"The Serpent and the Sorceress", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006101.png", "sortId":107, "levels":[
 	{"hp":1500, "mag":100, "spr":100, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":15}
 ]},
 {"id":"100006201", "name":"いざ魑魅魍魎退治！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006201.png", "sortId":108, "levels":[
@@ -1178,6 +1178,30 @@
 	{"atk":85, "atk%":50, "lbDamage":25},
 	{"atk":90, "atk%":50, "lbDamage":25},
 	{"atk":100, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500}}]}
+]},
+{"id":"331000201", "name":"魂の記憶", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_331000201.png", "sortId":139, "levels":[
+	{"mag":65},
+	{"mag":71},
+	{"mag":78},
+	{"mag":84, "mag%":50},
+	{"mag":91, "mag%":50},
+	{"mag":97, "mag%":50},
+	{"mag":104, "mag%":50, "lbPerTurn":{"min":4,"max":4}},
+	{"mag":110, "mag%":50, "lbPerTurn":{"min":4,"max":4}},
+	{"mag":117, "mag%":50, "lbPerTurn":{"min":4,"max":4}},
+	{"mag":130, "mag%":50, "staticStats":{"mag":500}, "lbPerTurn":{"min":4,"max":4}}
+]},
+{"id":"331000301", "name":"シタンの覚悟", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_331000301.png", "sortId":140, "levels":[
+	{"atk":65},
+	{"atk":71},
+	{"atk":78},
+	{"atk":84, "atk%":50},
+	{"atk":91, "atk%":50},
+	{"atk":97, "atk%":50},
+	{"atk":104, "atk%":50, "mpRefresh":5},
+	{"atk":110, "atk%":50, "mpRefresh":5},
+	{"atk":117, "atk%":50, "mpRefresh":5},
+	{"atk":130, "atk%":50, "staticStats":{"atk":500}, "mpRefresh":5}
 ]},
 {"id":"335000101", "name":"The Keyblade Graveyard Battle", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_335000101.png", "sortId":19, "levels":[
 	{"atk":50},
