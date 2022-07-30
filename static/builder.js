@@ -1629,10 +1629,9 @@ function displayUnitEnhancements() {
 function updateUnitStats() {
     $(baseStats).each(function (index, stat) {
         if (builds[currentUnitIndex].unit) {
-            $(".unitStats .stat." + stat + " .baseStat input").val(builds[currentUnitIndex].getStat(stat));
+            $(".unitStats .stat." + stat + " .baseStat input").val(builds[currentUnitIndex].getStat(stat)); // .unitStats .stat.ATK .baseStat input
             if (builds[currentUnitIndex].baseValues[stat].pots !== undefined) {
                 $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].baseValues[stat].pots);
-                $(".unitStats .stat." + stat + " .buff input").val(builds[currentUnitIndex].baseValues[stat].buff);
             } else {
                 $(".unitStats .stat." + stat + " .pots input").val(Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5));
             }
