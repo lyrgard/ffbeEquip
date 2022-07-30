@@ -1629,7 +1629,7 @@ function displayUnitEnhancements() {
 function updateUnitStats() {
     $(baseStats).each(function (index, stat) {
         if (builds[currentUnitIndex].unit) {
-            $(".unitStats .stat." + stat + " .baseStat input").val(builds[currentUnitIndex].getStat(stat)); // .unitStats .stat.ATK .baseStat input
+            $(".unitStats .stat." + stat + " .baseStat input").val(builds[currentUnitIndex].getStat(stat));
             if (builds[currentUnitIndex].baseValues[stat].pots !== undefined) {
                 $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].baseValues[stat].pots);
             } else {
