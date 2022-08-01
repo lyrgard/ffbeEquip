@@ -1632,7 +1632,11 @@ function updateUnitStats() {
             $(".unitStats .stat." + stat + " .baseStat input").val(builds[currentUnitIndex].getStat(stat));
             if (builds[currentUnitIndex].baseValues[stat].pots !== undefined) {
                 $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].baseValues[stat].pots);
-                $(".unitStats .stat." + stat + " .buff input").val(builds[currentUnitIndex].baseValues[stat].buff);
+                if (builds[currentUnitIndex].baseValues[stat].buff !== 0) {
+                    $(".unitStats .stat." + stat + " .buff input").val(builds[currentUnitIndex].baseValues[stat].buff);
+                } else {
+                    $(".unitStats .stat." + stat + " .buff input").val("");
+                }
             } else {
                 $(".unitStats .stat." + stat + " .pots input").val(Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5));
             }
