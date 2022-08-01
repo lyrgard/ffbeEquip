@@ -736,7 +736,7 @@ var toUrl = function(name) {
     let link = wikiBaseUrl + encodeURIComponent(name.replace(/ /g, '_'));
     
     if (link.includes('_BS')){
-        link = link.replace('_BS', '')
+        link = link.replace('_BS', '#Brave_Shift')
     }
 
     if (server == 'JP') {
