@@ -87,7 +87,13 @@ function showAll() {
             if (!ownedEspers[espers[index].name]) continue;
 
             var esper = ownedEspers[espers[index].name];
-            var escapedName = escapeName(esper.name);
+            var escapedName = () => {
+                if ((escapeName(esper.name)) === 'Black Dragon'){
+                    return 'Kokuryu'
+                } else {
+                    return escapeName(esper.name)
+                }
+            }
             var sp = calculateSp(esper.level, esper.rarity, esper.name);
             addStats(esper.level, esper.rarity, esper.name);
 

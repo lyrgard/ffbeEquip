@@ -62,7 +62,7 @@ var cspDirectives = {
   formAction: ["'self'"],
   blockAllMixedContent: !config.isDev,
   upgradeInsecureRequests: !config.isDev,
-  reportUri: 'https://ffbeequip.report-uri.com/r/d/csp/reportOnly',
+  reportUri: 'https://ffbeequipnext.report-uri.com/r/d/csp/reportOnly',
 };
 
 // In development, do not report
