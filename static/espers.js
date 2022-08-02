@@ -886,10 +886,10 @@ function displayEspers() {
         for (var index = 0; index < espers.length; index++) {
             var escapedName ="";
             
-            if (escapedName(espers[index].name) === 'Black_Dragon'){
-                escapedName = ('Kokuryu')
+            if (escapeName(espers[index].name) === 'Black_Dragon'){
+                escapedName = 'Kokuryu'
             } else {
-                escapedName = escapedName(espers[index].name)
+                escapedName = escapeName(espers[index].name)
             }
 
             console.log(escapedName);
