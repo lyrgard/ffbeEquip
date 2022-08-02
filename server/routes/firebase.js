@@ -221,7 +221,7 @@ const unitSchema = Joi.object().keys({
     }),
     lbShardsPerTurn: Joi.number().min(0).max(100),
     stack: Joi.number().min(0).max(99),
-    level: Joi.number().min(0).max(120),
+    level: Joi.number().min(0).max(130),
     exAwakening: Joi.number().min(0).max(3),
     braveShiftedUnit: Joi.link('#unitSchema'),
     calculatedValues: Joi.object().keys({

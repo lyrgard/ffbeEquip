@@ -10366,7 +10366,7 @@
 		"equip":["dagger","gun","mace","fist","hat","clothes","visionCard"]
 	},
 	"100039307": {
-		"name":"Rain -Asura's Shrine Pilgrimage-",
+		"name":"Rain -Warrior's Prayer-",
 		"jpname":"レイン -武神参詣-",
 		"roles":["physicalAttacker"],
 		"id":"100039307",
@@ -10386,7 +10386,7 @@
 		"enhancementSkills":["漆黒の太刀","ぜんぎり","絶・明鏡"]
 	},
 	"100039317": {
-		"name":"Rain -Asura's Shrine Pilgrimage- BS",
+		"name":"Rain -Warrior's Prayer- BS",
 		"jpname":"レイン -武神参詣- BS",
 		"roles":["physicalAttacker"],
 		"id":"100039317",
@@ -10405,7 +10405,7 @@
 		"equip":["greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"100039407": {
-		"name":"Dark Fina -Asura's Shrine Pilgrimage-",
+		"name":"Dark Fina -Warrior's Prayer-",
 		"jpname":"魔人フィーナ -武神参詣-",
 		"roles":["support","magicalAttacker"],
 		"id":"100039407",
@@ -10425,7 +10425,7 @@
 		"enhancementSkills":["ダーラ","ストンラ","ダーガ","ストンガ","アルテマ","両手持ちの奥義(魔)","蛇鞭九閃"]
 	},
 	"100039417": {
-		"name":"Dark Fina -Asura's Shrine Pilgrimage- BS",
+		"name":"Dark Fina -Warrior's Prayer- BS",
 		"jpname":"魔人フィーナ -武神参詣- BS",
 		"roles":["support","magicalAttacker"],
 		"id":"100039417",
@@ -10444,7 +10444,7 @@
 		"equip":["staff","rod","whip","mace","hat","clothes","robe","visionCard"]
 	},
 	"100039507": {
-		"name":"Poppy -Asura's Shrine Pilgrimage-",
+		"name":"Poppy -Warrior's Prayer-",
 		"jpname":"ポネ -武神参詣-",
 		"roles":["magicalAttacker"],
 		"id":"100039507",
@@ -10464,7 +10464,7 @@
 		"enhancementSkills":["魔力強化I","ウォタラ","エアロラ","ウォタガ","エアロガ","トルネド","エアロジャ","メイスの極意","描くよ！ 光の柱ッ！！"]
 	},
 	"100039517": {
-		"name":"Poppy -Asura's Shrine Pilgrimage- BS",
+		"name":"Poppy -Warrior's Prayer- BS",
 		"jpname":"ポネ -武神参詣- BS",
 		"roles":["magicalAttacker"],
 		"id":"100039517",
@@ -10483,7 +10483,7 @@
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe","visionCard"]
 	},
 	"100039607": {
-		"name":"Lehftia -Asura's Shrine Pilgrimage-",
+		"name":"Lehftia -Warrior's Prayer-",
 		"jpname":"レフティア -武神参詣-",
 		"roles":["magicalAttacker"],
 		"id":"100039607",
@@ -10503,7 +10503,7 @@
 		"enhancementSkills":["ストンラ","ストンガ","ストンジャ","ファイラ","ファイガ","クエイク","ダーラ","投擲の極意","魔力強化I","来福の舞"]
 	},
 	"100039617": {
-		"name":"Lehftia -Asura's Shrine Pilgrimage- BS",
+		"name":"Lehftia -Warrior's Prayer- BS",
 		"jpname":"レフティア -武神参詣- BS",
 		"roles":["magicalAttacker"],
 		"id":"100039617",
@@ -10717,6 +10717,43 @@
 		},
 		"stats_pattern":4,
 		"equip":["axe","mace","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]
+	},
+	"100040307": {
+		"name":"タイヴァス&イシェ",
+		"roles":["physicalAttacker"],
+		"id":"100040307",
+		"braveShift":"100040317",
+		"exAwakening": [{"hp":689,"mp":43,"atk":82,"def":31,"mag":26,"spr":33},{"hp":530,"mp":33,"atk":63,"def":24,"mag":20,"spr":26},{"hp":371,"mp":23,"atk":44,"def":17,"mag":14,"spr":18}],
+		"fragmentId": "250014200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":330,"atk":315,"def":240,"mag":197,"spr":255},
+			"minStats":{"hp":1749,"mp":109,"atk":104,"def":79,"mag":65,"spr":84},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["トヴォ・スヴァード","大剣の極意","刀の極意"]
+	},
+	"100040317": {
+		"name":"タイヴァス&イシェ BS",
+		"roles":["physicalAttacker"],
+		"id":"100040317",
+		"braveShifted":"100040307",
+		"exAwakening": [{"hp":689,"mp":43,"atk":82,"def":31,"mag":26,"spr":33},{"hp":530,"mp":33,"atk":63,"def":24,"mag":20,"spr":26},{"hp":371,"mp":23,"atk":44,"def":17,"mag":14,"spr":18}],
+		"fragmentId": "250014200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":330,"atk":315,"def":240,"mag":197,"spr":255},
+			"minStats":{"hp":1749,"mp":109,"atk":104,"def":79,"mag":65,"spr":84},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -15267,7 +15304,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["ライトニングラッシュ"],
+		"enhancementSkills":["ピラミッド【防盾】","ピラミッド・マキシマム","ライトニングラッシュ"],
 		"6_form": {
 			"name":"Reno (FFVII REMAKE)",
 			"jpname":"レノ(FFVII REMAKE)",
@@ -15284,7 +15321,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["ライトニングラッシュ"]
+			"enhancementSkills":["ピラミッド【防盾】","ピラミッド・マキシマム","ライトニングラッシュ"]
 		},
 		"7_form": {
 			"name":"Reno (FFVII REMAKE)",
@@ -15302,7 +15339,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["ライトニングラッシュ"]
+			"enhancementSkills":["ピラミッド【防盾】","ピラミッド・マキシマム","ライトニングラッシュ"]
 		}
 	},
 	"207001327": {
@@ -15323,7 +15360,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","rod","hammer","gun","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["タイタンブロウ","コークスクリュー"]
+		"enhancementSkills":["ピラミッド・マキシマム","タイタンブロウ","コークスクリュー"]
 	},
 	"207001405": {
 		"name":"Avalanche's Jessie",
@@ -15780,6 +15817,81 @@
 			"stats_pattern":1,
 			"equip":["dagger","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
+	},
+	"207003107": {
+		"name":"クラウド・ストライフ",
+		"roles":["physicalAttacker"],
+		"id":"207003107",
+		"braveShift":"207003117",
+		"exAwakening": [{"hp":679,"mp":41,"atk":86,"def":33,"mag":19,"spr":33},{"hp":522,"mp":31,"atk":66,"def":26,"mag":14,"spr":26},{"hp":366,"mp":22,"atk":46,"def":18,"mag":10,"spr":18}],
+		"fragmentId": "250014300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5222,"mp":312,"atk":330,"def":255,"mag":143,"spr":255},
+			"minStats":{"hp":1723,"mp":103,"atk":109,"def":84,"mag":47,"spr":84},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ぞくせい【雷】","バーストスラッシュ","大剣の極意"]
+	},
+	"207003117": {
+		"name":"クラウド・ストライフ BS",
+		"roles":["physicalAttacker"],
+		"id":"207003117",
+		"braveShifted":"207003107",
+		"exAwakening": [{"hp":679,"mp":41,"atk":86,"def":33,"mag":19,"spr":33},{"hp":522,"mp":31,"atk":66,"def":26,"mag":14,"spr":26},{"hp":366,"mp":22,"atk":46,"def":18,"mag":10,"spr":18}],
+		"fragmentId": "250014300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5222,"mp":312,"atk":330,"def":197,"mag":147,"spr":183},
+			"minStats":{"hp":1723,"mp":103,"atk":109,"def":65,"mag":49,"spr":60},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ぞくせい【雷】","インフィニットエンド","大剣の極意"]
+	},
+	"207003207": {
+		"name":"アバランチリーダー バレット",
+		"roles":["physicalTank","physicalAttacker"],
+		"id":"207003207",
+		"braveShift":"207003217",
+		"exAwakening": [{"hp":794,"mp":39,"atk":33,"def":78,"mag":16,"spr":31},{"hp":611,"mp":30,"atk":25,"def":60,"mag":12,"spr":24},{"hp":428,"mp":21,"atk":18,"def":42,"mag":8,"spr":17}],
+		"fragmentId": "250014400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6111,"mp":304,"atk":250,"def":300,"mag":119,"spr":240},
+			"minStats":{"hp":2017,"mp":100,"atk":83,"def":99,"mag":39,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["アンガーマックス","銃の極意","格闘の極意","かばう・物理I","プロテガ"]
+	},
+	"207003217": {
+		"name":"アバランチリーダー バレット BS",
+		"roles":["physicalTank","physicalAttacker"],
+		"id":"207003217",
+		"braveShifted":"207003207",
+		"exAwakening": [{"hp":794,"mp":39,"atk":33,"def":78,"mag":16,"spr":31},{"hp":611,"mp":30,"atk":25,"def":60,"mag":12,"spr":24},{"hp":428,"mp":21,"atk":18,"def":42,"mag":8,"spr":17}],
+		"fragmentId": "250014400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":6111,"mp":304,"atk":250,"def":300,"mag":119,"spr":240},
+			"minStats":{"hp":2017,"mp":100,"atk":83,"def":99,"mag":39,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"208000105": {
 		"name":"Squall",
@@ -24662,6 +24774,7 @@
 	},
 	"331001307": {
 		"name":"聖母の再来エリィ",
+		"jpname":"聖母の再来エリィ",
 		"roles":["magicalAttacker"],
 		"id":"331001307",
 		"braveShift":"331001317",
@@ -24681,6 +24794,7 @@
 	},
 	"331001317": {
 		"name":"ヴィエルジェ BS",
+		"jpname":"ヴィエルジェ BS",
 		"roles":["magicalAttacker"],
 		"id":"331001317",
 		"braveShifted":"331001307",
@@ -24700,6 +24814,7 @@
 	},
 	"331001407": {
 		"name":"天帝の密使シタン",
+		"jpname":"天帝の密使シタン",
 		"roles":["physicalAttacker"],
 		"id":"331001407",
 		"braveShift":"331001417",
@@ -24719,6 +24834,7 @@
 	},
 	"331001417": {
 		"name":"E・フェンリル BS",
+		"jpname":"E・フェンリル BS",
 		"roles":["physicalAttacker"],
 		"id":"331001417",
 		"braveShifted":"331001407",
