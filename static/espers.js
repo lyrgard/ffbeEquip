@@ -56,7 +56,7 @@ const importIdConversion = {
     16: "Fenrir",
     17: "Anima",
     18: "Asura",
-    19: "Black Dragon"
+    19: "Kokuryu"
 };
 
 function beforeShow() {
@@ -88,7 +88,7 @@ function showAll() {
 
             var esper = ownedEspers[espers[index].name];
             var escapedName = () => {
-                if ((escapeName(esper.name)) === 'Black Dragon'){
+                if ((escapeName(esper.name)) === 'Kokuryu'){
                     return 'Kokuryu'
                 } else {
                     return escapeName(esper.name)
