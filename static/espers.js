@@ -884,11 +884,11 @@ function displayEspers() {
         
         tabs += "<li class='ALL' data-esper='ALL' title='Stats on all espers'><a><i class='img img-esper-ALL'></i></a></li>";
         for (var index = 0; index < espers.length; index++) {
-            var escapedName = () => {
-                if (escapeName(espers[index].name) === 'Black_Dragon'){
-                    return ('Kokuryu')
+            var escapedName = ''
+            if (escapeName(espers[index].name) === 'Black_Dragon'){
+                    escapedName = ('Kokuryu')
                 } else {
-                    return escapedName(espers[index].name)
+                    escapedName =  escapedName(espers[index].name)
                 }
             }
             console.log(escapedName);
