@@ -44,56 +44,6 @@ var elementsMap = {
     "Dark": "dark"
 }
 
-var espersMap = {
-    "セイレーン": "Siren",
-    "イフリート": "Ifrit",
-    "シヴァ": "Shiva",
-    "カーバンクル": "Carbuncle",
-    "ディアボロス": "Diabolos",
-    "ゴーレム": "Golem",
-    "ラムウ": "Ramuh",
-    "タイタン": "Titan",
-    "テトラシルフィード": "Tetra Sylphid",
-    "オーディン": "Odin",
-    "ラクシュミ": "Lakshmi",
-    "アレキサンダー": "Alexander",
-    "フェニックス": "Phoenix",
-    "バハムート": "Bahamut",
-    "フェンリル": "Fenrir",
-    "リヴァイアサン": "Leviathan",
-    "アニマ": "Anima",
-    "阿修羅": "Asura",
-    "黒龍": "Kokuryu"
-}
-
-var typeMap = {
-    1: 'dagger',
-    2: 'sword',
-    3: 'greatSword',
-    4: 'katana',
-    5: 'staff',
-    6: 'rod',
-    7: 'bow',
-    8: 'axe',
-    9: 'hammer',
-    10: 'spear',
-    11: 'harp',
-    12: 'whip',
-    13: 'throwing',
-    14: 'gun',
-    15: 'mace',
-    16: 'fist',
-    30: 'lightShield',
-    31: 'heavyShield',
-    40: 'hat',
-    41: 'helm',
-    50: 'clothes',
-    51: 'lightArmor',
-    52: 'heavyArmor',
-    53: 'robe',
-    60: 'accessory'
-}
-
 var unitNamesById = {};
 var unitIdByTmrId = {};
 var oldItemsAccessById = {};
@@ -103,25 +53,11 @@ var oldItemsWikiEntryById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 var dev = false;
-var server;
-var dataUrl;
 
-
-if (process.argv.length < 3 || (process.argv[2] != "GL" && process.argv[2] != "JP")) {
-    console.log("Need GL or JP argument");
-    process.exit();
-} else {
-    server = process.argv[2];
-    if (server == "GL") {
-        dataUrl = 'https://raw.githubusercontent.com/aEnigmatic/ffbe/master/';
-    } else {
-        dataUrl = 'https://raw.githubusercontent.com/aEnigmatic/ffbe-jp/master/';
-    }
-}
 
 function getData(filename, callback) {
     if (!dev) {
-        request.get(dataUrl + filename, function (error, response, body) {
+        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/' + filename, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(filename + " downloaded");
                 var result = JSON.parse(body);
@@ -129,7 +65,7 @@ function getData(filename, callback) {
             }
         });
     } else {
-        fs.readFile(server + '/sources/' + filename, function (err, content) {
+        fs.readFile('./sources/' + filename, function (err, content) {
             var result = JSON.parse(content);
             callback(result);
         });
@@ -139,81 +75,48 @@ function getData(filename, callback) {
 console.log("Starting");
 getData('summons.json', function (espers) {
     getData('summons_boards.json', function (esperBoards) {
-        getData('skills_ability.json', function (skills) {
-            getData('skills_passive.json', function (passives) {
-                getData('skills_magic.json', function (magics) {
-                    Object.keys(skills).forEach(skillId => {
-                        skills[skillId].active = true;
-                        skills[skillId].type = "ABILITY";
-                    });
-                    Object.keys(passives).forEach(skillId => {
-                        skills[skillId] = passives[skillId];
-                        skills[skillId].active = false;
-                        skills[skillId].type = "PASSIVE";
-                    });
-                    Object.keys(magics).forEach(skillId => {
-                        skills[skillId] = magics[skillId];
-                        skills[skillId].active = true;
-                        skills[skillId].type = "MAGIC";
-                    });
-                    fs.readFile('./esperProgression.json', function (err, content) {
-                        var esperProgression = JSON.parse(content);
-                        var out = {};
-                        Object.keys(espers).forEach(esperId => {
-                            var esper = espers[esperId];
-                            var boardOut = {};
-                            var esperName = esper.names[0];
-                            console.log(esperName);
-                            if (espersMap[esperName]) {
-                                esperName = espersMap[esperName];
+        getData('skills.json', function (skills) {
+            fs.readFile('../esperProgression.json', function (err, content) {
+                var esperProgression = JSON.parse(content);
+                var out = {};
+                for (var esperId in espers) {
+                    var esper = espers[esperId];
+                    var boardOut = {"nodes":[]};
+                    out[esper.names[0]] = boardOut;
+                    boardOut.progression = esperProgression[esper.names[0]];
+                    boardOut.stats = {};
+                    boardOut.resist = {};
+                    for (var i = 0; i < esper.entries.length; i++) {
+                        boardOut.stats[i+1] = esper.entries[i].stats;
+                        boardOut.resist[i+1] = getResist(esper.entries[i]);
+                    }
+                    var boardIn = esperBoards[esperId];
+                    var nodeByIds = {};
+                    var rootNodeId = 0;
+                    for (var nodeId in boardIn) {
+                        var node = boardIn[nodeId];
+                        if (!node.parent_node_id) {
+                            rootNodeId = nodeId
+                        } else {
+                            var nodeOut = getNode(node, skills);
+                            nodeByIds[nodeId] = nodeOut;
+                        }
+                    }
+                    for (var nodeId in boardIn) {
+                        var node = boardIn[nodeId];
+                        var nodeOut = nodeByIds[nodeId];
+                        if (node.parent_node_id) {
+                            if (node.parent_node_id == rootNodeId) {
+                                boardOut.nodes.push(nodeOut);
+                            } else {
+                                var parentNode = nodeByIds[node.parent_node_id];
+                                parentNode.children.push(nodeOut);
                             }
-                            out[esperName] = boardOut;
-                            boardOut.stats = {};
-                            boardOut.resist = {};
-                            boardOut.statPattern = {};
-                            for (var i = 0; i < esper.entries.length; i++) {
-                                boardOut.stats[i+1] = esper.entries[i].stats;
-                                boardOut.resist[i+1] = getResist(esper.entries[i]);
-                                boardOut.statPattern[i+1] = esper.entries[i]['stat_pattern'];
-                            }
-                            var boardIn = esperBoards[esperId];
-                            var nodeByIds = {};
-                            var rootNodeId = 0;
-                            for (var nodeId in boardIn) {
-                                var node = boardIn[nodeId];
-                                if (!node.parent_node_id && !rootNodeId) {
-                                    rootNodeId = nodeId
-                                } else {
-                                    var nodeOut = getNode(node, skills);
-                                    nodeByIds[nodeId] = nodeOut;
-                                }
-                            }
-
-                            boardOut.nodes = [];
-                            for (var nodeId in boardIn) {
-                                var node = boardIn[nodeId];
-                                var nodeOut = nodeByIds[nodeId];
-                                if (node.parent_node_id) {
-                                    if (node.parent_node_id == rootNodeId) {
-                                        boardOut.nodes.push(nodeOut);
-                                    } else {
-                                        var parentNode = nodeByIds[node.parent_node_id];
-                                        if (!parentNode) {
-                                            console.log(esperName);
-                                            console.log(nodeId);
-                                            console.log(rootNodeId);
-                                            console.log(node.parent_node_id);
-                                        }
-                                        parentNode.children.push(nodeOut);
-                                    }
-                                }
-                            }
-                            boardOut.progression = esperProgression[esperName];
-
-                            fs.writeFileSync(server + '/esperBoards.json', formatOutput(out));
-                        });
-                    });
-                });
+                        }
+                    }
+                    
+                    fs.writeFileSync('esperBoards.json', JSON.stringify(out));
+                }
             });
         });
     });
@@ -392,11 +295,6 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 31) {
         var lbFillRate = rawEffect[3][0];
         addStat(item, "lbFillRate", lbFillRate);
-        
-    // +LB Damage
-    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 68) {
-        var lbDamage = rawEffect[3][0];
-        addStat(item, "lbDamage", lbDamage);
 
     // +Jump damage
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 17) {
@@ -420,25 +318,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         addStat(item.esperStatsBonus, "def", esperStatsBonus[3]);
         addStat(item.esperStatsBonus, "mag", esperStatsBonus[4]);
         addStat(item.esperStatsBonus, "spr", esperStatsBonus[5]);
-      
-    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
-        let mastery = rawEffect[3];
-        if (!item.conditional) {
-            item.conditional = [];
-        }
-        var conditionalSkill = {"equipedCondition":typeMap[mastery[0]]};
-        addStat(conditionalSkill, "atk%", mastery[1]);
-        addStat(conditionalSkill, "def%", mastery[2]);
-        addStat(conditionalSkill, "mag%", mastery[3]);
-        addStat(conditionalSkill, "spr%", mastery[4]);
-        if (mastery.length >= 6) {
-            addStat(conditionalSkill, "hp%", mastery[5]);
-        }
-        if (mastery.length >= 7) {
-            addStat(conditionalSkill, "mp%", mastery[6]);
-        }
-        conditionalSkill.icon = skill.icon;
-        item.conditional.push(conditionalSkill);
+        
     } else {
         return false;
     }
@@ -593,15 +473,16 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(espers) {
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills", "rarity"];
     var result = "{\n";
     var first = true;
-    Object.entries(espers).forEach(entry => {
+    Object.entries(espers).forEach((name, value) => {
         if (first) {
             first = false;
         } else {
             result += ",\n";
         }
-        result += '"' + entry[0] + '":' + JSON.stringify(entry[1]);
+        result += '"' + name + '":' + JSON.stringify(value);
     });
     result += "\n}";
     return result;

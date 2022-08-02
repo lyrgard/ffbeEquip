@@ -144,7 +144,7 @@ let espersById = {
     "16":"Fenrir",
     "17":"Anima",
     "18":"Asura",
-    "19":"Black Dragon"
+    "19":"Kokuryu"
 };
 
 const unitRoles = {
