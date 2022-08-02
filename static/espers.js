@@ -88,7 +88,7 @@ function showAll() {
 
             var esper = ownedEspers[espers[index].name];
             var escapedName = () => {
-                if ((escapeName(esper.name)) === 'Kokuryu'){
+                if ((escapeName(esper.name)) === 'Black Dragon'){
                     return 'Kokuryu'
                 } else {
                     return escapeName(esper.name)
