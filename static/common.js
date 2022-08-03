@@ -287,7 +287,7 @@ function getKillersHtml(item) {
     return html;
 }
 function getExclusiveUnitsHtml(item) {
-    html = "<div class='exclusive'>Card Exclusive to Certain Units";
+    html = "<div class='exclusive'>Vision Card contains unit exclusive abilities.";
     var first = true;
     item.exclusiveUnits.forEach(exclusiveUnitId => {
         if (first) {
