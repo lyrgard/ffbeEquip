@@ -1344,14 +1344,12 @@ function onUnitChange() {
                         fixItem("unavailable", 9 - i);
                     }
                 }
-                console.log(unitData)
+
                 if (!unitData.equip.includes("visionCard")) {
                     if (unitData.max_rarity === '7') {
                         unitData.equip.push("visionCard")
                     }
-                }
-
-                console.log(unitData)                
+                }            
 
                 $(".panel.unit").removeClass("hidden");
                 $(".panel.goal .goalLine").removeClass("hidden");
