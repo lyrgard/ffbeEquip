@@ -1371,6 +1371,7 @@ function startPage() {
         getStaticData("releasedUnits", false, function(releasedUnitResult) {
             releasedUnits = [];
             releasedUnitIds = Object.keys(releasedUnitResult);
+            console.log(releasedUnitIds)
             for (var unitId in unitResult) {
                 if (releasedUnitResult[unitId]) {
                     unitResult[unitId].summon_type = releasedUnitResult[unitId].type;
