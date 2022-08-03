@@ -380,25 +380,32 @@ class UnitBuild {
     updateStats() {
         if (this.unit) {
             if (this.level > 100) {
+                let currentLevel = this.level <= 120 ? this.level : 120;
                 this.unitShift.stats = {
-                    "hp": this.unit.stats.minStats.hp + Math.floor((this.unit.stats.maxStats.hp - this.unit.stats.minStats.hp) * statProgression[this.level - 101] / 100),
-                    "mp": this.unit.stats.minStats.mp + Math.floor((this.unit.stats.maxStats.mp - this.unit.stats.minStats.mp) * statProgression[this.level - 101] / 100),
-                    "atk": this.unit.stats.minStats.atk + Math.floor((this.unit.stats.maxStats.atk - this.unit.stats.minStats.atk) * statProgression[this.level - 101] / 100),
-                    "def": this.unit.stats.minStats.def + Math.floor((this.unit.stats.maxStats.def - this.unit.stats.minStats.def) * statProgression[this.level - 101] / 100),
-                    "mag": this.unit.stats.minStats.mag + Math.floor((this.unit.stats.maxStats.mag - this.unit.stats.minStats.mag) * statProgression[this.level - 101] / 100),
-                    "spr": this.unit.stats.minStats.spr + Math.floor((this.unit.stats.maxStats.spr - this.unit.stats.minStats.spr) * statProgression[this.level - 101] / 100),
+                    "hp": this.unit.stats.minStats.hp + Math.floor((this.unit.stats.maxStats.hp - this.unit.stats.minStats.hp) * statProgression[currentLevel - 101] / 100),
+                    "mp": this.unit.stats.minStats.mp + Math.floor((this.unit.stats.maxStats.mp - this.unit.stats.minStats.mp) * statProgression[currentLevel - 101] / 100),
+                    "atk": this.unit.stats.minStats.atk + Math.floor((this.unit.stats.maxStats.atk - this.unit.stats.minStats.atk) * statProgression[currentLevel - 101] / 100),
+                    "def": this.unit.stats.minStats.def + Math.floor((this.unit.stats.maxStats.def - this.unit.stats.minStats.def) * statProgression[currentLevel - 101] / 100),
+                    "mag": this.unit.stats.minStats.mag + Math.floor((this.unit.stats.maxStats.mag - this.unit.stats.minStats.mag) * statProgression[currentLevel - 101] / 100),
+                    "spr": this.unit.stats.minStats.spr + Math.floor((this.unit.stats.maxStats.spr - this.unit.stats.minStats.spr) * statProgression[currentLevel - 101] / 100)
                 };
+
+                let levelDifference = this.level - 120;
+
+                ['hp', 'mp', 'atk', 'def', 'mag', 'spr'].forEach(stat => {
+                    this.unitShift.stats[stat] += Math.floor(this.unit.stats.maxStats[stat] * 0.01 * levelDifference)
+                });
             } else {
-                this.unitShift.stats = this.unit.stats.maxStats;
+                    this.unitShift.stats = this.unit.stats.maxStats;
+                }   
             }
             if (this.unit.exAwakening && this._exAwakeningLevel) {
                 ['hp', 'mp', 'atk', 'def', 'mag', 'spr'].forEach(stat => {
                     for (let i = 0; i < this._exAwakeningLevel; i++) {
-                        this.stats[stat] += this.unit.exAwakening[i][stat];
+                        this.unitShift.stats[stat] += this.unit.exAwakening[i][stat];
                     }
                 });
             }
-        }
     }
     
     getStat(stat) {

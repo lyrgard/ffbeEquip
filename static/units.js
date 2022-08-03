@@ -1492,7 +1492,7 @@ importValidator.addSchema('units', {
       level: {
         type:'number',
         minimum: 0,
-        maximum: 120
+        maximum: 130
       },
       pots: {
         type: 'object',
