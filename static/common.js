@@ -287,19 +287,19 @@ function getKillersHtml(item) {
     return html;
 }
 function getExclusiveUnitsHtml(item) {
-    html = "<div class='exclusive'>Only ";
+    html = "<div class='exclusive'>Card Exclusive to Certain Units";
     var first = true;
     item.exclusiveUnits.forEach(exclusiveUnitId => {
         if (first) {
             first = false;
-        } else {
-            html += ", ";
-        }
-        if (units[exclusiveUnitId]) {
-            html += toUnitLink(units[exclusiveUnitId]);
-        } else {
-            html += "Not released yet unit";
-        }
+        } //else {
+            //html += ", ";
+       // }
+        // if (units[exclusiveUnitId]) {
+        //     html += toUnitLink(units[exclusiveUnitId]);
+        // } else {
+        //     html += "Not released yet unit";
+        // }
     });
     html += "</div>";
     return html;
@@ -307,7 +307,7 @@ function getExclusiveUnitsHtml(item) {
 
 function toUnitLink(unit) {
 
-    return '<a href="' + toUnitUrl(unit) + '" target="_blank" class="unitLink" rel="noreferrer" onclick="event.stopPropagation();" title="' + unit.name + '"><img src="' + getMaxRarityUnitIcon(unit) + '"/></a>'
+    return '<a href="' + toUnitUrl(unit) + '" target="_blank" class="unitLink" rel="noreferrer" onclick="event.stopPropagation();" title="' + unit.name + '">' + unit.name + '</a>'
 }
 
 function toUnitUrl(unit) {
