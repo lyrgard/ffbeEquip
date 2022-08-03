@@ -87,9 +87,10 @@ function showAll() {
             if (!ownedEspers[espers[index].name]) continue;
 
             var esper = ownedEspers[espers[index].name];
-            console.log(escapeName(esper.name))
+            
             var escapedName = () => {
                 if ((escapeName(esper.name)) === 'Black Dragon'){
+                    esper.name = 'Kokuryu'
                     return 'Kokuryu'
                 } else {
                     return escapeName(esper.name)
@@ -887,12 +888,12 @@ function displayEspers() {
             var escapedName ="";
             
             if (escapeName(espers[index].name) === 'Black_Dragon'){
+                console.log("Black Dragon found")
                 escapedName = 'Kokuryu'
             } else {
                 escapedName = escapeName(espers[index].name)
             }
 
-            console.log(escapedName);
             var owned = ownedEspers[espers[index].name] ? true : false;
             tabs += "<li class=\"esper " + escapedName + " " + (!owned ? 'notOwned' : '') +"\" "+
                     "data-esper=\"" + espers[index].name + "\" "+
@@ -1121,7 +1122,6 @@ function setEsperRarity(rarity) {
 
 function inventoryLoaded() {
     console.log("entering inventoryLoaded function");
-    console.trace();
     logged = true;
     if (esperBoards) {
         $('#importLink').removeClass('hidden');
@@ -1132,10 +1132,10 @@ function inventoryLoaded() {
 
 function notLoaded() {
     console.log("entering notLoaded function");
-    console.trace();
     ownedEspers = {};
 
     if (esperBoards) {
+        console.log("esperBoards exist")
         loadLink();
         displayEspers();
     }

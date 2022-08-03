@@ -1,5 +1,7 @@
+const { Console } = require('console');
 var fs = require('fs');
 var request = require('request');
+const { experiments } = require('webpack');
 var PNG = require('pngjs').PNG;
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
@@ -52,77 +54,122 @@ var oldItemsMaxNumberById = {};
 var oldItemsWikiEntryById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
-var dev = false;
+var dev = true;
 
 
-function getData(filename, callback) {
+async function getData(filename, callback) {
     if (!dev) {
         request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/' + filename, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(filename + " downloaded");
                 var result = JSON.parse(body);
                 callback(result);
+            } else {
+                console.log(error)
             }
         });
     } else {
         fs.readFile('./sources/' + filename, function (err, content) {
-            var result = JSON.parse(content);
-            callback(result);
+            if (content) {
+                var result = JSON.parse(content);
+                console.log("File found: " + filename)
+                callback(result);
+            } else {
+                console.log(filename + " doesn't exist, downloading " + filename)
+                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/' + filename, function (error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                        console.log(filename + " downloaded");
+                        fs.writeFileSync('./sources/' + filename, body);
+                        result = JSON.parse(body)
+                        callback(result)
+                    } else {
+                        console.log(error)
+                    }
+                });
+            }
         });
     }
 }
 
 console.log("Starting");
-getData('summons.json', function (espers) {
-    getData('summons_boards.json', function (esperBoards) {
-        getData('skills.json', function (skills) {
-            fs.readFile('../esperProgression.json', function (err, content) {
-                var esperProgression = JSON.parse(content);
-                var out = {};
-                for (var esperId in espers) {
-                    var esper = espers[esperId];
-                    var boardOut = {"nodes":[]};
-                    out[esper.names[0]] = boardOut;
-                    boardOut.progression = esperProgression[esper.names[0]];
-                    boardOut.stats = {};
-                    boardOut.resist = {};
-                    for (var i = 0; i < esper.entries.length; i++) {
-                        boardOut.stats[i+1] = esper.entries[i].stats;
-                        boardOut.resist[i+1] = getResist(esper.entries[i]);
-                    }
-                    var boardIn = esperBoards[esperId];
-                    var nodeByIds = {};
-                    var rootNodeId = 0;
-                    for (var nodeId in boardIn) {
-                        var node = boardIn[nodeId];
-                        if (!node.parent_node_id) {
-                            rootNodeId = nodeId
-                        } else {
-                            var nodeOut = getNode(node, skills);
-                            nodeByIds[nodeId] = nodeOut;
-                        }
-                    }
-                    for (var nodeId in boardIn) {
-                        var node = boardIn[nodeId];
-                        var nodeOut = nodeByIds[nodeId];
-                        if (node.parent_node_id) {
-                            if (node.parent_node_id == rootNodeId) {
-                                boardOut.nodes.push(nodeOut);
-                            } else {
-                                var parentNode = nodeByIds[node.parent_node_id];
-                                parentNode.children.push(nodeOut);
+function beginScript() {
+    getData('summons.json', function (espers) {
+        getData('summons_boards.json', function (esperBoards) {
+            getData('skills_ability.json', function(skills_ability) {
+                getData('skills_magic.json', function(skills_magic){
+                    getData('skills_passive.json', function(skills_passive){
+                            // This is the JSON object that will ultimately be JSON.strinified into esperBoards.json
+                            console.log("Running...")
+                            var out = {};
+                            for (var esperId in espers) {
+                                // Esper Object
+                                var esper = espers[esperId];
+    
+                                // Object to track nodes
+                                var boardOut = {"stats":{}, "resist":{}, "statPattern":{}, "nodes":[]};
+
+                                // Create objects to be populates for progression
+                                boardOut.progression = {}
+
+                                //Object to pass the esper board layout out
+                                out[esper.names[0]] = boardOut;
+    
+                                // For how many entries (star levels) the esper has repeat:
+                                for (var i = 0; i < esper.entries.length; i++) {
+                                    boardOut.stats[i+1] = esper.entries[i].stats;
+                                    // Populate the resistances per star level into the board object.
+                                    boardOut.resist[i+1] = getResist(esper.entries[i]);
+                                    // Populate the esper stats per star level into the board object.
+                                    boardOut.progression[i+1] = {};
+                                    boardOut.progression[i+1] = esper.entries[i].cp_pattern;
+                                    boardOut.statPattern[i+1] = esper.entries[i].stat_pattern;
+                                }
+    
+                                // Create an object for the boardIn and set it to the board object for the current esper.
+                                var boardIn = esperBoards[esperId];
+                                
+                                var nodeByIds = {};
+                                var rootNodeId = 0;
+    
+                                //For each object in the board for the esper
+                                for (var nodeId in boardIn) {
+                                    // node is equal to the object at the current nodeID
+                                    var node = boardIn[nodeId];
+    
+                                    //If the node.parent_node_id is null se tthe rootNodeId to that nodeId
+                                    if (!node.parent_node_id) {
+                                        rootNodeId = nodeId
+                                    } else {
+                                        // Otherwise nodeOut = getNode() and with the returned value set the nodeByIds[nodeId] to that node.
+                                        // This is populatating the board nodes for Espers.
+                                        var nodeOut = getNode(node, skills_ability, skills_magic, skills_passive);
+                                        nodeByIds[nodeId] = nodeOut;
+                                    }
+                                }
+                                for (var nodeId in boardIn) {
+                                    var node = boardIn[nodeId];
+                                    var nodeOut = nodeByIds[nodeId];
+                                    if (node.parent_node_id) {
+                                        if (node.parent_node_id == rootNodeId) {
+                                            boardOut.nodes.push(nodeOut);
+                                        } else {
+                                            var parentNode = nodeByIds[node.parent_node_id];
+                                            parentNode.children.push(nodeOut);
+                                        }
+                                    }
+                                }
                             }
-                        }
-                    }
-                    
-                    fs.writeFileSync('esperBoards.json', JSON.stringify(out));
-                }
+
+                            console.log("Writing esperBoards.json to static/GL")
+                            fs.writeFileSync('../../static/GL/esperBoards.json', JSON.stringify(out));
+                    });
+                });
             });
         });
     });
-});
+}
 
-function getNode(node, skills) {
+function getNode(node, skills_ability, skills_magic, skills_passive) {
     var nodeOut = {"children": [], "cost":node.cost, "position":node.position};
     if (stats.includes(node.reward[0])) {
         nodeOut[node.reward[0].toLowerCase()] = node.reward[1];
@@ -130,28 +177,52 @@ function getNode(node, skills) {
         var element = elementsMap[node.reward[0].substr(0, node.reward[0].length - 3)];
         nodeOut.resist = [{"name":element, "percent":node.reward[1]}];
     } else if (node.reward[0] == "MAGIC" || node.reward[0] == "ABILITY") {
-        addSkill(node.reward[1], nodeOut, skills);
+        addSkill(node, nodeOut, skills_ability, skills_magic, skills_passive);
     } else {
         console.log("Didn't treat : " + JSON.stringify(node));
     }
     return nodeOut;
 }
 
-function addSkill(skillId, itemOut, skills) {
-    var skill = skills[skillId];
+function addSkill(node, itemOut, skills_ability, skills_magic, skills_passive) {
+    var skill = null
+
+    if (node.reward[0] === 'ABILITY' ) {
+        Object.keys(skills_ability).forEach((currentSkill) => {
+            if (currentSkill === node.reward[1].toString()){
+                skill = skills_ability[node.reward[1]]; 
+            }
+        })
+
+        if(!skill) {
+            Object.keys(skills_passive).forEach((currentSkill) => {
+                if (currentSkill === node.reward[1].toString()){
+                    skill = skills_passive[node.reward[1]];
+                }
+            }) 
+        }
+    }
+    else {
+        Object.keys(skills_magic).forEach((currentSkill) => {
+            if (currentSkill === node.reward[1].toString()){
+                skill = skills_magic[node.reward[1]]; 
+            }
+        }) 
+    }
+
     if (skill) {
-        if (skill.type == "MAGIC") {
-            addSpecial(itemOut, getSkillString(skill));
-        } else {
             var effectsNotTreated = [];
+
+            // Goes through the effect_raw list for the skill
             for (var rawEffectIndex in skill.effects_raw) {
+                // set the raw effect to the effect_raw at index
                 rawEffect = skill.effects_raw[rawEffectIndex];
 
-                if (!addEffectToItem(itemOut, skill, rawEffectIndex, skills)) {
+                // If the effect is not added, add the skill to Not Treated Effects
+                if (!addEffectToItem(itemOut, skill, rawEffectIndex, skills_ability, skills_passive)) {
                     addNotTreatedEffects(itemOut, rawEffectIndex, skill);
-                }
+                } 
             }
-        }
     }
 }
 
@@ -175,10 +246,11 @@ function addNotTreatedEffects(itemOut, effectsNotTreated, skill) {
     }
 }
 
-function addEffectToItem(item, skill, rawEffectIndex, skills) {
-    if (skill.active) {
-        return false; // don't consider active skills
+function addEffectToItem(item, skill, rawEffectIndex, skills_ability, skills_passive) {
+    if (skill.move_type) {
+        return false; // don't consider active skills, skill.active is no longer a thing. move_type is only present on active skills.
     }
+
     var rawEffect = skill.effects_raw[rawEffectIndex];
     // + X % to a stat
     if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {
@@ -224,8 +296,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
 
     // Auto- abilities
     } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 35) {
-        addSpecial(item, "Gain at the start of a battle: " + getSkillString(skills[rawEffect[3][0]]));
-
+        addSpecial(item, skill.effects[0]);
     // Element Resist
     } else if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 3) {
         addElementalResist(item, rawEffect[3]);
@@ -487,3 +558,5 @@ function formatOutput(espers) {
     result += "\n}";
     return result;
 }
+
+beginScript();

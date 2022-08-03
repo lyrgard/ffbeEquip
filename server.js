@@ -40,6 +40,7 @@ let corsOptions = {
 if (!config.isProd && process.env.DEV_USE_DIST != "yes") {
     corsOptions.origin = [corsOptions.origin, 'http://localhost:4444', 'http://localhost:3001'];
 }
+console.log("Config is not Production and DEV_USE_DIST is no: ");
 console.log(!config.isProd && process.env.DEV_USE_DIST != "yes");
 console.log(corsOptions);
 
