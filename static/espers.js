@@ -418,9 +418,9 @@ function showNode(node, parentNodeHtml, star, scale=1) {
         }
     }
     if (node.special) {
-        var indexOfBracket = node.special[0].indexOf("[");
-        var indexOfSemicolon = node.special[0].indexOf(":");
-        var ability = node.special[0].substr(indexOfBracket,indexOfSemicolon);
+        var indexOfBracket = node.special[0].toString().indexOf("[");
+        var indexOfSemicolon = node.special[0].toString().indexOf(":");
+        var ability = node.special[0].toString().substr(indexOfBracket,indexOfSemicolon);
         nodeHtml.html('<span class="iconHolder">' + abilityIcon(ability) + '</span><span class="text">' + abilityName(ability) + '</span><span class="cost">' + node.cost + ' SP</span>');
         nodeHtml.addClass("ability");
     }
