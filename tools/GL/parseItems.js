@@ -170,7 +170,7 @@ const unitRules = {
     7113: (item) => item.exclusiveRoles = ['physicalTank', 'magicalTank'],
     7114: (item) => item.exclusiveRoles = ['healer'],
     7116: (item) => item.exclusiveRoles = ['debuffer'],
-    7201: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF1
+    7201: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10001], // FF1
     7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
     7203: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10003], // FF3
     7204: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10004], // FF4

@@ -287,7 +287,7 @@ function getKillersHtml(item) {
     return html;
 }
 function getExclusiveUnitsHtml(item) {
-    html = "<div class='exclusive'>Unit Excklusive Attribute(s)";
+    html = "<div class='exclusive'>Unit Exclusive Attribute(s)";
     var first = true;
     item.exclusiveUnits.forEach(exclusiveUnitId => {
         if (first) {
