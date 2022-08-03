@@ -1346,8 +1346,10 @@ function onUnitChange() {
                 }
 
                 if (!unitData.equip.includes("visionCard")) {
-                    if (unitData.max_rarity === '7') {
+                    if (unitData['6_form']) {
                         unitData.equip.push("visionCard")
+                    } else {
+                        fixItem("unavailable", 10);
                     }
                 }            
 
