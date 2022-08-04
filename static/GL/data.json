@@ -59938,7 +59938,8 @@
     "icon": "item_2250192.png",
     "sortId": 2693,
     "rarity": 8
-}, {
+},
+{
     "id": "409065600",
     "name": "Insignia of Avan (Dai)",
     "access": ["TMR-7*"],
@@ -59960,7 +59961,54 @@
     "icon": "item_2250182.png",
     "sortId": 2695,
     "rarity": 8
-}, {
+},
+{
+    "id": "409065600",
+    "name": "Insignia of Avan (Dai)",
+    "access": ["TMR-7*"],
+    "type": "accessory",
+    "atk": 56,
+    "mag": 56,
+    "oneWeaponMastery": {
+        "atk": 75
+    },
+    "resist": [{
+        "name": "lightning",
+        "percent": 30
+    }, {
+        "name": "dark",
+        "percent": 30
+    }],
+    "equipedConditions": ["dagger"],
+    "tmrUnit": "344000107",
+    "icon": "item_2250182.png",
+    "sortId": 2695,
+    "rarity": 8
+},
+{
+    "id": "409065600",
+    "name": "Insignia of Avan (Dai)",
+    "access": ["TMR-7*"],
+    "type": "accessory",
+    "atk": 56,
+    "mag": 56,
+    "oneWeaponMastery": {
+        "atk": 75
+    },
+    "resist": [{
+        "name": "lightning",
+        "percent": 30
+    }, {
+        "name": "dark",
+        "percent": 30
+    }],
+    "equipedConditions": ["sword"],
+    "tmrUnit": "344000107",
+    "icon": "item_2250182.png",
+    "sortId": 2695,
+    "rarity": 8
+},
+{
     "id": "409065600",
     "name": "Insignia of Avan (Dai)",
     "access": ["TMR-7*"],
@@ -59995,7 +60043,80 @@
         }
     },
     "rarity": 8
-}, {
+},
+{
+    "id": "409065600",
+    "name": "Insignia of Avan (Dai)",
+    "access": ["TMR-7*"],
+    "type": "accessory",
+    "atk": 56,
+    "mag": 56,
+    "staticStats": {
+        "atk": 250,
+        "mag": 250
+    },
+    "oneWeaponMastery": {
+        "atk": 75
+    },
+    "resist": [{
+        "name": "lightning",
+        "percent": 30
+    }, {
+        "name": "dark",
+        "percent": 30
+    }],
+    "exclusiveUnits": ["344000107", "344000117"],
+    "equipedConditions": ["dagger"],
+    "tmrUnit": "344000107",
+    "icon": "item_2250182.png",
+    "sortId": 2695,
+    "notStackableSkills": {
+        "243520": {
+            "staticStats": {
+                "atk": 250,
+                "mag": 250
+            }
+        }
+    },
+    "rarity": 8
+},
+{
+    "id": "409065600",
+    "name": "Insignia of Avan (Dai)",
+    "access": ["TMR-7*"],
+    "type": "accessory",
+    "atk": 56,
+    "mag": 56,
+    "staticStats": {
+        "atk": 250,
+        "mag": 250
+    },
+    "oneWeaponMastery": {
+        "atk": 75
+    },
+    "resist": [{
+        "name": "lightning",
+        "percent": 30
+    }, {
+        "name": "dark",
+        "percent": 30
+    }],
+    "exclusiveUnits": ["344000107", "344000117"],
+    "equipedConditions": ["sword"],
+    "tmrUnit": "344000107",
+    "icon": "item_2250182.png",
+    "sortId": 2695,
+    "notStackableSkills": {
+        "243520": {
+            "staticStats": {
+                "atk": 250,
+                "mag": 250
+            }
+        }
+    },
+    "rarity": 8
+},
+{
     "id": "409065700",
     "name": "Insignia of Avan (Popp)",
     "access": ["TMR-7*"],
@@ -100850,10 +100971,65 @@
     "access": ["TMR-7*"],
     "type": "materia",
     "special": ["notStackable", "[Souls Joined through Prayer|ability_79.png]:Increase physical and magic damage against Demons by 75% when equipped with Great Sword or Katana, Increase physical and magic damage against Humans by 75% when equipped with Great Sword or Katana"],
+    "equipedConditions": ["katana", "greatSword"],
+    "killers": [
+        {
+            "name": "demon",
+            "physical": 75,
+            "magical": 75
+        },
+        {
+            "name": "human",
+            "physical": 75,
+            "magical": 75
+        }],
     "tmrUnit": "100038607",
     "icon": "ability_79.png",
     "sortId": 1410
 }, {
+    "id": "504243341",
+    "name": "Souls Joined through Prayer",
+    "access": ["TMR-7*"],
+    "type": "materia",
+    "special": ["notStackable", "[Souls Joined through Prayer|ability_79.png]:Increase physical and magic damage against Demons by 75% when equipped with Great Sword or Katana, Increase physical and magic damage against Humans by 75% when equipped with Great Sword or Katana"],
+    "killers": [
+        {
+            "name": "demon",
+            "physical": 75,
+            "magical": 75
+        },
+        {
+            "name": "human",
+            "physical": 75,
+            "magical": 75
+        }],
+    "equipedConditions": ["katana"],
+    "tmrUnit": "100038607",
+    "icon": "ability_79.png",
+    "sortId": 1410
+},
+{
+    "id": "504243341",
+    "name": "Souls Joined through Prayer",
+    "access": ["TMR-7*"],
+    "type": "materia",
+    "special": ["notStackable", "[Souls Joined through Prayer|ability_79.png]:Increase physical and magic damage against Demons by 75% when equipped with Great Sword or Katana, Increase physical and magic damage against Humans by 75% when equipped with Great Sword or Katana"],
+    "killers": [
+        {
+            "name": "demon",
+            "physical": 75,
+            "magical": 75
+        },
+        {
+            "name": "human",
+            "physical": 75,
+            "magical": 75
+        }],
+    "equipedConditions": ["greatSword"],
+    "tmrUnit": "100038607",
+    "icon": "ability_79.png",
+    "sortId": 1410
+},{
     "id": "504243343",
     "name": "Promise with Squall",
     "access": ["TMR-7*"],
@@ -101316,7 +101492,53 @@
     "tmrUnit": "100038807",
     "icon": "ability_6000200.png",
     "sortId": 1421
-}, {
+},
+{
+    "id": "504243432",
+    "name": "Purest of Soldiers",
+    "access": ["TMR-7*"],
+    "type": "materia",
+    "oneWeaponMastery": {
+        "atk": 100,
+        "mage": 100
+    },
+    "special": ["notStackable"],
+    "equipedConditions": ["katana"],
+    "tmrUnit": "100038807",
+    "icon": "ability_6000200.png",
+    "sortId": 1421
+},
+{
+    "id": "504243432",
+    "name": "Purest of Soldiers",
+    "access": ["TMR-7*"],
+    "type": "materia",
+    "oneWeaponMastery": {
+        "atk": 100,
+        "mage": 100
+    },
+    "special": ["notStackable"],
+    "equipedConditions": ["spear"],
+    "tmrUnit": "100038807",
+    "icon": "ability_6000200.png",
+    "sortId": 1421
+},
+{
+    "id": "504243432",
+    "name": "Purest of Soldiers",
+    "access": ["TMR-7*"],
+    "type": "materia",
+    "oneWeaponMastery": {
+        "atk": 100,
+        "mage": 100
+    },
+    "special": ["notStackable"],
+    "equipedConditions": ["mace"],
+    "tmrUnit": "100038807",
+    "icon": "ability_6000200.png",
+    "sortId": 1421
+},
+{
     "id": "504243434",
     "name": "Anti-Armor Tactics",
     "access": ["TMR-7*"],
