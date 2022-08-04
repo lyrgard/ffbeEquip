@@ -35,7 +35,7 @@ app.use(helmet.hsts({
 }));
 
 let corsOptions = {
-  origin: 'https://lyrgard.github.io',
+  origin: 'https://www.ffbeequipnext.com',
 }
 if (!config.isProd && process.env.DEV_USE_DIST != "yes") {
     corsOptions.origin = [corsOptions.origin, 'http://localhost:4444', 'http://localhost:3001'];

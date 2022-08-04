@@ -342,6 +342,7 @@ FFBEEquipBuildAsImage = {
                 }
             }
         }
+        image.setAttribute("crossOrigin", "anonymous")
         image.src = imageUrl;
     },
     
