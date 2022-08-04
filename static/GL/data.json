@@ -59972,7 +59972,7 @@
     "atk": 56,
     "mag": 56,
     "oneWeaponMastery": {
-        "atk": 150
+        "atk": 75
     },
     "resist": [{
         "name": "lightning",
@@ -59985,44 +59985,6 @@
     "tmrUnit": "344000107",
     "icon": "item_2250182.png",
     "sortId": 2695,
-    "notStackableSkills": {
-        "243520": {
-            "staticStats": {
-                "atk": 250,
-                "mag": 250
-            }
-        }
-    },
-    "rarity": 8
-}, {
-    "id": "409065600",
-    "name": "Insignia of Avan (Dai)",
-    "access": ["TMR-7*"],
-    "type": "accessory",
-    "atk": 56,
-    "mag": 56,
-    "oneWeaponMastery": {
-        "atk": 150
-    },
-    "resist": [{
-        "name": "lightning",
-        "percent": 30
-    }, {
-        "name": "dark",
-        "percent": 30
-    }],
-    "equipedConditions": ["sword", "dagger"],
-    "tmrUnit": "344000107",
-    "icon": "item_2250182.png",
-    "sortId": 2695,
-    "notStackableSkills": {
-        "243520": {
-            "staticStats": {
-                "atk": 250,
-                "mag": 250
-            }
-        }
-    },
     "rarity": 8
 }, {
     "id": "409065600",
@@ -60067,42 +60029,7 @@
         "mag": 250
     },
     "oneWeaponMastery": {
-        "atk": 150
-    },
-    "resist": [{
-        "name": "lightning",
-        "percent": 30
-    }, {
-        "name": "dark",
-        "percent": 30
-    }],
-    "exclusiveUnits": ["344000107", "344000117"],
-    "equipedConditions": ["sword", "dagger"],
-    "tmrUnit": "344000107",
-    "icon": "item_2250182.png",
-    "sortId": 2695,
-    "notStackableSkills": {
-        "243520": {
-            "staticStats": {
-                "atk": 250,
-                "mag": 250
-            }
-        }
-    },
-    "rarity": 8
-}, {
-    "id": "409065600",
-    "name": "Insignia of Avan (Dai)",
-    "access": ["TMR-7*"],
-    "type": "accessory",
-    "atk": 56,
-    "mag": 56,
-    "staticStats": {
-        "atk": 250,
-        "mag": 250
-    },
-    "oneWeaponMastery": {
-        "atk": 150
+        "atk": 75
     },
     "resist": [{
         "name": "lightning",
@@ -101439,7 +101366,7 @@
     "type": "materia",
     "oneWeaponMastery": {
         "atk": 100,
-        "mag": 100
+        "mage": 100
     },
     "special": ["notStackable"],
     "equipedConditions": ["katana", "spear", "mace"],
