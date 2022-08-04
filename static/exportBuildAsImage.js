@@ -1,6 +1,6 @@
 FFBEEquipBuildAsImage = {
     unitLineHeight:267,
-    ffbeEquipUrl: "https://ffbeEquip.com",
+    ffbeEquipUrl: "https://www.ffbeequipnext.com",
     drawTeam: function(canvas, data) {
         let lineNumber = data.units.map(u => FFBEEquipBuildAsImage.mustDisplayBraveShifted(u) ? 2 : 1).reduce((acc, v) => acc + v, 0);
         canvas.height = FFBEEquipBuildAsImage.unitLineHeight * lineNumber;
