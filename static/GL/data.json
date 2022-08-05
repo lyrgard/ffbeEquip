@@ -110840,4 +110840,733 @@
     "special": ["notStackable"],
     "icon": "ability_79.png",
     "sortId": 1501
-}]
+},{
+    "302015200": {
+        "id": "302015200",
+        "name": "Dark Ragnarok++",
+        "access": ["released"],
+        "type": "sword",
+        "atk": 286,
+        "damageVariance": {
+            "min": 1.05,
+            "max": 1.25
+        },
+        "icon": "item_2020014.png",
+        "sortId": 2165,
+        "rarity": 10,
+        "skills": [{
+            "id": "233430",
+            "name": "Dark Authority",
+            "icon": "ability_49.png",
+            "effects": [{
+                "effect": {
+                    "damage": {
+                        "mecanism": "physical",
+                        "damageType": "body",
+                        "coef": 40
+                    },
+                    "area": "AOE",
+                    "target": "ENEMY",
+                    "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                    "repartition": [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 66]
+                },
+                "desc": "Physical damage (40x, ATK) to all enemies"
+            }],
+            "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+            "move": "none",
+            "type": "ability",
+            "mpCost": 120
+        }]
+    },
+    "304009400": {
+        "id": "304009400",
+        "name": "Dark Masamune++",
+        "access": ["released"],
+        "type": "katana",
+        "atk": 298,
+        "damageVariance": {
+            "min": 1.05,
+            "max": 1.25
+        },
+        "icon": "item_2040019.png",
+        "sortId": 2227,
+        "rarity": 10,
+        "skills": [{
+            "id": "235603",
+            "name": "Dark Bisector",
+            "icon": "ability_49.png",
+            "effects": [{
+                "effect": {
+                    "damage": {
+                        "mecanism": "physical",
+                        "damageType": "body",
+                        "coef": 40
+                    },
+                    "area": "AOE",
+                    "target": "ENEMY",
+                    "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                    "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
+                },
+                "desc": "Physical damage (40x, ATK) to all enemies"
+            }],
+            "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+            "move": "none",
+            "type": "ability",
+            "mpCost": 120
+        }]
+    },
+    "310011400": {
+        "id": "310011400",
+        "name": "Dark Gambanteinn++",
+        "access": ["released"],
+        "type": "rod",
+        "mag": 291,
+        "damageVariance": {
+            "min": 1.1,
+            "max": 1.2
+        },
+        "icon": "item_2060017.png",
+        "sortId": 2225,
+        "rarity": 10,
+        "skills": [{
+            "id": "234469",
+            "name": "Dark Illumination",
+            "icon": "ability_49.png",
+            "effects": [{
+                "effect": {
+                    "damage": {
+                        "mecanism": "magical",
+                        "damageType": "mind",
+                        "coef": 40
+                    },
+                    "area": "AOE",
+                    "target": "ENEMY",
+                    "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
+                    "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
+                },
+                "desc": "Magic damage (40x, MAG) to all enemies"
+            }],
+            "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
+            "move": "none",
+            "type": "ability",
+            "mpCost": 120
+        }]
+    },
+    "312005100": {
+        "id": "312005100",
+        "name": "Dark Gandiva++",
+        "access": ["released"],
+        "type": "bow",
+        "atk": 235,
+        "accuracy": 70,
+        "damageVariance": {
+            "min": 1.35,
+            "max": 1.85
+        },
+        "special": ["twoHanded"],
+        "icon": "item_2070015.png",
+        "sortId": 2233,
+        "rarity": 10,
+        "skills": [{
+            "id": "235604",
+            "name": "Dark Hunter",
+            "icon": "ability_49.png",
+            "effects": [{
+                "effect": {
+                    "damage": {
+                        "mecanism": "physical",
+                        "damageType": "body",
+                        "coef": 40
+                    },
+                    "area": "AOE",
+                    "target": "ENEMY",
+                    "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                    "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
+                },
+                "desc": "Physical damage (40x, ATK) to all enemies"
+            }],
+            "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+            "move": "none",
+            "type": "ability",
+            "mpCost": 120
+        }]
+    },
+    "312006400": {
+        "id": "312006400",
+        "name": "Sagittarius",
+        "access": ["released"],
+        "type": "bow",
+        "atk": 190,
+        "mag": 190,
+        "accuracy": 70,
+        "damageVariance": {
+            "min": 1.35,
+            "max": 1.85
+        },
+        "killers": [{
+            "name": "beast",
+            "physical": 50
+        }, {
+            "name": "bird",
+            "physical": 50
+        }, {
+            "name": "beast",
+            "magical": 50
+        }, {
+            "name": "bird",
+            "magical": 50
+        }],
+        "special": ["twoHanded"],
+        "icon": "item_2070005.png",
+        "sortId": 2760,
+        "rarity": 9
+    },
+    "313002400": {
+        "id": "313002400",
+        "name": "Arcturus (FFXII)",
+        "access": ["TMR-5*"],
+        "type": "gun",
+        "atk": 135,
+        "damageVariance": {
+            "min": 1.1,
+            "max": 1.2
+        },
+        "tmrUnit": "212000505",
+        "icon": "item_11418.png",
+        "sortId": 480,
+        "rarity": 8
+    },
+    "313009900": {
+        "id": "313009900",
+        "name": "Arcturus (FFXII)",
+        "access": ["released"],
+        "type": "gun",
+        "atk": 145,
+        "damageVariance": {
+            "min": 1.1,
+            "max": 1.2
+        },
+        "icon": "item_11418.png",
+        "sortId": 2748,
+        "rarity": 8
+    },
+    "313010000": {
+        "id": "313010000",
+        "name": "Arcturus (FFXII)",
+        "access": ["released"],
+        "type": "gun",
+        "atk": 165,
+        "damageVariance": {
+            "min": 1.1,
+            "max": 1.2
+        },
+        "icon": "item_11418.png",
+        "sortId": 2749,
+        "rarity": 8
+    },
+    "313010100": {
+        "id": "313010100",
+        "name": "Arcturus (FFXII)",
+        "access": ["released"],
+        "type": "gun",
+        "atk": 180,
+        "staticStats": {
+            "atk": 500
+        },
+        "singleWielding": {
+            "atk": 75,
+            "accuracy": 25
+        },
+        "damageVariance": {
+            "min": 1.1,
+            "max": 1.2
+        },
+        "killers": [{
+            "name": "beast",
+            "physical": 75
+        }],
+        "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
+        "icon": "item_11418.png",
+        "sortId": 2750,
+        "rarity": 8
+    },
+    "313010200": {
+        "id": "313010200",
+        "name": "Arcturus (FFXII)",
+        "access": ["released"],
+        "type": "gun",
+        "atk": 207,
+        "staticStats": {
+            "atk": 750
+        },
+        "singleWielding": {
+            "atk": 100,
+            "accuracy": 25
+        },
+        "damageVariance": {
+            "min": 1.1,
+            "max": 1.2
+        },
+        "killers": [{
+            "name": "beast",
+            "physical": 100
+        }],
+        "lbDamage": 50,
+        "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
+        "icon": "item_11418.png",
+        "sortId": 2751,
+        "rarity": 9
+    },
+    "313010300": {
+        "id": "313010300",
+        "name": "Arcturus (FFXII)",
+        "access": ["released"],
+        "type": "gun",
+        "atk": 220,
+        "staticStats": {
+            "atk": 750
+        },
+        "singleWielding": {
+            "atk": 100,
+            "accuracy": 25
+        },
+        "accuracy": 70,
+        "damageVariance": {
+            "min": 1.35,
+            "max": 1.75
+        },
+        "killers": [{
+            "name": "beast",
+            "physical": 100
+        }],
+        "lbDamage": 50,
+        "special": ["twoHanded"],
+        "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
+        "icon": "item_11418.png",
+        "sortId": 2752,
+        "rarity": 9
+    },
+    "315024900": {
+        "id": "315024900",
+        "name": "Dark Rising Sun++",
+        "access": ["released"],
+        "type": "throwing",
+        "atk": 286,
+        "damageVariance": {
+            "min": 1.05,
+            "max": 1.25
+        },
+        "icon": "item_2130011.png",
+        "sortId": 2231,
+        "rarity": 10,
+        "skills": [{
+            "id": "237414",
+            "name": "Dark Throw",
+            "icon": "ability_49.png",
+            "effects": [{
+                "effect": {
+                    "damage": {
+                        "mecanism": "physical",
+                        "damageType": "body",
+                        "coef": 40
+                    },
+                    "area": "AOE",
+                    "target": "ENEMY",
+                    "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                    "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 49]
+                },
+                "desc": "Physical damage (40x, ATK) to all enemies"
+            }],
+            "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+            "move": "none",
+            "type": "ability",
+            "mpCost": 120
+        }]
+    },
+    "403056700": {
+        "id": "403056700",
+        "name": "Leather Headgear (FFXII)",
+        "access": ["released"],
+        "type": "hat",
+        "hp": 1000,
+        "def": 12,
+        "spr": 30,
+        "killers": [{
+            "name": "beast",
+            "physical": 25,
+            "magical": 25
+        }],
+        "icon": "item_2210051.png",
+        "sortId": 2758,
+        "rarity": 7
+    },
+    "405021700": {
+        "id": "405021700",
+        "name": "Balthier's Clothes (FFXII)",
+        "access": ["released"],
+        "type": "clothes",
+        "hp": 9999,
+        "atk": 120,
+        "def": 35,
+        "spr": 15,
+        "staticStats": {
+            "atk": 500
+        },
+        "lbDamage": 50,
+        "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
+        "stmrUnit": "212002407",
+        "icon": "item_2170084.png",
+        "sortId": 2756,
+        "rarity": 9
+    },
+    "405021800": {
+        "id": "405021800",
+        "name": "Windbreaker (FFXII)",
+        "access": ["released"],
+        "type": "clothes",
+        "def": 38,
+        "spr": 50,
+        "resist": [{
+            "name": "wind",
+            "percent": 30
+        }],
+        "icon": "item_2170085.png",
+        "sortId": 2759,
+        "rarity": 7
+    },
+    "406004800": {
+        "id": "406004800",
+        "name": "Resistance Armor (FFXII)",
+        "access": ["recipe-event", "event"],
+        "maxNumber": 1,
+        "eventNames": ["Sochen Cave Palace"],
+        "type": "lightArmor",
+        "atk": 26,
+        "atk%": 30,
+        "def": 28,
+        "spr": 32,
+        "spr%": 10,
+        "equipedConditions": ["greatSword"],
+        "icon": "item_2180004.png",
+        "sortId": 1743,
+        "rarity": 7
+    },
+    "406007000": {
+        "id": "406007000",
+        "name": "Resistance Armor (FFXII)",
+        "access": ["released"],
+        "type": "lightArmor",
+        "atk": 35,
+        "atk%": 30,
+        "def": 28,
+        "spr": 37,
+        "spr%": 10,
+        "equipedConditions": ["greatSword"],
+        "icon": "item_2180004.png",
+        "sortId": 2753,
+        "rarity": 7
+    },
+    "406007100": {
+        "id": "406007100",
+        "name": "Resistance Armor (FFXII)",
+        "access": ["released"],
+        "type": "lightArmor",
+        "atk": 45,
+        "atk%": 30,
+        "def": 28,
+        "spr": 42,
+        "spr%": 10,
+        "equipedConditions": ["greatSword"],
+        "icon": "item_2180004.png",
+        "sortId": 2754,
+        "rarity": 7
+    },
+    "406007200": {
+        "id": "406007200",
+        "name": "Resistance Armor (FFXII)",
+        "access": ["released"],
+        "type": "lightArmor",
+        "atk": 55,
+        "atk%": 60,
+        "def": 28,
+        "spr": 52,
+        "spr%": 40,
+        "killers": [{
+            "name": "human",
+            "physical": 50,
+            "magical": 50
+        }],
+        "exclusiveUnits": ["212000505", "212000527", "212001705", "212001727", "212002207", "212002217", "212002407", "212002417", "212002507", "212002517", "212002607", "212002617"],
+        "equipedConditions": ["greatSword"],
+        "icon": "item_2180004.png",
+        "sortId": 2755,
+        "rarity": 7
+    },
+    "409067100": {
+        "id": "409067100",
+        "name": "Ashe's Leg Armor (FFXII)",
+        "access": ["released"],
+        "type": "accessory",
+        "def": 32,
+        "mag": 90,
+        "spr": 80,
+        "staticStats": {
+            "mag": 500,
+            "spr": 500
+        },
+        "special": ["[Knowledge of Mist|ability_77.png]:Reduce MP consumption by 30%"],
+        "exclusiveSex": "female",
+        "exclusiveUnits": ["212000204", "212001905", "212002507", "212002517"],
+        "stmrUnit": "212002507",
+        "icon": "item_2250196.png",
+        "sortId": 2757,
+        "notStackableSkills": {
+            "243633": {
+                "staticStats": {
+                    "mag": 500,
+                    "spr": 500
+                }
+            }
+        },
+        "rarity": 9
+    },
+    "504243631": {
+        "id": "504243631",
+        "name": "Severing the Curse of the Past",
+        "access": ["released"],
+        "type": "materia",
+        "staticStats": {
+            "atk": 500
+        },
+        "killers": [{
+            "name": "beast",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "bird",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "aquatic",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "demon",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "human",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "machine",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "dragon",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "spirit",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "bug",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "stone",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "plant",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "undead",
+            "physical": 50,
+            "magical": 50
+        }],
+        "special": ["notStackable"],
+        "exclusiveUnits": ["212000505", "212000527", "212001705", "212001727", "212002207", "212002217", "212002407", "212002417", "212002507", "212002517", "212002607", "212002617"],
+        "tmrUnit": "212002407",
+        "icon": "ability_79.png",
+        "sortId": 1455,
+        "notStackableSkills": {
+            "243630": {
+                "staticStats": {
+                    "atk": 500
+                },
+                "killers": [{
+                    "name": "beast",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "bird",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "aquatic",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "demon",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "human",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "machine",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "dragon",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "spirit",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "bug",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "stone",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "plant",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "undead",
+                    "physical": 50,
+                    "magical": 50
+                }]
+            }
+        }
+    },
+    "504243633": {
+        "id": "504243633",
+        "name": "Overcoming the Desire for Revenge",
+        "access": ["released"],
+        "type": "materia",
+        "staticStats": {
+            "mag": 500
+        },
+        "killers": [{
+            "name": "beast",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "bird",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "aquatic",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "demon",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "human",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "machine",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "dragon",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "spirit",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "bug",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "stone",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "plant",
+            "physical": 50,
+            "magical": 50
+        }, {
+            "name": "undead",
+            "physical": 50,
+            "magical": 50
+        }],
+        "special": ["notStackable"],
+        "exclusiveUnits": ["212000505", "212000527", "212001705", "212001727", "212002207", "212002217", "212002407", "212002417", "212002507", "212002517", "212002607", "212002617"],
+        "tmrUnit": "212002507",
+        "icon": "ability_79.png",
+        "sortId": 1456,
+        "notStackableSkills": {
+            "243632": {
+                "staticStats": {
+                    "mag": 500
+                },
+                "killers": [{
+                    "name": "beast",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "bird",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "aquatic",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "demon",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "human",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "machine",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "dragon",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "spirit",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "bug",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "stone",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "plant",
+                    "physical": 50,
+                    "magical": 50
+                }, {
+                    "name": "undead",
+                    "physical": 50,
+                    "magical": 50
+                }]
+            }
+        }
+    }
+}
+]
