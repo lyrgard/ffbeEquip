@@ -1509,7 +1509,7 @@ function isApplicable(item, unit) {
     if (item.exclusiveSex && item.exclusiveSex != unit.sex) {
         return false;
     }
-    if (item.exclusiveRoles && item.exclusiveRoles.every(role => unit.roles.includes(role))) {
+    if (item.exclusiveRoles && !item.exclusiveRoles.some(role => unit.roles.includes(role))) {
         return false;
     }
     if (item.exclusiveUnits && !item.exclusiveUnits.includes(unit.id)) {

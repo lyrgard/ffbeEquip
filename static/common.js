@@ -692,15 +692,18 @@ function getAccessHtml(item) {
         html += getExclusiveUnitsHtml(item);
     }
     if (item.exclusiveSex) {
-        html += "<div class='exclusive'>Only " + item.exclusiveSex + "</div>";
+        html += "<div class='exclusive'>" + item.exclusiveSex + " Only </div>";
     }
     if (item.exclusiveRoles) {
-        html += "<div class='exclusive'>Only " + item.exclusiveRoles.join(', ') + "</div>";
+        html += "<div class='exclusive'>" + item.exclusiveRoles.join(', ') + " Only </div>";
     }
     if (item.equipedConditions) {
         html += getEquipedConditionHtml(item);
     }
     html += "</div>";
+    html = html.replace("debuffer", "Breakers");
+    html = html.replace("female", "Female");
+    html = html.replace("male\s", "Male")
     return html;
 }
 
@@ -1345,7 +1348,7 @@ var exclusiveForbidAccess = function(item, selectedUnitId) {
     if (item.exclusiveUnits && !item.exclusiveUnits.includes(selectedUnitId)) {
         return true;
     }
-    if (item.exclusiveRoles && item.exclusiveRoles.some(role => !units[selectedUnitId].roles.includes(role))) {
+    if (item.exclusiveRoles && !item.exclusiveRoles.some(role => units[selectedUnitId].roles.includes(role))) {
         return true;
     }
     return false;
