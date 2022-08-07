@@ -191,7 +191,7 @@ const itemEnhancementLabels = {
     "reduceMp_2": "-10% mp", "reduceMp_1": "-5% mp",
     "atk_mag_1": "ATK/MAG +30%",
     "hp_def_1": "HP/DEF +20%",
-    "hp_spr_1": "HP/SPR +30%",
+    "hp_spr_1": "HP/SPR +20%",
 };
 const itemEnhancementAbilities = {
     "rare_3":{
