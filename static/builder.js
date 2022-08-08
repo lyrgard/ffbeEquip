@@ -4565,7 +4565,7 @@ function startPage() {
 
         waitingCallbackKeyReady("defaultBuilderEspers");
     });
-    $.get(server + "/units", function(result) {
+    $.get("/" + server + "/units.json", function(result) {
         ownedUnits = result;
         onEquipmentsChange();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {

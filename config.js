@@ -1,7 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const Joi = require('joi');
+import fs from 'fs';
+import path from 'path';
+import Joi from 'Joi'
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 const CONFIG_FILE = path.join(__dirname, '.config.json');
 const OLD_CONFIG_FILE_BACKUP = path.join(__dirname, '.config.json.old');
 
@@ -92,7 +95,7 @@ const readJson = (filePath) => {
   }
 };
 
-let config = readJson(CONFIG_FILE);
+export let ServerConfig = readJson(CONFIG_FILE);
 
 /**
  * @summary Write json file
@@ -104,71 +107,71 @@ const writeJson = (filePath, data) => {
 };
 
 // ALlow env vars override
-config.env = process.env.NODE_ENV || config.env;
-config.port = process.env.PORT || config.port;
+ServerConfig.env = process.env.NODE_ENV || ServerConfig.env;
+ServerConfig.port = process.env.PORT || ServerConfig.port;
 
-const validation = configSchema.validate(config);
+const validation = configSchema.validate(ServerConfig);
 
 if (validation.error) {
-    const oldFileFormatValidation = old_configSchema.validate(config);
+    const oldFileFormatValidation = old_configSchema.validate(ServerConfig);
     if (oldFileFormatValidation.error) {
         console.log('Invalid configuration. See README"', validation.error);
         process.exit(1);
     } else {
         console.log('Found old config format. Will attempt to convert to new format');
         // Dynamically load OAuth credentials
-        config.googleOAuthCredential = readJson(config.googleOAuthFile);
-        config.firebaseConf = readJson(config.firebaseConfFile);
+        ServerConfig.googleOAuthCredential = readJson(ServerConfig.googleOAuthFile);
+        ServerConfig.firebaseConf = readJson(ServerConfig.firebaseConfFile);
 
         const newConfig = {
-            "env": config.env,
-            "port": config.port,
-            "secret": config.secret,
+            "env": ServerConfig.env,
+            "port": ServerConfig.port,
+            "secret": ServerConfig.secret,
             "google": {
                 "enabled": true,
                 "oAuthConfiguration": {
                     "web":{
-                        "client_id": config.googleOAuthCredential.web.client_id,
-                        "project_id": config.googleOAuthCredential.web.project_id,
-                        "auth_uri": config.googleOAuthCredential.web.auth_uri,
-                        "token_uri": config.googleOAuthCredential.web.token_uri,
-                        "auth_provider_x509_cert_url": config.googleOAuthCredential.web.auth_provider_x509_cert_url,
-                        "client_secret": config.googleOAuthCredential.web.client_secret,
-                        "redirect_uris": config.googleOAuthCredential.web.redirect_uris
+                        "client_id": ServerConfig.googleOAuthCredential.web.client_id,
+                        "project_id": ServerConfig.googleOAuthCredential.web.project_id,
+                        "auth_uri": ServerConfig.googleOAuthCredential.web.auth_uri,
+                        "token_uri": ServerConfig.googleOAuthCredential.web.token_uri,
+                        "auth_provider_x509_cert_url": ServerConfig.googleOAuthCredential.web.auth_provider_x509_cert_url,
+                        "client_secret": ServerConfig.googleOAuthCredential.web.client_secret,
+                        "redirect_uris": ServerConfig.googleOAuthCredential.web.redirect_uris
                     }
                 }
             },
             "firebase": {
                 "enabled": true,
-                "bucketUri": config.firebaseBucketUri,
-                "databaseId": config.firebaseDatabaseId,
+                "bucketUri": ServerConfig.firebaseBucketUri,
+                "databaseId": ServerConfig.firebaseDatabaseId,
                 "configuration": {
-                    "type": config.firebaseConf.type,
-                    "project_id": config.firebaseConf.project_id,
-                    "private_key_id": config.firebaseConf.private_key_id,
-                    "private_key": config.firebaseConf.private_key,
-                    "client_email": config.firebaseConf.client_email,
-                    "client_id": config.firebaseConf.client_id,
-                    "auth_uri": config.firebaseConf.auth_uri,
-                    "token_uri": config.firebaseConf.token_uri,
-                    "auth_provider_x509_cert_url": config.firebaseConf.auth_provider_x509_cert_url,
-                    "client_x509_cert_url": config.firebaseConf.client_x509_cert_url
+                    "type": ServerConfig.firebaseConf.type,
+                    "project_id": ServerConfig.firebaseConf.project_id,
+                    "private_key_id": ServerConfig.firebaseConf.private_key_id,
+                    "private_key": ServerConfig.firebaseConf.private_key,
+                    "client_email": ServerConfig.firebaseConf.client_email,
+                    "client_id": ServerConfig.firebaseConf.client_id,
+                    "auth_uri": ServerConfig.firebaseConf.auth_uri,
+                    "token_uri": ServerConfig.firebaseConf.token_uri,
+                    "auth_provider_x509_cert_url": ServerConfig.firebaseConf.auth_provider_x509_cert_url,
+                    "client_x509_cert_url": ServerConfig.firebaseConf.client_x509_cert_url
                 }
             },
             "imgur": {
                 "enabled": true,
-                "clientId": config.imgurClientId
+                "clientId": ServerConfig.imgurClientId
             }
         };
-        writeJson(OLD_CONFIG_FILE_BACKUP, config);
+        writeJson(OLD_CONFIG_FILE_BACKUP, ServerConfig);
         writeJson(CONFIG_FILE, newConfig);
 
-        config = newConfig;
+        ServerConfig = newConfig;
     }
 }
 
 // Env utils
-config.isDev = (config.env === 'development');
-config.isProd = (config.env === 'production');
+ServerConfig.isDev = (ServerConfig.env === 'development');
+ServerConfig.isProd = (ServerConfig.env === 'production');
 
-module.exports = config;
+export default { ServerConfig }

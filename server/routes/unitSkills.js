@@ -1,7 +1,7 @@
-const express = require('express');
-const fs = require('fs');
+import fs from 'fs'
+import express from 'express'
 
-const route = express.Router();
+export const route = express.Router();
 
 let data = {
     GL: {version: 0, date: 0, data: {}},
@@ -35,4 +35,4 @@ route.get('/:server/unit/:unitId', async (req, res) => {
   }
 });
 
-module.exports = route;
+export default route;

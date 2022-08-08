@@ -1,11 +1,11 @@
-const express = require('express');
-const firebase = require('../lib/firebase.js');
-const drive = require('../lib/drive.js');
-const Joi = require('joi');
-const uuidV1 = require('uuid/v1');
+import express from 'express'
+import firebase from '../lib/firebase.js';
+import * as drive from '../lib/drive.js';
+import Joi from 'joi';
+import * as uuidV1 from 'uuid';
 
-const unAuthenticatedRoute = express.Router();
-const authenticatedRoute = express.Router();
+export const unAuthenticatedRoute = express.Router();
+export const authenticatedRoute = express.Router();
 
 const idSchema = Joi.string().regex(/^([0-9]{9,10}$|dagger|sword|greatSword|katana|staff|rod|bow|axe|hammer|spear|harp|whip|throwing|gun|mace|fist|lightShield|heavyShield|hat|helm|clothes|lightArmor|heavyArmor|robe|accessory|materia|visionCard|unavailable)$/, 'id');
 const itemSlotSchema = {
@@ -378,6 +378,7 @@ const partyBuildSchema = Joi.object().keys({
 });
 
 unAuthenticatedRoute.post('/partyBuild', async (req, res) => { 
+    console.log("Unauth route")
   const data = req.body;
 
     
@@ -431,7 +432,7 @@ authenticatedRoute.put('/:server/publicUnitCollection', async (req, res) => {
   });
 });
 
-module.exports = {
+export default {
     "unAuthenticatedRoute" : unAuthenticatedRoute,
     "authenticatedRoute" : authenticatedRoute
 }

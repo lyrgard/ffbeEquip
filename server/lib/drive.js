@@ -1,6 +1,8 @@
-const Promise = require('bluebird');
-const { google } = require('googleapis');
-const is = require('@sindresorhus/is');
+import Bluebird from 'bluebird';
+import { google } from 'googleapis';
+import * as is from '@sindresorhus/is'
+
+const Promise = Bluebird
 
 const drive = google.drive('v3');
 const mimeType = 'application/json';
@@ -61,7 +63,7 @@ const update = (auth, fileId, data) => {
  * @param {any} emptyValue
  * @returns {Promise<any>}
  */
-const readJson = async (auth, fileName, emptyValue) => {
+export const readJson = async (auth, fileName, emptyValue) => {
   const files = await list(auth);
   if (files.length === 0) {
     return emptyValue;
@@ -87,8 +89,9 @@ const readJson = async (auth, fileName, emptyValue) => {
  * @param {any} data
  * @returns {Promise<any>}
  */
-const writeJson = async (auth, fileName, data) => {
+export const writeJson = async (auth, fileName, data) => {
   const files = await list(auth);
+  console.log(files)
   if (files.length === 0) {
     return create(auth, fileName, data);
   }
@@ -101,7 +104,4 @@ const writeJson = async (auth, fileName, data) => {
   return update(auth, file.id, data);
 };
 
-module.exports = {
-  readJson,
-  writeJson,
-};
+export default { readJson, writeJson };

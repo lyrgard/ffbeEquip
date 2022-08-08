@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs'
+import path from 'path'
 
 /* eslint import/no-dynamic-require: 0, global-require: 0 */
 const load = (schema) => {
@@ -25,6 +25,4 @@ const up = (table, data) => {
   }, data);
 };
 
-module.exports = {
-  up,
-};
+export default { up }

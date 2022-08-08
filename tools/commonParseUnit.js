@@ -148,13 +148,21 @@ let espersById = {
 };
 
 const unitRoles = {
-    "Physical Attacker": 'physicalAttacker',
-    "Magic Attacker": 'magicalAttacker',
-    "Physical Tank": 'physicalTank',
-    "Magic Tank": 'magicalTank',
-    "Breaker": 'debuffer',
-    "Support": 'support',
-    "Healer": 'healer',
+    "Attacker": "physicalAttacker",
+    "Mage": "magicalAttacker",
+    "Tank": "physicalTank",
+    "Magic Tank": "magicalTank",
+    "Healer": "healer",
+    "Support": "support",
+    "Breaker": "debuffer",
+    "Versatile": "versatile",
+    "EXP Boost": null,
+    "Sellable": null,
+    "Fusion": null,
+    "Stat Boost": null,
+    "Stat Break": null,
+    "Over-Level": null,
+    "Remove Over-Level": null
 }
 
 String.prototype.hashCode = function() {
