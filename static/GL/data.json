@@ -8149,7 +8149,7 @@
     "rarity": 8
 }, {
     "id": "303008900",
-    "name": "Obliterating Crimson Saber",
+    "name": "Obliterating Crimson Saber",
     "access": ["STMR"],
     "type": "greatSword",
     "atk": 184,
@@ -8786,7 +8786,7 @@
     "rarity": 8
 }, {
     "id": "303011400",
-    "name": "Obliterating Crimson Saber",
+    "name": "Obliterating Crimson Saber",
     "access": ["recipe", "stmrUpgrade"],
     "type": "greatSword",
     "atk": 190,
@@ -17551,6 +17551,7 @@
     "atk": 220,
     "spr": 237,
     "accuracy": 50,
+    "exclusiveRoles":["magicalTank"],
     "damageVariance": {
         "min": 1.25,
         "max": 1.75
@@ -41774,6 +41775,7 @@
         "name": "dark",
         "percent": 30
     }],
+    "exclusiveRoles": ["debuffer"],
     "stmrUnit": "100037907",
     "icon": "item_2170072.png",
     "sortId": 2575,
@@ -41819,13 +41821,17 @@
     "icon": "item_2170072.png",
     "sortId": 2575,
     "rarity": 9
-}, {
+},{
     "id": "405020400",
     "name": "Obliterator's Battle Dress",
     "access": ["STMR"],
     "type": "clothes",
     "atk": 72,
     "def": 38,
+    "singleWielding": {
+        "atk": 200,
+        "accuracy": 25
+    },
     "resist": [{
         "name": "fire",
         "percent": 30
@@ -41838,26 +41844,29 @@
     "sortId": 2579,
     "rarity": 9
 }, {
-    "id": "405020500",
-    "name": "Spiritweave Dress",
-    "access": ["event"],
-    "maxNumber": 1,
-    "eventNames": ["Counterattack of the Exostars"],
+    "id": "405020400",
+    "name": "Obliterator's Battle Dress",
+    "access": ["STMR"],
     "type": "clothes",
-    "def": 15,
-    "mag": 40,
-    "spr": 40,
+    "atk": 72,
+    "def": 38,
+    "singleWielding": {
+        "atk": 200,
+        "accuracy": 25
+    },
     "resist": [{
-        "name": "silence",
-        "percent": 100
+        "name": "fire",
+        "percent": 30
     }, {
-        "name": "paralysis",
-        "percent": 100
+        "name": "light",
+        "percent": 30
     }],
-    "mpRefresh": 8,
-    "icon": "item_2170074.png",
-    "sortId": 2590,
-    "rarity": 7
+    "exclusiveRoles": ["debuffer"],
+    "special": ["[Form of Iron Will|ability_127.png]:Use Form of Iron Will (515891) once, Use Form of Iron Will (515891) once"],
+    "stmrUnit": "100038007",
+    "icon": "item_2170073.png",
+    "sortId": 2579,
+    "rarity": 9
 }, {
     "id": "405020600",
     "name": "Zell's Clothes (FFVIII)",
@@ -42062,6 +42071,19 @@
     "access": ["TMR-7*"],
     "type": "clothes",
     "hp": 3000,
+    "atk": 52,
+    "def": 43,
+    "exclusiveRoles": ["physicalAttacker"],
+    "tmrUnit": "100039307",
+    "icon": "item_2170081.png",
+    "sortId": 2680,
+    "rarity": 8
+},{
+    "id": "405021100",
+    "name": "Lilac Flame Kimono",
+    "access": ["TMR-7*"],
+    "type": "clothes",
+    "hp": 3000,
     "hp%": 100,
     "atk": 52,
     "def": 43,
@@ -42070,6 +42092,7 @@
         "physical": 75,
         "magical": 75
     }],
+    "exclusiveRoles": ["physicalAttacker"],
     "tmrUnit": "100039307",
     "icon": "item_2170081.png",
     "sortId": 2680,
@@ -42280,7 +42303,7 @@
     "rarity": 1
 }, {
     "id": "406000200",
-    "name": "Copper Cuirass ",
+    "name": "Copper Cuirass ",
     "access": ["shop", "recipe"],
     "type": "lightArmor",
     "def": 14,
@@ -43375,7 +43398,6 @@
         "name": "dark",
         "percent": 20
     }],
-    "exclusiveRoles": "magicalTank",
     "icon": "item_2180014.png",
     "sortId": 2715,
     "rarity": 8
@@ -44452,6 +44474,7 @@
         "physical": 75,
         "magical": 75
     }],
+    "exclusiveRoles": ["physicalTank"],
     "stmrUnit": "201000607",
     "icon": "item_2190008.png",
     "sortId": 2649,
@@ -59096,25 +59119,13 @@
     "access": ["STMR"],
     "type": "accessory",
     "hp": 1000,
-    "def": 60,
-    "spr": 20,
-    "special": ["[Boon of the Lion|ability_127.png]:Use Boon of the Lion (515942) once"],
-    "stmrUnit": "339000607",
-    "icon": "item_2250177.png",
-    "sortId": 2644,
-    "rarity": 9
-}, {
-    "id": "409064300",
-    "name": "King of the Lions' Cloak (WOTV FFBE)",
-    "access": ["STMR"],
-    "type": "accessory",
-    "hp": 1000,
     "hp%": 100,
     "def": 60,
     "spr": 20,
     "oneWeaponMastery": {
         "def": 50
     },
+    "exclusiveRoles": ["physicalTank"],
     "lbDamage": 50,
     "stmrUnit": "339000607",
     "icon": "item_2250177.png",
