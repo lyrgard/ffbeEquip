@@ -1607,8 +1607,8 @@ function prepareSearch(data) {
         if (item["exclusiveSex"]) {
             textToSearch += "|Only " + item["exclusiveSex"];
         }
-        if (item.exclusiveRoles) {
-            textToSearch += "|Only " + item.exclusiveRoles.join(', ');
+        if (item["exclusiveRoles"]) {
+            textToSearch += "|Only " + item["exclusiveRoles"].join(', ');
         }
         if (item["condition"]) {
             textToSearch += "|Only " + item["condition"];
