@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import Joi from 'Joi'
+import Joi from 'joi'
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url)
