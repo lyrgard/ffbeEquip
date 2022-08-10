@@ -1,0 +1,41 @@
+{
+    "env": "production",
+    "port": 3000,
+    "secret": "1ac38a8f183f47b7bd1f69e7cebc68",
+    "google": {
+        "enabled": true,
+        "oAuthConfiguration": {
+            "web":{
+                    "client_id":"66825916265-pdl0hpfmm5j52mifhp45th6lkl1khnfu.apps.googleusercontent.com",
+                    "project_id":"quickstart-1571207054402",
+                    "auth_uri":"https://accounts.google.com/o/oauth2/auth",
+                    "token_uri":"https://oauth2.googleapis.com/token",
+                    "auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+                    "client_secret":"YA2MZnfdk68e559fQRRas4dS",
+                    "redirect_uris":["http://localhost:3000/googleOAuthSuccess"],
+                    "javascript_origins":["http://localhost:3000"]
+                }
+            }
+    },
+    "firebase": {
+        "enabled": true,
+        "bucketUri": "ffbeequiplocal.firebaseapp.com",
+        "databaseId": "ffbeequiplocal",
+        "configuration": {
+            "type": "service_account",
+            "project_id": "ffbeequiplocal",
+            "private_key_id": "b13c5b24592ae0b2e57cf8c31434acdbe7b50326",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDUWPWYc5uWWdLY\nQfUgdPIBC/yipNMATnTkH1hZYteBNM0vKAu8VRiFxHlgR+W8xjE47T4WG/xCyC6Q\njFBIwYGoMzooVLbdzwnL23th0BgPAwmHYGfdR7e+Xx9THeIpBVosH1xxl5gKvfdh\nLmnRln5ZK1ZN5ahUiJROh+Ut10o+6oFEb8GG0pFLw0j006Yeqcwttd1b7mMKEzKt\nZ93es2xpKMRhoKXqomAwlKZTemCObVFly8VaA4XFxveECMvtKBLtG97bp1Q05Sk0\nyWzFreAxFmLuHKdL7G1qzrDy2kyrRP6SfzKUrZvXf9QXKWhMlHec7UBItwsP5KHq\njdR9uck7AgMBAAECggEAAzWW/Kdeph6Ua7VPfZ6W28IxHsor8Di/VoVMwgkW5bqF\nEV3jE4UbukXWacicZcZ/DvOy+QWSQfYhkgi02+ykx4SCsAJbwy1yYfTewAMzoeJz\nXerslvETC1sHr6tndCRDESCmNodKgnsNhpf7fHHwVeusQcAjU6e+yhMOuSskUaAV\npM310Pj3UPP58qBknFMCSeEkm6APwRQHolI2UzgvR7pI/0C6jn83/4gkr/Eit0sw\n/7JNAkPkDD0/2yApfMf0MA+/tmp//nLQG1ruYoCtTPw3Y9nqvxaS4eVpU6lkYV4Y\nHzPzbr8I4RQHYS9UI0wkk9VheK46jFdC+p2DY8LMTQKBgQD5TzLsFUBZmtI9sRks\nniFUOUAVz2zFbEyQtwpyO6VGFGaP1TmXVUm6ZYCcpjpifWcDBrPDMOVUtI/soAGI\no2Axq7CN/ov2/9x1VkFaSrn3ixvhSvJ+JjmplKfNzDCBsKcCkctRc8uX18887weI\nT48y83vg39Td7Kh1Px9+PMFxxQKBgQDaC9NaTptRbarmJk4/8IrlDUoakqpagtK5\npkiTtxVB4RU9laYKQrLZjH7aOmmQHK3WvFGXRbQDzc+BrulAt+XeaJdw3ppJ9y8R\npSUFkxo2A4jykJsUmUY4qoa3dAOYYkOoL7kDc7nsMRQbTSq1T4ZFDkBRDLFE5cWX\nDkrMTAj+/wKBgQC7zf6FO4kLNwazdGqLYt+mi64MAAJnQir3RPu4i9f3z7xnE2/b\n4WK16GqXFt2afe8Qp4bZPkczpQVacjpVjQUUxcotXRhgy+Nt/LkkZHBs2rz43TWI\n9BCx/4rdC7lqqQFWfS+VP06aJvc1Zrbc51nvPt4Ny2+WcgWAtTlrJidvJQKBgQC+\njfslPvEp1oe2Ht/frR4VUuniEy7hbtct+44N2cCwFD711SSIbwXSbaAmo0nB8e5S\nbb14UCgj8udX1D5wmsY++nTu5Ps9jNILv6F9H7OWZLx4D7wX4mOl/hFBnhfOQoIS\nJ7Kuu6JOMg36VhPu5BLZory+mDMLnSpy+sCPjhuGjQKBgQCFZUZZBX1OlMS34haR\nId/tSBRwppuGfwrhxzkOhrEMsbITYSshdAr8EFbY429Ww8rHweyixJ+UfX0KxUYH\ndbGtP8LFGkWTdIU9VlrL9UWdyozEyM9f/QeZPB/D9ETf8Cw7W9j5nQwJmnkyc5+k\nDUBSX+dizWEcl4Nfwi1kszbzwQ==\n-----END PRIVATE KEY-----\n",
+            "client_email": "firebase-adminsdk-pwrxs@ffbeequiplocal.iam.gserviceaccount.com",
+            "client_id": "112447873704352919650",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-pwrxs%40ffbeequiplocal.iam.gserviceaccount.com"
+        }
+    },
+    "imgur": {
+        "enabled": false,
+        "clientId": "<your imgur client id>"
+    }
+}

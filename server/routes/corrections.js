@@ -1,8 +1,8 @@
-const fs = require('fs');
-const express = require('express');
-const Ajv = require('ajv');
+import fs from 'fs'
+import express from 'express'
+import Ajv from 'ajv'
 
-const route = express.Router();
+export const route = express.Router();
 
 route.post('/:server/corrections', async (req, res) => {
     var ajv = new Ajv({allErrors: true, jsonPointers: true});
@@ -122,5 +122,3 @@ var schemaData = {
     },
     "additionalProperties": false
 }
-
-module.exports = route;

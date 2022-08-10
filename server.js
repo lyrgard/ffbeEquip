@@ -1,30 +1,34 @@
-const path = require('path');
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const sessions = require('client-sessions');
-const helmet = require('helmet');
-const mime = require('mime-types');
-var cors = require('cors')
+import path from 'path'
+import express from 'express'
+import bodyParser from 'body-parser';
+import sessions from 'client-sessions';
+import helmet from 'helmet'
+import mime from 'mime'
+import cors from 'cors'
+import ServerConfig from './config.js'
+import { route as corrections } from './server/routes/corrections.js';
+import { route as clientConfig } from './server/routes/clientConfig.js';
+import { route as oauth } from './server/routes/oauth.js'
+import { route as unitSkills } from './server/routes/unitSkills.js'
+import * as firebase from './server/routes/firebase.js';
+import { OAuthFunction as authRequired } from './server/middlewares/oauth.js';
+import { route as drive } from './server/routes/drive.js';
+import { boomJS as errorHandler } from './server/middlewares/boom.js';
+import { fileURLToPath } from 'url';
+import esMain from 'es-main';
 
-const config = require('./config.js');
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
-const firebase = config.firebase.enabled ? require('./server/routes/firebase.js') : null;
-const drive = config.google.enabled ? require('./server/routes/drive.js') : null;
-const oauth = config.google.enabled ? require('./server/routes/oauth.js') : null;
-const clientConfig = require('./server/routes/clientConfig.js');
-const corrections = require('./server/routes/corrections.js');
-const unitSkills = require('./server/routes/unitSkills.js');
-const errorHandler = require('./server/middlewares/boom.js');
-const authRequired = require('./server/middlewares/oauth.js');
+let config = ServerConfig.ServerConfig;
 
 const app = express();
 
 console.log(`Environment is: ${config.env}`);
 
 // Helmet Middleware
-app.use(helmet({
-    frameguard: false
+app.use(helmet.frameguard({
+  action: "deny"
 }));
 
 app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
@@ -46,24 +50,26 @@ console.log(corsOptions);
 
 app.use(cors(corsOptions));
 
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')))
+
 var cspDirectives = {
-  defaultSrc: ["'none'"],
-  scriptSrc: ["'self'", "'unsafe-inline'",
-    'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com', 'kit.fontawesome.com', 'ka-f.fontawesome.com'],
-  styleSrc: ["'self'", "'unsafe-inline'",
-    'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com'],
-  imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequip.com'],
-  fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com', 'kit-free.fontawesome.com', 'ka-f.fontawesome.com'],
-  connectSrc: ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image', 'https://ka-f.fontawesome.com'],
-  mediaSrc: ["'none'"],
-  objectSrc: ["'none'"],
-  childSrc: ["'self'"],
-  workerSrc: ["'self'"],
-  frameSrc: ["'self'"],
-  formAction: ["'self'"],
-  blockAllMixedContent: !config.isDev,
-  upgradeInsecureRequests: !config.isDev,
-  reportUri: 'https://ffbeequipnext.report-uri.com/r/d/csp/reportOnly',
+  "default-src": ["'self'"],
+  "script-src": ["'self'",'code.jquery.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com', 'kit.fontawesome.com', 'ka-f.fontawesome.com', "'unsafe-inline'"],
+  "script-src-attr": ["'unsafe-inline'"],
+  "style-src": ["'self'",'code.jquery.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', "'unsafe-inline'"],
+  "img-src": ["'self'", 'data:', 'blob:', 'content:', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequip.com', 'cdn.jsdelivr.net'],
+  "font-src": ["'self'", 'fonts.gstatic.com', 'kit-free.fontawesome.com', 'ka-f.fontawesome.com', 'maxcdn.bootstrapcdn.com'],
+  "connect-src": ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image', 'https://ka-f.fontawesome.com'],
+  "media-src": ["'none'"],
+  "object-src": ["'none'"],
+  "child-src": ["'self'"],
+  "worker-src": ["'self'"],
+  "frame-src": ["'self'"],
+  "formAction": ["'self'"],
+  "blockAllMixedContent": [],
+  "reportUri": 'https://ffbeequipnext.report-uri.com/r/d/csp/reportOnly',
 };
 
 // In development, do not report
@@ -71,7 +77,10 @@ if (config.isDev) {
   delete cspDirectives.reportUri;
 }
 
-app.use(helmet.contentSecurityPolicy({ directives: cspDirectives, reportOnly: !config.isDev }));
+app.use(helmet.contentSecurityPolicy({ 
+  directives: cspDirectives, 
+  reportOnly: !config.isDev 
+}));
 
 // Static middleware
 if (config.isProd || process.env.DEV_USE_DIST === "yes") {
@@ -104,16 +113,13 @@ app.use(express.static(path.join(__dirname, '/static/'), {
   maxAge: "1h",
   index: 'homepage.html',
   setHeaders: function (res, path) {
-    if (mime.lookup(path) === 'application/json') {
+    if (mime.getType(path) === 'application/json') {
       // For JSON, avoid caching
       res.setHeader('Cache-Control', 'public, max-age=0');
     }
   }
 }));
 
-if (config.isDev) {
-  app.use(morgan('dev'));
-}
 app.use(sessions({
   cookieName: 'OAuthSession',
   secret: config.secret,
@@ -128,6 +134,7 @@ if (config.google.enabled) {
 }
 app.use('/', corrections, unitSkills);
 if (config.firebase.enabled) {
+    console.log("Firebase is enabled.")
     app.use('/', firebase.unAuthenticatedRoute);
     app.use('/', authRequired, firebase.authenticatedRoute);
 }
@@ -152,10 +159,10 @@ if (process.env.PORT) {
     config.port = process.env.PORT;
 }
 
-if (module === require.main) {
+if (esMain(import.meta)) {
   app.listen(config.port, () => {
     console.log(`App server running at http://localhost:${config.port}`);
   });
 }
 
-module.exports = app;
+export default { app }

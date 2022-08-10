@@ -3180,7 +3180,7 @@
 	},
 	"100015005": {
 		"name":"Rain caballero mendicante",
-		"roles":[null],
+		"roles":["versatile"],
 		"wikiEntry":"Vagrant_Knight Rain",
 		"id":"100015005",
 		"max_rarity":"6",
@@ -17199,23 +17199,27 @@
 		"roles":["physicalAttacker"],
 		"wikiEntry":"Blue_Sky Belle Fran",
 		"id":"212001705",
-		"max_rarity":"7",
+		"braveShift":"212001727",
+		"exAwakening": [{"hp":648,"mp":41,"atk":36,"def":31,"mag":38,"spr":29},{"hp":499,"mp":31,"atk":28,"def":24,"mag":29,"spr":22},{"hp":349,"mp":22,"atk":20,"def":17,"mag":20,"spr":16}],
+		"fragmentId": "250010700",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4912,"mp":239,"atk":205,"def":188,"mag":184,"spr":190},
-			"minStats":{"hp":1621,"mp":79,"atk":68,"def":62,"mag":61,"spr":63},
+			"maxStats":{"hp":4988,"mp":314,"atk":280,"def":235,"mag":290,"spr":223},
+			"minStats":{"hp":1646,"mp":104,"atk":92,"def":78,"mag":96,"spr":74},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"],
+		"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Fira","Blizzaga","Thundara","Darkra","Darkga","Burning Bow (FFXII)"],
 		"6_form": {
 			"name":"Fran, bella del cielo azul",
 			"roles":["physicalAttacker"],
 			"wikiEntry":"Blue_Sky Belle Fran",
 			"id":"212001705",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -17224,8 +17228,46 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"]
+			"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"],
+			"enhancementSkills":["Fira","Blizzaga","Thundara","Darkra","Darkga","Burning Bow (FFXII)"]
+		},
+		"7_form": {
+			"name":"Fran, bella del cielo azul",
+			"roles":["physicalAttacker"],
+			"wikiEntry":"Blue_Sky Belle Fran",
+			"id":"212001705",
+			"sevenStarForm":true,
+			"max_rarity":"NV",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4912,"mp":239,"atk":205,"def":188,"mag":184,"spr":190},
+				"minStats":{"hp":1621,"mp":79,"atk":68,"def":62,"mag":61,"spr":63},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"],
+			"enhancementSkills":["Fira","Blizzaga","Thundara","Darkra","Darkga","Burning Bow (FFXII)"]
 		}
+	},
+	"212001727": {
+		"name":"Fran, bella del cielo azul BS",
+		"roles":["physicalAttacker","magicalAttacker"],
+		"wikiEntry":"Blue_Sky Belle Fran",
+		"id":"212001727",
+		"braveShifted":"212001705",
+		"exAwakening": [{"hp":648,"mp":41,"atk":36,"def":31,"mag":38,"spr":29},{"hp":499,"mp":31,"atk":28,"def":24,"mag":29,"spr":22},{"hp":349,"mp":22,"atk":20,"def":17,"mag":20,"spr":16}],
+		"fragmentId": "250010700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4988,"mp":314,"atk":280,"def":235,"mag":290,"spr":223},
+			"minStats":{"hp":1646,"mp":104,"atk":92,"def":78,"mag":96,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","bow","axe","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]
 	},
 	"212001804": {
 		"name":"Reks",
@@ -17399,9 +17441,9 @@
 		}
 	},
 	"212002407": {
-		"name":"Fastest Sky Pirate Balthier",
+		"name":"Balthier, azote de los cielos",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"最速の空賊バルフレア",
+		"wikiEntry":"Fleetfooted_Sky Pirate Balthier",
 		"id":"212002407",
 		"braveShift":"212002417",
 		"exAwakening": [{"hp":718,"mp":41,"atk":78,"def":23,"mag":23,"spr":26},{"hp":552,"mp":31,"atk":60,"def":18,"mag":17,"spr":20},{"hp":387,"mp":22,"atk":42,"def":12,"mag":12,"spr":14}],
@@ -17416,12 +17458,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","katana","spear","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["アクアバレット【XII TZA】","ソイルショット【XII TZA】"]
+		"enhancementSkills":["Aqua Shot (FFXII)","Mud Shot (FFXII)"]
 	},
 	"212002417": {
-		"name":"Fastest Sky Pirate Balthier BS",
+		"name":"Balthier, azote de los cielos BS",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"最速の空賊バルフレア",
+		"wikiEntry":"Fleetfooted_Sky Pirate Balthier",
 		"id":"212002417",
 		"braveShifted":"212002407",
 		"exAwakening": [{"hp":718,"mp":41,"atk":78,"def":23,"mag":23,"spr":26},{"hp":552,"mp":31,"atk":60,"def":18,"mag":17,"spr":20},{"hp":387,"mp":22,"atk":42,"def":12,"mag":12,"spr":14}],
@@ -17436,12 +17478,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","katana","spear","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["グングニル【XII TZA】"]
+		"enhancementSkills":["Firaga","Blizzara","Thundara","Gungnir (FFXII)"]
 	},
 	"212002507": {
-		"name":"Dynast King Descendant Ashe",
+		"name":"Ashe, descendiente del Rey Dinasta",
 		"roles":["magicalTank"],
-		"wikiEntry":"覇王の末裔アーシェ",
+		"wikiEntry":"Dynast-King's_Scion Ashe",
 		"id":"212002507",
 		"braveShift":"212002517",
 		"exAwakening": [{"hp":793,"mp":40,"atk":33,"def":22,"mag":35,"spr":70},{"hp":610,"mp":31,"atk":25,"def":17,"mag":27,"spr":54},{"hp":427,"mp":22,"atk":18,"def":12,"mag":19,"spr":38}],
@@ -17456,12 +17498,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["無双乱撃斬"]
+		"enhancementSkills":["Shield Mastery","Shellga","Fira","Firaga","Thundara","Thundaga","Cover - Magic I","Sword Mastery","Mace Mastery","Unmatched Sword Burst"]
 	},
 	"212002517": {
-		"name":"Dynast King Descendant Ashe BS",
+		"name":"Ashe, descendiente del Rey Dinasta BS",
 		"roles":["support","healer"],
-		"wikiEntry":"覇王の末裔アーシェ",
+		"wikiEntry":"Dynast-King's_Scion Ashe",
 		"id":"212002517",
 		"braveShifted":"212002507",
 		"exAwakening": [{"hp":793,"mp":40,"atk":33,"def":22,"mag":35,"spr":70},{"hp":610,"mp":31,"atk":25,"def":17,"mag":27,"spr":54},{"hp":427,"mp":22,"atk":18,"def":12,"mag":19,"spr":38}],
@@ -17476,12 +17518,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","staff","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["バブル"]
+		"enhancementSkills":["Shield Mastery","Protectga","Bubble","Shellga"]
 	},
 	"212002607": {
-		"name":"ラバナスタの少年ヴァン",
+		"name":"Vaan, joven de Rabanasta",
 		"roles":["debuffer"],
-		"wikiEntry":"ラバナスタの少年ヴァン",
+		"wikiEntry":"Youth_from Rabanastre Vaan",
 		"id":"212002607",
 		"braveShift":"212002617",
 		"exAwakening": [{"hp":664,"mp":35,"atk":70,"def":23,"mag":34,"spr":23},{"hp":511,"mp":27,"atk":54,"def":18,"mag":26,"spr":18},{"hp":357,"mp":19,"atk":38,"def":12,"mag":18,"spr":12}],
@@ -17496,12 +17538,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["オイル","フレイムスマッシュ","エアリアル【XII TZA】"]
+		"enhancementSkills":["Oil","フレイムスマッシュ","エアリアル【XII TZA】"]
 	},
 	"212002617": {
-		"name":"ラバナスタの少年ヴァン BS",
+		"name":"Vaan, joven de Rabanasta BS",
 		"roles":["debuffer"],
-		"wikiEntry":"ラバナスタの少年ヴァン",
+		"wikiEntry":"Youth_from Rabanastre Vaan",
 		"id":"212002617",
 		"braveShifted":"212002607",
 		"exAwakening": [{"hp":664,"mp":35,"atk":70,"def":23,"mag":34,"spr":23},{"hp":511,"mp":27,"atk":54,"def":18,"mag":26,"spr":18},{"hp":357,"mp":19,"atk":38,"def":12,"mag":18,"spr":12}],
@@ -17977,7 +18019,7 @@
 	},
 	"215000105": {
 		"name":"Noctis",
-		"roles":[null],
+		"roles":["versatile"],
 		"wikiEntry":"Noctis",
 		"id":"215000105",
 		"max_rarity":"7",
@@ -17993,7 +18035,7 @@
 		"enhancementSkills":["Fish","Link","Chosen King","Warp Strike"],
 		"6_form": {
 			"name":"Noctis",
-			"roles":[null],
+			"roles":["versatile"],
 			"wikiEntry":"Noctis",
 			"id":"215000105",
 			"sixStarForm":true,
@@ -19084,7 +19126,7 @@
 	},
 	"251000105": {
 		"name":"Tyro",
-		"roles":[null],
+		"roles":["versatile"],
 		"wikiEntry":"Tyro",
 		"id":"251000105",
 		"max_rarity":"7",
@@ -19099,7 +19141,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"6_form": {
 			"name":"Tyro",
-			"roles":[null],
+			"roles":["versatile"],
 			"wikiEntry":"Tyro",
 			"id":"251000105",
 			"sixStarForm":true,
@@ -26138,7 +26180,7 @@
 	},
 	"401007305": {
 		"name":"Katy llama inmortal",
-		"roles":[null],
+		"roles":["versatile"],
 		"wikiEntry":"Immortal_Flame Katy",
 		"id":"401007305",
 		"max_rarity":"7",
@@ -26153,7 +26195,7 @@
 		"equip":["staff","rod","harp","whip","throwing","lightShield","hat","clothes","robe"],
 		"6_form": {
 			"name":"Katy llama inmortal",
-			"roles":[null],
+			"roles":["versatile"],
 			"wikiEntry":"Immortal_Flame Katy",
 			"id":"401007305",
 			"sixStarForm":true,
@@ -26171,7 +26213,7 @@
 	},
 	"401007405": {
 		"name":"Katy IA",
-		"roles":[null],
+		"roles":["versatile"],
 		"wikiEntry":"A.I._Katy",
 		"id":"401007405",
 		"max_rarity":"7",
@@ -26186,7 +26228,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"6_form": {
 			"name":"Katy IA",
-			"roles":[null],
+			"roles":["versatile"],
 			"wikiEntry":"A.I._Katy",
 			"id":"401007405",
 			"sixStarForm":true,
@@ -28110,7 +28152,6 @@
   "210002707":{"name":"ロンゾの戦士キマリ","jpname":"ロンゾの戦士キマリ","roles":["magicalAttacker","physicalAttacker"],"id":"210002707","braveShift":"210002717","exAwakening":[{"hp":652,"mp":42,"atk":70,"def":26,"mag":75,"spr":27},{"hp":501,"mp":33,"atk":54,"def":20,"mag":58,"spr":21},{"hp":351,"mp":23,"atk":37,"def":14,"mag":40,"spr":14}],"fragmentId":"250011800","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5017,"mp":330,"atk":270,"def":207,"mag":290,"spr":213},"minStats":{"hp":1656,"mp":109,"atk":89,"def":68,"mag":96,"spr":70},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["axe","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["槍の極意","タネ大砲・改"]},
   "210002717":{"name":"ロンゾの戦士キマリ BS","jpname":"ロンゾの戦士キマリ BS","roles":["magicalAttacker","physicalAttacker"],"id":"210002717","braveShifted":"210002707","exAwakening":[{"hp":652,"mp":42,"atk":70,"def":26,"mag":75,"spr":27},{"hp":501,"mp":33,"atk":54,"def":20,"mag":58,"spr":21},{"hp":351,"mp":23,"atk":37,"def":14,"mag":40,"spr":14}],"fragmentId":"250011800","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5017,"mp":330,"atk":270,"def":207,"mag":290,"spr":213},"minStats":{"hp":1656,"mp":109,"atk":89,"def":68,"mag":96,"spr":70},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["axe","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
   "212001227":{"name":"ヴェイン BS","jpname":"ヴェイン BS","roles":["physicalAttacker","support","magicalAttacker"],"id":"212001227","braveShifted":"212001204","exAwakening":[{"hp":691,"mp":42,"atk":38,"def":32,"mag":36,"spr":39},{"hp":531,"mp":32,"atk":29,"def":24,"mag":28,"spr":30},{"hp":372,"mp":22,"atk":20,"def":17,"mag":20,"spr":21}],"fragmentId":"250010900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5312,"mp":320,"atk":290,"def":243,"mag":280,"spr":300},"minStats":{"hp":1753,"mp":106,"atk":96,"def":80,"mag":92,"spr":99},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","rod","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]},
-  "212001727":{"name":"蒼穹の麗人フラン BS","jpname":"蒼穹の麗人フラン BS","roles":["physicalAttacker","magicalAttacker"],"id":"212001727","braveShifted":"212001705","exAwakening":[{"hp":648,"mp":41,"atk":36,"def":31,"mag":38,"spr":29},{"hp":499,"mp":31,"atk":28,"def":24,"mag":29,"spr":22},{"hp":349,"mp":22,"atk":20,"def":17,"mag":20,"spr":16}],"fragmentId":"250010700","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4988,"mp":314,"atk":280,"def":235,"mag":290,"spr":223},"minStats":{"hp":1646,"mp":104,"atk":92,"def":78,"mag":96,"spr":74},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","bow","axe","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]},
   "249000407":{"name":"歌姫ユウナ","jpname":"歌姫ユウナ","roles":["support"],"id":"249000407","braveShift":"249000417","exAwakening":[{"hp":794,"mp":44,"atk":35,"def":30,"mag":78,"spr":39},{"hp":611,"mp":34,"atk":27,"def":23,"mag":60,"spr":30},{"hp":428,"mp":24,"atk":19,"def":16,"mag":42,"spr":21}],"fragmentId":"250012100","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":3978,"mp":288,"atk":117,"def":164,"mag":250,"spr":231},"minStats":{"hp":1313,"mp":95,"atk":39,"def":54,"mag":83,"spr":76},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["harp","hat","clothes","robe","visionCard"],"enhancementSkills":["カーニバルダンス"]},
   "249000417":{"name":"フロラフルル ユウナ BS","jpname":"フロラフルル ユウナ BS","roles":["magicalAttacker"],"id":"249000417","braveShifted":"249000407","exAwakening":[{"hp":794,"mp":44,"atk":35,"def":30,"mag":78,"spr":39},{"hp":611,"mp":34,"atk":27,"def":23,"mag":60,"spr":30},{"hp":428,"mp":24,"atk":19,"def":16,"mag":42,"spr":21}],"fragmentId":"250012100","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":6111,"mp":340,"atk":270,"def":230,"mag":300,"spr":300},"minStats":{"hp":2017,"mp":112,"atk":89,"def":76,"mag":99,"spr":99},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","gun","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["銃の極意","ロッドの極意","アクア乱舞(魔)"]},
   "249000507":{"name":"バーサーカー リュック","jpname":"バーサーカー リュック","roles":["physicalAttacker"],"id":"249000507","braveShift":"249000517","exAwakening":[{"hp":874,"mp":41,"atk":78,"def":39,"mag":16,"spr":13},{"hp":672,"mp":31,"atk":60,"def":30,"mag":12,"spr":10},{"hp":471,"mp":22,"atk":42,"def":21,"mag":9,"spr":7}],"fragmentId":"250012200","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5511,"mp":288,"atk":280,"def":280,"mag":86,"spr":68},"minStats":{"hp":1819,"mp":95,"atk":92,"def":92,"mag":28,"spr":22},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["fist","hat","clothes","robe","visionCard"],"enhancementSkills":["格闘の極意","うちけす"]},

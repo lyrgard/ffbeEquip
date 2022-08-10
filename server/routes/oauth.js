@@ -1,11 +1,11 @@
-const Joi = require('joi');
-const Boom = require('boom');
-const express = require('express');
-const validator = require('../middlewares/validator.js');
-const drive = require('../lib/drive.js');
-const OAuth = require('../lib/oauth.js');
+import Joi from 'joi'
+import Boom from '@hapi/boom'
+import express from 'express'
+import * as validator from '../middlewares/validator.js';
+import * as drive from '../lib/drive.js';
+import * as OAuth from '../lib/oauth.js';
 
-const route = express.Router();
+export const route = express.Router();
 
 /**
  * "GET /googleOAuthUrl"
@@ -22,6 +22,7 @@ const callbackSchema = Joi.object({
   state: Joi.string().uri().required(),
   scope: Joi.string(),
 });
+
 route.get('/googleOAuthSuccess', validator.query(callbackSchema), (req, res, next) => {
   const { state, code } = req.query;
 
@@ -55,4 +56,4 @@ route.get('/googleOAuthLogout', (req, res) => {
   return res.redirect('back');
 });
 
-module.exports = route;
+export default route

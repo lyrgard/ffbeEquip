@@ -1,5 +1,4 @@
-const Joi = require('joi');
-const Boom = require('boom');
+import Boom from '@hapi/boom'
 
 const capitalize = str => str[0].toUpperCase() + str.slice(1);
 
@@ -22,9 +21,8 @@ const validator = prop => (schema, opts) => (req, res, next) => {
   return next();
 };
 
-module.exports = {
-  query: validator('query'),
-  body: validator('body'),
-  headers: validator('headers'),
-  params: validator('params'),
-};
+export let query = validator('query');
+export let body = validator('body');
+export let headers = validator('headers');
+export let params = validator('params');
+

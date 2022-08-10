@@ -1,5 +1,8 @@
-var admin = require("firebase-admin");
-const config = require('../../config.js');
+import firebase from 'firebase-admin'
+let admin = firebase
+import ServerConfig from '../../config.js';
+
+let config = ServerConfig.ServerConfig
 
 admin.initializeApp({
   credential: admin.credential.cert(config.firebase.configuration),
@@ -8,4 +11,4 @@ admin.initializeApp({
 
 var bucket = admin.storage().bucket("gs://" + config.firebase.bucketUri);
 
-module.exports = bucket;
+export default { bucket }
