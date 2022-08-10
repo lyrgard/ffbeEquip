@@ -15,7 +15,7 @@ var onlyShow7Star = false;
 var showNumberTMRFarmed = false;
 var readOnly;
 var unitsToIgnoreForImport = {
-    'GL': ['100000327'],
+    'GL': [],
     'JP': []
 }
 
@@ -1252,6 +1252,10 @@ function treatImportFile(evt) {
                             // Try for NVA
                             if (unit.id.endsWith("17")) {
                                 baseUnitId = baseUnitIdBySpecificRarityUnitId[unit.id.substr(0, unit.id.length - 2) + "07"];
+                                NVA = true;
+                            }
+                            if (server === 'GL' && unit.id === "100000327" ) { //GL Dark Fina NVA doesn't match unit id standards used
+                                baseUnitId = "100000315";
                                 NVA = true;
                             }
                         }
