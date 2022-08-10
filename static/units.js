@@ -1271,6 +1271,9 @@ function treatImportFile(evt) {
                                     importedOwnedUnit[baseUnitId].nv = 0;
                                 }
                                 importedOwnedUnit[baseUnitId].nv++;
+                                if (unit.stmr < 1000) {
+                                    importedOwnedUnit[baseUnitId].farmableStmr++;
+                                }
                             } else if (unit.id.endsWith("7")) {
                                 if (!importedOwnedUnit[baseUnitId].sevenStar) {
                                     importedOwnedUnit[baseUnitId].sevenStar = 0;
