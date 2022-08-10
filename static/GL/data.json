@@ -8149,7 +8149,7 @@
     "rarity": 8
 }, {
     "id": "303008900",
-    "name": "Obliterating Crimson Saber",
+    "name": "Obliterating Crimson Saber",
     "access": ["STMR"],
     "type": "greatSword",
     "atk": 184,
@@ -8786,7 +8786,7 @@
     "rarity": 8
 }, {
     "id": "303011400",
-    "name": "Obliterating Crimson Saber",
+    "name": "Obliterating Crimson Saber",
     "access": ["recipe", "stmrUpgrade"],
     "type": "greatSword",
     "atk": 190,
@@ -17551,6 +17551,7 @@
     "atk": 220,
     "spr": 237,
     "accuracy": 50,
+    "exclusiveRoles":["magicalTank"],
     "damageVariance": {
         "min": 1.25,
         "max": 1.75
@@ -41774,7 +41775,7 @@
         "name": "dark",
         "percent": 30
     }],
-    "exclusiveRoles": "debuffer",
+    "exclusiveRoles": ["debuffer"],
     "stmrUnit": "100037907",
     "icon": "item_2170072.png",
     "sortId": 2575,
@@ -41860,7 +41861,7 @@
         "name": "light",
         "percent": 30
     }],
-    "exclusiveRoles": "debuffer",
+    "exclusiveRoles": ["debuffer"],
     "special": ["[Form of Iron Will|ability_127.png]:Use Form of Iron Will (515891) once, Use Form of Iron Will (515891) once"],
     "stmrUnit": "100038007",
     "icon": "item_2170073.png",
@@ -42072,7 +42073,7 @@
     "hp": 3000,
     "atk": 52,
     "def": 43,
-    "exclusiveRoles": "physicalAttacker",
+    "exclusiveRoles": ["physicalAttacker"],
     "tmrUnit": "100039307",
     "icon": "item_2170081.png",
     "sortId": 2680,
@@ -42091,7 +42092,7 @@
         "physical": 75,
         "magical": 75
     }],
-    "exclusiveRoles": "physicalAttacker",
+    "exclusiveRoles": ["physicalAttacker"],
     "tmrUnit": "100039307",
     "icon": "item_2170081.png",
     "sortId": 2680,
@@ -42302,7 +42303,7 @@
     "rarity": 1
 }, {
     "id": "406000200",
-    "name": "Copper Cuirass ",
+    "name": "Copper Cuirass ",
     "access": ["shop", "recipe"],
     "type": "lightArmor",
     "def": 14,
@@ -44473,7 +44474,7 @@
         "physical": 75,
         "magical": 75
     }],
-    "exclusiveRoles": "physicalTank",
+    "exclusiveRoles": ["physicalTank"],
     "stmrUnit": "201000607",
     "icon": "item_2190008.png",
     "sortId": 2649,
@@ -59124,7 +59125,7 @@
     "oneWeaponMastery": {
         "def": 50
     },
-    "exclusiveRoles": "physicalTank",
+    "exclusiveRoles": ["physicalTank"],
     "lbDamage": 50,
     "stmrUnit": "339000607",
     "icon": "item_2250177.png",
