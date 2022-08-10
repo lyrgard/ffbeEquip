@@ -1224,16 +1224,15 @@ function treatImportFile(evt) {
                     importedOwnedUnit = null;
                     return;
                 } else if (!unitsToIgnoreForImport[server].includes(unit.id)) {
-                    if (unit.id == '904000115' && unit.tmr < 1000) {
+                    if (unit.id == '904000115' && unit.tmr < 1000) { //Prisms
                         let baseUnitId = baseUnitIdByTmrId[unit.tmrId]
                         if (baseUnitId) {
                             if (!importedOwnedUnit[baseUnitId]) {
-                                importedOwnedUnit[baseUnitId] = {"number":0,"farmable":1,"sevenStar":0,"farmableStmr":0};
-                            } else {
-                                importedOwnedUnit[baseUnitId].farmable++;
+                                importedOwnedUnit[baseUnitId] = {"number":0,"farmable":0,"sevenStar":0,"farmableStmr":0};
                             }
+                            importedOwnedUnit[baseUnitId].farmable++;
                         }
-                    } else if (unit.id == '904000103') {
+                    } else if (unit.id == '904000103') { //TMR Moogles
                         let baseUnitId = baseUnitIdByTmrId[unit.tmrId]
                         if (baseUnitId) {
                             if (!importedOwnedUnit[baseUnitId]) {
@@ -1270,7 +1269,7 @@ function treatImportFile(evt) {
                             if (unit.tmr < 1000) {
                                 importedOwnedUnit[baseUnitId].farmable++;
                             }
-                            if (NVA || units[baseUnitId].min_rarity === 'NV') {
+                            if (NVA || units[baseUnitId].min_rarity === 'NV') { // Case of NVA or NV Unit
                                 if (!importedOwnedUnit[baseUnitId].nv) {
                                     importedOwnedUnit[baseUnitId].nv = 0;
                                 }
@@ -1278,16 +1277,12 @@ function treatImportFile(evt) {
                                 if (unit.stmr < 1000) {
                                     importedOwnedUnit[baseUnitId].farmableStmr++;
                                 }
-                            } else if (unit.id.endsWith("7")) {
-                                if (!importedOwnedUnit[baseUnitId].sevenStar) {
-                                    importedOwnedUnit[baseUnitId].sevenStar = 0;
-                                    importedOwnedUnit[baseUnitId].farmableStmr = 0;
-                                }
+                            } else if (unit.id.endsWith("7")) { // Seven star units
                                 importedOwnedUnit[baseUnitId].sevenStar++;
                                 if (unit.stmr < 1000) {
                                     importedOwnedUnit[baseUnitId].farmableStmr++;
                                 }
-                            } else {
+                            } else { // Sub seven star units.
                                 importedOwnedUnit[baseUnitId].number++;
                             }
                         }
