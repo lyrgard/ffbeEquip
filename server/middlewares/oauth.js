@@ -10,6 +10,7 @@ export function OAuthFunction(req, res, next){
 
   return req.OAuth2Client.getRequestMetadataAsync(null, (error) => {
     req.OAuthSession.tokens = req.OAuth2Client.credentials;
+    console.log(req.OAuthSession.tokens)
     next(error);
   });
 };
