@@ -2503,25 +2503,7 @@ function isEquipedConditionViable(equipedConditions) {
     return true;
 }
 
-function checkFiles() {
-    console.log("CHECKING FOR LOCALSTORAGE")
-    if (localStorageAvailable){
-        console.log("LOCAL STORAGE AVAILABLE")
-        console.log("CHECKING FOR SAVEDFILES")
-        console.log("SAVED FILES: " + localStorage.getItem("savedFiles"))
-        console.log("WHAT FILES ARE AVAILABLE VIA GOOGLE DRIVE?")
-    }
-
-    console.log("ATTEMPTING TO CALL DRIVE.JS")
-    fetch(server + "/userData", ()=> {
-        console.log("FETCHED")
-    })
-}
-
 $(function() {
-    console.log("ATTEMPTING TO POPULATE MISSING FILES...")
-    console.log("CALLING FUNCTION TO CHECK FOR EXISTING FILES...")
-    checkFiles()
     $.notify.defaults({"globalPosition":"bottom right"});
     try {
         // Bust the whole localStorage in case of old array used in order to get a clean state
