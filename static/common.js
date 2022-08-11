@@ -2544,7 +2544,7 @@ $(function() {
     } else {
         console.log("Getting Item Inventory...")
 
-        $.get("https://www.ffbeequipnext.com" + server + '/itemInventory', function(result) {
+        $.get("https://www.ffbeequipnext.com/" + server + '/itemInventory', function(result) {
             console.log("Got inventory")
             itemInventory = result;
             if (!itemInventory.enchantments) {
