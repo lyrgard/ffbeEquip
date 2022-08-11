@@ -8,7 +8,7 @@ export const route = express.Router();
 
 const userDataFiles = ["units", "itemInventory", "espers", "settings"];
 
-route.get('/:server/userData', async (req, res) => {
+route.get('/server/userData', async (req, res) => {
   const { server } = req.params;
   const auth = req.OAuth2Client;
 
@@ -25,7 +25,7 @@ route.get('/:server/userData', async (req, res) => {
   return res.status(200).json(result);
 });
 
-route.get('/:server/:table', async (req, res) => {
+route.get('/server/:table', async (req, res) => {
   const { server, table } = req.params;
   const auth = req.OAuth2Client;
 
@@ -38,7 +38,7 @@ route.get('/:server/:table', async (req, res) => {
 });
 
 
-route.put('/:server/:table', async (req, res) => {
+route.put('/server/:table', async (req, res) => {
   const { server, table } = req.params;
   const auth = req.OAuth2Client;
 
