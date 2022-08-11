@@ -8,7 +8,7 @@ export const route = express.Router();
 
 const userDataFiles = ["units", "itemInventory", "espers", "settings"];
 
-route.get('/:server/userData', async (req, res) => {
+route.get('/:server/:userData', async (req, res) => {
   const { server } = req.params;
   const auth = req.OAuth2Client;
 

@@ -65,7 +65,7 @@ const update = (auth, fileId, data) => {
  */
 export const readJson = async (auth, fileName, emptyValue) => {
   const files = await list(auth);
-  console.log("Files: " + files)
+
   if (files.length === 0) {
     return emptyValue;
   }
