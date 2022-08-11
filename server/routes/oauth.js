@@ -35,10 +35,8 @@ route.get('/googleOAuthSuccess', validator.query(callbackSchema), (req, res, nex
     req.OAuthSession.tokens = tokens;
     const auth = OAuth.createClient(tokens);
     if (tokens.refresh_token) {
-        console.log("Refresh tokens found.")
         await drive.writeJson(auth, 'refreshToken.json', {"refreshToken": tokens.refresh_token});
     } else {
-      console.log("Refresh tokens not found.")
         let refreshTokenData = await drive.readJson(auth, 'refreshToken.json', {});
         if (!refreshTokenData.refreshToken) {
             return res.redirect(OAuth.authUrlConsent + "&state=" + encodeURIComponent(state));
