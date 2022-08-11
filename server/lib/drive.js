@@ -55,8 +55,8 @@ const update = (auth, fileId, data) => {
     }, cb))
     .then(res => res.data);
 };
-
-/**
+mimeType
+/**c  c,m m 
  * @summary Read a JSON file on gDrive
  * @param {OAuht2} auth - OAuth2 Client
  * @param {string} fileName
