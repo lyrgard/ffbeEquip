@@ -8,10 +8,7 @@ export const route = express.Router();
 
 const userDataFiles = ["units", "itemInventory", "espers", "settings"];
 
-console.log("drive.js")
-
 route.get('/:server/userData', async (req, res) => {
-  console.log("HERE")
   const { server } = req.params;
   const auth = req.OAuth2Client;
 
@@ -29,7 +26,6 @@ route.get('/:server/userData', async (req, res) => {
 });
 
 route.get('/:server/:table', async (req, res) => {
-  console.log("Here too")
   const { server, table } = req.params;
   const auth = req.OAuth2Client;
 
@@ -55,4 +51,4 @@ route.put('/:server/:table', async (req, res) => {
 
 
 
-export default { route }
+export default route
