@@ -2136,6 +2136,7 @@ staticFileCache = {
         if (!localStorageAvailable) return false;
 
         try {
+            console.log(localStorage)
             var storedDataVersion = JSON.parse(localStorage.getItem("dataVersion"));
             if (storedDataVersion.version === version && storedDataVersion.server === server && storedDataVersion.language === language) {
                 return true
