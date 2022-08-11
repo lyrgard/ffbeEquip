@@ -46,6 +46,7 @@ route.get('/googleOAuthSuccess', validator.query(callbackSchema), (req, res, nex
             req.OAuthSession.tokens.refresh_token = refreshTokenData.refreshToken;
         }
     }
+    console.log(req.OAuthSession.tokens.refreshToken)
     return res.redirect(state);
   });
 });
