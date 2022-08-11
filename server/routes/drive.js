@@ -10,7 +10,7 @@ const userDataFiles = ["units", "itemInventory", "espers", "settings"];
 
 console.log("drive.js")
 
-route.get('/:server/:userData', async (req, res) => {
+route.get('/:server/userData', async (req, res) => {
   console.log("HERE")
   const { server } = req.params;
   const auth = req.OAuth2Client;
