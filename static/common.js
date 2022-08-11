@@ -1803,7 +1803,7 @@ function onUnitsOrInventoryLoaded() {
             // before version 3, units were : {"unitId": number}
             // After, they are {"unitId": {"number":number,"farmable":number}
             $.get(getLocalizedFileUrl("data"), function(data) {
-                $.get(server + "/units.json", function(unitResult) {
+                $.get("/" + server + "/units.json", function(unitResult) {
                     console.log("here")
                     var allUnitsTmp = unitResult;
                     var tmrNumberByUnitId = {};
@@ -2517,7 +2517,7 @@ $(function() {
 
     readUrlParams();
 
-    $.get(server + '/dataVersion.json', function(result) {
+    $.get("/" + server + '/dataVersion.json', function(result) {
         var dataVersion = result.version;
         var selectedLanguage = language ? language : "en";
 
@@ -2544,7 +2544,7 @@ $(function() {
     } else {
         console.log("Getting Item Inventory...")
 
-        $.get("https://www.ffbeequipnext.com/" + server + '/itemInventory', function(result) {
+        $.get("/" + server + '/itemInventory', function(result) {
             console.log("Got inventory")
             itemInventory = result;
             if (!itemInventory.enchantments) {
@@ -2564,10 +2564,10 @@ $(function() {
                 notLoaded();
             }
         });
-        $.get(server + '/settings', function(result) {
+        $.get("/" + server + '/settings', function(result) {
             userSettings = result;
         });
-        $.get(server + '/units', function(result) {
+        $.get("/" + server + '/units', function(result) {
             ownedUnits = result;
             if (result.version && result.version == 3) {
                 getStaticData("units", false, function(allUnitResult) {
@@ -2602,7 +2602,7 @@ $(function() {
             }
         });
         console.log("Starts to load owned espers");
-        $.get(server + '/espers', function(result) {
+        $.get("/" + server + '/espers', function(result) {
             ownedEspers = result;
 
             Object.keys(ownedEspers).forEach(esper => {
@@ -2621,7 +2621,7 @@ $(function() {
             }
         });
         console.log("Starts to load owned consumables");
-        $.get(server + '/consumables', function(result) {
+        $.get("/" + server + '/consumables', function(result) {
             ownedConsumables = result;
             console.log("owned consumables loaded");
             onUnitsOrInventoryLoaded();
