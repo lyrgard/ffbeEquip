@@ -2544,7 +2544,7 @@ $(function() {
     } else {
         console.log("Getting Item Inventory...")
 
-        $.get("/" + server + '/itemInventory', function(result) {
+        $.get(server + '/itemInventory', function(result) {
             console.log("Got inventory")
             itemInventory = result;
             if (!itemInventory.enchantments) {
@@ -2564,10 +2564,10 @@ $(function() {
                 notLoaded();
             }
         });
-        $.get("/" + server + '/settings', function(result) {
+        $.get(server + '/settings', function(result) {
             userSettings = result;
         });
-        $.get("/" + server + '/units', function(result) {
+        $.get(server + '/units', function(result) {
             ownedUnits = result;
             if (result.version && result.version == 3) {
                 getStaticData("units", false, function(allUnitResult) {
