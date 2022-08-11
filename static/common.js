@@ -2136,7 +2136,6 @@ staticFileCache = {
         if (!localStorageAvailable) return false;
 
         try {
-            console.log(localStorage)
             var storedDataVersion = JSON.parse(localStorage.getItem("dataVersion"));
             if (storedDataVersion.version === version && storedDataVersion.server === server && storedDataVersion.language === language) {
                 return true
@@ -2508,8 +2507,8 @@ $(function() {
     try {
         // Bust the whole localStorage in case of old array used in order to get a clean state
         // @TODO: can be removed after october 2018
-        console.log(localStorage)
-        if (localStorageAvailable && !$.isArray(JSON.parse(localStorage.getItem("savedFiles")))) {
+        console.log(localStorages)
+        if (localStorageAvailable && $.isArray(JSON.parse(localStorage.getItem("savedFiles")))) {
             localStorage.clear();
             window.console && window.console.warn("Clearing the whole localStorage!");
         }

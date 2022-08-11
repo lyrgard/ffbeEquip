@@ -91,7 +91,7 @@ export const readJson = async (auth, fileName, emptyValue) => {
  */
 export const writeJson = async (auth, fileName, data) => {
   const files = await list(auth);
-  console.log(files)
+  
   if (files.length === 0) {
     return create(auth, fileName, data);
   }
