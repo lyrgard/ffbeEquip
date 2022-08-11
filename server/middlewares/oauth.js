@@ -7,6 +7,7 @@ export function OAuthFunction(req, res, next){
     return res.status(401).send();
   }
 
+  console.log("Tokens found")
   req.OAuth2Client = OAuth.createClient(tokens);
 
   return req.OAuth2Client.getRequestMetadataAsync(null, (error) => {
