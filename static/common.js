@@ -2509,7 +2509,7 @@ $(function() {
         // Bust the whole localStorage in case of old array used in order to get a clean state
         // @TODO: can be removed after october 2018
         console.log(localStorage)
-        if (localStorageAvailable && $.isArray(JSON.parse(localStorage.getItem("savedFiles")))) {
+        if (localStorageAvailable && !$.isArray(JSON.parse(localStorage.getItem("savedFiles")))) {
             localStorage.clear();
             window.console && window.console.warn("Clearing the whole localStorage!");
         }
