@@ -2513,8 +2513,8 @@ function checkFiles() {
     }
 
     console.log("ATTEMPTING TO CALL DRIVE.JS")
-    $.get("/GL/userData", function(results) {
-        console.log("SUCCESSFUL")
+    fetch(server + "/userData", ()=> {
+        console.log("FETCHED")
     })
 }
 
