@@ -1,6 +1,7 @@
 import OAuth  from "../lib/oauth.js";
 
 export function OAuthFunction(req, res, next){
+  console.log("AUTHREQUIRED")
   const { tokens } = req.OAuthSession;
   if (!tokens) {
     return res.status(401).send();
