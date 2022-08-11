@@ -41,10 +41,8 @@ route.get('/googleOAuthSuccess', validator.query(callbackSchema), (req, res, nex
       console.log("Refresh tokens not found.")
         let refreshTokenData = await drive.readJson(auth, 'refreshToken.json', {});
         if (!refreshTokenData.refreshToken) {
-            console.log("Refresh token not on Google Drive")
             return res.redirect(OAuth.authUrlConsent + "&state=" + encodeURIComponent(state));
         } else {
-            console.log("Using Google Drive Refresh Token")
             req.OAuthSession.tokens.refresh_token = refreshTokenData.refreshToken;
         }
     }
