@@ -2515,10 +2515,6 @@ $(function() {
         }
     } catch (e) {}
 
-    //Check if files are created
-
-    fileCheck();
-
 
     readUrlParams();
 
@@ -2671,16 +2667,6 @@ $(function() {
         });
     }
 });
-
-function fileCheck() {
-    if (localStorage){
-        if(!localStorage.getItem(itemInventory)){
-            $.get(server + "/userData", function(result) {
-                onUnitsOrInventoryLoaded()
-            })
-        }
-    }
-}
 
 
 /*
