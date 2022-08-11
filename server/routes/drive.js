@@ -29,6 +29,7 @@ route.get('/:server/userData', async (req, res) => {
 });
 
 route.get('/:server/:table', async (req, res) => {
+  console.log("Here too")
   const { server, table } = req.params;
   const auth = req.OAuth2Client;
 
