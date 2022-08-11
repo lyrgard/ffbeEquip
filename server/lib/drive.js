@@ -67,7 +67,7 @@ export const readJson = async (auth, fileName, emptyValue) => {
   const files = await list(auth);
 
   Object.keys(files).forEach((file)=> {
-    console.log(file)
+    console.log(files[file])
   })
 
   if (files.length === 0) {
