@@ -1,6 +1,6 @@
 import Bluebird from 'bluebird';
 import { google } from 'googleapis';
-import * as is from '@sindresorhus/is'
+import { is } from '@sindresorhus/is'
 
 const Promise = Bluebird
 
