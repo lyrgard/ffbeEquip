@@ -2545,7 +2545,7 @@ $(function() {
     } else {
         console.log("Getting Item Inventory...")
 
-        $.get(server + '/itemInventory', function(result) {
+        $.get("/" + server + '/itemInventory', function(result) {
             console.log("Got inventory")
             itemInventory = result;
             if (!itemInventory.enchantments) {
