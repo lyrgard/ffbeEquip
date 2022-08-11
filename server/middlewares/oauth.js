@@ -16,6 +16,8 @@ export function OAuthFunction(req, res, next){
     next(error);
   });
 
+  console.log(output)
+
   return output
 };
 
