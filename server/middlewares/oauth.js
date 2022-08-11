@@ -1,6 +1,6 @@
 import OAuth  from "../lib/oauth.js";
 
-export function OAuthFunction(req, res, next){
+export default (req, res, next) => {
   const { tokens } = req.OAuthSession;
   if (!tokens) {
     return res.status(401).send();
@@ -14,5 +14,3 @@ export function OAuthFunction(req, res, next){
     next(error);
   });
 };
-
-export default { OAuthFunction }

@@ -11,7 +11,7 @@ import { route as clientConfig } from './server/routes/clientConfig.js';
 import { route as oauth } from './server/routes/oauth.js'
 import { route as unitSkills } from './server/routes/unitSkills.js'
 import * as firebase from './server/routes/firebase.js';
-import { OAuthFunction as authRequired } from './server/middlewares/oauth.js';
+import * as authRequired from './server/middlewares/oauth.js';
 import { route as drive } from './server/routes/drive.js';
 import { boomJS as errorHandler } from './server/middlewares/boom.js';
 import { fileURLToPath } from 'url';
