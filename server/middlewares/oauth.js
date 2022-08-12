@@ -10,11 +10,12 @@ export function OAuthFunction(req, res, next){
   console.log("Tokens found")
   req.OAuth2Client = OAuth.createClient(tokens);
 
-  let output = req.OAuth2Client.getRequestMetadataAsync(null, (error) => {
-    req.OAuthSession.tokens = req.OAuth2Client.credentials;
-    console.log(req.OAuthSession.tokens)
-    next(error);
-  });
+  let output = req.OAuth2Client.getRequestMetadataAsync(null)
+
+  if (!output) {
+      req.OAuthSession.tokens = req.OAuth2Client.credentials;
+      console.log(req.OAuthSession.tokens)
+  }
 
   console.log(output)
 
