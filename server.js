@@ -131,7 +131,7 @@ app.use(bodyParser.json({'limit':'1mb'}));
 app.use('/clientConfig', clientConfig);
 if (config.google.enabled) {
     app.use('/', oauth);
-    app.use('/', drive, authRequired);
+    app.use('/', authRequired, drive);
 }
 app.use('/', corrections, unitSkills);
 if (config.firebase.enabled) {
