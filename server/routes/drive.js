@@ -52,6 +52,7 @@ route.put('/:server/:table', async (req, res) => {
 
 route.get('/supertest', async(req, res) => {
   console.log("SUPERTEST")
+  return res.status(200)
 })
 
 
