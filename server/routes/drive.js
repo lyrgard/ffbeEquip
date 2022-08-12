@@ -27,15 +27,15 @@ route.get('/:server/userData', async (req, res) => {
 
 route.get('/:server/:table', async (req, res) => {
   console.log(`${table}_${server}.json`)
-  const { server, table } = req.params;
-  const auth = req.OAuth2Client;
+  // const { server, table } = req.params;
+  // const auth = req.OAuth2Client;
 
-  let db = await drive.readJson(auth, `${table}_${server}.json`, {});
-  if (db.version < DB_VERSION) {
-    db = migration.up(table, db);
-  }
+  // let db = await drive.readJson(auth, `${table}_${server}.json`, {});
+  // if (db.version < DB_VERSION) {
+  //   db = migration.up(table, db);
+  // }
 
-  return res.status(200).json(db);
+  // return res.status(200).json(db);
 });
 
 
