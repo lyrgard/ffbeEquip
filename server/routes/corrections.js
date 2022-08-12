@@ -24,7 +24,7 @@ route.post('/:server/corrections', async (req, res) => {
     
     // Retrieve existing file content
     var fileName = 'static/' + req.params.server + '/corrections.json';
-    fs.exists(fileName, function (fileExists) {
+    if (fileName){
         fs.readFile(fileName, 'utf8', function (err, fileContent) {
             var tempItems = {};
             if (err && fileExists) {
@@ -64,7 +64,7 @@ route.post('/:server/corrections', async (req, res) => {
                 });
             }
         });
-    });
+    }
 });
 
 /* 

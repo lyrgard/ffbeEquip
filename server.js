@@ -83,25 +83,42 @@ app.use(helmet.contentSecurityPolicy({
 }));
 
 // Static middleware
-if (config.isProd || process.env.DEV_USE_DIST === "yes") {
-  console.log(`App is also serving dist`);
-  // In prod, also serve dist folder (which contains the webpack generated files)
-  // Any files present in 'dist' will shadow files in 'static'
-  app.use(express.static(path.join(__dirname, '/dist/'), {
-    etag: false,
-    lastModified: config.isProd,
-    cacheControl: config.isProd,
-    maxAge: "365d",
-    immutable: config.isProd,
-    index: 'homepage.html',
-    setHeaders: function (res, path) {
-      if (mime.lookup(path) === 'text/html') {
-        // For HTML, avoid long and immutable cache since it can't be busted
-        res.setHeader('Cache-Control', 'public, max-age=0');
-      }
+// if (config.isProd || process.env.DEV_USE_DIST === "yes") {
+//   console.log(`App is also serving dist`);
+//   // In prod, also serve dist folder (which contains the webpack generated files)
+//   // Any files present in 'dist' will shadow files in 'static'
+//   app.use(express.static(path.join(__dirname, '/dist/'), {
+//     etag: false,
+//     lastModified: config.isProd,
+//     cacheControl: config.isProd,
+//     maxAge: "365d",
+//     immutable: config.isProd,
+//     index: 'homepage.html',
+//     setHeaders: function (res, path) {
+//       if (mime.lookup(path) === 'text/html') {
+//         // For HTML, avoid long and immutable cache since it can't be busted
+//         res.setHeader('Cache-Control', 'public, max-age=0');
+//       }
+//     }
+//   }));
+// }
+
+// Static middleware 
+// Serve static files directly
+// Cache related headers are disabled in dev
+app.use(express.static(path.join(__dirname, '/static/'), {
+  etag: false,
+  cacheControl: config.isProd,
+  lastModified: config.isProd,
+  maxAge: "1h",
+  index: 'homepage.html',
+  setHeaders: function (res, path) {
+    if (mime.getType(path) === 'application/json') {
+      // For JSON, avoid caching
+      res.setHeader('Cache-Control', 'public, max-age=0');
     }
-  }));
-}
+  }
+}));
 
 app.use(sessions({
   cookieName: 'OAuthSession',
@@ -122,7 +139,7 @@ if (config.firebase.enabled) {
     app.use('/', authRequired, firebase.authenticatedRoute);
 }
 if (config.google.enabled) {
-    app.use('/', drive);
+    app.use('/', authRequired, drive);
 }
 
 // Old index.html file no longer exists
@@ -137,23 +154,6 @@ app.use((req, res) => {
 });
 
 app.use(errorHandler);
-
-// Static middleware 
-// Serve static files directly
-// Cache related headers are disabled in dev
-app.use(express.static(path.join(__dirname, '/static/'), {
-  etag: false,
-  cacheControl: config.isProd,
-  lastModified: config.isProd,
-  maxAge: "1h",
-  index: 'homepage.html',
-  setHeaders: function (res, path) {
-    if (mime.getType(path) === 'application/json') {
-      // For JSON, avoid caching
-      res.setHeader('Cache-Control', 'public, max-age=0');
-    }
-  }
-}));
 
 if (process.env.PORT) {
     config.port = process.env.PORT;
