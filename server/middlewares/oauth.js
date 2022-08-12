@@ -8,6 +8,7 @@ export function OAuthFunction(req, res, next){
 
   console.log(req.OAuth2Client)
   req.OAuth2Client = OAuth.createClient(tokens);
+  console.log(req.OAuth2Client)
 
   console.log("Tokens exist.")
   console.log(tokens)
