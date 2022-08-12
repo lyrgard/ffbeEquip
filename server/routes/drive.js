@@ -52,6 +52,7 @@ route.put('/:server/:table', async (req, res) => {
 
 route.get('/testing', (req, res) => {
   console.log(req)
+  console.log("HERERERERE")
 })
 
 export default route
