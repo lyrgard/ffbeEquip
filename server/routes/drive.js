@@ -1,6 +1,7 @@
 import express from 'express'
 import * as drive from '../lib/drive.js';
 import * as migration from '../lib/migration.js';
+import { OAuthFunction } from '../middlewares/oauth.js';
 
 const DB_VERSION = 3;
 
@@ -26,6 +27,8 @@ route.get('/:server/userData', async (req, res) => {
 });
 
 route.get('/:server/:table', async (req, res) => {
+  console.log("HERE")
+  OAuthFunction()
   const { server, table } = req.params;
   const auth = req.OAuth2Client;
 
