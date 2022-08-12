@@ -27,7 +27,7 @@ route.get('/:server/userData', async (req, res) => {
 });
 
 route.get('/:server/:table', async (req, res) => {
-  console.log("HERE")
+  console.log(req)
   OAuthFunction()
   const { server, table } = req.params;
   const auth = req.OAuth2Client;
