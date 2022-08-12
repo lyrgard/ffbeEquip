@@ -26,6 +26,11 @@ const app = express();
 
 console.log(`Environment is: ${config.env}`);
 
+
+if (config.google.enabled) {
+  app.use('/', authRequired, drive);
+}
+
 // Helmet Middleware
 app.use(helmet.frameguard({
   action: "deny"
@@ -138,9 +143,7 @@ if (config.firebase.enabled) {
     app.use('/', firebase.unAuthenticatedRoute);
     app.use('/', authRequired, firebase.authenticatedRoute);
 }
-if (config.google.enabled) {
-    app.use('/', authRequired, drive);
-}
+
 
 // Old index.html file no longer exists
 // Redirect users to homepage
