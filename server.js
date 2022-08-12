@@ -26,11 +26,6 @@ const app = express();
 
 console.log(`Environment is: ${config.env}`);
 
-
-if (config.google.enabled) {
-  app.use('/', authRequired, drive);
-}
-
 // Helmet Middleware
 app.use(helmet.frameguard({
   action: "deny"
@@ -136,6 +131,7 @@ app.use(bodyParser.json({'limit':'1mb'}));
 app.use('/clientConfig', clientConfig);
 if (config.google.enabled) {
     app.use('/', oauth);
+    app.use('/', authRequired, drive);
 }
 app.use('/', corrections, unitSkills);
 if (config.firebase.enabled) {
@@ -143,7 +139,6 @@ if (config.firebase.enabled) {
     app.use('/', firebase.unAuthenticatedRoute);
     app.use('/', authRequired, firebase.authenticatedRoute);
 }
-
 
 // Old index.html file no longer exists
 // Redirect users to homepage
