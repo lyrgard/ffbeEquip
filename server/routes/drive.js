@@ -50,6 +50,10 @@ route.put('/:server/:table', async (req, res) => {
   return res.status(200).json(data);
 });
 
+route.get('/supertest', async(res, res) => {
+  console.log("SUPERTEST")
+})
+
 
 
 export default route
