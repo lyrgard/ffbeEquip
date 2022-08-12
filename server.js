@@ -11,7 +11,7 @@ import { route as clientConfig } from './server/routes/clientConfig.js';
 import { route as oauth } from './server/routes/oauth.js'
 import { route as unitSkills } from './server/routes/unitSkills.js'
 import * as firebase from './server/routes/firebase.js';
-import  * as authRequired from './server/middlewares/oauth.js';
+import { OAuthFunction as authRequired } from './server/middlewares/oauth.js';
 import { route as drive } from './server/routes/drive.js';
 import { boomJS as errorHandler } from './server/middlewares/boom.js';
 import { fileURLToPath } from 'url';
@@ -136,10 +136,10 @@ app.use('/', corrections, unitSkills);
 if (config.firebase.enabled) {
     console.log("Firebase is enabled.")
     app.use('/', firebase.unAuthenticatedRoute);
-    app.set('/', authRequired, firebase.authenticatedRoute);
+    app.use('/', authRequired, firebase.authenticatedRoute);
 }
 if (config.google.enabled) {
-    app.set('/', authRequired, drive);
+    app.use('/', authRequired, drive);
 }
 
 // Old index.html file no longer exists
