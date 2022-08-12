@@ -1,7 +1,6 @@
 import express from 'express'
 import * as drive from '../lib/drive.js';
 import * as migration from '../lib/migration.js';
-import { OAuthFunction } from '../middlewares/oauth.js';
 
 const DB_VERSION = 3;
 
@@ -50,6 +49,11 @@ route.put('/:server/:table', async (req, res) => {
 
   return res.status(200).json(data);
 });
+
+route.get('/testing', (req, res) => {
+  console.log("Logged activity")
+  res.sendStatus(200)
+})
 
 
 

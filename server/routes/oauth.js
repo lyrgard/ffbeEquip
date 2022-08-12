@@ -32,6 +32,7 @@ route.get('/googleOAuthSuccess', validator.query(callbackSchema), (req, res, nex
         statusCode: err.code,
       }));
     }
+    // Put the tokens we get from OAuth into our cookie
     req.OAuthSession.tokens = tokens;
     const auth = OAuth.createClient(tokens);
     if (tokens.refresh_token) {
@@ -41,10 +42,12 @@ route.get('/googleOAuthSuccess', validator.query(callbackSchema), (req, res, nex
         if (!refreshTokenData.refreshToken) {
             return res.redirect(OAuth.authUrlConsent + "&state=" + encodeURIComponent(state));
         } else {
+          // Write the refresh token to the cookie
             req.OAuthSession.tokens.refresh_token = refreshTokenData.refreshToken;
         }
     }
     
+    //Redirects back to the page that initiated the OAuth
     return res.redirect(state);
   });
 });
