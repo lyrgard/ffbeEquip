@@ -103,23 +103,6 @@ if (config.isProd || process.env.DEV_USE_DIST === "yes") {
   }));
 }
 
-// Static middleware 
-// Serve static files directly
-// Cache related headers are disabled in dev
-app.use(express.static(path.join(__dirname, '/static/'), {
-  etag: false,
-  cacheControl: config.isProd,
-  lastModified: config.isProd,
-  maxAge: "1h",
-  index: 'homepage.html',
-  setHeaders: function (res, path) {
-    if (mime.getType(path) === 'application/json') {
-      // For JSON, avoid caching
-      res.setHeader('Cache-Control', 'public, max-age=0');
-    }
-  }
-}));
-
 app.use(sessions({
   cookieName: 'OAuthSession',
   secret: config.secret,
@@ -154,6 +137,23 @@ app.use((req, res) => {
 });
 
 app.use(errorHandler);
+
+// Static middleware 
+// Serve static files directly
+// Cache related headers are disabled in dev
+app.use(express.static(path.join(__dirname, '/static/'), {
+  etag: false,
+  cacheControl: config.isProd,
+  lastModified: config.isProd,
+  maxAge: "1h",
+  index: 'homepage.html',
+  setHeaders: function (res, path) {
+    if (mime.getType(path) === 'application/json') {
+      // For JSON, avoid caching
+      res.setHeader('Cache-Control', 'public, max-age=0');
+    }
+  }
+}));
 
 if (process.env.PORT) {
     config.port = process.env.PORT;
