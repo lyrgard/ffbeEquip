@@ -49,3 +49,5 @@ route.put('/:server/:table', async (req, res) => {
 
   return res.status(200).json(data);
 });
+
+export default route
