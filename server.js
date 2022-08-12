@@ -139,6 +139,7 @@ if (config.firebase.enabled) {
     app.use('/', authRequired, firebase.authenticatedRoute);
 }
 if (config.google.enabled) {
+    console.log("Google is enabled.")
     app.use('/', drive);
 }
 
