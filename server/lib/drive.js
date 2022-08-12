@@ -7,7 +7,7 @@ const Promise = Bluebird
 const drive = google.drive('v3');
 const mimeType = 'application/json';
 
-const create = (auth, fileName, data) => {
+export const create = (auth, fileName, data) => {
   return Promise
     .fromCallback(cb => drive.files.create({
       resource: {
@@ -23,7 +23,7 @@ const create = (auth, fileName, data) => {
     .then(res => res.data);
 };
 
-const list = (auth) => {
+export const list = (auth) => {
   return Promise
     .fromCallback(cb => drive.files.list({
       q: `mimeType="${mimeType}"`,
@@ -33,7 +33,7 @@ const list = (auth) => {
     .then(res => res.data.files);
 };
 
-const get = (auth, fileId) => {
+export const get = (auth, fileId) => {
   return Promise
     .fromCallback(cb => drive.files.get({
       fileId,
@@ -43,7 +43,7 @@ const get = (auth, fileId) => {
     .then(res => res.data);
 };
 
-const update = (auth, fileId, data) => {
+export const update = (auth, fileId, data) => {
   return Promise
     .fromCallback(cb => drive.files.update({
       fileId,
@@ -109,4 +109,4 @@ export const writeJson = async (auth, fileName, data) => {
   return update(auth, file.id, data);
 };
 
-export default { readJson, writeJson };
+export default { readJson, writeJson, update, get, create, list };
