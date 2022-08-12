@@ -11,7 +11,7 @@ import { route as clientConfig } from './server/routes/clientConfig.js';
 import { route as oauth } from './server/routes/oauth.js'
 import { route as unitSkills } from './server/routes/unitSkills.js'
 import * as firebase from './server/routes/firebase.js';
-import { OAuthFunction as authRequired } from './server/middlewares/oauth.js';
+import  * as authRequired from './server/middlewares/oauth.js';
 import { route as drive } from './server/routes/drive.js';
 import { boomJS as errorHandler } from './server/middlewares/boom.js';
 import { fileURLToPath } from 'url';
@@ -83,25 +83,25 @@ app.use(helmet.contentSecurityPolicy({
 }));
 
 // Static middleware
-// if (config.isProd || process.env.DEV_USE_DIST === "yes") {
-//   console.log(`App is also serving dist`);
-//   // In prod, also serve dist folder (which contains the webpack generated files)
-//   // Any files present in 'dist' will shadow files in 'static'
-//   app.use(express.static(path.join(__dirname, '/dist/'), {
-//     etag: false,
-//     lastModified: config.isProd,
-//     cacheControl: config.isProd,
-//     maxAge: "365d",
-//     immutable: config.isProd,
-//     index: 'homepage.html',
-//     setHeaders: function (res, path) {
-//       if (mime.lookup(path) === 'text/html') {
-//         // For HTML, avoid long and immutable cache since it can't be busted
-//         res.setHeader('Cache-Control', 'public, max-age=0');
-//       }
-//     }
-//   }));
-// }
+if (config.isProd || process.env.DEV_USE_DIST === "yes") {
+  console.log(`App is also serving dist`);
+  // In prod, also serve dist folder (which contains the webpack generated files)
+  // Any files present in 'dist' will shadow files in 'static'
+  app.use(express.static(path.join(__dirname, '/dist/'), {
+    etag: false,
+    lastModified: config.isProd,
+    cacheControl: config.isProd,
+    maxAge: "365d",
+    immutable: config.isProd,
+    index: 'homepage.html',
+    setHeaders: function (res, path) {
+      if (mime.lookup(path) === 'text/html') {
+        // For HTML, avoid long and immutable cache since it can't be busted
+        res.setHeader('Cache-Control', 'public, max-age=0');
+      }
+    }
+  }));
+}
 
 // Static middleware 
 // Serve static files directly
@@ -136,10 +136,10 @@ app.use('/', corrections, unitSkills);
 if (config.firebase.enabled) {
     console.log("Firebase is enabled.")
     app.use('/', firebase.unAuthenticatedRoute);
-    app.use('/', authRequired, firebase.authenticatedRoute);
+    app.set('/', authRequired, firebase.authenticatedRoute);
 }
 if (config.google.enabled) {
-    app.use('/', authRequired, drive);
+    app.set('/', authRequired, drive);
 }
 
 // Old index.html file no longer exists
