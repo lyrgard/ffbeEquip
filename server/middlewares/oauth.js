@@ -1,6 +1,6 @@
 import OAuth  from "../lib/oauth.js";
 
-export function OAuthFunction(req, res, next){
+export async function OAuthFunction(req, res, next){
   const { tokens } = req.OAuthSession;
   if (!tokens) {
     console.log("No tokens found...")
@@ -10,7 +10,7 @@ export function OAuthFunction(req, res, next){
   console.log("Tokens found")
   req.OAuth2Client = OAuth.createClient(tokens);
 
-  let output = req.OAuth2Client.getRequestMetadataAsync(null)
+  let output = await req.OAuth2Client.getRequestMetadataAsync(null)
 
   if (!output) {
       req.OAuthSession.tokens = req.OAuth2Client.credentials;
