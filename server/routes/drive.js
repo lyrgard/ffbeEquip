@@ -53,4 +53,4 @@ route.put('/:server/:table', async (req, res) => {
 
 
 
-export default { route }
+export default route 
