@@ -6,18 +6,17 @@ export function OAuthFunction(req, res, next){
     return res.status(401).send();
   }
 
-  console.log(req.OAuth2Client)
   req.OAuth2Client = OAuth.createClient(tokens);
-  console.log(req.OAuth2Client)
 
-  console.log("Tokens exist.")
-  console.log(tokens)
-  console.log(typeof(req.OAuth2Client.getRequestMetadataAsync()))
-
-  return req.OAuth2Client.getRequestMetadataAsync(null, (error) => {
+  let output = req.OAuth2Client.getRequestHeaders(null, (error) => {
     req.OAuthSession.tokens = req.OAuth2Client.credentials;
     next(error);
   });
+
+  if (output) {
+    res.headers = output;
+  }
+  next()
 };
 
 export default { OAuthFunction }

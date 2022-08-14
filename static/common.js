@@ -1794,11 +1794,6 @@ function getLocalizedFileUrl(name) {
 }
 
 function onUnitsOrInventoryLoaded() {
-    console.log("OnUnits")
-    console.log(itemInventory);
-    console.log(ownedUnits);
-    console.log(ownedEspers);
-    console.log(ownedConsumables);
     if (itemInventory && ownedUnits && ownedEspers && ownedConsumables) {
         if (ownedUnits.version && ownedUnits.version < 3) {
             // before version 3, units were : {"unitId": number}
@@ -2508,7 +2503,6 @@ $(function() {
     try {
         // Bust the whole localStorage in case of old array used in order to get a clean state
         // @TODO: can be removed after october 2018
-        console.log(localStorage)
         if (localStorageAvailable && $.isArray(JSON.parse(localStorage.getItem("savedFiles")))) {
             localStorage.clear();
             window.console && window.console.warn("Clearing the whole localStorage!");

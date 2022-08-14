@@ -26,7 +26,6 @@ route.get('/:server/userData', async (req, res) => {
 });
 
 route.get('/:server/:table', async (req, res) => {
-  console.log(req)
   const { server, table } = req.params;
   const auth = req.OAuth2Client;
 
@@ -49,12 +48,5 @@ route.put('/:server/:table', async (req, res) => {
 
   return res.status(200).json(data);
 });
-
-route.get('/testing', (req, res) => {
-  console.log("Logged activity")
-  res.sendStatus(200)
-})
-
-
 
 export default route 

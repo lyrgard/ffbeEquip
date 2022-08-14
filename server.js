@@ -133,13 +133,13 @@ if (config.google.enabled) {
     app.use('/', oauth);
 }
 app.use('/', corrections, unitSkills);
-// if (config.firebase.enabled) {
-//     console.log("Firebase is enabled.")
-//     app.use('/', firebase.unAuthenticatedRoute);
-//     app.use('/', firebase.authenticatedRoute);
-// }
+if (config.firebase.enabled) {
+    console.log("Firebase is enabled.")
+    app.use('/', firebase.unAuthenticatedRoute);
+    app.use('/', firebase.authenticatedRoute);
+}
 if (config.google.enabled) {
-    app.use('/', drive);
+    app.use('/', authRequired, drive);
 }
 
 // Old index.html file no longer exists
