@@ -141,23 +141,23 @@ getData('units.json', function (units) {
                                                             filename = 'unitsWithPassives_' + languages[languageId] + '.json';
                                                         }
                                                         let string = commonParse.formatOutput(unitsOut);
-                                                        string = string.substr(0, string.length - 1) + ',\n' + jpUnitsWithPassiveString + ',\n' + customUnitsWithPassiveString + '\n}';
+                                                        string = string.substring(0, string.length - 1) + ',\n' + jpUnitsWithPassiveString + ',\n' + customUnitsWithPassiveString + '\n}';
                                                         fs.writeFileSync(filename, string);
                                                         filename = 'units.json';
                                                         if (languageId != 0) {
                                                             filename = 'units_' + languages[languageId] + '.json';
                                                         }
                                                         string = commonParse.formatSimpleOutput(unitsOut);
-                                                        string = string.substr(0, string.length - 1) + ',\n' + jpUnitsString + ',\n' + customUnitsString + '\n}';
+                                                        string = string.substring(0, string.length - 1) + ',\n' + jpUnitsString + ',\n' + customUnitsString + '\n}';
                                                         fs.writeFileSync(filename, string);
 
                                                         if (languageId == 0) {
                                                             string = commonParse.formatForSearch(unitsOut);
-                                                            string = string.substr(0, string.length - 1) + ',\n' + jpUnitSearchString + ',\n' + customUnitSearchString + '\n]';
+                                                            string = string.substring(0, string.length - 1) + ',\n' + jpUnitSearchString + ',\n' + customUnitSearchString + '\n]';
                                                             fs.writeFileSync('unitSearch.json', string);
 
                                                             string = commonParse.formatForSkills(unitsOut);
-                                                            string = string.substr(0, string.length - 1) + ',\n' + jpUnitsWithSkillString + ',\n' + customUnitsWithSkillString + '\n}';
+                                                            string = string.substring(0, string.length - 1) + ',\n' + jpUnitsWithSkillString + ',\n' + customUnitsWithSkillString + '\n}';
                                                             fs.writeFileSync('unitsWithSkill.json', string);
                                                         }
                                                     }
@@ -181,7 +181,7 @@ function manageNV(units) {
     for (var unitId in units) {
         const unitIn = units[unitId];
         if (unitIn.rarity_max == 7) {
-            const baseUnitId = unitId.substr(0, unitId.length -1);
+            const baseUnitId = unitId.substring(0, unitId.length -1);
             let nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
             nvIds.forEach(nvId => {
                 unitIn.rarity_max = 'NV';
@@ -196,7 +196,7 @@ function manageNV(units) {
                 //baseUnitIdByNVUnitId[nvIds[0]] = unitId;
                 unitIn.nv_upgrade = Object.values(unitIn.entries)[0].nv_upgrade;
                 if (unitId.endsWith('17') || unitId.endsWith('27') || unitId.endsWith('37')) {
-                    const baseUnitCommonPart = unitId.substr(0, unitId.length - 2);
+                    const baseUnitCommonPart = unitId.substring(0, unitId.length - 2);
                     let potentialBaseUnits = Object.keys(units).filter(k => k.startsWith(baseUnitCommonPart) && k < unitId && (k.endsWith('5') || k.endsWith('7'))).sort();
                     if (potentialBaseUnits.length) {
                         baseUnitIdByNVUnitId[unitId] = potentialBaseUnits[0];
@@ -373,7 +373,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
 
     for (let skillIndex in unitIn.skills) {
         if (unitIn.skills[skillIndex].rarity.startsWith && unitIn.skills[skillIndex].rarity.startsWith('NV+')) {
-            unitIn.skills[skillIndex].exLevel = parseInt(unitIn.skills[skillIndex].rarity.substr(3,1));
+            unitIn.skills[skillIndex].exLevel = parseInt(unitIn.skills[skillIndex].rarity.substring(3,1));
             unitIn.skills[skillIndex].rarity = 'NV';
         }
     }
@@ -434,7 +434,7 @@ function lowerCaseKeys(obj) {
 
 function verifyImage(serieId, minRarity, maxRarity) {
     for (var i = minRarity; i <= maxRarity; i++) {
-        var unitId = serieId.substr(0, serieId.length - 1) + i;
+        var unitId = serieId.substring(0, serieId.length - 1) + i;
         var basePath = "../../static/img/units/";
         var illus = "unit_ills_" + unitId + ".png";
         var icon = "unit_icon_" + unitId + ".png";
