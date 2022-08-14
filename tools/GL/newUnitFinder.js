@@ -1,5 +1,5 @@
-const e = require('express');
-var fs = require('fs');
+import express from 'express'
+import fs from 'fs'
 
 console.log("Starting");
 let currentUnits = JSON.parse(fs.readFileSync('../../static/GL/units.json', {encoding: 'utf8'}));

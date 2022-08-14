@@ -14,8 +14,8 @@ Object.keys(newDataArray).forEach(newData => {
         if (newDataArray[newData].id === currentData[currentDataItem].id) {
             noMatch = true;
             if (newDataArray[newData].name !== currentData[currentDataItem].name){
-                //console.log("Name Change For " + currentData[currentDataItem].name + " Detected");
-                //console.log(currentData[currentDataItem].name + " should be " + newDataArray[newData].name);
+                console.log("Name Change For " + currentData[currentDataItem].name + " Detected");
+                console.log(currentData[currentDataItem].name + " should be " + newDataArray[newData].name);
                 changes[newDataArray[newData].id] = newDataArray[newData]
             }
         }
@@ -29,7 +29,7 @@ Object.keys(newDataArray).forEach(newData => {
     }
 })
 
-// Mark items as released
+//Mark items as released
 Object.keys(changes).forEach((item) => {
     if (changes[item].access.includes("not released yet")){
         changes[item].access = ["released"];

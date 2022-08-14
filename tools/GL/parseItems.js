@@ -1,6 +1,6 @@
-var fs = require('fs');
-var request = require('request');
-var PNG = require('pngjs').PNG;
+import fs from 'fs';
+import request from 'request';
+import pngjs from 'pngjs';
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -243,7 +243,6 @@ let currentItemName;
 console.log("Starting");
 if (!fs.existsSync('../../static/GL/data.json')) {
     console.log("old data not accessible");
-    return;
 }
 getData('equipment.json', function (items) {
     getData('materia.json', function (materias) {
@@ -384,8 +383,8 @@ getData('equipment.json', function (items) {
                                                                                         filename = 'data_' + languages[languageId] + '.json';
                                                                                     }
                                                                                     fs.writeFileSync(filename, formatOutput(result.items));
-                                                                                    cards = [];
-                                                                                    for (visionCardId in visionCards) {
+                                                                                    let cards = [];
+                                                                                    for (let visionCardId in visionCards) {
                                                                                         if (visionCards[visionCardId].name) {
                                                                                             cards.push(treatVisionCard(visionCards[visionCardId], visionCardId, skills));
                                                                                         }
@@ -498,6 +497,13 @@ function treatItem(items, itemId, result, skills) {
             }
         } else if (itemIn.requirements[0] == "UNIT_ID") {
             addExclusiveUnit(itemOut, itemIn.requirements[1]);
+        } else if (itemIn.requirements[0] == "RULE"){
+            Object.keys(unitRules).forEach((role) => {
+                if (itemIn.requirements[1].toString() == role && role.substring(0,2) == "71"){
+                    console.log(itemIn.requirements[1])
+                    addExclusiveRole(itemOut, unitRules[role]);
+                }
+            })
         }
     }
 
@@ -572,7 +578,7 @@ function treatVisionCard(visionCard, visionCardId, skills) {
         let levelData = {};
         card.levels.push(levelData);
         stats.forEach(stat => {
-            value = visionCard.stats[stat][0] + (visionCard.stats[stat][1] - visionCard.stats[stat][0]) * visionCardStatPatterns[visionCard.stat_pattern][visionCard.max_level][level - 1] / 100;
+            let value = visionCard.stats[stat][0] + (visionCard.stats[stat][1] - visionCard.stats[stat][0]) * visionCardStatPatterns[visionCard.stat_pattern][visionCard.max_level][level - 1] / 100;
             addStat(levelData, stat.toLowerCase(), Math.floor(value));
         });
         for (let i = 1; i <= level; i++) {
@@ -2279,6 +2285,14 @@ function addExclusiveUnit(item, unitId) {
     }
 }
 
+function addExclusiveRole(item, unitId){
+    if(!item.exclusiveRoles){
+        item.exclusiveRoles = []
+    }
+
+    unitId(item)
+}
+
 function isItemEmpty(item) {
     for (var index in stats) {
         if (item[stats[index].toLowerCase()]) {
@@ -2313,7 +2327,7 @@ function addLbPerTurn(item, min, max) {
     item.lbPerTurn.max += max;
 }
 
-let itemProperties = ["id","name", "access", "maxNumber", "eventNames", "wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","staticStats","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "oneWeaponMastery", "chainMastery", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts", "evokeDamageBoost","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills","conditional"];
+let itemProperties = ["id","name", "access", "maxNumber", "eventNames", "wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","staticStats","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "oneWeaponMastery", "chainMastery", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts", "evokeDamageBoost","exclusiveSex","exclusiveUnits","exclusiveRoles","equipedConditions","tmrUnit", "stmrUnit" ,"icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills","conditional"];
 function formatOutput(items) {
 
     var result = "[\n";
@@ -2333,7 +2347,7 @@ function formatOutput(items) {
 }
 
 function formatItem(item) {
-    result = "{";
+    let result = "{";
     var firstProperty = true;
     for (var propertyIndex in itemProperties) {
         var property = itemProperties[propertyIndex];

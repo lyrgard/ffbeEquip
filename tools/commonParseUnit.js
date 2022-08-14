@@ -1,11 +1,11 @@
-var console = require('console');
+import console from 'console'
 
-var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
-var baseStats = ["hp","mp","atk","def","mag","spr"];
-var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
-var ailments = ["poison", "blind", "sleep", "silence", "paralysis", "confuse", "disease", "petrification"];
+export var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
+export var baseStats = ["hp","mp","atk","def","mag","spr"];
+export var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
+export var ailments = ["poison", "blind", "sleep", "silence", "paralysis", "confuse", "disease", "petrification"];
 
-var typeMap = {
+export var typeMap = {
     1: 'dagger',
     2: 'sword',
     3: 'greatSword',
@@ -33,7 +33,7 @@ var typeMap = {
     60: 'accessory'
 }
 
-var raceMap = {
+export var raceMap = {
     1: 'beast',
     2: 'bird',
     3: 'aquatic',
@@ -48,7 +48,7 @@ var raceMap = {
     12: 'undead'
 }
 
-var ailmentsMap = {
+export var ailmentsMap = {
     "Poison": "poison",
     "Blind": "blind",
     "Sleep": "sleep",
@@ -60,7 +60,7 @@ var ailmentsMap = {
     "Death": "death"
 }
 
-var elementsMap = {
+export var elementsMap = {
     1: 'fire',
     2: 'ice',
     3: 'lightning',
@@ -71,7 +71,7 @@ var elementsMap = {
     8: 'dark'
 }
 
-var unlockedSkills = {
+export var unlockedSkills = {
     "100011705": "225960",
     "100011805": "226000",
     "100012005": "225990",
@@ -80,7 +80,7 @@ var unlockedSkills = {
     "100012505": "225970"
 }
 
-let chainingFamilies = {
+export let chainingFamilies = {
     "none,42,48,54,60,66,72,78,84,90": "BS",            // Boltinng Strike
     "none,70,77,82,89,96,103,110": "DR",                // Divine Ruination
     "none,70,76,82,88,94,100,106,112":"AMoE",             // Absolute Mirror of Equity
@@ -115,7 +115,7 @@ let chainingFamilies = {
     "walk,88,93,98,103,108,113,118,123,128,133,138,143,148,153,158,163,168,173,178,183,188,193,198,203,208,213,218,223,228,233": "ExN", // Extreme nova, walk 88
 }
 
-let moveTypes = {
+export let moveTypes = {
     0: "none",
     1: "walk",
     2: "walk",
@@ -125,7 +125,7 @@ let moveTypes = {
     6: "dashThrough"
 }
 
-let espersById = {
+export let espersById = {
     "1":"Siren",
     "2":"Ifrit",
     "3":"Shiva",
@@ -147,7 +147,7 @@ let espersById = {
     "19":"Kokuryu"
 };
 
-const unitRoles = {
+export const unitRoles = {
     "Attacker": "physicalAttacker",
     "Mage": "magicalAttacker",
     "Tank": "physicalTank",
@@ -177,7 +177,7 @@ String.prototype.hashCode = function() {
 };
 
 
-function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, unitData, unitOut, latentSkillsByUnitId) {
+export function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, unitData, unitOut, latentSkillsByUnitId) {
     var baseEffects = {};
     var skillsOut = [baseEffects];
     var skillsOutSave = skillsOut;
@@ -185,7 +185,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
     unitOut.actives = [];
     unitOut.magics = [];
     
-    for (skillIndex in skillsIn) {
+    for (let skillIndex in skillsIn) {
         if (skillsIn[skillIndex].rarity > maxRarity || skillsIn[skillIndex].rarity == 'NV' && maxRarity != 'NV') {
             continue; // don't take into account skills for a max rarity not yet released
         }
@@ -228,7 +228,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
     return skillsOut;
 }
 
-function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, baseEffects, rarity,  level, exLevel, latentSkill) {
+export function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, baseEffects, rarity,  level, exLevel, latentSkill) {
     var skillIn = skills[skillId];
     var skill;
     if (!skillIn) console.log(skillId, unitOut.name, unitOut.id);
@@ -339,8 +339,8 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
             unitOut.enhancements.push(enhancementData);
         }
     } else if (level > 101 || exLevel) {
-        baseEffectsLevelCondition = {};
-        skillsOutLevelCondition = [baseEffectsLevelCondition];
+        let baseEffectsLevelCondition = {};
+        let skillsOutLevelCondition = [baseEffectsLevelCondition];
         skill = getPassive(skillIn, skillId, baseEffectsLevelCondition, skillsOutLevelCondition, skills, unitOut, lbs);
         skill.rarity = rarity;
         skill.level = level;
@@ -367,7 +367,7 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
     }
 }
 
-function manageUnlockableSkill(skillIn, skillId, unitOut, skills, lbs) {
+export function manageUnlockableSkill(skillIn, skillId, unitOut, skills, lbs) {
     if (!unitOut.enhancements) {
         unitOut.enhancements = [];
     }
@@ -385,7 +385,7 @@ function manageUnlockableSkill(skillIn, skillId, unitOut, skills, lbs) {
     unitOut.enhancements.push(enhancementData);
 }
 
-function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit, lbs) {
+export function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit, lbs) {
     var skill = {"name" : skillIn.name, "id":skillId, "icon": skillIn.icon, "effects": []};
     var tmrAbilityEffects = [];
     
@@ -427,7 +427,7 @@ function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit, lbs)
     return skill;
 }
 
-function addEffectsToEffectList(effectList, effects) {
+export function addEffectsToEffectList(effectList, effects) {
     for (var effectIndex = 0, lenEffectIndex = effects.length; effectIndex < lenEffectIndex; effectIndex++) {
         var effect = effects[effectIndex];
         if (effect.equipedConditions || effect.exclusiveUnits || effect.exclusiveSex) {
@@ -570,7 +570,7 @@ function addEffectsToEffectList(effectList, effects) {
     }
 }
 
-function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
+export function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
     var result = {};
     // stat bonus
     if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {               
@@ -1249,7 +1249,7 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
     return null;
 }
 
-function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) {
+export function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) {
     var skill = {"id": skillId , "name" : skillIn.name, "icon": skillIn.icon, "effects": []};
     if (skillIn["effects_raw"][0][2] === 157) {
         skill.maxCastPerBattle = skillIn["effects_raw"][0][3][2];
@@ -1311,7 +1311,7 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
     return skill;
 }
 
-function getValueAtIndex(array, index) {
+export function getValueAtIndex(array, index) {
     if (!Array.isArray(array)) {
         array = [array];
     }
@@ -1322,7 +1322,7 @@ function getValueAtIndex(array, index) {
     }
 }
 
-function getArrayValueAtIndex(array, index) {
+export function getArrayValueAtIndex(array, index) {
     let value = getValueAtIndex(array, index);
     if (!Array.isArray(value)) {
         value = [value];
@@ -1332,7 +1332,7 @@ function getArrayValueAtIndex(array, index) {
     }
 }
 
-function parseLb(lb, unit, skills) {
+export function parseLb(lb, unit, skills) {
     var lbOut = {"name": lb.name, minEffects: [], "maxEffects":[]}
     for (var rawEffectIndex in lb.levels[0][1]) {
         var rawEffect = lb.levels[0][1][rawEffectIndex];
@@ -1372,7 +1372,7 @@ function parseLb(lb, unit, skills) {
     return lbOut;
 }
 
-function addChainInfoToSkill(skill, effects, attackFrames, moveType, skills) {
+export function addChainInfoToSkill(skill, effects, attackFrames, moveType, skills) {
     let hasDamage = false;
     let chainTag = false;
     let chain = [];
@@ -1400,7 +1400,7 @@ function addChainInfoToSkill(skill, effects, attackFrames, moveType, skills) {
     }
 }
 
-function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhancementLevel = 0) {
+export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhancementLevel = 0) {
     var result = null;
 
     // Physical Damage
@@ -1921,7 +1921,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
 
         var gainedSkill = skills[gainedSkillId];
         if (gainedSkill) {
-            gainedEffect = {
+            let gainedEffect = {
                 "multicast": {
                     "time": rawEffect[3][0],
                     "type": ["skills"],
@@ -2387,7 +2387,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     return result;
 }
 
-function getTargetDesc(rawEffect) {
+export function getTargetDesc(rawEffect) {
     if (rawEffect[0] == 0) {
         return "self";
     } else if (rawEffect[0] == 1) {
@@ -2441,7 +2441,7 @@ function getTargetDesc(rawEffect) {
     }
 }
 
-function getTurn(turnNumber) {
+export function getTurn(turnNumber) {
     if (turnNumber === 0) {
         return "this turn";
     } else if (turnNumber === 0) {
@@ -2451,7 +2451,7 @@ function getTurn(turnNumber) {
     }
 }
 
-function addUnlockedSkill(gainedSkillId, gainedSkill, unit, unlockedBy) {
+export function addUnlockedSkill(gainedSkillId, gainedSkill, unit, unlockedBy) {
     var alreadyAdded = false;
     var activesAndMagics = unit.actives.concat(unit.magics);
     for (var i = activesAndMagics.length; i--;) {
@@ -2481,7 +2481,7 @@ function addUnlockedSkill(gainedSkillId, gainedSkill, unit, unlockedBy) {
     }
 }
 
-function addToStat(skill, stat, value) {
+export function addToStat(skill, stat, value) {
     if (value) {
         if (!skill[stat]) {
             skill[stat] = value;
@@ -2491,7 +2491,7 @@ function addToStat(skill, stat, value) {
     }
 }
     
-function addToList(skill, listName, value) {
+export function addToList(skill, listName, value) {
     if (!skill[listName]) {
         skill[listName] = [value];
     } else {
@@ -2501,7 +2501,7 @@ function addToList(skill, listName, value) {
     }
 }
 
-function addKiller(skill, race, physicalPercent, magicalPercent) {
+export function addKiller(skill, race, physicalPercent, magicalPercent) {
     if (!skill.killers) {
         skill.killers = [];
     }
@@ -2533,7 +2533,7 @@ function addKiller(skill, race, physicalPercent, magicalPercent) {
     }
 }
 
-function addToResistList(item, resist) {
+export function addToResistList(item, resist) {
     if (!item.resist) {
         item.resist = [];
     }
@@ -2546,7 +2546,7 @@ function addToResistList(item, resist) {
     item.resist.push(resist);
 }
 
-function addToAilmentsList(item, ailment) {
+export function addToAilmentsList(item, ailment) {
     if (!item.ailments) {
         item.ailments = [];
     }
@@ -2559,7 +2559,7 @@ function addToAilmentsList(item, ailment) {
     item.ailments.push(ailment);
 }
 
-function addElementalResist(item, values) {
+export function addElementalResist(item, values) {
     for (var index in elements) {
         if (values[index]) {
             addToResistList(item, {"name":elements[index],"percent":values[index]});
@@ -2567,7 +2567,7 @@ function addElementalResist(item, values) {
     }
 }
 
-function addAilmentResist(item, values) {
+export function addAilmentResist(item, values) {
     for (var index in ailments) {
         if (values[index]) {
             addToResistList(item, {"name":ailments[index],"percent":values[index]});
@@ -2575,7 +2575,7 @@ function addAilmentResist(item, values) {
     }
 }
 
-function addImperil(item, values) {
+export function addImperil(item, values) {
     if (!item.imperil) {
         item.imperil = {};
     }
@@ -2591,7 +2591,7 @@ function addImperil(item, values) {
     item.turns = values[9];
 }
 
-function addBreak(item, values) {
+export function addBreak(item, values) {
     if (!item.break) {
         item.break = {};
     }
@@ -2610,7 +2610,7 @@ function addBreak(item, values) {
     item.turns = values[4];
 }
 
-function addStatsBuff(item, values) {
+export function addStatsBuff(item, values) {
     if (!item.statsBuff) {
         item.statsBuff = {};
     }
@@ -2629,7 +2629,7 @@ function addStatsBuff(item, values) {
     item.turns = values[4];
 }
 
-function addLbPerTurn(item, min, max) {
+export function addLbPerTurn(item, min, max) {
     if (!item.lbPerTurn) {
         item.lbPerTurn = {"min":0, "max":0};
     }
@@ -2637,7 +2637,7 @@ function addLbPerTurn(item, min, max) {
     item.lbPerTurn.max += max;
 }
 
-function getEquip(equipIn) {
+export function getEquip(equipIn) {
     var equip = [];
     for(var equipIndex in equipIn) {
         if (equipIn[equipIndex] != 60) {
@@ -2649,7 +2649,7 @@ function getEquip(equipIn) {
 
 var properties = ["id","name","jpname","type","roles","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding", "oneWeaponMastery","improvedDW", "chainMastery","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits", "exclusiveRoles","equipedConditions", "equipedConditionIsOr","levelCondition","exLevelCondition" ,"tmrUnit","access","icon"];
 
-function formatOutput(units) {
+export function formatOutput(units) {
     var result = "{\n";
     var first = true;
     for (var unitId in units) {
@@ -2668,8 +2668,8 @@ function formatOutput(units) {
     return result;
 }
 
-function formatUnit(unit, prefix = "", form = null) {
-    result = getUnitBasicInfo(unit,prefix, form) + ",";
+export function formatUnit(unit, prefix = "", form = null) {
+    let result = getUnitBasicInfo(unit,prefix, form) + ",";
     if (unit.enhancements && unit.enhancements.length > 0) {
         result += "\n\t\t\"enhancements\": [";
         for (var i = 0, len = unit.enhancements.length; i < len; i++) {
@@ -2701,7 +2701,7 @@ function formatUnit(unit, prefix = "", form = null) {
     return result;
 }
 
-function formatSkill(skill, prefix) {
+export function formatSkill(skill, prefix) {
     var result = prefix + "{"
     var firstProperty = true;
     for (var propertyIndex in properties) {
@@ -2719,7 +2719,7 @@ function formatSkill(skill, prefix) {
     return result;
 }
 
-function formatSimpleOutput(units) {
+export function formatSimpleOutput(units) {
     var result = "{\n";
     var first = true;
     for (var unitId in units) {
@@ -2743,7 +2743,7 @@ function formatSimpleOutput(units) {
     return result;
 }
 
-function getUnitBasicInfo(unit, prefix = "", form = null) {
+export function getUnitBasicInfo(unit, prefix = "", form = null) {
     var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name.replace(/"/g, '\\"').replace(/ - Brave Shifted/g, "").replace(/ BS$/g, "") + (unit.braveShifted ? " BS" : '') + "\",";
     if (unit.jpname) {
         result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname.replace(/"/g, '\\"').replace(/ - Brave Shifted/g, "") + (unit.braveShifted ? " BS" : '') + "\",";
@@ -2797,7 +2797,7 @@ function getUnitBasicInfo(unit, prefix = "", form = null) {
     return result;
 }
 
-function formatForSearch(units) {
+export function formatForSearch(units) {
     var result = "[\n";
     var first = true;
     for (var unitId in units) {
@@ -2867,7 +2867,7 @@ function formatForSearch(units) {
     return result;
 }
 
-function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
+export function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
     let chainTag = effects.some(effect => effect.effect && effect.effect.chainTag);
     for (var i = effects.length; i--;) {
         var effect = effects[i];
@@ -3080,7 +3080,7 @@ function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
     }
 }
 
-function formatForSkills(units) {
+export function formatForSkills(units) {
     var result = "{\n";
     var first = true;
     for (var unitId in units) {
@@ -3144,20 +3144,4 @@ function formatForSkills(units) {
     result += "\n}";
     return result;
     
-}
-
-
-module.exports = {
-    getPassives: getPassives,
-    addElementalResist: addElementalResist,
-    addAilmentResist: addAilmentResist,
-    getEquip: getEquip,
-    formatSimpleOutput: formatSimpleOutput,
-    formatOutput: formatOutput,
-    formatForSearch:formatForSearch,
-    formatForSkills:formatForSkills,
-    stats: stats,
-    elements: elements,
-    ailments: ailments,
-    unitRoles: unitRoles,
 }

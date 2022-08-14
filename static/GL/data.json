@@ -2376,7 +2376,7 @@
 }, {
     "id": "302004300",
     "name": "Chaos Blade",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "sword",
     "atk": 135,
     "damageVariance": {
@@ -2390,7 +2390,7 @@
 }, {
     "id": "302004300",
     "name": "Chaos Blade",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "sword",
     "atk": 135,
     "def%": 50,
@@ -3798,17 +3798,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                "repartition": [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 66]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -3835,17 +3835,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                "repartition": [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 66]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -3872,17 +3872,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                "repartition": [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 66]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -4323,7 +4323,7 @@
 }, {
     "id": "302013400",
     "name": "Sword of Grandshelt",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "sword",
     "atk": 87,
     "spr": 111,
@@ -4772,24 +4772,24 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                "repartition": [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 66]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
 }, {
     "id": "302015200",
-    "name": "真・ダークラグナロク",
-    "access": ["unknown", "not released yet"],
+    "name": "Dark Ragnarok++",
+    "access": ["darkVisions"],
     "type": "sword",
     "atk": 286,
     "damageVariance": {
@@ -4808,17 +4808,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                "repartition": [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 66]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -5610,6 +5610,7 @@
         "max": 1.25
     },
     "special": ["[Forged by Fairies' Flames|ability_77.png]:Gain Forged by Fairies' Flames (515943) at the start of a battle"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2020054.png",
     "sortId": 2647,
     "rarity": 7
@@ -5632,6 +5633,7 @@
         "max": 1.25
     },
     "special": ["[Forged by Fairies' Flames|ability_77.png]:Gain Forged by Fairies' Flames (515943) at the start of a battle"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2020054.png",
     "sortId": 2648,
     "rarity": 9
@@ -5962,6 +5964,7 @@
         "min": 1.05,
         "max": 1.25
     },
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_10286.png",
     "sortId": 2658,
     "rarity": 9
@@ -5987,6 +5990,7 @@
     },
     "mpRefresh": 5,
     "exclusiveUnits": ["201000104", "201000405", "201000607", "201000617"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_10286.png",
     "sortId": 2658,
     "rarity": 9
@@ -6010,6 +6014,7 @@
         "max": 1.25
     },
     "exclusiveUnits": ["201000104", "201000405", "201000607", "201000617"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_10286.png",
     "sortId": 2658,
     "rarity": 9
@@ -6035,6 +6040,7 @@
     },
     "mpRefresh": 5,
     "exclusiveUnits": ["201000104", "201000405", "201000607", "201000617"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_10286.png",
     "sortId": 2658,
     "rarity": 9
@@ -6142,6 +6148,7 @@
     },
     "lbDamage": 100,
     "special": ["twoHanded"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_10286.png",
     "sortId": 2659,
     "rarity": 9
@@ -6167,6 +6174,7 @@
     "lbDamage": 100,
     "special": ["twoHanded"],
     "exclusiveUnits": ["201000104", "201000405", "201000607", "201000617"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_10286.png",
     "sortId": 2659,
     "rarity": 9
@@ -6190,6 +6198,7 @@
     "lbDamage": 100,
     "special": ["twoHanded"],
     "exclusiveUnits": ["201000104", "201000405", "201000607", "201000617"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_10286.png",
     "sortId": 2659,
     "rarity": 9
@@ -6215,6 +6224,7 @@
     "lbDamage": 100,
     "special": ["twoHanded"],
     "exclusiveUnits": ["201000104", "201000405", "201000607", "201000617"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_10286.png",
     "sortId": 2659,
     "rarity": 9
@@ -6402,8 +6412,8 @@
     "rarity": 8
 }, {
     "id": "302019300",
-    "name": "ブレイクブレイド(FFXII TZA)",
-    "access": ["unknown", "not released yet"],
+    "name": "Stoneblade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 170,
     "def": 120,
@@ -6423,8 +6433,8 @@
     "rarity": 8
 }, {
     "id": "302019400",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 140,
     "def": 150,
@@ -6437,8 +6447,8 @@
     "rarity": 8
 }, {
     "id": "302019400",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 140,
     "def": 150,
@@ -6453,8 +6463,8 @@
     "rarity": 8
 }, {
     "id": "302019500",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 150,
     "def": 170,
@@ -6467,8 +6477,8 @@
     "rarity": 8
 }, {
     "id": "302019500",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 150,
     "def": 170,
@@ -6483,8 +6493,8 @@
     "rarity": 8
 }, {
     "id": "302019600",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 160,
     "def": 190,
@@ -6497,8 +6507,8 @@
     "rarity": 8
 }, {
     "id": "302019600",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 160,
     "def": 190,
@@ -6513,8 +6523,8 @@
     "rarity": 8
 }, {
     "id": "302019600",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 160,
     "def": 190,
@@ -6527,19 +6537,16 @@
         "max": 1.25
     },
     "skillEnhancement": {
-        "512919": 150,
-        "515997": 150,
-        "515998": 150,
-        "515999": 150
+        "512919": 150
     },
-    "exclusiveUnits": ["212001105", "212002207", "212002217"],
+    "exclusiveUnits": ["212002207", "212002217"],
     "icon": "item_10240.png",
     "sortId": 2770,
     "rarity": 8
 }, {
     "id": "302019600",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 160,
     "def": 190,
@@ -6552,20 +6559,17 @@
         "max": 1.25
     },
     "skillEnhancement": {
-        "512919": 150,
-        "515997": 150,
-        "515998": 150,
-        "515999": 150
+        "512919": 150
     },
-    "exclusiveUnits": ["212001105", "212002207", "212002217"],
+    "exclusiveUnits": ["212002207", "212002217"],
     "equipedConditions": ["dagger"],
     "icon": "item_10240.png",
     "sortId": 2770,
     "rarity": 8
 }, {
     "id": "302019700",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 170,
     "def": 220,
@@ -6578,8 +6582,8 @@
     "rarity": 9
 }, {
     "id": "302019700",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 170,
     "def": 220,
@@ -6594,8 +6598,8 @@
     "rarity": 9
 }, {
     "id": "302019700",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 170,
     "def": 220,
@@ -6608,19 +6612,16 @@
         "max": 1.25
     },
     "skillEnhancement": {
-        "512919": 300,
-        "515997": 300,
-        "515998": 300,
-        "515999": 300
+        "512919": 300
     },
-    "exclusiveUnits": ["212001105", "212002207", "212002217"],
+    "exclusiveUnits": ["212002207", "212002217"],
     "icon": "item_10240.png",
     "sortId": 2771,
     "rarity": 9
 }, {
     "id": "302019700",
-    "name": "カオスブレイド(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Chaos Blade (FFXII)",
+    "access": ["released"],
     "type": "sword",
     "atk": 170,
     "def": 220,
@@ -6633,12 +6634,9 @@
         "max": 1.25
     },
     "skillEnhancement": {
-        "512919": 300,
-        "515997": 300,
-        "515998": 300,
-        "515999": 300
+        "512919": 300
     },
-    "exclusiveUnits": ["212001105", "212002207", "212002217"],
+    "exclusiveUnits": ["212002207", "212002217"],
     "equipedConditions": ["dagger"],
     "icon": "item_10240.png",
     "sortId": 2771,
@@ -6957,7 +6955,7 @@
         "max": 1.3
     },
     "element": ["fire"],
-    "exclusiveUnits": ["100000102", "100015005", "100015805", "100027105", "100027127", "100039307", "100039317"],
+    "exclusiveUnits": ["100000102", "100015005", "100015805", "100027105", "100027127", "100039307", "100039317", "100038507", "100038517"],
     "icon": "item_10320.png",
     "sortId": 498,
     "rarity": 8
@@ -8149,7 +8147,7 @@
     "rarity": 8
 }, {
     "id": "303008900",
-    "name": "Obliterating Crimson Saber",
+    "name": "Obliterating Crimson Saber",
     "access": ["STMR"],
     "type": "greatSword",
     "atk": 184,
@@ -8786,7 +8784,7 @@
     "rarity": 8
 }, {
     "id": "303011400",
-    "name": "Obliterating Crimson Saber",
+    "name": "Obliterating Crimson Saber",
     "access": ["recipe", "stmrUpgrade"],
     "type": "greatSword",
     "atk": 190,
@@ -10420,17 +10418,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -10457,17 +10455,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -10494,17 +10492,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -11414,24 +11412,24 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
 }, {
     "id": "304009400",
-    "name": "真・ダークマサムネ",
-    "access": ["unknown", "not released yet"],
+    "name": "Dark Masamune++",
+    "access": ["darkVisions"],
     "type": "katana",
     "atk": 298,
     "damageVariance": {
@@ -11450,17 +11448,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -13155,6 +13153,7 @@
         "max": 1.95
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
+    "exclusiveRoles": ["physicalTank"],
     "stmrUnit": "344000407",
     "icon": "item_2080014.png",
     "sortId": 2704,
@@ -13199,6 +13198,7 @@
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
     "exclusiveUnits": ["344000407", "344000417"],
+    "exclusiveRoles": ["physicalTank"],
     "stmrUnit": "344000407",
     "icon": "item_2080014.png",
     "sortId": 2704,
@@ -13236,6 +13236,7 @@
         "max": 1.95
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080014.png",
     "sortId": 2705,
     "rarity": 9
@@ -13282,6 +13283,7 @@
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
     "exclusiveUnits": ["344000407", "344000417"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080014.png",
     "sortId": 2705,
     "rarity": 9
@@ -13318,6 +13320,7 @@
         "max": 1.95
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080014.png",
     "sortId": 2706,
     "rarity": 9
@@ -13364,6 +13367,7 @@
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
     "exclusiveUnits": ["344000407", "344000417"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080014.png",
     "sortId": 2706,
     "rarity": 9
@@ -13400,6 +13404,7 @@
         "max": 1.95
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080015.png",
     "sortId": 2707,
     "rarity": 9
@@ -13424,6 +13429,7 @@
         "max": 1.95
     },
     "special": ["twoHanded"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080015.png",
     "sortId": 2707,
     "rarity": 9
@@ -13448,6 +13454,7 @@
         "max": 1.95
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080015.png",
     "sortId": 2707,
     "rarity": 9
@@ -13494,6 +13501,7 @@
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
     "exclusiveUnits": ["344000407", "344000417"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080015.png",
     "sortId": 2707,
     "rarity": 9
@@ -13520,6 +13528,7 @@
     },
     "special": ["twoHanded"],
     "exclusiveUnits": ["344000407", "344000417"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080015.png",
     "sortId": 2707,
     "rarity": 9
@@ -13546,6 +13555,7 @@
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
     "exclusiveUnits": ["344000407", "344000417"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080015.png",
     "sortId": 2707,
     "rarity": 9
@@ -13582,30 +13592,7 @@
         "max": 1.95
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
-    "icon": "item_2080016.png",
-    "sortId": 2708,
-    "rarity": 9
-}, {
-    "id": "305004900",
-    "name": "Great Axe",
-    "access": ["event"],
-    "maxNumber": 1,
-    "eventNames": ["DRAGON QUEST The Adventure of Dai"],
-    "type": "axe",
-    "atk": 200,
-    "def": 239,
-    "staticStats": {
-        "def": 500
-    },
-    "oneWeaponMastery": {
-        "def": 100
-    },
-    "accuracy": 50,
-    "damageVariance": {
-        "min": 1.15,
-        "max": 1.95
-    },
-    "special": ["twoHanded"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080016.png",
     "sortId": 2708,
     "rarity": 9
@@ -13629,7 +13616,33 @@
         "min": 1.15,
         "max": 1.95
     },
+    "special": ["twoHanded"],
+    "exclusiveRoles": ["physicalTank"],
+    "icon": "item_2080016.png",
+    "sortId": 2708,
+    "rarity": 9
+}, {
+    "id": "305004900",
+    "name": "Great Axe",
+    "access": ["event"],
+    "maxNumber": 1,
+    "eventNames": ["DRAGON QUEST The Adventure of Dai"],
+    "type": "axe",
+    "atk": 200,
+    "def": 239,
+    "staticStats": {
+        "def": 500
+    },
+    "oneWeaponMastery": {
+        "def": 100
+    },
+    "accuracy": 50,
+    "damageVariance": {
+        "min": 1.15,
+        "max": 1.95
+    },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080016.png",
     "sortId": 2708,
     "rarity": 9
@@ -13676,6 +13689,7 @@
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
     "exclusiveUnits": ["344000407", "344000417"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080016.png",
     "sortId": 2708,
     "rarity": 9
@@ -13702,6 +13716,7 @@
     },
     "special": ["twoHanded"],
     "exclusiveUnits": ["344000407", "344000417"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080016.png",
     "sortId": 2708,
     "rarity": 9
@@ -13728,6 +13743,7 @@
     },
     "special": ["twoHanded", "[Wind Barrier|ability_9.png]:Increase resistance to Fire and Wind by 100% for 3 turns to all allies"],
     "exclusiveUnits": ["344000407", "344000417"],
+    "exclusiveRoles": ["physicalTank"],
     "icon": "item_2080016.png",
     "sortId": 2708,
     "rarity": 9
@@ -15325,6 +15341,7 @@
         "magical": 50
     }],
     "special": ["[聖夜の星の輝き|ability_95.png]:Increase resistance to Fire, Ice, Lightning, Water, Wind, Earth, Light and Dark by 20% when equipped with Light Shield or Heavy Shield"],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "stmrUnit": "100039107",
     "icon": "item_2150020.png",
     "sortId": 2673,
@@ -15352,6 +15369,7 @@
         "magical": 50
     }],
     "special": ["[聖夜の星の輝き|ability_95.png]:Increase resistance to Fire, Ice, Lightning, Water, Wind, Earth, Light and Dark by 20% when equipped with Light Shield or Heavy Shield"],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "equipedConditions": ["lightShield"],
     "stmrUnit": "100039107",
     "icon": "item_2150020.png",
@@ -15380,6 +15398,7 @@
         "magical": 50
     }],
     "special": ["[聖夜の星の輝き|ability_95.png]:Increase resistance to Fire, Ice, Lightning, Water, Wind, Earth, Light and Dark by 20% when equipped with Light Shield or Heavy Shield"],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "equipedConditions": ["heavyShield"],
     "stmrUnit": "100039107",
     "icon": "item_2150020.png",
@@ -17551,7 +17570,6 @@
     "atk": 220,
     "spr": 237,
     "accuracy": 50,
-    "exclusiveRoles":["magicalTank"],
     "damageVariance": {
         "min": 1.25,
         "max": 1.75
@@ -17588,6 +17606,7 @@
         "magical": 75
     }],
     "special": ["twoHanded"],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "stmrUnit": "344000607",
     "icon": "item_2100031.png",
     "sortId": 2713,
@@ -17641,6 +17660,7 @@
     }],
     "special": ["twoHanded"],
     "exclusiveUnits": ["344000607", "344000617"],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "stmrUnit": "344000607",
     "icon": "item_2100031.png",
     "sortId": 2713,
@@ -19386,8 +19406,8 @@
     "rarity": 8
 }, {
     "id": "309009000",
-    "name": "真・鯨の髭N(FFXII TZA)",
-    "access": ["STMR", "not released yet"],
+    "name": "Kanya+ (FFXII)",
+    "access": ["released"],
     "type": "fist",
     "atk": 230,
     "evade": {
@@ -21095,16 +21115,16 @@
                 "damage": {
                     "mecanism": "magical",
                     "damageType": "mind",
-                    "coef": 36
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [340],
-                "repartition": [100]
+                "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Magic damage (36x, MAG) to all enemies"
+            "desc": "Magic damage (40x, MAG) to all enemies"
         }],
-        "frames": [340],
+        "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
         "move": "none",
         "type": "ability",
         "mpCost": 120
@@ -21132,16 +21152,16 @@
                 "damage": {
                     "mecanism": "magical",
                     "damageType": "mind",
-                    "coef": 36
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [340],
-                "repartition": [100]
+                "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Magic damage (36x, MAG) to all enemies"
+            "desc": "Magic damage (40x, MAG) to all enemies"
         }],
-        "frames": [340],
+        "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
         "move": "none",
         "type": "ability",
         "mpCost": 120
@@ -21169,16 +21189,16 @@
                 "damage": {
                     "mecanism": "magical",
                     "damageType": "mind",
-                    "coef": 36
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [340],
-                "repartition": [100]
+                "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Magic damage (36x, MAG) to all enemies"
+            "desc": "Magic damage (40x, MAG) to all enemies"
         }],
-        "frames": [340],
+        "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
         "move": "none",
         "type": "ability",
         "mpCost": 120
@@ -22094,24 +22114,24 @@
                 "damage": {
                     "mecanism": "magical",
                     "damageType": "mind",
-                    "coef": 36
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [340],
-                "repartition": [100]
+                "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Magic damage (36x, MAG) to all enemies"
+            "desc": "Magic damage (40x, MAG) to all enemies"
         }],
-        "frames": [340],
+        "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
         "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
 }, {
     "id": "310011400",
-    "name": "真・ダークガンバンテイン",
-    "access": ["unknown", "not released yet"],
+    "name": "Dark Gambanteinn++",
+    "access": ["darkVisions"],
     "type": "rod",
     "mag": 291,
     "damageVariance": {
@@ -22130,16 +22150,16 @@
                 "damage": {
                     "mecanism": "magical",
                     "damageType": "mind",
-                    "coef": 36
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [340],
-                "repartition": [100]
+                "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Magic damage (36x, MAG) to all enemies"
+            "desc": "Magic damage (40x, MAG) to all enemies"
         }],
-        "frames": [340],
+        "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
         "move": "none",
         "type": "ability",
         "mpCost": 120
@@ -22768,6 +22788,26 @@
                 "repartition": [100]
             },
             "desc": "Magic wind damage (1.2x, MAG) to one enemy"
+        }, {
+            "effect": {
+                "imperil": {
+                    "wind": 100
+                },
+                "turns": 5,
+                "area": "ST",
+                "target": "ENEMY"
+            },
+            "desc": "Reduce resistance to Wind by 100% for 5 turns to one enemy"
+        }, {
+            "effect": {
+                "lbFill": {
+                    "min": 4,
+                    "max": 4
+                },
+                "area": "SELF",
+                "target": "SELF"
+            },
+            "desc": "Increase LB gauge by 4 to caster"
         }],
         "magic": "black",
         "frames": [100],
@@ -22845,6 +22885,26 @@
                 "repartition": [100]
             },
             "desc": "Magic fire damage (1.2x, MAG) to one enemy"
+        }, {
+            "effect": {
+                "imperil": {
+                    "fire": 100
+                },
+                "turns": 5,
+                "area": "ST",
+                "target": "ENEMY"
+            },
+            "desc": "Reduce resistance to Fire by 100% for 5 turns to one enemy"
+        }, {
+            "effect": {
+                "lbFill": {
+                    "min": 4,
+                    "max": 4
+                },
+                "area": "SELF",
+                "target": "SELF"
+            },
+            "desc": "Increase LB gauge by 4 to caster"
         }],
         "magic": "black",
         "frames": [80],
@@ -25645,17 +25705,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -25684,17 +25744,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -25723,17 +25783,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -25853,24 +25913,24 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
 }, {
     "id": "312005100",
-    "name": "真・ダークガーンディーヴァ",
-    "access": ["unknown", "not released yet"],
+    "name": "Dark Gandiva++",
+    "access": ["darkVisions"],
     "type": "bow",
     "atk": 235,
     "accuracy": 70,
@@ -25891,17 +25951,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -26252,8 +26312,8 @@
     "rarity": 9
 }, {
     "id": "312006400",
-    "name": "宿命のサジタリア",
-    "access": ["unknown", "not released yet"],
+    "name": "Sagittarius",
+    "access": ["recipe-event"],
     "type": "bow",
     "atk": 190,
     "mag": 190,
@@ -26476,7 +26536,7 @@
     "rarity": 7
 }, {
     "id": "313002400",
-    "name": "Arcturus",
+    "name": "Arcturus (FFXII)",
     "access": ["TMR-5*"],
     "type": "gun",
     "atk": 135,
@@ -27891,6 +27951,176 @@
     "stmrUnit": "208002207",
     "icon": "item_2140027.png",
     "sortId": 2635,
+    "rarity": 9
+}, {
+    "id": "313009900",
+    "name": "Arcturus (FFXII)",
+    "access": ["recipe-event"],
+    "type": "gun",
+    "atk": 145,
+    "damageVariance": {
+        "min": 1.1,
+        "max": 1.2
+    },
+    "icon": "item_11418.png",
+    "sortId": 2748,
+    "rarity": 8
+}, {
+    "id": "313010000",
+    "name": "Arcturus (FFXII)",
+    "access": ["recipe-event"],
+    "type": "gun",
+    "atk": 165,
+    "damageVariance": {
+        "min": 1.1,
+        "max": 1.2
+    },
+    "icon": "item_11418.png",
+    "sortId": 2749,
+    "rarity": 8
+}, {
+    "id": "313010100",
+    "name": "Arcturus (FFXII)",
+    "access": ["recipe-event"],
+    "type": "gun",
+    "atk": 180,
+    "singleWielding": {
+        "atk": 75,
+        "accuracy": 25
+    },
+    "damageVariance": {
+        "min": 1.1,
+        "max": 1.2
+    },
+    "killers": [{
+        "name": "beast",
+        "physical": 75
+    }],
+    "icon": "item_11418.png",
+    "sortId": 2750,
+    "rarity": 8
+}, {
+    "id": "313010100",
+    "name": "Arcturus (FFXII)",
+    "access": ["recipe-event"],
+    "type": "gun",
+    "atk": 180,
+    "staticStats": {
+        "atk": 500
+    },
+    "singleWielding": {
+        "atk": 75,
+        "accuracy": 25
+    },
+    "damageVariance": {
+        "min": 1.1,
+        "max": 1.2
+    },
+    "killers": [{
+        "name": "beast",
+        "physical": 75
+    }],
+    "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
+    "icon": "item_11418.png",
+    "sortId": 2750,
+    "rarity": 8
+}, {
+    "id": "313010200",
+    "name": "Arcturus (FFXII)",
+    "access": ["recipe-event"],
+    "type": "gun",
+    "atk": 207,
+    "singleWielding": {
+        "atk": 100,
+        "accuracy": 25
+    },
+    "damageVariance": {
+        "min": 1.1,
+        "max": 1.2
+    },
+    "killers": [{
+        "name": "beast",
+        "physical": 100
+    }],
+    "icon": "item_11418.png",
+    "sortId": 2751,
+    "rarity": 9
+}, {
+    "id": "313010200",
+    "name": "Arcturus (FFXII)",
+    "access": ["recipe-event"],
+    "type": "gun",
+    "atk": 207,
+    "staticStats": {
+        "atk": 750
+    },
+    "singleWielding": {
+        "atk": 100,
+        "accuracy": 25
+    },
+    "damageVariance": {
+        "min": 1.1,
+        "max": 1.2
+    },
+    "killers": [{
+        "name": "beast",
+        "physical": 100
+    }],
+    "lbDamage": 50,
+    "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
+    "icon": "item_11418.png",
+    "sortId": 2751,
+    "rarity": 9
+}, {
+    "id": "313010300",
+    "name": "Arcturus (FFXII)",
+    "access": ["recipe-event"],
+    "type": "gun",
+    "atk": 220,
+    "singleWielding": {
+        "atk": 100,
+        "accuracy": 25
+    },
+    "accuracy": 70,
+    "damageVariance": {
+        "min": 1.35,
+        "max": 1.75
+    },
+    "killers": [{
+        "name": "beast",
+        "physical": 100
+    }],
+    "special": ["twoHanded"],
+    "icon": "item_11418.png",
+    "sortId": 2752,
+    "rarity": 9
+}, {
+    "id": "313010300",
+    "name": "Arcturus (FFXII)",
+    "access": ["recipe-event"],
+    "type": "gun",
+    "atk": 220,
+    "staticStats": {
+        "atk": 750
+    },
+    "singleWielding": {
+        "atk": 100,
+        "accuracy": 25
+    },
+    "accuracy": 70,
+    "damageVariance": {
+        "min": 1.35,
+        "max": 1.75
+    },
+    "killers": [{
+        "name": "beast",
+        "physical": 100
+    }],
+    "lbDamage": 50,
+    "special": ["twoHanded"],
+    "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
+    "icon": "item_11418.png",
+    "sortId": 2752,
     "rarity": 9
 }, {
     "id": "313010400",
@@ -29554,17 +29784,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 49]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -29591,17 +29821,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 49]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -29628,17 +29858,17 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 49]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -29768,17 +29998,53 @@
                 "damage": {
                     "mecanism": "physical",
                     "damageType": "body",
-                    "coef": 30
+                    "coef": 40
                 },
                 "area": "AOE",
                 "target": "ENEMY",
-                "frames": [80],
-                "repartition": [100]
+                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 49]
             },
-            "desc": "Physical damage (30x, ATK) to all enemies"
+            "desc": "Physical damage (40x, ATK) to all enemies"
         }],
-        "frames": [80],
-        "move": "walk",
+        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+        "move": "none",
+        "type": "ability",
+        "mpCost": 120
+    }]
+}, {
+    "id": "315024900",
+    "name": "Dark Rising Sun++",
+    "access": ["darkVisions"],
+    "type": "throwing",
+    "atk": 286,
+    "damageVariance": {
+        "min": 1.05,
+        "max": 1.25
+    },
+    "icon": "item_2130011.png",
+    "sortId": 2231,
+    "rarity": 10,
+    "skills": [{
+        "id": "237414",
+        "name": "Dark Throw",
+        "icon": "ability_49.png",
+        "effects": [{
+            "effect": {
+                "damage": {
+                    "mecanism": "physical",
+                    "damageType": "body",
+                    "coef": 40
+                },
+                "area": "AOE",
+                "target": "ENEMY",
+                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 49]
+            },
+            "desc": "Physical damage (40x, ATK) to all enemies"
+        }],
+        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
+        "move": "none",
         "type": "ability",
         "mpCost": 120
     }]
@@ -33049,6 +33315,7 @@
     },
     "drawAttacks": 20,
     "special": ["[Runda Start Barrier|ability_43.png]:Gain Runda Start Barrier (515252) at the start of a battle"],
+    "exclusiveRoles": ["physicalTank"],
     "stmrUnit": "100037407",
     "icon": "item_2240007.png",
     "sortId": 2473,
@@ -35817,6 +36084,7 @@
     "hp%": 100,
     "atk": 70,
     "special": ["[Tiger Spirit's Protection|ability_6000200.png]:Increase physical and magic damage against Beasts by 75% when equipped with Great Sword or Katana"],
+    "exclusiveRoles": ["physicalAttacker"],
     "stmrUnit": "100039307",
     "icon": "item_2250191.png",
     "sortId": 2678,
@@ -35833,6 +36101,7 @@
         "atk": 100
     },
     "special": ["[Tiger Spirit's Protection|ability_6000200.png]:Increase physical and magic damage against Beasts by 75% when equipped with Great Sword or Katana"],
+    "exclusiveRoles": ["physicalAttacker"],
     "equipedConditions": ["greatSword", "katana"],
     "stmrUnit": "100039307",
     "icon": "item_2250191.png",
@@ -35850,6 +36119,7 @@
         "atk": 100
     },
     "special": ["[Tiger Spirit's Protection|ability_6000200.png]:Increase physical and magic damage against Beasts by 75% when equipped with Great Sword or Katana"],
+    "exclusiveRoles": ["physicalAttacker"],
     "equipedConditions": ["greatSword", "katana"],
     "stmrUnit": "100039307",
     "icon": "item_2250191.png",
@@ -35882,6 +36152,7 @@
         "physical": 75,
         "magical": 75
     }],
+    "exclusiveRoles": ["physicalAttacker", "magicalAttacker"],
     "tmrUnit": "100039507",
     "icon": "item_2210050.png",
     "sortId": 2686,
@@ -36009,6 +36280,22 @@
         "type": "ability"
     }]
 }, {
+    "id": "403056700",
+    "name": "Leather Headgear (FFXII)",
+    "access": ["event"],
+    "type": "hat",
+    "hp": 1000,
+    "def": 12,
+    "spr": 30,
+    "killers": [{
+        "name": "beast",
+        "physical": 25,
+        "magical": 25
+    }],
+    "icon": "item_2210051.png",
+    "sortId": 2758,
+    "rarity": 7
+}, {
     "id": "403056800",
     "name": "漆黒の髪飾り",
     "access": ["unknown", "not released yet"],
@@ -36085,6 +36372,7 @@
         "atk": 50,
         "def": 50
     },
+    "exclusiveRoles": ["physicalTank"],
     "tmrUnit": "210002607",
     "icon": "item_2250206.png",
     "sortId": 2794,
@@ -36478,7 +36766,7 @@
 }, {
     "id": "404003200",
     "name": "Gabranth's Helm",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "helm",
     "hp": 1000,
     "hp%": 20,
@@ -37215,6 +37503,7 @@
         "atk": 50,
         "accuracy": 25
     },
+    "exclusiveRoles": ["physicalAttacker"],
     "stmrUnit": "343000107",
     "icon": "item_2220012.png",
     "sortId": 2652,
@@ -37235,6 +37524,7 @@
         "accuracy": 25
     },
     "exclusiveUnits": ["343000107", "343000117"],
+    "exclusiveRoles": ["physicalAttacker"],
     "stmrUnit": "343000107",
     "icon": "item_2220012.png",
     "sortId": 2652,
@@ -37249,6 +37539,7 @@
     "singleWielding": {
         "mag": 50
     },
+    "exclusiveRoles": ["physicalAttacker", "magicalAttacker"],
     "stmrUnit": "343000107",
     "icon": "item_2220012.png",
     "sortId": 2652,
@@ -37268,6 +37559,7 @@
         "mag": 50
     },
     "exclusiveUnits": ["343000107", "343000117"],
+    "exclusiveRoles": ["physicalAttacker", "magicalAttacker"],
     "stmrUnit": "343000107",
     "icon": "item_2220012.png",
     "sortId": 2652,
@@ -37284,6 +37576,7 @@
         "accuracy": 25,
         "mag": 50
     },
+    "exclusiveRoles": ["physicalAttacker", "magicalAttacker"],
     "stmrUnit": "343000107",
     "icon": "item_2220012.png",
     "sortId": 2652,
@@ -37305,6 +37598,7 @@
         "mag": 50
     },
     "exclusiveUnits": ["343000107", "343000117"],
+    "exclusiveRoles": ["physicalAttacker", "magicalAttacker"],
     "stmrUnit": "343000107",
     "icon": "item_2220012.png",
     "sortId": 2652,
@@ -37325,8 +37619,8 @@
     "rarity": 9
 }, {
     "id": "404006700",
-    "name": "巨人の兜(FFXII TZA)",
-    "access": ["unknown", "not released yet"],
+    "name": "Giant's Helmet (FFXII)",
+    "access": ["released"],
     "type": "helm",
     "hp": 1000,
     "atk": 30,
@@ -41795,6 +42089,7 @@
         "percent": 30
     }],
     "special": ["[Gallant Spirit|ability_127.png]:Use Gallant Spirit (515881) once"],
+    "exclusiveRoles": ["debuffer"],
     "stmrUnit": "100037907",
     "icon": "item_2170072.png",
     "sortId": 2575,
@@ -41817,21 +42112,18 @@
         "percent": 30
     }],
     "special": ["[Gallant Spirit|ability_127.png]:Use Gallant Spirit (515881) once, Use Gallant Spirit (515881) once"],
+    "exclusiveRoles": ["debuffer"],
     "stmrUnit": "100037907",
     "icon": "item_2170072.png",
     "sortId": 2575,
     "rarity": 9
-},{
+}, {
     "id": "405020400",
     "name": "Obliterator's Battle Dress",
     "access": ["STMR"],
     "type": "clothes",
     "atk": 72,
     "def": 38,
-    "singleWielding": {
-        "atk": 200,
-        "accuracy": 25
-    },
     "resist": [{
         "name": "fire",
         "percent": 30
@@ -41862,11 +42154,73 @@
         "percent": 30
     }],
     "exclusiveRoles": ["debuffer"],
-    "special": ["[Form of Iron Will|ability_127.png]:Use Form of Iron Will (515891) once, Use Form of Iron Will (515891) once"],
     "stmrUnit": "100038007",
     "icon": "item_2170073.png",
     "sortId": 2579,
     "rarity": 9
+}, {
+    "id": "405020400",
+    "name": "Obliterator's Battle Dress",
+    "access": ["STMR"],
+    "type": "clothes",
+    "atk": 72,
+    "def": 38,
+    "resist": [{
+        "name": "fire",
+        "percent": 30
+    }, {
+        "name": "light",
+        "percent": 30
+    }],
+    "special": ["[Form of Iron Will|ability_127.png]:Use Form of Iron Will (515891) once"],
+    "exclusiveRoles": ["debuffer"],
+    "stmrUnit": "100038007",
+    "icon": "item_2170073.png",
+    "sortId": 2579,
+    "rarity": 9
+}, {
+    "id": "405020400",
+    "name": "Obliterator's Battle Dress",
+    "access": ["STMR"],
+    "type": "clothes",
+    "atk": 72,
+    "def": 38,
+    "singleWielding": {
+        "atk": 200,
+        "accuracy": 25
+    },
+    "resist": [{
+        "name": "fire",
+        "percent": 30
+    }, {
+        "name": "light",
+        "percent": 30
+    }],
+    "special": ["[Form of Iron Will|ability_127.png]:Use Form of Iron Will (515891) once, Use Form of Iron Will (515891) once"],
+    "exclusiveRoles": ["debuffer"],
+    "stmrUnit": "100038007",
+    "icon": "item_2170073.png",
+    "sortId": 2579,
+    "rarity": 9
+}, {
+    "id": "405020500",
+    "name": "Spiritweave Dress",
+    "access": ["released"],
+    "type": "clothes",
+    "def": 15,
+    "mag": 40,
+    "spr": 40,
+    "resist": [{
+        "name": "silence",
+        "percent": 100
+    }, {
+        "name": "paralysis",
+        "percent": 100
+    }],
+    "mpRefresh": 8,
+    "icon": "item_2170074.png",
+    "sortId": 2590,
+    "rarity": 7
 }, {
     "id": "405020600",
     "name": "Zell's Clothes (FFVIII)",
@@ -42033,6 +42387,7 @@
         "physical": 50,
         "magical": 50
     }],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "tmrUnit": "100039107",
     "icon": "item_2170080.png",
     "sortId": 2672,
@@ -42061,24 +42416,12 @@
     }],
     "lbDamage": 50,
     "exclusiveUnits": ["100021705", "100021727", "100027505", "100039107", "100039117"],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "tmrUnit": "100039107",
     "icon": "item_2170080.png",
     "sortId": 2672,
     "rarity": 8
 }, {
-    "id": "405021100",
-    "name": "Lilac Flame Kimono",
-    "access": ["TMR-7*"],
-    "type": "clothes",
-    "hp": 3000,
-    "atk": 52,
-    "def": 43,
-    "exclusiveRoles": ["physicalAttacker"],
-    "tmrUnit": "100039307",
-    "icon": "item_2170081.png",
-    "sortId": 2680,
-    "rarity": 8
-},{
     "id": "405021100",
     "name": "Lilac Flame Kimono",
     "access": ["TMR-7*"],
@@ -42178,11 +42521,58 @@
     "icon": "item_2170079.png",
     "sortId": 2702,
     "rarity": 7
-},
-{
+}, {
+    "id": "405021700",
+    "name": "Balthier's Clothes (FFXII)",
+    "access": ["released"],
+    "type": "clothes",
+    "hp": 9999,
+    "atk": 120,
+    "def": 35,
+    "spr": 15,
+    "lbDamage": 50,
+    "exclusiveRoles": ["physicalAttacker"],
+    "stmrUnit": "212002407",
+    "icon": "item_2170084.png",
+    "sortId": 2756,
+    "rarity": 9
+}, {
+    "id": "405021700",
+    "name": "Balthier's Clothes (FFXII)",
+    "access": ["released"],
+    "type": "clothes",
+    "hp": 9999,
+    "atk": 120,
+    "def": 35,
+    "spr": 15,
+    "staticStats": {
+        "atk": 500
+    },
+    "lbDamage": 50,
+    "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
+    "exclusiveRoles": ["physicalAttacker"],
+    "stmrUnit": "212002407",
+    "icon": "item_2170084.png",
+    "sortId": 2756,
+    "rarity": 9
+}, {
+    "id": "405021800",
+    "name": "Windbreaker (FFXII)",
+    "access": ["event"],
+    "type": "clothes",
+    "def": 38,
+    "spr": 50,
+    "resist": [{
+        "name": "wind",
+        "percent": 30
+    }],
+    "icon": "item_2170085.png",
+    "sortId": 2759,
+    "rarity": 7
+}, {
     "id": "405021900",
-    "name": "ヴァンの服(FFXII TZA)",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Vaan's Clothes (FFXII)",
+    "access": ["released"],
     "type": "clothes",
     "hp": 1500,
     "atk": 60,
@@ -42191,14 +42581,15 @@
         "atk": 100,
         "accuracy": 25
     },
+    "exclusiveRoles": ["debuffer"],
     "tmrUnit": "212002607",
     "icon": "item_2170086.png",
     "sortId": 2761,
     "rarity": 8
 }, {
     "id": "405021900",
-    "name": "ヴァンの服(FFXII TZA)",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Vaan's Clothes (FFXII)",
+    "access": ["released"],
     "type": "clothes",
     "hp": 1500,
     "atk": 60,
@@ -42212,14 +42603,15 @@
     },
     "lbDamage": 50,
     "exclusiveUnits": ["212000103", "212001505", "212002607", "212002617"],
+    "exclusiveRoles": ["debuffer"],
     "tmrUnit": "212002607",
     "icon": "item_2170086.png",
     "sortId": 2761,
     "rarity": 8
 }, {
     "id": "405022000",
-    "name": "ヴェインの服(FFXII TZA)",
-    "access": ["unknown", "not released yet"],
+    "name": "Vayne's Garb (FFXII)",
+    "access": ["released"],
     "type": "clothes",
     "atk": 40,
     "def": 30,
@@ -42238,8 +42630,8 @@
     "rarity": 7
 }, {
     "id": "405022100",
-    "name": "ヴェインの服(FFXII TZA)",
-    "access": ["unknown", "not released yet"],
+    "name": "Vayne's Garb (FFXII)",
+    "access": ["released"],
     "type": "clothes",
     "atk": 50,
     "def": 35,
@@ -42258,8 +42650,8 @@
     "rarity": 8
 }, {
     "id": "405022200",
-    "name": "ヴェインの服(FFXII TZA)",
-    "access": ["unknown", "not released yet"],
+    "name": "Vayne's Garb (FFXII)",
+    "access": ["released"],
     "type": "clothes",
     "atk": 70,
     "def": 40,
@@ -42303,7 +42695,7 @@
     "rarity": 1
 }, {
     "id": "406000200",
-    "name": "Copper Cuirass ",
+    "name": "Copper Cuirass ",
     "access": ["shop", "recipe"],
     "type": "lightArmor",
     "def": 14,
@@ -42479,7 +42871,7 @@
         "name": "petrification",
         "percent": 100
     }],
-    "exclusiveUnits": ["100000102", "100015005", "100015805", "100027105", "100027127", "100039307", "100039317"],
+    "exclusiveUnits": ["100000102", "100015005", "100015805", "100027105", "100027127", "100039307", "100039317", "100038507", "100038517"],
     "icon": "item_20218.png",
     "sortId": 499,
     "rarity": 8
@@ -42971,7 +43363,7 @@
     "rarity": 9
 }, {
     "id": "406004800",
-    "name": "Resistance Armor",
+    "name": "Resistance Armor (FFXII)",
     "access": ["recipe-event", "event"],
     "maxNumber": 1,
     "eventNames": ["Sochen Cave Palace"],
@@ -42984,7 +43376,7 @@
     "rarity": 7
 }, {
     "id": "406004800",
-    "name": "Resistance Armor",
+    "name": "Resistance Armor (FFXII)",
     "access": ["recipe-event", "event"],
     "maxNumber": 1,
     "eventNames": ["Sochen Cave Palace"],
@@ -43398,6 +43790,7 @@
         "name": "dark",
         "percent": 20
     }],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "icon": "item_2180014.png",
     "sortId": 2715,
     "rarity": 8
@@ -43432,6 +43825,7 @@
         "name": "dark",
         "percent": 20
     }],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "icon": "item_2180014.png",
     "sortId": 2716,
     "rarity": 8
@@ -43466,6 +43860,7 @@
         "name": "dark",
         "percent": 20
     }],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "icon": "item_2180014.png",
     "sortId": 2717,
     "rarity": 8
@@ -43500,6 +43895,7 @@
         "name": "dark",
         "percent": 20
     }],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "icon": "item_2180014.png",
     "sortId": 2718,
     "rarity": 8
@@ -43538,6 +43934,7 @@
         "name": "dark",
         "percent": 20
     }],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "icon": "item_2180014.png",
     "sortId": 2719,
     "rarity": 9
@@ -43572,7 +43969,123 @@
     "icon": "item_2180017.png",
     "sortId": 2743,
     "rarity": 9
-},{
+}, {
+    "id": "406007000",
+    "name": "Resistance Armor (FFXII)",
+    "access": ["recipe-event", "event"],
+    "type": "lightArmor",
+    "atk": 35,
+    "def": 28,
+    "spr": 37,
+    "icon": "item_2180004.png",
+    "sortId": 2753,
+    "rarity": 7
+}, {
+    "id": "406007000",
+    "name": "Resistance Armor (FFXII)",
+    "access": ["recipe-event", "event"],
+    "type": "lightArmor",
+    "atk": 35,
+    "atk%": 30,
+    "def": 28,
+    "spr": 37,
+    "spr%": 10,
+    "equipedConditions": ["greatSword"],
+    "icon": "item_2180004.png",
+    "sortId": 2753,
+    "rarity": 7
+}, {
+    "id": "406007100",
+    "name": "Resistance Armor (FFXII)",
+    "access": ["recipe-event", "event"],
+    "type": "lightArmor",
+    "atk": 45,
+    "def": 28,
+    "spr": 42,
+    "icon": "item_2180004.png",
+    "sortId": 2754,
+    "rarity": 7
+}, {
+    "id": "406007100",
+    "name": "Resistance Armor (FFXII)",
+    "access": ["recipe-event", "event"],
+    "type": "lightArmor",
+    "atk": 45,
+    "atk%": 30,
+    "def": 28,
+    "spr": 42,
+    "spr%": 10,
+    "equipedConditions": ["greatSword"],
+    "icon": "item_2180004.png",
+    "sortId": 2754,
+    "rarity": 7
+}, {
+    "id": "406007200",
+    "name": "Resistance Armor (FFXII)",
+    "access": ["recipe-event", "event"],
+    "type": "lightArmor",
+    "atk": 55,
+    "atk%": 30,
+    "def": 28,
+    "spr": 52,
+    "spr%": 30,
+    "icon": "item_2180004.png",
+    "sortId": 2755,
+    "rarity": 7
+}, {
+    "id": "406007200",
+    "name": "Resistance Armor (FFXII)",
+    "access": ["recipe-event", "event"],
+    "type": "lightArmor",
+    "atk": 55,
+    "atk%": 60,
+    "def": 28,
+    "spr": 52,
+    "spr%": 40,
+    "equipedConditions": ["greatSword"],
+    "icon": "item_2180004.png",
+    "sortId": 2755,
+    "rarity": 7
+}, {
+    "id": "406007200",
+    "name": "Resistance Armor (FFXII)",
+    "access": ["recipe-event", "event"],
+    "type": "lightArmor",
+    "atk": 55,
+    "atk%": 30,
+    "def": 28,
+    "spr": 52,
+    "spr%": 30,
+    "killers": [{
+        "name": "human",
+        "physical": 50,
+        "magical": 50
+    }],
+    "exclusiveUnits": ["212000505", "212000527", "212001204", "212001227", "212001705", "212001727", "212002207", "212002217", "212002407", "212002417", "212002507", "212002517", "212002607", "212002617"],
+    "icon": "item_2180004.png",
+    "sortId": 2755,
+    "rarity": 7
+}, {
+    "id": "406007200",
+    "name": "Resistance Armor (FFXII)",
+    "access": ["recipe-event", "event"],
+    "type": "lightArmor",
+    "atk": 55,
+    "atk%": 60,
+    "def": 28,
+    "spr": 52,
+    "spr%": 40,
+    "killers": [{
+        "name": "human",
+        "physical": 50,
+        "magical": 50
+    }],
+    "exclusiveUnits": ["212000505", "212000527", "212001204", "212001227", "212001705", "212001727", "212002207", "212002217", "212002407", "212002417", "212002507", "212002517", "212002607", "212002617"],
+    "equipedConditions": ["greatSword"],
+    "icon": "item_2180004.png",
+    "sortId": 2755,
+    "rarity": 7
+}, {
     "id": "407000200",
     "name": "Bronze Armor",
     "access": ["shop", "recipe", "chest"],
@@ -44562,6 +45075,7 @@
         "magical": 75
     }],
     "lbDamage": 100,
+    "exclusiveRoles": ["debuffer"],
     "stmrUnit": "202002307",
     "icon": "item_2190010.png",
     "sortId": 2726,
@@ -44609,6 +45123,7 @@
     }],
     "lbDamage": 100,
     "exclusiveUnits": ["202000505", "202000527", "202002307", "202002317"],
+    "exclusiveRoles": ["debuffer"],
     "stmrUnit": "202002307",
     "icon": "item_2190010.png",
     "sortId": 2726,
@@ -44723,6 +45238,7 @@
     }],
     "lbDamage": 50,
     "special": ["[MP消費軽減30%|ability_77.png]:Reduce MP consumption by 30%"],
+    "exclusiveRoles": ["physicalAttacker", "magicalAttacker"],
     "icon": "item_2190012.png",
     "sortId": 2775,
     "rarity": 8
@@ -44764,6 +45280,7 @@
     "lbDamage": 50,
     "special": ["[MP消費軽減30%|ability_77.png]:Reduce MP consumption by 30%"],
     "exclusiveUnits": ["401011607", "401011617"],
+    "exclusiveRoles": ["physicalAttacker", "magicalAttacker"],
     "icon": "item_2190012.png",
     "sortId": 2775,
     "rarity": 8
@@ -46008,6 +46525,7 @@
     "mag": 100,
     "spr": 60,
     "lbDamage": 100,
+    "exclusiveRoles": ["debuffer"],
     "stmrUnit": "210002507",
     "icon": "item_2200014.png",
     "sortId": 2785,
@@ -47578,7 +48096,7 @@
     "hp%": 15,
     "def": 3,
     "mpRefresh": 5,
-    "exclusiveUnits": ["100000102", "100015005", "100015805", "100027105", "100027127", "100039307", "100039317"],
+    "exclusiveUnits": ["100000102", "100015005", "100015805", "100027105", "100027127", "100039307", "100039317", "100038507", "100038517"],
     "icon": "item_50239.png",
     "sortId": 500,
     "rarity": 8
@@ -55995,7 +56513,7 @@
         "physical": 50,
         "magical": 50
     }],
-    "exclusiveUnits": ["100035807", "100035817", "100034707", "100034717", "100032707", "100032717", "100032807", "100032817", "100032907", "100032917", "100033007", "100033017", "100033107", "100033117", "100027805", "100027827", "100027105", "100027127", "100027205", "100027227", "100027305", "100027405", "100027605", "100027705", "100027905", "100029905", "100030005", "100030105", "100027505", "100039307", "100039317", "100039407", "100039417", "100038407", "100038417", "100039507", "100039517", "100039607", "100039617"],
+    "exclusiveUnits": ["100035807", "100035817", "100034707", "100034717", "100032707", "100032717", "100032807", "100032817", "100032907", "100032917", "100033007", "100033017", "100033107", "100033117", "100027805", "100027827", "100027105", "100027127", "100027205", "100027227", "100027305", "100027405", "100027605", "100027705", "100027905", "100029905", "100030005", "100030105", "100027505", "100039307", "100039317", "100039407", "100039417", "100038407", "100038417", "100039507", "100039517", "100039607", "100039617", "100038507", "100038517"],
     "icon": "item_2250054.png",
     "sortId": 2279,
     "rarity": 8
@@ -57294,7 +57812,7 @@
 }, {
     "id": "409057400",
     "name": "Caledfwlch Enlistment Seal",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 30,
     "lbPerTurn": {
@@ -57307,7 +57825,7 @@
 }, {
     "id": "409057500",
     "name": "Caledfwlch Enlistment Seal",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 50,
     "lbPerTurn": {
@@ -59119,14 +59637,28 @@
     "access": ["STMR"],
     "type": "accessory",
     "hp": 1000,
+    "def": 60,
+    "spr": 20,
+    "special": ["[Boon of the Lion|ability_127.png]:Use Boon of the Lion (515942) once"],
+    "exclusiveRoles": ["physicalTank"],
+    "stmrUnit": "339000607",
+    "icon": "item_2250177.png",
+    "sortId": 2644,
+    "rarity": 9
+}, {
+    "id": "409064300",
+    "name": "King of the Lions' Cloak (WOTV FFBE)",
+    "access": ["STMR"],
+    "type": "accessory",
+    "hp": 1000,
     "hp%": 100,
     "def": 60,
     "spr": 20,
     "oneWeaponMastery": {
         "def": 50
     },
-    "exclusiveRoles": ["physicalTank"],
     "lbDamage": 50,
+    "exclusiveRoles": ["physicalTank"],
     "stmrUnit": "339000607",
     "icon": "item_2250177.png",
     "sortId": 2644,
@@ -59145,6 +59677,7 @@
     },
     "lbDamage": 50,
     "special": ["[Boon of the Lion|ability_127.png]:Use Boon of the Lion (515942) once"],
+    "exclusiveRoles": ["physicalTank"],
     "stmrUnit": "339000607",
     "icon": "item_2250177.png",
     "sortId": 2644,
@@ -59167,6 +59700,7 @@
         "physical": 100,
         "magical": 100
     }],
+    "exclusiveRoles": ["debuffer"],
     "stmrUnit": "339000507",
     "icon": "item_2250178.png",
     "sortId": 2645,
@@ -59191,6 +59725,7 @@
     }],
     "special": ["[偽りの夜帳|ability_39.png]:Gain 偽りの夜帳 (515941) at the start of a battle"],
     "exclusiveUnits": ["339000507", "339000517"],
+    "exclusiveRoles": ["debuffer"],
     "stmrUnit": "339000507",
     "icon": "item_2250178.png",
     "sortId": 2645,
@@ -59300,6 +59835,7 @@
         "name": "water",
         "percent": 30
     }],
+    "exclusiveRoles": ["healer"],
     "stmrUnit": "100039007",
     "icon": "item_2250189.png",
     "sortId": 2665,
@@ -59444,6 +59980,7 @@
         "physical": 75,
         "magical": 75
     }],
+    "exclusiveRoles": ["physicalAttacker", "magicalAttacker"],
     "tmrUnit": "100039607",
     "icon": "item_2250193.png",
     "sortId": 2687,
@@ -59503,17 +60040,13 @@
     "icon": "item_2250192.png",
     "sortId": 2693,
     "rarity": 8
-},
-{
+}, {
     "id": "409065600",
     "name": "Insignia of Avan (Dai)",
     "access": ["TMR-7*"],
     "type": "accessory",
     "atk": 56,
     "mag": 56,
-    "oneWeaponMastery": {
-        "atk": 75
-    },
     "resist": [{
         "name": "lightning",
         "percent": 30
@@ -59521,13 +60054,19 @@
         "name": "dark",
         "percent": 30
     }],
-    "equipedConditions": ["sword", "dagger"],
     "tmrUnit": "344000107",
     "icon": "item_2250182.png",
     "sortId": 2695,
+    "notStackableSkills": {
+        "243520": {
+            "staticStats": {
+                "atk": 250,
+                "mag": 250
+            }
+        }
+    },
     "rarity": 8
-},
-{
+}, {
     "id": "409065600",
     "name": "Insignia of Avan (Dai)",
     "access": ["TMR-7*"],
@@ -59535,7 +60074,7 @@
     "atk": 56,
     "mag": 56,
     "oneWeaponMastery": {
-        "atk": 75
+        "atk": 150
     },
     "resist": [{
         "name": "lightning",
@@ -59544,57 +60083,6 @@
         "name": "dark",
         "percent": 30
     }],
-    "equipedConditions": ["dagger"],
-    "tmrUnit": "344000107",
-    "icon": "item_2250182.png",
-    "sortId": 2695,
-    "rarity": 8
-},
-{
-    "id": "409065600",
-    "name": "Insignia of Avan (Dai)",
-    "access": ["TMR-7*"],
-    "type": "accessory",
-    "atk": 56,
-    "mag": 56,
-    "oneWeaponMastery": {
-        "atk": 75
-    },
-    "resist": [{
-        "name": "lightning",
-        "percent": 30
-    }, {
-        "name": "dark",
-        "percent": 30
-    }],
-    "equipedConditions": ["sword"],
-    "tmrUnit": "344000107",
-    "icon": "item_2250182.png",
-    "sortId": 2695,
-    "rarity": 8
-},
-{
-    "id": "409065600",
-    "name": "Insignia of Avan (Dai)",
-    "access": ["TMR-7*"],
-    "type": "accessory",
-    "atk": 56,
-    "mag": 56,
-    "staticStats": {
-        "atk": 250,
-        "mag": 250
-    },
-    "oneWeaponMastery": {
-        "atk": 75
-    },
-    "resist": [{
-        "name": "lightning",
-        "percent": 30
-    }, {
-        "name": "dark",
-        "percent": 30
-    }],
-    "exclusiveUnits": ["344000107", "344000117"],
     "equipedConditions": ["sword", "dagger"],
     "tmrUnit": "344000107",
     "icon": "item_2250182.png",
@@ -59608,20 +60096,15 @@
         }
     },
     "rarity": 8
-},
-{
+}, {
     "id": "409065600",
     "name": "Insignia of Avan (Dai)",
     "access": ["TMR-7*"],
     "type": "accessory",
     "atk": 56,
     "mag": 56,
-    "staticStats": {
-        "atk": 250,
-        "mag": 250
-    },
     "oneWeaponMastery": {
-        "atk": 75
+        "atk": 150
     },
     "resist": [{
         "name": "lightning",
@@ -59630,8 +60113,7 @@
         "name": "dark",
         "percent": 30
     }],
-    "exclusiveUnits": ["344000107", "344000117"],
-    "equipedConditions": ["dagger"],
+    "equipedConditions": ["sword", "dagger"],
     "tmrUnit": "344000107",
     "icon": "item_2250182.png",
     "sortId": 2695,
@@ -59644,8 +60126,7 @@
         }
     },
     "rarity": 8
-},
-{
+}, {
     "id": "409065600",
     "name": "Insignia of Avan (Dai)",
     "access": ["TMR-7*"],
@@ -59656,9 +60137,6 @@
         "atk": 250,
         "mag": 250
     },
-    "oneWeaponMastery": {
-        "atk": 75
-    },
     "resist": [{
         "name": "lightning",
         "percent": 30
@@ -59667,7 +60145,6 @@
         "percent": 30
     }],
     "exclusiveUnits": ["344000107", "344000117"],
-    "equipedConditions": ["sword"],
     "tmrUnit": "344000107",
     "icon": "item_2250182.png",
     "sortId": 2695,
@@ -59680,8 +60157,77 @@
         }
     },
     "rarity": 8
-},
-{
+}, {
+    "id": "409065600",
+    "name": "Insignia of Avan (Dai)",
+    "access": ["TMR-7*"],
+    "type": "accessory",
+    "atk": 56,
+    "mag": 56,
+    "staticStats": {
+        "atk": 250,
+        "mag": 250
+    },
+    "oneWeaponMastery": {
+        "atk": 150
+    },
+    "resist": [{
+        "name": "lightning",
+        "percent": 30
+    }, {
+        "name": "dark",
+        "percent": 30
+    }],
+    "exclusiveUnits": ["344000107", "344000117"],
+    "equipedConditions": ["sword", "dagger"],
+    "tmrUnit": "344000107",
+    "icon": "item_2250182.png",
+    "sortId": 2695,
+    "notStackableSkills": {
+        "243520": {
+            "staticStats": {
+                "atk": 250,
+                "mag": 250
+            }
+        }
+    },
+    "rarity": 8
+}, {
+    "id": "409065600",
+    "name": "Insignia of Avan (Dai)",
+    "access": ["TMR-7*"],
+    "type": "accessory",
+    "atk": 56,
+    "mag": 56,
+    "staticStats": {
+        "atk": 250,
+        "mag": 250
+    },
+    "oneWeaponMastery": {
+        "atk": 150
+    },
+    "resist": [{
+        "name": "lightning",
+        "percent": 30
+    }, {
+        "name": "dark",
+        "percent": 30
+    }],
+    "exclusiveUnits": ["344000107", "344000117"],
+    "equipedConditions": ["sword", "dagger"],
+    "tmrUnit": "344000107",
+    "icon": "item_2250182.png",
+    "sortId": 2695,
+    "notStackableSkills": {
+        "243520": {
+            "staticStats": {
+                "atk": 250,
+                "mag": 250
+            }
+        }
+    },
+    "rarity": 8
+}, {
     "id": "409065700",
     "name": "Insignia of Avan (Popp)",
     "access": ["TMR-7*"],
@@ -60557,9 +61103,58 @@
     "sortId": 2747,
     "rarity": 7
 }, {
+    "id": "409067100",
+    "name": "Ashe's Leg Armor (FFXII)",
+    "access": ["released"],
+    "type": "accessory",
+    "def": 32,
+    "mag": 90,
+    "spr": 80,
+    "special": ["[Knowledge of Mist|ability_77.png]:Reduce MP consumption by 30%"],
+    "exclusiveSex": "female",
+    "stmrUnit": "212002507",
+    "icon": "item_2250196.png",
+    "sortId": 2757,
+    "notStackableSkills": {
+        "243633": {
+            "staticStats": {
+                "mag": 500,
+                "spr": 500
+            }
+        }
+    },
+    "rarity": 9
+}, {
+    "id": "409067100",
+    "name": "Ashe's Leg Armor (FFXII)",
+    "access": ["released"],
+    "type": "accessory",
+    "def": 32,
+    "mag": 90,
+    "spr": 80,
+    "staticStats": {
+        "mag": 500,
+        "spr": 500
+    },
+    "special": ["[Knowledge of Mist|ability_77.png]:Reduce MP consumption by 30%"],
+    "exclusiveSex": "female",
+    "exclusiveUnits": ["212000204", "212001905", "212002507", "212002517"],
+    "stmrUnit": "212002507",
+    "icon": "item_2250196.png",
+    "sortId": 2757,
+    "notStackableSkills": {
+        "243633": {
+            "staticStats": {
+                "mag": 500,
+                "spr": 500
+            }
+        }
+    },
+    "rarity": 9
+}, {
     "id": "409067200",
-    "name": "戦神のアシュリング(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Wargod's Band (FFXII)",
+    "access": ["released"],
     "type": "accessory",
     "atk": 20,
     "spr": 5,
@@ -60568,8 +61163,8 @@
     "rarity": 7
 }, {
     "id": "409067300",
-    "name": "戦神のアシュリング(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Wargod's Band (FFXII)",
+    "access": ["released"],
     "type": "accessory",
     "atk": 30,
     "spr": 5,
@@ -60578,8 +61173,8 @@
     "rarity": 7
 }, {
     "id": "409067400",
-    "name": "戦神のアシュリング(FFXII)",
-    "access": ["unknown", "not released yet"],
+    "name": "Wargod's Band (FFXII)",
+    "access": ["released"],
     "type": "accessory",
     "atk": 45,
     "spr": 5,
@@ -73689,7 +74284,7 @@
 }, {
     "id": "1100000485",
     "name": "Golden Gil Snapper Statue (2021)",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "hp": 500,
     "def": 30,
@@ -76824,7 +77419,7 @@
 }, {
     "id": "1100000575",
     "name": "Paws of Prosperity",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "hp": 228,
     "mp": 88,
@@ -77574,7 +78169,7 @@
 }, {
     "id": "1100000599",
     "name": "Forgotten Edge",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "katana",
     "atk": 155,
     "damageVariance": {
@@ -77592,7 +78187,7 @@
 }, {
     "id": "1100000600",
     "name": "Jester's Claymore",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "sword",
     "atk": 150,
     "mag": 150,
@@ -77755,7 +78350,7 @@
 }, {
     "id": "1100000604",
     "name": "Celestite Ring of Will",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 5,
     "def": 5,
@@ -77780,7 +78375,7 @@
 }, {
     "id": "1100000605",
     "name": "Celestite Ring of Will",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 15,
     "def": 10,
@@ -77805,7 +78400,7 @@
 }, {
     "id": "1100000606",
     "name": "Celestite Ring of Will",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 25,
     "def": 15,
@@ -77830,7 +78425,7 @@
 }, {
     "id": "1100000607",
     "name": "Celestite Ring of Will+",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 40,
     "def": 20,
@@ -77855,7 +78450,7 @@
 }, {
     "id": "1100000608",
     "name": "Celestite Ring of Will+",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 45,
     "def": 35,
@@ -77880,7 +78475,7 @@
 }, {
     "id": "1100000609",
     "name": "Celestite Ring of Will++",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 55,
     "def": 55,
@@ -77905,7 +78500,7 @@
 }, {
     "id": "1100000610",
     "name": "Celestite Ring of Will++",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 65,
     "def": 65,
@@ -78217,7 +78812,7 @@
 }, {
     "id": "1100000618",
     "name": "Ready Steady Garb",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "clothes",
     "hp": 2000,
     "def": 60,
@@ -78230,7 +78825,7 @@
 }, {
     "id": "1100000619",
     "name": "Magical Misdirection Trench",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "clothes",
     "hp": 2000,
     "spr": 60,
@@ -78575,7 +79170,7 @@
 }, {
     "id": "1100000628",
     "name": "Virtuous Vestment",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "clothes",
     "hp": 1550,
     "atk": 92,
@@ -78651,7 +79246,7 @@
 }, {
     "id": "1100000631",
     "name": "Archon's Celestite Signet of Will",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "hp%": 30,
     "mp%": 30,
@@ -78692,7 +79287,7 @@
 }, {
     "id": "1100000632",
     "name": "Flagbearer's Celestite Signet of Will",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 80,
     "def": 80,
@@ -78746,7 +79341,7 @@
 }, {
     "id": "1100000633",
     "name": "Hermit's Celestite Signet of Will",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 80,
     "def": 80,
@@ -78781,7 +79376,7 @@
 }, {
     "id": "1100000634",
     "name": "Craftsman's Celestite Signet of Will",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 80,
     "def": 80,
@@ -78819,7 +79414,7 @@
 }, {
     "id": "1100000635",
     "name": "Medium's Celestite Signet of Will",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "atk": 80,
     "def": 80,
@@ -78857,7 +79452,7 @@
 }, {
     "id": "1100000636",
     "name": "Forgotten Ceremonial Blade",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "katana",
     "atk": 175,
     "accuracy": 50,
@@ -78941,7 +79536,7 @@
 }, {
     "id": "1100000640",
     "name": "Imperial Robe+",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "clothes",
     "hp%": 15,
     "def": 55,
@@ -78963,7 +79558,7 @@
 }, {
     "id": "1100000641",
     "name": "Empress's Celestite Rod",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "rod",
     "mag": 180,
     "spr": 150,
@@ -78976,14 +79571,14 @@
         "min": 1.25,
         "max": 1.75
     },
-    "special": ["twoHanded", "[High Spirits|global_ability_10066.png]:Use High Spirits (916600) at the start of a battle or when revived"],
+    "special": ["twoHanded", "[High Spirits|global_ability_10066.png]:Gain High Spirits (916600) at the start of a battle"],
     "icon": "global_equip_10554.png",
     "sortId": 90643,
     "rarity": 8
 }, {
     "id": "1100000642",
     "name": "Empress's Celestite Rod+",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "rod",
     "mag": 200,
     "spr": 175,
@@ -78997,14 +79592,14 @@
         "max": 1.75
     },
     "lbDamage": 50,
-    "special": ["twoHanded", "[High Spirits+|global_ability_10066.png]:Use High Spirits+ (916601) at the start of a battle or when revived"],
+    "special": ["twoHanded", "[High Spirits+|global_ability_10066.png]:Gain High Spirits+ (916601) at the start of a battle"],
     "icon": "global_equip_10555.png",
     "sortId": 90644,
     "rarity": 9
 }, {
     "id": "1209001146",
     "name": "Golden Gil Snapper Statue",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "accessory",
     "hp": 500,
     "def": 30,
@@ -79482,6 +80077,26 @@
                 "repartition": [100]
             },
             "desc": "Magic fire damage (1.2x, MAG) to one enemy"
+        }, {
+            "effect": {
+                "imperil": {
+                    "fire": 100
+                },
+                "turns": 5,
+                "area": "ST",
+                "target": "ENEMY"
+            },
+            "desc": "Reduce resistance to Fire by 100% for 5 turns to one enemy"
+        }, {
+            "effect": {
+                "lbFill": {
+                    "min": 4,
+                    "max": 4
+                },
+                "area": "SELF",
+                "target": "SELF"
+            },
+            "desc": "Increase LB gauge by 4 to caster"
         }],
         "magic": "black",
         "frames": [80],
@@ -79514,6 +80129,26 @@
                 "repartition": [100]
             },
             "desc": "Magic ice damage (1.2x, MAG) to one enemy"
+        }, {
+            "effect": {
+                "imperil": {
+                    "ice": 100
+                },
+                "turns": 5,
+                "area": "ST",
+                "target": "ENEMY"
+            },
+            "desc": "Reduce resistance to Ice by 100% for 5 turns to one enemy"
+        }, {
+            "effect": {
+                "lbFill": {
+                    "min": 4,
+                    "max": 4
+                },
+                "area": "SELF",
+                "target": "SELF"
+            },
+            "desc": "Increase LB gauge by 4 to caster"
         }],
         "magic": "black",
         "frames": [130],
@@ -79598,6 +80233,26 @@
                 "repartition": [100]
             },
             "desc": "Magic water damage (1.2x, MAG) to one enemy"
+        }, {
+            "effect": {
+                "imperil": {
+                    "water": 100
+                },
+                "turns": 5,
+                "area": "ST",
+                "target": "ENEMY"
+            },
+            "desc": "Reduce resistance to Water by 100% for 5 turns to one enemy"
+        }, {
+            "effect": {
+                "lbFill": {
+                    "min": 4,
+                    "max": 4
+                },
+                "area": "SELF",
+                "target": "SELF"
+            },
+            "desc": "Increase LB gauge by 4 to caster"
         }],
         "magic": "black",
         "frames": [80],
@@ -79630,6 +80285,26 @@
                 "repartition": [100]
             },
             "desc": "Magic wind damage (1.2x, MAG) to one enemy"
+        }, {
+            "effect": {
+                "imperil": {
+                    "wind": 100
+                },
+                "turns": 5,
+                "area": "ST",
+                "target": "ENEMY"
+            },
+            "desc": "Reduce resistance to Wind by 100% for 5 turns to one enemy"
+        }, {
+            "effect": {
+                "lbFill": {
+                    "min": 4,
+                    "max": 4
+                },
+                "area": "SELF",
+                "target": "SELF"
+            },
+            "desc": "Increase LB gauge by 4 to caster"
         }],
         "magic": "black",
         "frames": [100],
@@ -79662,6 +80337,26 @@
                 "repartition": [100]
             },
             "desc": "Magic earth damage (1.2x, MAG) to one enemy"
+        }, {
+            "effect": {
+                "imperil": {
+                    "earth": 100
+                },
+                "turns": 5,
+                "area": "ST",
+                "target": "ENEMY"
+            },
+            "desc": "Reduce resistance to Earth by 100% for 5 turns to one enemy"
+        }, {
+            "effect": {
+                "lbFill": {
+                    "min": 4,
+                    "max": 4
+                },
+                "area": "SELF",
+                "target": "SELF"
+            },
+            "desc": "Increase LB gauge by 4 to caster"
         }],
         "magic": "black",
         "frames": [120],
@@ -81086,7 +81781,7 @@
 }, {
     "id": "504100150",
     "name": "DEF +30%",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "def%": 30,
     "icon": "ability_77.png",
@@ -81943,6 +82638,7 @@
     "access": ["TMR-7*"],
     "type": "materia",
     "special": ["[Provoke II|ability_94.png]:Increase chance of being targeted by 100% for 2 turns, Reduce damage taken by 75% to caster for 2 turns"],
+    "exclusiveRoles": ["physicalTank", "magicalTank"],
     "tmrUnit": "100037407",
     "icon": "ability_94.png",
     "sortId": 1370
@@ -86410,7 +87106,7 @@
 }, {
     "id": "504219270",
     "name": "Dual Wield+",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 15,
     "mag%": 15,
@@ -86566,7 +87262,7 @@
 }, {
     "id": "504220140",
     "name": "Battler",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "hp%": 20,
     "atk%": 30,
@@ -86965,7 +87661,7 @@
 }, {
     "id": "504221740",
     "name": "Sleep",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "icon": "ability_4.png",
     "sortId": 734,
@@ -87216,7 +87912,7 @@
 }, {
     "id": "504223950",
     "name": "Machine Killer+",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "killers": [{
         "name": "machine",
@@ -88081,14 +88777,15 @@
     "sortId": 773
 }, {
     "id": "504226897",
-    "name": "デーモンキラー改",
-    "access": ["unknown", "not released yet"],
+    "name": "Demon Killer+",
+    "access": ["released"],
     "type": "materia",
     "killers": [{
         "name": "demon",
         "physical": 75,
         "magical": 75
     }],
+    "special": ["notStackable"],
     "icon": "ability_79.png",
     "sortId": 1434
 }, {
@@ -88464,7 +89161,7 @@
 }, {
     "id": "504227315",
     "name": "Undead Killer+",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "killers": [{
         "name": "undead",
@@ -99466,7 +100163,7 @@
 }, {
     "id": "504241941",
     "name": "Raise Attack",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 30,
     "icon": "ability_77.png",
@@ -99474,7 +100171,7 @@
 }, {
     "id": "504241942",
     "name": "Raise Defense",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "def%": 30,
     "icon": "ability_77.png",
@@ -99482,7 +100179,7 @@
 }, {
     "id": "504241943",
     "name": "Raise Magic",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "mag%": 30,
     "icon": "ability_77.png",
@@ -99490,7 +100187,7 @@
 }, {
     "id": "504241944",
     "name": "Raise Spirit",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "spr%": 30,
     "icon": "ability_77.png",
@@ -99797,6 +100494,7 @@
     "access": ["STMR"],
     "type": "materia",
     "special": ["[Taivas's Spirit|ability_105.png]:Unlock Taivas's Spirit (515250) on turn 1 [4 turns CD]"],
+    "exclusiveRoles": ["physicalAttacker"],
     "stmrUnit": "100035907",
     "icon": "ability_105.png",
     "sortId": 1369
@@ -99806,6 +100504,7 @@
     "access": ["TMR-7*"],
     "type": "materia",
     "special": ["[Earth Breaker|ability_105.png]:Unlock Earth Breaker (515251) on turn 1 [5 turns CD]"],
+    "exclusiveRoles": ["debuffer"],
     "tmrUnit": "100037307",
     "icon": "ability_105.png",
     "sortId": 1371
@@ -100145,6 +100844,7 @@
     "access": ["TMR-7*"],
     "type": "materia",
     "special": ["[Numbing Thunderbind|ability_105.png]:Unlock Numbing Thunderbind (515740) on turn 1 [5 turns CD]"],
+    "exclusiveRoles": ["debuffer"],
     "tmrUnit": "204003107",
     "icon": "ability_105.png",
     "sortId": 1390
@@ -100183,7 +100883,7 @@
 }, {
     "id": "504243119",
     "name": "Machine Eater Sense",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 40,
     "mag%": 40,
@@ -100261,6 +100961,7 @@
     "access": ["unknown", "not released yet"],
     "type": "materia",
     "special": ["[ソウルオブタイヴァス+1|ability_105.png]:Unlock ソウルオブタイヴァス+1 (515790) on turn 1 [4 turns CD]"],
+    "exclusiveRoles": ["physicalAttacker"],
     "icon": "ability_105.png",
     "sortId": 1397
 }, {
@@ -100288,6 +100989,7 @@
     "access": ["TMR-7*"],
     "type": "materia",
     "special": ["[Light Breaker|ability_105.png]:Unlock Light Breaker (515880) on turn 1 [5 turns CD]"],
+    "exclusiveRoles": ["debuffer"],
     "tmrUnit": "100037907",
     "icon": "ability_105.png",
     "sortId": 1399
@@ -100336,6 +101038,7 @@
     "access": ["TMR-7*"],
     "type": "materia",
     "special": ["[Dark Breaker|ability_105.png]:Unlock Dark Breaker (515890) on turn 1 [5 turns CD]"],
+    "exclusiveRoles": ["debuffer"],
     "tmrUnit": "100038007",
     "icon": "ability_105.png",
     "sortId": 1402
@@ -100487,65 +101190,10 @@
     "access": ["TMR-7*"],
     "type": "materia",
     "special": ["notStackable", "[Souls Joined through Prayer|ability_79.png]:Increase physical and magic damage against Demons by 75% when equipped with Great Sword or Katana, Increase physical and magic damage against Humans by 75% when equipped with Great Sword or Katana"],
-    "equipedConditions": ["katana", "greatSword"],
-    "killers": [
-        {
-            "name": "demon",
-            "physical": 75,
-            "magical": 75
-        },
-        {
-            "name": "human",
-            "physical": 75,
-            "magical": 75
-        }],
     "tmrUnit": "100038607",
     "icon": "ability_79.png",
     "sortId": 1410
 }, {
-    "id": "504243341",
-    "name": "Souls Joined through Prayer",
-    "access": ["TMR-7*"],
-    "type": "materia",
-    "special": ["notStackable", "[Souls Joined through Prayer|ability_79.png]:Increase physical and magic damage against Demons by 75% when equipped with Great Sword or Katana, Increase physical and magic damage against Humans by 75% when equipped with Great Sword or Katana"],
-    "killers": [
-        {
-            "name": "demon",
-            "physical": 75,
-            "magical": 75
-        },
-        {
-            "name": "human",
-            "physical": 75,
-            "magical": 75
-        }],
-    "equipedConditions": ["katana"],
-    "tmrUnit": "100038607",
-    "icon": "ability_79.png",
-    "sortId": 1410
-},
-{
-    "id": "504243341",
-    "name": "Souls Joined through Prayer",
-    "access": ["TMR-7*"],
-    "type": "materia",
-    "special": ["notStackable", "[Souls Joined through Prayer|ability_79.png]:Increase physical and magic damage against Demons by 75% when equipped with Great Sword or Katana, Increase physical and magic damage against Humans by 75% when equipped with Great Sword or Katana"],
-    "killers": [
-        {
-            "name": "demon",
-            "physical": 75,
-            "magical": 75
-        },
-        {
-            "name": "human",
-            "physical": 75,
-            "magical": 75
-        }],
-    "equipedConditions": ["greatSword"],
-    "tmrUnit": "100038607",
-    "icon": "ability_79.png",
-    "sortId": 1410
-},{
     "id": "504243343",
     "name": "Promise with Squall",
     "access": ["TMR-7*"],
@@ -100816,7 +101464,7 @@
 }, {
     "id": "504243371",
     "name": "Insect Eater Sense",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 40,
     "mag%": 40,
@@ -100834,6 +101482,7 @@
     "access": ["not released yet", "TMR-7*"],
     "type": "materia",
     "special": ["[破鎧刃|ability_105.png]:Unlock 破鎧刃 (515940) on turn 1 [4 turns CD]"],
+    "exclusiveRoles": ["debuffer"],
     "tmrUnit": "339000507",
     "icon": "ability_105.png",
     "sortId": 1417
@@ -101000,61 +101649,79 @@
     "access": ["TMR-7*"],
     "type": "materia",
     "oneWeaponMastery": {
-        "atk": 100,
-        "mage": 100
+        "atk": 300
     },
     "special": ["notStackable"],
     "equipedConditions": ["katana", "spear", "mace"],
     "tmrUnit": "100038807",
     "icon": "ability_6000200.png",
     "sortId": 1421
-},
-{
+}, {
     "id": "504243432",
     "name": "Purest of Soldiers",
     "access": ["TMR-7*"],
     "type": "materia",
     "oneWeaponMastery": {
-        "atk": 100,
-        "mage": 100
+        "atk": 300
     },
     "special": ["notStackable"],
-    "equipedConditions": ["katana"],
+    "equipedConditions": ["katana", "spear", "mace"],
     "tmrUnit": "100038807",
     "icon": "ability_6000200.png",
     "sortId": 1421
-},
-{
+}, {
     "id": "504243432",
     "name": "Purest of Soldiers",
     "access": ["TMR-7*"],
     "type": "materia",
     "oneWeaponMastery": {
-        "atk": 100,
-        "mage": 100
+        "atk": 300
     },
     "special": ["notStackable"],
-    "equipedConditions": ["spear"],
+    "equipedConditions": ["katana", "spear", "mace"],
     "tmrUnit": "100038807",
     "icon": "ability_6000200.png",
     "sortId": 1421
-},
-{
+}, {
     "id": "504243432",
     "name": "Purest of Soldiers",
     "access": ["TMR-7*"],
     "type": "materia",
     "oneWeaponMastery": {
-        "atk": 100,
-        "mage": 100
+        "mag": 300
     },
     "special": ["notStackable"],
-    "equipedConditions": ["mace"],
+    "equipedConditions": ["katana", "spear", "mace"],
     "tmrUnit": "100038807",
     "icon": "ability_6000200.png",
     "sortId": 1421
-},
-{
+}, {
+    "id": "504243432",
+    "name": "Purest of Soldiers",
+    "access": ["TMR-7*"],
+    "type": "materia",
+    "oneWeaponMastery": {
+        "mag": 300
+    },
+    "special": ["notStackable"],
+    "equipedConditions": ["katana", "spear", "mace"],
+    "tmrUnit": "100038807",
+    "icon": "ability_6000200.png",
+    "sortId": 1421
+}, {
+    "id": "504243432",
+    "name": "Purest of Soldiers",
+    "access": ["TMR-7*"],
+    "type": "materia",
+    "oneWeaponMastery": {
+        "mag": 300
+    },
+    "special": ["notStackable"],
+    "equipedConditions": ["katana", "spear", "mace"],
+    "tmrUnit": "100038807",
+    "icon": "ability_6000200.png",
+    "sortId": 1421
+}, {
     "id": "504243434",
     "name": "Anti-Armor Tactics",
     "access": ["TMR-7*"],
@@ -101125,7 +101792,7 @@
 }, {
     "id": "504243454",
     "name": "Demon Eater Sense",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 40,
     "mag%": 40,
@@ -101148,190 +101815,204 @@
     "sortId": 1427
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "atk": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "def": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "atk": 75,
         "def": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "mag": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "atk": 75,
         "mag": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "def": 75,
         "mag": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "atk": 75,
         "def": 75,
         "mag": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "spr": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "atk": 75,
         "spr": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "def": 75,
         "spr": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "atk": 75,
         "def": 75,
         "spr": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "mag": 75,
         "spr": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "atk": 75,
         "mag": 75,
         "spr": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "def": 75,
         "mag": 75,
         "spr": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243484",
-    "name": "大剣の極意II",
-    "access": ["not released yet", "TMR-7*"],
+    "name": "Large Sword Mastery II",
+    "access": ["released"],
     "type": "materia",
     "oneWeaponMastery": {
         "atk": 75,
@@ -101339,17 +102020,20 @@
         "mag": 75,
         "spr": 75
     },
+    "special": ["notStackable"],
     "equipedConditions": ["greatSword"],
     "tmrUnit": "100038507",
     "icon": "ability_6000200.png",
     "sortId": 1428
 }, {
     "id": "504243485",
-    "name": "アルドールの秘伝",
-    "access": ["STMR", "not released yet"],
+    "name": "Mysteries of Aldore",
+    "access": ["released"],
     "type": "materia",
     "lbFillRate": 200,
     "lbDamage": 100,
+    "special": ["notStackable"],
+    "exclusiveRoles": ["physicalAttacker"],
     "stmrUnit": "100038507",
     "icon": "ability_78.png",
     "sortId": 1429
@@ -101573,6 +102257,7 @@
     "lbFillRate": 200,
     "lbDamage": 100,
     "special": ["notStackable"],
+    "exclusiveRoles": ["physicalAttacker", "magicalAttacker"],
     "stmrUnit": "100038407",
     "icon": "ability_78.png",
     "sortId": 1431
@@ -101590,8 +102275,8 @@
     "sortId": 1432
 }, {
     "id": "504243513",
-    "name": "植物喰らいの念",
-    "access": ["unknown", "not released yet"],
+    "name": "Plant Eater Sense",
+    "access": ["released"],
     "type": "materia",
     "atk%": 40,
     "mag%": 40,
@@ -101600,6 +102285,7 @@
         "physical": 75,
         "magical": 75
     }],
+    "special": ["notStackable"],
     "icon": "ability_79.png",
     "sortId": 1433
 }, {
@@ -102096,15 +102782,253 @@
     "icon": "ability_76.png",
     "sortId": 1454
 }, {
+    "id": "504243631",
+    "name": "Severing the Curse of the Past",
+    "access": ["released"],
+    "type": "materia",
+    "staticStats": {
+        "atk": 500
+    },
+    "killers": [{
+        "name": "beast",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "bird",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "aquatic",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "demon",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "human",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "machine",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "dragon",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "spirit",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "bug",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "stone",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "plant",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "undead",
+        "physical": 50,
+        "magical": 50
+    }],
+    "special": ["notStackable"],
+    "exclusiveUnits": ["212000505", "212000527", "212001204", "212001227", "212001705", "212001727", "212002207", "212002217", "212002407", "212002417", "212002507", "212002517", "212002607", "212002617"],
+    "tmrUnit": "212002407",
+    "icon": "ability_79.png",
+    "sortId": 1455,
+    "notStackableSkills": {
+        "243630": {
+            "staticStats": {
+                "atk": 500
+            },
+            "killers": [{
+                "name": "beast",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "bird",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "aquatic",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "demon",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "human",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "machine",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "dragon",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "spirit",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "bug",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "stone",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "plant",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "undead",
+                "physical": 50,
+                "magical": 50
+            }]
+        }
+    }
+}, {
+    "id": "504243633",
+    "name": "Overcoming the Desire for Revenge",
+    "access": ["released"],
+    "type": "materia",
+    "staticStats": {
+        "mag": 500
+    },
+    "killers": [{
+        "name": "beast",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "bird",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "aquatic",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "demon",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "human",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "machine",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "dragon",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "spirit",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "bug",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "stone",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "plant",
+        "physical": 50,
+        "magical": 50
+    }, {
+        "name": "undead",
+        "physical": 50,
+        "magical": 50
+    }],
+    "special": ["notStackable"],
+    "exclusiveUnits": ["212000505", "212000527", "212001204", "212001227", "212001705", "212001727", "212002207", "212002217", "212002407", "212002417", "212002507", "212002517", "212002607", "212002617"],
+    "tmrUnit": "212002507",
+    "icon": "ability_79.png",
+    "sortId": 1456,
+    "notStackableSkills": {
+        "243632": {
+            "staticStats": {
+                "mag": 500
+            },
+            "killers": [{
+                "name": "beast",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "bird",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "aquatic",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "demon",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "human",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "machine",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "dragon",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "spirit",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "bug",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "stone",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "plant",
+                "physical": 50,
+                "magical": 50
+            }, {
+                "name": "undead",
+                "physical": 50,
+                "magical": 50
+            }]
+        }
+    }
+}, {
     "id": "504243653",
-    "name": "友より託されし願い",
+    "name": "Wish Entrusted by a Friend",
     "access": ["STMR"],
     "type": "materia",
     "staticStats": {
         "atk": 1000,
         "mag": 1000
     },
-    "exclusiveUnits": ["212001204"],
+    "special": ["notStackable"],
+    "exclusiveUnits": ["212001204", "212001227"],
+    "stmrUnit": "212001204",
     "icon": "ability_77.png",
     "sortId": 1458,
     "notStackableSkills": {
@@ -102117,20 +103041,21 @@
     }
 }, {
     "id": "504243654",
-    "name": "巨大ガメのハントカタログ",
-    "access": ["unknown", "not released yet"],
+    "name": "Bestiary of the Giant Tortoise",
+    "access": ["released"],
     "type": "materia",
     "killers": [{
         "name": "stone",
         "physical": 50,
         "magical": 50
     }],
+    "special": ["notStackable"],
     "icon": "ability_79.png",
     "sortId": 1459
 }, {
     "id": "504243655",
-    "name": "未来への希望を守る力",
-    "access": ["unknown", "not released yet"],
+    "name": "Protecting Hope for the Future",
+    "access": ["released"],
     "type": "materia",
     "atk%": 30,
     "mag%": 30,
@@ -102139,6 +103064,7 @@
         "physical": 50,
         "magical": 50
     }],
+    "special": ["notStackable"],
     "icon": "ability_79.png",
     "sortId": 1460
 }, {
@@ -103872,7 +104798,7 @@
 }, {
     "id": "1500000044",
     "name": "Offensive Defense",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 30,
     "def%": 15,
@@ -104114,7 +105040,7 @@
 }, {
     "id": "1500000061",
     "name": "Magical Recollection",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "mp%": 20,
     "spr%": 25,
@@ -106850,7 +107776,7 @@
 }, {
     "id": "1500000184",
     "name": "Spectral Fields Forever",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 50,
     "mag%": 50,
@@ -106873,7 +107799,7 @@
 }, {
     "id": "1500000185",
     "name": "Black Submarine",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 50,
     "mag%": 50,
@@ -106981,7 +107907,7 @@
 }, {
     "id": "1500000189",
     "name": "Overclocked Cannon",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "mag%": 80,
     "staticStats": {
@@ -106994,7 +107920,7 @@
 }, {
     "id": "1500000189",
     "name": "Overclocked Cannon",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "mag%": 80,
     "staticStats": {
@@ -107007,7 +107933,7 @@
 }, {
     "id": "1500000189",
     "name": "Overclocked Cannon",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "special": ["notStackable", "[Overclocked Cannon|ability_63.png]:Use Overclocked Cannon (916348) at the start of a battle or when revived, Use Overclocked Cannon (916348) at the start of a battle or when revived"],
     "exclusiveUnits": ["401011607", "401011617"],
@@ -107016,7 +107942,7 @@
 }, {
     "id": "1500000190",
     "name": "For the Sake of Friends",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 80,
     "staticStats": {
@@ -107101,7 +108027,7 @@
         "physical": 25
     }],
     "special": ["notStackable"],
-    "exclusiveUnits": ["100000315", "100000337", "100005905", "100005927", "100007705", "100007727", "100009105", "100009127", "100010005", "100010027", "100011705", "100011727", "100011805", "100011827", "100012405", "100012427", "100012605", "100012627", "100014005", "100014027", "100015405", "100015427", "100016905", "100016927", "100017605", "100017627", "100017905", "100017927", "100018705", "100018727", "100019505", "100019527", "100020505", "100020527", "100020905", "100020927", "100021705", "100021727", "100024805", "100024827", "100024905", "100024927", "100025705", "100025727", "100027105", "100027127", "100027205", "100027227", "100027805", "100027827", "100028305", "100028327", "100030205", "100030227", "100030705", "100030727", "100031007", "100031017", "100031507", "100031517", "100031607", "100031617", "100031707", "100031717", "100031907", "100031917", "100032207", "100032217", "100032607", "100032617", "100032707", "100032717", "100032807", "100032817", "100032907", "100032917", "100033007", "100033017", "100033107", "100033117", "100033207", "100033217", "100033407", "100033417", "100033907", "100033917", "100034107", "100034117", "100034307", "100034317", "100034407", "100034417", "100034707", "100034717", "100035107", "100035117", "100035307", "100035317", "100035507", "100035517", "100035807", "100035817", "100035907", "100035917", "100037107", "100037117", "100037207", "100037217", "100037307", "100037317", "100037407", "100037417", "100037507", "100037517", "100037607", "100037617", "100037707", "100037717", "100037807", "100037817", "100037907", "100037917", "100038007", "100038017", "100038107", "100038117", "100038207", "100038217", "100038307", "100038317", "100038407", "100038417", "100038507", "100038517", "100038607", "100038617", "100038807", "100038817", "100038907", "100038917", "100039007", "100039017", "100039107", "100039117", "100039207", "100039217", "100039307", "100039317", "100039407", "100039417", "100039507", "100039517", "100039607", "100039617", "100039807", "100039817", "100039907", "100039917", "401002005", "401002027", "401002605", "401002627", "401002705", "401002727", "401006005", "401006027", "401008405", "401008427", "401009907", "401009917", "401010007", "401010017", "401010107", "401010117", "401010207", "401010217", "401010407", "401010417", "401010507", "401010517", "401010607", "401010617", "401010707", "401010717", "401010807", "401010817", "401010907", "401010917", "401011207", "401011217", "401011307", "401011317", "401011607", "401011617", "401011707", "401011717", "401011907", "401011917", "401012107", "401012117", "401012207", "401012217", "401012307", "401012317", "401012507", "401012517", "401012707", "401012717", "401012807", "401012817", "401012907", "401012917", "401013007", "401013017", "401013107", "401013117", "401013207", "401013217", "401013307", "401013317", "401013407", "401013417"],
+    "exclusiveUnits": ["100000315", "100000337", "100005905", "100005927", "100007705", "100007727", "100009105", "100009127", "100010005", "100010027", "100011705", "100011727", "100011805", "100011827", "100012405", "100012427", "100012605", "100012627", "100014005", "100014027", "100015405", "100015427", "100016905", "100016927", "100017605", "100017627", "100017905", "100017927", "100018305", "100018327", "100018705", "100018727", "100019505", "100019527", "100020505", "100020527", "100020905", "100020927", "100021705", "100021727", "100024805", "100024827", "100024905", "100024927", "100025705", "100025727", "100027105", "100027127", "100027205", "100027227", "100027805", "100027827", "100028305", "100028327", "100030205", "100030227", "100030705", "100030727", "100031007", "100031017", "100031507", "100031517", "100031607", "100031617", "100031707", "100031717", "100031907", "100031917", "100032207", "100032217", "100032607", "100032617", "100032707", "100032717", "100032807", "100032817", "100032907", "100032917", "100033007", "100033017", "100033107", "100033117", "100033207", "100033217", "100033407", "100033417", "100033907", "100033917", "100034107", "100034117", "100034307", "100034317", "100034407", "100034417", "100034707", "100034717", "100035107", "100035117", "100035307", "100035317", "100035507", "100035517", "100035807", "100035817", "100035907", "100035917", "100037107", "100037117", "100037207", "100037217", "100037307", "100037317", "100037407", "100037417", "100037507", "100037517", "100037607", "100037617", "100037707", "100037717", "100037807", "100037817", "100037907", "100037917", "100038007", "100038017", "100038107", "100038117", "100038207", "100038217", "100038307", "100038317", "100038407", "100038417", "100038507", "100038517", "100038607", "100038617", "100038807", "100038817", "100038907", "100038917", "100039007", "100039017", "100039107", "100039117", "100039207", "100039217", "100039307", "100039317", "100039407", "100039417", "100039507", "100039517", "100039607", "100039617", "100039807", "100039817", "100039907", "100039917", "401002005", "401002027", "401002605", "401002627", "401002705", "401002727", "401006005", "401006027", "401008405", "401008427", "401009907", "401009917", "401010007", "401010017", "401010107", "401010117", "401010207", "401010217", "401010407", "401010417", "401010507", "401010517", "401010607", "401010617", "401010707", "401010717", "401010807", "401010817", "401010907", "401010917", "401011207", "401011217", "401011307", "401011317", "401011607", "401011617", "401011707", "401011717", "401011907", "401011917", "401012107", "401012117", "401012207", "401012217", "401012307", "401012317", "401012507", "401012517", "401012707", "401012717", "401012807", "401012817", "401012907", "401012917", "401013007", "401013017", "401013107", "401013117", "401013207", "401013217", "401013307", "401013317", "401013407", "401013417"],
     "tmrUnit": "401013407",
     "icon": "ability_77.png",
     "sortId": 90192
@@ -107190,7 +108116,7 @@
 }, {
     "id": "1500000193",
     "name": "Seaweed Slayer",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 70,
     "mag%": 70,
@@ -107209,7 +108135,7 @@
 }, {
     "id": "1500000194",
     "name": "Cold Current",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "mag%": 80,
     "resist": [{
@@ -107226,7 +108152,7 @@
 }, {
     "id": "1500000195",
     "name": "Hidden Power",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 80,
     "mag%": 80,
@@ -107271,7 +108197,7 @@
 }, {
     "id": "1500000196",
     "name": "B-A-Start",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "special": ["notStackable", "[B-A-Start|ability_105.png]:Unlock B-A-Start (916533) on turn 1 [5 turns CD]"],
     "exclusiveUnits": ["401010007", "401010017"],
@@ -107280,7 +108206,7 @@
 }, {
     "id": "1500000197",
     "name": "Skye High",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "atk%": 80,
     "staticStats": {
@@ -107315,7 +108241,7 @@
 }, {
     "id": "1500000198",
     "name": "Peak Crescendo",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "mp%": 80,
     "mag%": 80,
@@ -107347,7 +108273,7 @@
 }, {
     "id": "1500000200",
     "name": "Engulfing Light+",
-    "access": ["unknown"],
+    "access": ["released"],
     "type": "materia",
     "mag%": 100,
     "oneWeaponMastery": {
@@ -110122,711 +111048,4 @@
     "special": ["notStackable"],
     "icon": "ability_79.png",
     "sortId": 1501
-},{
-    "id": "302015200",
-    "name": "Dark Ragnarok++",
-    "access": ["darkVisions"],
-    "type": "sword",
-    "atk": 286,
-    "damageVariance": {
-        "min": 1.05,
-        "max": 1.25
-    },
-    "icon": "item_2020014.png",
-    "sortId": 2165,
-    "rarity": 10,
-    "skills": [{
-        "id": "233430",
-        "name": "Dark Authority",
-        "icon": "ability_49.png",
-        "effects": [{
-            "effect": {
-                "damage": {
-                    "mecanism": "physical",
-                    "damageType": "body",
-                    "coef": 40
-                },
-                "area": "AOE",
-                "target": "ENEMY",
-                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
-                "repartition": [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 66]
-            },
-            "desc": "Physical damage (40x, ATK) to all enemies"
-        }],
-        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
-        "move": "none",
-        "type": "ability",
-        "mpCost": 120
-    }]
-}, 
-{
-    "id": "304009400",
-    "name": "Dark Masamune++",
-    "access": ["darkVisions"],
-    "type": "katana",
-    "atk": 298,
-    "damageVariance": {
-        "min": 1.05,
-        "max": 1.25
-    },
-    "icon": "item_2040019.png",
-    "sortId": 2227,
-    "rarity": 10,
-    "skills": [{
-        "id": "235603",
-        "name": "Dark Bisector",
-        "icon": "ability_49.png",
-        "effects": [{
-            "effect": {
-                "damage": {
-                    "mecanism": "physical",
-                    "damageType": "body",
-                    "coef": 40
-                },
-                "area": "AOE",
-                "target": "ENEMY",
-                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
-                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
-            },
-            "desc": "Physical damage (40x, ATK) to all enemies"
-        }],
-        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
-        "move": "none",
-        "type": "ability",
-        "mpCost": 120
-    }]
-}, {
-    "id": "310011400",
-    "name": "Dark Gambanteinn++",
-    "access": ["darkVisions"],
-    "type": "rod",
-    "mag": 291,
-    "damageVariance": {
-        "min": 1.1,
-        "max": 1.2
-    },
-    "icon": "item_2060017.png",
-    "sortId": 2225,
-    "rarity": 10,
-    "skills": [{
-        "id": "234469",
-        "name": "Dark Illumination",
-        "icon": "ability_49.png",
-        "effects": [{
-            "effect": {
-                "damage": {
-                    "mecanism": "magical",
-                    "damageType": "mind",
-                    "coef": 40
-                },
-                "area": "AOE",
-                "target": "ENEMY",
-                "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
-                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
-            },
-            "desc": "Magic damage (40x, MAG) to all enemies"
-        }],
-        "frames": [42, 62, 82, 96, 102, 116, 122, 136, 142, 156, 162, 176, 182, 196, 216, 236],
-        "move": "none",
-        "type": "ability",
-        "mpCost": 120
-    }]
-}, {
-    "id": "312005100",
-    "name": "Dark Gandiva++",
-    "access": ["darkVisions"],
-    "type": "bow",
-    "atk": 235,
-    "accuracy": 70,
-    "damageVariance": {
-        "min": 1.35,
-        "max": 1.85
-    },
-    "special": ["twoHanded"],
-    "icon": "item_2070015.png",
-    "sortId": 2233,
-    "rarity": 10,
-    "skills": [{
-        "id": "235604",
-        "name": "Dark Hunter",
-        "icon": "ability_49.png",
-        "effects": [{
-            "effect": {
-                "damage": {
-                    "mecanism": "physical",
-                    "damageType": "body",
-                    "coef": 40
-                },
-                "area": "AOE",
-                "target": "ENEMY",
-                "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
-                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 55]
-            },
-            "desc": "Physical damage (40x, ATK) to all enemies"
-        }],
-        "frames": [70, 76, 82, 88, 94, 100, 106, 112, 124, 130, 136, 142, 148, 154, 160, 166],
-        "move": "none",
-        "type": "ability",
-        "mpCost": 120
-    }]
-}, {
-    "id": "312006400",
-    "name": "Sagittarius",
-    "access": ["recipe-event"],
-    "type": "bow",
-    "atk": 190,
-    "mag": 190,
-    "accuracy": 70,
-    "damageVariance": {
-        "min": 1.35,
-        "max": 1.85
-    },
-    "killers": [{
-        "name": "beast",
-        "physical": 50
-    }, {
-        "name": "bird",
-        "physical": 50
-    }, {
-        "name": "beast",
-        "magical": 50
-    }, {
-        "name": "bird",
-        "magical": 50
-    }],
-    "special": ["twoHanded"],
-    "icon": "item_2070005.png",
-    "sortId": 2760,
-    "rarity": 9
-}, {
-    "id": "313002400",
-    "name": "Arcturus (FFXII)",
-    "access": ["TMR-5*"],
-    "type": "gun",
-    "atk": 135,
-    "damageVariance": {
-        "min": 1.1,
-        "max": 1.2
-    },
-    "tmrUnit": "212000505",
-    "icon": "item_11418.png",
-    "sortId": 480,
-    "rarity": 8
-}, {
-    "id": "313009900",
-    "name": "Arcturus (FFXII)",
-    "access": ["recipe-event"],
-    "type": "gun",
-    "atk": 145,
-    "damageVariance": {
-        "min": 1.1,
-        "max": 1.2
-    },
-    "icon": "item_11418.png",
-    "sortId": 2748,
-    "rarity": 8
-}, {
-    "id": "313010000",
-    "name": "Arcturus (FFXII)",
-    "access": ["recipe-event"],
-    "type": "gun",
-    "atk": 165,
-    "damageVariance": {
-        "min": 1.1,
-        "max": 1.2
-    },
-    "icon": "item_11418.png",
-    "sortId": 2749,
-    "rarity": 8
-}, {
-    "id": "313010100",
-    "name": "Arcturus (FFXII)",
-    "access": ["recipe-event"],
-    "type": "gun",
-    "atk": 180,
-    "staticStats": {
-        "atk": 500
-    },
-    "singleWielding": {
-        "atk": 75,
-        "accuracy": 25
-    },
-    "damageVariance": {
-        "min": 1.1,
-        "max": 1.2
-    },
-    "killers": [{
-        "name": "beast",
-        "physical": 75
-    }],
-    "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
-    "icon": "item_11418.png",
-    "sortId": 2750,
-    "rarity": 8
-}, {
-    "id": "313010200",
-    "name": "Arcturus (FFXII)",
-    "access": ["recipe-event"],
-    "type": "gun",
-    "atk": 207,
-    "staticStats": {
-        "atk": 750
-    },
-    "singleWielding": {
-        "atk": 100,
-        "accuracy": 25
-    },
-    "damageVariance": {
-        "min": 1.1,
-        "max": 1.2
-    },
-    "killers": [{
-        "name": "beast",
-        "physical": 100
-    }],
-    "lbDamage": 50,
-    "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
-    "icon": "item_11418.png",
-    "sortId": 2751,
-    "rarity": 9
-}, {
-    "id": "313010300",
-    "name": "Arcturus (FFXII)",
-    "access": ["recipe-event"],
-    "type": "gun",
-    "atk": 220,
-    "staticStats": {
-        "atk": 750
-    },
-    "singleWielding": {
-        "atk": 100,
-        "accuracy": 25
-    },
-    "accuracy": 70,
-    "damageVariance": {
-        "min": 1.35,
-        "max": 1.75
-    },
-    "killers": [{
-        "name": "beast",
-        "physical": 100
-    }],
-    "lbDamage": 50,
-    "special": ["twoHanded"],
-    "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
-    "icon": "item_11418.png",
-    "sortId": 2752,
-    "rarity": 9
-}, {
-    "id": "315024900",
-    "name": "Dark Rising Sun++",
-    "access": ["darkVisions"],
-    "type": "throwing",
-    "atk": 286,
-    "damageVariance": {
-        "min": 1.05,
-        "max": 1.25
-    },
-    "icon": "item_2130011.png",
-    "sortId": 2231,
-    "rarity": 10,
-    "skills": [{
-        "id": "237414",
-        "name": "Dark Throw",
-        "icon": "ability_49.png",
-        "effects": [{
-            "effect": {
-                "damage": {
-                    "mecanism": "physical",
-                    "damageType": "body",
-                    "coef": 40
-                },
-                "area": "AOE",
-                "target": "ENEMY",
-                "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
-                "repartition": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 49]
-            },
-            "desc": "Physical damage (40x, ATK) to all enemies"
-        }],
-        "frames": [42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144],
-        "move": "none",
-        "type": "ability",
-        "mpCost": 120
-    }]
-}, {
-    "id": "403056700",
-    "name": "Leather Headgear (FFXII)",
-    "access": ["event"],
-    "type": "hat",
-    "hp": 1000,
-    "def": 12,
-    "spr": 30,
-    "killers": [{
-        "name": "beast",
-        "physical": 25,
-        "magical": 25
-    }],
-    "icon": "item_2210051.png",
-    "sortId": 2758,
-    "rarity": 7
-}, {
-    "id": "405021700",
-    "name": "Balthier's Clothes (FFXII)",
-    "access": ["STMR"],
-    "type": "clothes",
-    "hp": 9999,
-    "atk": 120,
-    "def": 35,
-    "spr": 15,
-    "staticStats": {
-        "atk": 500
-    },
-    "lbDamage": 50,
-    "exclusiveUnits": ["212000505", "212000527", "212002407", "212002417"],
-    "stmrUnit": "212002407",
-    "icon": "item_2170084.png",
-    "sortId": 2756,
-    "rarity": 9
-}, {
-    "id": "405021800",
-    "name": "Windbreaker (FFXII)",
-    "access": ["event"],
-    "type": "clothes",
-    "def": 38,
-    "spr": 50,
-    "resist": [{
-        "name": "wind",
-        "percent": 30
-    }],
-    "icon": "item_2170085.png",
-    "sortId": 2759,
-    "rarity": 7
-}, {
-    "id": "406004800",
-    "name": "Resistance Armor (FFXII)",
-    "access": ["recipe-event", "event"],
-    "maxNumber": 1,
-    "eventNames": ["Sochen Cave Palace"],
-    "type": "lightArmor",
-    "atk": 26,
-    "atk%": 30,
-    "def": 28,
-    "spr": 32,
-    "spr%": 10,
-    "equipedConditions": ["greatSword"],
-    "icon": "item_2180004.png",
-    "sortId": 1743,
-    "rarity": 7
-}, {
-    "id": "406007000",
-    "name": "Resistance Armor (FFXII)",
-    "access": ["recipe-event", "event"],
-    "type": "lightArmor",
-    "atk": 35,
-    "atk%": 30,
-    "def": 28,
-    "spr": 37,
-    "spr%": 10,
-    "equipedConditions": ["greatSword"],
-    "icon": "item_2180004.png",
-    "sortId": 2753,
-    "rarity": 7
-}, {
-    "id": "406007100",
-    "name": "Resistance Armor (FFXII)",
-    "access": ["recipe-event", "event"],
-    "type": "lightArmor",
-    "atk": 45,
-    "atk%": 30,
-    "def": 28,
-    "spr": 42,
-    "spr%": 10,
-    "equipedConditions": ["greatSword"],
-    "icon": "item_2180004.png",
-    "sortId": 2754,
-    "rarity": 7
-}, {
-    "id": "406007200",
-    "name": "Resistance Armor (FFXII)",
-    "access": ["recipe-event", "event"],
-    "type": "lightArmor",
-    "atk": 55,
-    "atk%": 60,
-    "def": 28,
-    "spr": 52,
-    "spr%": 40,
-    "killers": [{
-        "name": "human",
-        "physical": 50,
-        "magical": 50
-    }],
-    "exclusiveUnits": ["212000505", "212000527", "212001705", "212001727", "212002207", "212002217", "212002407", "212002417", "212002507", "212002517", "212002607", "212002617"],
-    "equipedConditions": ["greatSword"],
-    "icon": "item_2180004.png",
-    "sortId": 2755,
-    "rarity": 7
-}, {
-    "id": "409067100",
-    "name": "Ashe's Leg Armor (FFXII)",
-    "access": ["STMR"],
-    "type": "accessory",
-    "def": 32,
-    "mag": 90,
-    "spr": 80,
-    "staticStats": {
-        "mag": 500,
-        "spr": 500
-    },
-    "special": ["[Knowledge of Mist|ability_77.png]:Reduce MP consumption by 30%"],
-    "exclusiveSex": "female",
-    "exclusiveUnits": ["212000204", "212001905", "212002507", "212002517"],
-    "stmrUnit": "212002507",
-    "icon": "item_2250196.png",
-    "sortId": 2757,
-    "notStackableSkills": {
-        "243633": {
-            "staticStats": {
-                "mag": 500,
-                "spr": 500
-            }
-        }
-    },
-    "rarity": 9
-}, {
-    "id": "504243631",
-    "name": "Severing the Curse of the Past",
-    "access": ["TMR-7*"],
-    "type": "materia",
-    "staticStats": {
-        "atk": 500
-    },
-    "killers": [{
-        "name": "beast",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "bird",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "aquatic",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "demon",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "human",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "machine",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "dragon",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "spirit",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "bug",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "stone",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "plant",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "undead",
-        "physical": 50,
-        "magical": 50
-    }],
-    "special": ["notStackable"],
-    "exclusiveUnits": ["212000505", "212000527", "212001705", "212001727", "212002207", "212002217", "212002407", "212002417", "212002507", "212002517", "212002607", "212002617"],
-    "tmrUnit": "212002407",
-    "icon": "ability_79.png",
-    "sortId": 1455,
-    "notStackableSkills": {
-        "243630": {
-            "staticStats": {
-                "atk": 500
-            },
-            "killers": [{
-                "name": "beast",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "bird",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "aquatic",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "demon",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "human",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "machine",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "dragon",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "spirit",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "bug",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "stone",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "plant",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "undead",
-                "physical": 50,
-                "magical": 50
-            }]
-        }
-    }
-}, {
-    "id": "504243633",
-    "name": "Overcoming the Desire for Revenge",
-    "access": ["TMR-7*"],
-    "type": "materia",
-    "staticStats": {
-        "mag": 500
-    },
-    "killers": [{
-        "name": "beast",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "bird",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "aquatic",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "demon",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "human",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "machine",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "dragon",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "spirit",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "bug",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "stone",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "plant",
-        "physical": 50,
-        "magical": 50
-    }, {
-        "name": "undead",
-        "physical": 50,
-        "magical": 50
-    }],
-    "special": ["notStackable"],
-    "exclusiveUnits": ["212000505", "212000527", "212001705", "212001727", "212002207", "212002217", "212002407", "212002417", "212002507", "212002517", "212002607", "212002617"],
-    "tmrUnit": "212002507",
-    "icon": "ability_79.png",
-    "sortId": 1456,
-    "notStackableSkills": {
-        "243632": {
-            "staticStats": {
-                "mag": 500
-            },
-            "killers": [{
-                "name": "beast",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "bird",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "aquatic",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "demon",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "human",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "machine",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "dragon",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "spirit",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "bug",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "stone",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "plant",
-                "physical": 50,
-                "magical": 50
-            }, {
-                "name": "undead",
-                "physical": 50,
-                "magical": 50
-            }]
-        }
-    }
-}
-]
+}]

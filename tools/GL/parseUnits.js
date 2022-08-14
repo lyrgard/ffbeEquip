@@ -1,12 +1,12 @@
-var fs = require('fs');
-var request = require('request');
-var PNG = require('pngjs').PNG;
-var commonParse = require('../commonParseUnit');
+import fs from 'fs'
+import request from 'request'
+import pngJS from 'pngjs'
+import * as commonParse from '../commonParseUnit.js'
 
 
 
-filterGame = [20001, 20002, 20007, 20008, 20011];
-filterUnits = ["100014604","100014504","100014703","100014405", "199000101", "332000105", "256000301", "204002104", "204002003", "204001904", "204001805", "100017005", "307000303", "307000404", "307000204", "100027005", "318000205", "312000505", "312000605",
+const filterGame = [20001, 20002, 20007, 20008, 20011];
+const filterUnits = ["100014604","100014504","100014703","100014405", "199000101", "332000105", "256000301", "204002104", "204002003", "204001904", "204001805", "100017005", "307000303", "307000404", "307000204", "100027005", "318000205", "312000505", "312000605",
 ]
 
 const languages = ["en", "zh", "ko", "fr", "de", "es"];
@@ -77,7 +77,7 @@ getData('units.json', function (units) {
                                     console.log("jp units downloaded");
                                     var jpUnits = JSON.parse(body);
                                     fs.readFile('../imgUrls.json', function (err, imgUrlContent) {
-                                        imgUrls = JSON.parse(imgUrlContent);
+                                        let imgUrls = JSON.parse(imgUrlContent);
 
                                         fs.readFile('../../static/JP/units.json', function (err, nameDatacontent) {
 
@@ -182,7 +182,7 @@ function manageNV(units) {
         const unitIn = units[unitId];
         if (unitIn.rarity_max == 7) {
             const baseUnitId = unitId.substr(0, unitId.length -1);
-            nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
+            let nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
             nvIds.forEach(nvId => {
                 unitIn.rarity_max = 'NV';
                 unitIn.entries[nvId].rarity = 'NV';
@@ -315,7 +315,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
     }
     
     if (!unitData) {
-        for (entryId in unitIn.entries) {
+        for (let entryId in unitIn.entries) {
             if (unitIn.entries[entryId].rarity == maxRarity) {
                 unitData = unitIn.entries[entryId];
                 break;
@@ -371,7 +371,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
     data["equip"] = commonParse.getEquip(unitIn.equip);
     data["id"] = unitId;
 
-    for (skillIndex in unitIn.skills) {
+    for (let skillIndex in unitIn.skills) {
         if (unitIn.skills[skillIndex].rarity.startsWith && unitIn.skills[skillIndex].rarity.startsWith('NV+')) {
             unitIn.skills[skillIndex].exLevel = parseInt(unitIn.skills[skillIndex].rarity.substr(3,1));
             unitIn.skills[skillIndex].rarity = 'NV';
@@ -379,7 +379,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
     }
 
     data["enhancementSkills"] = [];
-    for (skillIndex in unitIn.skills) {
+    for (let skillIndex in unitIn.skills) {
         if (unitIn.skills[skillIndex].rarity > unitIn.rarity_max) {
             continue; // don't take into account skills for a max rarity not yet released
         }

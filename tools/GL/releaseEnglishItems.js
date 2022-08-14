@@ -1,4 +1,4 @@
-var fs = require('fs');
+import fs from 'fs';
 
 console.log("Starting");
 fs.readFile('../../static/GL/data.json', function (err, content) {
@@ -24,7 +24,7 @@ fs.readFile('../../static/GL/data.json', function (err, content) {
                     } else if (currentName.includes('Fixed Dice')) {
                         result[item].access = ['TMR-4*']
                     } else {
-                        result[item].access = ['unknown']
+                        result[item].access = ['released']
                     }
                 }
             })

@@ -1,5 +1,5 @@
-var fs = require('fs');
-var request = require('request');
+import fs from 'fs'
+import request from 'request'
 
 
 console.log("Starting");

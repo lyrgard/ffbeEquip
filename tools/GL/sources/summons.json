@@ -1,0 +1,1889 @@
+{
+    "1": {
+        "names": ["Siren", "塞壬", "세이렌", "Sirène", "Sirene", "Sirena", "Siren", "Siren\u001a"],
+        "image": "beast11.png",
+        "icon": "beast_thum11.png",
+        "skill": {
+            "10101": {
+                "effects": [
+                    ["Magic* water damage (60x, EVO MAG) to all enemies"],
+                    ["Inflict Sleep (50%) on all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  6000]], [2, 1, 6, [0,  0,  50,  0,  0,  0,  0,  0,  1]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[170]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Lunatic Voice", "狂迷之聲", "광기의 노래", "Voix ensorcelante", "Wahnstimme", "Voz lunática", "Nyanyian Hipnotis", "เสียง\u001aอัน\u001aบ้าคลั่ง\u001a"],
+                    "desc": ["Deal water damage and put all enemies to sleep", "對全體敵人發動水屬性攻擊和睡眠效果", "적 전체에 물속성 피해와 수면 부여", "Dégâts d'eau sur tous les ennemis et les endort", "Wasserschaden und alle Feinde einschläfern", "Inflige daño de agua y duerme a todos los enemigos", "Memberikan damage air dan status sleep pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำ\u001aและ\u001aติด\u001aสถานะ\u001a \u001asleep\u001a \u001aให้\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10102": {
+                "effects": [
+                    ["Magic* water damage (120x, EVO MAG) to all enemies"],
+                    ["Inflict Sleep (60%) on all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  12000]], [2, 1, 6, [0,  0,  60,  0,  0,  0,  0,  0,  1]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[170]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Lunatic Voice", "狂迷之聲", "광기의 노래", "Voix ensorcelante", "Wahnstimme", "Voz lunática", "Nyanyian Hipnotis", "เสียง\u001aอัน\u001aบ้าคลั่ง\u001a"],
+                    "desc": ["Deal water damage and put all enemies to sleep", "對全體敵人發動水屬性攻擊和睡眠效果", "적 전체에 물속성 피해와 수면 부여", "Dégâts d'eau sur tous les ennemis et les endort", "Wasserschaden und alle Feinde einschläfern", "Inflige daño de agua y duerme a todos los enemigos", "Memberikan damage air dan status sleep pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำ\u001aและ\u001aติด\u001aสถานะ\u001a \u001asleep\u001a \u001aให้\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10103": {
+                "effects": [
+                    ["Magic* water damage (210x, EVO MAG) to all enemies"],
+                    ["Inflict Sleep (70%) on all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  21000]], [2, 1, 6, [0,  0,  70,  0,  0,  0,  0,  0,  1]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[170]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Lunatic Voice", "狂迷之聲", "광기의 노래", "Voix ensorcelante", "Wahnstimme", "Voz lunática", "Nyanyian Hipnotis", "เสียง\u001aอัน\u001aบ้าคลั่ง\u001a"],
+                    "desc": ["Deal water damage and put all enemies to sleep", "對全體敵人發動水屬性攻擊和睡眠效果", "적 전체에 물속성 피해와 수면 부여", "Dégâts d'eau sur tous les ennemis et les endort", "Wasserschaden und alle Feinde einschläfern", "Inflige daño de agua y duerme a todos los enemigos", "Memberikan damage air dan status sleep pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำ\u001aและ\u001aติด\u001aสถานะ\u001a \u001asleep\u001a \u001aให้\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Blue": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [1500, 2000],
+                    "MP": [1800, 2500],
+                    "ATK": [1000, 1300],
+                    "DEF": [1200, 1500],
+                    "MAG": [1500, 2500],
+                    "SPR": [1500, 2500]
+                },
+                "element_resist": [0, 0, -50, 50, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 30,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 3, 2, 3, 2, 2, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 2, 2, 3, 2, 3, 2, 3]
+            },
+            {
+                "stats": {
+                    "HP": [2500, 3000],
+                    "MP": [2700, 3400],
+                    "ATK": [1500, 1800],
+                    "DEF": [1600, 1900],
+                    "MAG": [2600, 3600],
+                    "SPR": [2600, 3600]
+                },
+                "element_resist": [0, 0, -50, 50, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 40,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]
+            },
+            {
+                "stats": {
+                    "HP": [4500, 6000],
+                    "MP": [5400, 6800],
+                    "ATK": [3000, 5000],
+                    "DEF": [3600, 5400],
+                    "MAG": [4500, 7200],
+                    "SPR": [4500, 7200]
+                },
+                "element_resist": [0, 0, -50, 50, 0, 0, 0, 0],
+                "status_resist": [0, 0, 100, 0, 0, 0, 0, 0],
+                "exp_pattern": 50,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 7, 8, 7, 8, 7, 8, 7, 8, 8, 7, 8, 8, 7, 8, 8, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 8, 8, 9, 8, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9]
+            }
+        ]
+    },
+    "2": {
+        "names": ["Ifrit", "伊弗利特", "이프리트", "Ifrit", "Ifrit", "Ifrit", "Ifrit", "Ifrit\u001a"],
+        "image": "beast21.png",
+        "icon": "beast_thum21.png",
+        "skill": {
+            "10201": {
+                "effects": [
+                    ["Physical* fire damage (70x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  7000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Hellfire", "地獄火焰", "지옥의 화염", "Flammes de l'enfer", "Inferno", "Fuego infernal", "Kobaran Api Neraka", "เพลิง\u001aแห่ง\u001aนรก\u001a"],
+                    "desc": ["Deal fire damage to all enemies", "對全體敵人發動火屬性攻擊", "적 전체에 불속성 피해", "Dégâts de feu sur tous les ennemis", "Feuerschaden, alle Ziele", "Inflige daño de fuego a todos los enemigos", "Memberikan damage api pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aไฟ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10202": {
+                "effects": [
+                    ["Physical* fire damage (140x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  14000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Hellfire", "地獄火焰", "지옥의 화염", "Flammes de l'enfer", "Inferno", "Fuego infernal", "Kobaran Api Neraka", "เพลิง\u001aแห่ง\u001aนรก\u001a"],
+                    "desc": ["Deal fire damage to all enemies", "對全體敵人發動火屬性攻擊", "적 전체에 불속성 피해", "Dégâts de feu sur tous les ennemis", "Feuerschaden, alle Ziele", "Inflige daño de fuego a todos los enemigos", "Memberikan damage api pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aไฟ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10203": {
+                "effects": [
+                    ["Physical* fire damage (235x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  23500]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Hellfire", "地獄火焰", "지옥의 화염", "Flammes de l'enfer", "Inferno", "Fuego infernal", "Kobaran Api Neraka", "เพลิง\u001aแห่ง\u001aนรก\u001a"],
+                    "desc": ["Deal fire damage to all enemies", "對全體敵人發動火屬性攻擊", "적 전체에 불속성 피해", "Dégâts de feu sur tous les ennemis", "Feuerschaden, alle Ziele", "Inflige daño de fuego a todos los enemigos", "Memberikan damage api pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aไฟ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Red": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [2000, 3000],
+                    "MP": [1500, 1800],
+                    "ATK": [2500, 3700],
+                    "DEF": [1600, 2100],
+                    "MAG": [1200, 1600],
+                    "SPR": [1200, 1600]
+                },
+                "element_resist": [50, -50, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 10, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 30,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 4, 3, 4, 3, 3, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 3, 3, 4, 3, 4, 3, 4]
+            },
+            {
+                "stats": {
+                    "HP": [3500, 4500],
+                    "MP": [1900, 2200],
+                    "ATK": [3900, 5100],
+                    "DEF": [2300, 2800],
+                    "MAG": [1700, 2100],
+                    "SPR": [1700, 2100]
+                },
+                "element_resist": [50, -50, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 10, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 40,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
+            },
+            {
+                "stats": {
+                    "HP": [4900, 8400],
+                    "MP": [2700, 5700],
+                    "ATK": [5500, 8800],
+                    "DEF": [3200, 6300],
+                    "MAG": [2500, 4800],
+                    "SPR": [2500, 4800]
+                },
+                "element_resist": [50, -50, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 100, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 50,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9]
+            }
+        ]
+    },
+    "3": {
+        "names": ["Shiva", "濕婆", "시바", "Shiva", "Shiva", "Shiva", "Shiva", "Shiva\u001a"],
+        "image": "beast31.png",
+        "icon": "beast_thum31.png",
+        "skill": {
+            "10301": {
+                "effects": [
+                    ["Magic* ice damage (70x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  7000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[80]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Diamond Dust", "鑽石星塵", "다이아몬드 더스트", "Poussière de diamant", "Diamantstaub", "Polvo de diamantes", "Diamond Dust", "ประกาย\u001aเกล็ด\u001aเพชร\u001a"],
+                    "desc": ["Deal ice damage to all enemies", "對全體敵人發動冰屬性攻擊", "적 전체에 얼음속성 피해", "Dégâts de glace sur tous les ennemis", "Eisschaden, alle Ziele", "Inflige daño de frío a todos los enemigos", "Memberikan damage es pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำแข็ง\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10302": {
+                "effects": [
+                    ["Magic* ice damage (140x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  14000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Diamond Dust", "鑽石星塵", "다이아몬드 더스트", "Poussière de diamant", "Diamantstaub", "Polvo de diamantes", "Diamond Dust", "ประกาย\u001aเกล็ด\u001aเพชร\u001a"],
+                    "desc": ["Deal ice damage to all enemies", "對全體敵人發動冰屬性攻擊", "적 전체에 얼음속성 피해", "Dégâts de glace sur tous les ennemis", "Eisschaden, alle Ziele", "Inflige daño de frío a todos los enemigos", "Memberikan damage es pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำแข็ง\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10303": {
+                "effects": [
+                    ["Magic* ice damage (190x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  19000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Diamond Dust", "鑽石星塵", "다이아몬드 더스트", "Poussière de diamant", "Diamantstaub", "Polvo de diamantes", "Diamond Dust", "ประกาย\u001aเกล็ด\u001aเพชร\u001a"],
+                    "desc": ["Deal ice damage to all enemies", "對全體敵人發動冰屬性攻擊", "적 전체에 얼음속성 피해", "Dégâts de glace sur tous les ennemis", "Eisschaden, alle Ziele", "Inflige daño de frío a todos los enemigos", "Memberikan damage es pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำแข็ง\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Violet": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [1800, 2300],
+                    "MP": [2700, 4200],
+                    "ATK": [1200, 1500],
+                    "DEF": [1400, 1800],
+                    "MAG": [2300, 3800],
+                    "SPR": [2300, 3800]
+                },
+                "element_resist": [-50, 50, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 30,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 5, 4, 5, 4, 4, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 4, 4, 5, 4, 5, 4, 5]
+            },
+            {
+                "stats": {
+                    "HP": [2800, 3300],
+                    "MP": [4400, 5900],
+                    "ATK": [1800, 2100],
+                    "DEF": [1900, 2300],
+                    "MAG": [3900, 5400],
+                    "SPR": [3900, 5400]
+                },
+                "element_resist": [-50, 50, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 40,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+            },
+            {
+                "stats": {
+                    "HP": [3700, 7200],
+                    "MP": [6300, 8300],
+                    "ATK": [2400, 5000],
+                    "DEF": [2600, 5700],
+                    "MAG": [5700, 7900],
+                    "SPR": [5700, 7900]
+                },
+                "element_resist": [-50, 50, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 100, 0, 0, 0],
+                "exp_pattern": 50,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10]
+            }
+        ]
+    },
+    "4": {
+        "names": ["Carbuncle", "卡邦庫爾", "카벙클", "Carbuncle", "Karfunkel", "Rubí", "Carbuncle", "Carbuncle\u001a"],
+        "image": "beast71.png",
+        "icon": "beast_thum71.png",
+        "skill": {
+            "10401": {
+                "effects": [
+                    ["Reflect 1 spell(s) for 2 turns to all allies"]
+                ],
+                "effects_raw": [[2, 2, 86, [100,  1,  2]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[30]],
+                "effect_frames": [[0,  0,  0,  60]],
+                "strings": {
+                    "name": ["Ruby Light", "紅寶石之光", "루비의 빛", "Éclat du rubis", "Rubinglanz", "Resplandor de rubí", "Cahaya Ruby", "แสง\u001aแห่ง\u001aทับทิม\u001a"],
+                    "desc": ["Reflects magic cast on allies", "反射對全體隊員使用的魔法", "아군을 향한 마법 공격 반사", "Renvoie la magie envoyée sur les alliés", "Reflekiert auf Verbündete gerichtete Magie", "Refleja la magia dirigida a los aliados", "Memantulkan kembali magic yang diterima semua teman", "สะท้อน\u001aเวทย์\u001aที่\u001aถู\u001aกร่าย\u001aใส่\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001a"]
+                }
+            },
+            "10402": {
+                "effects": [
+                    ["Reflect 1 spell(s) for 3 turns to all allies"]
+                ],
+                "effects_raw": [[2, 2, 86, [100,  1,  3]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[30]],
+                "effect_frames": [[0,  0,  0,  60]],
+                "strings": {
+                    "name": ["Ruby Light", "紅寶石之光", "루비의 빛", "Éclat du rubis", "Rubinglanz", "Resplandor de rubí", "Cahaya Ruby", "แสง\u001aแห่ง\u001aทับทิม\u001a"],
+                    "desc": ["Reflects magic cast on allies", "反射對全體隊員使用的魔法", "아군을 향한 마법 공격 반사", "Renvoie la magie envoyée sur les alliés", "Reflekiert auf Verbündete gerichtete Magie", "Refleja la magia dirigida a los aliados", "Memantulkan kembali magic yang diterima semua teman", "สะท้อน\u001aเวทย์\u001aที่\u001aถู\u001aกร่าย\u001aใส่\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001a"]
+                }
+            },
+            "10403": {
+                "effects": [
+                    ["Reflect 1 spell(s) for 4 turns to all allies"]
+                ],
+                "effects_raw": [[2, 2, 86, [100,  1,  4]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[30]],
+                "effect_frames": [[0,  0,  0,  0,  60]],
+                "strings": {
+                    "name": ["Ruby Light", "紅寶石之光", "루비의 빛", "Éclat du rubis", "Rubinglanz", "Resplandor de rubí", "Cahaya Ruby", "แสง\u001aแห่ง\u001aทับทิม\u001a"],
+                    "desc": ["Reflects magic cast on allies", "反射對全體隊員使用的魔法", "아군을 향한 마법 공격 반사", "Renvoie la magie envoyée sur les alliés", "Reflekiert auf Verbündete gerichtete Magie", "Refleja la magia dirigida a los aliados", "Memantulkan kembali magic yang diterima semua teman", "สะท้อน\u001aเวทย์\u001aที่\u001aถู\u001aกร่าย\u001aใส่\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "White": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [1600, 2200],
+                    "MP": [2500, 4000],
+                    "ATK": [800, 1200],
+                    "DEF": [1800, 2400],
+                    "MAG": [1500, 2800],
+                    "SPR": [2500, 4000]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 50, -50],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 30,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6]
+            },
+            {
+                "stats": {
+                    "HP": [2600, 3200],
+                    "MP": [4200, 5700],
+                    "ATK": [1300, 1800],
+                    "DEF": [2600, 3200],
+                    "MAG": [3000, 4300],
+                    "SPR": [4200, 6000]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 50, -50],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 40,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9]
+            },
+            {
+                "stats": {
+                    "HP": [3600, 6400],
+                    "MP": [6000, 8000],
+                    "ATK": [1900, 3000],
+                    "DEF": [3400, 8000],
+                    "MAG": [4500, 5800],
+                    "SPR": [6200, 8800]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 50, -50],
+                "status_resist": [0, 0, 0, 0, 0, 0, 100, 0],
+                "exp_pattern": 50,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+            }
+        ]
+    },
+    "5": {
+        "names": ["Diabolos", "迪亞波羅斯", "디아볼로스", "Diabolos", "Diabolos", "Diablo", "Diabolos", "Diabolos\u001a"],
+        "image": "beast51.png",
+        "icon": "beast_thum51.png",
+        "skill": {
+            "10501": {
+                "effects": [
+                    ["Magic* dark damage (80x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  8000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[30]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Dark Messenger", "黑暗使者", "어둠에서 온 사자", "Héraut ténébreux", "Dunkler Bote", "Emisario de la noche", "Utusan Kegelapan", "ผู้ส่งสาร\u001aแห่ง\u001aความมืด\u001a \u001a"],
+                    "desc": ["Deal dark damage to all enemies", "對全體敵人發動暗屬性攻擊", "적 전체에 어둠속성 피해", "Dégâts de ténèbres sur tous les ennemis", "Dunkelschaden, alle Ziele", "Daño oscuro a todos los enemigos", "Memberikan damage kegelapan pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aมืด\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10502": {
+                "effects": [
+                    ["Magic* dark damage (170x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  17000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[190]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Dark Messenger", "黑暗使者", "어둠에서 온 사자", "Héraut ténébreux", "Dunkler Bote", "Emisario de la noche", "Utusan Kegelapan", "ผู้ส่งสาร\u001aแห่ง\u001aความมืด\u001a \u001a"],
+                    "desc": ["Deal dark damage to all enemies", "對全體敵人發動暗屬性攻擊", "적 전체에 어둠속성 피해", "Dégâts de ténèbres sur tous les ennemis", "Dunkelschaden, alle Ziele", "Daño oscuro a todos los enemigos", "Memberikan damage kegelapan pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aมืด\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10503": {
+                "effects": [
+                    ["Magic* dark damage (300x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  30000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[400]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Dark Messenger", "黑暗使者", "어둠에서 온 사자", "Héraut ténébreux", "Dunkler Bote", "Emisario de la noche", "Utusan Kegelapan", "ผู้ส่งสาร\u001aแห่ง\u001aความมืด\u001a \u001a"],
+                    "desc": ["Deal dark damage to all enemies", "對全體敵人發動暗屬性攻擊", "적 전체에 어둠속성 피해", "Dégâts de ténèbres sur tous les ennemis", "Dunkelschaden, alle Ziele", "Daño oscuro a todos los enemigos", "Memberikan damage kegelapan pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aมืด\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Black": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [2000, 2800],
+                    "MP": [2800, 4300],
+                    "ATK": [1000, 1200],
+                    "DEF": [1200, 1700],
+                    "MAG": [2200, 3700],
+                    "SPR": [1800, 2300]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, -50, 50],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 30,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6]
+            },
+            {
+                "stats": {
+                    "HP": [3500, 4300],
+                    "MP": [4500, 6000],
+                    "ATK": [1300, 1500],
+                    "DEF": [1800, 2300],
+                    "MAG": [3800, 5300],
+                    "SPR": [2600, 3100]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, -50, 50],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 40,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+            },
+            {
+                "stats": {
+                    "HP": [5000, 7800],
+                    "MP": [6200, 8500],
+                    "ATK": [1600, 3700],
+                    "DEF": [2400, 5800],
+                    "MAG": [5400, 7200],
+                    "SPR": [3400, 5000]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, -50, 50],
+                "status_resist": [100, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 50,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+            }
+        ]
+    },
+    "6": {
+        "names": ["Golem", "巨像兵", "골렘", "Golem", "Golem", "Gólem", "Golem", "Golem\u001a"],
+        "image": "beast61.png",
+        "icon": "beast_thum61.png",
+        "skill": {
+            "10601": {
+                "effects": [
+                    ["Reduce damage taken from physical attacks taken by 50% to all allies for one turn"]
+                ],
+                "effects_raw": [[2, 2, 18, [50,  1,  1]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[30]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Earthen Wall", "大地之壁", "대지의 장벽", "Muraille de terre", "Irdenwall", "Pared de tierra", "Dinding Lapisan Tanah", "กำแพง\u001aปฐพี\u001a"],
+                    "desc": ["Decrease physical damage taken for all allies", "減少對全體隊員的物理傷害", "아군 전체가 받는 물리 피해량 감소", "Réduit les dégâts physiques subis par les alliés", "Physischen Schaden bei allen Verbündeten verringern", "Reduce el daño físico que reciben los aliados", "Mengurangi damage fisik yang diterima semua teman", "ลด\u001aความเสียหาย\u001aทางกายภาพ\u001aที่\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001aได้รับ\u001a"]
+                }
+            },
+            "10602": {
+                "effects": [
+                    ["Reduce damage taken from physical attacks taken by 60% to all allies for one turn"]
+                ],
+                "effects_raw": [[2, 2, 18, [60,  1,  1]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[30]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Earthen Wall", "大地之壁", "대지의 장벽", "Muraille de terre", "Irdenwall", "Pared de tierra", "Dinding Lapisan Tanah", "กำแพง\u001aปฐพี\u001a"],
+                    "desc": ["Decrease physical damage taken for all allies", "減少對全體隊員的物理傷害", "아군 전체가 받는 물리 피해량 감소", "Réduit les dégâts physiques subis par les alliés", "Physischen Schaden bei allen Verbündeten verringern", "Reduce el daño físico que reciben los aliados", "Mengurangi damage fisik yang diterima semua teman", "ลด\u001aความเสียหาย\u001aทางกายภาพ\u001aที่\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001aได้รับ\u001a"]
+                }
+            },
+            "10603": {
+                "effects": [
+                    ["Reduce damage taken from physical attacks taken by 70% to all allies for one turn"]
+                ],
+                "effects_raw": [[2, 2, 18, [70,  1,  1]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[30]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Earthen Wall", "大地之壁", "대지의 장벽", "Muraille de terre", "Irdenwall", "Pared de tierra", "Dinding Lapisan Tanah", "กำแพง\u001aปฐพี\u001a"],
+                    "desc": ["Decrease physical damage taken for all allies", "減少對全體隊員的物理傷害", "아군 전체가 받는 물리 피해량 감소", "Réduit les dégâts physiques subis par les alliés", "Physischen Schaden bei allen Verbündeten verringern", "Reduce el daño físico que reciben los aliados", "Mengurangi damage fisik yang diterima semua teman", "ลด\u001aความเสียหาย\u001aทางกายภาพ\u001aที่\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001aได้รับ\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Orange": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [2000, 3500],
+                    "MP": [2700, 3400],
+                    "ATK": [2000, 2500],
+                    "DEF": [2000, 3000],
+                    "MAG": [1100, 1300],
+                    "SPR": [1100, 1300]
+                },
+                "element_resist": [0, 0, 0, 0, -50, 50, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 30,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6]
+            },
+            {
+                "stats": {
+                    "HP": [4000, 5500],
+                    "MP": [3600, 4300],
+                    "ATK": [2700, 3200],
+                    "DEF": [3500, 4500],
+                    "MAG": [1400, 1600],
+                    "SPR": [1400, 1600]
+                },
+                "element_resist": [0, 0, 0, 0, -50, 50, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 40,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+            },
+            {
+                "stats": {
+                    "HP": [6000, 9000],
+                    "MP": [4500, 7000],
+                    "ATK": [3400, 6200],
+                    "DEF": [5000, 8800],
+                    "MAG": [1700, 3900],
+                    "SPR": [1700, 3900]
+                },
+                "element_resist": [0, 0, 0, 0, -50, 50, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 100, 0, 0],
+                "exp_pattern": 50,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+            }
+        ]
+    },
+    "7": {
+        "names": ["Ramuh", "拉姆", "라무", "Ramuh", "Ramuh", "Lamú", "Ramuh", "Ramuh\u001a"],
+        "image": "beast41.png",
+        "icon": "beast_thum41.png",
+        "skill": {
+            "10701": {
+                "effects": [
+                    ["Magic* lightning damage (70x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  7000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[140]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Judgment Bolt", "制裁之雷", "심판의 벼락", "Foudre du jugement", "Ionenschlag", "Rayos de justicia", "Petir Penghakiman", "สายฟ้า\u001aพิพากษา\u001a"],
+                    "desc": ["Deal lightning damage to all enemies", "對全體敵人發動雷屬性攻擊", "적 전체에 번개속성 피해", "Dégâts de foudre sur tous les ennemis", "Blitzschaden, alle Ziele", "Inflige daño de rayo a todos los enemigos", "Memberikan damage petir pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aสายฟ้า\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10702": {
+                "effects": [
+                    ["Magic* lightning damage (140x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  14000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Judgment Bolt", "制裁之雷", "심판의 벼락", "Foudre du jugement", "Ionenschlag", "Rayos de justicia", "Petir Penghakiman", "สายฟ้า\u001aพิพากษา\u001a"],
+                    "desc": ["Deal lightning damage to all enemies", "對全體敵人發動雷屬性攻擊", "적 전체에 번개속성 피해", "Dégâts de foudre sur tous les ennemis", "Blitzschaden, alle Ziele", "Inflige daño de rayo a todos los enemigos", "Memberikan damage petir pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aสายฟ้า\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10703": {
+                "effects": [
+                    ["Magic* lightning damage (210x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  21000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Judgment Bolt", "制裁之雷", "심판의 벼락", "Foudre du jugement", "Ionenschlag", "Rayos de justicia", "Petir Penghakiman", "สายฟ้า\u001aพิพากษา\u001a"],
+                    "desc": ["Deal lightning damage to all enemies", "對全體敵人發動雷屬性攻擊", "적 전체에 번개속성 피해", "Dégâts de foudre sur tous les ennemis", "Blitzschaden, alle Ziele", "Inflige daño de rayo a todos los enemigos", "Memberikan damage petir pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aสายฟ้า\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Yellow": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [1400, 1800],
+                    "MP": [2900, 4400],
+                    "ATK": [700, 1000],
+                    "DEF": [300, 600],
+                    "MAG": [2600, 4100],
+                    "SPR": [1000, 2500]
+                },
+                "element_resist": [0, 0, 50, -50, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 30,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6]
+            },
+            {
+                "stats": {
+                    "HP": [2400, 2800],
+                    "MP": [4700, 6200],
+                    "ATK": [1300, 1600],
+                    "DEF": [800, 1100],
+                    "MAG": [4400, 5900],
+                    "SPR": [3000, 4500]
+                },
+                "element_resist": [0, 0, 50, -50, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 40,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+            },
+            {
+                "stats": {
+                    "HP": [3400, 5200],
+                    "MP": [6500, 9000],
+                    "ATK": [1800, 4800],
+                    "DEF": [1300, 4000],
+                    "MAG": [6200, 8600],
+                    "SPR": [5000, 7400]
+                },
+                "element_resist": [0, 0, 50, -50, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 100, 0, 0, 0, 0],
+                "exp_pattern": 50,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+            }
+        ]
+    },
+    "8": {
+        "names": ["Titan", "泰坦", "타이탄", "Titan", "Titan", "Titán", "Titan", "Titan\u001a"],
+        "image": "beast81.png",
+        "icon": "beast_thum81.png",
+        "skill": {
+            "10801": {
+                "effects": [
+                    ["Physical* earth damage (80x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  8000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[170]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Gaia's Wrath", "大地之怒", "대지의 분노", "Colère de Gaïa", "Gaias Wut", "Ira de la tierra", "Kemurkaan Gaia", "พิโรธ\u001aแห่ง\u001aปฐพี\u001a"],
+                    "desc": ["Deal earth damage to all enemies", "對全體敵人發動土屬性攻擊", "적 전체에 땅속성 피해", "Dégâts de terre sur tous ennemis", "Erdschaden, alle Gegner", "Inflige daño de tierra a todos los enemigos", "Memberikan damage tanah pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aดิน\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10802": {
+                "effects": [
+                    ["Physical* earth damage (170x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  17000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[170]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Gaia's Wrath", "大地之怒", "대지의 분노", "Colère de Gaïa", "Gaias Wut", "Ira de la tierra", "Kemurkaan Gaia", "พิโรธ\u001aแห่ง\u001aปฐพี\u001a"],
+                    "desc": ["Deal earth damage to all enemies", "對全體敵人發動土屬性攻擊", "적 전체에 땅속성 피해", "Dégâts de terre sur tous les ennemis", "Erdschaden, alle Gegner", "Inflige daño de tierra a todos los enemigos", "Memberikan damage tanah pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aดิน\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10803": {
+                "effects": [
+                    ["Physical* earth damage (220x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  22000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[120]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Gaia's Wrath", "大地之怒", "대지의 분노", "Colère de Gaïa", "Gaias Wut", "Ira de la tierra", "Kemurkaan Gaia", "พิโรธ\u001aแห่ง\u001aปฐพี\u001a"],
+                    "desc": ["Deal earth damage to all enemies", "對全體敵人發動土屬性攻擊", "적 전체에 땅속성 피해", "Dégâts de terre sur tous les ennemis", "Erdschaden, alle Gegner", "Inflige daño de tierra a todos los enemigos", "Memberikan damage tanah pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aดิน\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Orange": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [2300, 4000],
+                    "MP": [1300, 1600],
+                    "ATK": [2700, 3900],
+                    "DEF": [1500, 2700],
+                    "MAG": [1100, 1500],
+                    "SPR": [2300, 2700]
+                },
+                "element_resist": [0, 0, 0, 0, -50, 50, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 30,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6]
+            },
+            {
+                "stats": {
+                    "HP": [4400, 6000],
+                    "MP": [1700, 2000],
+                    "ATK": [4100, 5300],
+                    "DEF": [2800, 4000],
+                    "MAG": [1600, 1800],
+                    "SPR": [2800, 3200]
+                },
+                "element_resist": [0, 0, 0, 0, -50, 50, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 40,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9]
+            },
+            {
+                "stats": {
+                    "HP": [6600, 10000],
+                    "MP": [2100, 4200],
+                    "ATK": [5500, 8200],
+                    "DEF": [4000, 7800],
+                    "MAG": [1900, 4000],
+                    "SPR": [3300, 5000]
+                },
+                "element_resist": [0, 0, 0, 0, -50, 50, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 100],
+                "exp_pattern": 50,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+            }
+        ]
+    },
+    "9": {
+        "names": ["Tetra Sylphid", "四方風精靈", "테트라 실피드", "Tétra-Sylphides", "Tetra Sylphid", "Tetra Sílfide", "Tetra Sylphid", "Tetra\u001a \u001aSylphid\u001a"],
+        "image": "beast91.png",
+        "icon": "beast_thum91.png",
+        "skill": {
+            "10901": {
+                "effects": [
+                    ["Magic* wind damage (90x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  9000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[150]],
+                "effect_frames": [[40,  40]],
+                "strings": {
+                    "name": ["Heavenswind", "四天之風", "사천의 바람", "Vent céleste", "Himmelswind", "Viento celestial", "Embusan Angin Surgawi", "สายลม\u001aแห่ง\u001aสวรรค์\u001a"],
+                    "desc": ["Deal wind damage to all enemies", "對全體敵人發動風屬性攻擊", "적 전체에 바람속성 피해", "Dégâts de vent sur tous les ennemis", "Windschaden, alle Gegner", "Inflige daño de viento a todos los enemigos", "Memberikan damage angin pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aลม\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10902": {
+                "effects": [
+                    ["Magic* wind damage (180x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  18000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[190]],
+                "effect_frames": [[40,  40]],
+                "strings": {
+                    "name": ["Heavenswind", "四天之風", "사천의 바람", "Vent céleste", "Himmelswind", "Viento celestial", "Embusan Angin Surgawi", "สายลม\u001aแห่ง\u001aสวรรค์\u001a"],
+                    "desc": ["Deal wind damage to all enemies", "對全體敵人發動風屬性攻擊", "적 전체에 바람속성 피해", "Dégâts de vent sur tous les ennemis", "Windschaden, alle Gegner", "Inflige daño de viento a todos los enemigos", "Memberikan damage angin pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aลม\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "10903": {
+                "effects": [
+                    ["Magic* wind damage (230x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  23000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[230]],
+                "effect_frames": [[40,  40]],
+                "strings": {
+                    "name": ["Heavenswind", "四天之風", "사천의 바람", "Vent céleste", "Himmelswind", "Viento celestial", "Embusan Angin Surgawi", "สายลม\u001aแห่ง\u001aสวรรค์\u001a"],
+                    "desc": ["Deal wind damage to all enemies", "對全體敵人發動風屬性攻擊", "적 전체에 바람속성 피해", "Dégâts de vent sur tous les ennemis", "Windschaden, alle Gegner", "Inflige daño de viento a todos los enemigos", "Memberikan damage angin pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aลม\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Green": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [1800, 2600],
+                    "MP": [2600, 3800],
+                    "ATK": [1800, 2000],
+                    "DEF": [1200, 1600],
+                    "MAG": [2800, 4200],
+                    "SPR": [2000, 2600]
+                },
+                "element_resist": [0, 0, 0, 0, 50, -50, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 30,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6]
+            },
+            {
+                "stats": {
+                    "HP": [3000, 4000],
+                    "MP": [4200, 5400],
+                    "ATK": [2200, 2600],
+                    "DEF": [1700, 2000],
+                    "MAG": [4600, 6000],
+                    "SPR": [2700, 3500]
+                },
+                "element_resist": [0, 0, 0, 0, 50, -50, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 40,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9]
+            },
+            {
+                "stats": {
+                    "HP": [4400, 7000],
+                    "MP": [5600, 7700],
+                    "ATK": [2800, 5300],
+                    "DEF": [2200, 5000],
+                    "MAG": [6300, 8800],
+                    "SPR": [3600, 6000]
+                },
+                "element_resist": [0, 0, 0, 0, 50, -50, 0, 0],
+                "status_resist": [0, 0, 100, 0, 0, 0, 0, 0],
+                "exp_pattern": 50,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+            }
+        ]
+    },
+    "10": {
+        "names": ["Odin", "奧汀", "오딘", "Odin", "Odin", "Odín", "Odin", "Odin\u001a"],
+        "image": "beast101.png",
+        "icon": "beast_thum101.png",
+        "skill": {
+            "11001": {
+                "effects": [
+                    ["Physical* damage (100x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  10000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[70]],
+                "effect_frames": [[0,  40]],
+                "strings": {
+                    "name": ["Gungnir", "奧汀神槍", "궁니르", "Gungnir", "Gungnir", "Gungnir", "Gungnir", "หอก\u001a \u001aGungnir\u001a"],
+                    "desc": ["Damage all enemies", "攻擊全體敵人", "적 전체에 피해", "Dégâts sur tous les ennemis", "Schaden, alle Gegner", "Inflige daño a todos los enemigos", "Memberikan damage pada semua musuh", "สร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11002": {
+                "effects": [
+                    ["Physical* damage (200x, EVO ATK) to all enemies", "Instant KO(50 %) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 94, [20000,  50,  1]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[70]],
+                "effect_frames": [[0]],
+                "strings": {
+                    "name": ["Zantetsuken", "斬鐵劍", "참철검", "Zantetsuken", "Zantetsuken", "Sable justiciero", "Zantetsuken", "ดาบ\u001aสะบั้น\u001aโลหะ\u001a"],
+                    "desc": ["Instantly KO or damage all enemies", "攻擊全體敵人或施加致死一擊效果", "적 전체에 피해 또는 즉사 부여", "Met instantanément KO ou dégâts sur tous les ennemis", "Vernichtet alle Gegner oder Schaden", "Inflige K.O. instantáneo o daño a todos los enemigos", "Menyebabkan K.O. seketika atau memberikan damage pada semua musuh", "KO\u001a \u001aศัตรู\u001aทุกราย\u001aในทันที\u001aหรือ\u001aสร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11003": {
+                "effects": [
+                    ["Physical* damage (210x, EVO ATK) to all enemies", "Instant KO(60 %) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 94, [21000,  60,  1]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[70]],
+                "effect_frames": [[0]],
+                "strings": {
+                    "name": ["Shin Zantetsuken", "真·斬鐵劍", "진·참철검", "Shin Zantetsuken", "Shin Zantetsuken", "Sable justiciero+", "Shin Zantetsuken", "ดาบ\u001aสะบั้น\u001aโลหะ\u001aที่\u001aแท้จริง\u001a"],
+                    "desc": ["Instantly KO or damage all enemies", "攻擊全體敵人或施加致死一擊效果", "적 전체에 피해 또는 즉사 부여", "Met instantanément KO ou dégâts sur tous les ennemis", "Vernichtet alle Gegner oder Schaden", "Inflige K.O. instantáneo o daño a todos los enemigos", "Menyebabkan K.O. seketika atau memberikan damage pada semua musuh", "KO\u001a \u001aศัตรู\u001aทุกราย\u001aในทันที\u001aหรือ\u001aสร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": null,
+        "entries": [
+            {
+                "stats": {
+                    "HP": [2100, 3400],
+                    "MP": [2000, 2900],
+                    "ATK": [2700, 4200],
+                    "DEF": [1700, 2900],
+                    "MAG": [1100, 1500],
+                    "SPR": [1300, 1700]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 30,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6]
+            },
+            {
+                "stats": {
+                    "HP": [3700, 5000],
+                    "MP": [3000, 3900],
+                    "ATK": [4500, 6000],
+                    "DEF": [3000, 4200],
+                    "MAG": [1600, 2000],
+                    "SPR": [1800, 2200]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 40,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9]
+            },
+            {
+                "stats": {
+                    "HP": [5300, 8700],
+                    "MP": [4000, 7500],
+                    "ATK": [6300, 9200],
+                    "DEF": [4300, 8200],
+                    "MAG": [2100, 6600],
+                    "SPR": [2300, 6800]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 100, 0, 0, 0],
+                "exp_pattern": 50,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+            }
+        ]
+    },
+    "11": {
+        "names": ["Lakshmi", "吉祥天女", "락슈미", "Lakshmi", "Lakshmi", "Lakshmi", "Laksmi", "Lakshmi\u001a"],
+        "image": "beast111.png",
+        "icon": "beast_thum111.png",
+        "skill": {
+            "11101": {
+                "effects": [
+                    ["Restore 50% HP to all allies"]
+                ],
+                "effects_raw": [[2, 2, 26, [50,  50,  100]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[240]],
+                "effect_frames": [[40,  40,  40,  40]],
+                "strings": {
+                    "name": ["Alluring Embrace", "魅惑擁抱", "매혹의 포옹", "Étreinte irrésistible", "Verzauberung", "Pulso vital", "Persona Asmara", "อ้อมกอด\u001aเสน่หา\u001a"],
+                    "desc": ["Restore HP for all allies", "恢復全體隊員的HP", "아군 전체의 HP 회복", "Restaure les PV de tous les alliés", "Heilt LP, alle Verb.", "Cura la VIT a todos los aliados", "Memulihkan HP semua teman", "ฟื้นฟู\u001aค่า\u001a \u001aHP\u001a \u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001a"]
+                }
+            },
+            "11102": {
+                "effects": [
+                    ["Restore 75% HP to all allies"]
+                ],
+                "effects_raw": [[2, 2, 26, [75,  75,  100]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[240]],
+                "effect_frames": [[40,  40,  40,  40]],
+                "strings": {
+                    "name": ["Alluring Embrace", "魅惑擁抱", "매혹의 포옹", "Étreinte irrésistible", "Verzauberung", "Pulso vital", "Persona Asmara", "อ้อมกอด\u001aเสน่หา\u001a"],
+                    "desc": ["Restore HP for all allies", "恢復全體隊員的HP", "아군 전체의 HP 회복", "Restaure les PV de tous les alliés", "Heilt LP, alle Verb.", "Cura la VIT a todos los aliados", "Memulihkan HP semua teman", "ฟื้นฟู\u001aค่า\u001a \u001aHP\u001a \u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001a"]
+                }
+            },
+            "11103": {
+                "effects": [
+                    ["Restore 100% HP to all allies"]
+                ],
+                "effects_raw": [[2, 2, 26, [100,  100,  100]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[240]],
+                "effect_frames": [[40,  40,  40,  40]],
+                "strings": {
+                    "name": ["Alluring Embrace", "魅惑擁抱", "매혹의 포옹", "Étreinte irrésistible", "Verzauberung", "Pulso vital", "Persona Asmara", "อ้อมกอด\u001aเสน่หา\u001a"],
+                    "desc": ["Fully restore HP for all allies", "恢復全體隊員全部的HP", "아군 전체의 HP 모두 회복", "Restaure entièrement les PV de tous les alliés", "Heilt alle LP bei allen Verbündeten", "Cura toda la VIT a todos los aliados", "Memulihkan seluruh HP semua teman", "ฟื้นฟู\u001aค่า\u001a \u001aHP\u001a \u001aให้\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001aจน\u001aเต็ม\u001a"]
+                }
+            }
+        },
+        "color": null,
+        "entries": [
+            {
+                "stats": {
+                    "HP": [2100, 3200],
+                    "MP": [2600, 3700],
+                    "ATK": [1100, 1400],
+                    "DEF": [1500, 1900],
+                    "MAG": [1400, 2300],
+                    "SPR": [2400, 3900]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 30,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 5, 5, 6, 5, 6, 5, 6]
+            },
+            {
+                "stats": {
+                    "HP": [3600, 4800],
+                    "MP": [3800, 5000],
+                    "ATK": [1600, 2000],
+                    "DEF": [2000, 2400],
+                    "MAG": [2400, 3400],
+                    "SPR": [4000, 5700]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 40,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9]
+            },
+            {
+                "stats": {
+                    "HP": [5100, 8600],
+                    "MP": [5300, 7400],
+                    "ATK": [2200, 4900],
+                    "DEF": [2500, 5800],
+                    "MAG": [3500, 5000],
+                    "SPR": [5900, 8000]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 100, 0, 0],
+                "exp_pattern": 50,
+                "stat_pattern": 1,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+            }
+        ]
+    },
+    "12": {
+        "names": ["Leviathan", "利維坦", "리바이어선", "Léviathan", "Leviathan", "Leviatán", "Leviathan", "Leviathan\u001a"],
+        "image": "beast171.png",
+        "icon": "beast_thum171.png",
+        "skill": {
+            "11201": {
+                "effects": [
+                    ["Magic* water damage (280x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  28000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[80]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Tsunami", "大海嘯", "대해일", "Tsunami", "Tsunami", "Tsunami", "Tsunami", "คลื่น\u001aยักษ์\u001aมหึมา\u001a"],
+                    "desc": ["Deal water damage to all enemies", "對全體敵人發動水屬性攻擊", "적 전체에 물속성 피해", "Dégâts d'eau sur tous les ennemis", "Wasserschaden, alle Gegner", "Daño de agua a todos los enemigos", "Memberikan damage air pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11202": {
+                "effects": [
+                    ["Magic* water damage (380x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  38000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[120]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Tsunami", "大海嘯", "대해일", "Tsunami", "Tsunami", "Tsunami", "Tsunami", "คลื่น\u001aยักษ์\u001aมหึมา\u001a"],
+                    "desc": ["Deal water damage to all enemies", "對全體敵人發動水屬性攻擊", "적 전체에 물속성 피해", "Dégâts d'eau sur tous les ennemis", "Wasserschaden, alle Gegner", "Daño de agua a todos los enemigos", "Memberikan damage air pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11203": {
+                "effects": [
+                    ["Magic* water damage (400x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  40000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[160]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Tsunami", "大海嘯", "대해일", "Tsunami", "Tsunami", "Tsunami", "Tsunami", "คลื่น\u001aยักษ์\u001aมหึมา\u001a"],
+                    "desc": ["Deal water damage to all enemies", "對全體敵人發動水屬性攻擊", "적 전체에 물속성 피해", "Dégâts d'eau sur tous les ennemis", "Wasserschaden, alle Gegner", "Daño de agua a todos los enemigos", "Memberikan damage air pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Blue": 1.5,
+            "Green": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [3700, 4800],
+                    "MP": [2900, 3800],
+                    "ATK": [2700, 3500],
+                    "DEF": [1600, 2000],
+                    "MAG": [3000, 3900],
+                    "SPR": [1600, 2000]
+                },
+                "element_resist": [0, 0, -50, 50, 25, -25, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 33,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 4, 5, 4, 5, 5, 4, 5, 5, 5, 4, 5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+            },
+            {
+                "stats": {
+                    "HP": [5000, 7200],
+                    "MP": [4000, 5700],
+                    "ATK": [3700, 5200],
+                    "DEF": [2200, 3000],
+                    "MAG": [4100, 5900],
+                    "SPR": [2200, 3000]
+                },
+                "element_resist": [0, 0, -50, 50, 25, -25, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 43,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
+            },
+            {
+                "stats": {
+                    "HP": [7400, 11000],
+                    "MP": [5900, 7600],
+                    "ATK": [5400, 6900],
+                    "DEF": [3200, 7800],
+                    "MAG": [6100, 8700],
+                    "SPR": [3200, 8000]
+                },
+                "element_resist": [0, 0, -50, 50, 25, -25, 0, 0],
+                "status_resist": [0, 0, 0, 100, 0, 0, 0, 0],
+                "exp_pattern": 53,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+            }
+        ]
+    },
+    "13": {
+        "names": ["Alexander", "亞歷山大", "알렉산더", "Alexandre", "Alexander", "Alejandro", "Alexander", "Alexander\u001a"],
+        "image": "beast181.png",
+        "icon": "beast_thum181.png",
+        "skill": {
+            "11301": {
+                "effects": [
+                    ["Magic* light damage (50x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  5000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[100]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Divine Judgment", "神聖審判", "성스러운 심판", "Jugement divin", "Jüngstes Gericht", "Veredicto final", "Penghakiman Terakhir", "คำพิพากษา\u001aสวรรค์\u001a"],
+                    "desc": ["Deal light damage to all enemies", "對全體敵人發動光屬性攻擊", "적 전체에 빛속성 피해", "Dégâts de lumière sur tous les ennemis", "Lichtschaden, alle Ziele", "Daño de luz a todos los enemigos", "Memberikan damage cahaya pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aแสง\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11302": {
+                "effects": [
+                    ["Magic* light damage (140x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  14000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Divine Judgment", "神聖審判", "성스러운 심판", "Jugement divin", "Jüngstes Gericht", "Veredicto final", "Penghakiman Terakhir", "คำพิพากษา\u001aสวรรค์\u001a"],
+                    "desc": ["Deal light damage to all enemies", "對全體敵人發動光屬性攻擊", "적 전체에 빛속성 피해", "Dégâts de lumière sur tous les ennemis", "Lichtschaden, alle Ziele", "Daño de luz a todos los enemigos", "Memberikan damage cahaya pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aแสง\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11303": {
+                "effects": [
+                    ["Magic* light damage (210x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  21000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Divine Judgment", "神聖審判", "성스러운 심판", "Jugement divin", "Jüngstes Gericht", "Veredicto final", "Penghakiman Terakhir", "คำพิพากษา\u001aสวรรค์\u001a"],
+                    "desc": ["Deal light damage to all enemies", "對全體敵人發動光屬性攻擊", "적 전체에 빛속성 피해", "Dégâts de lumière sur tous les ennemis", "Lichtschaden, alle Ziele", "Daño de luz a todos los enemigos", "Memberikan damage cahaya pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aแสง\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "White": 1.5,
+            "Yellow": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [2600, 3300],
+                    "MP": [1100, 1400],
+                    "ATK": [1200, 1500],
+                    "DEF": [2400, 3000],
+                    "MAG": [2300, 3000],
+                    "SPR": [3000, 3800]
+                },
+                "element_resist": [0, 0, 25, -25, 0, 0, 50, -50],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 32,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 3, 3, 3, 4, 3, 3, 4, 3, 3, 4, 3, 3, 4, 3, 4, 3, 4, 3, 4, 3, 3, 4, 3, 4, 4, 3, 4, 4, 4]
+            },
+            {
+                "stats": {
+                    "HP": [3600, 5000],
+                    "MP": [1500, 2100],
+                    "ATK": [1600, 2200],
+                    "DEF": [3200, 4600],
+                    "MAG": [3200, 4500],
+                    "SPR": [4100, 5800]
+                },
+                "element_resist": [0, 0, 25, -25, 0, 0, 50, -50],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 42,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 8, 7, 8, 8, 7, 8, 8, 7, 8, 8, 8, 7, 8, 8, 8, 7, 8, 8, 8, 7, 8, 8, 8, 8, 8, 8, 8]
+            },
+            {
+                "stats": {
+                    "HP": [5200, 8500],
+                    "MP": [2200, 4400],
+                    "ATK": [2300, 5200],
+                    "DEF": [4800, 7600],
+                    "MAG": [4700, 6400],
+                    "SPR": [6000, 8500]
+                },
+                "element_resist": [0, 0, 25, -25, 0, 0, 50, -50],
+                "status_resist": [100, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 52,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 10, 10, 11, 10, 10, 11, 10, 10, 11, 10, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11]
+            }
+        ]
+    },
+    "14": {
+        "names": ["Phoenix", "地獄鳳凰", "피닉스", "Phénix", "Phönix", "Fénix", "Phoenix", "Phoenix\u001a"],
+        "image": "beast141.png",
+        "icon": "beast_thum141.png",
+        "skill": {
+            "11401": {
+                "effects": [
+                    ["Magic* fire damage (20.5x, EVO MAG) to all enemies"],
+                    ["Revive all allies from KO (10% HP)"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  2050]], [2, 2, 4, [10]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Flames of Rebirth", "轉生之炎", "윤회의 불꽃", "Feu résurrecteur", "Reinkarnationsflamme", "Llamas del renacer", "Api Kebangkitan", "ไฟ\u001aแห่ง\u001aการ\u001aกำเนิด\u001aใหม่\u001a"],
+                    "desc": ["Deal fire damage to all enemies and revive all KO'd allies", "對全體敵人發動火屬性攻擊+使全體隊員從無法戰鬥狀態中復活", "적 전체에 불속성 피해+아군 전체의 전투불능 상태 회복", "Dégâts de feu sur tous les ennemis et ressuscite tous les alliés KO", "Fügt allen Gegnern Feuerschaden zu und belebt alle kampfunf. Verb. wieder", "Daño de fuego a todos los enemigos y revive a todos los aliados K.O.", "Memberikan damage api pada semua musuh dan menghidupkan kembali semua teman yang telah K.O.", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aไฟ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a \u001a+\u001a \u001aคืนชีพ\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001aที่อยู่\u001aใน\u001aสภาพ\u001a \u001aKO\u001a"]
+                }
+            },
+            "11402": {
+                "effects": [
+                    ["Magic* fire damage (82x, EVO MAG) to all enemies"],
+                    ["Revive all allies from KO (40% HP)"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  8200]], [2, 2, 4, [40]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Flames of Rebirth", "轉生之炎", "윤회의 불꽃", "Feu résurrecteur", "Reinkarnationsflamme", "Llamas del renacer", "Api Kebangkitan", "ไฟ\u001aแห่ง\u001aการ\u001aกำเนิด\u001aใหม่\u001a"],
+                    "desc": ["Deal fire damage to all enemies and revive all KO'd allies", "對全體敵人發動火屬性攻擊+使全體隊員從無法戰鬥狀態中復活", "적 전체에 불속성 피해+아군 전체의 전투불능 상태 회복", "Dégâts de feu sur tous les ennemis et ressuscite tous les alliés KO", "Fügt allen Gegnern Feuerschaden zu und belebt alle kampfunf. Verb. wieder", "Daño de fuego a todos los enemigos y revive a todos los aliados K.O.", "Memberikan damage api pada semua musuh dan menghidupkan kembali semua teman yang telah K.O.", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aไฟ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a \u001a+\u001a \u001aคืนชีพ\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001aที่อยู่\u001aใน\u001aสภาพ\u001a \u001aKO\u001a"]
+                }
+            },
+            "11403": {
+                "effects": [
+                    ["Magic* fire damage (200x, EVO MAG) to all enemies"],
+                    ["Revive all allies from KO (90% HP)"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  20000]], [2, 2, 4, [90]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[110]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Flames of Rebirth", "轉生之炎", "윤회의 불꽃", "Feu résurrecteur", "Reinkarnationsflamme", "Llamas del renacer", "Api Kebangkitan", "ไฟ\u001aแห่ง\u001aการ\u001aกำเนิด\u001aใหม่\u001a"],
+                    "desc": ["Deal fire damage to all enemies and revive all KO'd allies", "對全體敵人發動火屬性攻擊+使全體隊員從無法戰鬥狀態中復活", "적 전체에 불속성 피해+아군 전체의 전투불능 상태 회복", "Dégâts de feu sur tous les ennemis et ressuscite tous les alliés KO", "Fügt allen Gegnern Feuerschaden zu und belebt alle kampfunf. Verb. wieder", "Daño de fuego a todos los enemigos y revive a todos los aliados K.O.", "Memberikan damage api pada semua musuh dan menghidupkan kembali semua teman yang telah K.O.", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aไฟ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a \u001a+\u001a \u001aคืนชีพ\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001aที่อยู่\u001aใน\u001aสภาพ\u001a \u001aKO\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Red": 1.5,
+            "Orange": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [2800, 3800],
+                    "MP": [2300, 3300],
+                    "ATK": [1000, 1300],
+                    "DEF": [1200, 1700],
+                    "MAG": [1600, 2400],
+                    "SPR": [2900, 4000]
+                },
+                "element_resist": [50, -50, 0, 0, -25, 25, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 32,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 4, 3, 4, 3, 3, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 3, 3, 4, 3, 4, 3, 4]
+            },
+            {
+                "stats": {
+                    "HP": [3900, 5500],
+                    "MP": [3400, 4800],
+                    "ATK": [1400, 2000],
+                    "DEF": [1800, 2800],
+                    "MAG": [2500, 3500],
+                    "SPR": [4100, 5600]
+                },
+                "element_resist": [50, -50, 0, 0, -25, 25, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 42,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
+            },
+            {
+                "stats": {
+                    "HP": [5900, 8800],
+                    "MP": [5400, 7200],
+                    "ATK": [2400, 4900],
+                    "DEF": [3200, 5800],
+                    "MAG": [3900, 5500],
+                    "SPR": [6000, 7800]
+                },
+                "element_resist": [50, -50, 0, 0, -25, 25, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 100, 0],
+                "exp_pattern": 52,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+            }
+        ]
+    },
+    "15": {
+        "names": ["Bahamut", "巴哈姆特", "바하무트", "Bahamut", "Bahamut", "Bahamut", "Bahamut", "Bahamut\u001a"],
+        "image": "beast151.png",
+        "icon": "beast_thum151.png",
+        "skill": {
+            "11501": {
+                "effects": [
+                    ["Magic* damage (300x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  30000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[170]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Megaflare", "百萬核爆", "메가플레어", "MégaBrasier", "Megaflamme", "Megafulgor", "Megaflare", "ระเบิด\u001aประลัยกัลป์\u001a"],
+                    "desc": ["Damage all enemies", "攻擊全體敵人", "적 전체에 피해", "Dégâts sur tous les ennemis", "Schaden, alle Gegner", "Inflige daño a todos los enemigos", "Memberikan damage pada semua musuh", "สร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11502": {
+                "effects": [
+                    ["Magic* damage (2500x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  250000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[210]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Megaflare", "百萬核爆", "메가플레어", "MégaBrasier", "Megaflamme", "Megafulgor", "Megaflare", "ระเบิด\u001aประลัยกัลป์\u001a"],
+                    "desc": ["Damage all enemies", "攻擊全體敵人", "적 전체에 피해", "Dégâts sur tous les ennemis", "Schaden, alle Gegner", "Inflige daño a todos los enemigos", "Memberikan damage pada semua musuh", "สร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11503": {
+                "effects": [
+                    ["Magic* damage (25000x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  2500000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[210]],
+                "effect_frames": [[0,  0,  0]],
+                "strings": {
+                    "name": ["Megaflare", "百萬核爆", "메가플레어", "MégaBrasier", "Megaflamme", "Megafulgor", "Megaflare", "ระเบิด\u001aประลัยกัลป์\u001a"],
+                    "desc": ["Damage all enemies", "攻擊全體敵人", "적 전체에 피해", "Dégâts sur tous les ennemis", "Schaden, alle Gegner", "Inflige daño a todos los enemigos", "Memberikan damage pada semua musuh", "สร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": null,
+        "entries": [
+            {
+                "stats": {
+                    "HP": [4800, 6400],
+                    "MP": [4700, 6300],
+                    "ATK": [4500, 6000],
+                    "DEF": [4500, 6000],
+                    "MAG": [4500, 6000],
+                    "SPR": [4500, 6000]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 31,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 3, 2, 3, 2, 2, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 3]
+            },
+            {
+                "stats": {
+                    "HP": [6600, 9600],
+                    "MP": [6500, 9400],
+                    "ATK": [6200, 8500],
+                    "DEF": [6200, 8500],
+                    "MAG": [6200, 8500],
+                    "SPR": [6200, 8500]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 41,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+            },
+            {
+                "stats": {
+                    "HP": [9800, 12800],
+                    "MP": [9650, 12600],
+                    "ATK": [8600, 12000],
+                    "DEF": [8600, 12000],
+                    "MAG": [8600, 12000],
+                    "SPR": [8600, 12000]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 100, 0, 0, 0, 0, 0, 100],
+                "exp_pattern": 51,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10]
+            }
+        ]
+    },
+    "16": {
+        "names": ["Fenrir", "芬里爾", "펜리르", "Fenrir", "Fenrir", "Fenril", "Fenrir", "Fenrir\u001a"],
+        "image": "beast161.png",
+        "icon": "beast_thum161.png",
+        "skill": {
+            "11601": {
+                "effects": [
+                    ["Increase ATK, DEF, MAG and SPR by 50% for 3 turns to all allies"]
+                ],
+                "effects_raw": [[2, 2, 3, [50,  50,  50,  50,  3,  1]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[30]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Howling Moon", "月夜狼嚎", "하울링 문", "Lune hurlante", "Mondheulen", "Luna aullante", "Howling Moon", "จันทรา\u001aหอน\u001aโหยหวน\u001a"],
+                    "desc": ["Boost ATK, DEF, MAG, and SPR for all allies", "提高全體隊員攻擊防禦魔力精神的數值", "아군 전체의 공격력, 방어력, 마력, 정신력 상승", "Augmente l'ATT, la DEF, la MAGIE et ka PSY de tous les alliés", "ANG, ABW, MAG und PSY hoch, alle Verb.", "Aumenta ATQ, DEF, MAG y ESP de todos los aliados", "Meningkatkan ATK, DEF, MAG, dan SPR semua teman", "เพิ่มค่า\u001a \u001aATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a,\u001a \u001aและ\u001a \u001aSPR\u001a \u001aให้\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001a"]
+                }
+            },
+            "11602": {
+                "effects": [
+                    ["Increase ATK, DEF, MAG and SPR by 80% for 3 turns to all allies"],
+                    ["Dodge 1 physical attacks for 3 turns to all allies"]
+                ],
+                "effects_raw": [[2, 2, 3, [80,  80,  80,  80,  3,  1]], [2, 2, 54, [1,  3]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[30]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Howling Moon", "月夜狼嚎", "하울링 문", "Lune hurlante", "Mondheulen", "Luna aullante", "Howling Moon", "จันทรา\u001aหอน\u001aโหยหวน\u001a"],
+                    "desc": ["Boost ATK, DEF, MAG, and SPR for all allies and enable units to evade one physical attack", "提高全體隊員攻擊防禦魔力精神的數值+閃避1次物理攻擊", "아군 전체의 공격력, 방어력, 마력, 정신력 상승+물리 공격 1회 회피", "Augmente l'ATT, la DEF, la MAGIE et ka PSY de tous les alliés et permet aux unités d'esquiver une attaque physique", "ANG, ABW, MAG und PSY für alle Verb und ermöglicht Ausweichen vor einem phy. Angriff.", "Aumenta ATQ, DEF, MAG y ESP de todos los aliados y permite que las unidades esquiven un ataque físico", "Meningkatkan ATK, DEF, MAG, dan SPR semua teman, serta memungkinkan semua teman untuk menghindari serangan fisik 1 kali", "เพิ่มค่า\u001a \u001aATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a,\u001a \u001aและ\u001a \u001aSPR\u001a \u001aให้\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001aและ\u001aทำให้\u001aยู\u001aนิ\u001aท\u001aต่างๆ\u001a \u001aสามารถ\u001aหลบ\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001aได้\u001a \u001a1\u001a \u001aครั้ง\u001a"]
+                }
+            },
+            "11603": {
+                "effects": [
+                    ["Increase ATK, DEF, MAG and SPR by 120% for 3 turns to all allies"],
+                    ["Dodge 1 physical attacks for 3 turns to all allies"]
+                ],
+                "effects_raw": [[2, 2, 3, [120,  120,  120,  120,  3,  1]], [2, 2, 54, [1,  3]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[30]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Howling Moon", "月夜狼嚎", "하울링 문", "Lune hurlante", "Mondheulen", "Luna aullante", "Howling Moon", "จันทรา\u001aหอน\u001aโหยหวน\u001a"],
+                    "desc": ["Boost ATK, DEF, MAG, and SPR for all allies and enable units to evade one physical attack", "提高全體隊員攻擊防禦魔力精神的數值+閃避1次物理攻擊", "아군 전체의 공격력, 방어력, 마력, 정신력 상승+물리 공격 1회 회피", "Augmente l'ATT, la DEF, la MAGIE et la PSY de tous les alliés et permet aux unités d'esquiver une attaque physique", "ANG, ABW, MAG und PSY für alle Verb und ermöglicht Ausweichen vor einem phy. Angriff.", "Aumenta ATQ, DEF, MAG y ESP de todos los aliados y permite que las unidades esquiven un ataque físico", "Meningkatkan ATK, DEF, MAG, dan SPR semua teman, serta memungkinkan semua teman untuk menghindari serangan fisik 1 kali", "เพิ่มค่า\u001a \u001aATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a,\u001a \u001aและ\u001a \u001aSPR\u001a \u001aให้\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001aและ\u001aทำให้\u001aยู\u001aนิ\u001aท\u001aต่างๆ\u001a \u001aสามารถ\u001aหลบ\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001aได้\u001a \u001a1\u001a \u001aครั้ง\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Black": 1.5,
+            "Violet": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [2500, 3600],
+                    "MP": [1600, 2300],
+                    "ATK": [2900, 4200],
+                    "DEF": [1400, 1900],
+                    "MAG": [2900, 4200],
+                    "SPR": [1400, 1900]
+                },
+                "element_resist": [-50, 50, 0, 0, 0, 0, -25, 25],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 32,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 2, 3, 2, 3, 3, 2, 3, 3, 3, 2, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 2, 3]
+            },
+            {
+                "stats": {
+                    "HP": [3800, 4800],
+                    "MP": [2500, 3000],
+                    "ATK": [4400, 5500],
+                    "DEF": [2100, 2500],
+                    "MAG": [4400, 5500],
+                    "SPR": [2100, 2500]
+                },
+                "element_resist": [-50, 50, 0, 0, 0, 0, -25, 25],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 42,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 4, 3, 4]
+            },
+            {
+                "stats": {
+                    "HP": [5000, 8000],
+                    "MP": [3200, 6000],
+                    "ATK": [5700, 8400],
+                    "DEF": [2700, 4800],
+                    "MAG": [5700, 8400],
+                    "SPR": [2700, 4800]
+                },
+                "element_resist": [-50, 50, 0, 0, 0, 0, -25, 25],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 100],
+                "exp_pattern": 52,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 11, 12, 12, 12, 12, 12, 12, 11, 12, 12, 12, 12, 12, 12, 11, 12, 12, 12, 12, 12, 12, 11, 12, 12, 12, 12, 12, 12, 11, 12, 12, 12, 12, 12, 12, 11, 12, 12, 12, 12, 12, 12, 11, 12, 12, 12, 12, 12, 12, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12]
+            }
+        ]
+    },
+    "17": {
+        "names": ["Anima", "暴怒靈獸", "아니마", "Anima", "Anima", "Ánima", "Anima", "Anima\u001a"],
+        "image": "beast191.png",
+        "icon": "beast_thum191.png",
+        "skill": {
+            "11701": {
+                "effects": [
+                    ["Magic* dark damage (42x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  4200]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[80]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Oblivion", "混沌·D", "카오틱·D", "Chaos", "Chaos-Dimension", "Caos liberado", "Oblivion", "ห้วง\u001aความ\u001aลืมเลือน\u001a"],
+                    "desc": ["Deal dark damage to all enemies", "對全體敵人發動暗屬性攻擊", "적 전체에 어둠속성 피해", "Dégâts de ténèbres sur tous les ennemis", "Dunkelschaden, alle Ziele", "Daño de oscuridad a todos los enemigos", "Memberikan damage kegelapan pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aมืด\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11702": {
+                "effects": [
+                    ["Magic* dark damage (120x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  12000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[60]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Oblivion", "混沌·D", "카오틱·D", "Chaos", "Chaos-Dimension", "Caos liberado", "Oblivion", "ห้วง\u001aความ\u001aลืมเลือน\u001a"],
+                    "desc": ["Deal dark damage to all enemies", "對全體敵人發動暗屬性攻擊", "적 전체에 어둠속성 피해", "Dégâts de ténèbres sur tous les ennemis", "Dunkelschaden, alle Ziele", "Daño de oscuridad a todos los enemigos", "Memberikan damage kegelapan pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aมืด\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11703": {
+                "effects": [
+                    ["Magic* dark damage (210x, EVO MAG) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 80, [0,  0,  0,  0,  0,  1,  21000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[80]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Oblivion", "混沌·D", "카오틱·D", "Chaos", "Chaos-Dimension", "Caos liberado", "Oblivion", "ห้วง\u001aความ\u001aลืมเลือน\u001a"],
+                    "desc": ["Deal dark damage to all enemies", "對全體敵人發動暗屬性攻擊", "적 전체에 어둠속성 피해", "Dégâts de ténèbres sur tous les ennemis", "Dunkelschaden, alle Ziele", "Daño de oscuridad a todos los enemigos", "Memberikan damage kegelapan pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aมืด\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Blue": 1.5,
+            "Black": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [1700, 2200],
+                    "MP": [1400, 1800],
+                    "ATK": [2400, 3100],
+                    "DEF": [1700, 2200],
+                    "MAG": [3000, 3900],
+                    "SPR": [2900, 3800]
+                },
+                "element_resist": [0, 0, -25, 25, 0, 0, -50, 50],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 32,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 3, 3, 3, 4, 3, 3, 4, 3, 3, 4, 3, 3, 4, 3, 4, 3, 4, 3, 4, 3, 3, 4, 3, 4, 4, 3, 4, 4, 4]
+            },
+            {
+                "stats": {
+                    "HP": [2400, 3200],
+                    "MP": [2000, 2600],
+                    "ATK": [3300, 4600],
+                    "DEF": [2400, 3200],
+                    "MAG": [4100, 5800],
+                    "SPR": [4000, 5600]
+                },
+                "element_resist": [0, 0, -25, 25, 0, 0, -50, 50],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 42,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 8, 7, 8, 8, 7, 8, 8, 7, 8, 8, 8, 7, 8, 8, 8, 7, 8, 8, 8, 7, 8, 8, 8, 8, 8, 8, 8]
+            },
+            {
+                "stats": {
+                    "HP": [3400, 6600],
+                    "MP": [2800, 5800],
+                    "ATK": [4800, 7000],
+                    "DEF": [3400, 6800],
+                    "MAG": [6000, 8600],
+                    "SPR": [5800, 8200]
+                },
+                "element_resist": [0, 0, -25, 25, 0, 0, -50, 50],
+                "status_resist": [0, 0, 0, 0, 0, 100, 0, 0],
+                "exp_pattern": 52,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 10, 10, 11, 10, 10, 11, 10, 10, 11, 10, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11, 10, 11]
+            }
+        ]
+    },
+    "18": {
+        "names": ["Asura", "阿修羅", "아수라", "Asura", "Asura", "Asura", "Asura", "Asura\u001a"],
+        "image": "beast201.png",
+        "icon": "beast_thum201.png",
+        "skill": {
+            "11801": {
+                "effects": [
+                    ["Physical* damage (280x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  28000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[40]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Infinite Cosmos", "三千大千世界", "삼천대천세계", "Cosmos infini", "Unendlicher Kosmos", "Cosmos infinito", "Alam Semesta Tanpa Batas", "จักรวาล\u001aไร้\u001aที่\u001aสิ้น\u001a"],
+                    "desc": ["Damage all enemies", "攻擊全體敵人", "적 전체에 피해", "Dégâts sur tous les ennemis", "Schaden, alle Gegner", "Inflige daño a todos los enemigos", "Memberikan damage pada semua musuh", "สร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11802": {
+                "effects": [
+                    ["Physical* damage (2200x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  220000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[70]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Infinite Cosmos", "三千大千世界", "삼천대천세계", "Cosmos infini", "Unendlicher Kosmos", "Cosmos infinito", "Alam Semesta Tanpa Batas", "จักรวาล\u001aไร้\u001aที่\u001aสิ้น\u001a"],
+                    "desc": ["Damage all enemies", "攻擊全體敵人", "적 전체에 피해", "Dégâts sur tous les ennemis", "Schaden, alle Gegner", "Inflige daño a todos los enemigos", "Memberikan damage pada semua musuh", "สร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11803": {
+                "effects": [
+                    ["Physical* damage (23000x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  2300000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[320]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Infinite Cosmos", "三千大千世界", "삼천대천세계", "Cosmos infini", "Unendlicher Kosmos", "Cosmos infinito", "Alam Semesta Tanpa Batas", "จักรวาล\u001aไร้\u001aที่\u001aสิ้น\u001a"],
+                    "desc": ["Damage all enemies", "攻擊全體敵人", "적 전체에 피해", "Inflige des dégâts à tous les ennemis", "Fügt allen Gegnern Schaden zu.", "Daña a todos los enemigos", "Memberikan damage pada semua musuh", "สร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": null,
+        "entries": [
+            {
+                "stats": {
+                    "HP": [4300, 5700],
+                    "MP": [4800, 6500],
+                    "ATK": [5200, 6800],
+                    "DEF": [4800, 6300],
+                    "MAG": [4100, 5500],
+                    "SPR": [4300, 5700]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 31,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 3, 3, 3, 4, 3, 3, 4, 3, 3, 4, 3, 3, 4, 3, 4, 3, 4, 3, 4, 3, 3, 4, 3, 4, 4, 3, 4, 4, 4]
+            },
+            {
+                "stats": {
+                    "HP": [5800, 8200],
+                    "MP": [6700, 9500],
+                    "ATK": [7000, 9900],
+                    "DEF": [6500, 9200],
+                    "MAG": [5700, 8000],
+                    "SPR": [5900, 8200]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 41,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 8, 7, 8, 8, 7, 8, 8, 7, 8, 8, 8, 7, 8, 8, 8, 7, 8, 8, 8, 7, 8, 8, 8, 8, 8, 8, 8]
+            },
+            {
+                "stats": {
+                    "HP": [8300, 11400],
+                    "MP": [9700, 13000],
+                    "ATK": [10100, 13600],
+                    "DEF": [9400, 12600],
+                    "MAG": [8100, 11000],
+                    "SPR": [8300, 11400]
+                },
+                "element_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 51,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10]
+            }
+        ]
+    },
+    "19": {
+        "names": ["Kokuryu", "黑龍", "흑룡", "Kokuryu", "Kokuryu", "Kokuryu", "Kokuryu", "มังกร\u001aดำ\u001a"],
+        "image": "beast211.png",
+        "icon": "beast_thum211.png",
+        "skill": {
+            "11901": {
+                "effects": [
+                    ["Physical* water damage (280x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  28000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[80]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Supreme Dragon Torrent", "尊龍奔流", "위대한 용의 격류", "Torrent du dragon suprême", "Höchster Drachenstrom", "Torrente del dragón supremo", "Gelombang Badai Naga Mulia", "คลื่น\u001aมหา\u001aมังกร\u001a"],
+                    "desc": ["Deal water damage to all enemies", "對全體敵人發動水屬性攻擊", "적 전체에 물속성 피해", "Dégâts d'eau sur tous les ennemis", "Fügt allen Gegnern Wasserschaden zu.", "Inflige daño de agua a todos los enemigos", "Memberikan damage air pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11902": {
+                "effects": [
+                    ["Physical* water damage (380x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  38000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[80]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Supreme Dragon Torrent", "尊龍奔流", "위대한 용의 격류", "Torrent du dragon suprême", "Höchster Drachenstrom", "Torrente del dragón supremo", "Gelombang Badai Naga Mulia", "คลื่น\u001aมหา\u001aมังกร\u001a"],
+                    "desc": ["Deal water damage to all enemies", "對全體敵人發動水屬性攻擊", "적 전체에 물속성 피해", "Dégâts d'eau sur tous les ennemis", "Fügt allen Gegnern Wasserschaden zu.", "Inflige daño de agua a todos los enemigos", "Memberikan damage air pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            },
+            "11903": {
+                "effects": [
+                    ["Physical* water damage (400x, EVO ATK) to all enemies"]
+                ],
+                "effects_raw": [[2, 1, 79, [0,  0,  0,  0,  0,  0,  1,  40000]]],
+                "attack_count": [1],
+                "attack_damage": [[100]],
+                "attack_frames": [[80]],
+                "effect_frames": [[0,  0]],
+                "strings": {
+                    "name": ["Supreme Dragon Torrent", "尊龍奔流", "위대한 용의 격류", "Torrent du dragon suprême", "Höchster Drachenstrom", "Torrente del dragón supremo", "Gelombang Badai Naga Mulia", "คลื่น\u001aมหา\u001aมังกร\u001a"],
+                    "desc": ["Deal water damage to all enemies", "對全體敵人發動水屬性攻擊", "적 전체에 물속성 피해", "Dégâts d'eau sur tous les ennemis", "Fügt allen Gegnern Wasserschaden zu.", "Inflige daño de agua a todos los enemigos", "Memberikan damage air pada semua musuh", "สร้าง\u001aความเสียหาย\u001aด้วย\u001aธาตุ\u001aน้ำ\u001aแก่\u001aศัตรู\u001aทุกราย\u001a"]
+                }
+            }
+        },
+        "color": {
+            "Blue": 1.5,
+            "Orange": 1.5
+        },
+        "entries": [
+            {
+                "stats": {
+                    "HP": [4000, 5200],
+                    "MP": [3200, 4000],
+                    "ATK": [3300, 3900],
+                    "DEF": [1140, 1800],
+                    "MAG": [1320, 2100],
+                    "SPR": [1600, 2000]
+                },
+                "element_resist": [0, 0, -50, 50, -25, 25, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 33,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 4, 5, 4, 5, 5, 4, 5, 5, 5, 4, 5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+            },
+            {
+                "stats": {
+                    "HP": [5400, 7800],
+                    "MP": [4200, 6200],
+                    "ATK": [4100, 6400],
+                    "DEF": [2000, 3600],
+                    "MAG": [2300, 4200],
+                    "SPR": [2200, 3000]
+                },
+                "element_resist": [0, 0, -50, 50, -25, 25, 0, 0],
+                "status_resist": [0, 0, 0, 0, 0, 0, 0, 0],
+                "exp_pattern": 43,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
+            },
+            {
+                "stats": {
+                    "HP": [8000, 10400],
+                    "MP": [6400, 8600],
+                    "ATK": [6600, 9300],
+                    "DEF": [3800, 6900],
+                    "MAG": [4400, 7500],
+                    "SPR": [3200, 6300]
+                },
+                "element_resist": [0, 0, -50, 50, -25, 25, 0, 0],
+                "status_resist": [0, 0, 0, 0, 100, 0, 0, 0],
+                "exp_pattern": 53,
+                "stat_pattern": 2,
+                "cp_pattern": [0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+            }
+        ]
+    }
+}

@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+    ffbeequip:
+        image: lyrgard/ffbeequip:latest
+        restart: always
+        volumes:
+          - ./GL/corrections.json:/ffbeEquip/static/GL/corrections.json
+          - ./JP/corrections.json:/ffbeEquip/static/JP/corrections.json
+          - .config.json:/ffbeEquip/.config.json
+        ports:
+          - 3000:3000
