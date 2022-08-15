@@ -14,7 +14,7 @@ export function OAuthFunction(req, res, next){
   });
 
   if (output) {
-    res.headers = output;
+    req.headers = output;
   }
   next()
 };

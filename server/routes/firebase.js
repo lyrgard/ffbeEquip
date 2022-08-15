@@ -412,7 +412,7 @@ authenticatedRoute.put('/:server/publicUnitCollection', async (req, res) => {
   if (settings && settings.unitCollection) {
       id = settings.unitCollection;
   } else {
-      id = uuidV1();
+      id = uuidV1.v1();
   }
 
   var file = firebase.file("UnitCollections/" + id + ".json"); 

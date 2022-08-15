@@ -853,20 +853,20 @@ function savePublicLink(callback) {
         }
     }
     
-    $.ajax({
-        url: server + '/publicUnitCollection',
-        method: 'PUT',
-        data: JSON.stringify(publicUnitcollection),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function(data) { 
-            $.notify("Public link updated", "success"); 
-            savePublicLinkNeeded = false;
-            userSettings.unitCollection = data.id;
-            if (callback) {callback(data.id)} 
-        },
-        error: function() { $.notify("Error while updating public link", "error"); }
-    });
+    // $.ajax({
+    //     url: server + '/publicUnitCollection',
+    //     method: 'PUT',
+    //     data: JSON.stringify(publicUnitcollection),
+    //     contentType: "application/json; charset=utf-8",
+    //     dataType: "json",
+    //     success: function(data) { 
+    //         $.notify("Public link updated", "success"); 
+    //         savePublicLinkNeeded = false;
+    //         userSettings.unitCollection = data.id;
+    //         if (callback) {callback(data.id)} 
+    //     },
+    //     error: function() { $.notify("Error while updating public link", "error"); }
+    // });
 }
 
 function showPublicUnitCollectionLink() {

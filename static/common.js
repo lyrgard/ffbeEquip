@@ -1785,7 +1785,6 @@ function getShortUrl(longUrl, callback) {
 }
 
 function getLocalizedFileUrl(name) {
-    console.log("Localized")
     if (language) {
         name = name + "_" + language;
     }

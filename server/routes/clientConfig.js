@@ -1,4 +1,7 @@
 import express from 'express'
+import ServerConfig from '../../config.js'
+
+let config = ServerConfig.ServerConfig;
 
 export const route = express.Router();
 

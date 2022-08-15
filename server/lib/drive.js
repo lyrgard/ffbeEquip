@@ -85,19 +85,21 @@ export const readJson = async (auth, fileName, emptyValue) => {
 
 /**
  * @summary Write a JSON file on gDrive
- * @param {OAuht2} auth - OAuth2 Client
+ * @param {OAuth2} auth - OAuth2 Client
  * @param {string} fileName
  * @param {any} data
  * @returns {Promise<any>}
  */
 export const writeJson = async (auth, fileName, data) => {
   const files = await list(auth);
-  
+
   if (files.length === 0) {
     return create(auth, fileName, data);
   }
 
+  
   const file = files.find(item => item.name === fileName);
+ 
   if (!file) {
     return create(auth, fileName, data);
   }
