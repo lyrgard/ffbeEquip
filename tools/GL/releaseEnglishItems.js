@@ -28,6 +28,12 @@ fs.readFile('../../static/GL/data.json', function (err, content) {
                     }
                 }
             })
+        } else {
+            result[item].access.forEach((accessType)=> {
+                if (!accessType.includes('not released yet')){
+                    result[item].access = 'not released yet'
+                }
+            })
         }
     });
 

@@ -175,7 +175,8 @@ const itemEnhancementLabels = {
         "1100000558": "DEF/SPR+40%, HP+30%",
         "1100000590": "MAG +50%, +50% M Aquatic/Plant killers",
         "1100000596": "SPR +50%, +5% MP/turn",
-        "1100000617": "ATK +60%, LB Damage +50%"
+        "1100000617": "ATK +60%, LB Damage +50%",
+        "1100000542": "MAG +60%, +25% MAG TDH"
     },
     "hp_20": "HP +20%", "hp_15": "HP +15%", "hp_12": "HP +12%", "hp_10": "HP +10%", "hp_7": "HP +7%", "hp_5": "HP +5%", "hp_3": "HP +3%", "hp_1": "HP +1%",
     "mp_20": "MP +20%", "mp_15": "MP +15%", "mp_12": "MP +12%", "mp_10": "MP +10%", "mp_7": "MP +7%", "mp_5": "MP +5%", "mp_3": "MP +3%", "mp_1": "MP +1%",
@@ -329,7 +330,8 @@ const itemEnhancementAbilities = {
         "1100000558": {"def%":40, "spr%":40, "hp%":40},
         "1100000590": {"mag%":50, "killers":[{"name":"aquatic","magical":50}, {"name":"plant","magical":50}]},
         "1100000596": {"spr%":50, "mpRefresh": 5},
-        "1100000617": {"atk%":60, "lbDamage":50}
+        "1100000617": {"atk%":60, "lbDamage":50},
+        "1100000542": {"mag%": 60, "singleWielding":{"mag":25}}
     },
     "hp_20": {"hp%":20}, "hp_15": {"hp%":15}, "hp_12": {"hp%":12}, "hp_10": {"hp%":10}, "hp_7": {"hp%":7}, "hp_5": {"hp%":5}, "hp_3": {"hp%":3}, "hp_1": {"hp%":1},
     "mp_20": {"mp%":20}, "mp_15": {"mp%":15}, "mp_12": {"mp%":12}, "mp_10": {"mp%":10}, "mp_7": {"mp%":7}, "mp_5": {"mp%":5}, "mp_3": {"mp%":3}, "mp_1": {"mp%":1},
@@ -490,6 +492,7 @@ const itemEnhancementBySkillId = {
     "915966":"special_1",
     "916039":"special_1",
     "916269":"special_1",
+    "915747":"special_1"
 }
 
 const skillIdByItemEnhancement = {

@@ -1390,29 +1390,40 @@ function exportAsJson() {
         typeById[item.id] = item.type;
     })
     Object.keys(itemInventory).forEach(id => {
-      if (id != "enchantments" && id != "version") {
-        let itemResult = {"id" : id, "count": itemInventory[id] };
-        if (itemInventory.enchantments && itemInventory.enchantments[id]) {
-          itemResult.count -= itemInventory.enchantments[id].length;
-          itemInventory.enchantments[id].forEach(enh => {
-            let enhancedItemResult = {"id" : id, "count": 1, "enhancements": [] }
-            enhancedItemResult.enhancements = enh.map(e => {
-                if (e === 'special_1') {
-                    return skillIdByItemEnhancement[e][id];
-                } else if (e == 'rare_3' || e == 'rare_4' || e == 'rare_5') {
-                    return skillIdByItemEnhancement[e][typeById[id]];
-                } else {
-                    return skillIdByItemEnhancement[e];
+        if (id != "enchantments" && id != "version") {
+            if (itemInventory.visionCardsLevels && itemInventory.visionCardsLevels[id]?.[0]){
+                // length = how many cards, each number is the current level of the card
+                for (var i = 0; i < itemInventory.visionCardsLevels[id].length; i++) {
+                    let visionCard = {"id" : id, "count": 1, "level": itemInventory.visionCardsLevels[id][i]};
+                    exportResult.push(visionCard);
+                };
+            } else {
+
+                let itemResult = {"id" : id, "count": itemInventory[id] };
+
+                if (itemInventory.enchantments && itemInventory.enchantments[id]) {
+                itemResult.count -= itemInventory.enchantments[id].length;
+                itemInventory.enchantments[id].forEach(enh => {
+                    let enhancedItemResult = {"id" : id, "count": 1, "enhancements": [] }
+                    enhancedItemResult.enhancements = enh.map(e => {
+                        if (e === 'special_1') {
+                            return skillIdByItemEnhancement[e][id];
+                        } else if (e == 'rare_3' || e == 'rare_4' || e == 'rare_5') {
+                            return skillIdByItemEnhancement[e][typeById[id]];
+                        } else {
+                        } 
+                            return skillIdByItemEnhancement[e];
+                    })
+                    exportResult.push(enhancedItemResult);
+                })
                 }
-            })
-            exportResult.push(enhancedItemResult);
-          })
+
+                if (itemResult.count > 0) {
+                    exportResult.push(itemResult);
+                }
+            }
         }
-        if (itemResult.count > 0) {
-            exportResult.push(itemResult);
-        }
-      }
-    })
+    });
     
     window.saveAs(new Blob([JSON.stringify(exportResult)], {type: "application/json;charset=utf-8"}), 'FFBE_Equip - Equipment.json');
 }
@@ -1466,6 +1477,7 @@ function treatImportFile(evt) {
 
             // validation was successful
             if (errors) {
+                console.log(errors)
                 Modal.showMessage("imported file doesn't have the correct form : " + JSON.stringify(errors));
                 return;
             }
@@ -1592,7 +1604,7 @@ function getVisionCardsEntries(visionCards) {
                 itemEntry.visionCard = vc;
                 result.push(itemEntry);
             } else {
-                if (!itemInventory.visionCardsLevels[vc.id]) {
+                if (!itemInventory.visionCardsLevels[vc.id] || itemInventory.visionCardsLevels[vc.id][0] === null) {
                     itemInventory.visionCardsLevels[vc.id] = Array.from({length: itemInventory[vc.id]}, () => 1);
                 }
                 itemInventory.visionCardsLevels[vc.id].forEach((level, index) => {
@@ -1738,7 +1750,7 @@ importValidator.addSchema('itemInventory', {
       id: {
         type: 'string',
         minLength: 9,
-        maxLength: 10
+        maxLength: 12
       },
       count: {
         type:'number'
@@ -1748,8 +1760,8 @@ importValidator.addSchema('itemInventory', {
         maxItems: 3,
         items: {
           type: 'string',
-          minLength: 6,
-          maxLength: 6
+          minLength: 3,
+          maxLength: 12
         }
       }
     },
