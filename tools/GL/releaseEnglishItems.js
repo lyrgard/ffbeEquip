@@ -7,7 +7,6 @@ fs.readFile('../../static/GL/data.json', function (err, content) {
     Object.keys(result).forEach((item, value) => {
         let currentName = result[item].name
         let english = checkForJapanese(currentName.toString())
-        console.log(result[item])
 
         if (english === true) {
             result[item].access.forEach((accessType)=> {
