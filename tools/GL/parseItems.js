@@ -165,9 +165,9 @@ const unitRules = {
     7102: (item) => item.exclusiveSex = 'male',// Male units
     7103: (item) => item.exclusiveSex = 'female',// Female units,
     7110: (item) => item.exclusiveRoles = ['physicalAttacker'],
-    7111: (item) => item.exclusiveRoles = ['physicalAttacker', 'magicalAttacker'],
+    7111: (item) => item.exclusiveRoles = ['magicalAttacker'],
     7112: (item) => item.exclusiveRoles = ['physicalTank'],
-    7113: (item) => item.exclusiveRoles = ['physicalTank', 'magicalTank'],
+    7113: (item) => item.exclusiveRoles = ['magicalTank'],
     7114: (item) => item.exclusiveRoles = ['healer'],
     7116: (item) => item.exclusiveRoles = ['debuffer'],
     7201: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10001], // FF1
