@@ -455,7 +455,11 @@ function formulaFromSkill(skill, multicast = false, isLb = false) {
     }
     for (var i = 0, len = effects.length; i < len; i++) {
         if (!effects[i].effect) {
-            return {"type": "skill", "id":skill.id, "name":skill.name, "notSupported":true};
+            if (effects.length === 1) {
+                return {"type": "skill", "id":skill.id, "name":skill.name, "notSupported":true};
+            }else{
+                continue;
+            }
         }
         var formulaToAdd = formulaFromEffect(effects[i], multicast);
         if (formulaToAdd) {
