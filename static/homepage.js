@@ -136,106 +136,106 @@ function startPage() {
         window.location.href = url;
     });
 
-    $.get("https://api.github.com/repos/lyrgard/ffbeEquip/tags", function(tags) {
-        var length = Math.min(5, tags.length);
-        let improvements = 0;
-        let features = 0;
-        let dataUpdate = 0;
-        Object.values(tags)
-            .filter(tag => tag.name.length > 10 && tag.name.substr(tag.name.length - 10, 10).match(/\d\d\d\d_\d\d_\d\d/g))
-            .sort((tag1, tag2) => tag2.name.substr(tag2.name.length - 10, 10).localeCompare(tag1.name.substr(tag1.name.length - 10, 10)))
-            .forEach(tag => {
-            var tag_class = '';
-            var tag_icon = 'glyphicon-tag';
-            var tag_type = 'Update';
-            if (tag.name.startsWith("IMPROVEMENT_")) {
-                tag_icon = "glyphicon-wrench";
-                tag_type = 'Improvement';
-                tag_class = 'improvement';
-                improvements++;
-                if (improvements > 4) return;
-            } else if (tag.name.startsWith("FEATURE_")) {
-                tag_icon = "glyphicon-flash";
-                tag_type = 'New feature';
-                tag_class = 'feature';
-                features++;
-                if (features > 4) return;
-            } else if (tag.name.startsWith("UPDATE_DATA")) {
-                tag_icon = "glyphicon-book";
-                tag_type = 'Data update';
-                tag_class = 'dataUpdate';
-                dataUpdate++;
-                if (dataUpdate > 4) return;
-            }
-            var html = '<div class="hidden tagline '+tag_class+' '+tag.commit.sha+'">';
-            html += "<div>";
-            html += "<span class='tagtype'><span class='glyphicon "+tag_icon+"'></span>"+tag_type+"</span>";
-            html += "<span class='tagauthor'></span>";
-            html += "<span class='tagdate'></span>";
-            html += "</div>";
-            html += "<div class='tagdesc'></div>";
-            html += '</div>';
-            $('#panel-github .panel-body').append(html);
-            $.get(tag.commit.url, function(commit) {
-                var $tagline = $('#panel-github .panel-body .'+commit.sha);
-                var tagdate = new Date(commit.commit.author.date);
-                $tagline.find('.tagdate').html("on " + tagdate.toLocaleDateString("en-US", {weekday:'long', year:'numeric', month:'long', day:'numeric'}));
-                $tagline.find('.tagauthor').html("by " + ucFirst(commit.commit.author.name));
-                $tagline.find('.tagdesc').html(commit.commit.message.replace(/(?:\r\n|\r|\n)+/g, '<br>'));
-                $tagline.removeClass('hidden');
-            }, 'json');
-        })
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        $('#panel-github .panel-body').html("Error");
-    });
+//     $.get("https://api.github.com/repos/lyrgard/ffbeEquip/tags", function(tags) {
+//         var length = Math.min(5, tags.length);
+//         let improvements = 0;
+//         let features = 0;
+//         let dataUpdate = 0;
+//         Object.values(tags)
+//             .filter(tag => tag.name.length > 10 && tag.name.substr(tag.name.length - 10, 10).match(/\d\d\d\d_\d\d_\d\d/g))
+//             .sort((tag1, tag2) => tag2.name.substr(tag2.name.length - 10, 10).localeCompare(tag1.name.substr(tag1.name.length - 10, 10)))
+//             .forEach(tag => {
+//             var tag_class = '';
+//             var tag_icon = 'glyphicon-tag';
+//             var tag_type = 'Update';
+//             if (tag.name.startsWith("IMPROVEMENT_")) {
+//                 tag_icon = "glyphicon-wrench";
+//                 tag_type = 'Improvement';
+//                 tag_class = 'improvement';
+//                 improvements++;
+//                 if (improvements > 4) return;
+//             } else if (tag.name.startsWith("FEATURE_")) {
+//                 tag_icon = "glyphicon-flash";
+//                 tag_type = 'New feature';
+//                 tag_class = 'feature';
+//                 features++;
+//                 if (features > 4) return;
+//             } else if (tag.name.startsWith("UPDATE_DATA")) {
+//                 tag_icon = "glyphicon-book";
+//                 tag_type = 'Data update';
+//                 tag_class = 'dataUpdate';
+//                 dataUpdate++;
+//                 if (dataUpdate > 4) return;
+//             }
+//             var html = '<div class="hidden tagline '+tag_class+' '+tag.commit.sha+'">';
+//             html += "<div>";
+//             html += "<span class='tagtype'><span class='glyphicon "+tag_icon+"'></span>"+tag_type+"</span>";
+//             html += "<span class='tagauthor'></span>";
+//             html += "<span class='tagdate'></span>";
+//             html += "</div>";
+//             html += "<div class='tagdesc'></div>";
+//             html += '</div>';
+//             $('#panel-github .panel-body').append(html);
+//             $.get(tag.commit.url, function(commit) {
+//                 var $tagline = $('#panel-github .panel-body .'+commit.sha);
+//                 var tagdate = new Date(commit.commit.author.date);
+//                 $tagline.find('.tagdate').html("on " + tagdate.toLocaleDateString("en-US", {weekday:'long', year:'numeric', month:'long', day:'numeric'}));
+//                 $tagline.find('.tagauthor').html("by " + ucFirst(commit.commit.author.name));
+//                 $tagline.find('.tagdesc').html(commit.commit.message.replace(/(?:\r\n|\r|\n)+/g, '<br>'));
+//                 $tagline.removeClass('hidden');
+//             }, 'json');
+//         })
+//     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+//         $('#panel-github .panel-body').html("Error");
+//     });
     
-    $.get("https://discordapp.com/api/guilds/389844892853075969/widget.json", function(widget) {
-        var adminsNb = 0, userNb = 0, knowledgeableNb = 0, devNb = 0, idleNb = 0;
-        for (var id = 0; id < widget.members.length; id++) {
-            var member = widget.members[id];
-            if (member.status === 'online') {
-                var memberName = member.username+'#'+member.discriminator;
-                if (DISCORD_USER_ADMIN.includes(memberName)) {
-                    adminsNb++;
-                } else if (DISCORD_USER_KNOWLEDGEABLE.includes(memberName)) {
-                    knowledgeableNb++;
-                } else if (DISCORD_USER_DEVS.includes(memberName)) {
-                    devNb++;
-                } else {
-                    userNb++;
-                }
-            } else {
-                idleNb++;
-            }
-        }
-        var html = '';
-        if (adminsNb > 0) {
-            html += "<span class='discord-admin'>";
-            html += "<span class='glyphicon glyphicon-king'></span>";
-            html += adminsNb + " admin" + (adminsNb>1?'s':'');
-            html += "</span>";
-        }
-        if (knowledgeableNb > 0) {
-            html += "<span class='discord-knowledgeable'>";
-            html += "<span class='glyphicon glyphicon-education'></span>";
-            html += knowledgeableNb + " knowledgable user" + (knowledgeableNb>1?'s':'');
-            html += "</span>";
-        }
-        if (devNb > 0) {
-            html += "<span class='discord-developer'>";
-            html += "<span class='glyphicon glyphicon-cog'></span>";
-            html += devNb + " developer" + (devNb>1?'s':'');
-            html += "</span>";
-        }
-        html += "<span class='discord-connected'>";
-        html += "<span class='glyphicon glyphicon-user'></span>";
-        html += userNb + " user" + (userNb>1?'s':'');
-        html += "</span>";
-        html += "<span class='discord-idle'>(and " + idleNb + " idle)</span>";
-        $('#panel-discord .panel-body').html(html);
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        $('#panel-discord .panel-body').html("Error while loading list...");
-    });
+//     $.get("https://discordapp.com/api/guilds/389844892853075969/widget.json", function(widget) {
+//         var adminsNb = 0, userNb = 0, knowledgeableNb = 0, devNb = 0, idleNb = 0;
+//         for (var id = 0; id < widget.members.length; id++) {
+//             var member = widget.members[id];
+//             if (member.status === 'online') {
+//                 var memberName = member.username+'#'+member.discriminator;
+//                 if (DISCORD_USER_ADMIN.includes(memberName)) {
+//                     adminsNb++;
+//                 } else if (DISCORD_USER_KNOWLEDGEABLE.includes(memberName)) {
+//                     knowledgeableNb++;
+//                 } else if (DISCORD_USER_DEVS.includes(memberName)) {
+//                     devNb++;
+//                 } else {
+//                     userNb++;
+//                 }
+//             } else {
+//                 idleNb++;
+//             }
+//         }
+//         var html = '';
+//         if (adminsNb > 0) {
+//             html += "<span class='discord-admin'>";
+//             html += "<span class='glyphicon glyphicon-king'></span>";
+//             html += adminsNb + " admin" + (adminsNb>1?'s':'');
+//             html += "</span>";
+//         }
+//         if (knowledgeableNb > 0) {
+//             html += "<span class='discord-knowledgeable'>";
+//             html += "<span class='glyphicon glyphicon-education'></span>";
+//             html += knowledgeableNb + " knowledgable user" + (knowledgeableNb>1?'s':'');
+//             html += "</span>";
+//         }
+//         if (devNb > 0) {
+//             html += "<span class='discord-developer'>";
+//             html += "<span class='glyphicon glyphicon-cog'></span>";
+//             html += devNb + " developer" + (devNb>1?'s':'');
+//             html += "</span>";
+//         }
+//         html += "<span class='discord-connected'>";
+//         html += "<span class='glyphicon glyphicon-user'></span>";
+//         html += userNb + " user" + (userNb>1?'s':'');
+//         html += "</span>";
+//         html += "<span class='discord-idle'>(and " + idleNb + " idle)</span>";
+//         $('#panel-discord .panel-body').html(html);
+//     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+//         $('#panel-discord .panel-body').html("Error while loading list...");
+//     });
 }
   
 function inventoryLoaded() {
@@ -254,4 +254,3 @@ function notLoaded() {
 if (window.location.hash != '') {
     window.location.href = '/encyclopedia.html' + window.location.hash;
 }
-
