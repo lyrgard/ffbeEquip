@@ -96,10 +96,10 @@ function setTheme(theme) {
 }
 
 function loadTheme() {
-    let theme = 'light';
+    let theme = 'dark';
     if (localStorageAvailable) {
-        if (localStorage.getItem("theme") === 'dark') {
-            theme = 'dark';
+        if (localStorage.getItem("theme") === 'light') {
+            theme = 'light';
         };
     }
     setTheme(theme);

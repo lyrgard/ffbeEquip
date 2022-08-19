@@ -370,7 +370,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
 
     for (let skillIndex in unitIn.skills) {
         if (unitIn.skills[skillIndex].rarity.startsWith && unitIn.skills[skillIndex].rarity.startsWith('NV+')) {
-            unitIn.skills[skillIndex].exLevel = parseInt(unitIn.skills[skillIndex].rarity.substring(3,1));
+            unitIn.skills[skillIndex].exLevel = parseInt(unitIn.skills[skillIndex].rarity.substring(3,unitIn.skills[skillIndex].rarity.length));
             unitIn.skills[skillIndex].rarity = 'NV';
         }
     }
