@@ -57,14 +57,14 @@ Object.keys(changes).forEach((changeItem) => {
             newItem = false;
             console.log(changes[changeItem].id + " already exists as: " + currentData[currentDataItem].name)
 
-                changes[current[currentDataItem]] = currentData[currentDataItem]
+                changes[currentData[currentDataItem]] = currentData[currentDataItem]
                 //newRelease["sources"][0]["ids"].push([changes[changeItem].id.toString()])
             }
         }
     )
 
     if (newItem === true) {
-        changes[current[currentDataItem]] = currentData[currentDataItem]
+        changes[currentData[currentDataItem]] = currentData[currentDataItem]
     }
 });
 
@@ -82,7 +82,7 @@ console.log(changes)
 
 console.log("Writing to data.json...")
 fs.writeFileSync('../../static/GL/changes.json', JSON.stringify(changes))
-fs.writeFileSync('../../static/GL/data.json', JSON.stringify(currentData))
+//fs.writeFileSync('../../static/GL/data.json', JSON.stringify(currentData))
 //fs.writeFileSync('../../static/GL/lastItemReleases.json', JSON.stringify(newItemRelease))
 console.log("Completed writing changes...")
 console.log("Please verify changes are correct in data.json")

@@ -1,0 +1,227 @@
+{
+    "403056500": {
+        "id": "403056500",
+        "name": "Runda Head (Assault)",
+        "access": ["released"],
+        "type": "hat",
+        "hp": 1500,
+        "def": 40,
+        "spr": 40,
+        "exclusiveUnits": ["100037407", "100037417"],
+        "icon": "item_2210046.png",
+        "sortId": 2739,
+        "rarity": 9,
+        "skills": [{
+            "id": "243594",
+            "name": "Acquiring Target, Taivas!",
+            "icon": "ability_105.png",
+            "effects": [{
+                "effect": {
+                    "cooldownSkill": {
+                        "id": "515992",
+                        "name": "Acquiring Target, Taivas!",
+                        "icon": "ability_105.png",
+                        "effects": [{
+                            "effect": null,
+                            "desc": "Increase LB modifier of Eldur Dans (100035907) by 100x to one ally for one turn"
+                        }],
+                        "type": "ability"
+                    },
+                    "cooldownTurns": 6,
+                    "startTurn": 1,
+                    "area": "ST",
+                    "target": "ALLY"
+                },
+                "desc": "Unlock Acquiring Target, Taivas! (515992) on turn 1 [6 turns CD]"
+            }],
+            "type": "ability"
+        }]
+    },
+    "403056600": {
+        "id": "403056600",
+        "name": "Runda Head (Burst)",
+        "access": ["released"],
+        "type": "hat",
+        "hp": 1500,
+        "def": 40,
+        "spr": 40,
+        "exclusiveUnits": ["100037407", "100037417"],
+        "icon": "item_2210046.png",
+        "sortId": 2740,
+        "rarity": 9,
+        "skills": [{
+            "id": "243595",
+            "name": "Commencing Target Analysis...",
+            "icon": "ability_105.png",
+            "effects": [{
+                "effect": {
+                    "cooldownSkill": {
+                        "id": "515993",
+                        "name": "Commencing Target Analysis...",
+                        "icon": "ability_105.png",
+                        "effects": [{
+                            "effect": null,
+                            "desc": "Increase LB modifier of Eldur Brudd (100035917) by 70x to one ally for one turn"
+                        }],
+                        "type": "ability"
+                    },
+                    "cooldownTurns": 6,
+                    "startTurn": 1,
+                    "area": "ST",
+                    "target": "ALLY"
+                },
+                "desc": "Unlock Commencing Target Analysis... (515993) on turn 1 [6 turns CD]"
+            }],
+            "type": "ability"
+        }, {
+            "id": "243604",
+            "name": "Formulating Battle Plan...",
+            "icon": "ability_105.png",
+            "effects": [{
+                "effect": {
+                    "cooldownSkill": {
+                        "id": "515995",
+                        "name": "Formulating Battle Plan...",
+                        "icon": "ability_105.png",
+                        "effects": [{
+                            "effect": null,
+                            "desc": "Increase LB modifier of Eldur Brudd (100035917) by 70x to one ally for one turn"
+                        }],
+                        "type": "ability"
+                    },
+                    "cooldownTurns": 6,
+                    "startTurn": 1,
+                    "area": "ST",
+                    "target": "ALLY"
+                },
+                "desc": "Unlock Formulating Battle Plan... (515995) on turn 1 [6 turns CD]"
+            }],
+            "type": "ability"
+        }, {
+            "id": "243605",
+            "name": "Strategization Complete. Ready, Taivas!",
+            "icon": "ability_105.png",
+            "effects": [{
+                "effect": {
+                    "cooldownSkill": {
+                        "id": "515996",
+                        "name": "Strategization Complete. Ready, Taivas!",
+                        "icon": "ability_105.png",
+                        "effects": [{
+                            "effect": null,
+                            "desc": "Increase LB modifier of Eldur Brudd (100035917) by 90x to one ally for one turn"
+                        }],
+                        "type": "ability"
+                    },
+                    "cooldownTurns": 6,
+                    "startTurn": 1,
+                    "area": "ST",
+                    "target": "ALLY"
+                },
+                "desc": "Unlock Strategization Complete. Ready, Taivas! (515996) on turn 1 [6 turns CD]"
+            }],
+            "type": "ability"
+        }]
+    },
+    "403056800": {
+        "id": "403056800",
+        "name": "Jet-Black Silk Ribbons",
+        "access": ["released"],
+        "type": "hat",
+        "mp": 100,
+        "mp%": 200,
+        "mag": 60,
+        "spr": 60,
+        "special": ["[Reduce MP Cost: 50%|ability_77.png]:Reduce MP consumption by 50%"],
+        "exclusiveUnits": ["100037507", "100037517"],
+        "icon": "item_2210052.png",
+        "sortId": 2778,
+        "rarity": 8,
+        "skills": [{
+            "id": "151100",
+            "name": "Elemental Power - Fire",
+            "icon": "ability_105.png",
+            "effects": [{
+                "effect": {
+                    "cooldownSkill": {
+                        "id": "516010",
+                        "name": "Elemental Power - Fire",
+                        "icon": "ability_105.png",
+                        "effects": [{
+                            "effect": {
+                                "imbue": ["fire"],
+                                "turns": 5,
+                                "area": "ST",
+                                "target": "ALLY"
+                            },
+                            "desc": "Add Fire element (100%) to physical attacks for 5 turns to one ally"
+                        }, {
+                            "effect": null,
+                            "desc": "Increase Fire physical damage by 60% to one ally for 3 turns"
+                        }, {
+                            "effect": null,
+                            "desc": "Increase Fire magic damage by 60% to one ally for 3 turns"
+                        }, {
+                            "effect": {
+                                "noUse": true,
+                                "area": "ST",
+                                "target": "ALLY"
+                            },
+                            "desc": "Use Elemental Power - Fire (516011) next turn on one ally"
+                        }, {
+                            "effect": {
+                                "noUse": true,
+                                "area": "ST",
+                                "target": "ALLY"
+                            },
+                            "desc": "Use Elemental Power - Fire (516012) after a 2 turn delay on one ally"
+                        }],
+                        "type": "ability",
+                        "mpCost": 1000
+                    },
+                    "cooldownTurns": 10,
+                    "startTurn": 1,
+                    "area": "ST",
+                    "target": "ALLY"
+                },
+                "desc": "Unlock Elemental Power - Fire (516010) on turn 1 [10 turns CD]"
+            }],
+            "type": "ability",
+            "mpCost": 1000
+        }]
+    },
+    "409066800": {
+        "id": "409066800",
+        "name": "Haveh's Boots",
+        "access": ["released"],
+        "type": "accessory",
+        "atk": 35,
+        "mag": 35,
+        "staticStats": {
+            "atk": 500,
+            "mag": 500
+        },
+        "special": ["[Support of the Forest Spirits|ability_105.png]:Unlock Support of the Forest Spirits (515994) on turn 1 [4 turns CD], Unlock Support of the Forest Spirits (515994) on turn 1 [4 turns CD]"],
+        "exclusiveUnits": ["100037607", "100037617"],
+        "icon": "item_2250197.png",
+        "sortId": 2741,
+        "rarity": 8
+    },
+    "[object Object]": {
+        "id": "409066800",
+        "name": "ハーヴェのブーツ",
+        "access": ["not released yet"],
+        "type": "accessory",
+        "atk": 35,
+        "mag": 35,
+        "staticStats": {
+            "atk": 500,
+            "mag": 500
+        },
+        "special": ["[森の精の援護|ability_105.png]:Unlock 森の精の援護 (515994) on turn 1 [4 turns CD], Unlock 森の精の援護 (515994) on turn 1 [4 turns CD]"],
+        "exclusiveUnits": ["100037607", "100037617"],
+        "icon": "item_2250197.png",
+        "sortId": 2741,
+        "rarity": 8
+    }
+}
