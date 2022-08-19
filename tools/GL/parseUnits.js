@@ -183,6 +183,7 @@ function manageNV(units) {
         if (unitIn.rarity_max == 7) {
             const baseUnitId = unitId.substring(0, unitId.length -1);
             let nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
+            
             nvIds.forEach(nvId => {
                 unitIn.rarity_max = 'NV';
                 unitIn.entries[nvId].rarity = 'NV';
@@ -197,7 +198,7 @@ function manageNV(units) {
                 unitIn.nv_upgrade = Object.values(unitIn.entries)[0].nv_upgrade;
                 if (unitId.endsWith('17') || unitId.endsWith('27') || unitId.endsWith('37')) {
                     const baseUnitCommonPart = unitId.substring(0, unitId.length - 2);
-                    let potentialBaseUnits = Object.keys(units).filter(k => k.startsWith(baseUnitCommonPart) && k < unitId && (k.endsWith('5') || k.endsWith('7'))).sort();
+                    let potentialBaseUnits = Object.keys(units).filter(k => k.startsWith(baseUnitCommonPart) && k < unitId && (k.endsWith('4') || k.endsWith('5') || k.endsWith('7'))).sort();
                     if (potentialBaseUnits.length) {
                         baseUnitIdByNVUnitId[unitId] = potentialBaseUnits[0];
                         braveShiftUnitIdByBaseUnitId.push({baseUnitId: potentialBaseUnits[0], braveShiftedUnitId: unitId});
@@ -321,10 +322,6 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
                 break;
             }
         }
-    }
-    
-    if (!unitData) {
-        console.log(unitIn);
     }
     
     for (var statIndex in commonParse.stats) {

@@ -38,18 +38,51 @@ Object.keys(changes).forEach((item) => {
     }
 })
 
+// let lastItemRelease = JSON.parse(fs.readFileSync('../../static/GL/lastItemReleases.json', {encoding: 'utf8'}));
+// let newItemRelease = {}
+
+// let newRelease = {
+//     "date":"August the 18th, 2022",
+//     "sources": [
+//         {"type":"event", "ids": []},
+//     ]
+// }
+
+
 // Gear can have an ID match, but the attributes be different, to allow for excluives, etc.
 Object.keys(changes).forEach((changeItem) => {
+    let newItem = true;
     Object.keys(currentData).forEach((currentDataItem) => {
         if(changes[changeItem].id === currentData[currentDataItem].id) {
-            console.log(_.isEqual(changes[changeItem], currentData[currentDataItem]));
+            newItem = false;
+            console.log(changes[changeItem].id + " already exists as: " + currentData[currentDataItem].name)
+
+                changes[current[currentDataItem]] = currentData[currentDataItem]
+                //newRelease["sources"][0]["ids"].push([changes[changeItem].id.toString()])
+            }
         }
-    })
-})
+    )
+
+    if (newItem === true) {
+        changes[current[currentDataItem]] = currentData[currentDataItem]
+    }
+});
+
+
+// newItemRelease = newRelease;
+
+// Object.keys(lastItemRelease).forEach((index, release) => {
+//     newItemRelease[lastItemRelease[index]] = lastItemRelease[release]
+
+// });
+
+// console.log(newItemRelease)
 
 console.log(changes)
 
 console.log("Writing to data.json...")
 fs.writeFileSync('../../static/GL/changes.json', JSON.stringify(changes))
+fs.writeFileSync('../../static/GL/data.json', JSON.stringify(currentData))
+//fs.writeFileSync('../../static/GL/lastItemReleases.json', JSON.stringify(newItemRelease))
 console.log("Completed writing changes...")
 console.log("Please verify changes are correct in data.json")
