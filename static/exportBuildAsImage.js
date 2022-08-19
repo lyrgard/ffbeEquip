@@ -41,7 +41,12 @@ FFBEEquipBuildAsImage = {
         });
 
         let unitId = unit.id;
-        let iconId = unitId.substr(0,unitId.length-1) + (unit.rarity == 'NV' ? '7' : unit.rarity);
+        let iconId  = unitId.substr(0,unitId.length-1) + (unit.rarity == 'NV' ? '7' : unit.rarity);
+        
+        if (unitId.endsWith("04") && unit.rarity === 'NV') {
+            iconId =  unitId.substr(0,unitId.length-2) + "27"
+        }
+
         FFBEEquipBuildAsImage.drawImageCentered(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/units/unit_ills_${iconId}.png`, 52, 52 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 1, () => {
     
             let x = 105;

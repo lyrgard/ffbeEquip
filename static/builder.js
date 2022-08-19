@@ -1289,7 +1289,10 @@ function onUnitChange() {
             var selectedUnitData;
             let iconId;
             let unitWithSkillsId = unitId;
-            if (unitId.endsWith("-6")) {
+            if (unitId.endsWith("04") && $("#unitExAwakeningLevel").not(":hidden")){
+                selectedUnitData = units[unitId];
+                iconId = unitId.substr(0, unitId.length -2) + "27"
+            } else if (unitId.endsWith("-6")) {
                 unitWithSkillsId = unitId.substr(0, unitId.length - 2);
                 selectedUnitData = units[unitId.substr(0, unitId.length - 2)]["6_form"];
                 iconId = unitId.substr(0, unitId.length - 3) + '6';
@@ -1308,7 +1311,7 @@ function onUnitChange() {
                 } else {
                     $(".panel.unit").removeClass("braveShift");;
                 }
-                $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_icon_" + iconId + ".png\"/>" + selectedUnitData.name);
+                $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_icon_" + iconId + ".png\"/>" + "&nbsp;&nbsp;" + selectedUnitData.name);
                 var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.sixStarForm == selectedUnitData.sixStarForm);
                 var oldValues = builds[currentUnitIndex].baseValues;
                 var oldLevel = builds[currentUnitIndex].level;
@@ -1714,7 +1717,13 @@ function updateUnitStats() {
         $("#unitLink").addClass("hidden");
     }
     if (builds[currentUnitIndex].unit) {
-        $(".panel.unit .unitIcon").prop("src", "img/units/unit_icon_" + builds[currentUnitIndex].unit.id + ".png");
+        let iconId = builds[currentUnitIndex].unit.id.toString();
+        
+        if (iconId.endsWith("04") && $("#unitExAwakeningLevel").not(":hidden")){
+            iconId = iconId.substring(0, iconId.length - 2) + "27";
+        }
+
+        $(".panel.unit .unitIcon").prop("src", "img/units/unit_icon_" + iconId + ".png");
         $(".panel.unit").removeClass("hidden");
     } else {
         $(".panel.unit").addClass("hidden");
@@ -1866,8 +1875,16 @@ function braveShift(index) {
         recalculateApplicableSkills();
 
         let unit = builds[index].unit;
-        let iconId = unit.id.substr(0,unit.id.length-1) + '7';
-        $("#unitTabs .tab_" + index + " a").html("<img src=\"img/units/unit_icon_" + iconId + ".png\"/>" + unit.name);
+        let iconId = unit.id;
+        
+        // Icons aren't as straightforward with NVA units from base 4.
+        if (unit.braveShift){
+            if (unit.id.endsWith("04")){
+                iconId = unit.braveShift
+            }
+        }
+
+        $("#unitTabs .tab_" + index + " a").html("<img src=\"img/units/unit_icon_" + iconId + ".png\"/>" + "&nbsp;&nbsp;" + unit.name);
 
         selectUnitTab(index);
     }
