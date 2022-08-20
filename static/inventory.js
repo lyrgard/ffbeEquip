@@ -198,9 +198,11 @@ function displayItemsByHistoryAsync(dateIndex, dateIndexMax, id, $resultDiv, $lo
             html += '<div class="col-xs-12 source">' + currentItemReleases.sources[sourceIndex].name + "</div>";
         }
         // Display items list
-        for (var index = 0; index < items.length; index++) {
-            if (items[index] === undefined) continue;
-            html += getItemDisplay(items[index]);
+        if (items !== undefined){
+            for (var index = 0; index < items.length; index++) {
+                if (items[index] === undefined) continue;
+                html += getItemDisplay(items[index]);
+            }
         }
     }
 
