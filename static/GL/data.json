@@ -64114,6 +64114,35 @@
         "icon": "item_2250201.png",
         "sortId": 2746,
         "rarity": 7
+    }, {
+        "id": "504229431",
+        "name": "Red-Cloaked Warrior",
+        "access": ["STMR"],
+        "type": "materia",
+        "resist": [{
+            "name": "fire",
+            "percent": 30
+        }],
+        "special": ["notStackable"],
+        "stmrUnit": "401001504",
+        "icon": "ability_95.png",
+        "sortId": 894
+    },
+    {
+        "id": "504229431",
+        "name": "Red-Cloaked Warrior",
+        "access": ["STMR"],
+        "type": "materia",
+        "mag%": 80,
+        "resist": [{
+            "name": "fire",
+            "percent": 30
+        }],
+        "special": ["notStackable"],
+        "equipedConditions": ["robe"],
+        "stmrUnit": "401001504",
+        "icon": "ability_95.png",
+        "sortId": 894
     },
     {
         "id": "409067000",
