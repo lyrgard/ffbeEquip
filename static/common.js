@@ -1727,7 +1727,7 @@ function prepareSearch(data) {
         }
         if (item.skills) {
             item.skills.forEach(skill => {
-                textToSearch += "|" + skill.name + ': ' + skill.effects.map(effect => effect.desc).join(', ');
+                textToSearch += "|skill " + skill.name + ': ' + skill.effects.map(effect => effect.desc).join(', ');
             });
         }
         if (item.autoCastedSkills) {
