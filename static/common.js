@@ -1654,7 +1654,7 @@ function prepareSearch(data) {
                 }
             }
             if (item.singleWieldingOneHanded.accuracy) {
-                textToSearch += "|" + "Increase Accuracy (" + item.singleWieldingOneHanded.accuracy + "%) when single wielding a one-handed wreapon";
+                textToSearch += "|" + "Increase Accuracy (" + item.singleWieldingOneHanded.accuracy + "%) when single wielding a one-handed weapon";
             }
         }
         if (item.dualWielding) {
