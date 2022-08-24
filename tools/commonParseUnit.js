@@ -1250,13 +1250,17 @@ export function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
 }
 
 export function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) {
+ 
+    let rawEffectArray = skillIn["effects_raw"][0]
+        
+    
     var skill = {"id": skillId , "name" : skillIn.name, "icon": skillIn.icon, "effects": []};
-    if (skillIn["effects_raw"][0][2] === 157) {
-        skill.maxCastPerBattle = skillIn["effects_raw"][0][3][2];
-        if (!skillIn["effects_raw"][0][3][7]) {
+    if (rawEffectArray[2] === 157) {
+        skill.maxCastPerBattle = rawEffectArray[3][2];
+        if (!rawEffectArray[3][7]) {
             skill.noMulticast = true;
         }
-        skillId = skillIn["effects_raw"][0][3][0];
+        skillId = rawEffectArray[3][0];
         if (!skills[skillId]) {
             console.log(skillIn);
         }
@@ -1275,7 +1279,7 @@ export function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLeve
 
         var effect = parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhancementLevel);
         if (effect && effect.id) {
-            if (skillIn["effects_raw"].lenght > 1) {
+            if (skillIn["effects_raw"].length > 1) {
                 console.error("Exited skill before parsing all effects");
                 console.error(skillIn);
             }
@@ -1873,6 +1877,14 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         result.aoeCover.type = (rawEffect[3][rawEffect[3].length - 1] == 1 ? "physical": "magical");
         result.aoeCover.mitigation = {"min": rawEffect[3][2], "max": rawEffect[3][3]};
         result.aoeCover.chance = rawEffect[3][4];
+
+        //Active ST Cover
+    } else if (rawEffect[2] == 118) {
+        result = {"stCover": {}, "turns": rawEffect[3][4]}
+        result.stCover = {};
+        result.stCover.magicalMitigation = {"min": rawEffect[3][0], "max": rawEffect[3][0]}
+        result.stCover.physicalMitigation = {"min": rawEffect[3][1], "max": rawEffect[3][1]};
+        result.stCover.chance = rawEffect[3][2];
 
         // Gain Skill
     } else if (rawEffect[2] == 97) {
@@ -3044,11 +3056,18 @@ export function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
                         effectOut.magicalAoeCover = meanMitigation;
                     }
                 }
-            } else if (effect.effect.stCover) {
-                
+            } else if (effect.effect.stCover?.mitigation?.min !== undefined) {
                 var meanMitigation = (effect.effect.stCover.mitigation.min + effect.effect.stCover.mitigation.max) / 2;
+            
                 if (!effectOut.stCover || effectOut.stCover < meanMitigation) {
-                    effectOut.stCover = meanMitigation;
+                    effectOut.stCover = {"mitigiation": meanMitigation};
+                }
+            } else if (effect.effect.stCover?.physicalMitigation || effect.effect.stCover?.magicalMitigation){
+                if (effect.effect.stCover.physicalMitigation){
+                    effectOut.stCover = {"physicalMitigation": effect.effect.stCover.physicalMitigation.min};
+                }
+                if (effect.effect.stCover?.magicalMitigation) {
+                    effectOut.stCover = {"magicalMitigation" : effect.effect.stCover.magicalMitigation.min};
                 }
             } else if (effect.effect.weaponImperil) {
                 if (!effectOut.weaponImperil) {
