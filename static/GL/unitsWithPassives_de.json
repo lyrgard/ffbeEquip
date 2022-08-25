@@ -14219,6 +14219,7 @@
 		"roles":["physicalTank"],
 		"wikiEntry":"Guy",
 		"id":"202000303",
+		"braveShift":"202000327",
 		"exAwakening": [{"hp":843,"mp":35,"atk":33,"def":38,"mag":14,"spr":29},{"hp":649,"mp":27,"atk":25,"def":29,"mag":11,"spr":22},{"hp":454,"mp":19,"atk":18,"def":20,"mag":7,"spr":15}],
 		"fragmentId": "250009900",
 		"max_rarity":"NV",
@@ -14300,10 +14301,13 @@
 		}
 	},
 	"202000327": {
-		"name":"Ghai",
+		"name":"Ghai BS",
 		"roles":["physicalTank","debuffer"],
 		"wikiEntry":"Guy",
 		"id":"202000327",
+		"braveShifted":"202000303",
+		"exAwakening": [{"hp":843,"mp":35,"atk":33,"def":38,"mag":14,"spr":29},{"hp":649,"mp":27,"atk":25,"def":29,"mag":11,"spr":22},{"hp":454,"mp":19,"atk":18,"def":20,"mag":7,"spr":15}],
+		"fragmentId": "250009900",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -14313,7 +14317,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","axe","hammer","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"equip":["dagger","sword","axe","hammer","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"skills": [
 			{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":80},{"name":"earth","percent":80},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"confuse","percent":100}]},
 			{"hp%":100, "mp%":100, "def%":200, "spr%":100, "oneWeaponMastery":{"def":200}, "chainMastery":100, "levelCondition":120},
@@ -22140,6 +22144,7 @@
 		"roles":["physicalAttacker"],
 		"wikiEntry":"Wakka",
 		"id":"210000303",
+		"braveShift":"210000327",
 		"exAwakening": [{"hp":717,"mp":42,"atk":38,"def":24,"mag":25,"spr":22},{"hp":551,"mp":32,"atk":29,"def":19,"mag":19,"spr":17},{"hp":386,"mp":22,"atk":20,"def":13,"mag":14,"spr":12}],
 		"fragmentId": "250011500",
 		"max_rarity":"NV",
@@ -22218,10 +22223,13 @@
 		}
 	},
 	"210000327": {
-		"name":"Wakka",
+		"name":"Wakka BS",
 		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Wakka",
 		"id":"210000327",
+		"braveShifted":"210000303",
+		"exAwakening": [{"hp":717,"mp":42,"atk":38,"def":24,"mag":25,"spr":22},{"hp":551,"mp":32,"atk":29,"def":19,"mag":19,"spr":17},{"hp":386,"mp":22,"atk":20,"def":13,"mag":14,"spr":12}],
+		"fragmentId": "250011500",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"male",
@@ -22231,7 +22239,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor"],
+		"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor","visionCard"],
 		"skills": [
 			{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"water","percent":60},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
 			{"hp%":100, "levelCondition":120},
@@ -29752,6 +29760,7 @@
 		"roles":["magicalAttacker","healer"],
 		"wikiEntry":"Slime",
 		"id":"306000603",
+		"braveShift":"306000627",
 		"exAwakening": [{"hp":600,"mp":29,"atk":26,"def":26,"mag":26,"spr":26},{"hp":462,"mp":23,"atk":20,"def":20,"mag":20,"spr":20},{"hp":323,"mp":16,"atk":14,"def":14,"mag":14,"spr":14}],
 		"fragmentId": "250003000",
 		"max_rarity":"NV",
@@ -29817,10 +29826,13 @@
 		}
 	},
 	"306000627": {
-		"name":"Schleim",
+		"name":"Schleim BS",
 		"roles":["magicalAttacker","healer"],
 		"wikiEntry":"Slime",
 		"id":"306000627",
+		"braveShifted":"306000603",
+		"exAwakening": [{"hp":600,"mp":29,"atk":26,"def":26,"mag":26,"spr":26},{"hp":462,"mp":23,"atk":20,"def":20,"mag":20,"spr":20},{"hp":323,"mp":16,"atk":14,"def":14,"mag":14,"spr":14}],
+		"fragmentId": "250003000",
 		"max_rarity":"NV",
 		"min_rarity":"NV",
 		"sex":"other",
@@ -29830,7 +29842,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes"],
+		"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes","visionCard"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
 			{"killers":[{"name":"aquatic","physical":200,"magical":200}], "levelCondition":120},
