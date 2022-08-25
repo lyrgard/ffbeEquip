@@ -1,227 +1,405 @@
 {
-    "403056500": {
-        "id": "403056500",
-        "name": "Runda Head (Assault)",
+    "302019800": {
+        "id": "302019800",
+        "name": "Avenger (FFX)",
         "access": ["released"],
-        "type": "hat",
-        "hp": 1500,
-        "def": 40,
-        "spr": 40,
-        "exclusiveUnits": ["100037407", "100037417"],
-        "icon": "item_2210046.png",
-        "sortId": 2739,
-        "rarity": 9,
-        "skills": [{
-            "id": "243594",
-            "name": "Acquiring Target, Taivas!",
-            "icon": "ability_105.png",
-            "effects": [{
-                "effect": {
-                    "cooldownSkill": {
-                        "id": "515992",
-                        "name": "Acquiring Target, Taivas!",
-                        "icon": "ability_105.png",
-                        "effects": [{
-                            "effect": null,
-                            "desc": "Increase LB modifier of Eldur Dans (100035907) by 100x to one ally for one turn"
-                        }],
-                        "type": "ability"
-                    },
-                    "cooldownTurns": 6,
-                    "startTurn": 1,
-                    "area": "ST",
-                    "target": "ALLY"
-                },
-                "desc": "Unlock Acquiring Target, Taivas! (515992) on turn 1 [6 turns CD]"
-            }],
-            "type": "ability"
-        }]
+        "type": "sword",
+        "atk": 170,
+        "accuracy": 50,
+        "damageVariance": {
+            "min": 1.25,
+            "max": 1.75
+        },
+        "killers": [{
+            "name": "aquatic",
+            "physical": 50,
+            "magical": 50
+        }],
+        "special": ["twoHanded"],
+        "icon": "item_2020062.png",
+        "sortId": 2786,
+        "rarity": 7
     },
-    "403056600": {
-        "id": "403056600",
-        "name": "Runda Head (Burst)",
+    "302019900": {
+        "id": "302019900",
+        "name": "Caladbolg (FFX)",
         "access": ["released"],
-        "type": "hat",
-        "hp": 1500,
-        "def": 40,
-        "spr": 40,
-        "exclusiveUnits": ["100037407", "100037417"],
-        "icon": "item_2210046.png",
-        "sortId": 2740,
-        "rarity": 9,
-        "skills": [{
-            "id": "243595",
-            "name": "Commencing Target Analysis...",
-            "icon": "ability_105.png",
-            "effects": [{
-                "effect": {
-                    "cooldownSkill": {
-                        "id": "515993",
-                        "name": "Commencing Target Analysis...",
-                        "icon": "ability_105.png",
-                        "effects": [{
-                            "effect": null,
-                            "desc": "Increase LB modifier of Eldur Brudd (100035917) by 70x to one ally for one turn"
-                        }],
-                        "type": "ability"
-                    },
-                    "cooldownTurns": 6,
-                    "startTurn": 1,
-                    "area": "ST",
-                    "target": "ALLY"
-                },
-                "desc": "Unlock Commencing Target Analysis... (515993) on turn 1 [6 turns CD]"
-            }],
-            "type": "ability"
-        }, {
-            "id": "243604",
-            "name": "Formulating Battle Plan...",
-            "icon": "ability_105.png",
-            "effects": [{
-                "effect": {
-                    "cooldownSkill": {
-                        "id": "515995",
-                        "name": "Formulating Battle Plan...",
-                        "icon": "ability_105.png",
-                        "effects": [{
-                            "effect": null,
-                            "desc": "Increase LB modifier of Eldur Brudd (100035917) by 70x to one ally for one turn"
-                        }],
-                        "type": "ability"
-                    },
-                    "cooldownTurns": 6,
-                    "startTurn": 1,
-                    "area": "ST",
-                    "target": "ALLY"
-                },
-                "desc": "Unlock Formulating Battle Plan... (515995) on turn 1 [6 turns CD]"
-            }],
-            "type": "ability"
-        }, {
-            "id": "243605",
-            "name": "Strategization Complete. Ready, Taivas!",
-            "icon": "ability_105.png",
-            "effects": [{
-                "effect": {
-                    "cooldownSkill": {
-                        "id": "515996",
-                        "name": "Strategization Complete. Ready, Taivas!",
-                        "icon": "ability_105.png",
-                        "effects": [{
-                            "effect": null,
-                            "desc": "Increase LB modifier of Eldur Brudd (100035917) by 90x to one ally for one turn"
-                        }],
-                        "type": "ability"
-                    },
-                    "cooldownTurns": 6,
-                    "startTurn": 1,
-                    "area": "ST",
-                    "target": "ALLY"
-                },
-                "desc": "Unlock Strategization Complete. Ready, Taivas! (515996) on turn 1 [6 turns CD]"
-            }],
-            "type": "ability"
-        }]
+        "type": "sword",
+        "atk": 220,
+        "staticStats": {
+            "atk": 750
+        },
+        "accuracy": 50,
+        "damageVariance": {
+            "min": 1.25,
+            "max": 1.75
+        },
+        "element": ["water"],
+        "lbDamage": 50,
+        "special": ["twoHanded"],
+        "exclusiveUnits": ["210000105", "210001805", "210001827", "210002407", "210002417"],
+        "icon": "item_10299.png",
+        "sortId": 2788,
+        "rarity": 9
     },
-    "403056800": {
-        "id": "403056800",
-        "name": "Jet-Black Silk Ribbons",
-        "access": ["released"],
-        "type": "hat",
-        "mp": 100,
-        "mp%": 200,
-        "mag": 60,
-        "spr": 60,
-        "special": ["[Reduce MP Cost: 50%|ability_77.png]:Reduce MP consumption by 50%"],
-        "exclusiveUnits": ["100037507", "100037517"],
-        "icon": "item_2210052.png",
-        "sortId": 2778,
+    "303008900": {
+        "id": "303008900",
+        "name": "Obliterating Crimson Saber",
+        "access": ["STMR"],
+        "type": "greatSword",
+        "atk": 184,
+        "accuracy": 50,
+        "damageVariance": {
+            "min": 1.25,
+            "max": 1.75
+        },
+        "special": ["twoHanded", "[Power of the Sun|ability_77.png]:Use Power of the Sun (512630) at the start of a battle or when revived"],
+        "stmrUnit": "100031007",
+        "icon": "item_2030016.png",
+        "sortId": 1813,
+        "rarity": 9
+    },
+    "303011400": {
+        "id": "303011400",
+        "name": "Obliterating Crimson Saber",
+        "access": ["story-recipe"],
+        "type": "greatSword",
+        "atk": 190,
+        "accuracy": 50,
+        "damageVariance": {
+            "min": 1.25,
+            "max": 1.75
+        },
+        "special": ["twoHanded", "[Power of the Sun|ability_77.png]:Use Power of the Sun (512630) at the start of a battle or when revived"],
+        "icon": "item_2030016.png",
+        "sortId": 2261,
+        "rarity": 9
+    },
+    "310003000": {
+        "id": "310003000",
+        "name": "Onion Knight (FFX)",
+        "access": ["TMR-5*"],
+        "wikiEntry": "Onion_Knight_(FFX)",
+        "type": "rod",
+        "mp%": 20,
+        "atk": 21,
+        "mag": 120,
+        "damageVariance": {
+            "min": 1.1,
+            "max": 1.2
+        },
+        "tmrUnit": "210000405",
+        "icon": "item_10623.png",
+        "sortId": 723,
         "rarity": 8,
-        "skills": [{
-            "id": "151100",
-            "name": "Elemental Power - Fire",
-            "icon": "ability_105.png",
+        "autoCastedSkills": [{
+            "id": "30221",
+            "name": "Faith (Auto)",
+            "icon": "ability_77.png",
             "effects": [{
                 "effect": {
-                    "cooldownSkill": {
-                        "id": "516010",
-                        "name": "Elemental Power - Fire",
-                        "icon": "ability_105.png",
-                        "effects": [{
-                            "effect": {
-                                "imbue": ["fire"],
-                                "turns": 5,
-                                "area": "ST",
-                                "target": "ALLY"
-                            },
-                            "desc": "Add Fire element (100%) to physical attacks for 5 turns to one ally"
-                        }, {
-                            "effect": null,
-                            "desc": "Increase Fire physical damage by 60% to one ally for 3 turns"
-                        }, {
-                            "effect": null,
-                            "desc": "Increase Fire magic damage by 60% to one ally for 3 turns"
-                        }, {
-                            "effect": {
-                                "noUse": true,
-                                "area": "ST",
-                                "target": "ALLY"
-                            },
-                            "desc": "Use Elemental Power - Fire (516011) next turn on one ally"
-                        }, {
-                            "effect": {
-                                "noUse": true,
-                                "area": "ST",
-                                "target": "ALLY"
-                            },
-                            "desc": "Use Elemental Power - Fire (516012) after a 2 turn delay on one ally"
-                        }],
-                        "type": "ability",
-                        "mpCost": 1000
+                    "statsBuff": {
+                        "mag": 200
                     },
-                    "cooldownTurns": 10,
-                    "startTurn": 1,
                     "area": "ST",
                     "target": "ALLY"
                 },
-                "desc": "Unlock Elemental Power - Fire (516010) on turn 1 [10 turns CD]"
+                "desc": "Increase MAG by 200% for this fight to one ally"
             }],
-            "type": "ability",
-            "mpCost": 1000
+            "magic": "green",
+            "type": "ability"
         }]
     },
-    "409066800": {
-        "id": "409066800",
-        "name": "Haveh's Boots",
+    "310012300": {
+        "id": "310012300",
+        "name": "Onion Knight (FFX)",
+        "access": ["released"],
+        "type": "rod",
+        "mp%": 20,
+        "atk": 21,
+        "mag": 145,
+        "damageVariance": {
+            "min": 1.1,
+            "max": 1.2
+        },
+        "icon": "item_10623.png",
+        "sortId": 2789,
+        "rarity": 8,
+        "autoCastedSkills": [{
+            "id": "30221",
+            "name": "Faith (Auto)",
+            "icon": "ability_77.png",
+            "effects": [{
+                "effect": {
+                    "statsBuff": {
+                        "mag": 200
+                    },
+                    "area": "ST",
+                    "target": "ALLY"
+                },
+                "desc": "Increase MAG by 200% for this fight to one ally"
+            }],
+            "magic": "green",
+            "type": "ability"
+        }]
+    },
+    "310012400": {
+        "id": "310012400",
+        "name": "Onion Knight (FFX)",
+        "access": ["released"],
+        "type": "rod",
+        "mp%": 20,
+        "atk": 21,
+        "mag": 170,
+        "damageVariance": {
+            "min": 1.1,
+            "max": 1.2
+        },
+        "icon": "item_10623.png",
+        "sortId": 2790,
+        "rarity": 8,
+        "autoCastedSkills": [{
+            "id": "30221",
+            "name": "Faith (Auto)",
+            "icon": "ability_77.png",
+            "effects": [{
+                "effect": {
+                    "statsBuff": {
+                        "mag": 200
+                    },
+                    "area": "ST",
+                    "target": "ALLY"
+                },
+                "desc": "Increase MAG by 200% for this fight to one ally"
+            }],
+            "magic": "green",
+            "type": "ability"
+        }]
+    },
+    "310012500": {
+        "id": "310012500",
+        "name": "Onion Knight (FFX)",
+        "access": ["released"],
+        "type": "rod",
+        "mp%": 20,
+        "atk": 21,
+        "mag": 195,
+        "staticStats": {
+            "mag": 500
+        },
+        "damageVariance": {
+            "min": 1.1,
+            "max": 1.2
+        },
+        "lbDamage": 25,
+        "exclusiveUnits": ["210000405", "210002507", "210002517"],
+        "icon": "item_10623.png",
+        "sortId": 2791,
+        "rarity": 8,
+        "autoCastedSkills": [{
+            "id": "30221",
+            "name": "Faith (Auto)",
+            "icon": "ability_77.png",
+            "effects": [{
+                "effect": {
+                    "statsBuff": {
+                        "mag": 200
+                    },
+                    "area": "ST",
+                    "target": "ALLY"
+                },
+                "desc": "Increase MAG by 200% for this fight to one ally"
+            }],
+            "magic": "green",
+            "type": "ability"
+        }]
+    },
+    "310012600": {
+        "id": "310012600",
+        "name": "Onion Knight (FFX)",
+        "access": ["released"],
+        "type": "rod",
+        "mp%": 20,
+        "atk": 21,
+        "mag": 230,
+        "staticStats": {
+            "mag": 750
+        },
+        "damageVariance": {
+            "min": 1.1,
+            "max": 1.2
+        },
+        "lbDamage": 50,
+        "exclusiveUnits": ["210000405", "210002507", "210002517"],
+        "icon": "item_10623.png",
+        "sortId": 2792,
+        "rarity": 9,
+        "autoCastedSkills": [{
+            "id": "30221",
+            "name": "Faith (Auto)",
+            "icon": "ability_77.png",
+            "effects": [{
+                "effect": {
+                    "statsBuff": {
+                        "mag": 200
+                    },
+                    "area": "ST",
+                    "target": "ALLY"
+                },
+                "desc": "Increase MAG by 200% for this fight to one ally"
+            }],
+            "magic": "green",
+            "type": "ability"
+        }]
+    },
+    "310012700": {
+        "id": "310012700",
+        "name": "Onion Knight (FFX)",
+        "access": ["released"],
+        "type": "rod",
+        "mp%": 20,
+        "atk": 21,
+        "mag": 210,
+        "staticStats": {
+            "mag": 750
+        },
+        "accuracy": 50,
+        "damageVariance": {
+            "min": 1.25,
+            "max": 1.75
+        },
+        "lbDamage": 50,
+        "special": ["twoHanded"],
+        "exclusiveUnits": ["210000405", "210002507", "210002517"],
+        "icon": "item_10623.png",
+        "sortId": 2793,
+        "rarity": 9,
+        "autoCastedSkills": [{
+            "id": "30221",
+            "name": "Faith (Auto)",
+            "icon": "ability_77.png",
+            "effects": [{
+                "effect": {
+                    "statsBuff": {
+                        "mag": 200
+                    },
+                    "area": "ST",
+                    "target": "ALLY"
+                },
+                "desc": "Increase MAG by 200% for this fight to one ally"
+            }],
+            "magic": "green",
+            "type": "ability"
+        }]
+    },
+    "315025900": {
+        "id": "315025900",
+        "name": "World Champion (FFX)",
+        "access": ["released"],
+        "type": "throwing",
+        "atk": 210,
+        "evade": {
+            "physical": 30
+        },
+        "accuracy": 50,
+        "damageVariance": {
+            "min": 1.3,
+            "max": 1.7
+        },
+        "lbFillRate": 100,
+        "esperStatsBonus": {
+            "Ifrit": {
+                "hp": 100,
+                "mp": 100,
+                "atk": 100,
+                "def": 100,
+                "mag": 100,
+                "spr": 100
+            }
+        },
+        "lbDamage": 50,
+        "special": ["twoHanded"],
+        "icon": "item_2130017.png",
+        "sortId": 2787,
+        "notStackableSkills": {
+            "242203": {
+                "esperStatsBonus": {
+                    "Ifrit": {
+                        "hp": 100,
+                        "mp": 100,
+                        "atk": 100,
+                        "def": 100,
+                        "mag": 100,
+                        "spr": 100
+                    }
+                },
+                "lbFillRate": 100,
+                "evade": {
+                    "physical": 30
+                }
+            }
+        },
+        "rarity": 9
+    },
+    "405022300": {
+        "id": "405022300",
+        "name": "Tidus's Garb (FFX)",
+        "access": ["released"],
+        "type": "clothes",
+        "hp": 5500,
+        "atk": 140,
+        "def": 55,
+        "special": ["[Preemptive LB Boost (ATK)|ability_77.png]:Gain Preemptive LB Boost (ATK) (516020) at the start of a battle"],
+        "stmrUnit": "210002407",
+        "icon": "item_2170088.png",
+        "sortId": 2783,
+        "notStackableSkills": {
+            "120810": {}
+        },
+        "rarity": 9
+    },
+    "408007200": {
+        "id": "408007200",
+        "name": "Lulu's Robes (FFX)",
+        "access": ["released"],
+        "type": "robe",
+        "def": 45,
+        "mag": 100,
+        "spr": 60,
+        "lbDamage": 100,
+        "exclusiveRoles": ["debuffer"],
+        "stmrUnit": "210002507",
+        "icon": "item_2200014.png",
+        "sortId": 2785,
+        "rarity": 9
+    },
+    "409067600": {
+        "id": "409067600",
+        "name": "Lulu's Necklaces (FFX)",
         "access": ["released"],
         "type": "accessory",
-        "atk": 35,
-        "mag": 35,
-        "staticStats": {
-            "atk": 500,
-            "mag": 500
+        "mag": 60,
+        "singleWielding": {
+            "mag": 100
         },
-        "special": ["[Support of the Forest Spirits|ability_105.png]:Unlock Support of the Forest Spirits (515994) on turn 1 [4 turns CD], Unlock Support of the Forest Spirits (515994) on turn 1 [4 turns CD]"],
-        "exclusiveUnits": ["100037607", "100037617"],
-        "icon": "item_2250197.png",
-        "sortId": 2741,
+        "tmrUnit": "210002507",
+        "icon": "item_2250203.png",
+        "sortId": 2784,
         "rarity": 8
     },
-    "[object Object]": {
-        "id": "409066800",
-        "name": "ハーヴェのブーツ",
-        "access": ["not released yet"],
-        "type": "accessory",
-        "atk": 35,
-        "mag": 35,
-        "staticStats": {
-            "atk": 500,
-            "mag": 500
+    "504243690": {
+        "id": "504243690",
+        "name": "Ace Striker",
+        "access": ["released"],
+        "type": "materia",
+        "atk%": 50,
+        "singleWielding": {
+            "atk": 150,
+            "accuracy": 25
         },
-        "special": ["[森の精の援護|ability_105.png]:Unlock 森の精の援護 (515994) on turn 1 [4 turns CD], Unlock 森の精の援護 (515994) on turn 1 [4 turns CD]"],
-        "exclusiveUnits": ["100037607", "100037617"],
-        "icon": "item_2250197.png",
-        "sortId": 2741,
-        "rarity": 8
+        "special": ["notStackable"],
+        "tmrUnit": "210002407",
+        "icon": "ability_76.png",
+        "sortId": 1463
     }
 }
