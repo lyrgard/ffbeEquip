@@ -4296,7 +4296,7 @@
 		}
 	},
 	"100018327": {
-		"name":"フォルカ BS",
+		"name":"Folka BS",
 		"jpname":"フォルカ BS",
 		"roles":[null],
 		"id":"100018327",
@@ -6285,6 +6285,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["懺悔の光","白銀の鉄槌","カームストライク","漆黒のエレメントヴェール","輝白のエレメントヴェール","光冠のピュアヴェール"],
 		"6_form": {
 			"name":"Blue Mage Fina",
 			"jpname":"青魔道士フィーナ",
@@ -6300,7 +6301,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"]
+			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["懺悔の光","白銀の鉄槌","カームストライク","漆黒のエレメントヴェール","輝白のエレメントヴェール","光冠のピュアヴェール"]
 		},
 		"7_form": {
 			"name":"Blue Mage Fina",
@@ -6317,7 +6319,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":4,
-			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"]
+			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["懺悔の光","白銀の鉄槌","カームストライク","漆黒のエレメントヴェール","輝白のエレメントヴェール","光冠のピュアヴェール"]
 		}
 	},
 	"100025727": {
@@ -6338,7 +6341,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["ピュアライトアサルト"]
+		"enhancementSkills":["理想を追い求める少女","ピュアライトアサルト"]
 	},
 	"100025805": {
 		"name":"Sakura of the Delta Star",
@@ -10756,6 +10759,80 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"100040407": {
+		"name":"フィーナ2022夏",
+		"roles":[null],
+		"id":"100040407",
+		"braveShift":"100040417",
+		"exAwakening": [{"hp":513,"mp":41,"atk":18,"def":24,"mag":78,"spr":35},{"hp":395,"mp":32,"atk":14,"def":19,"mag":60,"spr":27},{"hp":276,"mp":22,"atk":10,"def":13,"mag":42,"spr":19}],
+		"fragmentId": "250014700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3947,"mp":317,"atk":137,"def":188,"mag":300,"spr":270},
+			"minStats":{"hp":1303,"mp":105,"atk":45,"def":62,"mag":99,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","throwing","gun","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["ドキドキの純白ビーチ","思いっきり楽しもう！","サンダラ","ウォタラ","サンダガ","ウォタガ","バースト(FFBE)","フラッド"]
+	},
+	"100040417": {
+		"name":"フィーナ2022夏 BS",
+		"roles":[null],
+		"id":"100040417",
+		"braveShifted":"100040407",
+		"exAwakening": [{"hp":513,"mp":41,"atk":18,"def":24,"mag":78,"spr":35},{"hp":395,"mp":32,"atk":14,"def":19,"mag":60,"spr":27},{"hp":276,"mp":22,"atk":10,"def":13,"mag":42,"spr":19}],
+		"fragmentId": "250014700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3947,"mp":317,"atk":137,"def":188,"mag":300,"spr":270},
+			"minStats":{"hp":1303,"mp":105,"atk":45,"def":62,"mag":99,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","throwing","gun","hat","clothes","robe","visionCard"]
+	},
+	"100040507": {
+		"name":"ルンド マリンタイプ",
+		"roles":[null,"support"],
+		"id":"100040507",
+		"braveShift":"100040517",
+		"exAwakening": [{"hp":721,"mp":41,"atk":78,"def":35,"mag":12,"spr":16},{"hp":555,"mp":32,"atk":60,"def":27,"mag":9,"spr":13},{"hp":388,"mp":22,"atk":42,"def":19,"mag":6,"spr":9}],
+		"fragmentId": "250014800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5547,"mp":317,"atk":300,"def":270,"mag":91,"spr":127},
+			"minStats":{"hp":1831,"mp":105,"atk":99,"def":89,"mag":30,"spr":42},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","axe","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ルンドトルピード・アルファ","プロテガ","バリア"]
+	},
+	"100040517": {
+		"name":"ルンド マリンタイプ BS",
+		"roles":[null,"support"],
+		"id":"100040517",
+		"braveShifted":"100040507",
+		"exAwakening": [{"hp":721,"mp":41,"atk":78,"def":35,"mag":12,"spr":16},{"hp":555,"mp":32,"atk":60,"def":27,"mag":9,"spr":13},{"hp":388,"mp":22,"atk":42,"def":19,"mag":6,"spr":9}],
+		"fragmentId": "250014800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5547,"mp":317,"atk":300,"def":270,"mag":91,"spr":127},
+			"minStats":{"hp":1831,"mp":105,"atk":99,"def":89,"mag":30,"spr":42},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","axe","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -15822,6 +15899,7 @@
 	},
 	"207002907": {
 		"name":"マテリアハンター ユフィ",
+		"jpname":"マテリアハンター ユフィ",
 		"roles":[null],
 		"id":"207002907",
 		"braveShift":"207002917",
@@ -15841,6 +15919,7 @@
 	},
 	"207002917": {
 		"name":"マテリアハンター ユフィ BS",
+		"jpname":"マテリアハンター ユフィ BS",
 		"roles":[null],
 		"id":"207002917",
 		"braveShifted":"207002907",
@@ -15860,6 +15939,7 @@
 	},
 	"207003007": {
 		"name":"ソノン",
+		"jpname":"ソノン",
 		"roles":[null],
 		"id":"207003007",
 		"braveShift":"207003017",
@@ -15879,6 +15959,7 @@
 	},
 	"207003017": {
 		"name":"ソノン BS",
+		"jpname":"ソノン BS",
 		"roles":[null],
 		"id":"207003017",
 		"braveShifted":"207003007",
@@ -18957,7 +19038,7 @@
 		}
 	},
 	"212001227": {
-		"name":"ヴェイン BS",
+		"name":"Vayne BS",
 		"jpname":"ヴェイン BS",
 		"roles":[null,"support",null],
 		"id":"212001227",
@@ -19131,7 +19212,7 @@
 		}
 	},
 	"212001727": {
-		"name":"蒼穹の麗人フラン BS",
+		"name":"Blue Sky Belle Fran BS",
 		"jpname":"蒼穹の麗人フラン BS",
 		"roles":[null,null],
 		"id":"212001727",
@@ -19321,7 +19402,7 @@
 		}
 	},
 	"212002407": {
-		"name":"Fastest Sky Pirate Balthier",
+		"name":"Fleetfooted Sky Pirate Balthier",
 		"jpname":"最速の空賊バルフレア",
 		"roles":[null],
 		"id":"212002407",
@@ -19341,7 +19422,7 @@
 		"enhancementSkills":["アクアバレット【XII TZA】","ソイルショット【XII TZA】"]
 	},
 	"212002417": {
-		"name":"Fastest Sky Pirate Balthier BS",
+		"name":"Fleetfooted Sky Pirate Balthier BS",
 		"jpname":"最速の空賊バルフレア BS",
 		"roles":[null],
 		"id":"212002417",
@@ -19361,7 +19442,7 @@
 		"enhancementSkills":["ファイガ","ブリザラ","サンダラ","グングニル【XII TZA】"]
 	},
 	"212002507": {
-		"name":"Dynast King Descendant Ashe",
+		"name":"Dynast-King's Scion Ashe",
 		"jpname":"覇王の末裔アーシェ",
 		"roles":["magicalTank"],
 		"id":"212002507",
@@ -19381,7 +19462,7 @@
 		"enhancementSkills":["盾の極意","シェルガ","ファイラ","ファイガ","サンダラ","サンダガ","かばう・魔法I","剣の極意","メイスの極意","無双乱撃斬"]
 	},
 	"212002517": {
-		"name":"Dynast King Descendant Ashe BS",
+		"name":"Dynast-King's Scion Ashe BS",
 		"jpname":"覇王の末裔アーシェ BS",
 		"roles":["support","healer"],
 		"id":"212002517",
@@ -19401,7 +19482,7 @@
 		"enhancementSkills":["盾の極意","プロテガ","バブル","シェルガ"]
 	},
 	"212002607": {
-		"name":"ラバナスタの少年ヴァン",
+		"name":"Youth from Rabanastre Vaan",
 		"jpname":"ラバナスタの少年ヴァン",
 		"roles":["debuffer"],
 		"id":"212002607",
@@ -19421,7 +19502,7 @@
 		"enhancementSkills":["格闘の極意","オイル","フレイムスマッシュ","エアリアル【XII TZA】"]
 	},
 	"212002617": {
-		"name":"ラバナスタの少年ヴァン BS",
+		"name":"Youth from Rabanastre Vaan BS",
 		"jpname":"ラバナスタの少年ヴァン BS",
 		"roles":["debuffer"],
 		"id":"212002617",

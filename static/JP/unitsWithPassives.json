@@ -6044,7 +6044,7 @@
 		}
 	},
 	"100018327": {
-		"name":"フォルカ BS",
+		"name":"Folka BS",
 		"jpname":"フォルカ BS",
 		"roles":[null],
 		"id":"100018327",
@@ -8920,6 +8920,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["懺悔の光","白銀の鉄槌","カームストライク","漆黒のエレメントヴェール","輝白のエレメントヴェール","光冠のピュアヴェール"],
 		"skills": [
 			{"hp%":70, "mp%":40, "def%":40, "mag%":50, "spr%":60, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"spr%":20, "equipedConditions":["sword"]},
@@ -8950,8 +8951,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["懺悔の光","白銀の鉄槌","カームストライク","漆黒のエレメントヴェール","輝白のエレメントヴェール","光冠のピュアヴェール"],
 			"skills": [
-				{"hp%":40, "mp%":40, "def%":40, "mag%":50, "spr%":30, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+				{"hp%":40, "mp%":40, "atk":500, "def%":40, "mag%":50, "spr":500, "spr%":30, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 				{"spr%":20, "equipedConditions":["sword"]},
 				{"resist":[{"name":"light","percent":20}], "equipedConditions":["sword"]},
 				{"spr%":20, "equipedConditions":["bow"]},
@@ -8975,8 +8977,9 @@
 			},
 			"stats_pattern":4,
 			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["懺悔の光","白銀の鉄槌","カームストライク","漆黒のエレメントヴェール","輝白のエレメントヴェール","光冠のピュアヴェール"],
 			"skills": [
-				{"hp%":70, "mp%":40, "def%":40, "mag%":50, "spr%":60, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+				{"hp%":70, "mp%":40, "atk":500, "def%":40, "mag%":50, "spr":500, "spr%":60, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 				{"spr%":20, "equipedConditions":["sword"]},
 				{"resist":[{"name":"light","percent":20}], "equipedConditions":["sword"]},
 				{"spr%":20, "equipedConditions":["bow"]},
@@ -9006,12 +9009,14 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["ピュアライトアサルト"],
+		"enhancementSkills":["理想を追い求める少女","ピュアライトアサルト"],
+		"enhancements": [
+			{"name":"理想を追い求める少女","levels":[[{"spr%":110,"def%":80,"mp%":60,"hp%":70,"lbDamage":100,"levelCondition":120}],[{"spr%":110,"def%":80,"mp%":60,"hp%":70,"lbDamage":100,"replaceLb":{"name":"ブルーソードデバイド","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":141},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (141x, ATK) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":170},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (170x, ATK) to all enemies"}],"frames":[60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200,205],"chainFamily":"ExN","move":"walk"},"levelCondition":120}],[{"spr%":110,"def%":80,"mp%":60,"hp%":70,"lbDamage":100,"replaceLb":{"name":"ブルーソードデバイド","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":201},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (201x, ATK) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":230},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (230x, ATK) to all enemies"}],"frames":[60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200,205],"chainFamily":"ExN","move":"walk"},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"atk%":110, "mag%":50, "singleWielding":{"accuracy":25,"atk":150}, "equipedConditions":[["504241452","405016600"]]},
 			{"atk%":60, "mag%":60, "spr%":60, "lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"spirit","physical":100,"magical":100}], "mpRefresh":7, "levelCondition":120},
 			{"killers":[{"name":"spirit","physical":100,"magical":100}], "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "levelCondition":120},
-			{"hp%":70, "mp%":60, "def%":80, "spr%":110, "lbDamage":100, "levelCondition":120},
 			{"lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"light","percent":50},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "dualWielding":{"atk":100}, "chainMastery":200, "lbDamage":150, "special":["dualWield"], "levelCondition":120}
 		]
@@ -14918,6 +14923,99 @@
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]},
 			{"hp%":100, "atk":1000, "def%":100, "spr%":100, "equipedConditions":[["504243940","303013300"]]}
+		]
+	},
+	"100040407": {
+		"name":"フィーナ2022夏",
+		"roles":[null],
+		"id":"100040407",
+		"braveShift":"100040417",
+		"exAwakening": [{"hp":513,"mp":41,"atk":18,"def":24,"mag":78,"spr":35},{"hp":395,"mp":32,"atk":14,"def":19,"mag":60,"spr":27},{"hp":276,"mp":22,"atk":10,"def":13,"mag":42,"spr":19}],
+		"fragmentId": "250014700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3947,"mp":317,"atk":137,"def":188,"mag":300,"spr":270},
+			"minStats":{"hp":1303,"mp":105,"atk":45,"def":62,"mag":99,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","throwing","gun","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["ドキドキの純白ビーチ","思いっきり楽しもう！","サンダラ","ウォタラ","サンダガ","ウォタガ","バースト(FFBE)","フラッド"],
+		"enhancements": [
+			{"name":"ドキドキの純白ビーチ","levels":[[{"skillEnhancement":{"20100":120,"20110":120,"20220":120,"20230":120,"20370":120,"20380":120,"70010":120,"70020":120,"70190":120,"70200":120,"70201":120,"70434":120,"70435":120,"70489":120,"70490":120,"70491":120,"70492":120,"70493":120,"70505":120,"70506":120,"70507":120,"70508":120,"70509":120,"70510":120}}],[{"skillEnhancement":{"20100":140,"20110":140,"20220":140,"20230":140,"20370":140,"20380":140,"70010":140,"70020":140,"70190":140,"70200":140,"70201":140,"70434":140,"70435":140,"70489":140,"70490":140,"70491":140,"70492":140,"70493":140,"70505":140,"70506":140,"70507":140,"70508":140,"70509":140,"70510":140}}],[{"skillEnhancement":{"20100":160,"20110":160,"20220":160,"20230":160,"20370":160,"20380":160,"70010":160,"70020":160,"70190":160,"70200":160,"70201":160,"70434":160,"70435":160,"70489":160,"70490":160,"70491":160,"70492":160,"70493":160,"70505":160,"70506":160,"70507":160,"70508":160,"70509":160,"70510":160}}],[{"skillEnhancement":{"20100":180,"20110":180,"20220":180,"20230":180,"20370":180,"20380":180,"70010":180,"70020":180,"70190":180,"70200":180,"70201":180,"70434":180,"70435":180,"70489":180,"70490":180,"70491":180,"70492":180,"70493":180,"70505":180,"70506":180,"70507":180,"70508":180,"70509":180,"70510":180}}],[{"skillEnhancement":{"20100":200,"20110":200,"20220":200,"20230":200,"20370":200,"20380":200,"70010":200,"70020":200,"70190":200,"70200":200,"70201":200,"70434":200,"70435":200,"70489":200,"70490":200,"70491":200,"70492":200,"70493":200,"70505":200,"70506":200,"70507":200,"70508":200,"70509":200,"70510":200}}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":110, "def%":60, "mag":500, "mag%":250, "spr%":110, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":200},
+			{"mag":500, "equipedConditions":[["405024800","409074200"]]}
+		]
+	},
+	"100040417": {
+		"name":"フィーナ2022夏 BS",
+		"roles":[null],
+		"id":"100040417",
+		"braveShifted":"100040407",
+		"exAwakening": [{"hp":513,"mp":41,"atk":18,"def":24,"mag":78,"spr":35},{"hp":395,"mp":32,"atk":14,"def":19,"mag":60,"spr":27},{"hp":276,"mp":22,"atk":10,"def":13,"mag":42,"spr":19}],
+		"fragmentId": "250014700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3947,"mp":317,"atk":137,"def":188,"mag":300,"spr":270},
+			"minStats":{"hp":1303,"mp":105,"atk":45,"def":62,"mag":99,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","throwing","gun","hat","clothes","robe","visionCard"],
+		"skills": [
+			{"hp%":60, "mp%":110, "def%":60, "mag":500, "mag%":250, "spr%":110, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":200, "skillEnhancement":{"20100":120,"20110":120,"20220":120,"20230":120,"20370":120,"20380":120,"70010":120,"70020":120,"70190":120,"70200":120,"70201":120,"70434":120,"70435":120,"70489":120,"70490":120,"70491":120,"70492":120,"70493":120,"70505":120,"70506":120,"70507":120,"70508":120,"70509":120,"70510":120}},
+			{"mag":500, "equipedConditions":[["405024800","409074200"]]}
+		]
+	},
+	"100040507": {
+		"name":"ルンド マリンタイプ",
+		"roles":[null,"support"],
+		"id":"100040507",
+		"braveShift":"100040517",
+		"exAwakening": [{"hp":721,"mp":41,"atk":78,"def":35,"mag":12,"spr":16},{"hp":555,"mp":32,"atk":60,"def":27,"mag":9,"spr":13},{"hp":388,"mp":22,"atk":42,"def":19,"mag":6,"spr":9}],
+		"fragmentId": "250014800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5547,"mp":317,"atk":300,"def":270,"mag":91,"spr":127},
+			"minStats":{"hp":1831,"mp":105,"atk":99,"def":89,"mag":30,"spr":42},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","axe","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["ルンドトルピード・アルファ","プロテガ","バリア"],
+		"skills": [
+			{"hp%":110, "mp%":60, "atk":1000, "atk%":250, "def%":110, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":250},
+			{"atk":1500, "equipedConditions":[["504244022","409074300"]]}
+		]
+	},
+	"100040517": {
+		"name":"ルンド マリンタイプ BS",
+		"roles":[null,"support"],
+		"id":"100040517",
+		"braveShifted":"100040507",
+		"exAwakening": [{"hp":721,"mp":41,"atk":78,"def":35,"mag":12,"spr":16},{"hp":555,"mp":32,"atk":60,"def":27,"mag":9,"spr":13},{"hp":388,"mp":22,"atk":42,"def":19,"mag":6,"spr":9}],
+		"fragmentId": "250014800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":5547,"mp":317,"atk":300,"def":270,"mag":91,"spr":127},
+			"minStats":{"hp":1831,"mp":105,"atk":99,"def":89,"mag":30,"spr":42},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","axe","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"skills": [
+			{"hp%":110, "mp%":60, "atk":1000, "atk%":250, "def%":110, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":250},
+			{"atk":1500, "equipedConditions":[["504244022","409074300"]]}
 		]
 	},
 	"201000104": {
@@ -22597,6 +22695,7 @@
 	},
 	"207002907": {
 		"name":"マテリアハンター ユフィ",
+		"jpname":"マテリアハンター ユフィ",
 		"roles":[null],
 		"id":"207002907",
 		"braveShift":"207002917",
@@ -22623,6 +22722,7 @@
 	},
 	"207002917": {
 		"name":"マテリアハンター ユフィ BS",
+		"jpname":"マテリアハンター ユフィ BS",
 		"roles":[null],
 		"id":"207002917",
 		"braveShifted":"207002907",
@@ -22649,6 +22749,7 @@
 	},
 	"207003007": {
 		"name":"ソノン",
+		"jpname":"ソノン",
 		"roles":[null],
 		"id":"207003007",
 		"braveShift":"207003017",
@@ -22675,6 +22776,7 @@
 	},
 	"207003017": {
 		"name":"ソノン BS",
+		"jpname":"ソノン BS",
 		"roles":[null],
 		"id":"207003017",
 		"braveShifted":"207003007",
@@ -27289,7 +27391,7 @@
 		}
 	},
 	"212001227": {
-		"name":"ヴェイン BS",
+		"name":"Vayne BS",
 		"jpname":"ヴェイン BS",
 		"roles":[null,"support",null],
 		"id":"212001227",
@@ -27562,7 +27664,7 @@
 		}
 	},
 	"212001727": {
-		"name":"蒼穹の麗人フラン BS",
+		"name":"Blue Sky Belle Fran BS",
 		"jpname":"蒼穹の麗人フラン BS",
 		"roles":[null,null],
 		"id":"212001727",
@@ -27896,7 +27998,7 @@
 		}
 	},
 	"212002407": {
-		"name":"Fastest Sky Pirate Balthier",
+		"name":"Fleetfooted Sky Pirate Balthier",
 		"jpname":"最速の空賊バルフレア",
 		"roles":[null],
 		"id":"212002407",
@@ -27922,7 +28024,7 @@
 		]
 	},
 	"212002417": {
-		"name":"Fastest Sky Pirate Balthier BS",
+		"name":"Fleetfooted Sky Pirate Balthier BS",
 		"jpname":"最速の空賊バルフレア BS",
 		"roles":[null],
 		"id":"212002417",
@@ -27948,7 +28050,7 @@
 		]
 	},
 	"212002507": {
-		"name":"Dynast King Descendant Ashe",
+		"name":"Dynast-King's Scion Ashe",
 		"jpname":"覇王の末裔アーシェ",
 		"roles":["magicalTank"],
 		"id":"212002507",
@@ -27977,7 +28079,7 @@
 		]
 	},
 	"212002517": {
-		"name":"Dynast King Descendant Ashe BS",
+		"name":"Dynast-King's Scion Ashe BS",
 		"jpname":"覇王の末裔アーシェ BS",
 		"roles":["support","healer"],
 		"id":"212002517",
@@ -28005,7 +28107,7 @@
 		]
 	},
 	"212002607": {
-		"name":"ラバナスタの少年ヴァン",
+		"name":"Youth from Rabanastre Vaan",
 		"jpname":"ラバナスタの少年ヴァン",
 		"roles":["debuffer"],
 		"id":"212002607",
@@ -28037,7 +28139,7 @@
 		]
 	},
 	"212002617": {
-		"name":"ラバナスタの少年ヴァン BS",
+		"name":"Youth from Rabanastre Vaan BS",
 		"jpname":"ラバナスタの少年ヴァン BS",
 		"roles":["debuffer"],
 		"id":"212002617",

@@ -598,11 +598,15 @@ function treatVisionCard(visionCard, visionCardId, skills) {
                                     });
                                 }
                                 if (visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]) {
-                                    let ruleId = visionCard.restriction[visionCard.skills[i][j].toString()][0];
-                                    if (!Object.keys(unitRules).includes(ruleId.toString())) {
-                                        console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
-                                    }
-                                    unitRules[ruleId](conditional);
+                                    let ruleIds = visionCard.restriction[visionCard.skills[i][j].toString()];
+                                    ruleIds.forEach(ruleId => {
+                                        if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                                            console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                                        } else {
+                                            unitRules[ruleId](conditional);
+                                        }
+                                    });
+                                    levelData.conditional.push(conditional);
                                 }
                             } else {
                                 if (card.id == '207000401') console.log('HAS RESTRICTION ?', visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]);

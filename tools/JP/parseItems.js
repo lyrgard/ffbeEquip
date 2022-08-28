@@ -110,7 +110,12 @@ const unitRules = {
     4008: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10007], // FF7 units
     7102: (item) => item.exclusiveSex = 'male',// Male units
     7103: (item) => item.exclusiveSex = 'female',// Female units,
+    7110: (item) => item.exclusiveRoles = ['physicalAttacker'],
     7111: (item) => item.exclusiveRoles = ['physicalAttacker', 'magicalAttacker'],
+    7112: (item) => item.exclusiveRoles = ['physicalTank'],
+    7113: (item) => item.exclusiveRoles = ['physicalTank', 'magicalTank'],
+    7114: (item) => item.exclusiveRoles = ['healer'],
+    7116: (item) => item.exclusiveRoles = ['debuffer'],
     7201: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10001], // FF1
     7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
     7203: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10003], // FF3
@@ -410,14 +415,16 @@ function treatVisionCard(visionCard, visionCardId, skills) {
                             }
                         } else {
                             if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
-                                let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
+                                let ruleIds = visionCard.restriction[visionCard.skills[i].toString()];
                                 let conditional = {};
                                 addEffectToItem(conditional, skill, index, skills);
                                 if (!levelData.conditional) levelData.conditional = [];
-                                if (!Object.keys(unitRules).includes(ruleId.toString())) {
-                                    console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
-                                }
-                                unitRules[ruleId](conditional);
+                                ruleIds.forEach(ruleId => {
+                                    if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                                        console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                                    }
+                                    unitRules[ruleId](conditional);
+                                });
                                 levelData.conditional.push(conditional);
                             } else {
                                 addEffectToItem(levelData, skill, index, skills);
