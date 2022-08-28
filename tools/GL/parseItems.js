@@ -1,7 +1,6 @@
 import fs from 'fs';
 import request from 'request';
-import pngjs from 'pngjs';
-import { crossOriginOpenerPolicy } from 'helmet';
+import deepmerge from 'deepmerge';
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -581,12 +580,12 @@ function treatVisionCard(visionCard, visionCardId, skills) {
         for (let i = 1; i <= level; i++) {
             const conditionalByRuleId = {};
             if (visionCard.skills && visionCard.skills[i] && visionCard.skills[i].length) {
-                for (let j = 0; j < visionCard.skills[i].length; j++) {
+                for (let j = 0; j < visionCard.skills[i].length; j++) { //Skill loop
                     let skill = skills[visionCard.skills[i][j].toString()];
                     if (skill) {
-                        skill.effects_raw.forEach((rawEffect, index) => {
+                        skill.effects_raw.forEach((rawEffect, index) => { // Effect loop
                             if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
-                                // mastery skill
+                                // conditional equipment mastery skill (base stats by weapon, equipment type, element, etc.)
                                 let conditional = {};
                                 addMastery(conditional, rawEffect);
                                 if (!levelData.conditional) levelData.conditional = [];
@@ -600,28 +599,37 @@ function treatVisionCard(visionCard, visionCardId, skills) {
                                         }
                                     });
                                 }
+                                
                                 if (visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]) {
-                                    let ruleId = visionCard.restriction[visionCard.skills[i][j].toString()][0];
-                                    if (!Object.keys(unitRules).includes(ruleId.toString())) {
-                                        console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
-                                    }
-                                    unitRules[ruleId](conditional);
-                                }
-                            } else {
-                                if (card.id == '207000401') console.log('HAS RESTRICTION ?', visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]);
-                                if (visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]) {
-                                    let ruleId = visionCard.restriction[visionCard.skills[i][j].toString()][0];
-                                    let conditional = conditionalByRuleId[ruleId] || {};
-                                    addEffectToItem(conditional, skill, index, skills);
-                                    if (!conditionalByRuleId[ruleId]) {
-                                        if (!levelData.conditional) levelData.conditional = [];
+                                    let ruleArray = visionCard.restriction[visionCard.skills[i][j].toString()]
+                                    ruleArray.forEach((ruleId) => {
                                         if (!Object.keys(unitRules).includes(ruleId.toString())) {
                                             console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                                        } else {
+                                            unitRules[ruleId](conditional);
+                                            levelData.conditional.push(conditional)
                                         }
-                                        unitRules[ruleId](conditional);
-                                        levelData.conditional.push(conditional);
-                                        conditionalByRuleId[ruleId] = conditional;
-                                    }
+                                    })
+                                }
+                            } else {
+                                //if (card.id == '207000401') console.log('HAS RESTRICTION ?', visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]);
+                                if (visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]) {
+                                    let ruleArray = visionCard.restriction[visionCard.skills[i][j].toString()]
+                                    ruleArray.forEach((ruleId) => {
+                                        let conditional = conditionalByRuleId[ruleId] || {};
+                                        
+                                        addEffectToItem(conditional, skill, index, skills);
+
+                                        if (!conditionalByRuleId[ruleId]) {
+                                            if (!levelData.conditional) levelData.conditional = [];
+                                            if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                                                console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                                            } else {
+                                                unitRules[ruleId](conditional);
+                                                levelData.conditional.push(conditional)
+                                            }
+                                        }
+                                    });
                                 } else {
                                     addEffectToItem(levelData, skill, index, skills);
                                 }
@@ -2355,7 +2363,12 @@ function formatItem(item) {
             } else {
                 result += ", ";
             }
-            result+= "\"" + property + "\":" + JSON.stringify(item[property]);
+            try {
+                result+= "\"" + property + "\":" + JSON.stringify(item[property]);
+            } catch (err) {
+                console.log(item)
+                console.log(err)
+            }
         }
     }
     result += "}";
