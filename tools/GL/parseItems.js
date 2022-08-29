@@ -577,7 +577,6 @@ function treatVisionCard(visionCard, visionCardId, skills) {
             addStat(levelData, stat.toLowerCase(), Math.floor(value));
         });
         for (let i = 1; i <= level; i++) {
-            const conditionalByRuleId = {};
             if (visionCard.skills && visionCard.skills[i] && visionCard.skills[i].length) {
                 for (let j = 0; j < visionCard.skills[i].length; j++) { //Skill loop
                     let skill = skills[visionCard.skills[i][j].toString()];
