@@ -168,6 +168,7 @@ const unitRules = {
     7112: (item) => item.exclusiveRoles = ['physicalTank'],
     7113: (item) => item.exclusiveRoles = ['magicalTank'],
     7114: (item) => item.exclusiveRoles = ['healer'],
+    7115: (item) => item.exclusiveRoles = ['support'],
     7116: (item) => item.exclusiveRoles = ['debuffer'],
     7201: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10001], // FF1
     7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
@@ -494,11 +495,29 @@ function treatItem(items, itemId, result, skills) {
         } else if (itemIn.requirements[0] == "UNIT_ID") {
             addExclusiveUnit(itemOut, itemIn.requirements[1]);
         } else if (itemIn.requirements[0] == "RULE"){
-            Object.keys(unitRules).forEach((role) => {
-                if (itemIn.requirements[1].toString() == role && role.substring(0,2) == "71"){
-                    addExclusiveRole(itemOut, unitRules[role]);
-                }
-            })
+            let ruleId = itemIn.requirements[1]
+            let ruleUnits = {}
+
+            if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                console.log('Missing rule ' + ruleId + ' for item: ' + itemIn.name);
+            } else {
+                unitRules[ruleId](ruleUnits)
+                Object.keys(ruleUnits).forEach((ruleId) => {
+                    if (ruleId.includes("Sex")) {
+                        if (itemIn.requirements[1] == 1) {
+                            itemOut.exclusiveSex = "male";
+                        } else if (itemIn.requirements[1] == 2) {
+                            itemOut.exclusiveSex = "female";
+                        }
+                    } else if (ruleId.includes("Roles")) {
+                        itemOut.exclusiveRoles = ruleUnits[ruleId];
+                    } else if (ruleId.includes("Units")) {
+                        addExclusiveUnit(itemOut, ruleUnits[ruleId])
+                    } else if (ruleId.includes("max7StarUnit")){
+                        itemOut.max7StarUnit = "max7StarUnit"
+                    }
+                })
+            }
         }
     }
 
