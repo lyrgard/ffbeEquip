@@ -2488,6 +2488,9 @@ function computeConditionalCombinations(item, conditionals, onCombinationFound,i
         if (conditionals[index].max7StarUnit) {
             item.max7StarUnit = conditionals[index].max7StarUnit;
         }
+        if (conditionals[index].exclusiveRoles) {
+            item.exclusiveRoles = conditionals[index].exclusiveRoles;
+        }
         computeConditionalCombinations(item, conditionals, onCombinationFound, index + 1);
     }
 }

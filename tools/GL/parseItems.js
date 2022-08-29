@@ -1,6 +1,5 @@
 import fs from 'fs';
 import request from 'request';
-import deepmerge from 'deepmerge';
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -607,29 +606,27 @@ function treatVisionCard(visionCard, visionCardId, skills) {
                                             console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
                                         } else {
                                             unitRules[ruleId](conditional);
-                                            levelData.conditional.push(conditional)
                                         }
                                     })
+
+                                    levelData.conditional.push(conditional)
                                 }
                             } else {
                                 //if (card.id == '207000401') console.log('HAS RESTRICTION ?', visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]);
                                 if (visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]) {
                                     let ruleArray = visionCard.restriction[visionCard.skills[i][j].toString()]
+                                    let conditional = {}
+                                    addEffectToItem(conditional, skill, index, skills);
                                     ruleArray.forEach((ruleId) => {
-                                        let conditional = conditionalByRuleId[ruleId] || {};
-                                        
-                                        addEffectToItem(conditional, skill, index, skills);
 
-                                        if (!conditionalByRuleId[ruleId]) {
-                                            if (!levelData.conditional) levelData.conditional = [];
-                                            if (!Object.keys(unitRules).includes(ruleId.toString())) {
-                                                console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
-                                            } else {
-                                                unitRules[ruleId](conditional);
-                                                levelData.conditional.push(conditional)
-                                            }
+                                        if (!levelData.conditional) levelData.conditional = [];
+                                        if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                                            console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                                        } else {
+                                            unitRules[ruleId](conditional);
                                         }
                                     });
+                                    levelData.conditional.push(conditional)
                                 } else {
                                     addEffectToItem(levelData, skill, index, skills);
                                 }
