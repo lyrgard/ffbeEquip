@@ -1291,7 +1291,11 @@ function onUnitChange() {
             let unitWithSkillsId = unitId;
             if (unitId.endsWith("04") && $("#unitExAwakeningLevel").not(":hidden")){
                 selectedUnitData = units[unitId];
-                iconId = unitId.substr(0, unitId.length -2) + "27"
+                if (selectedUnitData.braveShift.endsWith("27")){
+                    iconId = unitId.substr(0, unitId.length -2) + "17"
+                } else {
+                    iconId = selectedUnitData.braveShift
+                }
             } else if (unitId.endsWith("-6")) {
                 unitWithSkillsId = unitId.substr(0, unitId.length - 2);
                 selectedUnitData = units[unitId.substr(0, unitId.length - 2)]["6_form"];
@@ -1719,8 +1723,8 @@ function updateUnitStats() {
     if (builds[currentUnitIndex].unit) {
         let iconId = builds[currentUnitIndex].unit.id.toString();
         
-        if (iconId.endsWith("04") && $("#unitExAwakeningLevel").not(":hidden")){
-            iconId = iconId.substring(0, iconId.length - 2) + "27";
+        if (iconId.endsWith("04") || iconId.endsWith("03") && $("#unitExAwakeningLevel").not(":hidden")){
+            iconId = iconId.substring(0, iconId.length - 2) + "17";
         }
 
         $(".panel.unit .unitIcon").prop("src", "img/units/unit_icon_" + iconId + ".png");
@@ -1879,8 +1883,10 @@ function braveShift(index) {
         
         // Icons aren't as straightforward with NVA units from base 4.
         if (unit.braveShift){
-            if (unit.id.endsWith("04")){
-                iconId = unit.braveShift
+            if (unit.braveShift.endsWith("04") || unit.braveShift.endsWith("03")){
+                icondId = unit.braveShift;
+            } else {
+                iconId = unit.id.substr(0, unit.id.length -2) + "17";
             }
         }
 
