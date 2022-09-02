@@ -1289,7 +1289,7 @@ function onUnitChange() {
             var selectedUnitData;
             let iconId;
             let unitWithSkillsId = unitId;
-            if (unitId.endsWith("04") && $("#unitExAwakeningLevel").not(":hidden")){
+            if ($("#unitExAwakeningLevel").not(":hidden")){
                 selectedUnitData = units[unitId];
                 if (selectedUnitData.braveShift.endsWith("27")){
                     iconId = unitId.substr(0, unitId.length -2) + "17"
@@ -1723,7 +1723,7 @@ function updateUnitStats() {
     if (builds[currentUnitIndex].unit) {
         let iconId = builds[currentUnitIndex].unit.id.toString();
         
-        if (iconId.endsWith("04") || iconId.endsWith("03") && $("#unitExAwakeningLevel").not(":hidden")){
+        if (!iconId.endsWith("27") && $("#unitExAwakeningLevel").not(":hidden")){
             iconId = iconId.substring(0, iconId.length - 2) + "17";
         }
 
@@ -1883,7 +1883,7 @@ function braveShift(index) {
         
         // Icons aren't as straightforward with NVA units from base 4.
         if (unit.braveShift){
-            if (unit.braveShift.endsWith("04") || unit.braveShift.endsWith("03")){
+            if (!unit.braveShift.endsWith("27")){
                 icondId = unit.braveShift;
             } else {
                 iconId = unit.id.substr(0, unit.id.length -2) + "17";

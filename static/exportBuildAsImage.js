@@ -43,7 +43,7 @@ FFBEEquipBuildAsImage = {
         let unitId = unit.id;
         let iconId  = unitId.substr(0,unitId.length-1) + (unit.rarity == 'NV' ? '7' : unit.rarity);
         
-        if (unitId.endsWith("03") || unitId.endsWith("04") && unit.rarity === 'NV') {
+        if (unit.rarity === 'NV' && !unitId.endsWith(27)) {
             iconId =  unitId.substr(0,unitId.length-2) + "17"
         }
 
