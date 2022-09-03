@@ -43,8 +43,16 @@ FFBEEquipBuildAsImage = {
         let unitId = unit.id;
         let iconId  = unitId.substr(0,unitId.length-1) + (unit.rarity == 'NV' ? '7' : unit.rarity);
         
-        if (unit.rarity === 'NV' && !unitId.endsWith(27)) {
-            iconId =  unitId.substr(0,unitId.length-2) + "17"
+        if (unitId.endsWith("03") || unitId.endsWith("04") || unitId.endsWith("05")){
+            if (unit.rarity === "NV") {
+                iconId = unitId.substring(0, unitId.length - 2) + "17";
+            } else if (unit.rarity === 7){
+                iconId = unitId.substring(0, unitId.length - 2) + "07";
+            } else if (unit.rarity === 6){
+                iconId = unitId.substring(0, unitId.length - 2) + "06";
+            } else {
+                iconId = unitId;
+            }
         }
 
         FFBEEquipBuildAsImage.drawImageCentered(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/units/unit_ills_${iconId}.png`, 52, 52 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 1, () => {

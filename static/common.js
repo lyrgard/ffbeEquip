@@ -2500,6 +2500,22 @@ function isEquipedConditionViable(equipedConditions) {
     return true;
 }
 
+function checkUnitImageLevel(unitId, unitData){
+    let iconId = unitId;
+    
+    if(unitData.sevenStarForm && unitData.sevenStarForm === true){
+        iconId = unitId.substring(0, unitId.length - 2) + "07";    
+    } else if (unitData.sixStarForm && unitData.sixStarForm === true) {
+        iconId = unitId.substring(0, unitId.length - 2) + "06";  
+    } else if (unitData.braveShift){
+        iconId = unitId.substring(0, unitId.length - 2) + "17";
+    } else {
+        iconId = unitId;
+    }
+
+    return(iconId)
+}
+
 $(function() {
     $.notify.defaults({"globalPosition":"bottom right"});
     try {
