@@ -1289,13 +1289,9 @@ function onUnitChange() {
             var selectedUnitData;
             let iconId;
             let unitWithSkillsId = unitId;
-            if ($("#unitExAwakeningLevel").not(":hidden")){
-                selectedUnitData = units[unitId];
-                if (selectedUnitData.braveShift.endsWith("27")){
-                    iconId = unitId.substr(0, unitId.length -2) + "17"
-                } else {
-                    iconId = selectedUnitData.braveShift
-                }
+            selectedUnitData = units[unitId];
+            if (unitId.endsWith("03") || unitId.endsWith("04") || unitId.endsWith("05") && $("#unitExAwakeningLevel").not(":hidden")){
+                iconId = unitId.substring(0, unitId.length - 2) + "17";
             } else if (unitId.endsWith("-6")) {
                 unitWithSkillsId = unitId.substr(0, unitId.length - 2);
                 selectedUnitData = units[unitId.substr(0, unitId.length - 2)]["6_form"];
@@ -1723,7 +1719,7 @@ function updateUnitStats() {
     if (builds[currentUnitIndex].unit) {
         let iconId = builds[currentUnitIndex].unit.id.toString();
         
-        if (!iconId.endsWith("27") && $("#unitExAwakeningLevel").not(":hidden")){
+        if (iconId.endsWith("03") && $("#unitExAwakeningLevel").not(":hidden") || iconId.endsWith("04") && $("#unitExAwakeningLevel").not(":hidden") || iconId.endsWith("05") && $("#unitExAwakeningLevel").not(":hidden")){
             iconId = iconId.substring(0, iconId.length - 2) + "17";
         }
 
@@ -1882,12 +1878,11 @@ function braveShift(index) {
         let iconId = unit.id;
         
         // Icons aren't as straightforward with NVA units from base 4.
-        if (unit.braveShift){
-            if (!unit.braveShift.endsWith("27")){
-                icondId = unit.braveShift;
-            } else {
-                iconId = unit.id.substr(0, unit.id.length -2) + "17";
-            }
+        // 3*, 4*, and 5* units don't follow the usual rules.
+        // NV base units end in 07, BS forms with 17
+        // NVA base units use their original base number of 03/04/05 for their base form ID, but their icon still ends with 17, and shift form with 27.
+        if (iconId.endsWith("03") || iconId.endsWith("04") || iconId.endsWith("05") && $("#unitExAwakeningLevel").not(":hidden")){
+            iconId = iconId.substring(0, iconId.length - 2) + "17";
         }
 
         $("#unitTabs .tab_" + index + " a").html("<img src=\"img/units/unit_icon_" + iconId + ".png\"/>" + "&nbsp;&nbsp;" + unit.name);
