@@ -636,6 +636,7 @@ var updateFilterHeadersDisplay = function() {
     $(".excludeUnlockedMulticast").toggleClass("hidden", skillFilter.multicastCount === 1);
 
 
+    $(".series .unselectAll").toggleClass("hidden", seriesValues.length == 0);
     $(".types .unselectAll").toggleClass("hidden", types.length == 0);
     $(".ailments .unselectAll").toggleClass("hidden", ailments.length == 0);
     $(".elements .unselectAll").toggleClass("hidden", elements.length == 0);
