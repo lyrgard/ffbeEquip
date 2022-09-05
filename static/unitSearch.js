@@ -198,8 +198,8 @@ var filterUnits = function(searchUnits,
 }
 
 function matchesSeriesCriteria(seriesData, unit, acceptZero){
-    if (unit["game_id"] && seriesData.includes(unit["game_id"].toString())){
-        console.log("Adding unit...")
+    let possibleStrings = seriesData.toString().split(",")
+    if (unit["game_id"] && possibleStrings.includes(unit["game_id"].toString())){
         seriesData.push(unit)
         return true;
     }
