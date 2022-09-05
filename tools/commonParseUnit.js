@@ -2765,6 +2765,8 @@ export function getUnitBasicInfo(unit, prefix = "", form = null) {
         result += "\n" + prefix + "\t\t\"wikiEntry\":\"" + unit.wikiEntry + "\",";
     }
     result += "\n" + prefix + "\t\t\"id\":\"" + unit.id + "\",";
+    result += "\n" + prefix + "\t\t\"game_id\":\"" + unit.game_id + "\",";
+    result += "\n" + prefix + "\t\t\"game\":\"" + unit.game + "\",";
     if (form == 6) {
         result += "\n" + prefix + "\t\t\"sixStarForm\":true,";
     }
@@ -2821,6 +2823,8 @@ export function formatForSearch(units) {
             var unitOut = {"passives":{}, "actives":{"SELF":{}, "ST":{},"AOE":{}}, "lb":{"SELF":{}, "ST":{},"AOE":{}}, "counter":{"SELF":{}, "ST":{},"AOE":{}}};
             unitOut.equip = unit.equip;
             unitOut.id = unit.id;
+            unitOut.game_id = unit.game_id;
+            unitOut.game = unit.game;
             unitOut.minRarity = unit.min_rarity.toString();
             unitOut.maxRarity = unit.max_rarity.toString();
             unitOut.roles = unit.roles;

@@ -20,6 +20,54 @@ const percentValues = {
     "mag": "mag%",
     "spr": "spr%"
 };
+const series = {
+	"FFI":["10001"],
+	"FFII": ["10002"],
+	"FFIII": ["10003"],
+	"FFIV": ["10004"],
+	"FFV": ["10005"],
+	"FFVI": ["10006"],
+	"FFVII": ["10007"],
+    "FFVII AC": ["11009"],
+	"FFVIII": ["10008"],
+	"FFIX": ["10009"],
+	"FFX": ["10010"],
+    "FFX-2": ["11004"],
+	"FFXI": ["10011"],
+	"FFXII": ["10012"],
+    "FFXIII": ["10013"],
+    "FFXIII-2": ["11006"],
+	"FFXIII LR": ["11007"],
+	"FFXIV": ["10014"],
+	"FFXV": ["10015"],
+	"FFBE": ["11001"],
+    "WOTV FFBE": ["11010"],
+	"FFT": ["11002"],
+	"FF TYPE-0": ["11003"],
+	"FFRK":  ["11011"],
+	"Brave Frontier": ["20003"],
+	"Crystal Defenders": ["20004"],
+	"Secret of Mana": ["20005"],
+	"Dragon Quest": ["20006"],
+    "DRAGON QUEST XI S": ["20029"],
+    "The Adventure of Dai": ["20037"],
+	"NieR:Automata": ["20010"],
+	"Trials of Mana": ["20012"],
+	"Star Ocean": ["20016","20017", "20018", "20019", "20020"],
+	"VALKYRIE PROFILE -LENNETH-": ["20022"],
+	"Xenogears": ["20024"],
+	"Octopath Traveler": ["20025"],
+	"Kingdom Hearts": ["20028"],
+    "KHIII": ["20033"],
+    "KHDR": ["20034"],
+	"Fullmetal Alchemist": ["20032"],
+	"Ariana Grande": ["90001"],
+	"King's Knight": ["90002"],
+	"Tomb Raider": ["90003", "90008"],
+	"Just Cause 3": ["90004"],
+	"Deus Ex: Mankind Divided": ["90005"],
+	"Katy Perry": "90006"
+}
 const goalValuesCaract = {
     "physicalDamage":                   {"statsToMaximize":["atk"], "type": "physical"},
     "magicalDamage":                    {"statsToMaximize":["mag"], "type": "magical"},
@@ -664,7 +712,7 @@ const skillByItemEnhancement = {
     "autoRegen4": {"id":"10129","name":"Regen (Lvl 4)","icon":"ability_4.png","effects":[{"effect":{"healOverTurn":{"base":1800,"coef":1},"area":"ST","target":"ALLY"},"desc":"Restore 1800 (+1x, Heal) HP per turn to one ally"}],"magic":"green","type":"ability"}
 }
 
-const typeListLitterals = {
+const typeListLiterals = {
     "dagger": "Dagger",
     "sword": "Sword",
     "greatSword": "Great Sword",

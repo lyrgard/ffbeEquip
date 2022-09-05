@@ -1,12 +1,12 @@
 import fs from 'fs'
 import request from 'request'
-import pngJS from 'pngjs'
 import * as commonParse from '../commonParseUnit.js'
 
 
 
-const filterGame = [20001, 20002, 20007, 20008, 20011];
-const filterUnits = ["100014604","100014504","100014703","100014405", "199000101", "332000105", "256000301", "204002104", "204002003", "204001904", "204001805", "100017005", "307000303", "307000404", "307000204", "100027005", "318000205", "312000505", "312000605","204001805","204001827", "204001904"]
+const filterGame = [20001, 20002, 20007, 20008, 20011, 20030, 20026, 20027, 20013, 20014, 20015, 20021, 20026, 20027, 20035, 20036];
+const filterUnits = ["100014604","100014504","100014703","100014405", "332000105", "204002104", "204002003", "204001904", "204001805", "100017005", "307000303", "307000404", "307000204", "100027005", 
+                     "318000205", "312000505", "312000605","256000101", "204002705", "204002805", "19900010"]
 
 const languages = ["en", "zh", "ko", "fr", "de", "es"];
 
@@ -358,6 +358,8 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
     if (unreleased7Star) {
         data["max_rarity"] = 7;
     }
+    data["game_id"] = unitIn["game_id"];
+    data["game"] = unitIn["game"] ? unitIn["game"] : "Other";
     data["min_rarity"] = unitIn["rarity_min"];
     data["stats"] = unitStats;
     if (!unitIn.sex) {
@@ -414,7 +416,6 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
         ];
         data.fragmentId = Object.keys(unitIn.nv_upgrade[0].materials).filter(id => unitIn.nv_upgrade[0].materials[id] % 25 === 0)[0];
     }
-    
     return unit;
 }
 

@@ -6,7 +6,7 @@ var unitSearch = [];
 var releasedUnits;
 var dataById;
 
-var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "weaponImperils", "magicalElementDamageBoosts", "physicalElementDamageBoosts", "tankAbilities", "mitigation", "buffs"];
+var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "weaponImperils", "magicalElementDamageBoosts", "physicalElementDamageBoosts", "tankAbilities", "mitigation", "buffs", "series"];
 
 var baseRarity;
 var maxRarity;
@@ -23,6 +23,7 @@ var physicalKillers;
 var magicalKillers;
 var tankAbilities;
 var mitigation;
+var seriesValues;
 
 var skillSearchMatcher;// = SkillSearchFormula.getMatcherFromFormula("lb");
 
@@ -44,7 +45,8 @@ var defaultFilter = {
     "magicalElementDamageBoosts": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"], "threshold":null},
     "weaponImperils": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"], "threshold":null},
     "tankAbilities": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
-    "mitigation":{values:[], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]}
+    "mitigation":{values:[], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
+    "series": {values:[]}
 };
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
@@ -56,6 +58,7 @@ var update = function() {
 
 
     if (searchText.length == 0
+        && seriesValues.length == 0
         && types.length == 0
         && elements.values.length == 0
         && buffs.values.length == 0
@@ -93,7 +96,8 @@ var update = function() {
         magicalKillers,
         breaks,
         baseRarity,
-        maxRarity
+        maxRarity,
+        seriesValues
     )));
 
 	// If the text search box was used, highlight the corresponding parts of the results
@@ -135,7 +139,9 @@ var filterUnits = function(searchUnits,
                            magicalKillers = [],
                            breaks = [],
                            baseRarity = [],
-                           maxRarity = []
+                           maxRarity = [],
+                           seriesValues = []
+
 ) {
     var result = [];
     for (var index = 0, len = searchUnits.length; index < len; index++) {
@@ -159,12 +165,14 @@ var filterUnits = function(searchUnits,
                                                                         if (matchesCriteria(imbues, unit, "imbue")) {
                                                                             if (matchesCriteria(tankAbilities, unit, null, true)) {
                                                                                 if (matchesCriteria(mitigation, unit, null, true)) {
-                                                                                    if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
-                                                                                        if (!skillSearchMatcher || matchesSkillSearch(skillSearchMatcher, units[unit.id]))
-                                                                                            result.push({
-                                                                                                "searchData": unit,
-                                                                                                "unit": units[unit.id]
-                                                                                            });
+                                                                                    if(matchesSeriesCriteria(seriesValues, unit, true)) {
+                                                                                        if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
+                                                                                            if (!skillSearchMatcher || matchesSkillSearch(skillSearchMatcher, units[unit.id]))
+                                                                                                result.push({
+                                                                                                    "searchData": unit,
+                                                                                                    "unit": units[unit.id]
+                                                                                                });
+                                                                                        }
                                                                                     }
                                                                                 }
                                                                             }
@@ -189,7 +197,14 @@ var filterUnits = function(searchUnits,
     return result;
 }
 
-
+function matchesSeriesCriteria(seriesData, unit, acceptZero){
+    if (unit["game_id"] && seriesData.includes(unit["game_id"].toString())){
+        console.log("Adding unit...")
+        seriesData.push(unit)
+        return true;
+    }
+    return false;
+}
 
 function matchesSkillSearch(skillSearch, unit) {
     return skillSearch(unit.lb, 'lb')
@@ -609,6 +624,8 @@ var readFilterValues = function() {
 
     types = getSelectedValuesFor("types");
 
+    seriesValues = getSelectedValuesFor("series");
+    
     onlyShowOwnedUnits = $("#onlyShowOwnedUnits").prop('checked');
 }
 
@@ -1620,7 +1637,11 @@ function startPage() {
     addTextChoicesTo("mitigationTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
 
     // Item types
-    addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment", function(v){return typeListLitterals[v]});
+    addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment", function(v){return typeListLiterals[v]});
+
+    // Game Series
+    //addIconChoicesTo("series", series, "checkbox", "series", function(v){return series[v]});
+    addTextChoicesTo("series",'checkbox', Object.entries(series));
 
     $("#results").addClass(server);
 

@@ -506,7 +506,7 @@ function startPage() {
 	//addTextChoicesTo("stats",'radio',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr', 'Evade':'evade', 'Inflict':'inflict', 'Resist':'resist'});
     addIconChoicesTo("stats", ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"], "radio", "sort", function(v){return "Show items having "+v.toUpperCase()+" stats";});
 	// Item types
-	addIconChoicesTo("types", typeList, "checkbox", "equipment", function(v){return typeListLitterals[v];});
+	addIconChoicesTo("types", typeList, "checkbox", "equipment", function(v){return typeListLiterals[v];});
 	// Elements
 	addIconChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"], "checkbox", "element", ucFirst);
 	// Ailments

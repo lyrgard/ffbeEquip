@@ -9,6 +9,7 @@ var ownedEspers;
 var ownedConsumables;
 var stat = '';
 var types = [];
+var gameSeries = [];
 var elements = [];
 var ailments = [];
 var killers = [];
@@ -833,9 +834,16 @@ function selectAll(type) {
 // Add text choices to a filter. Type can be 'radio' of 'checkbox', depending if you want only one selection, or allow many.
 function addTextChoicesTo(targetId, type, valueMap) {
 	var target = $("#" + targetId);
-	for (var key in valueMap) {
-		addTextChoiceTo(target, targetId, type, valueMap[key], key);
-	}
+    if (Array.isArray(valueMap)){
+        for (var key in valueMap) {
+            addTextChoiceTo(target, targetId, type, valueMap[key][1], valueMap[key][0]);
+        }
+    } else {
+        for (var key in valueMap) {
+            addTextChoiceTo(target, targetId, type, valueMap[key], key);
+        }
+    }
+	
 }
 
 // Add image choices to a filter.
@@ -843,7 +851,13 @@ function addTextChoicesTo(targetId, type, valueMap) {
 //           or an array of object {value: '', icon: ''}
 function addIconChoicesTo(targetId, valueList, type="checkbox", iconType = "", tooltipList = []) {
     // If tooltipList is function, use it to map values
-    if (typeof tooltipList == 'function') tooltipList = valueList.map(tooltipList);
+    if (typeof tooltipList == 'function'){
+        if (Array.isArray(valueList)) {
+            tooltipList = valueList.map(tooltipList);
+        } else {
+            tooltipList = Object.entries(tooltipList)
+        }
+    } 
 	var target = $("#" + targetId);
 	for (i = 0; i < valueList.length; i++) {
 		addIconChoiceTo(target, targetId, valueList[i], type, iconType, tooltipList[i]);
@@ -1038,7 +1052,7 @@ class ItemFilter {
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
 function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnitId = null,
-                      types = [], elements = [], ailments = [], physicalKillers = [], magicalKillers = [], accessToRemove = [],
+                      types = [], games = [],elements = [], ailments = [], physicalKillers = [], magicalKillers = [], accessToRemove = [],
                       additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) {
     var filters = [];
     if (!showItemsWithoutStat && stat.length > 0) filters.push({type: 'stat', value: stat});
@@ -1054,6 +1068,7 @@ function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, search
     if (ailments.length > 0) filters.push(convertValuesToFilter(ailments, 'ailment'));
     if (elements.length > 0) filters.push(convertValuesToFilter(elements, 'element'));
     if (types.length > 0) filters.push(convertValuesToFilter(types, 'type'));
+    if (games.length > 0) filters.push(convertValuesToFilter(games, 'series'))
     if (onlyShowOwnedItems) filters.push({type: 'onlyOwned'});
 
     let filter = andFilters(...filters);
