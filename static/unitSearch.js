@@ -203,6 +203,11 @@ function matchesSeriesCriteria(seriesData, unit, acceptZero){
         seriesData.push(unit)
         return true;
     }
+
+    if (seriesData.length < 1){
+        return true;
+    }
+    
     return false;
 }
 

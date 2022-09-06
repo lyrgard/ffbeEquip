@@ -182,8 +182,8 @@ const unitRules = {
     7212: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10012], // FF12
     7215: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10015], // FF15
     7216: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001], // FFBE units
-    7219: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11004], // FFX-2 units
     7218: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11003], // FF Type 0
+    7219: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11004], // FFX-2 units
     7245: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20006], // DQMSL
     7263: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20024], // Xenogear
     7269: (item) => item.exclusiveRoles = ['breaker'],              // Breaker role
@@ -487,38 +487,41 @@ function treatItem(items, itemId, result, skills) {
     }
     
     if (itemIn.requirements) {
-        if (itemIn.requirements[0] == "SEX") {
-            if (itemIn.requirements[1] == 1) {
-                itemOut.exclusiveSex = "male";
-            } else if (itemIn.requirements[1] == 2) {
-                itemOut.exclusiveSex = "female";
-            }
-        } else if (itemIn.requirements[0] == "UNIT_ID") {
-            addExclusiveUnit(itemOut, itemIn.requirements[1]);
-        } else if (itemIn.requirements[0] == "RULE"){
-            let ruleId = itemIn.requirements[1]
-            let ruleUnits = {}
-
-            if (!Object.keys(unitRules).includes(ruleId.toString())) {
-                console.log('Missing rule ' + ruleId + ' for item: ' + itemIn.name);
-            } else {
-                unitRules[ruleId](ruleUnits)
-                Object.keys(ruleUnits).forEach((ruleId) => {
-                    if (ruleId.includes("Sex")) {
-                        if (itemIn.requirements[1] == 1) {
-                            itemOut.exclusiveSex = "male";
-                        } else if (itemIn.requirements[1] == 2) {
-                            itemOut.exclusiveSex = "female";
+        for (let i = 0; itemIn.requirements.length > i; i++ ){
+            let currentArray = itemIn.requirements[i];
+            if (currentArray[0] == "SEX") {
+                if (currentArray[1] == 1) {
+                    itemOut.exclusiveSex = "male";
+                } else if (currentArray[1] == 2) {
+                    itemOut.exclusiveSex = "female";
+                }
+            } else if (currentArray[0] == "UNIT_ID") {
+                addExclusiveUnit(itemOut, itemIn.requirements[1]);
+            } else if (currentArray[0] == "RULE"){
+                let ruleId = itemIn.requirements[1]
+                let ruleUnits = {}
+    
+                if (!Object.keys(unitRules).includes(ruleId)) {
+                    console.log('Missing rule ' + ruleId + ' for item: ' + itemIn.name);
+                } else {
+                    unitRules[ruleId](ruleUnits)
+                    Object.keys(ruleUnits).forEach((ruleId) => {
+                        if (ruleId.includes("Sex")) {
+                            if (itemIn.requirements[1] == 1) {
+                                itemOut.exclusiveSex = "male";
+                            } else if (itemIn.requirements[1] == 2) {
+                                itemOut.exclusiveSex = "female";
+                            }
+                        } else if (ruleId.includes("Roles")) {
+                            itemOut.exclusiveRoles = ruleUnits[ruleId];
+                        } else if (ruleId.includes("Units")) {
+                            addExclusiveUnit(itemOut, ruleUnits[ruleId])
+                        } else if (ruleId.includes("max7StarUnit")){
+                            itemOut.max7StarUnit = "max7StarUnit"
                         }
-                    } else if (ruleId.includes("Roles")) {
-                        itemOut.exclusiveRoles = ruleUnits[ruleId];
-                    } else if (ruleId.includes("Units")) {
-                        addExclusiveUnit(itemOut, ruleUnits[ruleId])
-                    } else if (ruleId.includes("max7StarUnit")){
-                        itemOut.max7StarUnit = "max7StarUnit"
-                    }
-                })
-            }
+                    })
+                }
+            }   
         }
     }
 
