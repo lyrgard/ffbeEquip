@@ -9,7 +9,6 @@ var ownedEspers;
 var ownedConsumables;
 var stat = '';
 var types = [];
-var gameSeries = [];
 var elements = [];
 var ailments = [];
 var killers = [];
@@ -1052,7 +1051,7 @@ class ItemFilter {
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
 function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnitId = null,
-                      types = [], games = [],elements = [], ailments = [], physicalKillers = [], magicalKillers = [], accessToRemove = [],
+                      types = [],elements = [], ailments = [], physicalKillers = [], magicalKillers = [], accessToRemove = [],
                       additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) {
     var filters = [];
     if (!showItemsWithoutStat && stat.length > 0) filters.push({type: 'stat', value: stat});
@@ -1068,7 +1067,6 @@ function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, search
     if (ailments.length > 0) filters.push(convertValuesToFilter(ailments, 'ailment'));
     if (elements.length > 0) filters.push(convertValuesToFilter(elements, 'element'));
     if (types.length > 0) filters.push(convertValuesToFilter(types, 'type'));
-    if (games.length > 0) filters.push(convertValuesToFilter(games, 'series'))
     if (onlyShowOwnedItems) filters.push({type: 'onlyOwned'});
 
     let filter = andFilters(...filters);
