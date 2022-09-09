@@ -302,9 +302,9 @@ getData('equipment.json', function (items) {
                                                                                     } else if (oldItems[index].eventNames) {
                                                                                         oldItemsEventById[oldItems[index].id] = oldItems[index].eventNames;
                                                                                     }
-                                                                                    if (oldItems[index].maxNumber) {
-                                                                                        oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
-                                                                                    }
+                                                                                    // if (oldItems[index].maxNumber) {
+                                                                                    //     oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                                                                                    // }
                                                                                     if (oldItems[index].wikiEntry) {
                                                                                         oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
                                                                                     }
