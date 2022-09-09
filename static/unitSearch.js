@@ -552,7 +552,12 @@ var readFilterValues = function() {
     baseRarity = getSelectedValuesFor("baseRarity");
     maxRarity = getSelectedValuesFor("maxRarity");
 
-    skillFilter.chainFamily = $('#chainFamily').val();
+    if ($('#chainFamily').val()) {
+        skillFilter.chainFamily = $('#chainFamily').val();
+    } else {
+        skillFilter.chainFamily === 'none'
+    }
+    
     if (skillFilter.chainFamily === 'none') {
         skillFilter.multicastCount = 1;
     } else {
