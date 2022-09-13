@@ -487,8 +487,33 @@ function treatItem(items, itemId, result, skills) {
     }
     
     if (itemIn.requirements) {
-        for (let i = 0; itemIn.requirements.length > i; i++ ){
-            let currentArray = itemIn.requirements[i];
+        if (itemIn.name === "Blue Jakkesaet"){
+            console.log(itemIn.requirements)
+            console.log(itemIn.requirements.length)
+            console.log(itemIn.requirements[0])
+        }
+
+        let ruleCount = 0;
+
+        // [Rule, #] && [[Rule, #], [Rule, #]] length both are > 1
+        // We have to differentiate between the two.
+        if (Array.isArray(itemIn.requirements[0])){
+            ruleCount = itemIn.requirements.length;
+        } else {
+            ruleCount = 1;
+        }
+        
+        for (let i = 0; i < ruleCount; i++ ){
+            let currentArray = [];
+            
+            if (ruleCount === 1){
+                currentArray = itemIn.requirements;
+            } else if (ruleCount > 1){
+                currentArray = itemIn.requirements[i];
+            }
+            if (itemIn.name === "Blue Jakkesaet"){
+                console.log(currentArray[0])
+            }
             if (currentArray[0] == "SEX") {
                 if (currentArray[1] == 1) {
                     itemOut.exclusiveSex = "male";
@@ -497,29 +522,20 @@ function treatItem(items, itemId, result, skills) {
                 }
             } else if (currentArray[0] == "UNIT_ID") {
                 addExclusiveUnit(itemOut, itemIn.requirements[1]);
-            } else if (currentArray[0] == "RULE"){
-                let ruleId = itemIn.requirements[1]
-                let ruleUnits = {}
+            } else if (currentArray[0] === "RULE"){
+                if (itemIn.name === "Blue Jakkesaet"){
+                    console.log(itemIn)
+                    console.log(itemOut)
+                }
+                let ruleId = currentArray[1].toString();
+                let conditionalUnits = {};
     
                 if (!Object.keys(unitRules).includes(ruleId)) {
                     console.log('Missing rule ' + ruleId + ' for item: ' + itemIn.name);
                 } else {
-                    unitRules[ruleId](ruleUnits)
-                    Object.keys(ruleUnits).forEach((ruleId) => {
-                        if (ruleId.includes("Sex")) {
-                            if (itemIn.requirements[1] == 1) {
-                                itemOut.exclusiveSex = "male";
-                            } else if (itemIn.requirements[1] == 2) {
-                                itemOut.exclusiveSex = "female";
-                            }
-                        } else if (ruleId.includes("Roles")) {
-                            itemOut.exclusiveRoles = ruleUnits[ruleId];
-                        } else if (ruleId.includes("Units")) {
-                            addExclusiveUnit(itemOut, ruleUnits[ruleId])
-                        } else if (ruleId.includes("max7StarUnit")){
-                            itemOut.max7StarUnit = "max7StarUnit"
-                        }
-                    })
+                    unitRules[ruleId](conditionalUnits);
+
+                    itemOut = ruleType(itemOut, conditionalUnits)
                 }
             }   
         }
@@ -574,7 +590,7 @@ function treatItem(items, itemId, result, skills) {
         console.log("new item : " + itemOut.id + " - " + itemOut.name);
     }
 
-    result.items = result.items.concat(readSkills(itemIn, itemOut,skills));
+    result.items = result.items.concat(readSkills(itemIn, itemOut, skills));
 }
 
 function treatVisionCard(visionCard, visionCardId, skills) {
@@ -662,11 +678,26 @@ function treatVisionCard(visionCard, visionCardId, skills) {
     return card;
 }
 
+function ruleType(itemOrSkill, itemOrSkillObject){
+    if (Object.keys(itemOrSkillObject).includes("exclusiveSex")) {
+        itemOrSkill.exclusiveSex = itemOrSkillObject.exclusiveSex;
+    } else if (Object.keys(itemOrSkillObject).includes("exclusiveRoles")) {
+        addExclusiveRole(itemOrSkill, itemOrSkillObject.exclusiveRoles);
+    } else if (Object.keys(itemOrSkillObject).includes("exclusiveUnits")) {
+        addExclusiveUnit(itemOrSkill, itemOrSkillObject.exclusiveUnits);
+    } else if (Object.keys(itemOrSkillObject).includes("max7StarUnit")){
+        itemOrSkill.max7StarUnit = "max7StarUnit"
+    }
+
+    return itemOrSkill
+}
+
 function arrayEquivalents(a1, a2) {
     return a1.length === a2.length && a1.every(item => a2.includes(item));
 }
 
 function readStats(itemIn, itemOut) {
+
     if (itemIn.stats) {
         for (var statsIndex in stats) {
             var stat = stats[statsIndex];
@@ -726,7 +757,10 @@ function manageRequirement(skill, debugItems, copy) {
             if (!Object.keys(unitRules).includes(ruleId.toString())) {
                 console.log('Missing rule ' + ruleId + ' for item ' + copy.name);
             }
-            unitRules[ruleId](copy);
+            let conditionals = {}
+            unitRules[ruleId](conditionals);
+
+            copy = ruleType(copy, conditionals)
         }
     });
 }
@@ -763,7 +797,10 @@ function readSkills(itemIn, itemOut, skills) {
                     }
                     itemOut.skills.push(skill);
                 } else if (skill.requirements) {
-                    if (debugItems.includes(itemOut.id)) console.log("Restricted skill for item", itemOut.name, skill.id);
+                    if (debugItems.includes(itemOut.id)) {
+                        console.log("Restricted skill for item", itemOut.name, skill.id);
+                    }
+                    
                     restrictedSkills.push(skill);
                 } else if (skill.effects_raw[0][2] == 74) {
                     // item set
@@ -819,8 +856,8 @@ function readSkills(itemIn, itemOut, skills) {
         for (var restrictedIndex in restrictedSkills) {
             var skill = restrictedSkills[restrictedIndex];
             var effectsNotTreated = [];
-            var lenght = result.length;
-            for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
+            var length = result.length;
+            for (var itemIndex = 0; itemIndex < length; itemIndex++) {
                 var copy = JSON.parse(JSON.stringify(result[itemIndex]));
                 manageRequirement(skill, debugItems, copy);
 
@@ -2310,12 +2347,20 @@ function addExclusiveUnit(item, unitId) {
     }
 }
 
-function addExclusiveRole(item, unitId){
-    if(!item.exclusiveRoles){
-        item.exclusiveRoles = []
+function addExclusiveRole(item, unitId) {
+    if (!item.exclusiveRoles) {
+        item.exclusiveRoles = [];
     }
 
-    unitId(item)
+    if (Array.isArray(unitId)) {        
+        for (var i = 0, len = unitId.length; i < len; i++) {
+            item.exclusiveRoles.push(new String(unitId[i]));
+        }
+    } else if (typeof unitId == "number") {
+        item.exclusiveRoles.push(new String(unitId));
+    } else {
+        item.exclusiveRoles.push(unitId);
+    }
 }
 
 function isItemEmpty(item) {
