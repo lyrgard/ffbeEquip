@@ -160,7 +160,7 @@ const visionCardStatPatterns = {
 }
 
 const unitRules = {
-    4008: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10007], // FF7 units
+    4008: (item) => item.exclusiveUnits = unitIdsByGameId[10007], // FF7 units
     7102: (item) => item.exclusiveSex = 'male',// Male units
     7103: (item) => item.exclusiveSex = 'female',// Female units,
     7110: (item) => item.exclusiveRoles = ['physicalAttacker'],
@@ -170,35 +170,35 @@ const unitRules = {
     7114: (item) => item.exclusiveRoles = ['healer'],
     7115: (item) => item.exclusiveRoles = ['support'],
     7116: (item) => item.exclusiveRoles = ['debuffer'],
-    7201: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10001], // FF1
-    7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
-    7203: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10003], // FF3
-    7204: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10004], // FF4
-    7205: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10005], // FF5
-    7206: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10006], // FF6
-    7208: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10008], // FF8
-    7209: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10009], // FF9
-    7210: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10010], // FF10
-    7212: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10012], // FF12
-    7215: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10015], // FF15
-    7216: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001], // FFBE units
-    7218: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11003], // FF Type 0
-    7219: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11004], // FFX-2 units
-    7245: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20006], // DQMSL
-    7263: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20024], // Xenogear
+    7201: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10001], // FF1
+    7202: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10002], // FF2
+    7203: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10003], // FF3
+    7204: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10004], // FF4
+    7205: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10005], // FF5
+    7206: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10006], // FF6
+    7208: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10008], // FF8
+    7209: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10009], // FF9
+    7210: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10010], // FF10
+    7212: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10012], // FF12
+    7215: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10015], // FF15
+    7216: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[11001], // FFBE units
+    7218: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[11003], // FF Type 0
+    7219: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[11004], // FFX-2 units
+    7245: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20006], // DQMSL
+    7263: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20024], // Xenogear
     7269: (item) => item.exclusiveRoles = ['breaker'],              // Breaker role
-    7271: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20032], // FMA Brotherhood
-    7272: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20033], // KH units
-    7273: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10013] || []).concat(nvUnitIdsByGameId[11006] || []).concat(nvUnitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units
+    7271: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20032], // FMA Brotherhood
+    7272: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20033], // KH units
+    7273: (item, nvFlag) => item.exclusiveUnits = (unitIdsByGameId[10013] || []).concat(unitIdsByGameId[11006] || []).concat(unitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units
     7274: (item) => item.exclusiveUnits = ["312000205", "312001007", "312001017"],
-    7275: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20036], // ActRaiser Renaissance
-    7276: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20037], // Dragon Quest
+    7275: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20036], // ActRaiser Renaissance
+    7276: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20037], // Dragon Quest
 
     7401: (item) => item.exclusiveUnits = ["100031507", "100031517"],
     7402: (item) => item.exclusiveUnits = ["100039407"],
     7601: (item) => item.max7StarUnit = true, // not implemented yet. Only for unit max 7*
-    9501: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001].concat(nvUnitIdsByGameId[11010]), // FFBE & WOTV units
-    9502: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[90003] || []).concat((nvUnitIdsByGameId[90008] || [])), // Tomb raider units
+    9501: (item) => item.exclusiveUnits = unitIdsByGameId[11001].concat(unitIdsByGameId[11010]), // FFBE & WOTV units
+    9502: (item) => item.exclusiveUnits = (unitIdsByGameId[90003] || []).concat((unitIdsByGameId[90008] || [])), // Tomb raider units
 }
 
 const jpExclusiveItemIds = ["403044000", "404002700", "407002900", "310003500", "504227640", "405006100", "304004400", "409027300", "402003300", "403046700", "310005800", "409037500", "504233711", "301005400", "409037600", "504230014", "504227428", "303004700", "504227448", "504227459", "409020700", "504228470", "313004600", "313004700", "409023700", "311004000", "313004500", "405007200", "409033200", "310005500", "409033300", "504233410", "409037000", "409037100", "403049600", "408005800", "316002100", "308003700", "301002800", "409018100", "408003100", "403044300", "403044200", "311003300", "409018200", "301002900", "309002300", "314001300", "504227328", "401002400", "403045000", "405005000", "311003600", "504229432", "504229433", "504229434", "409026100", "403046400", "402003200", "309004000", "306002600", "409026200", "409035300", "402004400", "405007800", "405007900", "504232801", "409035400", "409035500", "404004300", "404004400", "302011700", "504234020", "504234021", "310007200", "409038400", "403049900", "408005900", "302011800", "303003100", "302003600", "302003700", "403043100", "406002500", "407002100", "504230245", "504230244", "305002000", "311002300", "409013200", "409013300", "301002400", "302004100", "404002500", "407002500", "504220280", "504220270", "504220630", "504220620", "309003500", "504228287", "504220290", "301002600", "302004600", "302004700", "303003800", "304002300", "311003100", "403044100", "408002900", "408003000", "402002400", "409017500", "409017600", "409017600", "504221650", "504221660", "504230373", "303006100", "504230374", "310007200", "408004500", "302011000", "504233250", "303007200", "409036700", "310006500", "302011200", "303007300", "310006600", "504230243", "303006000", "504214720", "305001100", "308001600", "303002800", "305001800", "312001700", "304001600", "406002400", "406002300", "406002200", "406002100", "404002000", "404001900", "404001800", "403042500", "409012400", "409012200", "409012000", "409012300", "409012100", "409012500", "308002700", "303002700", "504213220", "504213230", "504213210", "301002500", "504235124", "409041400", "409049200", "302005200"];
@@ -216,7 +216,7 @@ var dev = false;
 var languageId;
 let skillNameTrads;
 let skillDescTrads;
-var nvUnitIdsByGameId = {};
+var unitIdsByGameId = {};
 let alreadyKnownVisionCardNames = {};
 
 
@@ -312,9 +312,9 @@ getData('equipment.json', function (items) {
 
                                                                                 Object.keys(units).forEach(unitId => {
                                                                                     let unit = units[unitId];
-                                                                                    if (unit.game_id && Object.keys(unit.entries).some(entry => unit.entries[entry].brave_shift)) {
-                                                                                        if (!nvUnitIdsByGameId[unit.game_id]) nvUnitIdsByGameId[unit.game_id] = [];
-                                                                                        nvUnitIdsByGameId[unit.game_id].push(unitId);
+                                                                                    if (unit.game_id && Object.keys(unit.entries)) {
+                                                                                        if (!unitIdsByGameId[unit.game_id]) unitIdsByGameId[unit.game_id] = [];
+                                                                                        unitIdsByGameId[unit.game_id].push(unitId);
                                                                                     }
                                                                                 });
 
@@ -487,11 +487,6 @@ function treatItem(items, itemId, result, skills) {
     }
     
     if (itemIn.requirements) {
-        if (itemIn.name === "Blue Jakkesaet"){
-            console.log(itemIn.requirements)
-            console.log(itemIn.requirements.length)
-            console.log(itemIn.requirements[0])
-        }
 
         let ruleCount = 0;
 
@@ -511,9 +506,7 @@ function treatItem(items, itemId, result, skills) {
             } else if (ruleCount > 1){
                 currentArray = itemIn.requirements[i];
             }
-            if (itemIn.name === "Blue Jakkesaet"){
-                console.log(currentArray[0])
-            }
+
             if (currentArray[0] == "SEX") {
                 if (currentArray[1] == 1) {
                     itemOut.exclusiveSex = "male";
@@ -523,10 +516,7 @@ function treatItem(items, itemId, result, skills) {
             } else if (currentArray[0] == "UNIT_ID") {
                 addExclusiveUnit(itemOut, itemIn.requirements[1]);
             } else if (currentArray[0] === "RULE"){
-                if (itemIn.name === "Blue Jakkesaet"){
-                    console.log(itemIn)
-                    console.log(itemOut)
-                }
+
                 let ruleId = currentArray[1].toString();
                 let conditionalUnits = {};
     
@@ -534,6 +524,10 @@ function treatItem(items, itemId, result, skills) {
                     console.log('Missing rule ' + ruleId + ' for item: ' + itemIn.name);
                 } else {
                     unitRules[ruleId](conditionalUnits);
+
+                    if (itemIn.name === "Neverending Calm V"){
+                        console.log(conditionalUnits)
+                    }
 
                     itemOut = ruleType(itemOut, conditionalUnits)
                 }
