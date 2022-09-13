@@ -10762,6 +10762,7 @@
 	},
 	"100040407": {
 		"name":"フィーナ2022夏",
+		"jpname":"フィーナ2022夏",
 		"roles":[null],
 		"id":"100040407",
 		"braveShift":"100040417",
@@ -10781,6 +10782,7 @@
 	},
 	"100040417": {
 		"name":"フィーナ2022夏 BS",
+		"jpname":"フィーナ2022夏 BS",
 		"roles":[null],
 		"id":"100040417",
 		"braveShifted":"100040407",
@@ -10799,6 +10801,7 @@
 	},
 	"100040507": {
 		"name":"ルンド マリンタイプ",
+		"jpname":"ルンド マリンタイプ",
 		"roles":[null,"support"],
 		"id":"100040507",
 		"braveShift":"100040517",
@@ -10818,6 +10821,7 @@
 	},
 	"100040517": {
 		"name":"ルンド マリンタイプ BS",
+		"jpname":"ルンド マリンタイプ BS",
 		"roles":[null,"support"],
 		"id":"100040517",
 		"braveShifted":"100040507",
@@ -13342,17 +13346,20 @@
 		"jpname":"暗黒魔道士エクスデス",
 		"roles":[null],
 		"id":"205000905",
-		"max_rarity":"7",
+		"braveShift":"205000927",
+		"exAwakening": [{"hp":670,"mp":41,"atk":23,"def":23,"mag":37,"spr":29},{"hp":516,"mp":32,"atk":17,"def":17,"mag":28,"spr":22},{"hp":361,"mp":22,"atk":12,"def":12,"mag":20,"spr":16}],
+		"fragmentId": "250015100",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4687,"mp":289,"atk":166,"def":156,"mag":217,"spr":203},
-			"minStats":{"hp":1547,"mp":95,"atk":55,"def":51,"mag":72,"spr":67},
+			"maxStats":{"hp":5156,"mp":318,"atk":172,"def":172,"mag":283,"spr":224},
+			"minStats":{"hp":1701,"mp":105,"atk":57,"def":57,"mag":93,"spr":74},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["エアロスパーク","アースグレイヴ","ダークスワロー","世界を無に帰す力","無の力","全てを無へ","宇宙の　法則が　乱れる！"],
+		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["エアロスペル","アーススペル","ダークスペル","ファイガ","ブリザガ","サンダガ","エアロスパーク","アースグレイヴ","ダークスワロー","メテオ","邪悪なる光","エアロガスト","アーススタブ","ダークルイン","世界を無に帰す力","無の力","全てを無へ","宇宙の　法則が　乱れる！","邪悪なる魔力","クエイク"],
 		"6_form": {
 			"name":"Dark Mage Exdeath",
 			"jpname":"暗黒魔道士エクスデス",
@@ -13369,8 +13376,44 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["エアロスパーク","アースグレイヴ","ダークスワロー","世界を無に帰す力","無の力","全てを無へ","宇宙の　法則が　乱れる！"]
+			"enhancementSkills":["エアロスペル","アーススペル","ダークスペル","ファイガ","ブリザガ","サンダガ","エアロスパーク","アースグレイヴ","ダークスワロー","メテオ","邪悪なる光","エアロガスト","アーススタブ","ダークルイン","世界を無に帰す力","無の力","全てを無へ","宇宙の　法則が　乱れる！","邪悪なる魔力","クエイク"]
+		},
+		"7_form": {
+			"name":"Dark Mage Exdeath",
+			"jpname":"暗黒魔道士エクスデス",
+			"roles":[null],
+			"id":"205000905",
+			"sevenStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4687,"mp":289,"atk":166,"def":156,"mag":217,"spr":203},
+				"minStats":{"hp":1547,"mp":95,"atk":55,"def":51,"mag":72,"spr":67},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["エアロスペル","アーススペル","ダークスペル","ファイガ","ブリザガ","サンダガ","エアロスパーク","アースグレイヴ","ダークスワロー","メテオ","邪悪なる光","エアロガスト","アーススタブ","ダークルイン","世界を無に帰す力","無の力","全てを無へ","宇宙の　法則が　乱れる！","邪悪なる魔力","クエイク"]
 		}
+	},
+	"205000927": {
+		"name":"暗黒魔道士エクスデス BS",
+		"roles":[null],
+		"id":"205000927",
+		"braveShifted":"205000905",
+		"exAwakening": [{"hp":670,"mp":41,"atk":23,"def":23,"mag":37,"spr":29},{"hp":516,"mp":32,"atk":17,"def":17,"mag":28,"spr":22},{"hp":361,"mp":22,"atk":12,"def":12,"mag":20,"spr":16}],
+		"fragmentId": "250015100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5156,"mp":318,"atk":172,"def":172,"mag":283,"spr":224},
+			"minStats":{"hp":1701,"mp":105,"atk":57,"def":57,"mag":93,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"]
 	},
 	"205001005": {
 		"name":"Warrior of Dawn Galuf",
@@ -13390,7 +13433,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["守りの剣","誓約の護り","暁炎","暁光","バル国の王","光の戦士たちを守り抜く強さ","勇往堅陣"],
+		"enhancementSkills":["守りの剣","猛火の剣","光彩の剣","誓約の護り","暁炎","暁光","バル国の王","光の戦士たちを守り抜く強さ","勇往堅陣"],
 		"6_form": {
 			"name":"Warrior of Dawn Galuf",
 			"jpname":"暁の四戦士ガラフ",
@@ -13407,7 +13450,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["守りの剣","誓約の護り","暁炎","暁光","バル国の王","光の戦士たちを守り抜く強さ","勇往堅陣"]
+			"enhancementSkills":["守りの剣","猛火の剣","光彩の剣","誓約の護り","暁炎","暁光","バル国の王","光の戦士たちを守り抜く強さ","勇往堅陣"]
 		},
 		"7_form": {
 			"name":"Warrior of Dawn Galuf",
@@ -13425,7 +13468,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["守りの剣","誓約の護り","暁炎","暁光","バル国の王","光の戦士たちを守り抜く強さ","勇往堅陣"]
+			"enhancementSkills":["守りの剣","猛火の剣","光彩の剣","誓約の護り","暁炎","暁光","バル国の王","光の戦士たちを守り抜く強さ","勇往堅陣"]
 		}
 	},
 	"205001027": {
@@ -13574,7 +13617,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
-		"enhancementSkills":["モーグリの助言・退獣","モーグリの助言・退霊","海竜の魂を見出す力","飛竜の守護","飛竜の急襲改","森羅万象の恵み"],
+		"enhancementSkills":["おかえしタックル","モーグリの助言・退獣","モーグリの助言・退霊","海竜の魂を見出す力","飛竜の守護","飛竜の急襲改","森羅万象の恵み"],
 		"6_form": {
 			"name":"Warrior of Light Krile",
 			"jpname":"光の戦士クルル",
@@ -13591,7 +13634,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
-			"enhancementSkills":["モーグリの助言・退獣","モーグリの助言・退霊","海竜の魂を見出す力","飛竜の守護","飛竜の急襲改","森羅万象の恵み"]
+			"enhancementSkills":["おかえしタックル","モーグリの助言・退獣","モーグリの助言・退霊","海竜の魂を見出す力","飛竜の守護","飛竜の急襲改","森羅万象の恵み"]
 		}
 	},
 	"205001407": {
@@ -13747,6 +13790,82 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"205001807": {
+		"name":"世界を巡る旅人バッツ",
+		"roles":[null],
+		"id":"205001807",
+		"braveShift":"205001817",
+		"exAwakening": [{"hp":687,"mp":42,"atk":82,"def":31,"mag":24,"spr":30},{"hp":529,"mp":32,"atk":63,"def":24,"mag":19,"spr":23},{"hp":370,"mp":23,"atk":44,"def":17,"mag":13,"spr":16}],
+		"fragmentId": "250014900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5022,"mp":314,"atk":315,"def":245,"mag":173,"spr":202},
+			"minStats":{"hp":1657,"mp":104,"atk":104,"def":81,"mag":57,"spr":67},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["クラッシュブレイド","剣の極意","きりひらく風の剣"]
+	},
+	"205001817": {
+		"name":"魔法剣士バッツ BS",
+		"roles":[null],
+		"id":"205001817",
+		"braveShifted":"205001807",
+		"exAwakening": [{"hp":687,"mp":42,"atk":82,"def":31,"mag":24,"spr":30},{"hp":529,"mp":32,"atk":63,"def":24,"mag":19,"spr":23},{"hp":370,"mp":23,"atk":44,"def":17,"mag":13,"spr":16}],
+		"fragmentId": "250014900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5288,"mp":322,"atk":315,"def":237,"mag":188,"spr":231},
+			"minStats":{"hp":1745,"mp":106,"atk":104,"def":78,"mag":62,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","rod","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["クラッシュブレイド","剣の極意"]
+	},
+	"205001907": {
+		"name":"白魔道士クルル",
+		"roles":["healer","support"],
+		"id":"205001907",
+		"braveShift":"205001917",
+		"exAwakening": [{"hp":715,"mp":43,"atk":78,"def":30,"mag":28,"spr":70},{"hp":550,"mp":33,"atk":60,"def":23,"mag":22,"spr":54},{"hp":385,"mp":23,"atk":42,"def":16,"mag":15,"spr":38}],
+		"fragmentId": "250015000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4217,"mp":330,"atk":147,"def":136,"mag":217,"spr":270},
+			"minStats":{"hp":1392,"mp":109,"atk":49,"def":45,"mag":72,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","mace","hat","robe","visionCard"],
+		"enhancementSkills":["シャイニングヒール","杖の極意","おかえしタックル","プロテガ","シェルガ"]
+	},
+	"205001917": {
+		"name":"バーサーカー クルル BS",
+		"roles":[null],
+		"id":"205001917",
+		"braveShifted":"205001907",
+		"exAwakening": [{"hp":715,"mp":43,"atk":78,"def":30,"mag":28,"spr":70},{"hp":550,"mp":33,"atk":60,"def":23,"mag":22,"spr":54},{"hp":385,"mp":23,"atk":42,"def":16,"mag":15,"spr":38}],
+		"fragmentId": "250015000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5500,"mp":290,"atk":300,"def":233,"mag":48,"spr":114},
+			"minStats":{"hp":1815,"mp":96,"atk":99,"def":77,"mag":16,"spr":38},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","axe","hammer","mace","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["マッドランページ","斧の極意"]
 	},
 	"206000103": {
 		"name":"Terra",
@@ -17561,7 +17680,7 @@
 		}
 	},
 	"210000327": {
-		"name":"ワッカ BS",
+		"name":"Wakka BS",
 		"jpname":"ワッカ BS",
 		"roles":[null,"support","debuffer"],
 		"id":"210000327",
@@ -18198,7 +18317,7 @@
 		"equip":["katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"210002407": {
-		"name":"新米ガード ティーダ",
+		"name":"New Guardian Tidus",
 		"jpname":"新米ガード ティーダ",
 		"roles":[null],
 		"id":"210002407",
@@ -18218,7 +18337,7 @@
 		"enhancementSkills":["これがオレの物語だ！","クイックトリック改","ユウナのガードII"]
 	},
 	"210002417": {
-		"name":"エースストライカー ティーダ BS",
+		"name":"Ace Striker Tidus BS",
 		"jpname":"エースストライカー ティーダ BS",
 		"roles":[null],
 		"id":"210002417",
@@ -18238,7 +18357,7 @@
 		"enhancementSkills":["投擲の極意","ドレインタックルS"]
 	},
 	"210002507": {
-		"name":"ビサイドの魔道士ルールー",
+		"name":"Besaid Mage Lulu",
 		"jpname":"ビサイドの魔道士ルールー",
 		"roles":["debuffer"],
 		"id":"210002507",
@@ -18258,7 +18377,7 @@
 		"enhancementSkills":["フラッド","ウォタラ","ウォタガ","サンダラ","ファイラ","ロッドの極意","サブマージゾーン"]
 	},
 	"210002517": {
-		"name":"ビサイドの魔道士ルールー BS",
+		"name":"Besaid Mage Lulu BS",
 		"jpname":"ビサイドの魔道士ルールー BS",
 		"roles":["debuffer"],
 		"id":"210002517",

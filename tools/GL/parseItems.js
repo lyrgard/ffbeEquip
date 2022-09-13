@@ -183,6 +183,7 @@ const unitRules = {
     7215: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10015], // FF15
     7216: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001], // FFBE units
     7218: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11003], // FF Type 0
+    7219: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10010] || []).concat(nvUnitIdsByGameId[11004]), // FFX & FFX-2
     7245: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20006], // DQMSL
     7263: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20024], // Xenogear
     7269: (item) => item.exclusiveRoles = ['breaker'],              // Breaker role
