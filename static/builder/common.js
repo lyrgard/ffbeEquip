@@ -45,7 +45,9 @@ const weaponBaseDamageVariance =
 const valuesToNotRoundDown = ["lbPerTurn"];
 
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
+    
     var value = item[valuePath];
+
     if (value == undefined) {
         if (valuePath.indexOf('.') > -1) {
             value = getValueFromPath(item, valuePath);
@@ -61,6 +63,7 @@ function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
         for (var index = notStackableSkillsAlreadyUsed.length; index--;) {
             if (item.notStackableSkills[notStackableSkillsAlreadyUsed[index]]) {
                 value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath);
+                value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]].staticStats, valuePath);
             }
         }
     }

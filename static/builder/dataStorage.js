@@ -520,7 +520,7 @@ class DataStorage {
         }
     }
     
-    itemWithUnstackableSkillOnlyUsefulInOne(item, ennemyStats, elementBuffs) {
+    itemWithUnstackableSkillOnlyUsefulInOne(item, enemyStats, elementBuffs) {
         if (item.notStackableSkills) {
             var itemWithoutUnstackableSkills = JSON.parse(JSON.stringify(item));
             Object.keys(itemWithoutUnstackableSkills.notStackableSkills).forEach(id => {
@@ -529,7 +529,7 @@ class DataStorage {
                     this.removeStat(itemWithoutUnstackableSkills, stat, skill[stat]);
                 })
             });
-            return this.itemCanBeOfUseForGoal(itemWithoutUnstackableSkills, ennemyStats, elementBuffs)
+            return this.itemCanBeOfUseForGoal(itemWithoutUnstackableSkills, enemyStats, elementBuffs)
         }
         return false;
     }

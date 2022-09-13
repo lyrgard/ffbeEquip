@@ -525,10 +525,6 @@ function treatItem(items, itemId, result, skills) {
                 } else {
                     unitRules[ruleId](conditionalUnits);
 
-                    if (itemIn.name === "Neverending Calm V"){
-                        console.log(conditionalUnits)
-                    }
-
                     itemOut = ruleType(itemOut, conditionalUnits)
                 }
             }   
