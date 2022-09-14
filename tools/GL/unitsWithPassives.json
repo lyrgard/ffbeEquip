@@ -4518,24 +4518,23 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Blizzaga","Thundaja","Eternal Witch","Rod Mastery","Blizzaja","Freeze","Raging Ice","Tornado","Ice Catastrophe","Magical Erudition","Thousands of Spells","Capricious Witch","Ultima","Ice Onslaught"],
+		"enhancements": [
+			{"name":"Eternal Witch","levels":[[{"resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},{"equipedConditions":["hat"],"mp%":20,"spr%":20}],[{"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},{"equipedConditions":["hat"],"mp%":20,"spr%":20},{"equipedConditions":["robe"],"hp%":20,"mag%":20}]]},
+			{"name":"Rod Mastery","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":80,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":130,"spr%":100}]]},
+			{"name":"Magical Erudition","levels":[[{"spr%":30,"mag%":30,"singleWielding":{"mag":50},"dualWielding":{"mag":50},"levelCondition":120}],[{"spr%":30,"mag%":30,"singleWielding":{"mag":75},"dualWielding":{"mag":75},"levelCondition":120}],[{"spr%":30,"mag%":30,"singleWielding":{"mag":100},"dualWielding":{"mag":100},"mpRefresh":10,"levelCondition":120}]]},
+			{"name":"Thousands of Spells","levels":[[{"skillEnhancement":{"0":10},"levelCondition":120}],[{"skillEnhancement":{"0":20},"levelCondition":120}],[{"skillEnhancement":{"0":30},"levelCondition":120}],[{"skillEnhancement":{"0":40},"levelCondition":120}],[{"skillEnhancement":{"0":50},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"skillEnhancement":{"0":10}, "levelCondition":120},
+			{"hp%":90, "mp%":80, "def%":60, "mag%":200, "spr%":60, "dualWielding":{"mag":100}, "chainMastery":200, "lbFillRate":100, "mpRefresh":5, "lbDamage":150, "special":["dualWield"]},
+			{"mag":500, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "skillEnhancement":{"20290":1,"20300":2,"20310":1,"20330":1,"20360":2,"20550":2,"70436":2,"70437":2,"70438":2,"70439":2,"70470":1,"70471":1,"70472":2,"70473":2,"70474":2,"70475":2,"70476":1}, "equipedConditions":[["504224490","310003900"]]},
+			{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"wind","percent":20}], "levelCondition":105},
+			{"mp%":20, "levelCondition":115},
 			{"lbDamage":100, "levelCondition":120},
 			{"killers":[{"name":"aquatic","physical":100,"magical":100}], "levelCondition":120},
 			{"killers":[{"name":"demon","physical":200,"magical":200}], "levelCondition":120},
 			{"lbPerTurn":{"min":8,"max":8}, "levelCondition":120},
 			{"mpRefresh":5, "levelCondition":120},
-			{"mp%":20, "levelCondition":120},
-			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "dualWielding":{"mag":100}, "chainMastery":200, "lbDamage":150, "special":["dualWield"], "levelCondition":120},
-			{"mpRefresh":5, "levelCondition":120},
-			{"lbFillRate":100, "levelCondition":120},
-			{"resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
-			{"hp%":30, "levelCondition":120},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["rod"], "levelCondition":120},
-			{"mag":500, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "skillEnhancement":{"20290":1,"20300":2,"20310":1,"20330":1,"20360":2,"20550":2,"70436":2,"70437":2,"70438":2,"70439":2,"70470":1,"70471":1,"70472":2,"70473":2,"70474":2,"70475":2,"70476":1}, "equipedConditions":[["504224490","310003900"]], "levelCondition":120},
-			{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"wind","percent":20}], "levelCondition":120},
-			{"mp%":20, "levelCondition":120},
-			{"mag%":30, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120},
 			{"mag":1000, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
@@ -12740,6 +12739,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Stonga","Blizzaga","Earth Infliction","Quick","Haste"],
 		"skills": [
 			{"mp%":100, "mag%":100, "spr%":100, "oneWeaponMastery":{"spr":100}, "resist":[{"name":"earth","percent":100}], "mpRefresh":5},
 			{"mp%":50, "mag%":200, "oneWeaponMastery":{"mag":200}, "equipedConditions":[["504241800","405017300"]]}
@@ -12790,6 +12790,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Waterga","Ultima","Lucidus Blade","Liquidus Blade"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"light","percent":50},{"name":"disease","percent":100}], "killers":[{"name":"bird","physical":200,"magical":200},{"name":"bug","physical":100,"magical":100}], "mpRefresh":5, "lbDamage":150},
 			{"resist":[{"name":"stop","percent":100}], "lbDamage":50, "equipedConditions":[["408006800","504241803"]]},
@@ -12842,6 +12843,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["gun","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Waterga","Blizzaga","F-Type Strongest Ocean Wave Shot","F-Type Strongest Ice Shaver Shot"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "evade":{"physical":30}, "dualWielding":{"mag":100}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"ice","percent":30},{"name":"water","percent":30},{"name":"poison","percent":100}], "killers":[{"name":"bug","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200}], "mpRefresh":5, "lbDamage":200, "special":["dualWield"]},
 			{"killers":[{"name":"bug","physical":100,"magical":100}], "equipedConditions":[["504242370","313008400"]]},
@@ -12947,6 +12949,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Flamme Sverd","Is Sverd"],
 		"skills": [
 			{"hp%":110, "mp%":60, "atk%":300, "def%":160, "spr%":160, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"charm","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"machine","physical":200,"magical":200},{"name":"beast","physical":150,"magical":150}], "mpRefresh":5, "lbDamage":150},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"]},
@@ -12998,6 +13001,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Waterga","Aeroga","Protectga","Shellga","Mermaid's Prayer"],
 		"skills": [
 			{"mp%":100, "mag%":100, "spr%":200, "oneWeaponMastery":{"spr":100}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"aquatic","physical":200,"magical":200},{"name":"undead","physical":150,"magical":150}], "mpRefresh":8},
 			{"equipedConditions":[["311008400","504242374"]]}
@@ -13048,6 +13052,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","whip","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Waterga","Stonga","Beach Whip","Sexy Summer Whip"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag%":300, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"water","percent":30},{"name":"earth","percent":30},{"name":"confuse","percent":100}], "killers":[{"name":"stone","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200}], "mpRefresh":5, "lbDamage":200},
 			{"singleWielding":{"mag":100}, "killers":[{"name":"stone","physical":100,"magical":100}], "equipedConditions":[["504242375","409057100"]]},
@@ -13099,6 +13104,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["axe","spear","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Jord Ringe","Flamme Oeks"],
 		"skills": [
 			{"mp%":60, "atk%":150, "mag%":150, "oneWeaponMastery":{"atk":100,"mag":100}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"wind","percent":20},{"name":"earth","percent":20}], "killers":[{"name":"machine","physical":200,"magical":200},{"name":"plant","physical":150,"magical":150}], "mpRefresh":5},
 			{"evade":{"physical":30}, "drawAttacks":50, "equipedConditions":[["504242462","305004300"]]},
@@ -13152,6 +13158,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["greatSword","staff","axe","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Cover - Physical I","To Become More Human","Protectga","Shellga","Runda Laser"],
 		"skills": [
 			{"hp%":200, "mp%":100, "def%":200, "spr%":100, "oneWeaponMastery":{"def":300}, "chainMastery":100, "resist":[{"name":"ice","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":13},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["lightShield"]},
@@ -13204,7 +13211,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","lightShield","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Protectga","Shellga"],
+		"enhancementSkills":["Protectga","Shellga","Flamme Gardin"],
 		"skills": [
 			{"mp%":100, "mag%":200, "spr%":200, "oneWeaponMastery":{"spr":100}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":150,"magical":150}], "mpRefresh":8},
 			{"equipedConditions":[["504243190","405020200"]]}
@@ -13254,6 +13261,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","harp","throwing","fist","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Messer Tanz"],
 		"skills": [
 			{"mp%":60, "atk%":150, "mag%":150, "evade":{"physical":40,"magical":40}, "dualWielding":{"atk":50,"mag":50}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"undead","physical":200,"magical":200},{"name":"machine","physical":150,"magical":150}], "mpRefresh":5, "special":["dualWield"]},
 			{"mag%":150, "skillEnhancement":{"20460":30,"20470":60}, "equipedConditions":[["504020470","316003800"]]}
@@ -13307,8 +13315,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Golden Guardian","Phoenix Slash","Bladeblitz"],
+		"enhancements": [
+			{"name":"Golden Guardian","levels":[[{"spr%":300,"def%":300,"atk%":200,"mp%":200,"hp%":200,"killers":[{"name":"beast","physical":20},{"name":"bird","physical":20},{"name":"aquatic","physical":20},{"name":"demon","physical":20},{"name":"human","physical":20},{"name":"machine","physical":20},{"name":"dragon","physical":20},{"name":"spirit","physical":20},{"name":"bug","physical":20},{"name":"stone","physical":20},{"name":"plant","physical":20},{"name":"undead","physical":20}]}],[{"spr%":300,"def%":300,"atk%":200,"mp%":200,"hp%":200,"killers":[{"name":"beast","physical":40},{"name":"bird","physical":40},{"name":"aquatic","physical":40},{"name":"demon","physical":40},{"name":"human","physical":40},{"name":"machine","physical":40},{"name":"dragon","physical":40},{"name":"spirit","physical":40},{"name":"bug","physical":40},{"name":"stone","physical":40},{"name":"plant","physical":40},{"name":"undead","physical":40}]}],[{"spr%":300,"def%":300,"atk%":200,"mp%":200,"hp%":200,"killers":[{"name":"beast","physical":60},{"name":"bird","physical":60},{"name":"aquatic","physical":60},{"name":"demon","physical":60},{"name":"human","physical":60},{"name":"machine","physical":60},{"name":"dragon","physical":60},{"name":"spirit","physical":60},{"name":"bug","physical":60},{"name":"stone","physical":60},{"name":"plant","physical":60},{"name":"undead","physical":60}]}],[{"spr%":300,"def%":300,"atk%":200,"mp%":200,"hp%":200,"killers":[{"name":"beast","physical":80},{"name":"bird","physical":80},{"name":"aquatic","physical":80},{"name":"demon","physical":80},{"name":"human","physical":80},{"name":"machine","physical":80},{"name":"dragon","physical":80},{"name":"spirit","physical":80},{"name":"bug","physical":80},{"name":"stone","physical":80},{"name":"plant","physical":80},{"name":"undead","physical":80}]}],[{"spr%":300,"def%":300,"atk%":200,"mp%":200,"hp%":200,"killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}]}]]}
+		],
 		"skills": [
-			{"hp%":260, "mp%":260, "atk%":400, "def%":360, "spr%":360, "dualWielding":{"atk":100}, "chainMastery":200, "lbFillRate":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":20},{"name":"bird","physical":20},{"name":"aquatic","physical":20},{"name":"demon","physical":20},{"name":"human","physical":20},{"name":"machine","physical":20},{"name":"dragon","physical":20},{"name":"spirit","physical":20},{"name":"bug","physical":20},{"name":"stone","physical":20},{"name":"plant","physical":20},{"name":"undead","physical":20}], "mpRefresh":5, "lbDamage":150, "special":["dualWield"]},
+			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "dualWielding":{"atk":100}, "chainMastery":200, "lbFillRate":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "lbDamage":150, "special":["dualWield"]},
 			{"dualWielding":{"atk":100}, "lbDamage":150, "equipedConditions":[["504243282","404006400"]]},
 			{"atk":500, "exLevelCondition":3}
 		]
@@ -13358,6 +13370,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Darkga","Doomsday","Dark Suppression","Chaotic Mirage"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "dualWielding":{"mag":100}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"light","percent":30},{"name":"dark","percent":100},{"name":"poison","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "lbDamage":150, "special":["dualWield"]},
 			{"dualWielding":{"mag":100}, "killers":[{"name":"beast","magical":200},{"name":"bird","magical":200},{"name":"aquatic","magical":200},{"name":"demon","magical":200},{"name":"human","magical":200},{"name":"machine","magical":200},{"name":"dragon","magical":200},{"name":"spirit","magical":200},{"name":"bug","magical":200},{"name":"stone","magical":200},{"name":"plant","magical":200},{"name":"undead","magical":200}], "equipedConditions":[["504243280","308009700"]]},
@@ -13409,6 +13422,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Obliterating Mirror of Equity","Dawn's Edge","Daybreak's Flame"],
 		"skills": [
 			{"hp%":90, "mp%":150, "atk%":240, "def%":90, "mag%":240, "spr%":90, "evade":{"physical":30}, "dualWielding":{"atk":140,"mag":50}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"light","percent":20},{"name":"dark","percent":20}], "killers":[{"name":"demon","physical":150,"magical":150},{"name":"human","physical":50}], "mpRefresh":8, "lbDamage":75, "drawAttacks":50, "special":["dualWield"]},
 			{"hp%":100, "killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":[["504243281","405020300"]]},
@@ -13460,6 +13474,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["greatSword","katana","spear","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Dark Blade - Moonless Sky","Flame Blade - Crimson Flash","True Mirror of Equity","Obliterating Mirror of Equity"],
 		"skills": [
 			{"mp%":60, "atk%":150, "mag%":150, "evade":{"physical":30}, "oneWeaponMastery":{"atk":100,"mag":100}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":20},{"name":"light","percent":20},{"name":"sleep","percent":100}], "killers":[{"name":"demon","physical":150,"magical":150},{"name":"beast","physical":50}], "mpRefresh":15, "lbDamage":100, "drawAttacks":50},
 			{"hp%":60, "atk%":90, "spr%":60, "killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":[["504243300","405020400"]]},
@@ -13510,6 +13525,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Protectga","Shellga","Banishga","Brilliant Veil"],
 		"skills": [
 			{"mp":200, "mp%":60, "spr%":150, "oneWeaponMastery":{"spr":200}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"light","percent":25},{"name":"dark","percent":50},{"name":"silence","percent":100}], "killers":[{"name":"demon","physical":100,"magical":100}], "mpRefresh":15},
 			{"killers":[{"name":"beast","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "equipedConditions":[["504243310","403055300"]]}
@@ -13561,6 +13577,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Blizzaga","Waterga","Thundaga","Flood","Burst (FFBE)","Crashing Waterfall","Iceberg Stance","Courageous Stance","Fortune Stance"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"charm","percent":100},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"dark","percent":50},{"name":"confuse","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"bug","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":150, "esperStatsBonus":{"Leviathan":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["rod"]},
@@ -13614,6 +13631,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","spear","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Aeroga","Waterga","Thundaga","Flood","Burst (FFBE)","Quick Tremulous Thunder"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"dark","percent":50},{"name":"paralysis","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"undead","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":150, "esperStatsBonus":{"Ramuh":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["spear"]},
@@ -13843,6 +13861,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","rod","spear","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Blizzara","Blizzaga","Blizzaja","Darkra","Vinter Anfall","Bladeblitz"],
 		"skills": [
 			{"mp%":60, "atk%":150, "mag%":150, "evade":{"physical":30}, "oneWeaponMastery":{"atk":100,"mag":100}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"machine","physical":200,"magical":200},{"name":"bug","physical":150,"magical":150},{"name":"dragon","physical":150,"magical":150},{"name":"beast","physical":100,"magical":100}], "mpRefresh":13, "drawAttacks":50},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["spear"]},
@@ -13898,9 +13917,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","rod","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Katana Mastery","Blizzara","Blizzaga","Blizzaja","Antimaskine","Vinterstorm"],
+		"enhancements": [
+			{"name":"Katana Mastery","levels":[[{"equipedConditions":["katana"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["katana"],"atk%":80,"def%":80,"mag%":80,"spr%":80}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}},{"equipedConditions":["katana"],"atk%":80,"def%":80,"mag%":80,"spr%":80}]]}
+		],
 		"skills": [
 			{"hp%":60, "mp%":110, "atk%":50, "def%":60, "mag%":250, "spr%":60, "singleWielding":{"mag":250,"accuracy":25,"atk":50}, "chainMastery":100, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"confuse","percent":100}], "killers":[{"name":"machine","physical":200,"magical":200},{"name":"dragon","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"beast","physical":100,"magical":100}], "mpRefresh":13, "lbDamage":250},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]},
 			{"atk":1000, "atk%":200, "mag":1000, "singleWielding":{"accuracy":25,"atk":200}, "equipedConditions":[["504243434","304011600"]]},
 			{"atk":500, "mag":500, "exLevelCondition":3}
 		]
@@ -13949,6 +13971,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","staff","rod","spear","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Aura","Blizzara","Blizzaga","Spiritual Cure"],
 		"skills": [
 			{"mp%":100, "mag%":100, "spr%":100, "oneWeaponMastery":{"spr":100}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"earth","percent":40},{"name":"light","percent":40},{"name":"dark","percent":40}], "killers":[{"name":"machine","physical":200,"magical":200}], "mpRefresh":21},
 			{"mp%":100, "evade":{"physical":30}, "equipedConditions":[["504243439","409064900"]]}
@@ -14122,6 +14145,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Black Longsword","Bladeblitz","Obliterating Mirror of Equity"],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":300, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"stone","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":250},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]},
@@ -14176,8 +14200,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Darkra","Stonra","Darkga","Stonga","Ultima","Two-Handed Technique (MAG)","Nine Serpent Strike"],
+		"enhancements": [
+			{"name":"Two-Handed Technique (MAG)","levels":[[{"singleWielding":{"mag":50}}],[{"singleWielding":{"mag":75}}],[{"singleWielding":{"mag":100}}]]}
+		],
 		"skills": [
-			{"mp%":100, "mag%":100, "spr%":100, "singleWielding":{"mag":50}, "oneWeaponMastery":{"spr":100}, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"earth","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"beast","physical":150,"magical":150},{"name":"human","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":13},
+			{"mp%":100, "mag%":100, "spr%":100, "oneWeaponMastery":{"spr":100}, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"earth","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"beast","physical":150,"magical":150},{"name":"human","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":13},
 			{"mag":1000, "mag%":200, "chainMastery":100, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "skillEnhancement":{"20130":500,"20250":500,"20460":500,"20470":500,"70477":500,"70478":500,"70486":500,"70487":500,"70488":500,"70514":500,"70515":500,"70516":500,"70517":500,"70518":500,"70519":500,"70527":500}, "equipedConditions":[["405021200","314004300"]]}
 		]
 	},
@@ -14230,9 +14258,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["MAG Reinforcement I","Watera","Aerora","Waterga","Aeroga","Tornado","Aeroja","Mace Mastery","Time to draw! Pillar of light!"],
+		"enhancements": [
+			{"name":"MAG Reinforcement I","levels":[[{"mag":500}],[{"mag":750}],[{"mag":1000}]]},
+			{"name":"Mace Mastery","levels":[[{"equipedConditions":["mace"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["mace"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["mace"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 		"skills": [
-			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"undead","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"stone","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":250},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["mace"]},
+			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"undead","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"stone","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":250},
 			{"equipedConditions":[["403056400","307005000"]]},
 			{"mag":500, "exLevelCondition":3}
 		]
@@ -14286,9 +14318,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","throwing","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Stonra","Stonga","Stonja","Fira","Firaga","Quake","Darkra","Throwing Weapon Mastery","MAG Reinforcement I","Dance of Coming Fortune"],
+		"enhancements": [
+			{"name":"Throwing Weapon Mastery","levels":[[{"equipedConditions":["throwing"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["throwing"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["throwing"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"MAG Reinforcement I","levels":[[{"mag":500}],[{"mag":750}],[{"mag":1000}]]}
+		],
 		"skills": [
-			{"hp%":60, "mp%":60, "def%":60, "mag":500, "mag%":300, "spr%":160, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"undead","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150},{"name":"machine","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":250},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["throwing"]},
+			{"hp%":60, "mp%":60, "def%":60, "mag%":300, "spr%":160, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"undead","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150},{"name":"machine","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":250},
 			{"mag":500, "equipedConditions":[["409065200","315025800"]]},
 			{"mag":500, "exLevelCondition":3}
 		]
@@ -14448,26 +14484,6 @@
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["gun"]},
 			{"mag":700, "killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "esperStatsBonus":{"all":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}, "equipedConditions":[["313010500","409067900"]]},
 			{"mag":1000, "exLevelCondition":3}
-		]
-	},
-	"199000101": {
-		"name":"Emma (Battle NPC)",
-		"roles":[null],
-		"id":"199000101",
-		"game_id":"11001",
-		"game":"FFBE",
-		"max_rarity":"1",
-		"min_rarity":"1",
-		"sex":"female",
-		"materiaSlots":0,
-		"stats": {
-			"maxStats":{"hp":100,"mp":0,"atk":5,"def":5,"mag":5,"spr":5},
-			"minStats":{"hp":100,"mp":0,"atk":5,"def":5,"mag":5,"spr":5},
-			"pots":{"hp":0,"mp":0,"atk":0,"def":0,"mag":0,"spr":0}
-		},
-		"stats_pattern":1,
-		"equip":[null],
-		"skills": [
 		]
 	},
 	"201000104": {
@@ -14698,27 +14714,23 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Chaotic Influence","All-Consuming Chaos","Fira","Darkra","Round Edge"],
+		"enhancements": [
+			{"name":"Chaotic Influence","levels":[[{"skillEnhancement":{"200170":30,"231340":30,"231341":5,"231342":5,"231343":5,"231344":5,"231345":5,"231346":5,"510044":30},"levelCondition":120}],[{"skillEnhancement":{"200170":50,"231340":50,"231341":10,"231342":10,"231343":10,"231344":10,"231345":10,"231346":10,"510044":50},"levelCondition":120}],[{"skillEnhancement":{"200170":60,"231340":60,"231341":20,"231342":20,"231343":20,"231344":20,"231345":20,"231346":20,"510044":60},"levelCondition":120}],[{"skillEnhancement":{"200170":70,"231340":70,"231341":30,"231342":30,"231343":30,"231344":30,"231345":30,"231346":30,"510044":70},"levelCondition":120}],[{"skillEnhancement":{"200170":80,"231340":80,"231341":40,"231342":40,"231343":40,"231344":40,"231345":40,"231346":40,"510044":80},"levelCondition":120}]]},
+			{"name":"All-Consuming Chaos","levels":[[{"killers":[{"name":"beast","physical":20,"magical":20},{"name":"bird","physical":20,"magical":20},{"name":"aquatic","physical":20,"magical":20},{"name":"demon","physical":20,"magical":20},{"name":"human","physical":20,"magical":20},{"name":"machine","physical":20,"magical":20},{"name":"dragon","physical":20,"magical":20},{"name":"spirit","physical":20,"magical":20},{"name":"bug","physical":20,"magical":20},{"name":"stone","physical":20,"magical":20},{"name":"plant","physical":20,"magical":20},{"name":"undead","physical":20,"magical":20}],"levelCondition":120}],[{"killers":[{"name":"beast","physical":40,"magical":40},{"name":"bird","physical":40,"magical":40},{"name":"aquatic","physical":40,"magical":40},{"name":"demon","physical":40,"magical":40},{"name":"human","physical":40,"magical":40},{"name":"machine","physical":40,"magical":40},{"name":"dragon","physical":40,"magical":40},{"name":"spirit","physical":40,"magical":40},{"name":"bug","physical":40,"magical":40},{"name":"stone","physical":40,"magical":40},{"name":"plant","physical":40,"magical":40},{"name":"undead","physical":40,"magical":40}],"levelCondition":120}],[{"killers":[{"name":"beast","physical":60,"magical":60},{"name":"bird","physical":60,"magical":60},{"name":"aquatic","physical":60,"magical":60},{"name":"demon","physical":60,"magical":60},{"name":"human","physical":60,"magical":60},{"name":"machine","physical":60,"magical":60},{"name":"dragon","physical":60,"magical":60},{"name":"spirit","physical":60,"magical":60},{"name":"bug","physical":60,"magical":60},{"name":"stone","physical":60,"magical":60},{"name":"plant","physical":60,"magical":60},{"name":"undead","physical":60,"magical":60}],"levelCondition":120}],[{"killers":[{"name":"beast","physical":80,"magical":80},{"name":"bird","physical":80,"magical":80},{"name":"aquatic","physical":80,"magical":80},{"name":"demon","physical":80,"magical":80},{"name":"human","physical":80,"magical":80},{"name":"machine","physical":80,"magical":80},{"name":"dragon","physical":80,"magical":80},{"name":"spirit","physical":80,"magical":80},{"name":"bug","physical":80,"magical":80},{"name":"stone","physical":80,"magical":80},{"name":"plant","physical":80,"magical":80},{"name":"undead","physical":80,"magical":80}],"levelCondition":120}],[{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}],"levelCondition":120}]]}
+		],
 		"skills": [
-			{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":100},{"name":"poison","percent":100},{"name":"petrification","percent":100}]},
-			{"skillEnhancement":{"200170":30,"231340":30,"231341":5,"231342":5,"231343":5,"231344":5,"231345":5,"231346":5,"510044":30}, "levelCondition":120},
-			{"killers":[{"name":"beast","physical":20,"magical":20},{"name":"bird","physical":20,"magical":20},{"name":"aquatic","physical":20,"magical":20},{"name":"demon","physical":20,"magical":20},{"name":"human","physical":20,"magical":20},{"name":"machine","physical":20,"magical":20},{"name":"dragon","physical":20,"magical":20},{"name":"spirit","physical":20,"magical":20},{"name":"bug","physical":20,"magical":20},{"name":"stone","physical":20,"magical":20},{"name":"plant","physical":20,"magical":20},{"name":"undead","physical":20,"magical":20}], "levelCondition":120},
+			{"hp%":50, "mp%":30, "atk%":60, "def%":70, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":25, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"dark","percent":150},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":50}], "mpRefresh":5},
+			{"atk%":25, "equipedConditions":["greatSword"]},
+			{"atk%":25, "equipedConditions":["helm"]},
+			{"hp%":30, "mp%":30, "atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504231302","407004500"]]},
+			{"hp%":20, "atk%":40, "def%":40, "lbPerTurn":{"min":2,"max":2}, "levelCondition":105},
+			{"spr%":20, "levelCondition":115},
+			{"lbDamage":50, "skillEnhancement":{"231340":0.5,"231341":1,"231342":1,"231343":1,"231344":1,"231345":1,"231346":0.5,"231347":0.5,"231348":0.5,"231349":1,"510044":0.5,"510045":1}, "levelCondition":120},
 			{"mpRefresh":8, "levelCondition":120},
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
 			{"singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
 			{"lbDamage":100, "levelCondition":120},
-			{"atk%":25, "equipedConditions":["greatSword"], "levelCondition":120},
-			{"atk%":25, "equipedConditions":["helm"], "levelCondition":120},
-			{"atk%":20, "spr%":20, "resist":[{"name":"dark","percent":20}], "levelCondition":120},
-			{"mp%":30, "def%":30, "resist":[{"name":"dark","percent":30}], "levelCondition":120},
-			{"killers":[{"name":"human","physical":50}], "levelCondition":120},
-			{"def%":20, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":5, "levelCondition":120},
-			{"hp%":20, "atk%":20, "def%":20, "levelCondition":120},
-			{"hp%":30, "atk%":20, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120},
-			{"lbFillRate":25, "levelCondition":120},
-			{"hp%":30, "mp%":30, "atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504231302","407004500"]], "levelCondition":120},
-			{"hp%":20, "atk%":40, "def%":40, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120},
-			{"spr%":20, "levelCondition":120},
-			{"lbDamage":50, "skillEnhancement":{"231340":0.5,"231341":1,"231342":1,"231343":1,"231344":1,"231345":1,"231346":0.5,"231347":0.5,"231348":0.5,"231349":1,"510044":0.5,"510045":1}, "levelCondition":120},
 			{"atk":500, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
@@ -14824,6 +14836,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","rod","spear","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Fira","Firaga","Thundara","Thundaga","Raining Swords","Burn to ashes!"],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "dualWielding":{"mag":100}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":75},{"name":"ice","percent":-30},{"name":"lightning","percent":75},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bug","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":150, "skillEnhancement":{"20080":72,"70499":72,"70500":72,"70501":72}, "special":["dualWield"]},
 			{"equipedConditions":[["504243402","302018300"]]},
@@ -15000,26 +15013,24 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","axe","hammer","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Cover - Physical I","Shield Level Increase","Gigant Attack"],
+		"enhancements": [
+			{"name":"Shield Level Increase","levels":[[{"evade":{"physical":10,"magical":10},"levelCondition":120}],[{"evade":{"physical":20,"magical":20},"levelCondition":120}],[{"evade":{"physical":30,"magical":30},"levelCondition":120}],[{"evade":{"physical":40,"magical":40},"levelCondition":120}],[{"evade":{"physical":50,"magical":50},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":80},{"name":"earth","percent":80},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"confuse","percent":100}]},
+			{"hp%":30, "atk%":30, "def%":60, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":80},{"name":"earth","percent":80},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"confuse","percent":100}], "drawAttacks":80},
+			{"oneWeaponMastery":{"def":100}, "lbDamage":100, "equipedConditions":[["504205350","409066700"]]},
 			{"hp%":100, "mp%":100, "def%":200, "spr%":100, "oneWeaponMastery":{"def":200}, "chainMastery":100, "levelCondition":120},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["lightShield"], "levelCondition":120},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["heavyShield"], "levelCondition":120},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["axe"], "levelCondition":120},
 			{"hp%":170, "drawAttacks":20, "levelCondition":120},
-			{"evade":{"physical":10,"magical":10}, "levelCondition":120},
 			{"killers":[{"name":"human","physical":200,"magical":200}], "levelCondition":120},
 			{"killers":[{"name":"demon","physical":200,"magical":200}], "levelCondition":120},
 			{"killers":[{"name":"aquatic","physical":200,"magical":200}], "levelCondition":120},
 			{"killers":[{"name":"plant","physical":200,"magical":200}], "levelCondition":120},
 			{"mpRefresh":8, "levelCondition":120},
 			{"lbPerTurn":{"min":4,"max":4}, "levelCondition":120},
-			{"oneWeaponMastery":{"def":100}, "lbDamage":100, "equipedConditions":[["504205350","409066700"]], "levelCondition":120},
-			{"hp%":20, "atk%":20, "def%":40, "drawAttacks":30, "levelCondition":120},
-			{"drawAttacks":50, "levelCondition":120},
-			{"hp%":10, "levelCondition":120},
-			{"atk%":10, "levelCondition":120},
-			{"def%":20, "levelCondition":120},
 			{"def":500, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
@@ -15627,6 +15638,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","staff","rod","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Thunder","True Starfall"],
 		"skills": [
 			{"mp%":60, "atk%":150, "mag%":150, "evade":{"physical":65,"magical":40}, "oneWeaponMastery":{"atk":100,"mag":100}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":-50},{"name":"dark","percent":50},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":200,"magical":200},{"name":"spirit","physical":150,"magical":150},{"name":"beast","physical":150,"magical":150},{"name":"aquatic","physical":150,"magical":150}], "mpRefresh":13},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["rod"]},
@@ -17286,6 +17298,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","throwing","fist","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Blitz+","Flame+"],
 		"skills": [
 			{"mp%":60, "atk%":150, "mag%":150, "dualWielding":{"atk":50,"mag":50}, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":50},{"name":"lightning","percent":20},{"name":"poison","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"bug","physical":200,"magical":200},{"name":"undead","physical":150,"magical":150}], "mpRefresh":5, "drawAttacks":50, "special":["dualWield"]},
 			{"evade":{"physical":40}, "lbDamage":75, "equipedConditions":[["504243109","304011000"]]},
@@ -18264,6 +18277,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Lightning-Shattering Blade","Wind-Shattering Blade"],
 		"skills": [
 			{"hp%":120, "mp%":120, "atk%":300, "def%":120, "spr%":120, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"lightning","percent":30},{"name":"wind","percent":30},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"plant","physical":200,"magical":200},{"name":"beast","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":200},
 			{"equipedConditions":[["504242543","302017200"]]},
@@ -19525,6 +19539,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Fang","Flurry (FFVI)"],
 		"skills": [
 			{"hp%":160, "mp%":60, "atk%":300, "def%":160, "spr%":160, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "resist":[{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100,"magical":100},{"name":"bird","physical":150,"magical":150},{"name":"stone","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":150},
 			{"lbPerTurn":{"min":12,"max":12}, "lbDamage":50, "equipedConditions":[["504241540","304009500"]]},
@@ -21398,23 +21413,22 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Chicken-wuss Zell","Combat King Reader","GF","Honed Fists","Combo Rampage"],
+		"enhancements": [
+			{"name":"Chicken-wuss Zell","levels":[[{"evade":{"physical":10}}],[{"evade":{"physical":20}}],[{"evade":{"physical":30},"skillEnhancement":{"507212":2,"507213":2,"507214":3,"507215":2,"507216":4,"507217":4,"507218":4,"507219":2,"507220":3,"507221":4,"507222":4,"507223":6}}]]},
+			{"name":"Combat King Reader","levels":[[{"equipedConditions":["fist"],"atk%":30}],[{"equipedConditions":["fist"],"atk%":70}],[{"equipedConditions":["fist"],"hp%":30,"atk%":120,"def%":30}]]},
+			{"name":"GF","levels":[[{"esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}],[{"esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}}],[{"esperStatsBonus":{"all":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}},"chainMastery":100}]]},
+			{"name":"Honed Fists","levels":[[{"skillEnhancement":{"507210":5,"507211":5,"507212":5,"507213":5,"507214":5,"507215":5,"507216":5,"507217":5,"507218":5,"507219":5,"507220":5,"507221":5,"507222":5,"507223":5},"levelCondition":120}],[{"skillEnhancement":{"507210":10,"507211":10,"507212":10,"507213":10,"507214":10,"507215":10,"507216":10,"507217":10,"507218":10,"507219":10,"507220":10,"507221":10,"507222":10,"507223":10},"levelCondition":120}],[{"skillEnhancement":{"507210":15,"507211":15,"507212":15,"507213":15,"507214":15,"507215":15,"507216":15,"507217":15,"507218":15,"507219":15,"507220":15,"507221":15,"507222":15,"507223":15},"levelCondition":120}],[{"skillEnhancement":{"507210":20,"507211":20,"507212":20,"507213":20,"507214":20,"507215":20,"507216":20,"507217":20,"507218":20,"507219":20,"507220":20,"507221":20,"507222":20,"507223":20},"levelCondition":120}],[{"skillEnhancement":{"507210":25,"507211":25,"507212":25,"507213":25,"507214":25,"507215":25,"507216":25,"507217":25,"507218":25,"507219":25,"507220":25,"507221":25,"507222":25,"507223":25},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"resist":[{"name":"water","percent":30}]},
+			{"hp%":80, "atk%":80, "spr%":20, "resist":[{"name":"paralysis","percent":100},{"name":"water","percent":30}], "mpRefresh":5},
+			{"atk%":200, "equipedConditions":["unarmed"]},
 			{"dualWielding":{"atk":50}, "lbDamage":75, "equipedConditions":[["309002600","309008500","405020600"]]},
-			{"skillEnhancement":{"507210":5,"507211":5,"507212":5,"507213":5,"507214":5,"507215":5,"507216":5,"507217":5,"507218":5,"507219":5,"507220":5,"507221":5,"507222":5,"507223":5}, "levelCondition":120},
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "dualWielding":{"atk":100}, "chainMastery":200, "lbDamage":150, "special":["dualWield"], "levelCondition":120},
 			{"killers":[{"name":"human","physical":200,"magical":200}], "levelCondition":120},
 			{"killers":[{"name":"stone","physical":150,"magical":150}], "levelCondition":120},
 			{"killers":[{"name":"bug","physical":150,"magical":150}], "levelCondition":120},
 			{"killers":[{"name":"undead","physical":100,"magical":100}], "levelCondition":120},
-			{"atk%":200, "equipedConditions":["unarmed"], "levelCondition":120},
-			{"hp%":60, "atk%":50, "levelCondition":120},
-			{"hp%":20, "resist":[{"name":"paralysis","percent":100}], "levelCondition":120},
-			{"evade":{"physical":10}, "levelCondition":120},
-			{"spr%":20, "mpRefresh":5, "levelCondition":120},
-			{"atk%":30, "levelCondition":120},
-			{"atk%":30, "equipedConditions":["fist"], "levelCondition":120},
-			{"esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "levelCondition":120},
 			{"atk":500, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
@@ -21682,27 +21696,23 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Noble Griever","Accelerator Edge"],
+		"enhancements": [
+			{"name":"Noble Griever","levels":[[{"skillEnhancement":{"226620":5,"226621":5,"234544":5,"800416":5},"levelCondition":120}],[{"skillEnhancement":{"226620":10,"226621":10,"234544":10,"800416":10},"levelCondition":120}],[{"skillEnhancement":{"226620":20,"226621":20,"234544":20,"800416":20},"levelCondition":120}],[{"skillEnhancement":{"226620":30,"226621":30,"234544":30,"800416":30},"levelCondition":120}],[{"skillEnhancement":{"226620":40,"226621":40,"234544":40,"800416":40},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
-			{"skillEnhancement":{"226620":5,"226621":5,"234544":5,"800416":5}, "levelCondition":120},
+			{"hp%":20, "mp%":40, "atk%":130, "singleWielding":{"accuracy":50,"atk":150}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":60,"mp":60,"atk":60,"def":60,"mag":60,"spr":60}}},
+			{"hp%":20, "atk%":30, "def%":30, "spr%":30, "equipedConditions":[["504234520","303007900","303011800","303011900","303012000","303012100"]]},
+			{"lbFillRate":50, "levelCondition":105},
+			{"lbDamage":25, "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"hp%":20, "mp%":10, "atk%":20, "def%":40, "spr%":40, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"234544":4,"234545":4,"234546":4,"234547":9}, "levelCondition":120},
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
 			{"killers":[{"name":"human","physical":150,"magical":150}], "levelCondition":120},
 			{"killers":[{"name":"beast","physical":150,"magical":150}], "levelCondition":120},
 			{"killers":[{"name":"dragon","physical":100,"magical":100}], "levelCondition":120},
 			{"killers":[{"name":"demon","physical":100,"magical":100}], "levelCondition":120},
 			{"lbDamage":25, "levelCondition":120},
-			{"hp%":20, "atk%":20, "levelCondition":120},
-			{"atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"beast","physical":25},{"name":"machine","physical":25}], "levelCondition":120},
-			{"mp%":20, "esperStatsBonus":{"all":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}}, "levelCondition":120},
-			{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "levelCondition":120},
-			{"mp%":20, "atk%":30, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "levelCondition":120},
-			{"killers":[{"name":"beast","physical":75},{"name":"machine","physical":75}], "mpRefresh":7, "levelCondition":120},
-			{"atk%":50, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120},
-			{"hp%":20, "atk%":30, "def%":30, "spr%":30, "equipedConditions":[["504234520","303007900","303011800","303011900","303012000","303012100"]], "levelCondition":120},
-			{"lbFillRate":50, "levelCondition":120},
-			{"lbDamage":25, "levelCondition":120},
-			{"atk%":20, "levelCondition":120},
-			{"hp%":20, "mp%":10, "atk%":20, "def%":40, "spr%":40, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"234544":4,"234545":4,"234546":4,"234547":9}, "levelCondition":120},
 			{"chainMastery":100, "levelCondition":120, "exLevelCondition":2},
 			{"atk":1000, "levelCondition":120, "exLevelCondition":3}
 		]
@@ -21828,6 +21838,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Rain Bullets","Eruption Bullets","Warning Shot"],
 		"skills": [
 			{"mp%":60, "atk%":150, "mag%":150, "evade":{"physical":30}, "oneWeaponMastery":{"atk":100,"mag":100}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":50},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"bird","physical":150,"magical":150},{"name":"human","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"beast","physical":150,"magical":150}], "mpRefresh":13, "drawAttacks":100},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["gun"]},
@@ -21883,6 +21894,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Splash Anchor","Blood Storm"],
 		"skills": [
 			{"atk%":200, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":60},{"name":"ice","percent":25},{"name":"lightning","percent":25},{"name":"water","percent":60},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"undead","physical":100,"magical":100},{"name":"human","physical":150,"magical":150},{"name":"dragon","physical":200,"magical":200},{"name":"beast","physical":100,"magical":100}], "mpRefresh":8, "drawAttacks":50},
 			{"atk%":100, "spr%":300, "equipedConditions":["dagger"]},
@@ -23328,27 +23340,19 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Water Ball","Jupiter Crest","Zealous Fighter","Throwing Weapon Mastery","Drain Tackle","Blitz Spirit"],
+		"enhancements": [
+			{"name":"Jupiter Crest","levels":[[{"resist":[{"name":"water","percent":30}]}],[{"resist":[{"name":"water","percent":40}]}],[{"resist":[{"name":"water","percent":50}],"atk%":50}]]},
+			{"name":"Throwing Weapon Mastery","levels":[[{"equipedConditions":["throwing"],"atk%":50,"def%":50,"mag%":50,"spr%":50,"levelCondition":120}],[{"equipedConditions":["throwing"],"atk%":75,"def%":75,"mag%":75,"spr%":75,"levelCondition":120}],[{"equipedConditions":["throwing"],"atk%":100,"def%":100,"mag%":100,"spr%":100,"levelCondition":120}]]},
+			{"name":"Blitz Spirit","levels":[[{"atk":100,"lbDamage":100,"levelCondition":120}],[{"atk":200,"lbDamage":125,"levelCondition":120}],[{"atk":300,"lbDamage":150,"levelCondition":120}],[{"atk":400,"lbDamage":175,"levelCondition":120}],[{"atk":500,"lbDamage":200,"levelCondition":120}]]}
+		],
 		"skills": [
-			{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"water","percent":60},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+			{"hp%":30, "mp%":60, "atk%":230, "mag%":150, "singleWielding":{"accuracy":25,"atk":50}, "oneWeaponMastery":{"atk":100,"mag":100}, "chainMastery":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"water","percent":90},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"bird","physical":275,"magical":225},{"name":"spirit","physical":150,"magical":150}]},
+			{"skillEnhancement":{"0":30}, "equipedConditions":[["315021200","315025400","315025500","315025600","315025900"]]},
 			{"hp%":100, "levelCondition":120},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["throwing"], "levelCondition":120},
 			{"killers":[{"name":"aquatic","physical":150,"magical":150}], "levelCondition":120},
 			{"killers":[{"name":"bug","physical":150,"magical":150}], "levelCondition":120},
 			{"killers":[{"name":"dragon","physical":150,"magical":150}], "levelCondition":120},
-			{"atk":100, "lbDamage":100, "levelCondition":120},
-			{"atk%":50, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"water","percent":30}], "levelCondition":120},
-			{"atk%":10, "levelCondition":120},
-			{"killers":[{"name":"bird","physical":50}], "levelCondition":120},
-			{"hp%":20, "levelCondition":120},
-			{"resist":[{"name":"water","percent":30}], "levelCondition":120},
-			{"hp%":10, "levelCondition":120},
-			{"atk%":20, "levelCondition":120},
-			{"lbPerTurn":{"min":1,"max":1}, "levelCondition":120},
-			{"killers":[{"name":"bird","physical":75,"magical":75}], "levelCondition":120},
-			{"skillEnhancement":{"0":30}, "equipedConditions":[["315021200","315025400","315025500","315025600","315025900"]], "levelCondition":120},
-			{"mp%":60, "atk%":150, "mag%":150, "oneWeaponMastery":{"atk":100,"mag":100}, "chainMastery":100, "levelCondition":120},
-			{"killers":[{"name":"bird","physical":150,"magical":150}], "levelCondition":120},
-			{"killers":[{"name":"spirit","physical":150,"magical":150}], "levelCondition":120},
 			{"atk":500, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
@@ -23634,8 +23638,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Insane Darkness","Cross Cleave","Dark Tenacity","Pyrefly Manipulation","Cover - Magic I"],
 		"skills": [
-			{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
+			{"hp%":10, "mp%":50, "mag%":100, "evoMag":50, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "skillEnhancement":{"219050":3,"219060":3,"707402":3,"707403":3,"707406":3,"707407":3}},
+			{"mag":500, "spr":500, "singleWielding":{"mag":50}, "esperStatsBonus":{"all":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}, "equipedConditions":[["504219080","311008900"]]},
 			{"killers":[{"name":"aquatic","physical":150,"magical":150}], "levelCondition":120},
 			{"killers":[{"name":"human","physical":200,"magical":200}], "levelCondition":120},
 			{"killers":[{"name":"bug","physical":150,"magical":150}], "levelCondition":120},
@@ -23644,16 +23650,8 @@
 			{"mpRefresh":5, "levelCondition":120},
 			{"lbPerTurn":{"min":8,"max":8}, "levelCondition":120},
 			{"evoMag":150, "evokeDamageBoost":{"all":150}, "levelCondition":120},
-			{"mag":500, "spr":500, "singleWielding":{"mag":50}, "esperStatsBonus":{"all":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}, "equipedConditions":[["504219080","311008900"]], "levelCondition":120},
 			{"hp%":100, "levelCondition":120},
 			{"spr%":100, "levelCondition":120},
-			{"mp%":40, "mag%":50, "mpRefresh":7, "skillEnhancement":{"219050":3,"219060":3,"707402":3,"707403":3,"707406":3,"707407":3}, "levelCondition":120},
-			{"mp%":10, "levelCondition":120},
-			{"hp%":10, "levelCondition":120},
-			{"mag%":20, "levelCondition":120},
-			{"evoMag":20, "levelCondition":120},
-			{"mag%":30, "levelCondition":120},
-			{"evoMag":30, "levelCondition":120},
 			{"mag":500, "spr":500, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
@@ -23770,22 +23768,17 @@
 			{"name":"Rod Mastery","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50,"levelCondition":120}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75,"levelCondition":120}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100,"levelCondition":120}]]}
 		],
 		"skills": [
-			{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":100}]},
+			{"hp%":40, "mp%":70, "def%":40, "mag%":100, "spr%":100, "evoMag":80, "evokeDamageBoost":{"all":30}, "resist":[{"name":"wind","percent":105},{"name":"dark","percent":175},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"earth","percent":30}], "mpRefresh":7, "special":["dualWield"]},
+			{"mag%":50, "spr%":50, "equipedConditions":["rod"]},
+			{"equipedConditions":[["409034900","504232703"]]},
+			{"hp%":20, "levelCondition":115},
+			{"mag%":50, "spr%":50, "evoMag":70, "singleWielding":{"mag":100}, "dualWielding":{"mag":100}, "levelCondition":120},
 			{"hp%":60, "mp%":60, "def%":60, "mag%":150, "spr%":150, "oneWeaponMastery":{"mag":150,"spr":150}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
 			{"mpRefresh":8, "levelCondition":120},
 			{"lbPerTurn":{"min":4,"max":4}, "levelCondition":120},
 			{"evoMag":100, "evokeDamageBoost":{"all":100}, "levelCondition":120},
 			{"singleWielding":{"mag":50}, "levelCondition":120},
 			{"lbDamage":50, "levelCondition":120},
-			{"mag%":30, "spr%":30, "evokeDamageBoost":{"all":30}, "levelCondition":120},
-			{"mp%":30, "mag%":30, "spr%":30, "evoMag":30, "levelCondition":120},
-			{"resist":[{"name":"wind","percent":75},{"name":"dark","percent":75}], "mpRefresh":7, "levelCondition":120},
-			{"mag%":50, "spr%":50, "equipedConditions":["rod"], "levelCondition":120},
-			{"hp%":40, "mp%":40, "def%":40, "mag%":40, "spr%":40, "evoMag":50, "levelCondition":120},
-			{"special":["dualWield"], "levelCondition":120},
-			{"equipedConditions":[["409034900","504232703"]], "levelCondition":120},
-			{"hp%":20, "levelCondition":120},
-			{"mag%":50, "spr%":50, "evoMag":70, "singleWielding":{"mag":100}, "dualWielding":{"mag":100}, "levelCondition":120},
 			{"mag":500, "spr":500, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
@@ -23901,24 +23894,21 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Brutal Blitzer","Double Quickstrike","Superstar","Jecht Rush","Quick Block","Fake Out","Determined to Become a Fayth","Jecht Flood","Well then, let's go!"],
+		"enhancements": [
+			{"name":"Brutal Blitzer","levels":[[{"hp%":30},{"equipedConditions":["greatSword"],"atk%":50}],[{"spr%":10,"def%":10,"hp%":30},{"equipedConditions":["greatSword"],"atk%":80}],[{"spr%":30,"def%":30,"hp%":60},{"equipedConditions":["greatSword"],"atk%":130}]]},
+			{"name":"Superstar","levels":[[{"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}],"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}}],[{"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}],"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":30}}],[{"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}],"singleWielding":{"accuracy":25,"atk":150},"dualWielding":{"atk":70}}]]},
+			{"name":"Determined to Become a Fayth","levels":[[{"skillEnhancement":{"0":5},"levelCondition":120}],[{"skillEnhancement":{"0":10},"levelCondition":120}],[{"skillEnhancement":{"0":15},"levelCondition":120}],[{"skillEnhancement":{"0":20},"levelCondition":120}],[{"skillEnhancement":{"0":25},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"skillEnhancement":{"0":5}, "levelCondition":120},
+			{"hp%":30, "mp%":70, "atk%":30, "def%":40, "spr%":40, "evade":{"physical":30}, "lbFillRate":200, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":50}], "mpRefresh":5, "lbDamage":150, "skillEnhancement":{"207040":15,"228881":2,"228882":15,"228884":15,"228885":20,"228886":20,"508753":15,"708011":20,"708012":20,"708015":2,"708016":2}},
+			{"singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "esperStatsBonus":{"all":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}}, "equipedConditions":[["504228860","303005300"]]},
+			{"def%":20, "levelCondition":115},
+			{"hp%":20, "skillEnhancement":{"207040":1.5,"228880":1.5,"228881":0.75,"228882":1.5,"228883":1.5,"228884":1.5,"228885":1.5,"508753":0.75,"708015":0.75,"708016":0.75}, "levelCondition":120},
+			{"mp%":20, "atk%":40, "equipedConditions":["greatSword"], "levelCondition":120},
 			{"hp%":60, "mp%":60, "atk%":180, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
 			{"killers":[{"name":"plant","physical":200,"magical":200}], "levelCondition":120},
 			{"killers":[{"name":"spirit","physical":150,"magical":150}], "levelCondition":120},
-			{"evade":{"physical":30}, "levelCondition":120},
-			{"mp%":20, "levelCondition":120},
-			{"hp%":30, "mp%":30, "def%":40, "spr%":40, "lbDamage":150, "skillEnhancement":{"207040":15,"228881":2,"228882":15,"228884":15,"228885":20,"228886":20,"508753":15,"708011":20,"708012":20,"708015":2,"708016":2}, "levelCondition":120},
-			{"atk%":30, "lbPerTurn":{"min":1,"max":1}, "levelCondition":120},
-			{"hp%":30, "levelCondition":120},
-			{"atk%":50, "equipedConditions":["greatSword"], "levelCondition":120},
-			{"lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "levelCondition":120},
-			{"mp%":20, "resist":[{"name":"water","percent":50}], "mpRefresh":5, "levelCondition":120},
-			{"singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}], "levelCondition":120},
-			{"singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "esperStatsBonus":{"all":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}}, "equipedConditions":[["504228860","303005300"]], "levelCondition":120},
-			{"def%":20, "levelCondition":120},
-			{"hp%":20, "skillEnhancement":{"207040":1.5,"228880":1.5,"228881":0.75,"228882":1.5,"228883":1.5,"228884":1.5,"228885":1.5,"508753":0.75,"708015":0.75,"708016":0.75}, "levelCondition":120},
-			{"mp%":20, "atk%":40, "equipedConditions":["greatSword"], "levelCondition":120},
 			{"atk":500, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
@@ -24112,18 +24102,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Quick Hit+","Quick Flash","Dream to End Dreams"],
+		"enhancements": [
+			{"name":"Dream to End Dreams","levels":[[{"skillEnhancement":{"0":5},"levelCondition":120}],[{"skillEnhancement":{"0":10},"levelCondition":120}],[{"skillEnhancement":{"0":20},"levelCondition":120}],[{"skillEnhancement":{"0":30},"levelCondition":120}],[{"skillEnhancement":{"0":40},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"atk%":40, "def%":40, "spr%":40, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
-			{"atk%":30, "def%":30, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "levelCondition":120},
-			{"hp%":30, "mp%":30, "atk%":30, "def%":30, "levelCondition":120},
-			{"resist":[{"name":"water","percent":50}], "equipedConditions":["sword"], "levelCondition":120},
-			{"resist":[{"name":"water","percent":50}], "mpRefresh":7, "levelCondition":120},
-			{"singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
-			{"atk%":50, "equipedConditions":["sword"], "levelCondition":120},
-			{"singleWielding":{"accuracy":25,"atk":50}, "lbDamage":50, "equipedConditions":[["504232700","302010300","302016900","302017000","302017100","302019900"]], "levelCondition":120},
-			{"atk%":20, "levelCondition":120},
+			{"hp%":30, "mp%":30, "atk%":100, "def%":100, "spr%":40, "singleWielding":{"accuracy":50,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"water","percent":50}], "mpRefresh":7},
+			{"resist":[{"name":"water","percent":50}], "equipedConditions":["sword"]},
+			{"atk%":50, "equipedConditions":["sword"]},
+			{"singleWielding":{"accuracy":25,"atk":50}, "lbDamage":50, "equipedConditions":[["504232700","302010300","302016900","302017000","302017100","302019900"]]},
+			{"atk%":20, "levelCondition":115},
 			{"hp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
-			{"skillEnhancement":{"0":5}, "levelCondition":120},
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
 			{"killers":[{"name":"beast","physical":150,"magical":150}], "levelCondition":120},
 			{"killers":[{"name":"spirit","physical":150,"magical":150}], "levelCondition":120},
@@ -24257,6 +24246,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Tallboy"],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "evade":{"physical":20}, "dualWielding":{"atk":100}, "chainMastery":200, "killers":[{"name":"machine","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150}], "lbDamage":150, "special":["dualWield"]},
 			{"skillEnhancement":{"0":25}, "equipedConditions":[["504242218","309008300"]]}
@@ -24311,6 +24301,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Secret Stance","Ominous Storm","Critical Strike"],
+		"enhancements": [
+			{"name":"Secret Stance","levels":[[],[{"atk":1000}],[{"atk":1500}],[{"atk":2000,"chainMastery":100}]]}
+		],
 		"skills": [
 			{"hp%":160, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"wind","percent":30}], "killers":[{"name":"plant","physical":200,"magical":200},{"name":"spirit","physical":150,"magical":150},{"name":"human","physical":150,"magical":150},{"name":"stone","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200}], "mpRefresh":5, "lbDamage":200},
 			{"hp%":100, "def%":100, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["504242300","409056700"]]},
@@ -24428,9 +24422,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","throwing","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Flood","Watera","Waterga","Thundara","Fira","Rod Mastery","Submerging Zone"],
+		"enhancements": [
+			{"name":"Rod Mastery","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 		"skills": [
 			{"mp%":60, "atk%":150, "mag%":150, "evade":{"physical":30}, "oneWeaponMastery":{"atk":100,"mag":100}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"petrification","percent":100}], "killers":[{"name":"undead","physical":150,"magical":150},{"name":"human","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"machine","physical":150,"magical":150}], "mpRefresh":8, "drawAttacks":50},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["rod"]},
 			{"singleWielding":{"mag":150}, "lbDamage":125, "equipedConditions":[["409067600","408007200"]]},
 			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "exLevelCondition":2},
 			{"mag":500, "exLevelCondition":3}
@@ -24487,11 +24484,14 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","axe","throwing","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Sword Mastery","Large Sword Mastery","Throwing Weapon Mastery","Protectga","Twin Break","Well then, let's go!","Cover - Physical I"],
+		"enhancements": [
+			{"name":"Sword Mastery","levels":[[{"equipedConditions":["sword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["sword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["sword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"Large Sword Mastery","levels":[[{"equipedConditions":["greatSword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["greatSword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["greatSword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"Throwing Weapon Mastery","levels":[[{"equipedConditions":["throwing"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["throwing"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["throwing"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 		"skills": [
 			{"hp%":460, "mp%":380, "atk%":480, "def%":360, "mag%":300, "spr%":360, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":200}, "oneWeaponMastery":{"def":300,"spr":300}, "chainMastery":200, "lbFillRate":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"charm","percent":100},{"name":"water","percent":130},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":80},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":13, "lbDamage":150, "drawAttacks":70},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["greatSword"]},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["throwing"]},
 			{"def":500, "oneWeaponMastery":{"def":100}, "killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "lbDamage":100, "equipedConditions":[["403056900","504243710"]]},
 			{"def":500, "exLevelCondition":2},
 			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "exLevelCondition":2}
@@ -24546,7 +24546,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["axe","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Spear Mastery"],
+		"enhancementSkills":["Spear Mastery","Seed Cannon+"],
 		"enhancements": [
 			{"name":"Spear Mastery","levels":[[{"equipedConditions":["spear"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["spear"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["spear"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
 		],
@@ -25581,12 +25581,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","rod","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Bravery","Faith","Firaga","Thundaga","Archadian Emperor","Magick Barrier","Force Barrier","Battering Ram"],
+		"enhancements": [
+			{"name":"Archadian Emperor","levels":[[{"mag%":20,"atk%":20,"hp%":20}],[{"mag%":40,"atk%":40,"hp%":40}],[{"spr%":20,"mag%":50,"def%":20,"atk%":50,"mp%":20,"hp%":50}]]}
+		],
 		"skills": [
-			{"hp%":200, "mp%":60, "atk%":240, "def%":60, "mag%":240, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "oneWeaponMastery":{"mag":300}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"charm","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":50},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30},{"name":"sleep","percent":100}], "killers":[{"name":"human","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":150, "skillEnhancement":{"222090":22,"222100":22,"505360":472,"505370":42,"508838":472,"508839":42,"508862":472,"508863":42}},
-			{"oneWeaponMastery":{"atk":100}, "lbDamage":100, "equipedConditions":[["504221580","504243653"]]},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["fist"]},
-			{"atk%":50, "mag%":50, "equipedConditions":["fist"]},
+			{"hp%":180, "mp%":60, "atk%":220, "def%":60, "mag%":220, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "oneWeaponMastery":{"mag":300}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":50},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30},{"name":"sleep","percent":100}], "killers":[{"name":"human","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":150, "skillEnhancement":{"222090":22,"222100":22,"505360":472,"505370":42,"508838":472,"508839":42,"508862":472,"508863":42}},
 			{"hp%":15, "mp%":15, "equipedConditions":["fist"]},
+			{"atk%":50, "mag%":50, "equipedConditions":["fist"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["fist"]},
+			{"oneWeaponMastery":{"atk":100}, "lbDamage":100, "equipedConditions":[["504221580","504243653"]]},
 			{"atk":500, "exLevelCondition":3}
 		]
 	},
@@ -25843,8 +25847,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","bow","axe","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Fira","Blizzaga","Thundara","Darkra","Darkga","Burning Bow (FFXII)"],
 		"skills": [
-			{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+			{"hp%":30, "mp%":30, "atk%":100, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":50, "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":5, "skillEnhancement":{"235350":3,"235351":3,"800480":3}},
+			{"hp%":10, "atk%":30, "equipedConditions":["bow"]},
+			{"hp%":10, "atk%":30, "equipedConditions":["spear"]},
+			{"singleWielding":{"accuracy":25,"atk":100}, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50}], "equipedConditions":[["504235284","312003500","312006400"]]},
+			{"atk%":30, "equipedConditions":["bow",["504235284","312003500","312006400"]]},
+			{"atk%":30, "equipedConditions":["spear",["504235284","312003500","312006400"]]},
+			{"mp%":20, "def%":20, "spr%":20, "levelCondition":105},
+			{"hp%":20, "levelCondition":115},
+			{"atk%":60, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
 			{"mag%":200, "oneWeaponMastery":{"mag":200}, "levelCondition":120},
 			{"killers":[{"name":"bug","physical":150,"magical":150}], "levelCondition":120},
 			{"killers":[{"name":"human","physical":150,"magical":150}], "levelCondition":120},
@@ -25853,19 +25866,6 @@
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
 			{"mpRefresh":5, "levelCondition":120},
 			{"lbPerTurn":{"min":8,"max":8}, "levelCondition":120},
-			{"hp%":30, "mp%":30, "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
-			{"skillEnhancement":{"235350":3,"235351":3,"800480":3}, "levelCondition":120},
-			{"hp%":10, "atk%":30, "equipedConditions":["bow"], "levelCondition":120},
-			{"hp%":10, "atk%":30, "equipedConditions":["spear"], "levelCondition":120},
-			{"atk%":50, "lbFillRate":50, "levelCondition":120},
-			{"def%":20, "spr%":20, "mpRefresh":5, "levelCondition":120},
-			{"atk%":50, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
-			{"singleWielding":{"accuracy":25,"atk":100}, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50}], "equipedConditions":[["504235284","312003500","312006400"]], "levelCondition":120},
-			{"atk%":30, "equipedConditions":["bow",["504235284","312003500","312006400"]], "levelCondition":120},
-			{"atk%":30, "equipedConditions":["spear",["504235284","312003500","312006400"]], "levelCondition":120},
-			{"mp%":20, "def%":20, "spr%":20, "levelCondition":120},
-			{"hp%":20, "levelCondition":120},
-			{"atk%":60, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
 			{"atk":500, "mag":500, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
@@ -26310,12 +26310,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Martial Arts Mastery","Oil","Flaming Smash","Zephyr Pole (FFXII)"],
+		"enhancements": [
+			{"name":"Martial Arts Mastery","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 		"skills": [
 			{"mp%":60, "atk%":150, "mag%":150, "evade":{"physical":30}, "oneWeaponMastery":{"atk":100,"mag":100}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":30},{"name":"lightning","percent":50},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"human","physical":300,"magical":300}], "mpRefresh":8, "drawAttacks":45},
 			{"atk%":100, "equipedConditions":["mace"]},
 			{"killers":[{"name":"stone","physical":200}], "equipedConditions":["mace"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["mace"]},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["fist"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
 			{"atk%":200, "equipedConditions":["unarmed"]},
 			{"singleWielding":{"accuracy":25,"atk":100}, "lbDamage":100, "equipedConditions":[["405021900","309009000"]]},
@@ -29646,17 +29649,21 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","hat","clothes","visionCard"],
+		"enhancementSkills":["Magic Martyr","Berserk","Justice Guard","Devastate","Bolt Thrust"],
+		"enhancements": [
+			{"name":"Justice Guard","levels":[[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}]}],[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}]]}
+		],
 		"skills": [
-			{"hp%":80, "mp%":60, "atk%":400, "def%":80, "mag%":20, "spr%":80, "singleWielding":{"accuracy":25,"atk":100}, "oneWeaponMastery":{"atk":200}, "chainMastery":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5, "lbDamage":150, "skillEnhancement":{"226751":31}},
+			{"hp%":80, "mp%":60, "atk%":400, "def%":80, "mag%":20, "spr%":80, "singleWielding":{"accuracy":25,"atk":100}, "oneWeaponMastery":{"atk":200}, "chainMastery":100, "mpRefresh":5, "lbDamage":150, "skillEnhancement":{"226751":31}},
 			{"singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "equipedConditions":[["504204250","409019600"]]},
 			{"hp%":20, "levelCondition":115},
+			{"mp%":20, "def%":20, "levelCondition":120},
+			{"atk%":60, "equipedConditions":["sword"], "levelCondition":120},
 			{"atk":500, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "levelCondition":120},
 			{"killers":[{"name":"machine","physical":100,"magical":100}], "levelCondition":120},
 			{"killers":[{"name":"stone","physical":200,"magical":200}], "levelCondition":120},
 			{"mpRefresh":8, "levelCondition":120},
-			{"lbPerTurn":{"min":4,"max":4}, "levelCondition":120},
-			{"mp%":20, "def%":20, "levelCondition":120},
-			{"atk%":60, "equipedConditions":["sword"], "levelCondition":120}
+			{"lbPerTurn":{"min":4,"max":4}, "levelCondition":120}
 		]
 	},
 	"254000304": {
@@ -30129,22 +30136,21 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","hat","clothes","visionCard"],
+		"enhancementSkills":["Siphon Sword","Hometown Survivor","Stunning Slash","Element Eiger","Crystal's Chosen One","Awakening","SPR +20%","Vermilion Slash"],
+		"enhancements": [
+			{"name":"Hometown Survivor","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}]}],[{"spr%":30,"def%":30,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}]}],[{"spr%":30,"def%":30,"atk%":30,"hp%":30,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100},{"name":"stop","percent":100}]}]]},
+			{"name":"Crystal's Chosen One","levels":[[{"lbPerTurn":{"min":1,"max":1},"equipedConditions":[["504228324","302006500"]]}],[{"lbPerTurn":{"min":1,"max":1},"skillEnhancement":{"228310":1.5,"508511":1.5,"708069":1.5,"708070":1.5,"913527":1.5,"913528":1.5},"dualWielding":{"atk":10},"equipedConditions":[["504228324","302006500"]]}],[{"spr%":20,"def%":20,"hp%":20,"lbPerTurn":{"min":1,"max":1},"skillEnhancement":{"228310":3.5,"508511":3.5,"708069":3.5,"708070":3.5,"913527":3.5,"913528":3.5},"dualWielding":{"atk":60},"equipedConditions":[["504228324","302006500"]]}]]},
+			{"name":"SPR +20%","levels":[[{"spr%":20,"levelCondition":115}],[{"spr%":30,"levelCondition":115}],[{"improvedDW":true,"levelCondition":115}]]}
+		],
 		"skills": [
+			{"hp%":30, "atk%":80, "def%":60, "spr%":30, "evoMag":20, "dualWielding":{"atk":50}, "lbFillRate":100, "mpRefresh":5, "skillEnhancement":{"228310":14,"708069":14,"708070":14}, "special":["dualWield"]},
+			{"mp%":20, "atk%":40, "levelCondition":110},
+			{"dualWielding":{"atk":40}, "mpRefresh":5, "skillEnhancement":{"228310":1.5,"228311":1.5,"228312":1.5,"228313":1.5,"508511":0.75,"708065":1.5,"708066":1.5,"708067":1.5,"708068":1.5,"708069":1.5,"708070":1.5,"913527":0.75,"913528":0.75}, "levelCondition":120},
 			{"hp%":60, "mp%":60, "atk":500, "levelCondition":120},
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "dualWielding":{"atk":100}, "chainMastery":200, "lbDamage":150, "special":["dualWield"], "levelCondition":120},
 			{"killers":[{"name":"machine","physical":100,"magical":100}], "levelCondition":120},
 			{"killers":[{"name":"plant","physical":200,"magical":200}], "levelCondition":120},
-			{"mpRefresh":5, "levelCondition":120},
-			{"special":["dualWield"], "levelCondition":120},
-			{"hp%":30, "mpRefresh":5, "levelCondition":120},
-			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}], "levelCondition":120},
-			{"atk%":30, "def%":30, "evoMag":20, "levelCondition":120},
-			{"def%":30, "spr%":30, "dualWielding":{"atk":50}, "skillEnhancement":{"228310":14,"708069":14,"708070":14}, "levelCondition":120},
-			{"atk%":50, "lbFillRate":100, "levelCondition":120},
-			{"lbPerTurn":{"min":1,"max":1}, "equipedConditions":[["504228324","302006500"]], "levelCondition":120},
-			{"mp%":20, "atk%":40, "levelCondition":120},
-			{"spr%":20, "levelCondition":120},
-			{"dualWielding":{"atk":40}, "mpRefresh":5, "skillEnhancement":{"228310":1.5,"228311":1.5,"228312":1.5,"228313":1.5,"508511":0.75,"708065":1.5,"708066":1.5,"708067":1.5,"708068":1.5,"708069":1.5,"708070":1.5,"913527":0.75,"913528":0.75}, "levelCondition":120}
+			{"mpRefresh":5, "levelCondition":120}
 		]
 	},
 	"254001905": {
@@ -30312,7 +30318,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Blizzaga"],
+		"enhancementSkills":["Icicle Flash","Hades Flash","Blizzaja","Blizzaga"],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"machine","physical":200,"magical":200},{"name":"dragon","physical":100,"magical":100},{"name":"human","physical":150,"magical":150}], "mpRefresh":5, "lbDamage":150},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]},
@@ -31513,14 +31519,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes","visionCard"],
+		"enhancementSkills":["Sizzle","Zing","Deep Breath (Slime)","Even Deeper Breath"],
 		"skills": [
+			{"mag%":50, "lbPerTurn":{"min":4,"max":4}, "mpRefresh":8, "skillEnhancement":{"0":30}},
+			{"equipedConditions":[["504205980","409054900"]]},
 			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbDamage":150, "levelCondition":120},
 			{"killers":[{"name":"aquatic","physical":200,"magical":200}], "levelCondition":120},
-			{"killers":[{"name":"plant","physical":150,"magical":150}], "levelCondition":120},
-			{"mag%":50, "skillEnhancement":{"0":30}, "levelCondition":120},
-			{"mpRefresh":8, "levelCondition":120},
-			{"lbPerTurn":{"min":4,"max":4}, "levelCondition":120},
-			{"equipedConditions":[["504205980","409054900"]], "levelCondition":120}
+			{"killers":[{"name":"plant","physical":150,"magical":150}], "levelCondition":120}
 		]
 	},
 	"306000804": {
@@ -31746,6 +31751,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Rush Hour","Knuckle Sandwich (Alena & Marquis de Léon)"],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "dualWielding":{"atk":100}, "chainMastery":200, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"beast","physical":150,"magical":150}], "mpRefresh":5, "lbDamage":150, "special":["dualWield"]},
 			{"lbDamage":50, "equipedConditions":[["504241930","309007500"]]},
@@ -34892,6 +34898,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","staff","axe","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Protectga","Cover - Physical I","Dual Break"],
 		"skills": [
 			{"hp%":200, "mp%":100, "def%":200, "spr%":100, "evade":{"physical":30}, "oneWeaponMastery":{"def":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"stop","percent":100},{"name":"fire","percent":80},{"name":"ice","percent":80},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"poison","percent":50},{"name":"blind","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100}], "mpRefresh":8, "drawAttacks":70},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["lightShield"]},
@@ -35217,6 +35224,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Donk","Five Finger Flares","Kafrizz"],
 		"skills": [
 			{"hp%":80, "mp%":250, "mag%":200, "spr%":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":25},{"name":"lightning","percent":25},{"name":"water","percent":25},{"name":"wind","percent":25},{"name":"earth","percent":25},{"name":"light","percent":25},{"name":"dark","percent":50},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200}], "mpRefresh":8},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["rod"]},
@@ -35272,6 +35280,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["hammer","gun","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Warrior Master Style Combo Fist","Tiger Shatter Fist"],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbFillRate":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":25},{"name":"ice","percent":25},{"name":"lightning","percent":25},{"name":"water","percent":25},{"name":"wind","percent":25},{"name":"earth","percent":25},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":300},
 			{"atk%":200, "equipedConditions":["unarmed"]},
@@ -35328,9 +35337,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["axe","hammer","fist","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Axe Mastery","Invincible Strength"],
+		"enhancements": [
+			{"name":"Axe Mastery","levels":[[{"equipedConditions":["axe"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["axe"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["axe"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 		"skills": [
 			{"hp%":300, "mp%":100, "def%":200, "spr%":100, "oneWeaponMastery":{"def":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"charm","percent":100},{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"lightning","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"earth","percent":40},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"stone","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"undead","physical":150,"magical":150},{"name":"beast","physical":150,"magical":150}], "mpRefresh":8, "drawAttacks":100},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["axe"]},
 			{"oneWeaponMastery":{"atk":100,"def":100}, "lbDamage":200, "equipedConditions":[["409065900","305004500","305004600","305004700","305004800","305004900"]]},
 			{"def":500, "exLevelCondition":3}
 		]
@@ -35437,6 +35449,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Cover - Magic I","Air Strike","Earth Strike"],
 		"skills": [
 			{"hp%":200, "mp%":100, "atk%":300, "def%":200, "spr%":300, "evade":{"physical":40,"magical":50}, "oneWeaponMastery":{"atk":275,"spr":325}, "chainMastery":100, "lbPerTurn":{"min":12,"max":12}, "resist":[{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"earth","percent":60},{"name":"light","percent":75},{"name":"dark","percent":75},{"name":"confuse","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200}], "lbDamage":300, "drawAttacks":30},
 			{"equipedConditions":[["409066100","308010200"]]},
@@ -35489,6 +35502,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","rod","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Hell's Chain","Dark Fire Energy"],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":240, "def%":60, "mag%":400, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":150},{"name":"ice","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"human","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":150},
 			{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"water","percent":30},{"name":"dark","percent":30}], "lbDamage":150, "equipedConditions":[["504243560","309008800"]]},
@@ -41549,10 +41563,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Essential Gear","Flaming Melons"],
+		"enhancements": [
+			{"name":"Essential Gear","levels":[[{"mag":600,"lbDamage":150,"singleWielding":{"mag":150},"equipedConditions":[["1500000199","1100000639"]]}],[{"mag":700,"lbDamage":150,"singleWielding":{"mag":150},"equipedConditions":[["1500000199","1100000639"]]}],[{"mag":800,"lbDamage":150,"singleWielding":{"mag":200},"equipedConditions":[["1500000199","1100000639"]]}],[{"mag":900,"lbDamage":150,"singleWielding":{"mag":200},"equipedConditions":[["1500000199","1100000639"]]}],[{"mag":1000,"lbDamage":150,"singleWielding":{"mag":250},"equipedConditions":[["1500000199","1100000639"]]}]]}
+		],
 		"skills": [
 			{"hp%":100, "mp%":100, "def%":100, "mag%":150, "chainMastery":100, "resist":[{"name":"fire","percent":50},{"name":"water","percent":50},{"name":"light","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"beast","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100}], "mpRefresh":7},
 			{"mp%":100, "mag%":100, "equipedConditions":["gun"]},
-			{"mag":600, "singleWielding":{"mag":150}, "lbDamage":150, "equipedConditions":[["1500000199","1100000639"]]},
 			{"hp":1000, "mag":500, "exLevelCondition":3}
 		]
 	}

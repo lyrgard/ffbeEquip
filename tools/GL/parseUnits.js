@@ -6,7 +6,7 @@ import * as commonParse from '../commonParseUnit.js'
 
 const filterGame = [20001, 20002, 20007, 20008, 20011, 20030, 20026, 20027, 20013, 20014, 20015, 20021, 20026, 20027, 20035, 20036];
 const filterUnits = ["100014604","100014504","100014703","100014405", "332000105", "204002104", "204002003", "204001904", "204001805", "100017005", "307000303", "307000404", "307000204", "100027005", 
-                     "318000205", "312000505", "312000605","256000101", "204002705", "204002805", "19900010", "100030805", "336000105"]
+                     "318000205", "312000505", "312000605","256000101", "204002705", "204002805", "19900010", "100030805", "336000105", "199000101"]
 
 const languages = ["en", "zh", "ko", "fr", "de", "es"];
 
@@ -21,7 +21,7 @@ var jpNameById = {};
 
 var languageId;
 
-var dev = process.argv.length > 2 && process.argv[2] == "dev";
+var dev = true// process.argv.length > 2 && process.argv[2] == "dev";
 if (dev) {
     console.log("dev mode : ON");
 } else {
@@ -135,6 +135,8 @@ getData('units.json', function (units) {
                                                             unitsOut[unitOut.data.id] = unitOut.data;
                                                         });
 
+                                                        slbSkillMerge(units, unitsOut);
+
                                                         var filename = 'unitsWithPassives.json';
                                                         if (languageId != 0) {
                                                             filename = 'unitsWithPassives_' + languages[languageId] + '.json';
@@ -142,6 +144,7 @@ getData('units.json', function (units) {
                                                         let string = commonParse.formatOutput(unitsOut);
                                                         string = string.substring(0, string.length - 1) + ',\n' + jpUnitsWithPassiveString + ',\n' + customUnitsWithPassiveString + '\n}';
                                                         fs.writeFileSync(filename, string);
+                                                        
                                                         filename = 'units.json';
                                                         if (languageId != 0) {
                                                             filename = 'units_' + languages[languageId] + '.json';
@@ -173,6 +176,38 @@ getData('units.json', function (units) {
         });
     });
 });
+
+function slbSkillMerge(units, unitsOut){
+    Object.keys(unitsOut).forEach((unitOutId) => {
+        let currentUnitOut = unitsOut[unitOutId];
+        Object.keys(units).forEach((unitId) => {
+            let currentUnit = units[unitId];
+            if (currentUnit.name === currentUnitOut.name){
+                if (currentUnit?.entries && currentUnit?.base_id){                        
+                    let entries = currentUnit.entries;
+                    let baseId = currentUnit.base_id;
+                    Object.keys(entries).forEach((entryId) => {
+                        if (entries[entryId].brave_shift === 38) {
+                            let basePassives = unitsOut[baseId].passives;
+                            let baseActives = unitsOut[baseId].actives;
+                            let baseMagics = unitsOut[baseId].magics;
+                            let baseEnhancementSkills = unitsOut[baseId].enhancementSkills;
+                            let baseEnhancements = unitsOut[baseId].enhancements;
+                            let baseSkills = unitsOut[baseId].skills;
+
+                            currentUnitOut.passives = basePassives;
+                            currentUnitOut.actives = baseActives;
+                            currentUnitOut.magics = baseMagics;
+                            currentUnitOut.enhancementSkills = baseEnhancementSkills;
+                            currentUnitOut.enhancements = baseEnhancements;
+                            currentUnitOut.skills = baseSkills;
+                        }
+                    })
+                }   
+            }
+        });
+    })
+}
 
 function manageNV(units) {
     const braveShiftUnitIdByBaseUnitId = [];
@@ -427,7 +462,6 @@ function lowerCaseKeys(obj) {
     });
     return obj;
 }
-
 
 function verifyImage(serieId, minRarity, maxRarity) {
     for (var i = minRarity; i <= maxRarity; i++) {
