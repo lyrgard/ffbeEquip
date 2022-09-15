@@ -2085,6 +2085,8 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         // Evo Damage
     } else if(rawEffect[2] == 124){
         result = {"damage":{"mecanism":"summonerSkill", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
+        console.log(skillIn)
+        console.log(rawEffect)
         if (rawEffect[3].length >= 10 && Array.isArray(rawEffect[3][9])) {
             result.damage.magSplit = rawEffect[3][9][0] / 100;
             result.damage.sprSplit = rawEffect[3][9][1] / 100;
@@ -2284,6 +2286,25 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             result.damage.use = {"stat":"def","percent":100,"max":99999};
         } else if (statUsedForDamage === 4) {
             result.damage.use = {"stat":"spr","percent":100,"max":99999};
+        }
+    
+        // Evoke damage with morale scaling
+    } else if (rawEffect[2] == 1024) {
+        // [ 2, 1, 1024, [ 12500, 0, [ 100, 0 ], [ 500, 0 ], 5, 100, 1 ] ]
+        // AoE, times to fire damaging EVO ability, [mod, default for the morale is 0, [MAG, SPR for base ability], [MAG, SPR for morale gain], morale interval, overThisValue, fireAditionalAbility once]
+        result = {
+            "damage":{
+                "mecanism":"summonerSkill", 
+                "damageType":"evoke", 
+                "magCoef":rawEffect[3][3][0]/100, 
+                "sprCoef":rawEffect[3][3][1]/100, 
+                "magSplit":0.5, 
+                "sprSplit":0.5
+            }};
+
+        if (rawEffect[3].length >= 7 && Array.isArray(rawEffect[3][2]) && Array.isArray(rawEffect[3][3])) {
+            result.damage.magSplit = rawEffect[3][3][0] / 100;
+            result.damage.sprSplit = rawEffect[3][3][1] / 100;
         }
 
         // Absorb dark damage
