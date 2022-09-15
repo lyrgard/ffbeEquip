@@ -4745,8 +4745,8 @@ function startPage() {
 
 function initWorkerNumber() {
     if (navigator.hardwareConcurrency) {
-        //keep one core for the rest of the device
-        numberOfWorkers = navigator.hardwareConcurrency - 1;
+        //keep half for the rest of the device
+        numberOfWorkers = navigator.hardwareConcurrency / 2;
         //correction for machines with one core
         if (numberOfWorkers < 1){
             numberOfWorkers = 1;
