@@ -21,7 +21,7 @@ var jpNameById = {};
 
 var languageId;
 
-var dev = true// process.argv.length > 2 && process.argv[2] == "dev";
+var dev = process.argv.length > 2 && process.argv[2] == "dev";
 if (dev) {
     console.log("dev mode : ON");
 } else {

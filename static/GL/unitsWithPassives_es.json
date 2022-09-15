@@ -43118,6 +43118,67 @@
 			{"mag":600, "singleWielding":{"mag":150}, "lbDamage":150, "equipedConditions":[["1500000199","1100000639"]]},
 			{"hp":1000, "mag":500, "exLevelCondition":3}
 		]
+	},
+	"401013607": {
+		"name":"Sacerdotisa Tsukiko",
+		"roles":["support","magicalAttacker"],
+		"wikiEntry":"Shrine_Maiden Tsukiko",
+		"id":"401013607",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401013617",
+		"exAwakening": [{"hp":650,"mp":40,"atk":18,"def":23,"mag":78,"spr":25},{"hp":500,"mp":31,"atk":14,"def":18,"mag":60,"spr":19},{"hp":350,"mp":21,"atk":10,"def":12,"mag":42,"spr":13}],
+		"fragmentId": "310000950",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":305,"atk":140,"def":178,"mag":300,"spr":190},
+			"minStats":{"hp":1650,"mp":101,"atk":46,"def":59,"mag":99,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Sacred Shrine's Blessing","Guardian of the Shrine"],
+		"enhancements": [
+			{"name":"Sacred Shrine's Blessing","levels":[[{"mag":300,"evoMag":50,"lbDamage":50,"singleWielding":{"mag":150},"mpRefresh":15,"equipedConditions":[["1500000203","1100000648","1100000335","1100000336"]]}],[{"mag":400,"evoMag":75,"lbDamage":75,"singleWielding":{"mag":150},"mpRefresh":15,"equipedConditions":[["1500000203","1100000648","1100000335","1100000336"]]}],[{"mag":500,"evoMag":100,"lbDamage":100,"singleWielding":{"mag":150},"mpRefresh":15,"equipedConditions":[["1500000203","1100000648","1100000335","1100000336"]]}],[{"mag":600,"evoMag":125,"lbDamage":125,"singleWielding":{"mag":150},"mpRefresh":15,"equipedConditions":[["1500000203","1100000648","1100000335","1100000336"]]}],[{"mag":750,"evoMag":150,"lbDamage":150,"singleWielding":{"mag":150},"mpRefresh":15,"equipedConditions":[["1500000203","1100000648","1100000335","1100000336"]]}]]},
+			{"name":"Guardian of the Shrine","levels":[[{"killers":[{"name":"demon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}]}],[{"killers":[{"name":"demon","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"stone","physical":150,"magical":150},{"name":"undead","physical":150,"magical":150}]}],[{"killers":[{"name":"demon","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}]}],[{"killers":[{"name":"demon","physical":250,"magical":250},{"name":"spirit","physical":250,"magical":250},{"name":"stone","physical":250,"magical":250},{"name":"undead","physical":250,"magical":250}]}],[{"killers":[{"name":"demon","physical":300,"magical":300},{"name":"spirit","physical":300,"magical":300},{"name":"stone","physical":300,"magical":300},{"name":"undead","physical":300,"magical":300}]}]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":100, "def%":140, "mag%":280, "spr%":140, "evoMag":50, "evokeDamageBoost":{"all":100}, "evade":{"magical":50}, "singleWielding":{"mag":150}, "chainMastery":100, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
+			{"mag":500, "singleWielding":{"mag":100}, "exLevelCondition":2},
+			{"mag":1000, "chainMastery":100, "lbDamage":150, "exLevelCondition":3}
+		]
+	},
+	"401013617": {
+		"name":"Sacerdotisa Tsukiko BS",
+		"roles":["magicalAttacker","debuffer"],
+		"wikiEntry":"Shrine_Maiden Tsukiko",
+		"id":"401013617",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401013607",
+		"exAwakening": [{"hp":650,"mp":40,"atk":18,"def":23,"mag":78,"spr":25},{"hp":500,"mp":31,"atk":14,"def":18,"mag":60,"spr":19},{"hp":350,"mp":21,"atk":10,"def":12,"mag":42,"spr":13}],
+		"fragmentId": "310000950",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5100,"mp":290,"atk":140,"def":168,"mag":315,"spr":190},
+			"minStats":{"hp":1683,"mp":96,"atk":46,"def":55,"mag":104,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Sacred Shrine's Blessing","Fox's Karma - Earthquake"],
+		"enhancements": [
+			{"name":"Sacred Shrine's Blessing","levels":[[{"mag":300,"evoMag":50,"lbDamage":50,"singleWielding":{"mag":150},"mpRefresh":15,"equipedConditions":[["1500000203","1100000648","1100000335","1100000336"]]}],[{"mag":400,"evoMag":75,"lbDamage":75,"singleWielding":{"mag":150},"mpRefresh":15,"equipedConditions":[["1500000203","1100000648","1100000335","1100000336"]]}],[{"mag":500,"evoMag":100,"lbDamage":100,"singleWielding":{"mag":150},"mpRefresh":15,"equipedConditions":[["1500000203","1100000648","1100000335","1100000336"]]}],[{"mag":600,"evoMag":125,"lbDamage":125,"singleWielding":{"mag":150},"mpRefresh":15,"equipedConditions":[["1500000203","1100000648","1100000335","1100000336"]]}],[{"mag":750,"evoMag":150,"lbDamage":150,"singleWielding":{"mag":150},"mpRefresh":15,"equipedConditions":[["1500000203","1100000648","1100000335","1100000336"]]}]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":100, "def%":140, "mag%":280, "spr%":140, "evoMag":50, "evokeDamageBoost":{"all":100}, "evade":{"magical":50}, "singleWielding":{"mag":150}, "chainMastery":100, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
+			{"mag":500, "singleWielding":{"mag":100}, "exLevelCondition":2},
+			{"mag":1000, "chainMastery":100, "lbDamage":150, "exLevelCondition":3}
+		]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker"],"id":"100000115","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"],"skills":[{"hp%":30,"def%":30,"singleWieldingOneHanded":{"accuracy":25,"atk":75},"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50}],"killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25},{"name":"dragon","physical":25},{"name":"bug","physical":25}]},{"def%":60,"equipedConditions":["heavyArmor"]},{"atk%":50,"equipedConditions":["greatSword"]}]},

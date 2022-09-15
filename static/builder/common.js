@@ -62,11 +62,12 @@ function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
     if (notStackableSkillsAlreadyUsed && item.notStackableSkills) {
         for (var index = notStackableSkillsAlreadyUsed.length; index--;) {
             if (item.notStackableSkills[notStackableSkillsAlreadyUsed[index]]) {
-                //console.log(notStackableSkillsAlreadyUsed)
+                console.log(notStackableSkillsAlreadyUsed)
                 value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath);
-                //value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]].staticStats, valuePath);
+                value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]].staticStats, valuePath);
             }
         }
+        notStackableSkillsAlreadyUsed = {};
     }
     return value;
 }

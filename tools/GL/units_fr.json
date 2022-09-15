@@ -31541,6 +31541,50 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]
+	},
+	"401013607": {
+		"name":"Tsukiko, prêtresse gardienne",
+		"roles":["support","magicalAttacker"],
+		"wikiEntry":"Shrine_Maiden Tsukiko",
+		"id":"401013607",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401013617",
+		"exAwakening": [{"hp":650,"mp":40,"atk":18,"def":23,"mag":78,"spr":25},{"hp":500,"mp":31,"atk":14,"def":18,"mag":60,"spr":19},{"hp":350,"mp":21,"atk":10,"def":12,"mag":42,"spr":13}],
+		"fragmentId": "310000950",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":305,"atk":140,"def":178,"mag":300,"spr":190},
+			"minStats":{"hp":1650,"mp":101,"atk":46,"def":59,"mag":99,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Sacred Shrine's Blessing","Guardian of the Shrine"]
+	},
+	"401013617": {
+		"name":"Tsukiko, prêtresse gardienne BS",
+		"roles":["magicalAttacker","debuffer"],
+		"wikiEntry":"Shrine_Maiden Tsukiko",
+		"id":"401013617",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401013607",
+		"exAwakening": [{"hp":650,"mp":40,"atk":18,"def":23,"mag":78,"spr":25},{"hp":500,"mp":31,"atk":14,"def":18,"mag":60,"spr":19},{"hp":350,"mp":21,"atk":10,"def":12,"mag":42,"spr":13}],
+		"fragmentId": "310000950",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5100,"mp":290,"atk":140,"def":168,"mag":315,"spr":190},
+			"minStats":{"hp":1683,"mp":96,"atk":46,"def":55,"mag":104,"spr":63},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Sacred Shrine's Blessing","Fox's Karma - Earthquake"]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker"],"id":"100000115","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"]},
