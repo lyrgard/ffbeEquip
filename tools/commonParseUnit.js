@@ -2289,17 +2289,17 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         // Evoke damage with morale scaling
     } else if (rawEffect[2] == 1024) {
         // [ 2, 1, 1024, [ 12500, 0, [ 100, 0 ], [ 500, 0 ], 5, 100, 1 ] ]
-        // AoE, times to fire damaging EVO ability, [mod, default for the morale is 0, [MAG, SPR for base ability], [MAG, SPR for morale gain], morale interval, overThisValue, fireAditionalAbility once]
+        // AoE, times to fire damaging EVO ability, [MAG modifier, SPR modifier, [MAG, SPR for base ability], [MAG, SPR for morale gain], morale interval, overThisValue, fireAditionalAbility once]
         result = {
             "damage":{
                 "mecanism":"summonerSkill", 
                 "damageType":"evoke", 
-                "magCoef":rawEffect[3][2][0]/100, 
-                "sprCoef":rawEffect[3][2][1]/100,
-                "moraleMagCoef": rawEffect[3][3][0] / 100, 
-                "moraleSprCoef": rawEffect[3][3][1] / 100,
+                "magCoef":rawEffect[3][0]/100, 
+                "sprCoef":rawEffect[3][1]/100,
                 "magSplit":0.5, 
                 "sprSplit":0.5,
+                "moraleMagCoef": rawEffect[3][3][0] / 100, 
+                "moraleSprCoef": rawEffect[3][3][1] / 100,
                 "moraleMagSplit":0.5, 
                 "moraleSprSplit":0.5
             }};
