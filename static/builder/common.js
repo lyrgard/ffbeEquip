@@ -64,7 +64,7 @@ function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
             if (item.notStackableSkills[notStackableSkillsAlreadyUsed[index]]) {
                 console.log(notStackableSkillsAlreadyUsed)
                 value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath);
-                value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]].staticStats, valuePath);
+                //value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]].staticStats, valuePath);
             }
         }
         notStackableSkillsAlreadyUsed = {};
