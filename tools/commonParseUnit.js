@@ -2085,8 +2085,6 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         // Evo Damage
     } else if(rawEffect[2] == 124){
         result = {"damage":{"mecanism":"summonerSkill", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
-        console.log(skillIn)
-        console.log(rawEffect)
         if (rawEffect[3].length >= 10 && Array.isArray(rawEffect[3][9])) {
             result.damage.magSplit = rawEffect[3][9][0] / 100;
             result.damage.sprSplit = rawEffect[3][9][1] / 100;
@@ -2296,15 +2294,22 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             "damage":{
                 "mecanism":"summonerSkill", 
                 "damageType":"evoke", 
-                "magCoef":rawEffect[3][3][0]/100, 
-                "sprCoef":rawEffect[3][3][1]/100, 
+                "magCoef":rawEffect[3][2][0]/100, 
+                "sprCoef":rawEffect[3][2][1]/100,
+                "moraleMagCoef": rawEffect[3][3][0] / 100, 
+                "moraleSprCoef": rawEffect[3][3][1] / 100,
                 "magSplit":0.5, 
-                "sprSplit":0.5
+                "sprSplit":0.5,
+                "moraleMagSplit":0.5, 
+                "moraleSprSplit":0.5
             }};
 
-        if (rawEffect[3].length >= 7 && Array.isArray(rawEffect[3][2]) && Array.isArray(rawEffect[3][3])) {
-            result.damage.magSplit = rawEffect[3][3][0] / 100;
-            result.damage.sprSplit = rawEffect[3][3][1] / 100;
+        if (rawEffect[3].length > 7 && Array.isArray(rawEffect[3][2]) && Array.isArray(rawEffect[3][3])) {
+            console.log("NOT A 100%/0 SPLIT POSSIBILITY FOR " + skillIn.name)
+            // result.damage.magSplit = rawEffect[3][3][0] / 100;
+            // result.damage.sprSplit = rawEffect[3][3][1] / 100;
+            // result.damage.moraleMagSplit = rawEffect[3][4][0] / 100;
+            // result.damage.moraleSprSplit = rawEffect[3][4][1] / 100;
         }
 
         // Absorb dark damage
