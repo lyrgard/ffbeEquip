@@ -734,6 +734,11 @@ var toUrl = function(name) {
         return "";
     }
     let link = wikiBaseUrl + encodeURIComponent(name.replace(/ /g, '_'));
+    
+    if (link.includes('_BS')){
+        link = link.replace('_BS', '')
+    }
+
     if (server == 'JP') {
         link += '/JP';
     }
