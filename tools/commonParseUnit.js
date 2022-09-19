@@ -973,15 +973,34 @@ export function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
         }
         result = [];
         for (var i = typeArray.length; i--;) {
-            var conditionnedKillerSKill = {"equipedConditions":[typeMap[typeArray[i]]]};
+            var conditionedKillerSkill = {"equipedConditions":[typeMap[typeArray[i]]]};
             var killerData = rawEffect[3];
+            let physicalPercent, magicalPercent;
+            if (Array.isArray(killerData[1])){
+                for (let j = 0; j < killerData.length; j++){
+                    let killerRace = raceMap[killerData[1][j]];
+                    if (Array.isArray(killerData[2])){
+                        physicalPercent = killerData[2][j];
+                    } else {
+                        physicalPercent = killerData[2];
+                    }
 
-            var killerRace = raceMap[killerData[1]];
-            var physicalPercent = killerData[2];
-            var magicalPercent = killerData[3];
-            addKiller(conditionnedKillerSKill, killerRace, physicalPercent, magicalPercent);
+                    if (Array.isArray(killerData[3])){
+                        magicalPercent = killerData[3][j];
+                    } else {
+                        magicalPercent = killerData[3];
+                    }
+                    
+                    addKiller(conditionedKillerSkill, killerRace, physicalPercent, magicalPercent);
+                }
+            } else {
+                let killerRace = raceMap[killerData[1]];
+                physicalPercent = killerData[2];
+                magicalPercent = killerData[3];
+                addKiller(conditionedKillerSkill, killerRace, physicalPercent, magicalPercent);
+            }
 
-            result.push(conditionnedKillerSKill);
+            result.push(conditionedKillerSkill);
         }
         return result;
 
@@ -2543,7 +2562,9 @@ export function addKiller(skill, race, physicalPercent, magicalPercent) {
     if (!skill.killers) {
         skill.killers = [];
     }
+
     var killerData;
+    
     for (var index in skill.killers) {
         if (skill.killers[index].name == race) {
             killerData = skill.killers[index];
@@ -2552,9 +2573,13 @@ export function addKiller(skill, race, physicalPercent, magicalPercent) {
     }
     
     if (!killerData) {
+        if (Array.isArray(race)) {
+            console.log(race)
+        }
         killerData = {"name":race};
         skill.killers.push(killerData);
     }
+
     if (physicalPercent != 0) {
         if (killerData.physical) {
             killerData.physical += physicalPercent;
@@ -2562,6 +2587,7 @@ export function addKiller(skill, race, physicalPercent, magicalPercent) {
             killerData.physical = physicalPercent;
         }
     }
+    
     if (magicalPercent != 0) {
         if (killerData.magical) {
             killerData.magical += magicalPercent;

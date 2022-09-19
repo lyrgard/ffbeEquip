@@ -42543,7 +42543,7 @@
 		"enhancementSkills":["Trouble Brewing!?","Revitalizing Brew"],
 		"skills": [
 			{"hp%":50, "mp%":80, "def%":50, "mag%":220, "spr%":50, "evade":{"magical":75}, "singleWielding":{"mag":400}, "chainMastery":100, "resist":[{"name":"fire","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
-			{"killers":[{"magical":[150,150]}], "equipedConditions":["throwing"]},
+			{"killers":[{"name":"aquatic","magical":150},{"name":"plant","magical":150},{}], "equipedConditions":["throwing"]},
 			{"equipedConditions":[["1100000230","1100000231","1100000559","1100000560"]]},
 			{"mag":500, "exLevelCondition":3}
 		]
@@ -42571,7 +42571,7 @@
 		"enhancementSkills":["Trouble Brewing!?","Fantastic Formula"],
 		"skills": [
 			{"hp%":50, "mp%":80, "def%":50, "mag%":220, "spr%":50, "evade":{"magical":75}, "singleWielding":{"mag":400}, "chainMastery":100, "resist":[{"name":"fire","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
-			{"killers":[{"magical":[150,150]}], "equipedConditions":["throwing"]},
+			{"killers":[{"name":"aquatic","magical":150},{"name":"plant","magical":150},{}], "equipedConditions":["throwing"]},
 			{"equipedConditions":[["1100000230","1100000231","1100000559","1100000560"]]},
 			{"mag":500, "exLevelCondition":3}
 		]
