@@ -44,29 +44,34 @@ const weaponBaseDamageVariance =
 
 const valuesToNotRoundDown = ["lbPerTurn"];
 
-function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
-    
-    var value = item[valuePath];
+function getValue(item, valuePath, notStackableSkillsAlreadyUsed, accessory) {
 
-    if (value == undefined) {
+    var value = item[valuePath]; // Item[atk] for instance.
+
+    if (value == undefined) { // If there isn't a stat of that kind on this item
         if (valuePath.indexOf('.') > -1) {
-            value = getValueFromPath(item, valuePath);
+            value = getValueFromPath(item, valuePath); // evade.magical, evade.physical, resist|sleep.percent, resist|fire.percent for example.
         } else {
-            value = 0;
+            value = 0; // If we  have no idea what it is, value just equal zero for this stat.
         }
-        item[valuePath] = value;
+        item[valuePath] = value; // item.atk = value
     }
-    if (value.min && value.max) {
+    
+    if (value.min && value.max) { // if it has a min and max, get the average.
         value = (value.min + value.max) / 2;
     }
-    if (notStackableSkillsAlreadyUsed && item.notStackableSkills) {
+
+    if (notStackableSkillsAlreadyUsed && item.notStackableSkills) { // If there's nonstackableSkills and this item has notStackableSkills, then for each nonStackableSkill, reduce the value by that amount recursively.
         for (var index = notStackableSkillsAlreadyUsed.length; index--;) {
             if (item.notStackableSkills[notStackableSkillsAlreadyUsed[index]]) {
-                value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath);
-                //value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]].staticStats, valuePath);
+                if (accessory){
+                    value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath) / 2;
+                    value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]].staticStats, valuePath);
+                } else {
+                    value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath);
+                }
             }
         }
-        notStackableSkillsAlreadyUsed = {};
     }
     return value;
 }
@@ -1330,7 +1335,10 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         equipmentStatBonus = 1;
     }
 
-    var notStackableSkillsAlreadyUsed = [];
+    if (notStackableSkillsAlreadyUsed === null || notStackableSkillsAlreadyUsed === undefined){
+        var notStackableSkillsAlreadyUsed = [];
+    }
+    
 
     for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
         if (itemAndPassives[equipedIndex]) {
@@ -1417,7 +1425,14 @@ function calculateStateValueForIndex(items, index, baseValue, currentPercentIncr
             let staticValue = item.staticStats ? item.staticStats[stat] || 0 : 0;
             if (index === 10 && baseStats.includes(stat)) {
                 value = 0; // Vision Card flat stats are added to the base value directly earlier in the calculation
-            } else {
+            } else if (index === 4 || index === 5) {
+                if (items[4] === items[5]){ // If the accessories are the same, we need to account for double reductions.
+                    value = getValue(item, stat, notStackableSkillsAlreadyUsed, "accessory");
+                } else {
+                    value = getValue(item, stat, notStackableSkillsAlreadyUsed);
+                } 
+            }
+            else {
                 value = getValue(item, stat, notStackableSkillsAlreadyUsed);
             }
             if (item[percentValues[stat]]) {

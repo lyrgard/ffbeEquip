@@ -1,6 +1,7 @@
-﻿var fs = require('fs');
-var request = require('request');
-var PNG = require('pngjs').PNG;
+﻿import fs from 'fs';
+import request from 'request';
+import PNG from 'pngjs';
+import { exit } from 'process';
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -110,7 +111,13 @@ const unitRules = {
     4008: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10007], // FF7 units
     7102: (item) => item.exclusiveSex = 'male',// Male units
     7103: (item) => item.exclusiveSex = 'female',// Female units,
-    7111: (item) => item.exclusiveRoles = ['physicalAttacker', 'magicalAttacker'],
+    7110: (item) => item.exclusiveRoles = ['physicalAttacker'],
+    7111: (item) => item.exclusiveRoles = ['magicalAttacker'],
+    7112: (item) => item.exclusiveRoles = ['physicalTank'],
+    7113: (item) => item.exclusiveRoles = ['magicalTank'],
+    7114: (item) => item.exclusiveRoles = ['healer'],
+    7115: (item) => item.exclusiveRoles = ['support'],
+    7116: (item) => item.exclusiveRoles = ['debuffer'],
     7201: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10001], // FF1
     7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
     7203: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10003], // FF3
@@ -173,7 +180,7 @@ function getData(filename, callback) {
 console.log("Starting");
 if (!fs.existsSync('../../static/JP/data.json')) {
     console.log("old data not accessible");
-    return;
+    exit(0);
 }
 getData('equipment.json', function (items) {
     getData('materia.json', function (materias) {
@@ -251,8 +258,8 @@ getData('equipment.json', function (items) {
                                                 treatItem(materias,materiaId, result, skills);
                                             }
                                             fs.writeFileSync('data.json', formatOutput(result.items));
-                                            cards = [];
-                                            for (visionCardId in visionCards) {
+                                            let cards = [];
+                                            for (let visionCardId in visionCards) {
                                                 cards.push(treatVisionCard(visionCards[visionCardId], visionCardId, skills));
                                             }
                                             fs.writeFileSync('visionCards.json', formatVisionCards(cards));
@@ -385,7 +392,7 @@ function treatVisionCard(visionCard, visionCardId, skills) {
         let levelData = {};
         card.levels.push(levelData);
         stats.forEach(stat => {
-            value = visionCard.stats[stat][0] + (visionCard.stats[stat][1] - visionCard.stats[stat][0]) * visionCardStatPatterns[visionCard.stat_pattern][visionCard.max_level][level - 1] / 100;
+            let value = visionCard.stats[stat][0] + (visionCard.stats[stat][1] - visionCard.stats[stat][0]) * visionCardStatPatterns[visionCard.stat_pattern][visionCard.max_level][level - 1] / 100;
             addStat(levelData, stat.toLowerCase(), Math.floor(value));
         });
         for (let i = 1; i <= level; i++) {
@@ -417,6 +424,7 @@ function treatVisionCard(visionCard, visionCardId, skills) {
                                 if (!Object.keys(unitRules).includes(ruleId.toString())) {
                                     console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
                                 }
+                                console.log(ruleId)
                                 unitRules[ruleId](conditional);
                                 levelData.conditional.push(conditional);
                             } else {
@@ -488,7 +496,7 @@ function readSkills(itemIn, itemOut, skills) {
                     }
                     var notStackableSkill = {};
                     for (var rawEffectIndex in skill.effects_raw) {
-                        rawEffect = skill.effects_raw[rawEffectIndex];
+                        let rawEffect = skill.effects_raw[rawEffectIndex];
                         addEffectToItem(notStackableSkill, skill, rawEffectIndex, skills)
                     }
                     itemOut.notStackableSkills[skillId] = notStackableSkill;
@@ -500,7 +508,7 @@ function readSkills(itemIn, itemOut, skills) {
                 } else {
                     var effectsNotTreated = [];
                     for (var rawEffectIndex in skill.effects_raw) {
-                        rawEffect = skill.effects_raw[rawEffectIndex];
+                        let rawEffect = skill.effects_raw[rawEffectIndex];
 
                         // Mastery (+X% stat if equiped with ...)
                         if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
@@ -1165,7 +1173,7 @@ function formatOutput(items) {
 }
 
 function formatItem(item) {
-    result = "{";
+    let result = "{";
     var firstProperty = true;
     for (var propertyIndex in itemProperties) {
         var property = itemProperties[propertyIndex];

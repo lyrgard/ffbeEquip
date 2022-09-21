@@ -1,10 +1,10 @@
-var fs = require('fs');
-var request = require('request');
-var PNG = require('pngjs').PNG;
-var commonParse = require('../commonParseUnit');
+import fs from 'fs';
+import request from 'request';
+import PNG from 'pngjs';
+import * as commonParse from '../commonParseUnit.js'
 
-filterGame = [];
-filterUnits = ["199000101", "256000301"]
+let filterGame = [];
+let filterUnits = ["199000101", "256000301"]
 
 var enhancementsByUnitId = {};
 var glNameById = {};
@@ -128,7 +128,7 @@ function manageNV(units) {
         }
         if (unitIn.rarity_max == 7 || unitIn.rarity_max == 'NV') {
             const baseUnitId = unitId.substr(0, unitId.length -1);
-            nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
+            let nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
             if (nvIds.length) {
                 unitIn.rarity_max = 'NV';
                 unitIn.entries[nvIds[0]].rarity = 'NV';
@@ -172,7 +172,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
     
     var unitStats = {"minStats":{}, "maxStats":{}, "pots":{}};
 
-    for (entryId in unitIn.entries) {
+    for (let entryId in unitIn.entries) {
         if (unitIn.entries[entryId].rarity == maxRariry) {
             unitData = unitIn.entries[entryId];
             for (var statIndex in commonParse.stats) {
@@ -226,7 +226,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
     data["id"] = unitId;
     
     data["enhancementSkills"] = [];
-    for (skillIndex in unitIn.skills) {
+    for (let skillIndex in unitIn.skills) {
         if (unitIn.skills[skillIndex].rarity > unitIn.rarity_max) {
             continue; // don't take into account skills for a max rarity not yet released
         }
