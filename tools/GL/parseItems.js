@@ -1,3 +1,4 @@
+import e from 'express';
 import fs from 'fs';
 import request from 'request';
 
@@ -1262,9 +1263,21 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             item.skillEnhancement = {};
         }
         if (Array.isArray(rawEffect[3][0])) {
+            // Skill List 
             for (var i = rawEffect[3][0].length; i--;) {
                 addStat(item.skillEnhancement, rawEffect[3][0][i].toString(), rawEffect[3][3] / 100);
             }
+        } else if (Array.isArray(rawEffect[3]) && parseInt(rawEffect[3][1])){
+            // All Abilities of Type
+            let type;
+            if (rawEffect[3][1] === 1) {
+                type = "allPhysicalAttacks"
+            } else if (rawEffect[3][1] === 2) {
+                type = "allMagicalAttacks"
+            } else {
+                console.log("NEW TYPE : " + rawEffect[3][1])
+            }
+            addStat(item.skillEnhancement, type, rawEffect[3][3] / 100);
         } else {
             addStat(item.skillEnhancement, rawEffect[3][0].toString(), rawEffect[3][3] / 100);
         }    

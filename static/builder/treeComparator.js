@@ -4,15 +4,15 @@ class TreeComparator {
         return {"parent":null,"children":[],"root":true,"available":0};
     }
 
-    static insertItemIntoTree(treeItem, newTreeItem, involvedStats, ennemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding = true, includeDualWielding = true, currentDepth = 0) {
-        var comparison = comparisonFunction(treeItem, newTreeItem, involvedStats, ennemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding);
+    static insertItemIntoTree(treeItem, newTreeItem, involvedStats, enemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding = true, includeDualWielding = true, currentDepth = 0) {
+        var comparison = comparisonFunction(treeItem, newTreeItem, involvedStats, enemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding);
         switch (comparison) {
             case "strictlyWorse":
                 // Entry is strictly worse than treeItem
                 if (currentDepth < maxDepth) {
                     var inserted = false
                     for (var index = 0, len = treeItem.children.length; index < len; index++) {
-                        inserted = inserted || TreeComparator.insertItemIntoTree(treeItem.children[index], newTreeItem, involvedStats, ennemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding, includeDualWielding, depthFunction(treeItem.children[index], currentDepth));
+                        inserted = inserted || TreeComparator.insertItemIntoTree(treeItem.children[index], newTreeItem, involvedStats, enemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding, includeDualWielding, depthFunction(treeItem.children[index], currentDepth));
                     }
 
                     if (!inserted) {
@@ -24,9 +24,9 @@ class TreeComparator {
                         var indexToRemove = [];
                         for (var index = 0, len = treeItem.children.length; index < len; index++) {
                             var oldTreeItem = treeItem.children[index]
-                            if (oldTreeItem != newTreeItem && comparisonFunction(oldTreeItem, newTreeItem, involvedStats, ennemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding) == "strictlyBetter") {
+                            if (oldTreeItem != newTreeItem && comparisonFunction(oldTreeItem, newTreeItem, involvedStats, enemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding) == "strictlyBetter") {
                                 indexToRemove.push(index);
-                                TreeComparator.insertItemIntoTree(newTreeItem, oldTreeItem, involvedStats, ennemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding, includeDualWielding, depthFunction(newTreeItem, currentDepth));
+                                TreeComparator.insertItemIntoTree(newTreeItem, oldTreeItem, involvedStats, enemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding, includeDualWielding, depthFunction(newTreeItem, currentDepth));
                             }
                         }
                         for (var index = indexToRemove.length - 1; index >= 0; index--) {
@@ -170,12 +170,12 @@ class TreeComparator {
     }
 
 
-    static compareByKillers(item1, item2, applicableKillerType, ennemyRaces) {
-        if (ennemyRaces.length) {
+    static compareByKillers(item1, item2, applicableKillerType, enemyRaces) {
+        if (enemyRaces.length) {
             var applicableKillers1 = {};
             if (item1.killers) {
                 for (var killerIndex = item1.killers.length; killerIndex--;) {
-                    if (ennemyRaces.includes(item1.killers[killerIndex].name) && item1.killers[killerIndex][applicableKillerType]) {
+                    if (enemyRaces.includes(item1.killers[killerIndex].name) && item1.killers[killerIndex][applicableKillerType]) {
                         applicableKillers1[item1.killers[killerIndex].name] = item1.killers[killerIndex][applicableKillerType];
                     }
                 }
@@ -183,7 +183,7 @@ class TreeComparator {
             var applicableKillers2 = {};
             if (item2.killers) {
                 for (var killerIndex = item2.killers.length; killerIndex--;) {
-                    if (ennemyRaces.includes(item2.killers[killerIndex].name) && item2.killers[killerIndex][applicableKillerType]) {
+                    if (enemyRaces.includes(item2.killers[killerIndex].name) && item2.killers[killerIndex][applicableKillerType]) {
                         applicableKillers2[item2.killers[killerIndex].name] = item2.killers[killerIndex][applicableKillerType];
                     }
                 }
@@ -327,20 +327,42 @@ class TreeComparator {
     }
     
     static compareBySkillEnhancement(item1, item2, skillId) {
+        
         if (!item1.skillEnhancement && !item2.skillEnhancement) {
             return "equivalent";
         } else {
-            let enh1 = 0;
-            let enh2 = 0;
+            let enh1, enhPhysMod1, enhMagMod1 = 0;
+            let enh2, enhPhysMod2, enhMagMod2 = 0;
+
+            // Item 1
             if (item1.skillEnhancement && item1.skillEnhancement[skillId]) {
                enh1 = item1.skillEnhancement[skillId];
+            }
+            if (item1.skillEnhancement && item1.skillEnhancement["allPhysicalAttacks"]) {
+                enhPhysMod1 = item1.skillEnhancement["allPhysicalAttacks"]
+            }
+            if (item1.skillEnhancement && item1.skillEnhancement["allMagicalAttacks"]) {
+                enhMagMod1 = item1.skillEnhancement["allMagicalAttacks"]
+            }
+            
+            // Item 2
+            if (item2.skillEnhancement && item2.skillEnhancement["allPhysicalAttacks"]) {
+                enhPhysMod1 = item2.skillEnhancement["allPhysicalAttacks"]
+            }
+            if (item2.skillEnhancement && item2.skillEnhancement["allMagicalAttacks"]) {
+                enhMagMod1 = item2.skillEnhancement["allMagicalAttacks"]
             }
             if (item2.skillEnhancement && item2.skillEnhancement[skillId]) {
                 enh2 = item2.skillEnhancement[skillId];
             }
-            if (enh1 < enh2) {
+
+            if (enh1 < enh2 || enhPhysMod1 < enhPhysMod2 || enhMagMod1 < enhMagMod2) {
                 return "strictlyBetter";
-            } else if (enh1 > enh2) {
+            } else if (enh1 > enh2 || enhPhysMod1 > enhPhysMod2 || enhMagMod1 > enhMagMod2) {
+                console.log(enhMagMod1 + " " + enhMagMod2)
+                console.log(skillId)
+                console.log(item1)
+                console.log(item2)
                 return "strictlyWorse";
             } else {
                 return "equivalent";

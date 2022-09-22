@@ -337,7 +337,7 @@ diff --git a/static/builder/common.js b/static/builder/common.js
 index 646e1f8..d5ee33b 100644
 --- a/static/builder/common.js
 +++ b/static/builder/common.js
-@@ -122,7 +122,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
+@@ -122,7 +122,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemyS
              "stack": {
                  "currentStack":unitBuild.baseValues.currentStack,
                  "lastStackingSkillId":"any"
@@ -347,7 +347,7 @@ index 646e1f8..d5ee33b 100644
          }
          for (var i = 0; i < itemAndPassives.length; i++) {
              if (itemAndPassives[i] && itemAndPassives[i].skillEnhancement) {
-@@ -136,6 +137,18 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
+@@ -136,6 +137,18 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemyS
                  }
              }
          }

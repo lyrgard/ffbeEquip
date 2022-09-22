@@ -22,18 +22,18 @@ function minify(data) {
             minified.c[minified.c.length] = elementList.indexOf(data.innateElements[i]);
         }
     }
-    if (data.ennemyRaces && data.ennemyRaces.length > 0) {
+    if (data.enemyRaces && data.enemyRaces.length > 0) {
         minified.d = [];
-        for (var i = 0, len = data.ennemyRaces.length; i < len; i++) {
-            minified.d[minified.d.length] = killerList.indexOf(data.ennemyRaces[i]);
+        for (var i = 0, len = data.enemyRaces.length; i < len; i++) {
+            minified.d[minified.d.length] = killerList.indexOf(data.enemyRaces[i]);
         }
     }
     minified.e = [data.monsterDef, data.monsterSpr];
-    if (data.ennemyResists && Object.keys(data.ennemyResists).length > 0) {
+    if (data.enemyResists && Object.keys(data.enemyResists).length > 0) {
         minified.f = [];
         for (var i = 0, len = elementList.length; i < len; i++) {
-            if (data.ennemyResists[elementList[i]]) {
-                minified.f[i] = data.ennemyResists[elementList[i]];
+            if (data.enemyResists[elementList[i]]) {
+                minified.f[i] = data.enemyResists[elementList[i]];
             } else {
                 minified.f[i] = 0;
             }

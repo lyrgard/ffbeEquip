@@ -66,7 +66,7 @@ class BuildOptimizer {
             }
             
             if (this.useEspers) {
-                this.selectedEspers = this.selectEspers(this._alreadyUsedEspers, this.ennemyStats, typeCombinations[index].combination);
+                this.selectedEspers = this.selectEspers(this._alreadyUsedEspers, this.enemyStats, typeCombinations[index].combination);
             } else {
                 this.selectedEspers = [];
             }
@@ -77,7 +77,7 @@ class BuildOptimizer {
         this.buildCounterUpdateCallback(this.buildCounter);
     }
     
-    selectEspers(alreadyUsedEspers, ennemyStats, typeCombination) {
+    selectEspers(alreadyUsedEspers, enemyStats, typeCombination) {
         var selectedEspers = [];
         let espersToUse = {};
         Object.keys(this.espers).forEach(name => {
@@ -94,7 +94,7 @@ class BuildOptimizer {
             }
             espersToUse[name] = e;
         })
-        var keptEsperRoot = EsperTreeComparator.sort(espersToUse, alreadyUsedEspers, this._unitBuild.involvedStats, ennemyStats);
+        var keptEsperRoot = EsperTreeComparator.sort(espersToUse, alreadyUsedEspers, this._unitBuild.involvedStats, enemyStats);
         for (var index = keptEsperRoot.children.length; index--;) {
             if (!selectedEspers.includes(keptEsperRoot.children[index])) {
                 selectedEspers.push(keptEsperRoot.children[index].esper);
@@ -175,7 +175,7 @@ class BuildOptimizer {
             }
         }
         var skillsIds = getSkillIds(this._unitBuild.formula) || [];
-        var itemPool = new ItemPool(numberNeeded, this._unitBuild.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, skillsIds, includeSingleWielding, includeDualWielding);
+        var itemPool = new ItemPool(numberNeeded, this._unitBuild.involvedStats, this.enemyStats, this.desirableElements, this.desirableItemIds, skillsIds, includeSingleWielding, includeDualWielding);
         for (var i = tempResult.length; i--;) {
             var entry = tempResult[i];
             if (weaponList.includes(type) && (typeCombination[1] || this._unitBuild.fixedItems[0] || this._unitBuild.fixedItems[1]) && isTwoHanded(entry.item) ) {
@@ -192,7 +192,7 @@ class BuildOptimizer {
         }
         
         itemPool.prepare();
-        /*var resultTree =  ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, this.desirableItemIds, typeCombination, includeSingleWielding, includeDualWielding);
+        /*var resultTree =  ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.enemyStats, this.desirableElements, this.desirableItemIds, typeCombination, includeSingleWielding, includeDualWielding);
         return resultTree;*/
         return itemPool;
     }
@@ -405,7 +405,7 @@ class BuildOptimizer {
     tryEsper(build, esper, fixedItems) {
         build[11] = esper;
         
-        var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
+        var value = calculateBuildValueWithFormula(build, this._unitBuild, this.enemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
         if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == -1) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {
             
             var slotsRemoved = this.tryLessSlots(build, value, this._unitBuild.fixedItems, fixedItems);
@@ -473,7 +473,7 @@ class BuildOptimizer {
             var removedItem = build[slotToRemove];
             build[slotToRemove] = null;
             
-            var testValue = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
+            var testValue = calculateBuildValueWithFormula(build, this._unitBuild, this.enemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
             if (testValue[this.goalVariation] >= value[this.goalVariation]) {
                 slotToRemove--;
                 slotsRemoved++;

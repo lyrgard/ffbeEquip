@@ -1092,6 +1092,17 @@ export function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
             for (var i = rawEffect[3][0].length; i--;) {
                 result.skillEnhancement[rawEffect[3][0][i].toString()] = rawEffect[3][3] / 100;
             }
+        } else if (Array.isArray(rawEffect[3]) && parseInt(rawEffect[3][1])){
+            // All Abilities of Type
+            let type;
+            if (rawEffect[3][1] === 1) {
+                type = "allPhysicalAttacks"
+            } else if (rawEffect[3][1] === 2) {
+                type = "allMagicalAttacks"
+            } else {
+                console.log("NEW TYPE : " + rawEffect[3][1])
+            }
+            result.skillEnhancement[type] = rawEffect[3][3] / 100;
         } else {
             result.skillEnhancement[rawEffect[3][0].toString()] = rawEffect[3][3] / 100;
         }

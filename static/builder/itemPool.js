@@ -1,8 +1,8 @@
 class ItemPool {
-    constructor(maxDepth, involvedStats, ennemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding, includeDualWielding) {
+    constructor(maxDepth, involvedStats, enemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding, includeDualWielding) {
         this.maxDepth = maxDepth;
         this.involvedStats = involvedStats;
-        this.ennemyStats = ennemyStats;
+        this.enemyStats = enemyStats;
         this.desirableElements = desirableElements;
         this.desirableItemIds = desirableItemIds;
         this.includeSingleWielding = includeSingleWielding;
@@ -19,7 +19,7 @@ class ItemPool {
     }
 
     clone() {
-        let clone = new ItemPool(this.maxDepth, this.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, this.skillIds, this.includeSingleWielding, this.includeDualWielding);
+        let clone = new ItemPool(this.maxDepth, this.involvedStats, this.enemyStats, this.desirableElements, this.desirableItemIds, this.skillIds, this.includeSingleWielding, this.includeDualWielding);
         clone.addItems(this.getEntries());
         return clone;
     }
@@ -40,7 +40,7 @@ class ItemPool {
         var lesserGroups = [];
         var betterItemCount = 0;
         for (var i = this.keptItems.length; i--;) {
-            var comparison = ItemPool.getComparison(this.keptItems[i].equivalents[0], entry, this.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, this.skillIds, this.includeSingleWielding, this.includeDualWielding);
+            var comparison = ItemPool.getComparison(this.keptItems[i].equivalents[0], entry, this.involvedStats, this.enemyStats, this.desirableElements, this.desirableItemIds, this.skillIds, this.includeSingleWielding, this.includeDualWielding);
             switch (comparison) {
                 case "strictlyWorse":
                     betterItemCount += this.keptItems[i].available;
@@ -169,15 +169,15 @@ class ItemPool {
         group.equivalents[group.currentEquivalent].currentAvailable++;
     }
     
-    static getComparison(entry1, entry2, stats, ennemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding = true, includeDualWielding = true, simplifiedAilments) {
+    static getComparison(entry1, entry2, stats, enemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding = true, includeDualWielding = true, simplifiedAilments) {
         var comparisionStatus = [];
         let ailmentsToSimplify;
         for (var index = stats.length; index--;) {
             let stat = stats[index];
             if (stat == "physicalKiller") {
-                comparisionStatus.push(TreeComparator.compareByKillers(entry1.item, entry2.item, "physical", ennemyStats.races));
+                comparisionStatus.push(TreeComparator.compareByKillers(entry1.item, entry2.item, "physical", enemyStats.races));
             } else if (stat == "magicalKiller") {
-                comparisionStatus.push(TreeComparator.compareByKillers(entry1.item, entry2.item, "magical", ennemyStats.races));
+                comparisionStatus.push(TreeComparator.compareByKillers(entry1.item, entry2.item, "magical", enemyStats.races));
             } else if (stat == "weaponElement") {
                 comparisionStatus.push(TreeComparator.compareByElementCoef(entry1.item, entry2.item));
             } else if (stat == "meanDamageVariance" || stat == "evade.physical" || stat == "evade.magical" || stat == "mpRefresh") {
@@ -234,7 +234,7 @@ class ItemPool {
         if (simplifiedAilments) {
             comparisionStatus.push(TreeComparator.compareByAllAilments(entry1.item, entry2.item, simplifiedAilments));
         }
-
+        
         return TreeComparator.combineComparison(comparisionStatus);
     }
     

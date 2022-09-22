@@ -1,17 +1,17 @@
 class EsperTreeComparator {
     
-    static sort(espers, alreadyUsedEspers, involvedStats, ennemyStats) {
+    static sort(espers, alreadyUsedEspers, involvedStats, enemyStats) {
         var keptEsperRoot = {"parent":null,"children":[],"root":true};
         for (var index in espers) {
             if (!alreadyUsedEspers.includes(espers[index].id)) {
                 var newTreeEsper = {"esper":espers[index],"parent":null,"children":[],"equivalents":[]};
-                TreeComparator.insertItemIntoTree(keptEsperRoot, newTreeEsper, involvedStats, ennemyStats, null, null, 1, EsperTreeComparator.getComparison, EsperTreeComparator.getDepth);
+                TreeComparator.insertItemIntoTree(keptEsperRoot, newTreeEsper, involvedStats, enemyStats, null, null, 1, EsperTreeComparator.getComparison, EsperTreeComparator.getDepth);
             }
         }
         return keptEsperRoot;
     }
     
-    static getComparison(treeNode1, treeNode2, stats, ennemyStats) {
+    static getComparison(treeNode1, treeNode2, stats, enemyStats) {
         if (treeNode1.root) {
             return "strictlyWorse"; 
         }
@@ -29,9 +29,9 @@ class EsperTreeComparator {
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, stats[index], coef1, coef2));
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, percentValues[stats[index]]));
             } else if (stats[index] == "physicalKiller") {
-                comparisionStatus.push(TreeComparator.compareByKillers(treeNode1.esper, treeNode2.esper,"physical", ennemyStats.races));
+                comparisionStatus.push(TreeComparator.compareByKillers(treeNode1.esper, treeNode2.esper,"physical", enemyStats.races));
             } else if (stats[index] == "magicalKiller") {
-                comparisionStatus.push(TreeComparator.compareByKillers(treeNode1.esper, treeNode2.esper,"magical", ennemyStats.races));
+                comparisionStatus.push(TreeComparator.compareByKillers(treeNode1.esper, treeNode2.esper,"magical", enemyStats.races));
             } else if (stats[index].startsWith("resist")) {
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
             } else if (stats[index] == "lbPerTurn") {

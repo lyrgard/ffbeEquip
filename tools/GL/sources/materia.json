@@ -10944,7 +10944,7 @@
                 "공격력 40% 상승+물리 공격 시 식물형 마물에게 부여하는 피해량 상승 (중복 장착 불가)",
                 "Augmente l'ATT de 40% et les dégâts physiques infligés aux plantes (Non cumulable)",
                 "Erhöht ANG um 40% und erhöht physischen Schaden gegen Pflanzen (Nicht stapelbar).",
-                "Aumenta el ATQ un 40% y el daño físico contra plantas (no acumulable)",
+                "Aumenta el ATQ un 40% y el daño físico contra plantoides (no acumulable)",
                 "Meningkatkan ATK sebanyak 40% dan meningkatkan damage fisik terhadap jenis tumbuhan (Tidak dapat ditumpuk)",
                 "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% \u001aและ\u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aพืช\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ],
@@ -10954,7 +10954,7 @@
                 "공격력이 40% 상승하고, 물리 공격 시 식물형 마물에게 부여하는 피해량이 상승합니다.",
                 "Augmente l'ATT de 40% et les dégâts physiques infligés aux plantes de 50%. Non cumulable",
                 "Erhöht ANG um 40% und erhöht physischen Schaden gegen Pflanzen um 50%.",
-                "Aumenta el ATQ un 40% y el daño físico contra plantas un 50%. No acumulable.",
+                "Aumenta el ATQ un 40% y el daño físico contra plantoides un 50%. No acumulable.",
                 "Meningkatkan ATK sebanyak 40% dan meningkatkan damage fisik terhadap jenis tumbuhan sebanyak 50%. Tidak dapat ditumpuk.",
                 "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aพืช\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
@@ -31996,6 +31996,76 @@
                 "Aumenta la MAG un 100% al llevar vara, y aumenta la MAG del equipo un 100% al llevar una sola arma en una o ambas manos. No acumulable.",
                 "Meningkatkan MAG sebanyak 100% ketika tongkat digunakan dan meningkatkan MAG perlengkapan sebanyak 100% ketika 1 senjata digunakan dengan kedua tangan. Tidak dapat digunakan.",
                 "เพิ่มค่า\u001a \u001aMAG\u001a \u001a100% เมื่อติดตั้งคทา + เพิ่มค่า MAG\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a100% \u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aมือ\u001aเดียว\u001aหรือ\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
+        }
+    },
+    "1500000201": {
+        "name": "Melia's Potential",
+        "compendium_id": 90202,
+        "compendium_shown": true,
+        "requirements": ["UNIT_ID", [401011307, 401011317]],
+        "skills": [916602],
+        "effects": ["Grant 'Melia's Potential' ability"],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_105.png",
+        "strings": {
+            "names": ["Melia's Potential", "梅莉亞的潛力", "멜리아의 잠재력", "Potentiel de Mélia", "Melias Potenzial", "Potencial de Melia", "Potensi Melia", "ศักยภาพ\u001aของ\u001a \u001aMelia\u001a"],
+            "desc_short": [
+                "(One use every 5 turns) Chance of temporarily guarding allies against magic damage, reduce damage taken for all allies, activate morale-based barrier for all allies, enable triple the eggcitement for caster, and fill morale gauge (Melia only)",
+                "【每5回合可使用1次】暫時性有一定機率以「防禦」狀態代替隊員承受魔法攻擊+減少對全體隊員的傷害+賦予受士氣影響的屏障效果+自身可使用「三倍驚奇蛋」+增加士氣槽(梅莉亞專屬)",
+                "[5턴에 1회 사용 가능] 일시적으로 일정 확률 아군을 향한 마법 공격을 '방어' 상태로 대신 받음+아군 전체가 받는 피해량 감소+사기 기반 배리어 부여+자신이 '흥겨움이 세 배' 사용 가능+사기 게이지 증가(멜리아 전용)",
+                "(Une fois tous les 5 tours) Confère une chance de protéger temporairement les alliés des dégâts magiques, réduit les dégâts subis par tous les alliés, érige une barrière dépendant du moral autour d'eux, permet au lanceur d'utiliser trois fois plus fabuloeuf, remplit la jauge de moral (Mélia uniquement)",
+                "(Einmal in 5 Runden) Chance, Verbündete vorübergehend gegen magischen Schaden zu verteidigen, verringert von allen Verbündeten erlittenen Schaden, aktiviert deren moralbasierte Barriere, ermöglicht dem Benutzer Dreifache Begeisterung und füllt dessen Moralleiste (nur Melia).",
+                "(Un uso cada 5 turnos) Probabilidad de proteger temporalmente a un aliado aleatorio contra daño mágico, reduce el daño que reciben todos los aliados, les activa Barrera en función del ánimo y el usuario aprende Eggscitada triplemente y rellena la barra de ánimo (solo Melia)",
+                "(1 kali penggunaan setiap 5 giliran) Peluang bagi diri sendiri untuk melindungi semua teman dari serangan magic untuk sementara waktu, mengurangi damage yang diterima semua teman, mengaktifkan barier berdasarkan moral pada semua teman, memungkinkan penggunaan Tripple the Eggcitement, dan mengisi bar moral (Khusus Melia)",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aทุก\u001a \u001a5\u001a \u001aเทิร์น)\u001a \u001aมีโอกาส\u001aป้องกัน\u001aและ\u001aรับ\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aแทน\u001aสมาชิก\u001aใน\u001aทีม\u001aเป็นเวลา\u001aชั่วคราว\u001a \u001a+\u001a \u001aลด\u001aค่า\u001aความเสียหาย\u001aที่\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001aได้รับ\u001a \u001a+\u001a \u001aกาง\u001aบาเรีย\u001aที่\u001aเพิ่มขึ้น\u001aตาม\u001aค่า\u001aกำลังใจ\u001aให้\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001a \u001a+\u001a \u001aผู้ใช้\u001aสามารถ\u001aใช้\u001a \u001aไข่\u001aตื่นเต้น\u001aสาม\u001aเท่า\u001a \u001aได้\u001a \u001a+\u001a \u001aเติม\u001a \u001aGauge\u001a \u001aกำลังใจ\u001a \u001a(\u001aMelia\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(One use every 5 turns) Adds chance of temporarily guarding allies against magic damage, reduces damage taken for all allies, activates morale-based barrier for all allies, enables triple the eggcitement for caster, and fills morale gauge. Melia only.",
+                "【每5回合可使用1次】暫時性有一定機率以「防禦」狀態代替隊員承受魔法攻擊，並減少對全體隊員的傷害，以及賦予受士氣影響的屏障效果，且自身可使用「三倍驚奇蛋」，並增加士氣槽。(梅莉亞專屬)",
+                "[5턴에 1회 사용 가능] 일시적으로 일정 확률 아군을 향한 마법 공격을 '방어' 상태로 대신 받고, 아군 전체가 받는 피해량이 감소하며, 사기 기반 배리어를 부여하고, 자신이 '흥겨움이 세 배'를 사용할 수 있게 되며, 사기 게이지가 증가합니다.(멜리아 전용)",
+                "(1 fois tous les 5 tours) Chance de temporairement protéger les alliés contre des dégats magiques, réduit les dégâts subits par tous les alliés, érige une barrière dépendant du moral autour d'eux, permet au lanceur d'utiliser Trois fois plus fabuloeuf, remplit la jauge de moral. Melia uniquement.",
+                "(Einmal in 5 Runden) Chance, Verbündete vorübergehend gegen magischen Schaden zu verteidigen, verringert von allen Verbündeten erlittenen Schaden, aktiviert deren moralbasierte Barriere, ermöglicht dem Benutzer Dreifache Begeisterung und füllt dessen Moralleiste. Nur Melia.",
+                "(Un uso cada 5 turnos) Probabilidad de proteger temporalmente a un aliado aleatorio contra daño mágico, reduce el daño que reciben todos los aliados, les activa Barrera en función del ánimo y el usuario aprende Eggscitada triplemente y rellena la barra de ánimo. Solo Melia.",
+                "(1 kali penggunaan setiap 5 giliran) Menambahkan peluang bagi diri sendiri untuk melindungi semua teman dari serangan magic untuk sementara waktu, mengurangi damage yang diterima semua teman, mengaktifkan barier berdasarkan moral pada semua teman, memungkinkan penggunaan Tripple the Eggcitement, dan mengisi bar moral. Khusus Melia.",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aทุก\u001a \u001a5\u001a \u001aเทิร์น)\u001a \u001aมีโอกาส\u001aป้องกัน\u001aและ\u001aรับ\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aแทน\u001aสมาชิก\u001aใน\u001aทีม\u001aเป็นเวลา\u001aชั่วคราว\u001a \u001a+\u001a \u001aลด\u001aค่า\u001aความเสียหาย\u001aที่\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001aได้รับ\u001a \u001a+\u001a \u001aกาง\u001aบาเรีย\u001aที่\u001aเพิ่มขึ้น\u001aตาม\u001aค่า\u001aกำลังใจ\u001aให้\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001a \u001a+\u001a \u001aผู้ใช้\u001aสามารถ\u001aใช้\u001a \u001aไข่\u001aตื่นเต้น\u001aสาม\u001aเท่า\u001a \u001aได้\u001a \u001a+\u001a \u001aเติม\u001a \u001aGauge\u001a \u001aกำลังใจ\u001a \u001a(\u001aMelia\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
+        }
+    },
+    "1500000202": {
+        "name": "Noppy's Potential",
+        "compendium_id": 90203,
+        "compendium_shown": true,
+        "requirements": ["UNIT_ID", [401010407, 401010417]],
+        "skills": [916603],
+        "effects": ["Grant 'Noppy's Potential' passive"],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": ["Noppy's Potential", "諾比的潛力", "노피의 잠재력", "Potentiel de Noppy", "Noppys Potenzial", "Potencial de Noppy", "Potensi Noppy", "ศักยภาพ\u001aของ\u001a \u001aNoppy\u001a"],
+            "desc_short": [
+                "Boost HP by 5000 and ATK by 3000, ATK by 100%, damage limit for various chains by 100%, physical and magic damage against demons and fairies by 200%, and damage of certain abilities (Not stackable) (Noppy only)",
+                "提高5000HP、3000攻擊、100%攻擊+提高100%各種CHAIN的傷害上限+物理、魔法攻擊時提高200%對惡魔精靈系魔物的傷害+提高特定能力的傷害[無法重複裝備](諾比專屬)",
+                "HP 5000, 공격력 3000 상승+공격력 100% 상승+각종 체인 피해량 증가 최대치 100% 상승+물리, 마법 공격 시 악마와 정령형 마물에게 부여하는 피해량 200% 상승+특정 어빌리티의 피해량 상승(중복 장착 불가) (노피 전용)",
+                "Augmente les PV de 5000 et l'ATT de 3000, l'ATT de 100 %, augmente la limite des dégâts de divers combos de 100%, les dégâts physiques et magiques infligés aux démons et aux esprits de 200 % et les dégâts de certaines aptitudes (Non cumulable) (Noppy uniquement)",
+                "Erhöht LP um 5000, ANG um 3000, ANG um 100%, Schadenslimit verschiedener Ketten um 100%, physischen und magischen Schaden gegen Dämonen sowie Feen um 200% und Schaden bestimmter Fertigkeiten (nicht stapelbar) (nur Noppy).",
+                "Aumenta la VIT en 5000 y el ATQ en 3000, el ATQ un 100% y el daño límite de varios combos un 100%, el daño físico y mágico contra demonios y espíritus un 200% y el daño de determinadas habilidades (no acumulable) (solo Noppy)",
+                "Meningkatkan HP sebanyak 5000 dan ATK sebanyak 3000, dan ATK sebanyak 100%, meningkatkan batas damage dalam berbagai combo sebanyak 100%, meningkatkan damage fisik dan magic terhadap jenis demon dan peri sebanyak 200%, serta meningkatkan damage ability tertentu (Tidak dapat ditumpuk) (Khusus Noppy)",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001a5000,\u001a \u001aATK\u001a \u001a3000\u001a \u001aและ\u001a \u001aATK\u001a \u001a100% + เพิ่มความเสียหายสูงสุดของ Chain\u001a \u001aต่างๆ\u001a \u001a100% + เพิ่มค่าความเสียหายทางกายภาพและพลังเวทย์เมื่อโจมตีศัตรูชนิดปีศาจและแฟรี่ 200% + เพิ่มค่าความเสียหายของ Ability\u001a \u001aที่\u001aกำหนด\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a \u001a(\u001aNoppy\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts HP by 5000 and ATK by 3000, ATK by 100%, damage limit for various chains by 100%, physical and magic damage against demons and fairies by 200%, and damage of certain abilities. Not stackable. Noppy only.",
+                "提高5000HP、3000攻擊、100%攻擊，並提高100%各種CHAIN的傷害上限，以及物理、魔法攻擊時提高200%對惡魔精靈系魔物的傷害，且提高特定能力的傷害。[無法重複裝備](諾比專屬)",
+                "HP가 5000, 공격력이 3000 상승하고, 공격력이 100% 상승하며, 각종 체인 피해량 증가 최대치가 100% 상승하고, 물리, 마법 공격 시 악마와 정령형 마물에게 부여하는 피해량이 200% 상승하며, 특정 어빌리티의 피해량이 상승합니다.(중복 장착 불가) (노피 전용)",
+                "Augmente les PV de 5000 et l'ATT de 3000, l'ATT de 100 %, augmente la limite des dégâts de divers combos de 100%, les dégâts physiques et magiques infligés aux démons et aux esprits de 200 % et les dégâts de certaines aptitudes. Non cumulable. Noppy uniquement.",
+                "Erhöht LP um 5000, ANG um 3000, ANG um 100%, Schadenslimit verschiedener Ketten um 100%, physischen und magischen Schaden gegen Dämonen sowie Feen um 200% und Schaden bestimmter Fertigkeiten. Nicht stapelbar. Nur Noppy.",
+                "Aumenta la VIT en 5000 y el ATQ en 3000, el ATQ un 100% y el daño límite de varios combos un 100%, el daño físico y mágico contra demonios y espíritus un 200% y el daño de determinadas habilidades. No acumulable. Solo Noppy.",
+                "Meningkatkan HP sebanyak 5000 dan ATK sebanyak 3000, dan ATK sebanyak 100%, meningkatkan batas damage dalam berbagai combo sebanyak 100%, meningkatkan damage fisik dan magic terhadap jenis demon dan peri sebanyak 200%, serta meningkatkan damage ability tertentu. Tidak dapat ditumpuk. Khusus Noppy.",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001a5000,\u001a \u001aATK\u001a \u001a3000\u001a \u001aและ\u001a \u001aATK\u001a \u001a100% + เพิ่มความเสียหายสูงสุดของ Chain\u001a \u001aต่างๆ\u001a \u001a100% + เพิ่มค่าความเสียหายทางกายภาพและพลังเวทย์เมื่อโจมตีศัตรูชนิดปีศาจและแฟรี่ 200% + เพิ่มค่าความเสียหายของ Ability\u001a \u001aที่\u001aกำหนด\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a \u001a(\u001aNoppy\u001a \u001aเท่านั้น\u001a)\u001a"
             ]
         }
     },

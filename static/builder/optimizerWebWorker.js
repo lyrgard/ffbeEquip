@@ -7,7 +7,7 @@ importScripts('treeComparator.js');
 importScripts('esperTreeComparator.js');    
 importScripts('itemPool.js');
 importScripts('buildOptimizer.js');
-importScripts('ennemyStats.js');
+importScripts('enemyStats.js');
 
 var optimizer = null;
 var number;
@@ -34,7 +34,7 @@ onmessage = function(event) {
             optimizer.dataByType = messageData.dataByType;
             optimizer.dataWithCondition = messageData.dataWithCondition;
             optimizer.dualWieldSources = messageData.dualWieldSources;
-            optimizer.ennemyStats = messageData.ennemyStats;
+            optimizer.enemyStats = messageData.enemyStats;
             optimizer.useEspers = messageData.useEspers;
             optimizer.espers = messageData.espers;
             optimizer.alreadyUsedEspers = messageData.alreadyUsedEspers;
