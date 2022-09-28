@@ -518,15 +518,20 @@ function treatItem(items, itemId, result, skills) {
                 addExclusiveUnit(itemOut, itemIn.requirements[1]);
             } else if (currentArray[0] === "RULE"){
 
-                let ruleId = currentArray[1].toString();
-                let conditionalUnits = {};
-    
-                if (!Object.keys(unitRules).includes(ruleId)) {
-                    console.log('Missing rule ' + ruleId + ' for item: ' + itemIn.name);
-                } else {
-                    unitRules[ruleId](conditionalUnits);
+                if (Array.isArray(currentArray[1])) {
+                    let arrayLength = currentArray[1].length;
+                    let ruleArray = currentArray[1];
+                    let conditionalUnits = {};
 
-                    itemOut = ruleType(itemOut, conditionalUnits)
+                    ruleArray.forEach((ruleId) => {
+                        if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                            console.log('Missing rule ' + ruleId + ' for item: ' + itemIn.name);
+                        } else {
+                            unitRules[ruleId](conditionalUnits);
+
+                            itemOut = ruleType(itemOut, conditionalUnits)
+                        }
+                    })
                 }
             }   
         }
