@@ -762,7 +762,7 @@ function editUnit(unitId) {
             '</div>';
     }
     
-    if (unit.max_rarity == '7' || unit.max_rarity == 'NV') {
+    if (unit.max_rarity == '7' || unit.max_rarity == 'NV' && !document.getElementsByClassName(unitId)[0].classList.contains("NV")) {
         form += '<div class="form-group">' +
             '<label for="ownedSeventStarNumber">Owned 7* number</label>' +
             '<input type="number" class="form-control" id="ownedSeventStarNumber" placeholder="Enter owned number" value="' + (ownedUnits[unitId].sevenStar || 0) + '">' +
