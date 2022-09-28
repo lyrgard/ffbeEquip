@@ -4,7 +4,6 @@ var lastItemReleases;
 
 var currentSort = showRaritySort;
 
-var releasedUnits;
 var tmrNumberByUnitId = {};
 var tmrByUnitId = {};
 var stmrNumberByUnitId = {};
@@ -882,6 +881,7 @@ function savePublicLink(callback) {
                 publicUnit.farmedStmr = (stmrNumberByUnitId[unit.id] ? stmrNumberByUnitId[unit.id] : 0)
             }
             if (ownedUnits[unit.id].nv) {
+                console.log(ownedUnits)
                 publicUnit.nv = ownedUnits[unit.id].nv;
                 publicUnit.farmedStmr = (stmrNumberByUnitId[unit.id] ? stmrNumberByUnitId[unit.id] : 0)
             }

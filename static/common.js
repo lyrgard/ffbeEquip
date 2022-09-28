@@ -118,18 +118,18 @@ function getImageHtml(item, actionOnImage = undefined) {
     if (actionOnImage) {
         html += '<div class="change" onclick="' + actionOnImage + '">';
     }
-    if (item.icon) {
+    if (item?.icon) {
         var src_attr = (lazyLoader !== null) ? 'data-src' : 'src';
         var class_attr = (lazyLoader !== null) ? 'icon lazyload' : 'icon';
 
         html += "<img "+src_attr+"='img/items/" + item.icon + "' class='"+class_attr+"'></img>";
-    } else if (item.type == "esper") {
+    } else if (item?.type == "esper") {
         // no lazyload for espers (uses CSS background)
-        html += "<i class='img img-esper-" + escapeName(item.name) +" icon'></i>";
-    } else if (item.type == "unavailable") {
+        html += "<i class='img img-esper-" + escapeName(item?.name) +" icon'></i>";
+    } else if (item?.type == "unavailable") {
         // no image
     } else {
-        html += "<i class='img img-equipment-" + item.type + " icon'></i>";
+        html += "<i class='img img-equipment-" + item?.type + " icon'></i>";
     }
     if (actionOnImage) {
         html += "</div>";
