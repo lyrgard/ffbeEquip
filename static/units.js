@@ -581,7 +581,6 @@ function addToOwnedUnits(unitId) {
     let classDiv = document.getElementsByClassName(unitId)
     
     if (!ownedUnits[unitId]) {
-        console.log(classDiv)
         if (classDiv[0].classList.contains("showStmr")) {
             if (classDiv[0].classList.contains("NV")) {
                 ownedUnits[unitId] = {"number":0, "farmable":0, "farmableStmr":0, "nv": 0}
@@ -594,7 +593,7 @@ function addToOwnedUnits(unitId) {
     }
 
     ownedUnits[unitId].number += 1;
-    console.log(ownedUnits[unitId]);
+
     let ownedUnitsCount = ownedUnits[unitId].number + (ownedUnits[unitId].sevenStar || 0) * 2;
     if (!tmrNumberByUnitId[unitId] || (tmrNumberByUnitId[unitId] < ownedUnitsCount)) {
         ownedUnits[unitId].farmable += 1;
