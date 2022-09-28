@@ -416,7 +416,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         }
         html += '<span class="ownedNumber base badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span></div>';
         html += '<div class="tmrMoogles"><img src="img/units/unit_ills_904000103.png"></img><span class="ownedNumber badge badge-success" title="' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.map(p => p + '%').join(', ') : '') + '">' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.length : 0) + '</span></div>';
-        let fragmentCount = unit.fragmentId ? ownedConsumables[unit.fragmentId] || 0 : 0;
+        let fragmentCount = unit.fragmentId ? ownedConsumables[unit?.fragmentId] || 0 : 0;
         html += `<div class="fragments"><img src="img/icons/fragment.png"></img><span class="ownedNumber badge badge-success" title="${fragmentCount} fragments">${fragmentCount}</span></div>`;
         html += '</div>'
 
@@ -881,20 +881,20 @@ function savePublicLink(callback) {
         }
     }
 
-    // $.ajax({
-    //     url: server + '/publicUnitCollection',
-    //     method: 'PUT',
-    //     data: JSON.stringify(publicUnitcollection),
-    //     contentType: "application/json; charset=utf-8",
-    //     dataType: "json",
-    //     success: function(data) { 
-    //         $.notify("Public link updated", "success"); 
-    //         savePublicLinkNeeded = false;
-    //         userSettings.unitCollection = data.id;
-    //         if (callback) {callback(data.id)} 
-    //     },
-    //     error: function() { $.notify("Error while updating public link", "error"); }
-    // });
+    $.ajax({
+        url: server + '/publicUnitCollection',
+        method: 'PUT',
+        data: JSON.stringify(publicUnitcollection),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(data) { 
+            $.notify("Public link updated", "success"); 
+            savePublicLinkNeeded = false;
+            userSettings.unitCollection = data.id;
+            if (callback) {callback(data.id)} 
+        },
+        error: function() { $.notify("Error while updating public link", "error"); }
+    });
 
 }
 
