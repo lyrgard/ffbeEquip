@@ -526,11 +526,11 @@ var getStatDetail = function(item) {
     var detail = "";
     var first = true;
     var statsToDisplay = baseStats;
-    if (item.type == "monster") {
+    if (item?.type == "monster") {
         statsToDisplay = ["def", "spr"];
     }
     var statBonusCoef = 1;
-    if (item.type == "esper") {
+    if (item?.type == "esper") {
         if (item.esperStatsBonus) {
             if (item.esperStatsBonus.all) {
                 statBonusCoef += item.esperStatsBonus.all["hp"] / 100;
@@ -601,11 +601,11 @@ function getEnhancements(item) {
         }
         var enhancement = item.enhancements[i];
         if (enhancement == "rare_3") {
-            html += itemEnhancementLabels["rare_3"][item.type];
+            html += itemEnhancementLabels["rare_3"][item?.type];
         } else if (enhancement == "rare_4") {
-            html += itemEnhancementLabels["rare_4"][item.type];
+            html += itemEnhancementLabels["rare_4"][item?.type];
         } else if (enhancement == "rare_5") {
-            html += itemEnhancementLabels["rare_5"][item.type];
+            html += itemEnhancementLabels["rare_5"][item?.type];
         } else if (enhancement == "special_1") {
             html += itemEnhancementLabels["special_1"][item.id];
         } else {
@@ -1076,7 +1076,7 @@ function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, search
         var item = data[index];
         if (!onlyShowOwnedItems || itemInventory && itemInventory[item.id]) {
             if (showNotReleasedYet || !item.access.includes("not released yet") || (selectedUnitId && item.tmrUnit == selectedUnitId) || (selectedUnitId && item.stmrUnit == selectedUnitId)) {
-                if (types.length == 0 || types.includes(item.type)) {
+                if (types.length == 0 || types.includes(item?.type)) {
                     if (elements.length == 0 || (item.element && matches(elements, item.element)) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
                         if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
                             if (physicalKillers.length == 0 || hasKillers('physical', physicalKillers, item)) {
@@ -1167,7 +1167,7 @@ function itemMatches(item, filter) {
         case 'not':
             return !itemMatches(item, filter.value);
         case 'type':
-            return filter.value === item.type;
+            return filter.value === item?.type;
         case 'element':
             return (item.element && item.element.includes(filter.value))
             || (filter.value === 'noElement' && !item.element)
