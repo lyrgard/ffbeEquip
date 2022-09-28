@@ -141,42 +141,42 @@ function getImageHtml(item, actionOnImage = undefined) {
 function getNameColumnHtml(item) {
     var html = '<div class="td name"><div class="itemName">';
 
-    if (item.rarity) {
+    if (item?.rarity) {
       html += '<span class="rarity">' + item.rarity + '★</span> ';
     }
 
-    if (item.placeHolder) {
-        html += toLink(item.name, typeCategories[item.type]);
-    } else if (item.wikiEntry) {
+    if (item?.placeHolder) {
+        html += toLink(item?.name, typeCategories[item?.type]);
+    } else if (item?.wikiEntry) {
         html += toLink(item.name, item.wikiEntry);
-    } else if (item.type == "unavailable") {
+    } else if (item?.type == "unavailable") {
         // no name
     } else {
         html += toLink(item.name);
     }
-    if (item.level) {
+    if (item?.level) {
         html += '<span class="rarity"> level ' + item.level + '</span> ';
     }
-    if (item.buildLink) {
+    if (item?.buildLink) {
         html += '<a href="' + item.buildLink + '" target="blank" class="buildLink"><span class="glyphicon glyphicon-th wikiLink"></span></a>';
     }
-    if (item.outclassedBy) {
+    if (item?.outclassedBy) {
         html += '<img src="img/icons/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
     }
     html += "</div>";
-    if (item.jpname) {
+    if (item?.jpname) {
         html += '<div>' + item.jpname + "</div>";
     }
     html += "<div class='detail'>";
-    if (item.type != "esper" && item.type != "monster" && item.type != "fake") {
+    if (item?.type != "esper" && item?.type != "monster" && item?.type != "fake") {
         html += "<i class='img img-equipment-" + item.type + " miniIcon'></i>";
     }
     html += getStatDetail(item) + "</div>";
-    if (item.userPseudo) {
+    if (item?.userPseudo) {
         html += "<div class='userPseudo'>item added by " + item.userPseudo + "</div>";
     }
 
-    if (item.enhancements) {
+    if (item?.enhancements) {
         html += getEnhancements(item);
     }
 
