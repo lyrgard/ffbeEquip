@@ -1,5 +1,5 @@
 FFBEEquipExternalControl = {
-    'ffbeEquipUrl': 'https://ffbeEquip.com/builder.html',
+    'ffbeEquipUrl': 'https://ffbeequipnext.com/builder.html',
     'iframe': null,
     'checkboxList': [
         'forceDoublehand',
@@ -187,7 +187,7 @@ FFBEEquipExternalControl = {
     },
     
     'handleMessage': function(message) {
-        //if(message.origin === 'https://ffbeEquip.com'){
+        //if(message.origin === 'https://www.ffbeequipnext.com'){
             let data = JSON.parse(message.data);
             console.log('received Message : ' + data.type);
             if (FFBEEquipExternalControl.listeners[data.type]) {

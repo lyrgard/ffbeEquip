@@ -1,8 +1,8 @@
 import express from 'express'
-import firebase from '../lib/firebase.js';
+import {bucket as firebase} from '../lib/firebase.js';
 import * as drive from '../lib/drive.js';
 import Joi from 'joi';
-import * as uuidV1 from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 
 export const unAuthenticatedRoute = express.Router();
 export const authenticatedRoute = express.Router();
@@ -384,7 +384,7 @@ unAuthenticatedRoute.post('/partyBuild', async (req, res) => {
     
   const { error, value } = partyBuildSchema.validate(data);
 
-  var id = uuidV1();
+  var id = uuidv4();
 
   if (error) {
     console.log(error);

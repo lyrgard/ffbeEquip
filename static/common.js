@@ -2287,7 +2287,7 @@ Modal = {
 
     showWithBuildLink: function(name, link) {
         if (!link.startsWith('http')) {
-            link = 'https://ffbeEquip.com/'+link;
+            link = 'https://www.ffbeequipnext.com/'+link;
         }
         Modal.show({
             title: "Link to your " + name,
@@ -2428,7 +2428,7 @@ function getEsperLink(esper) {
     let boardState = bin2hex(boardStateBin);
 
     linkData += boardState;
-    return "https://ffbeEquip.com/espers.html?server=" + server + '&o#' + linkData;
+    return "https://www.ffbeequipnext.com/espers.html?server=" + server + '&o#' + linkData;
 }
 
 function getEsperBoardPositionString(x, y) {

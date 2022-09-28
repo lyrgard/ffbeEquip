@@ -3499,7 +3499,7 @@ function showBuildLink(onlyCurrentUnit) {
     data.itemSelector.mainSelector = "all";
 
     $.ajax({
-        url: 'partyBuild',
+        url: '/partyBuild',
         method: 'POST',
         data: JSON.stringify(data),
         contentType: "application/json; charset=utf-8",

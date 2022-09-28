@@ -6,9 +6,9 @@ let config = ServerConfig.ServerConfig
 
 admin.initializeApp({
   credential: admin.credential.cert(config.firebase.configuration),
-  databaseURL: "https://" + config.firebase.databaseId + ".firebaseio.com"
+  databaseURL: "https://" + config.firebase.databaseId + ".appspot.com"
 });
 
-var bucket = admin.storage().bucket("gs://" + config.firebase.bucketUri);
+export var bucket = admin.storage().bucket("gs://" + config.firebase.bucketUri);
 
 export default { bucket }
