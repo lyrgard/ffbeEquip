@@ -15,7 +15,7 @@ var onlyShow7Star = false;
 var showNumberTMRFarmed = false;
 var readOnly;
 var unitsToIgnoreForImport = {
-    'GL': ['100000327'],
+    'GL': [],
     'JP': []
 }
 
@@ -199,51 +199,51 @@ function displayStats() {
     $(".stats .all .star7 .value").text(stats.all["7"].different);
     $(".stats .all .star7 .total").text(stats.all["7"].total);
     $(".stats .all .star7 .number").text("(" + stats.all["7"].number + ")");
-    
+
     $(".stats .all .star5 .value").text(stats.all["5"].different);
     $(".stats .all .star5 .total").text(stats.all["5"].total);
     $(".stats .all .star5 .number").text("(" + stats.all["5"].number + ")");
-    
+
     $(".stats .all .star4 .value").text(stats.all["4"].different);
     $(".stats .all .star4 .total").text(stats.all["4"].total);
     $(".stats .all .star4 .number").text("(" + stats.all["4"].number + ")");
-    
+
     $(".stats .all .star3 .value").text(stats.all["3"].different);
     $(".stats .all .star3 .total").text(stats.all["3"].total);
     $(".stats .all .star3 .number").text("(" + stats.all["3"].number + ")");
-    
+
     $(".stats .withoutTimeLimited .star7 .value").text(stats.all["7"].different - stats.timeLimited["7"].different);
     $(".stats .withoutTimeLimited .star7 .total").text(stats.all["7"].total - stats.timeLimited["7"].total);
     $(".stats .withoutTimeLimited .star7 .number").text("(" + (stats.all["7"].number - stats.timeLimited["7"].number) + ")");
-    
+
     $(".stats .withoutTimeLimited .star5 .value").text(stats.all["5"].different - stats.timeLimited["5"].different);
     $(".stats .withoutTimeLimited .star5 .total").text(stats.all["5"].total - stats.timeLimited["5"].total);
     $(".stats .withoutTimeLimited .star5 .number").text("(" + (stats.all["5"].number - stats.timeLimited["5"].number) + ")");
-    
+
     $(".stats .withoutTimeLimited .star4 .value").text(stats.all["4"].different - stats.timeLimited["4"].different);
     $(".stats .withoutTimeLimited .star4 .total").text(stats.all["4"].total - stats.timeLimited["4"].total);
     $(".stats .withoutTimeLimited .star4 .number").text("(" + (stats.all["4"].number - stats.timeLimited["4"].number) + ")");
-    
+
     $(".stats .withoutTimeLimited .star3 .value").text(stats.all["3"].different - stats.timeLimited["3"].different);
     $(".stats .withoutTimeLimited .star3 .total").text(stats.all["3"].total - stats.timeLimited["3"].total);
     $(".stats .withoutTimeLimited .star3 .number").text("(" + (stats.all["3"].number - stats.timeLimited["3"].number) + ")");
-    
+
     $(".stats .timeLimited .star7 .value").text(stats.timeLimited["7"].different);
     $(".stats .timeLimited .star7 .total").text(stats.timeLimited["7"].total);
     $(".stats .timeLimited .star7 .number").text("(" + stats.timeLimited["7"].number + ")");
-    
+
     $(".stats .timeLimited .star5 .value").text(stats.timeLimited["5"].different);
     $(".stats .timeLimited .star5 .total").text(stats.timeLimited["5"].total);
     $(".stats .timeLimited .star5 .number").text("(" + stats.timeLimited["5"].number + ")");
-    
+
     $(".stats .timeLimited .star4 .value").text(stats.timeLimited["4"].different);
     $(".stats .timeLimited .star4 .total").text(stats.timeLimited["4"].total);
     $(".stats .timeLimited .star4 .number").text("(" + stats.timeLimited["4"].number + ")");
-    
+
     $(".stats .timeLimited .star3 .value").text(stats.timeLimited["3"].different);
     $(".stats .timeLimited .star3 .total").text(stats.timeLimited["3"].total);
     $(".stats .timeLimited .star3 .number").text("(" + stats.timeLimited["3"].number + ")");
-    
+
     $(".unitsSidebar .hidden").removeClass("hidden");
 }
 
@@ -294,7 +294,7 @@ function displayUnitsByRarity(units, minRarity = 1, soon) {
                 first = false;
                 rarity_list.push({'min_rarity': unit.min_rarity, "max_rarity": maxRarity});
             } else {
-                if (maxRarity != lastMaxRarity || unit.min_rarity != lastMinRarity || isSoonNVA(unit) != lastSoonNVA) {
+                if (maxRarity != lastMaxRarity || unit.min_rarity != lastMinRarity || isSoonNVA(unit) != lastSoonNVA) {
                     html += '</div>';
                     html += '<div class="raritySeparator" id="' + buildRarityID(unit.min_rarity, maxRarity, isSoonNVA(unit)) + '">' + getRarity(unit.min_rarity, maxRarity, isSoonNVA(unit)) + "</div>";
                     html += '<div class="unitList">';
@@ -307,7 +307,7 @@ function displayUnitsByRarity(units, minRarity = 1, soon) {
             html += getUnitDisplay(unit);
         }
         html += '</div>';
-        
+
         var rarity_jump_html = '';
         if (rarity_list.length > 1) {
             // Jump list display
@@ -396,10 +396,10 @@ function getUnitDisplay(unit, useTmrName = false) {
         }
         if (unit.max_rarity == 7 || unit.max_rarity == 'NV') {
             html += ' showStmr';
-        } 
+        }
         html += '"';
         /*if (!is7Stars) {
-            html +=' onclick="addToOwnedUnits(\'' + unit.id + '\')"';    
+            html +=' onclick="addToOwnedUnits(\'' + unit.id + '\')"';
             html += ' title="Add one ' + unit.name + ' to your collection"';
         }*/
         html += '>';
@@ -418,13 +418,13 @@ function getUnitDisplay(unit, useTmrName = false) {
         html += '<div class="tmrMoogles"><img src="img/units/unit_ills_904000103.png"></img><span class="ownedNumber badge badge-success" title="' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.map(p => p + '%').join(', ') : '') + '">' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.length : 0) + '</span></div>';
         let fragmentCount = unit.fragmentId ? ownedConsumables[unit.fragmentId] || 0 : 0;
         html += `<div class="fragments"><img src="img/icons/fragment.png"></img><span class="ownedNumber badge badge-success" title="${fragmentCount} fragments">${fragmentCount}</span></div>`;
-        html += '</div>'    
-        
-        
+        html += '</div>'
+
+
         html += '<div class="secondColumn">'
         html += '<div class="imageAndName">'
         html += '<div><img class="unitImage lazyload" data-src="' + getUnitImage(unit) + '"/></div>';
-        
+
         html +='<div class="unitNameAndRarity">';
         html +='<div class="unitName">';
         if (useTmrName) {
@@ -436,13 +436,13 @@ function getUnitDisplay(unit, useTmrName = false) {
             html +='<span class="glyphicon glyphicon-time"/>';
         }
         html += '</div>';
-        
+
         html += '<div class="unitRarity">'
         html += getRarity(unit.min_rarity, (unit.unreleased7Star ? 6 : unit.max_rarity));
         html += '</div>';
-        
+
         html += '</div>'
-        html += '</div>' 
+        html += '</div>'
 
         if (!readOnly) {
             html += '<div class="actions">'
@@ -457,7 +457,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         }
 
         html += '</div>';
-        
+
         html += '<div class="thirdColumn">';
         if (readOnly) {
             if (is7Stars) {
@@ -477,7 +477,7 @@ function getUnitDisplay(unit, useTmrName = false) {
             }
         }
         html += '</div>';
-        
+
         html += '</div>';
     }
     return html;
@@ -576,15 +576,35 @@ function getRarity(minRarity, maxRarity, soon = false) {
 
 function addToOwnedUnits(unitId) {
     if (readOnly) return;
-    if (!ownedUnits[unitId]) {
-        ownedUnits[unitId] = {"number":0, "farmable":0};
-    }
+
+    //Check to see if this unit can have an STMR
+    let classDiv = document.getElementsByClassName(unitId)
     
+    if (!ownedUnits[unitId]) {
+        console.log(classDiv)
+        if (classDiv[0].classList.contains("showStmr")) {
+            if (classDiv[0].classList.contains("NV")) {
+                ownedUnits[unitId] = {"number":0, "farmable":0, "farmableStmr":0, "nv": 0}
+            } else {
+                ownedUnits[unitId] = {"number":0, "farmable":0, "farmableStmr":0}
+            }
+        } else {
+            ownedUnits[unitId] = {"number":0, "farmable":0}
+        }
+    }
+
     ownedUnits[unitId].number += 1;
+    console.log(ownedUnits[unitId]);
     let ownedUnitsCount = ownedUnits[unitId].number + (ownedUnits[unitId].sevenStar || 0) * 2;
     if (!tmrNumberByUnitId[unitId] || (tmrNumberByUnitId[unitId] < ownedUnitsCount)) {
         ownedUnits[unitId].farmable += 1;
     }
+    
+    if ((!stmrNumberByUnitId[unitId] || (stmrNumberByUnitId[unitId] < ownedUnitsCount)) && classDiv[0].classList.contains("NV")) {
+        ownedUnits[unitId].nv++;
+        ownedUnits[unitId].farmableStmr++;
+    }
+
     updateUnitDisplay(unitId);
     markSaveNeeded();
     displayStats();
@@ -697,7 +717,7 @@ function awaken(unitId) {
                         ownedUnits[unitId].number -= 2;
                         awakenFollowUp(unitId);
                     }
-                }, 
+                },
                 {
                     text: "Awaken using 1 unit and a prism",
                     className: "",
@@ -715,7 +735,7 @@ function awakenFollowUp(unitId) {
     if (ownedUnits[unitId].number < 1) {
         $(".unit." + unitId).removeClass("awakenable");
     }
-    
+
     if (!ownedUnits[unitId].sevenStar) {
         ownedUnits[unitId].sevenStar = 0;
         ownedUnits[unitId].farmableStmr = 0;
@@ -727,27 +747,35 @@ function awakenFollowUp(unitId) {
 }
 
 function editUnit(unitId) {
+    
     if (!ownedUnits[unitId]) {
         ownedUnits[unitId] = {"number":0, "farmable":0, "sevenStar":0, "farmableStmr":0};
     }
+    
     let unit = units[unitId];
     let form = '<form>';
+    
     if (unit.max_rarity == 'NV') {
         form += '<div class="form-group">' +
             '<label for="ownedNVNumber">Owned NV number</label>' +
             '<input type="number" class="form-control" id="ownedNVNumber" placeholder="Enter owned number" value="' + (ownedUnits[unitId].nv || 0) + '">' +
             '</div>';
     }
+    
     if (unit.max_rarity == '7' || unit.max_rarity == 'NV') {
         form += '<div class="form-group">' +
             '<label for="ownedSeventStarNumber">Owned 7* number</label>' +
             '<input type="number" class="form-control" id="ownedSeventStarNumber" placeholder="Enter owned number" value="' + (ownedUnits[unitId].sevenStar || 0) + '">' +
             '</div>';
     }
-      form += '<div class="form-group">' +
+    
+    if (parseInt(unit.min_rarity) < 7) {
+        form += '<div class="form-group">' +
         '<label for="ownedNumber">Owned 6* or under number</label>' +
         '<input type="number" class="form-control" id="ownedNumber" placeholder="Enter owned number" value="' + ownedUnits[unitId].number + '">' +
-      '</div>';
+        '</div>';
+    }
+    
     if (unit.max_rarity == '7' || unit.max_rarity == 'NV') {
         form += '<div class="form-group">' +
             '<label for="farmableSTMR">Number of STMR that can still be farmed</label>' +
@@ -819,6 +847,7 @@ function editUnit(unitId) {
                             && !ownedUnits[unitId].sevenStar && !ownedUnits[unitId].farmableStmr && !ownedUnits[unitId].nv) {
                             delete ownedUnits[unitId];
                         }
+
                         updateUnitDisplay(unitId);
                         markSaveNeeded();
                     }
@@ -852,7 +881,7 @@ function savePublicLink(callback) {
             publicUnitcollection[unit.id] = publicUnit;
         }
     }
-    
+
     // $.ajax({
     //     url: server + '/publicUnitCollection',
     //     method: 'PUT',
@@ -867,6 +896,7 @@ function savePublicLink(callback) {
     //     },
     //     error: function() { $.notify("Error while updating public link", "error"); }
     // });
+
 }
 
 function showPublicUnitCollectionLink() {
@@ -1080,9 +1110,9 @@ function exportAsCsv() {
         var unit = sortedUnits[index];
         if (ownedUnits[unit.id]) {
             var maxRarity = (unit.unreleased7Star ? 6 : unit.max_rarity)
-            csv +=  "\"" + unit.id + "\";" + 
-                "\"" + unit.name + "\";" + 
-                unit.min_rarity + ';' + 
+            csv +=  "\"" + unit.id + "\";" +
+                "\"" + unit.name + "\";" +
+                unit.min_rarity + ';' +
                 maxRarity + ';' +
                 ownedUnits[unit.id].number + ';' +
                 (ownedUnits[unit.id].sevenStar || 0) + ';' +
@@ -1164,7 +1194,7 @@ function importUnits() {
                 } else {
                     Modal.show("Please select a file to import");
                 }
-                
+
             }
         }]
     });
@@ -1204,9 +1234,9 @@ let importedConsumables;
 
 function treatImportFile(evt) {
     var f = evt.target.files[0]; // FileList object
-    
+
     var reader = new FileReader();
-    
+
     reader.onload = function(){
         try {
             let temporaryResult = JSON.parse(reader.result);
@@ -1224,16 +1254,15 @@ function treatImportFile(evt) {
                     importedOwnedUnit = null;
                     return;
                 } else if (!unitsToIgnoreForImport[server].includes(unit.id)) {
-                    if (unit.id == '904000115' && unit.tmr < 1000) {
+                    if (unit.id == '904000115' && unit.tmr < 1000) { //Prisms
                         let baseUnitId = baseUnitIdByTmrId[unit.tmrId]
                         if (baseUnitId) {
                             if (!importedOwnedUnit[baseUnitId]) {
-                                importedOwnedUnit[baseUnitId] = {"number":0,"farmable":1,"sevenStar":0,"farmableStmr":0};
-                            } else {
-                                importedOwnedUnit[baseUnitId].farmable++;
+                                importedOwnedUnit[baseUnitId] = {"number":0,"farmable":0,"sevenStar":0,"farmableStmr":0};
                             }
+                            importedOwnedUnit[baseUnitId].farmable++;
                         }
-                    } else if (unit.id == '904000103') {
+                    } else if (unit.id == '904000103') { //TMR Moogles
                         let baseUnitId = baseUnitIdByTmrId[unit.tmrId]
                         if (baseUnitId) {
                             if (!importedOwnedUnit[baseUnitId]) {
@@ -1254,6 +1283,10 @@ function treatImportFile(evt) {
                                 baseUnitId = baseUnitIdBySpecificRarityUnitId[unit.id.substr(0, unit.id.length - 2) + "07"];
                                 NVA = true;
                             }
+                            if (server === 'GL' && unit.id === "100000327" ) { //GL Dark Fina NVA doesn't match unit id standards used
+                                baseUnitId = "100000315";
+                                NVA = true;
+                            }
                         }
                         if (!baseUnitId) {
                             Modal.showMessage('unknown unit id : ' + unit.id + '. FFBE Equip data probably was not updated yet. Ignoring this unit.');
@@ -1266,21 +1299,20 @@ function treatImportFile(evt) {
                             if (unit.tmr < 1000) {
                                 importedOwnedUnit[baseUnitId].farmable++;
                             }
-                            if (NVA || units[baseUnitId].min_rarity === 'NV') {
+                            if (NVA || units[baseUnitId].min_rarity === 'NV') { // Case of NVA or NV Unit
                                 if (!importedOwnedUnit[baseUnitId].nv) {
                                     importedOwnedUnit[baseUnitId].nv = 0;
                                 }
                                 importedOwnedUnit[baseUnitId].nv++;
-                            } else if (unit.id.endsWith("7")) {
-                                if (!importedOwnedUnit[baseUnitId].sevenStar) {
-                                    importedOwnedUnit[baseUnitId].sevenStar = 0;
-                                    importedOwnedUnit[baseUnitId].farmableStmr = 0;
+                                if (unit.stmr < 1000) {
+                                    importedOwnedUnit[baseUnitId].farmableStmr++;
                                 }
+                            } else if (unit.id.endsWith("7")) { // Seven star units
                                 importedOwnedUnit[baseUnitId].sevenStar++;
                                 if (unit.stmr < 1000) {
                                     importedOwnedUnit[baseUnitId].farmableStmr++;
                                 }
-                            } else {
+                            } else { // Sub seven star units.
                                 importedOwnedUnit[baseUnitId].number++;
                             }
                         }
@@ -1291,10 +1323,10 @@ function treatImportFile(evt) {
         } catch(e) {
             Modal.showError('imported file is not in json format', e);
         }
-            
+
     };
     reader.readAsText(f);
-    
+
 }
 
 function treatImportConsumablesFile(evt) {
@@ -1350,7 +1382,7 @@ function onDataReady() {
             showRaritySort();
             displayStats();
         }
-    } 
+    }
 }
 
 // will be called by common.js at page load
@@ -1359,7 +1391,7 @@ function startPage() {
         $('body').addClass("readOnly");
         readOnly = true;
     }
-    
+
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("units", true, function(unitResult) {
         units = unitResult;
@@ -1401,14 +1433,14 @@ function startPage() {
             savePublicLink();
         }
     });
-    
+
     $window.on('keyup', function (e) {
         // Reset search if escape is used
         if (e.keyCode === 27) {
             $("#searchBox").val('').trigger('input').focus();
         }
     });
-    
+
     var $unitsSidebar = $('.unitsSidebar');
     var $unitsSidebarInternal = $unitsSidebar.find('.unitsSidebarInternal');
     var sidebarFixedWidthLimit = 768;
@@ -1420,12 +1452,12 @@ function startPage() {
                 $unitsSidebarInternal.css('width', $unitsSidebar.outerWidth() + 'px');
                 $unitsSidebarInternal.addClass('fixed');
             }
-        } else { 
+        } else {
             if ($unitsSidebarInternal.hasClass('fixed')) {
                 $unitsSidebarInternal.css('width', '');
                 $unitsSidebarInternal.removeClass('fixed');
             }
-        } 
+        }
     }));
     $window.on('resize', $.debounce(150, function(){
         if ($unitsSidebarInternal.hasClass('fixed') && $window.outerWidth() <= sidebarFixedWidthLimit) {
@@ -1439,14 +1471,14 @@ function startPage() {
             $unitsSidebarInternal.css('width', $unitsSidebar.outerWidth() + 'px');
         }
     });
-    
+
     // Start stats collapse for small screen
     if ($window.outerWidth() < 990) {
         $unitsSidebar.addClass("collapsed");
     }
 
     $("#searchBox").on("input", $.debounce(300,updateResults));
-    
+
     $("#onlyOwnedUnits").on('input', function () {
         let checked = $("#onlyOwnedUnits").prop('checked');
         $(".onlySevenStarInoutGroup").toggleClass('hidden', !checked);
@@ -1470,7 +1502,7 @@ function startPage() {
     $(".onlySevenStarInoutGroup").toggleClass('hidden', !$("#onlyOwnedUnits").prop('checked'));
     $('body').toggleClass('onlySevenStar', $("#onlySevenStar").prop('checked'));
     $('body').toggleClass('onlyTmrMoogles', $("#onlyTmrMoogles").prop('checked'));
-    
+
 }
 
 // create new JJV environment
@@ -1591,7 +1623,7 @@ importValidator.addSchema('units', {
       }
     },
       required: ['id', 'level', 'tmr']
-    
+
   }
 });
 // Register a `user` schema
