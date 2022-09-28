@@ -152,7 +152,7 @@ function getNameColumnHtml(item) {
     } else if (item?.type == "unavailable") {
         // no name
     } else {
-        html += toLink(item.name);
+        html += toLink(item?.name);
     }
     if (item?.level) {
         html += '<span class="rarity"> level ' + item.level + '</span> ';
