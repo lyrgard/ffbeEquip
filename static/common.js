@@ -108,10 +108,10 @@ function loadTheme() {
 function getImageHtml(item, actionOnImage = undefined) {
     var html = '<div class="td type">';
 
-    if (item.special && item.special.includes("notStackable")) {
+    if (item?.special && item.special.includes("notStackable")) {
         html += "<img class='miniIcon left' src='img/icons/notStackable.png' title='Not stackable'>";
     }
-    if (item.special && item.special.includes("twoHanded")) {
+    if (item?.special && item.special.includes("twoHanded")) {
         html += "<img class='miniIcon left' src='img/icons/twoHanded.png' title='Two-handed'>";
     }
 
