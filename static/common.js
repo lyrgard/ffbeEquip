@@ -169,11 +169,11 @@ function getNameColumnHtml(item) {
     }
     html += "<div class='detail'>";
     if (item?.type != "esper" && item?.type != "monster" && item?.type != "fake") {
-        html += "<i class='img img-equipment-" + item.type + " miniIcon'></i>";
+        html += "<i class='img img-equipment-" + item?.type + " miniIcon'></i>";
     }
     html += getStatDetail(item) + "</div>";
     if (item?.userPseudo) {
-        html += "<div class='userPseudo'>item added by " + item.userPseudo + "</div>";
+        html += "<div class='userPseudo'>item added by " + item?.userPseudo + "</div>";
     }
 
     if (item?.enhancements) {
