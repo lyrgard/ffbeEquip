@@ -417,7 +417,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         html += '<span class="ownedNumber base badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span></div>';
         html += '<div class="tmrMoogles"><img src="img/units/unit_ills_904000103.png"></img><span class="ownedNumber badge badge-success" title="' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.map(p => p + '%').join(', ') : '') + '">' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.length : 0) + '</span></div>';
         let fragmentCount = 0;
-        if (unit?.fragmentId) {
+        if (ownedConsumables) {
             fragmentCount = unit.fragmentId ? ownedConsumables[unit.fragmentId] || 0 : 0;
         }
         
