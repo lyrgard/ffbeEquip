@@ -750,13 +750,21 @@ function manageRequirement(skill, debugItems, copy) {
         }
         if (req[0] === 'RULE') {
             let ruleId = req[1];
-            if (!Object.keys(unitRules).includes(ruleId.toString())) {
+            if (!Object.keys(unitRules).includes(ruleId.toString()) && !Array.isArray(ruleId)) {
                 console.log('Missing rule ' + ruleId + ' for item ' + copy.name);
-            }
-            let conditionals = {}
-            unitRules[ruleId](conditionals);
+            } else {
+                let conditionals = {};
+                
+                if (Array.isArray(ruleId)) {
+                    ruleId.forEach((rule) => {
+                        unitRules[rule](conditionals);        
+                    })
+                } else {
+                    unitRules[ruleId](conditionals);
+                }
 
-            copy = ruleType(copy, conditionals)
+                copy = ruleType(copy, conditionals)
+            }
         }
     });
 }

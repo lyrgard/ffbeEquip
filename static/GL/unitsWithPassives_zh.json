@@ -22918,8 +22918,18 @@
 		},
 		"stats_pattern":4,
 		"equip":["throwing","fist","hat","clothes","visionCard"],
+		"enhancementSkills":["Martial Arts Mastery","Flair - No Mercy"],
+		"enhancements": [
+			{"name":"Martial Arts Mastery","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 		"skills": [
-			{"hp%":10, "drawAttacks":50}
+			{"hp%":100, "mp%":60, "atk%":200, "def%":90, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "resist":[{"name":"confuse","percent":100}], "mpRefresh":8, "lbDamage":150, "drawAttacks":50},
+			{"skillEnhancement":{"1133001":100,"1133011":100}, "equipedConditions":[["504100030","309009200"]]},
+			{"killers":[{"name":"spirit","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"plant","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"aquatic","physical":150,"magical":150}], "levelCondition":120},
+			{"killers":[{"name":"bug","physical":150,"magical":150}], "levelCondition":120},
+			{"atk":500, "levelCondition":120, "exLevelCondition":3}
 		],
 		"6_form": {
 			"name":"薩拉曼達",
@@ -22939,8 +22949,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["throwing","fist","hat","clothes"],
+			"enhancementSkills":["Martial Arts Mastery","Flair - No Mercy"],
+		"enhancements": [
+			{"name":"Martial Arts Mastery","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 			"skills": [
-				{"hp%":10, "drawAttacks":50}
+				{"hp%":40, "def%":30, "resist":[{"name":"confuse","percent":100}], "mpRefresh":8, "drawAttacks":50}
 			]
 		},
 		"7_form": {
@@ -22961,15 +22975,20 @@
 			},
 			"stats_pattern":4,
 			"equip":["throwing","fist","hat","clothes"],
+			"enhancementSkills":["Martial Arts Mastery","Flair - No Mercy"],
+		"enhancements": [
+			{"name":"Martial Arts Mastery","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 			"skills": [
-				{"hp%":10, "drawAttacks":50}
+				{"hp%":100, "mp%":60, "atk%":200, "def%":90, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "resist":[{"name":"confuse","percent":100}], "mpRefresh":8, "lbDamage":150, "drawAttacks":50},
+				{"skillEnhancement":{"1133001":100,"1133011":100}, "equipedConditions":[["504100030","309009200"]]}
 			]
 		}
 	},
 	"209000827": {
-		"name":"サラマンダー BS",
+		"name":"薩拉曼達 BS",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"サラマンダー",
+		"wikiEntry":"Amarant",
 		"id":"209000827",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -22986,7 +23005,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["throwing","fist","hat","clothes","visionCard"],
-		"enhancementSkills":["絶技・雑魚ちらし"],
+		"enhancementSkills":["Martial Arts Mastery","Elan - No Mercy"],
+		"enhancements": [
+			{"name":"Martial Arts Mastery","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 		"skills": [
 			{"hp%":30, "def%":30, "resist":[{"name":"confuse","percent":100}]},
 			{"killers":[{"name":"spirit","physical":200,"magical":200}], "levelCondition":120},
@@ -22999,7 +23021,6 @@
 			{"drawAttacks":50, "levelCondition":120},
 			{"hp%":10, "levelCondition":120},
 			{"atk":500, "lbDamage":100, "levelCondition":120},
-			{"atk%":50, "equipedConditions":["fist"], "levelCondition":120},
 			{"atk":500, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
@@ -23312,7 +23333,7 @@
 		"skills": [
 			{"mp%":30, "atk%":60, "def%":80, "spr%":60, "evade":{"physical":40}, "dualWielding":{"atk":40}, "improvedDW":true, "lbFillRate":100, "mpRefresh":7, "skillEnhancement":{"510540":2.5,"510542":2.5,"510544":2}, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["dagger"]},
-			{"hp%":40, "atk%":40, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "skillEnhancement":{"232438":3.5,"510540":2.5,"510542":2.5,"510544":2}, "equipedConditions":[["504232450","301005000","301006500","301006600","301006700","301006800"]]},
+			{"hp%":40, "atk%":40, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "skillEnhancement":{"232438":3.5,"510540":2.5,"510542":2.5,"510544":2}, "equipedConditions":[["504232450","301005000","301006500","301006600","301006700","301006800","301008600"]]},
 			{"hp%":20, "levelCondition":115},
 			{"dualWielding":{"atk":60}, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
 		],
@@ -23875,9 +23896,9 @@
 		}
 	},
 	"209003107": {
-		"name":"決意のダガー",
+		"name":"下定決心的小刀",
 		"roles":["healer"],
-		"wikiEntry":"決意のダガー",
+		"wikiEntry":"Determined_Dagger",
 		"id":"209003107",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -23894,17 +23915,20 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Staff Mastery","Protectga","Shellga"],
+		"enhancements": [
+			{"name":"Staff Mastery","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 		"skills": [
 			{"mp%":60, "mag%":30, "spr%":180, "evoMag":100, "evokeDamageBoost":{"all":50}, "oneWeaponMastery":{"spr":200}, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"lightning","percent":20},{"name":"paralysis","percent":100},{"name":"light","percent":25},{"name":"dark","percent":25}], "mpRefresh":20, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["staff"]},
 			{"oneWeaponMastery":{"mag":100,"spr":100}, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "equipedConditions":[["504243780","409070800"]]},
 			{"mag":500, "spr":500, "exLevelCondition":3}
 		]
 	},
 	"209003117": {
-		"name":"決意のダガー BS",
+		"name":"下定決心的小刀 BS",
 		"roles":["magicalAttacker","healer"],
-		"wikiEntry":"決意のダガー",
+		"wikiEntry":"Determined_Dagger",
 		"id":"209003117",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -23921,21 +23945,21 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","lightShield","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["ジタンへの想い"],
+		"enhancementSkills":["Staff Mastery","Protectga","Shellga","Feelings for Zidane"],
 		"enhancements": [
-			{"name":"ジタンへの想い","levels":[[{"spr":400,"mag":400}],[{"spr":800,"mag":800}],[{"spr":1200,"mag":1200}],[{"spr":1600,"mag":1600}],[{"spr":2000,"mag":2000}]]}
+			{"name":"Staff Mastery","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"Feelings for Zidane","levels":[[{"spr":400,"mag":400}],[{"spr":800,"mag":800}],[{"spr":1200,"mag":1200}],[{"spr":1600,"mag":1600}],[{"spr":2000,"mag":2000}]]}
 		],
 		"skills": [
 			{"hp%":300, "mp%":300, "atk%":300, "def%":300, "mag%":330, "spr%":330, "evoMag":200, "evokeDamageBoost":{"all":150}, "oneWeaponMastery":{"mag":300,"spr":300}, "chainMastery":100, "resist":[{"name":"lightning","percent":20},{"name":"paralysis","percent":100},{"name":"light","percent":25},{"name":"dark","percent":25}], "lbDamage":300, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["staff"]},
 			{"oneWeaponMastery":{"mag":100,"spr":100}, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "equipedConditions":[["504243780","409070800"]]},
 			{"mag":500, "spr":500, "exLevelCondition":3}
 		]
 	},
 	"209003207": {
-		"name":"星の破壊者クジャ",
+		"name":"行星破壞者庫加",
 		"roles":["debuffer","magicalAttacker"],
-		"wikiEntry":"星の破壊者クジャ",
+		"wikiEntry":"Planet_Destroyer Kuja",
 		"id":"209003207",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -23952,18 +23976,20 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["真・ホーリースター","真・フレアスター"],
+		"enhancementSkills":["Rod Mastery","Ultima","Flare","Thundaga","True Seraphic Star","True Flare Star"],
+		"enhancements": [
+			{"name":"Rod Mastery","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 		"skills": [
 			{"hp%":200, "mp%":200, "atk%":200, "def%":200, "mag%":200, "spr%":200, "oneWeaponMastery":{"atk":200,"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"human","physical":150,"magical":150},{"name":"dragon","physical":150,"magical":150},{"name":"beast","physical":150,"magical":150},{"name":"bird","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150}], "mpRefresh":8},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["rod"]},
 			{"lbDamage":200, "equipedConditions":[["409070900","405023300"]]},
 			{"mag":500, "exLevelCondition":3}
 		]
 	},
 	"209003217": {
-		"name":"トランス・クジャ BS",
+		"name":"入神庫加 BS",
 		"roles":["debuffer","magicalAttacker"],
-		"wikiEntry":"トランス・クジャ",
+		"wikiEntry":"Trance_Kuja",
 		"id":"209003217",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -23980,13 +24006,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["破滅への使者","真・ホーリースター","真・フレアスター"],
+		"enhancementSkills":["Rod Mastery","Ultima","Flare","Thundaga","The Darkness of Eternity","True Seraphic Star","True Flare Star"],
 		"enhancements": [
-			{"name":"破滅への使者","levels":[[{"mag":100,"skillEnhancement":{"20440":10,"70130":10,"70140":10,"1132030":10,"1132040":10,"1132050":10,"1132060":10,"1132070":10,"1132080":10,"1132090":10,"1132100":10,"1132110":10,"1132120":10}}],[{"mag":200,"skillEnhancement":{"20440":20,"70130":20,"70140":20,"1132030":20,"1132040":20,"1132050":20,"1132060":20,"1132070":20,"1132080":20,"1132090":20,"1132100":20,"1132110":20,"1132120":20}}],[{"mag":300,"skillEnhancement":{"20440":30,"70130":30,"70140":30,"1132030":30,"1132040":30,"1132050":30,"1132060":30,"1132070":30,"1132080":30,"1132090":30,"1132100":30,"1132110":30,"1132120":30}}],[{"mag":400,"skillEnhancement":{"20440":40,"70130":40,"70140":40,"1132030":40,"1132040":40,"1132050":40,"1132060":40,"1132070":40,"1132080":40,"1132090":40,"1132100":40,"1132110":40,"1132120":40}}],[{"mag":500,"skillEnhancement":{"20440":50,"70130":50,"70140":50,"1132030":50,"1132040":50,"1132050":50,"1132060":50,"1132070":50,"1132080":50,"1132090":50,"1132100":50,"1132110":50,"1132120":50}}]]}
+			{"name":"Rod Mastery","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"The Darkness of Eternity","levels":[[{"mag":100,"skillEnhancement":{"20440":10,"70130":10,"70140":10,"1132030":10,"1132040":10,"1132050":10,"1132060":10,"1132070":10,"1132080":10,"1132090":10,"1132100":10,"1132110":10,"1132120":10}}],[{"mag":200,"skillEnhancement":{"20440":20,"70130":20,"70140":20,"1132030":20,"1132040":20,"1132050":20,"1132060":20,"1132070":20,"1132080":20,"1132090":20,"1132100":20,"1132110":20,"1132120":20}}],[{"mag":300,"skillEnhancement":{"20440":30,"70130":30,"70140":30,"1132030":30,"1132040":30,"1132050":30,"1132060":30,"1132070":30,"1132080":30,"1132090":30,"1132100":30,"1132110":30,"1132120":30}}],[{"mag":400,"skillEnhancement":{"20440":40,"70130":40,"70140":40,"1132030":40,"1132040":40,"1132050":40,"1132060":40,"1132070":40,"1132080":40,"1132090":40,"1132100":40,"1132110":40,"1132120":40}}],[{"mag":500,"skillEnhancement":{"20440":50,"70130":50,"70140":50,"1132030":50,"1132040":50,"1132050":50,"1132060":50,"1132070":50,"1132080":50,"1132090":50,"1132100":50,"1132110":50,"1132120":50}}]]}
 		],
 		"skills": [
 			{"hp%":200, "mp%":200, "atk%":200, "def%":200, "mag%":200, "spr%":200, "oneWeaponMastery":{"atk":200,"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"human","physical":150,"magical":150},{"name":"dragon","physical":150,"magical":150},{"name":"beast","physical":150,"magical":150},{"name":"bird","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150}], "mpRefresh":8},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["rod"]},
 			{"lbDamage":200, "equipedConditions":[["409070900","405023300"]]},
 			{"mag":500, "exLevelCondition":3}
 		]
