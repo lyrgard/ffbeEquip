@@ -5,9 +5,9 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/lyrgard/ffbeEquip)
 ![GitHub](https://img.shields.io/github/license/lyrgard/ffbeEquip)
 
-Welcome to FFBE Equip, an online tool for [Final Fantasy Brave Exvius](http://www.finalfantasyexvius.com/). Features include building units/parties, searching units/gear, and saving user inventory/units/espers.
+Welcome to FFBE Equip Next, an online tool for [Final Fantasy Brave Exvius](http://www.finalfantasyexvius.com/). Features include building units/parties, searching units/gear, and saving user inventory/units/espers.
 
-Check it out here: https://ffbeequip.com/
+Check it out here: https://ffbeequipnext.com/
 
 # How to run locally
 This first point explain how to get a barebone FFBE Equip local server in 5 mintes.
@@ -117,13 +117,11 @@ This section is only needed if you use firebase with your local instance.
 
 # Connect
 Need help or have questions?
-- Reach out on [Discord](https://discord.gg/rgXnjhP)
-- Message me on [Reddit](https://www.reddit.com/message/compose/?to=lyrgard)
+- Reach out on [Discord](https://discord.gg/KTeaq525tR)
+- Message me on [Reddit](https://www.reddit.com/message/compose/?to=gwythian)
 
 # Support FFBE Equip
 Looking for other ways to support FFBE Equip?
-- Buy me a [coffee](https://ko-fi.com/Lyrgard)
-- Become a patron on [Patreon](https://www.patreon.com/Lyrgard)
 
 # License
-FFBE Equip is released under the [ISC License](https://opensource.org/licenses/ISC).
+FFBE Equip Next is released under the [ISC License](https://opensource.org/licenses/ISC).
