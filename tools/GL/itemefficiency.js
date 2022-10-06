@@ -1,7 +1,17 @@
 import fs from 'fs'
-
-
 let visionCards = JSON.parse(fs.readFileSync('./sources/vision_cards.json', (err) => {
+    if (err) {
+        console.log(err);
+    }
+}))
+
+let equipment = JSON.parse(fs.readFileSync('./sources/equipment.json', (err) => {
+    if (err) {
+        console.log(err);
+    }
+}))
+
+let materia = JSON.parse(fs.readFileSync('./sources/materia.json', (err) => {
     if (err) {
         console.log(err);
     }
@@ -24,6 +34,76 @@ let passives = JSON.parse(fs.readFileSync('./sources/skills_passive.json', (err)
         console.log(err);
     }
 }))
+
+const statConstants = [
+    "HP",
+    "MP",
+    "ATK",
+    "DEF",
+    "MAG",
+    "SPR"
+]
+
+const percentageConstants = [
+    "HP%",
+    "MP%",
+    "ATK%",
+    "DEF%",
+    "MAG%",
+    "SPR%"
+]
+
+const typeMap = {
+    1: 'dagger',
+    2: 'sword',
+    3: 'greatSword',
+    4: 'katana',
+    5: 'staff',
+    6: 'rod',
+    7: 'bow',
+    8: 'axe',
+    9: 'hammer',
+    10: 'spear',
+    11: 'harp',
+    12: 'whip',
+    13: 'throwing',
+    14: 'gun',
+    15: 'mace',
+    16: 'fist',
+    30: 'lightShield',
+    31: 'heavyShield',
+    40: 'hat',
+    41: 'helm',
+    50: 'clothes',
+    51: 'lightArmor',
+    52: 'heavyArmor',
+    53: 'robe',
+    60: 'accessory'
+}
+//'HP', 'HP%', 'MP', 'MP%', 'ATK', 'ATK%', 'MAG', 'MAG%', 'DEF', 'DEF%', 'SPR', 'SPR%', 'tdh', 'tdw', 'lbDamage', 'dualwield'
+let goalCritieria = ['tdw']
+
+let unitCriteria = {
+    "baseATK": 430,
+    "baseDEF": 308,
+    "baseMAG": 175,
+    "baseSPR": 258,
+    "baseHP": 8878,
+    "baseMP": 331,
+    "baseATK%": 120,
+    "baseDEF%": 120,
+    "baseMAG%": 0,
+    "baseSPR%": 0,
+    "baseHP%": 50,
+    "baseMP%": 20,
+    "equipATK%": 0,
+    "equipDEF%": 0,
+    "equipMAG%": 0,
+    "equipSPR%": 0,
+    "equipHP%": 0,
+    "equipMP%": 0,
+    "lbDamage": 0
+}
 
 Object.keys(skills).forEach(skillId => {
     skills[skillId].active = true;
@@ -191,6 +271,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
 }
 
 function getStatBonusCap(stat) {
+    stat = stat.toLowerCase();
     switch(stat) {
         case 'lbDamage':
             return 300;
@@ -213,75 +294,379 @@ function getStatBonusCap(stat) {
     }
 }
 
-let HPArray = [];
+let efficiencyArray = [];
+
+Object.keys(equipment).forEach((value) => {
+    let currentItem = equipment[value];
+    let efficiencyObject = {}
+    
+    goalCritieria.forEach((stat) => {
+        let flatStat = `flat${stat}`;
+        let flatStatEfficiency = `${flatStat}Efficiency`;
+        let statMax = getStatBonusCap(stat)
+        let baseStat = `base${stat}`
+
+        if (currentItem.stats[stat] > 0) {
+            if (efficiencyObject[flatStat] !== undefined) {
+                efficiencyObject[flatStat] += currentItem.stats[stat];
+            } else {
+                efficiencyObject[flatStat] = currentItem.stats[stat];
+            }
+            
+            efficiencyObject[flatStatEfficiency] = efficiencyObject[flatStat] / unitCriteria[baseStat];
+        }
+        
+        if (currentItem.skills && currentItem.skills.length > 0) {
+            let currentItemSkills = currentItem.skills;
+            currentItemSkills.forEach((skillId) => {
+                if (skills[skillId]){
+
+                    let rawEffects = skills[skillId].effects_raw;
+
+                    rawEffects.forEach((rawEffect) => {
+                        processRawEffect(stat, efficiencyObject, rawEffect, baseStat, statMax)
+                    })
+                } 
+            })
+        }
+    })
+
+    if (Object.keys(efficiencyObject).length > 0) {
+        efficiencyObject.name = currentItem.name;
+        efficiencyArray.push(efficiencyObject)
+    }
+})
 
 Object.keys(visionCards).forEach((value) => {
     let currentVC = visionCards[value];
-    if (currentVC.stats.ATK[1] > 0) {
-        let HPInfoObject = {
-            "Name": currentVC.name,
-            "MaxATK": visionCards[value].stats.ATK[1],
-            "Total": 0,
-            "Percentage" : 0
+    let efficiencyObject = {}
+    
+    goalCritieria.forEach((stat) => {
+        let flatStat = `flat${stat}`;
+        let flatStatEfficiency = `${flatStat}Efficiency`;
+        let statMax = getStatBonusCap(stat)
+        let baseStat = `base${stat}`
+        let vcSkills = Object.values((currentVC.skills))
+
+        if (currentVC.stats[stat]?.[1] > 0) {
+            if (efficiencyObject[flatStat] !== undefined) {
+                efficiencyObject[flatStat] += currentVC.stats[stat][1];
+            } else {
+                efficiencyObject[flatStat] = currentVC.stats[stat][1];
+            }
+            
+            efficiencyObject[flatStatEfficiency] = efficiencyObject[flatStat] / unitCriteria[baseStat];
         }
         
-        console.log(currentVC.name)
-        //console.log(currentVC.stats)
-        console.log(currentVC?.skills)
-        if (Object.keys(currentVC.skills).length > 0) {
+        if (vcSkills.length > 0) {
+            vcSkills.forEach((skillId) => {
+                skillId.forEach((levelSkill) => {
+                    let currentVCSkill = skills[levelSkill]
+                    if (currentVCSkill){
+                        let rawEffect = currentVCSkill.effects_raw[0];
 
-            Object.keys(currentVC.skills).forEach((keyId) => {
-                let skillArray = currentVC.skills[keyId]
-                let newFlat = 0;
-                let newPercentage = 0;
-    
-                skillArray.forEach((skill) => {
-                    Object.keys(skills).forEach((skillId) => {
-                        if (skill == skillId) {
-                            //console.log(skills[skill].effects)
-                            console.log(skills[skill].effects_raw)
-                            let rawEffect = skills[skill].effects_raw[0]
-                            if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 89) {
-                                if (rawEffect[2][0] > 0) {
-                                    console.log("More Flat HP")
-                                    newFlat += rawEffect[2][0];
-
-                                }
-                            } 
-                            
-                            if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {
-                                if (rawEffect[3][0] > 0) {
-                                    console.log("HP%")
-                                    newPercentage += rawEffect[3][0];
-                                    HPInfoObject.Percentage = newPercentage;
-                                }
-                            }
-                        }
-                    })
+                        processRawEffect(stat, efficiencyObject, rawEffect, baseStat, statMax)
+                    } 
                 })
-
-                console.log(newFlat);
-                console.log(newPercentage)
-                let flatHealth = HPInfoObject.MaxATK;
-                if (newFlat > 0 || newPercentage > 0) {
-                    HPInfoObject["Total"] = flatHealth + newFlat + (flatHealth * (newPercentage / 100));
-                } else {
-                    HPInfoObject["Total"] = flatHealth
-                }
             })
-        } else {
-            HPInfoObject["Total"] = visionCards[value].stats.ATK[1];
         }
+    })
 
-        HPArray.push(HPInfoObject)
+    if (Object.keys(efficiencyObject).length > 0) {
+        efficiencyObject.name = currentVC.name;
+        efficiencyArray.push(efficiencyObject)
     }
-
-   
 })
 
-//console.log(HPArray)
+Object.keys(materia).forEach((value) => {
+    let currentMateria = materia[value];
+    let efficiencyObject = {}
+    
+    goalCritieria.forEach((stat) => {
+        let flatStat = `flat${stat}`;
+        let flatStatEfficiency = `${flatStat}Efficiency`;
+        let statMax = getStatBonusCap(stat)
+        let baseStat = `base${stat}`
 
-HPArray.sort((a, b) => (a["Percentage"] < b["Percentage"]) ? 1 : -1)
+        if (currentMateria?.stats?.[stat] > 0) {
+            if (efficiencyObject[flatStat] !== undefined) {
+                efficiencyObject[flatStat] += currentMateria.stats[stat];
+            } else {
+                efficiencyObject[flatStat] = currentMateria.stats[stat];
+            }
+            
+            efficiencyObject[flatStatEfficiency] = efficiencyObject[flatStat] / unitCriteria[baseStat];
+        }
+        
+        if (currentMateria.skills && currentMateria.skills.length > 0) {
+            let currentMateriaSkills = currentMateria.skills;
+            
+            currentMateriaSkills.forEach((skillId) => {
+                let currentMateriaSkill = skills[skillId]
+                if (currentMateriaSkill){
 
-console.log(HPArray)
+                    let rawEffects = skills[skillId].effects_raw;
 
+                    rawEffects.forEach((rawEffect) => {
+                        processRawEffect(stat, efficiencyObject, rawEffect, baseStat, statMax)
+                    })
+                } 
+            })
+        }
+    })
+
+    if (Object.keys(efficiencyObject).length > 0) {
+        efficiencyObject.name = currentMateria.name;
+        efficiencyArray.push(efficiencyObject)
+    }
+})
+
+function processRawEffect(stat, efficiencyObject, rawEffect, baseStat, statMax) {
+    // Stat Order: ATK/DEF/MAG/SPR/HP/MP
+    
+    // Flat Stats
+    if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 89 && statConstants.includes(stat)) {
+        efficientObjectStatAssignment(stat, efficiencyObject, rawEffect, baseStat, statMax);
+    }
+
+    // Stat% Check
+    if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1 && percentageConstants.includes(stat)) {
+        efficientObjectStatAssignment(stat, efficiencyObject, rawEffect, baseStat, statMax);
+    }
+
+    // Enbadles Dual Wield Check
+    if (rawEffect[1] == 3 && rawEffect[2] == 14 && (rawEffect[0] == 0 || rawEffect[0] == 1)) {
+        efficientObjectStatAssignment(stat, efficiencyObject, rawEffect, baseStat, statMax);
+    }
+
+    // TDW Check
+    if (rawEffect[2] == 69) {
+        efficientObjectStatAssignment(stat, efficiencyObject, rawEffect, baseStat, statMax);
+    }
+}
+
+function efficientObjectStatAssignment(stat, efficiencyObject, rawEffect, baseStat, statMax){
+    switch(stat){
+        case 'ATK':
+            if (rawEffect[3][0] > 0) {
+        
+                if (efficiencyObject?.flatATK) {
+                    efficiencyObject.flatATK += rawEffect[3][0];
+                } else {
+                    efficiencyObject.flatATK = rawEffect[3][0];
+                }
+
+                efficiencyObject.flatATKEfficiency = efficiencyObject.flatATK / unitCriteria[baseStat];
+            }
+            break;
+        case 'DEF':
+            if (rawEffect[3][1] > 0) {
+        
+                if (efficiencyObject?.flatDEF) {
+                    efficiencyObject.flatDEF += rawEffect[3][1];
+                } else {
+                    efficiencyObject.flatDEF = rawEffect[3][1];
+                }
+
+                efficiencyObject.flatDEFEfficiency = efficiencyObject.flatDEF / unitCriteria[baseStat];
+            }
+            break;
+        case 'MAG':
+            if (rawEffect[3][2] > 0) {
+
+                if (efficiencyObject?.flatMAG) {
+                    efficiencyObject.flatMAG += rawEffect[3][2];
+                } else {
+                    efficiencyObject.flatMAG = rawEffect[3][2];
+                }
+
+                efficiencyObject.flatMAGEfficiency = efficiencyObject.flatMAG / unitCriteria[baseStat];
+            }
+            break;
+        case 'SPR':
+            if (rawEffect[3][3] > 0) {
+        
+                if (efficiencyObject?.flatSPR) {
+                    efficiencyObject.flatSPR += rawEffect[3][3];
+                } else {
+                    efficiencyObject.flatSPR = rawEffect[3][3];
+                }
+
+                efficiencyObject.flatSPREfficiency = efficiencyObject.flatSPR / unitCriteria[baseStat];
+            }
+            break;
+        case 'HP':
+            if (rawEffect[3][5] > 0) {
+                if (efficiencyObject?.flatHP) {
+                    efficiencyObject.flatHP = efficiencyObject.flatHP + rawEffect[3][5];
+                } else {
+                    efficiencyObject.flatHP = rawEffect[3][5];
+                }
+            }
+            break;
+        case 'MP':
+            if (rawEffect[3][4] > 0) {
+                if (efficiencyObject?.flatMP) {
+                    efficiencyObject.flatMP = efficiencyObject.flatHP + rawEffect[3][4];
+                } else {
+                    efficiencyObject.flatMP = rawEffect[3][4];
+                }
+            }
+            break;
+        case 'ATK%':
+            if (rawEffect[3][0] > 0) {
+        
+                if (efficiencyObject?.percentageATK) {
+                    efficiencyObject.percentageATK += rawEffect[3][0];
+                } else {
+                    if (rawEffect[3][0] > 1000) {
+                        console.log(rawEffect)
+                        console.log(stat)
+                    }
+                    efficiencyObject.percentageATK = rawEffect[3][0];
+                }
+
+                efficiencyObject.percentageATKEfficiency = efficiencyObject.percentageATK / (statMax - unitCriteria[baseStat]);
+            }
+            break;
+        case 'DEF%':
+            if (rawEffect[3][1] > 0) {
+        
+                if (efficiencyObject?.percentageDEF) {
+                    efficiencyObject.percentageDEF += rawEffect[3][1];
+                } else {
+                    efficiencyObject.percentageDEF = rawEffect[3][1];
+                }
+
+                efficiencyObject.percentageDEFEfficiency = efficiencyObject.percentageDEF / (statMax - unitCriteria[baseStat]);
+            }
+            break;
+        case 'MAG%':
+            if (rawEffect[3][2] > 0) {
+
+                if (efficiencyObject?.percentageMAG) {
+                    efficiencyObject.percentageMAG += rawEffect[3][2];
+                } else {
+                    efficiencyObject.percentageMAG = rawEffect[3][2];
+                }
+
+                efficiencyObject.percentageMAGEfficiency = efficiencyObject.percentageMAG / (statMax - unitCriteria[baseStat]);
+            }
+            break;
+        case 'SPR%':
+            if (rawEffect[3][3] > 0) {
+        
+                if (efficiencyObject?.percentageSPR) {
+                    efficiencyObject.percentageSPR += rawEffect[3][3];
+                } else {
+                    efficiencyObject.percentageSPR = rawEffect[3][3];
+                }
+
+                efficiencyObject.percentageSPREfficiency = efficiencyObject.percentageSPR / (statMax - unitCriteria[baseStat]);
+            }
+            break;
+        case 'HP%':
+            if (rawEffect[3][5] > 0) {
+                if (efficiencyObject?.percentageHP) {
+                    efficiencyObject.percentageHP = efficiencyObject.percentageHP + rawEffect[3][4];
+                } else {
+                    efficiencyObject.percentageHP = rawEffect[3][4];
+                }
+                
+                efficiencyObject.percentageHPEfficiency = efficiencyObject.percentageHP / (statMax - unitCriteria[baseStat]);
+            }
+            break;
+        case 'MP%':
+            if (rawEffect[3][4] > 0) {
+                if (efficiencyObject?.percentageMP) {
+                    efficiencyObject.percentageMP = efficiencyObject.percentageHP + rawEffect[3][5];
+                } else {
+                    efficiencyObject.percentageMP = rawEffect[3][5];
+                }
+
+                efficiencyObject.percentageMPEfficiency = efficiencyObject.percentageMP / (statMax - unitCriteria[baseStat]);
+            }
+            break;
+        case 'dualwield':
+            console.log(rawEffect)
+            if (rawEffect[3].length == 1 && rawEffect[3][0] == "none") {
+                efficiencyObject.enablesDualWeild = true;
+            } else {
+                for (var dualWieldType in rawEffect[3]) {
+                    var typeId = rawEffect[3][dualWieldType];
+                    if (typeId > 0 && typeId <= 12) {
+                        efficiencyObject.partialDualWield = [];
+                        efficiencyObject.partialDualWield.push(typeMap[typeId]);
+                    }
+                }
+            }
+            break;
+        case 'tdw':
+            let dualWieldingStat;
+
+            if (rawEffect[3][0] == 1) {
+                dualWieldingStat = "ATK";
+                if (efficiencyObject?.equipATK) {
+                    efficiencyObject.equipATK += rawEffect[3][1];
+                } else {
+                    efficiencyObject.equipATK = rawEffect[3][1];
+                }
+
+                efficiencyObject.equipATKEfficiency  = efficiencyObject.equipATK / (statMax - unitCriteria["equipATK%"])
+
+            } else if (rawEffect[3][0] == 2) {
+                dualWieldingStat = "DEF";
+                if (efficiencyObject?.equipDEF) {
+                    efficiencyObject.equipDEF += rawEffect[3][1];
+                } else {
+                    efficiencyObject.equipDEF = rawEffect[3][1];
+                }
+
+                efficiencyObject.equipDEFEfficiency  = efficiencyObject.equipDEF / (statMax - unitCriteria["equipDEF%"])
+
+            } else if (rawEffect[3][0] == 3) {
+                dualWieldingStat = "MAG";
+                if (efficiencyObject?.equipMAG) {
+                    efficiencyObject.equipMAG += rawEffect[3][1];
+                } else {
+                    efficiencyObject.equipMAG = rawEffect[3][1];
+                }
+
+                efficiencyObject.equipMAGEfficiency  = efficiencyObject.equipMAG / (statMax - unitCriteria["equipMAG%"])
+
+            } else if (rawEffect[3][0] == 4) {
+                dualWieldingStat = "SPR";
+                if (efficiencyObject?.equipSPR) {
+                    efficiencyObject.equipSPR += rawEffect[3][1];
+                } else {
+                    efficiencyObject.equipSPR = rawEffect[3][1];
+                }
+
+                efficiencyObject.equipSPREfficiency  = efficiencyObject.equipSPR / (statMax - unitCriteria["equipSPR%"])
+
+            }
+    }
+}
+
+function calculateEfficiency(efficiencyArray, goalCriteria) {
+    efficiencyArray.forEach((efficiencyObject) => {
+        let maxEfficiency = (goalCriteria.length) * 100;
+        let itemEfficiency = 0;
+        
+        Object.keys(efficiencyObject).forEach((checkStat) => {
+            if (checkStat.includes("Efficiency")) {
+                itemEfficiency += (efficiencyObject[checkStat] * 100)
+            }
+        })
+
+        efficiencyObject.itemEfficiency = (itemEfficiency / maxEfficiency) * 100;
+    })
+}
+
+calculateEfficiency(efficiencyArray, goalCritieria)
+
+efficiencyArray.sort((a, b) => (a["itemEfficiency"] < b["itemEfficiency"]) ? 1 : -1)
+
+for (let i = 0; i < 10; i++) {
+    console.log(efficiencyArray[i])
+}

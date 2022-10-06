@@ -1203,19 +1203,19 @@
 	{"hp":900, "def":90, "guts":{"ifHpOver":30,"chance":100,"time":1}, "conditional":[{"staticStats":{"hp":500,"def":300},"exclusiveRoles":["physicalTank"]}]},
 	{"hp":1000, "def":100, "guts":{"ifHpOver":30,"chance":100,"time":1}, "conditional":[{"staticStats":{"hp":500,"def":300},"exclusiveRoles":["physicalTank"]},{"killers":[{"name":"beast","physical":100,"magical":100}],"exclusiveRoles":["physicalTank"]}]}
 ]},
-{"id":"342000101", "name":"ただいま", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_342000101.png", "sortId":72, "levels":[
-	{"atk":50, "def":50},
-	{"atk":55, "def":55},
-	{"atk":60, "def":60},
-	{"atk":65, "def":65, "lbDamage":25},
-	{"atk":70, "def":70, "lbDamage":25},
-	{"atk":75, "def":75, "lbDamage":25},
-	{"atk":80, "def":80, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
-	{"atk":85, "def":85, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
-	{"atk":90, "def":90, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
-	{"atk":100, "def":100, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300},"exclusiveUnits":["312000205","312001007","312001017"]}]}
+{"id":"342000101", "name":"I'm Back!!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_342000101.png", "sortId":72, "levels":[
+	{"atk":70, "def":70},
+	{"atk":75, "def":75},
+	{"atk":80, "def":80},
+	{"atk":85, "def":85, "lbDamage":25},
+	{"atk":90, "def":90, "lbDamage":25},
+	{"atk":95, "def":95, "lbDamage":25},
+	{"atk":100, "def":100, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
+	{"atk":105, "def":105, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
+	{"atk":110, "def":110, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
+	{"atk":120, "def":120, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300},"exclusiveUnits":["312000205","312001007","312001017"]}]}
 ]},
-{"id":"343000101", "name":"神様の降臨", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_343000101.png", "sortId":99, "levels":[
+{"id":"343000101", "name":"Advent of the Lord of Light", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_343000101.png", "sortId":99, "levels":[
 	{"atk":40, "mag":40},
 	{"atk":44, "mag":44},
 	{"atk":48, "mag":48},

@@ -7579,18 +7579,36 @@
     "504220270": {
         "name": "Knight of Gemma",
         "compendium_id": 706,
-        "compendium_shown": false,
+        "compendium_shown": true,
         "requirements": null,
         "skills": [220270],
         "effects": ["Grant 'Knight of Gemma' passive"],
-        "unique": false,
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
-        "icon": "ability_77.png",
+        "icon": "ability_79.png",
         "strings": {
             "names": ["Knight of Gemma", "傑馬騎士", "제마의 기사", "Chevalier Gemma", "Gemma-Ritter", "Caballero de Gemma", "Kesatria Gemma", "อัศวิน\u001aแห่ง\u001a \u001aGemma\u001a"],
-            "desc_short": ["Boost HP/MP by 10%, and ATK, DEF, MAG, and SPR, by 15%", "提高10%HPMP、15%攻擊防禦魔力精神", "HP와 MP 10%, 공격력, 방어력, 마력, 정신력 15% 상승", "Augmente PV/PM de 10% et ATT/DEF/MAGIE/PSY de 15%", "Erhöht LP/MP um 10% und ANG, ABW, MAG und PSY um 15%.", "Aumenta VIT/PM un 10% y ATQ/DEF/MAG/ESP un 15%", "Meningkatkan HP dan MP sebanyak 10%, serta ATK, DEF, MAG, dan SPR sebanyak 15%", "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aMP\u001a \u001a10%, ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a,\u001a \u001aและ\u001a \u001aSPR\u001a \u001a15%"],
-            "desc_long": ["Boosts HP and MP by 10%, and ATK, DEF, MAG, and SPR by 15%.", "提高10%HPMP、15%攻擊防禦魔力精神。", "HP와 MP 10%, 공격력, 방어력, 마력, 정신력이 15% 상승합니다.", "Augmente PV/PM de 10% et ATT/DEF/MAGIE/PSY de 15%", "Erhöht LP/MP um 10% und ANG, ABW, MAG und PSY um 15%.", "Aumenta la VIT y los PM un 10% y el ATQ, la DEF, la MAG y el ESP un 15%.", "Meningkatkan HP dan MP sebanyak 10%, serta ATK, DEF, MAG, dan SPR sebanyak 15%.", "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aMP\u001a \u001a10%, ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a,\u001a \u001aและ\u001a \u001aSPR\u001a \u001a15%"]
+            "desc_short": [
+                "Boost HP and MP by 10%, ATK, DEF, MAG, and SPR by 40%, and physical and magic damage against reapers by 50% (Not stackable)",
+                "提高10%HPMP、40%攻擊防禦魔力精神+物理、魔法攻擊時提高50%對死靈系魔物的傷害[無法重複裝備]",
+                "HP와 MP 10%, 공격력, 방어력, 마력, 정신력 40% 상승+물리, 마법 공격 시 사령형 마물에게 부여하는 피해량 50% 상승(중복 장착 불가)",
+                "Augmente les PV et les PM de 10 %, augmente l'ATT, la DEF, la MAGIE et la PSY de 40 %, et augmente les dégâts physiques et magiques infligés aux morts-vivants de 50 % (non cumulable)",
+                "Erhöht LP und MP um 10%, ANG, ABW, MAG sowie PSY um 40% und physischen und magischen Schaden gegen Untote um 50% (nicht stapelbar).",
+                "Aumenta la VIT y los PM un 10%, ATQ, DEF, MAG y ESP un 40% y el daño físico y mágico contra muertos vivientes un 50% (no acumulable)",
+                "Meningkatkan HP dan MP sebanyak 10%, dan ATK, DEF, MAG, dan SPR sebanyak 40%, serta meningkatkan damage fisik dan magic terhadap jenis makhluk halus sebanyak 50% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aMP\u001a \u001a10% และ ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts HP and MP by 10%, ATK, DEF, MAG, and SPR by 40%, and physical and magic damage against reapers by 50%. Not stackable.",
+                "提高10%HPMP、40%攻擊防禦魔力精神，以及物理、魔法攻擊時提高50%對死靈系魔物的傷害。[無法重複裝備]",
+                "HP와 MP가 10%, 공격력, 방어력, 마력, 정신력이 40% 상승하고, 물리, 마법 공격 시 사령형 마물에게 부여하는 피해량이 50% 상승합니다.(중복 장착 불가)",
+                "Augmente les PV et les PM de 10 %, augmente l'ATT, la DEF, la MAGIE et la PSY de 40 %, et augmente les dégâts physiques et magiques infligés aux morts-vivants de 50 %. Non cumulable.",
+                "Erhöht LP und MP um 10%, ANG, ABW, MAG sowie PSY um 40% und physischen und magischen Schaden gegen Untote um 50%. Nicht stapelbar.",
+                "Aumenta la VIT y los PM un 10%, ATQ, DEF, MAG y ESP un 40% y el daño físico y mágico contra muertos vivientes un 50%. No acumulable.",
+                "Meningkatkan HP dan MP sebanyak 10%, dan ATK, DEF, MAG, dan SPR sebanyak 40%, serta meningkatkan damage fisik dan magic terhadap jenis makhluk halus sebanyak 50%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aMP\u001a \u001a10% และ ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504220280": {
@@ -10852,8 +10870,8 @@
         "icon": "ability_76.png",
         "strings": {
             "names": ["Dark Knight's Knowledge", "魔劍士的心得", "마검사의 마음가짐", "Savoir du chevalier noir", "Expertise des Dunkelritters", "Saber de Caballero Oscuro", "Pengetahuan Pendekar Hitam", "ความรู้\u001aของ\u001aอัศวิน\u001aทมิฬ\u001a"],
-            "desc_short": ["Boost ATK by 30%, boost equipment ATK when a single weapon is equipped in both hands, and boost physical damage against demons (Not stackable)", "提高30%攻擊+雙手只裝備1把武器時武具攻擊提升+物理攻擊時提高對惡魔系魔物的傷害(無法重複裝備)", "공격력 30% 상승+양손의 장비가 무기 1개일 경우 장비의 공격력 상승+물리 공격 시 악마형 마물에게 부여하는 피해량 상승", "Augmente l'ATT de 30%, augmente l'ATT de l'équipement quand une arme est tenue avec les deux mains et augmente les dégâts physiques infligés aux démons (non cumulable)", "Erhöht ANG um 30%, erhöht Ausrüstung-ANG, wenn eine einzige Waffe in beiden Händen ausgerüstet ist und erhöht physischen Schaden gegen Dämonen (Nicht stapelbar).", "Aumenta el ATQ un 30%, aumenta el ATQ del equipo al llevar una sola arma en las dos manos y aumenta el daño físico contra demonios (no acumulable)", "Meningkatkan ATK sebanyak 30%, meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan, dan meningkatkan damage fisik terhadap jenis demon (Tidak dapat ditumpuk)", "เพิ่มค่า\u001a \u001aATK\u001a \u001a30% + เพิ่มค่า ATK\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"],
-            "desc_long": ["Boosts ATK by 30%, boosts equipment ATK when a single weapon is equipped in both hands, and boosts physical damage against demons. Not stackable.", "提高30%攻擊+雙手只裝備1把武器時武具攻擊提升，物理攻擊時提高對惡魔系魔物的傷害。(無法重複裝備)", "공격력이 30% 상승하고, 양손의 장비가 무기 1개일 경우 장비의 공격력이 상승하며, 물리 공격 시 악마형 마물에게 부여하는 피해량이 상승합니다.", "Augmente l'ATT de 30%, augmente l'ATT de l'équipement quand une arme est tenue avec les deux mains et augmente les dégâts physiques infligés aux démons Non cumulable.", "Erhöht ANG um 30%, erhöht Ausrüstung-ANG, wenn eine einzige Waffe in beiden Händen ausgerüstet ist und erhöht physischen Schaden gegen Dämonen. Nicht stapelbar.", "Aumenta el ATQ un 30%, aumenta el ATQ del equipo al llevar una sola arma en las dos manos y aumenta el daño físico contra demonios. No acumulable.", "Meningkatkan ATK sebanyak 30%, meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan, dan meningkatkan damage fisik terhadap jenis demon. Tidak dapat ditumpuk.", "เพิ่มค่า\u001a \u001aATK\u001a \u001a30% + เพิ่มค่า ATK\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"]
+            "desc_short": ["Boost ATK by 30%, boost equipment ATK when a single weapon is equipped in both hands, and boost physical damage against demons (Not stackable)", "提高30%攻擊+雙手只裝備1把武器時武具攻擊提升+物理攻擊時提高對惡魔系魔物的傷害(無法重複裝備)", "공격력 30% 상승+양손의 장비가 무기 1개일 경우 장비의 공격력 상승+물리 공격 시 악마형 마물에게 부여하는 피해량 상승", "Augmente l'ATT de 30%, augmente l'ATT de l'équipement quand une arme est tenue avec les deux mains et augmente les dégâts physiques infligés aux démons (non cumulable)", "Erhöht ANG um 30%, erhöht Ausrüstung-ANG, wenn eine einzige Waffe in beiden Händen ausgerüstet ist und erhöht physischen Schaden gegen Dämonen (Nicht stapelbar).", "Aumenta el ATQ un 30%, aumenta el ATQ del equipo al llevar una sola arma en las dos manos y aumenta el daño físico contra demonios (no acumulable)", "Meningkatkan ATK sebanyak 30%, meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan, dan meningkatkan damage fisik terhadap jenis demon (Tidak dapat ditumpuk)", "เพิ่มค่า\u001a \u001aATK\u001a \u001a30% + เพิ่มค่า ATK\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aสอง\u001aมือ\u001a \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"],
+            "desc_long": ["Boosts ATK by 30%, boosts equipment ATK when a single weapon is equipped in both hands, and boosts physical damage against demons. Not stackable.", "提高30%攻擊+雙手只裝備1把武器時武具攻擊提升，物理攻擊時提高對惡魔系魔物的傷害。(無法重複裝備)", "공격력이 30% 상승하고, 양손의 장비가 무기 1개일 경우 장비의 공격력이 상승하며, 물리 공격 시 악마형 마물에게 부여하는 피해량이 상승합니다.", "Augmente l'ATT de 30%, augmente l'ATT de l'équipement quand une arme est tenue avec les deux mains et augmente les dégâts physiques infligés aux démons Non cumulable.", "Erhöht ANG um 30%, erhöht Ausrüstung-ANG, wenn eine einzige Waffe in beiden Händen ausgerüstet ist und erhöht physischen Schaden gegen Dämonen. Nicht stapelbar.", "Aumenta el ATQ un 30%, aumenta el ATQ del equipo al llevar una sola arma en las dos manos y aumenta el daño físico contra demonios. No acumulable.", "Meningkatkan ATK sebanyak 30%, meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan, dan meningkatkan damage fisik terhadap jenis demon. Tidak dapat ditumpuk.", "เพิ่มค่า\u001a \u001aATK\u001a \u001a30% + เพิ่มค่า ATK\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aสอง\u001aมือ\u001a \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"]
         }
     },
     "504228610": {
@@ -13489,7 +13507,7 @@
                 "Boost MP by 40%, MAG by 60%, and ice resistance by 80% (Not stackable)",
                 "提高40%MP、60%魔力、80%冰屬性耐性 [無法重複裝備]",
                 "MP 40%, 마력 60%, 얼음속성 저항력 80% 상승 (중복 장착 불가)",
-                "Augmente les PM de 40 %, la MAGIE de 60 % et la résistance à la glace de 80 %",
+                "Augmente les PM de 40 %, la MAGIE de 60 % et la résistance à la glace de 80 % (non cumulable)",
                 "Erhöht MP um 40%, MAG um 60% und Eisresistenz um 80% (nicht stapelbar).",
                 "Aumenta los PM un 40%, la MAG un 60% y la resistencia al hielo un 80% (no acumulable)",
                 "Meningkatkan MP sebanyak 40%, MAG sebanyak 60%, dan resistansi es sebanyak 80% (Tidak dapat ditumpuk)",
@@ -13524,7 +13542,7 @@
                 "Boost HP and SPR by 40% and water, wind, and light resistance by 60% (Not stackable)",
                 "提高40%HP精神、60%水風光屬性耐性 [無法重複裝備]",
                 "HP와 정신력 40%, 물, 바람, 빛속성 저항력 60% 상승 (중복 장착 불가)",
-                "Augmente les PV et la PSY de 40 % ainsi que la résistance à l'eau, au vent et à la lumière de 60 %",
+                "Augmente les PV et la PSY de 40 % ainsi que la résistance à l'eau, au vent et à la lumière de 60 % (non cumulable)",
                 "Erhöht LP und PSY um 40% und Wasser-, Wind- und Lichtresistenz um 60% (nicht stapelbar).",
                 "Aumenta la VIT y el ESP un 40% y la resistencia a agua, viento y luz un 60% (no acumulable)",
                 "Meningkatkan HP dan SPR sebanyak 40%, serta resistansi air, angin, dan cahaya sebanyak 60% (Tidak dapat ditumpuk)",
@@ -23037,105 +23055,141 @@
         }
     },
     "504242092": {
-        "name": "玉石の騎士",
+        "name": "Knight of the Clarius",
         "compendium_id": 1342,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [304000105, 304000204, 304000303, 304000405, 304000503, 342000107, 342000117, 342000207, 342000217, 311000105, 312000105, 312000205, 312000305, 312000404, 312000505, 312000605, 312000805, 312000905, 312000705, 312001007, 312001017, 312000527, 312000627]],
+        "requirements": ["UNIT_ID", [304000105, 304000204, 342000107, 342000117, 304000303, 304000405, 304000503, 342000207, 342000217, 312001007, 312001017, 312000517, 312000527, 312000617, 312000627, 401012407, 401012417]],
         "skills": [242092],
-        "effects": ["Grant '玉石の騎士' passive"],
-        "unique": false,
+        "effects": ["Grant 'Knight of the Clarius' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_91.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Knight of the Clarius", "玉石騎士", "옥석의 기사", "Virago de l'Irradiante", "Clarius-Ritterin", "Guerrera de los Clarios", "Kesatria Clarius", "อัศวิน\u001aแห่ง\u001a \u001aClarius\u001a"],
+            "desc_short": [
+                "Boost ATK by 500, restore MP by 5% every turn, and boost physical and magic damage against beasts, demons, humans, dragons, fairies, insects, plants, reapers, and avian, aquatic, machina, and stone monsters by 50% (Mana Series units only) (Not stackable)",
+                "提高500攻擊+每回合恢復5%MP+物理、魔法攻擊時提高50%對獸惡魔人龍精靈蟲植物死靈鳥水生機械岩石系魔物的傷害(聖劍傳說系列兵員專屬)[無法重複裝備]",
+                "공격력 500 상승+매 턴마다 MP 5% 회복+물리, 마법 공격 시 야수, 악마, 인간, 드래곤, 정령, 곤충, 식물, 사령, 조류, 수중, 기계, 암석형 마물에게 부여하는 피해량 50% 상승(성검전설 시리즈 유닛 전용)(중복 장착 불가)",
+                "Augmente l'ATT de 500, restaure les PV de 5 % à chaque tour, et augmente de 50 % les dégâts physiques et magiques infligés aux bêtes, aux démons, aux humains, aux dragons, aux esprits, aux insectes, aux plantes, aux morts-vivants, aux oiseaux, aux monstres aquatiques, aux machines et aux monstres de pierre (unités de la série Mana uniquement) (non cumulable)",
+                "Erhöht ANG um 500, regeneriert jede Runde MP um 5%, erhöht physischen sowie magischen Schaden gegen Bestien, Dämonen, Menschen, Drachen, Feen, Insekten, Pflanzen, Untote, Vogelmonster, Wassermonster, Maschinen und Steinmonster um 50% (nur Einheiten der Mana-Reihe) (nicht stapelbar).",
+                "Aumenta el ATQ en 500, recupera un 5% de PM cada turno y aumenta el daño físico y mágico contra bestias, demonios, humanos, dragones, espíritus, insectos, plantoides, muertos vivientes, aves, acuáticos, máquinas y pétreos un 50% (solo unidades de la saga de Mana) (no acumulable)",
+                "Meningkatkan ATK sebanyak 500, memulihkan MP sebanyak 5% setiap giliran, serta meningkatkan damage fisik dan magic terhadap jenis makhluk buas, demon, manusia, naga, peri, serangga, tumbuhan, makhluk halus, makhluk bersayap, makhluk perairan, mesin, dan batu sebanyak 50% (Khusus unit seri Mana) (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a500\u001a \u001a+\u001a \u001aฟื้นฟู\u001a \u001aMP\u001a \u001a5% ทุกเทิร์น + เพิ่มค่า<br>ความเสียหายทางกายภาพและพลังเวทย์เมื่อโจมตีศัตรูชนิดอสูร, ปีศาจ, มนุษย์, มังกร, แฟรี่, แมลง, พืช, ภูตผี, สัตว์ปีก, สัตว์น้ำ, จักรกลและศิลา 50% (ยูนิทจากซีรี่ส์ Mana\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts ATK by 500, restores MP by 5% every turn, and boosts physical and magic damage against beasts, demons, humans, dragons, fairies, insects, plants, reapers, and avian, aquatic, machina, and stone monsters by 50%. Mana Series units only. Not stackable.",
+                "提高500攻擊，且每回合恢復5%MP，以及物理、魔法攻擊時提高50%對獸惡魔人龍精靈蟲植物死靈鳥水生機械岩石系魔物的傷害。(聖劍傳說系列兵員專屬)[無法重複裝備]",
+                "공격력이 500 상승하고, 매 턴마다 MP를 5% 회복하며, 물리, 마법 공격 시 야수, 악마, 인간, 드래곤, 정령, 곤충, 식물, 사령, 조류, 수중, 기계, 암석형 마물에게 부여하는 피해량이 50% 상승합니다.(성검전설 시리즈 유닛 전용)(중복 장착 불가)",
+                "Augmente l'ATT de 500, restaure les PV de 5 % à chaque tour, et augmente de 50 % les dégâts physiques et magiques infligés aux bêtes, aux démons, aux humains, aux dragons, aux esprits, aux insectes, aux plantes, aux morts-vivants, aux oiseaux, aux monstres aquatiques, aux machines et aux monstres de pierre. Unités de la série Mana uniquement. Non cumulable.",
+                "Erhöht ANG um 500, regeneriert jede Runde MP um 5%, erhöht physischen sowie magischen Schaden gegen Bestien, Dämonen, Menschen, Drachen, Feen, Insekten, Pflanzen, Untote, Vogelmonster, Wassermonster, Maschinen und Steinmonster um 50%. Nur Einheiten der Mana-Reihe. Nicht stapelbar.",
+                "Aumenta el ATQ en 500, recupera un 5% de PM cada turno y aumenta el daño físico y mágico contra bestias, demonios, humanos, dragones, espíritus, insectos, plantoides, muertos vivientes, aves, acuáticos, máquinas y pétreos un 50%. Solo unidades de la saga de Mana. No acumulable.",
+                "Meningkatkan ATK sebanyak 500, memulihkan MP sebanyak 5% setiap giliran, serta meningkatkan damage fisik dan magic terhadap jenis makhluk buas, demon, manusia, naga, peri, serangga, tumbuhan, makhluk halus, makhluk bersayap, makhluk perairan, mesin, dan batu sebanyak 50%. Khusus unit seri Mana. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a500\u001a \u001a+\u001a \u001aฟื้นฟู\u001a \u001aMP\u001a \u001a5% ทุกเทิร์น + เพิ่มค่า<br>ความเสียหายทางกายภาพและพลังเวทย์เมื่อโจมตีศัตรูชนิดอสูร, ปีศาจ, มนุษย์, มังกร, แฟรี่, แมลง, พืช, ภูตผี, สัตว์ปีก, สัตว์น้ำ, จักรกลและศิลา 50% (ยูนิทจากซีรี่ส์ Mana\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504242108": {
-        "name": "ロジックボード",
+        "name": "Logic Grid",
         "compendium_id": 1343,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [304000105, 304000204, 304000303, 304000405, 304000503, 342000107, 342000117, 342000207, 342000217, 311000105, 312000105, 312000205, 312000305, 312000404, 312000505, 312000605, 312000805, 312000905, 312000705, 312001007, 312001017, 312000527, 312000627]],
+        "requirements": ["UNIT_ID", [304000105, 304000204, 304000303, 304000405, 304000503, 342000107, 342000117, 342000207, 342000217, 401012407, 401012417, 312000517, 312000527, 312000617, 312000627, 312001007, 312001017]],
         "skills": [242108],
-        "effects": ["Grant 'ロジックボード' passive"],
+        "effects": ["Grant 'Logic Grid' passive"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_6000200.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Logic Grid", "邏輯平板", "로직 보드", "Planche logique", "Logikbrett", "Matriz de atributos", "Logic Grid", "ตาราง\u001aคิด\u001aตรรกะ\u001a"],
+            "desc_short": ["Boost LB damage by 10%, and boost equipment ATK, DEF, MAG, and SPR by 10% when a single weapon is equipped in one or both hands (Mana series units only)", "提高10%極限技的傷害+只裝備1把武器時武具攻擊防禦魔力精神提升10%(聖劍傳說系列兵員專屬)", "LB 피해량 10% 상승+한손 또는 양손에 무기 1개 장착 시 장비의 공격력, 방어력, 마력, 정신력 10% 상승(성검전설 시리즈 유닛 전용)", "Augmente les dégâts de la limite de 10 % et augmente l'ATT, la DEF, la MAGIE et la PSY de l'équipement de 10 % quand une seule arme est équipée dans une ou les deux mains (unités de la série Mana uniquement)", "Erhöht Schaden durch Limitrausch um 10% und erhöht Ausrüstung-ANG, -ABW, -MAG sowie -PSY um 10%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist (nur Einheiten der Mana-Reihe).", "Aumenta el daño del EL un 10%, y aumenta ATQ, DEF, MAG y ESP del equipo un 10% al llevar una sola arma en una o ambas manos (solo unidades de la saga de Mana)", "Meningkatkan damage LB sebanyak 10%, serta meningkatkan ATK, DEF, MAG, dan SPR perlengkapan sebanyak 10% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan (Khusus unit seri Mana)", "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a10% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a10% เมื่อติดตั้งอาวุธ 1 ชิ้นในมือเดียวหรือสองมือ (ยูนิทจากซีรี่ส์ Mana\u001a \u001aเท่านั้น\u001a)\u001a"],
+            "desc_long": ["Boosts LB damage by 10%, and boosts equipment ATK, DEF, MAG, and SPR by 10% when a single weapon is equipped in one or both hands. Mana series units only.", "提高10%極限技的傷害，以及只裝備1把武器時武具攻擊防禦魔力精神提升10%。(聖劍傳說系列兵員專屬)", "LB 피해량이 10% 상승하고, 한손 또는 양손에 무기 1개 장착 시 장비의 공격력, 방어력, 마력, 정신력이 10% 상승합니다.(성검전설 시리즈 유닛 전용)", "Augmente les dégâts de la limite de 10 % et augmente l'ATT, la DEF, la MAGIE et la PSY de l'équipement de 10 % quand une seule arme est équipée dans une ou les deux mains. Unités de la série Mana uniquement.", "Erhöht Schaden durch Limitrausch um 10% und erhöht Ausrüstung-ANG, -ABW, -MAG sowie -PSY um 10%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist. Nur Einheiten der Mana-Reihe.", "Aumenta el daño del EL un 10%, y aumenta ATQ, DEF, MAG y ESP del equipo un 10% al llevar una sola arma en una o ambas manos. Solo unidades de la saga de Mana. No acumulable.", "Meningkatkan damage limit burst sebanyak 10%, serta meningkatkan ATK, DEF, MAG, dan SPR perlengkapan sebanyak 10% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan. Khusus unit seri Mana.", "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a10% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a10% เมื่อติดตั้งอาวุธ 1 ชิ้นในมือเดียวหรือสองมือ (ยูนิทจากซีรี่ส์ Mana\u001a \u001aเท่านั้น\u001a)\u001a"]
         }
     },
     "504242109": {
-        "name": "ロジックボード+1",
+        "name": "Logic Grid+1",
         "compendium_id": 1344,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [304000105, 304000204, 304000303, 304000405, 304000503, 342000107, 342000117, 342000207, 342000217, 311000105, 312000105, 312000205, 312000305, 312000404, 312000505, 312000605, 312000805, 312000905, 312000705, 312001007, 312001017, 312000527, 312000627]],
+        "requirements": ["UNIT_ID", [304000105, 304000204, 304000303, 304000405, 304000503, 342000107, 342000117, 342000207, 342000217, 401012407, 401012417, 312000517, 312000527, 312000617, 312000627, 312001007, 312001017]],
         "skills": [242109],
-        "effects": ["Grant 'ロジックボード+1' passive"],
+        "effects": ["Grant 'Logic Grid+1' passive"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_6000200.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Logic Grid+1", "邏輯平板+1", "로직 보드+1", "Planche logique +1", "Logikbrett +1", "Matriz de atributos+1", "Logic Grid+1", "ตาราง\u001aคิด\u001aตรรกะ\u001a+\u001a1\u001a"],
+            "desc_short": ["Boost LB damage by 15%, and boost equipment ATK, DEF, MAG, and SPR by 15% when a single weapon is equipped in one or both hands (Mana series units only)", "提高15%極限技的傷害+只裝備1把武器時武具攻擊防禦魔力精神提升15%(聖劍傳說系列兵員專屬)", "LB 피해량 15% 상승+한손 또는 양손에 무기 1개 장착 시 장비의 공격력, 방어력, 마력, 정신력 15% 상승(성검전설 시리즈 유닛 전용)", "Augmente les dégâts de la limite de 15 % et augmente l'ATT, la DEF, la MAGIE et la PSY de l'équipement de 15 % quand une seule arme est équipée dans une ou les deux mains (unités de la série Mana uniquement)", "Erhöht Schaden durch Limitrausch um 15% und erhöht Ausrüstung-ANG, -ABW, -MAG sowie -PSY um 15%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist (nur Einheiten der Mana-Reihe).", "Aumenta el daño del EL un 15%, y aumenta ATQ, DEF, MAG y ESP del equipo un 15% al llevar una sola arma en una o ambas manos (solo unidades de la saga de Mana)", "Meningkatkan damage LB sebanyak 15%, serta meningkatkan ATK, DEF, MAG, dan SPR perlengkapan sebanyak 15% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan (Khusus unit seri Mana)", "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a15% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a15% เมื่อติดตั้งอาวุธ 1 ชิ้นในมือเดียวหรือสองมือ (ยูนิทจากซีรี่ส์ Mana\u001a \u001aเท่านั้น\u001a)\u001a"],
+            "desc_long": ["Boosts LB damage by 15%, and boosts equipment ATK, DEF, MAG, and SPR by 15% when a single weapon is equipped in one or both hands. Mana series units only.", "提高15%極限技的傷害，以及只裝備1把武器時武具攻擊防禦魔力精神提升15%。(聖劍傳說系列兵員專屬)", "LB 피해량이 15% 상승하고, 한손 또는 양손에 무기 1개 장착 시 장비의 공격력, 방어력, 마력, 정신력이 15% 상승합니다.(성검전설 시리즈 유닛 전용)", "Augmente les dégâts de la limite de 15 % et augmente l'ATT, la DEF, la MAGIE et la PSY de l'équipement de 15 % quand une seule arme est équipée dans une ou les deux mains. Unités de la série Mana uniquement.", "Erhöht Schaden durch Limitrausch um 15% und erhöht Ausrüstung-ANG, -ABW, -MAG sowie -PSY um 15%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist. Nur Einheiten der Mana-Reihe.", "Aumenta el daño del EL un 15%, y aumenta ATQ, DEF, MAG y ESP del equipo un 15% al llevar una sola arma en una o ambas manos. Solo unidades de la saga de Mana. No acumulable.", "Meningkatkan damage limit burst sebanyak 15%, serta meningkatkan ATK, DEF, MAG, dan SPR perlengkapan sebanyak 15% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan. Khusus unit seri Mana.", "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a15% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a15% เมื่อติดตั้งอาวุธ 1 ชิ้นในมือเดียวหรือสองมือ (ยูนิทจากซีรี่ส์ Mana\u001a \u001aเท่านั้น\u001a)\u001a"]
         }
     },
     "504242110": {
-        "name": "ロジックボード+2",
+        "name": "Logic Grid+2",
         "compendium_id": 1345,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [304000105, 304000204, 304000303, 304000405, 304000503, 342000107, 342000117, 342000207, 342000217, 311000105, 312000105, 312000205, 312000305, 312000404, 312000505, 312000605, 312000805, 312000905, 312000705, 312001007, 312001017, 312000527, 312000627]],
+        "requirements": ["UNIT_ID", [304000105, 304000204, 304000303, 304000405, 304000503, 342000107, 342000117, 342000207, 342000217, 401012407, 401012417, 312000517, 312000527, 312000617, 312000627, 312001007, 312001017]],
         "skills": [242110],
-        "effects": ["Grant 'ロジックボード+2' passive"],
+        "effects": ["Grant 'Logic Grid+2' passive"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_6000200.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Logic Grid+2", "邏輯平板+2", "로직 보드+2", "Planche logique +2", "Logikbrett +2", "Matriz de atributos+2", "Logic Grid+2", "ตาราง\u001aคิด\u001aตรรกะ\u001a+\u001a2\u001a"],
+            "desc_short": ["Boost LB damage by 25%, and boost equipment ATK, DEF, MAG, and SPR by 25% when a single weapon is equipped in one or both hands (Mana series units only)", "提高25%極限技的傷害+只裝備1把武器時武具攻擊防禦魔力精神提升25%(聖劍傳說系列兵員專屬)", "LB 피해량 25% 상승+한손 또는 양손에 무기 1개 장착 시 장비의 공격력, 방어력, 마력, 정신력 25% 상승(성검전설 시리즈 유닛 전용)", "Augmente les dégâts de la limite de 25 % et augmente l'ATT, la DEF, la MAGIE et la PSY de l'équipement de 25 % quand une seule arme est équipée dans une ou les deux mains (unités de la série Mana uniquement)", "Erhöht Schaden durch Limitrausch um 25% und erhöht Ausrüstung-ANG, -ABW, -MAG sowie -PSY um 25%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist (nur Einheiten der Mana-Reihe).", "Aumenta el daño del EL un 25,% y aumenta ATQ, DEF, MAG y ESP del equipo un 25% al llevar una sola arma en una o ambas manos (solo unidades de la saga de Mana)", "Meningkatkan damage LB sebanyak 25%, serta meningkatkan ATK, DEF, MAG, dan SPR perlengkapan sebanyak 25% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan (Khusus unit seri Mana)", "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a25% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a25% เมื่อติดตั้งอาวุธ 1 ชิ้นในมือเดียวหรือสองมือ (ยูนิทจากซีรี่ส์ Mana\u001a \u001aเท่านั้น\u001a)\u001a"],
+            "desc_long": ["Boosts LB damage by 25%, and boosts equipment ATK, DEF, MAG, and SPR by 25% when a single weapon is equipped in one or both hands. Mana series units only.", "提高25%極限技的傷害，以及只裝備1把武器時武具攻擊防禦魔力精神提升25%。(聖劍傳說系列兵員專屬)", "LB 피해량이 25% 상승하고, 한손 또는 양손에 무기 1개 장착 시 장비의 공격력, 방어력, 마력, 정신력이 25% 상승합니다.(성검전설 시리즈 유닛 전용)", "Augmente les dégâts de la limite de 25 % et augmente l'ATT, la DEF, la MAGIE et la PSY de l'équipement de 25 % quand une seule arme est équipée dans une ou les deux mains. Unités de la série Mana uniquement.", "Erhöht Schaden durch Limitrausch um 25% und erhöht Ausrüstung-ANG, -ABW, -MAG sowie -PSY um 25%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist. Nur Einheiten der Mana-Reihe.", "Aumenta el daño del EL un 25,% y aumenta ATQ, DEF, MAG y ESP del equipo un 25% al llevar una sola arma en una o ambas manos. Solo unidades de la saga de Mana. No acumulable.", "Meningkatkan damage limit burst sebanyak 25%, serta meningkatkan ATK, DEF, MAG, dan SPR perlengkapan sebanyak 25% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan. Khusus unit seri Mana.", "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a25% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a25% เมื่อติดตั้งอาวุธ 1 ชิ้นในมือเดียวหรือสองมือ (ยูนิทจากซีรี่ส์ Mana\u001a \u001aเท่านั้น\u001a)\u001a"]
         }
     },
     "504242111": {
-        "name": "ロジックボード+3",
+        "name": "Logic Grid+3",
         "compendium_id": 1346,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [304000105, 304000204, 304000303, 304000405, 304000503, 342000107, 342000117, 342000207, 342000217, 311000105, 312000105, 312000205, 312000305, 312000404, 312000505, 312000605, 312000805, 312000905, 312000705, 312001007, 312001017, 312000527, 312000627]],
+        "requirements": ["UNIT_ID", [304000105, 304000204, 304000303, 304000405, 304000503, 342000107, 342000117, 342000207, 342000217, 401012407, 401012417, 312000517, 312000527, 312000617, 312000627, 312001007, 312001017]],
         "skills": [242111],
-        "effects": ["Grant 'ロジックボード+3' passive"],
+        "effects": ["Grant 'Logic Grid+3' passive"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_6000200.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Logic Grid+3", "邏輯平板+3", "로직 보드+3", "Planche logique +3", "Logikbrett +3", "Matriz de atributos+3", "Logic Grid+3", "ตาราง\u001aคิด\u001aตรรกะ\u001a+\u001a3\u001a"],
+            "desc_short": ["Boost LB damage by 30%, and boost equipment ATK, DEF, MAG, and SPR by 30% when a single weapon is equipped in one or both hands (Mana series units only)", "提高30%極限技的傷害+只裝備1把武器時武具攻擊防禦魔力精神提升30%(聖劍傳說系列兵員專屬)", "LB 피해량 30% 상승+한손 또는 양손에 무기 1개 장착 시 장비의 공격력, 방어력, 마력, 정신력 30% 상승(성검전설 시리즈 유닛 전용)", "Augmente les dégâts de la limite de 30 % et augmente l'ATT, la DEF, la MAGIE et la PSY de l'équipement de 30 % quand une seule arme est équipée dans une ou les deux mains (unités de la série Mana uniquement)", "Erhöht Schaden durch Limitrausch um 30% und erhöht Ausrüstung-ANG, -ABW, -MAG sowie -PSY um 30%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist (nur Einheiten der Mana-Reihe).", "Aumenta el daño del EL un 30%, y aumenta ATQ, DEF, MAG y ESP del equipo un 30% al llevar una sola arma en una o ambas manos (solo unidades de la saga de Mana)", "Meningkatkan damage LB sebanyak 30%, serta meningkatkan ATK, DEF, MAG, dan SPR perlengkapan sebanyak 30% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan (Khusus unit seri Mana)", "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a30% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a30% เมื่อติดตั้งอาวุธ 1 ชิ้นในมือเดียวหรือสองมือ (ยูนิทจากซีรี่ส์ Mana\u001a \u001aเท่านั้น\u001a)\u001a"],
+            "desc_long": ["Boosts LB damage by 30%, and boosts equipment ATK, DEF, MAG, and SPR by 30% when a single weapon is equipped in one or both hands. Mana series units only.", "提高30%極限技的傷害，以及只裝備1把武器時武具攻擊防禦魔力精神提升30%。(聖劍傳說系列兵員專屬)", "LB 피해량이 30% 상승하고, 한손 또는 양손에 무기 1개 장착 시 장비의 공격력, 방어력, 마력, 정신력이 30% 상승합니다.(성검전설 시리즈 유닛 전용)", "Augmente les dégâts de la limite de 30 % et augmente l'ATT, la DEF, la MAGIE et la PSY de l'équipement de 30 % quand une seule arme est équipée dans une ou les deux mains. Unités de la série Mana uniquement.", "Erhöht Schaden durch Limitrausch um 30% und erhöht Ausrüstung-ANG, -ABW, -MAG sowie -PSY um 30%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist. Nur Einheiten der Mana-Reihe.", "Aumenta el daño del EL un 30%, y aumenta ATQ, DEF, MAG y ESP del equipo un 30% al llevar una sola arma en una o ambas manos. Solo unidades de la saga de Mana. No acumulable.", "Meningkatkan damage limit burst sebanyak 30%, serta meningkatkan ATK, DEF, MAG, dan SPR perlengkapan sebanyak 30% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan. Khusus unit seri Mana.", "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a30% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a30% เมื่อติดตั้งอาวุธ 1 ชิ้นในมือเดียวหรือสองมือ (ยูนิทจากซีรี่ส์ Mana\u001a \u001aเท่านั้น\u001a)\u001a"]
         }
     },
     "504242112": {
-        "name": "ロジックボード+4",
+        "name": "Logic Grid+4",
         "compendium_id": 1347,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [304000105, 304000204, 304000303, 304000405, 304000503, 342000107, 342000117, 342000207, 342000217, 311000105, 312000105, 312000205, 312000305, 312000404, 312000505, 312000605, 312000805, 312000905, 312000705, 312001007, 312001017, 312000527, 312000627]],
+        "requirements": ["UNIT_ID", [304000105, 304000204, 304000303, 304000405, 304000503, 342000107, 342000117, 342000207, 342000217, 401012407, 401012417, 312000517, 312000527, 312000617, 312000627, 312001007, 312001017]],
         "skills": [242112],
-        "effects": ["Grant 'ロジックボード+4' passive"],
-        "unique": false,
+        "effects": ["Grant 'Logic Grid+4' passive"],
+        "unique": true,
         "price_buy": 200000,
         "price_sell": 20000,
         "icon": "ability_6000200.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Logic Grid+4", "邏輯平板+4", "로직 보드+4", "Planche logique +4", "Logikbrett +4", "Matriz de atributos+4", "Logic Grid+4", "ตาราง\u001aคิด\u001aตรรกะ\u001a+\u001a4\u001a"],
+            "desc_short": [
+                "Boost LB damage by 50%, and boost equipment ATK, DEF, MAG, and SPR by 50% when a single weapon is equipped in one or both hands (Mana series units only) (Not stackable)",
+                "提高50%極限技的傷害+只裝備1把武器時武具攻擊防禦魔力精神提升50%(聖劍傳說系列兵員專屬)[無法重複裝備]",
+                "LB 피해량 50% 상승+한손 또는 양손에 무기 1개 장착 시 장비의 공격력, 방어력, 마력, 정신력 50% 상승(성검전설 시리즈 유닛 전용)",
+                "Augmente les dégâts de la limite de 50 % et augmente l'ATT, la DEF, la MAGIE et la PSY de l'équipement de 50 % quand une seule arme est équipée dans une ou les deux mains (unités de la série Mana uniquement) (non cumulable)",
+                "Erhöht Schaden durch Limitrausch um 50% und erhöht Ausrüstung-ANG, -ABW, -MAG sowie -PSY um 50%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist (nur Einheiten der Mana-Reihe) (nicht stapelbar).",
+                "Aumenta el daño del EL un 50%, y aumenta ATQ, DEF, MAG y ESP del equipo un 50% al llevar una sola arma en una o ambas manos (solo unidades de la saga de Mana) (no acumulable)",
+                "Meningkatkan damage LB sebanyak 50%, serta meningkatkan ATK, DEF, MAG, dan SPR perlengkapan sebanyak 50% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan (Khusus unit seri Mana) (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a50% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a50% เมื่อติดตั้งอาวุธ 1 ชิ้นในมือเดียวหรือสองมือ (ยูนิทจากซีรี่ส์ Mana\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts LB damage by 50%, and boosts equipment ATK, DEF, MAG, and SPR by 50% when a single weapon is equipped in one or both hands. Mana series units only. Not stackable.",
+                "提高50%極限技的傷害，以及只裝備1把武器時武具攻擊防禦魔力精神提升50%。(聖劍傳說系列兵員專屬)[無法重複裝備]",
+                "LB 피해량이 50% 상승하고, 한손 또는 양손에 무기 1개 장착 시 장비의 공격력, 방어력, 마력, 정신력이 50% 상승합니다.(성검전설 시리즈 유닛 전용)",
+                "Augmente les dégâts de la limite de 50 % et augmente l'ATT, la DEF, la MAGIE et la PSY de l'équipement de 50 % quand une seule arme est équipée dans une ou les deux mains. Unités de la série Mana uniquement. Non cumulable.",
+                "Erhöht Schaden durch Limitrausch um 50% und erhöht Ausrüstung-ANG, -ABW, -MAG sowie -PSY um 50%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist. Nur Einheiten der Mana-Reihe. Nicht stapelbar.",
+                "Aumenta el daño del EL un 50%, y aumenta ATQ, DEF, MAG y ESP del equipo un 50% al llevar una sola arma en una o ambas manos. Solo unidades de la saga de Mana. No acumulable.",
+                "Meningkatkan damage limit burst sebanyak 50%, serta meningkatkan ATK, DEF, MAG, dan SPR perlengkapan sebanyak 50% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan. Khusus unit seri Mana. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a50% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a50% เมื่อติดตั้งอาวุธ 1 ชิ้นในมือเดียวหรือสองมือ (ยูนิทจากซีรี่ส์ Mana\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504242113": {
