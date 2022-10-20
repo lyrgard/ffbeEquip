@@ -736,7 +736,7 @@
 	{"atk":80, "atk%":50, "lbDamage":25},
 	{"atk":85, "atk%":50, "lbDamage":25},
 	{"atk":90, "atk%":50, "lbDamage":25},
-	{"atk":100, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500},"exclusiveUnits":["204000103","204000115","204000203","204000304","204000403","204000503","204000603","204000704","204001004","204001103","204001302","204001403","204001505","204001605","204001705","204001904","204001927","204002003","204002104","204002205","204002405","204002605","204002907","204002917","204003007","204003017","204003107","204003117","401001405","401001427","401001504","401001527","401001604","401001903"]}]}
+	{"atk":100, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500},"exclusiveUnits":["204000103","204000115","204000203","204000304","204000403","204000503","204000603","204000704","204001004","204001103","204001302","204001403","204001505","204001605","204001705","204001727","204001904","204001927","204002003","204002104","204002205","204002405","204002605","204002907","204002917","204003007","204003017","204003107","204003117","204003207","204003217","204003307","204003317","401001405","401001427","401001504","401001527","401001604","401001903"]}]}
 ]},
 {"id":"204000201", "name":"Battle with Rubicante", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_204000201.png", "sortId":86, "levels":[
 	{"atk":35, "mag":35},
@@ -760,7 +760,19 @@
 	{"mag":80, "mag%":50, "lbDamage":25},
 	{"mag":85, "mag%":50, "lbDamage":25},
 	{"mag":90, "mag%":50, "lbDamage":25},
-	{"mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500},"exclusiveUnits":["204000103","204000115","204000203","204000304","204000403","204000503","204000603","204000704","204001004","204001103","204001302","204001403","204001505","204001605","204001705","204001904","204001927","204002003","204002104","204002205","204002405","204002605","204002907","204002917","204003007","204003017","204003107","204003117","401001405","401001427","401001504","401001527","401001604","401001903"]}]}
+	{"mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500},"exclusiveUnits":["204000103","204000115","204000203","204000304","204000403","204000503","204000603","204000704","204001004","204001103","204001302","204001403","204001505","204001605","204001705","204001727","204001904","204001927","204002003","204002104","204002205","204002405","204002605","204002907","204002917","204003007","204003017","204003107","204003117","204003207","204003217","204003307","204003317","401001405","401001427","401001504","401001527","401001604","401001903"]}]}
+]},
+{"id":"204000401", "name":"Birth of a Paladin", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_204000401.png", "sortId":132, "levels":[
+	{"atk":60, "spr":60},
+	{"atk":66, "spr":66},
+	{"atk":72, "spr":72},
+	{"atk":78, "spr":78, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":84, "spr":84, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":90, "spr":90, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":96, "spr":96, "oneWeaponMastery":{"atk":50,"spr":50}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":102, "spr":102, "oneWeaponMastery":{"atk":50,"spr":50}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":108, "spr":108, "oneWeaponMastery":{"atk":50,"spr":50}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
+	{"atk":120, "spr":120, "oneWeaponMastery":{"atk":50,"spr":50}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "conditional":[{"staticStats":{"atk":500,"spr":500},"exclusiveUnits":["204000103","204000115","204000203","204000304","204000403","204000503","204000603","204000704","204001004","204001103","204001302","204001403","204001505","204001605","204001705","204001727","204001904","204001927","204002003","204002104","204002205","204002405","204002605","204002907","204002917","204003007","204003017","204003107","204003117","204003207","204003217","204003307","204003317","401001405","401001427","401001504","401001527","401001604","401001903"]}]}
 ]},
 {"id":"205000101", "name":"Syldra! Come Up and Say Hello!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000101.png", "sortId":41, "levels":[
 	{"atk":35, "mag":50},

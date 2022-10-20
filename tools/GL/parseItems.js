@@ -194,7 +194,7 @@ const unitRules = {
     7274: (item) => item.exclusiveUnits = ["312000205", "312001007", "312001017"],
     7275: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20036], // ActRaiser Renaissance
     7276: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20037], // Dragon Quest
-
+    //7277: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20038], // Chrono Cross
     7401: (item) => item.exclusiveUnits = ["100031507", "100031517"],
     7402: (item) => item.exclusiveUnits = ["100039407"],
     7601: (item) => item.max7StarUnit = true, // not implemented yet. Only for unit max 7*
@@ -525,7 +525,7 @@ function treatItem(items, itemId, result, skills) {
 
                     ruleArray.forEach((ruleId) => {
                         if (!Object.keys(unitRules).includes(ruleId.toString())) {
-                            console.log('Missing rule ' + ruleId + ' for item: ' + itemIn.name);
+                            console.log('Item Requirements #1: Missing rule ' + ruleId + ' for item: ' + itemIn.name);
                         } else {
                             unitRules[ruleId](conditionalUnits);
 
@@ -537,7 +537,7 @@ function treatItem(items, itemId, result, skills) {
                     let conditionalUnits = {};
 
                     if (!Object.keys(unitRules).includes(ruleNum.toString())) {
-                        console.log('Missing rule' + ruleId + ' for item: ' + itemIn.name)
+                        console.log('Item Requirements #2: Missing rule' + ruleId + ' for item: ' + itemIn.name)
                     } else {
                         unitRules[ruleNum](conditionalUnits);
 
@@ -761,19 +761,27 @@ function manageRequirement(skill, debugItems, copy) {
         }
         if (req[0] === 'RULE') {
             let ruleId = req[1];
-            if (!Object.keys(unitRules).includes(ruleId.toString()) && !Array.isArray(ruleId)) {
-                console.log('Missing rule ' + ruleId + ' for item ' + copy.name);
-            } else {
-                let conditionals = {};
-                
-                if (Array.isArray(ruleId)) {
-                    ruleId.forEach((rule) => {
-                        unitRules[rule](conditionals);        
-                    })
-                } else {
-                    unitRules[ruleId](conditionals);
-                }
+            let conditionals = {};
 
+            if (!Object.hasOwn(unitRules, ruleId)) {
+                if (!Array.isArray(ruleId)) {
+                    console.log('Manage Requirements #1: Missing rule ' + ruleId + ' for item ' + copy.name);
+                }
+                else {
+                    if (Array.isArray(ruleId)) {
+                        ruleId.forEach((rule) => {
+                            if (!Object.hasOwn(unitRules, rule)) {
+                                console.log('Manage Requirements #2: Missing rule ' + ruleId + ' for item ' + copy.name);
+                            } else {
+                                unitRules[rule](conditionals);        
+                            }
+                        })
+                    } else {
+                        unitRules[ruleId](conditionals);
+                    }
+                    }
+            } else {
+                unitRules[ruleId](conditionals);
                 copy = ruleType(copy, conditionals)
             }
         }

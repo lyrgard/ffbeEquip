@@ -2095,20 +2095,20 @@
         "strings": {
             "names": ["Beast Killer", "亡獸", "야수 킬러", "Tue-bêtes", "Bestientöter", "Matabestias", "Pembantai Makhluk Buas", "Beast\u001a \u001aKiller\u001a"],
             "desc_short": [
-                "Boost physical damage to beast monsters (Not stackable)",
+                "Boost physical damage against beasts (Not stackable)",
                 "物理攻擊時提高對獸系魔物的傷害[無法重複裝備]",
                 "물리 공격 시 야수형 마물에게 부여하는 피해량 상승 (중복 장착 불가)",
-                "Dégâts physiques accrus contre les monstres de type bête (non cumulable)",
+                "Augmente les dégâts physiques infligés aux bêtes (non cumulable)",
                 "Erhöht physischen Schaden gegen Bestien (Nicht stapelbar)",
                 "Aumenta el daño físico infligido contra bestias (no acumulable)",
                 "Meningkatkan damage fisik terhadap jenis makhluk buas (Tidak dapat ditumpuk)",
                 "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aอสูร\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aได้\u001a)\u001a"
             ],
             "desc_long": [
-                "Boost physical damage inflicted on beasts. Not stackable.",
+                "Boosts physical damage against beasts. Not stackable.",
                 "物理攻擊時提高對獸系魔物的傷害。[無法重複裝備]",
                 "일반 공격 실행 시 야수형 마물에게 부여하는 피해량이 상승합니다. (중복 장착 불가)",
-                "Dégâts physiques accrus contre les monstres de type bête. Non cumulable.",
+                "Augmente les dégâts physiques infligés aux bêtes. Non cumulable.",
                 "Erhöht den physischen Schaden gegen Bestien. Nicht stapelbar.",
                 "Aumenta el daño físico infligido contra bestias. No acumulable.",
                 "Meningkatkan damage fisik terhadap jenis makhluk buas. Tidak dapat ditumpuk.",
@@ -10291,6 +10291,23 @@
             "desc_long": ["Boosts MAG by 10% and boosts magic damage against dragons.", "提高10%魔力，魔法攻擊時提高對龍系魔物的傷害。", "마력이 10% 상승하고, 마법 공격 시 드래곤형 마물에게 부여하는 피해량이 상승합니다.", "Augmente la MAGIE de 10% et les dégâts magiques contre les dragons", "Erhöht MAG um 10% und mag. Schaden gegen Drachen.", "Aumenta la MAG un 10% y el daño mágico contra dragones", "Meningkatkan MAG sebanyak 10% dan meningkatkan damage magic terhadap jenis naga.", "เพิ่มค่า\u001a \u001aMAG\u001a \u001a10% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมังกร\u001a"]
         }
     },
+    "504227910": {
+        "name": "アクアンキラー改",
+        "compendium_id": 1481,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [227910],
+        "effects": ["Grant 'Aquan Killer+' passive"],
+        "unique": false,
+        "price_buy": 30000,
+        "price_sell": 3000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
     "504227926": {
         "name": "Blood of the Dragon",
         "compendium_id": 827,
@@ -11678,8 +11695,8 @@
         "icon": "ability_77.png",
         "strings": {
             "names": ["Heart Bound by Hatred", "被仇恨所困的心", "증오에 사로잡힌 마음", "Cœur enchaîné à la haine", "Hassgebundenes Herz", "Corazón lleno de odio", "Hati yang Terjerat Kebencian", "ความเกลียด\u001aผูกมัด\u001aใจ\u001a"],
-            "desc_short": ["Boost MAG by 40% and parameters when setting an esper by 20%", "提高40%魔力+提高20%設定幻獸時反映在兵員身上的狀態數值", "마력 40% 상승+환수 장착 시 반영되는 능력치 20% 상승", "Augmente la MAGIE de 40% et augmente les caractéristiques de 20% quand une chimère est attribuée", "Erhöht MAG um 40% und erhöht Werte bei Festlegung eines Espers um 20%.", "Aumenta la MAG un 40% y los parámetros al vincular un esper un 20%", "Meningkatkan MAG sebanyak 40%, dan meningkatkan parameter sebanyak 20% ketika esper dipasang", "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% + เพิ่มค่าสเตตัสเมื่อติดตั้ง Esper\u001a \u001a20%"],
-            "desc_long": ["Boosts MAG by 40% and parameters when setting an esper by 20%.", "提高40%魔力，提高20%設定幻獸時反映在兵員身上的狀態數值。", "마력이 40% 상승하고, 환수 장착 시 반영되는 능력치가 20% 상승합니다.", "Augmente la MAGIE de 40% et augmente les caractéristiques de 20% quand une chimère est attribuée", "Erhöht MAG um 40% und erhöht Werte bei Festlegung eines Espers um 20%.", "Aumenta la MAG un 40% y los parámetros al vincular un esper un 20%", "Meningkatkan MAG sebanyak 40%, dan meningkatkan parameter sebanyak 20% ketika esper dipasang.", "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% + เพิ่มค่าสเตตัสเมื่อติดตั้ง Esper\u001a \u001a20%"]
+            "desc_short": ["Boost MAG by 40% and parameters when setting an esper by 20%", "提高40%魔力+提高20%設定幻獸時反映在兵員身上的狀態數值", "마력 40% 상승+환수 장착 시 반영되는 능력치 20% 상승", "Augmente la MAGIE de 40% et augmente les caractéristiques de 20% quand une chimère est attribuée", "Erhöht MAG um 40% und erhöht Werte bei Festlegung eines Espers um 20%.", "Aumenta la MAG un 40% y los parámetros al vincular un esper un 20%", "Meningkatkan MAG sebanyak 40% dan meningkatkan parameter sebanyak 20% ketika esper dipasang", "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% + เพิ่มค่าสเตตัสเมื่อติดตั้ง Esper\u001a \u001a20%"],
+            "desc_long": ["Boosts MAG by 40% and parameters when setting an esper by 20%.", "提高40%魔力，提高20%設定幻獸時反映在兵員身上的狀態數值。", "마력이 40% 상승하고, 환수 장착 시 반영되는 능력치가 20% 상승합니다.", "Augmente la MAGIE de 40% et augmente les caractéristiques de 20% quand une chimère est attribuée", "Erhöht MAG um 40% und erhöht Werte bei Festlegung eines Espers um 20%.", "Aumenta la MAG un 40% y los parámetros al vincular un esper un 20%", "Meningkatkan MAG sebanyak 40% dan meningkatkan parameter sebanyak 20% ketika esper dipasang.", "เพิ่มค่า\u001a \u001aMAG\u001a \u001a40% + เพิ่มค่าสเตตัสเมื่อติดตั้ง Esper\u001a \u001a20%"]
         }
     },
     "504229431": {
@@ -14886,7 +14903,7 @@
         "price_sell": 10000,
         "icon": "ability_9.png",
         "strings": {
-            "names": ["Rookie Sphere Hunter", "新人幻光球獵人", "신참 스피어 헌터", "Chasseuse de sphères en herbe", "Sphäro-Hunter-Neuling", "Cazaesferas novata", "Pemburu Sphere Baru", "Sphere\u001a \u001aHunter\u001a \u001aมือใหม่\u001a"],
+            "names": ["Rookie Sphere Hunter", "新人幻光球獵人", "신참 스피어 헌터", "Chasseuse de sphères en herbe", "Sphäro-Hunter-Neuling", "Cazaesferas novata", "Pemburu Sphere Baru", "นัก\u001aล่า\u001aลูกแก้ว\u001aมือใหม่\u001a"],
             "desc_short": ["Boost ATK by 40% and light and dark resistance by 50%", "提高40%攻擊、50%光暗屬性耐性", "공격력 40%, 빛과 어둠속성 저항력 50% 상승", "Augmente l'ATT de 40 %, et les résistances à la lumière et aux ténèbres de 50 %", "Erhöht ANG um 40% und erhöht Licht- sowie Dunkelresistenz um 50%.", "Aumenta el ATQ un 40% y la resistencia a luz y oscuridad un 50%", "Meningkatkan ATK sebanyak 40%, serta resistansi cahaya dan kegelapan sebanyak 50%", "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aแสง\u001aและ\u001aมืด\u001a \u001a50%"],
             "desc_long": ["Boosts ATK by 40% and light and dark resistance by 50%.", "提高40%攻擊及50%光暗屬性耐性。", "공격력이 40%, 빛과 어둠속성 저항력이 50% 상승합니다.", "Augmente l'ATT de 40 %, et les résistances à la lumière et aux ténèbres de 50 %", "Erhöht ANG um 40% und erhöht Licht- sowie Dunkelresistenz um 50%.", "Aumenta el ATQ un 40% y la resistencia a luz y oscuridad un 50%.", "Meningkatkan ATK sebanyak 40%, serta resistansi cahaya dan kegelapan sebanyak 50%", "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aแสง\u001aและ\u001aมืด\u001a \u001a50%"]
         }
@@ -16446,7 +16463,7 @@
         "price_sell": 20000,
         "icon": "ability_80.png",
         "strings": {
-            "names": ["Memories of Ragnarok", "諸神黃昏的記憶", "라그나로크의 기억", "Souvenirs de Ragnarok", "Erinnerungen an Ragnarök", "Recuerdos de Ragnarok", "Kenangan Akan Ragnarok", "ความทรงจำ\u001aแห่ง\u001a \u001aRagnarok\u001a"],
+            "names": ["Memories of Ragnarok", "諸神黃昏的記憶", "라그나로크의 기억", "Souvenirs de Ragnarok", "Erinnerungen an Ragnarök", "Recuerdos de Ragnarok", "Kenangan akan Ragnarok", "ความทรงจำ\u001aแห่ง\u001a \u001aRagnarok\u001a"],
             "desc_short": [
                 "Boost damage for jump attacks, and boost ATK by 70% when equipped with a spear (Not stackable)",
                 "提高跳躍系能力的傷害+裝備長槍時提高70%攻擊[無法重複裝備]",
@@ -25889,20 +25906,38 @@
         }
     },
     "504243677": {
-        "name": "精霊喰らいの念",
+        "name": "Fairy Eater Sense",
         "compendium_id": 1462,
         "compendium_shown": true,
         "requirements": null,
         "skills": [243677],
-        "effects": ["Grant '精霊喰らいの念' passive"],
-        "unique": false,
+        "effects": ["Grant 'Fairy Eater Sense' passive"],
+        "unique": true,
         "price_buy": 200000,
         "price_sell": 20000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Fairy Eater Sense", "精靈捕食者之念", "요정 포식자의 원념", "Instinct anti-esprits", "Gespür des Feenverschlingers", "Sentido comeespíritus", "Keinginan Pemakan Peri", "จิต\u001aเขมือบ\u001aแฟรี่\u001a"],
+            "desc_short": [
+                "Boost ATK and MAG by 40% and physical and magic damage against fairies by 75% (Not stackable)",
+                "提高40%攻擊魔力+物理、魔法攻擊時提高75%對精靈系魔物的傷害[無法重複裝備]",
+                "공격력과 마력 40% 상승+물리, 마법 공격 시 정령형 마물에게 부여하는 피해량 75% 상승(중복 장착 불가)",
+                "Augmente l'ATT et la MAGIE de 40 % et augmente les dégâts physiques et magiques infligés aux esprits de 75 % (non cumulable)",
+                "Erhöht ANG sowie MAG um 40% und erhöht physischen sowie magischen Schaden gegen Feen um 75% (nicht stapelbar).",
+                "Aumenta el ATQ y la MAG un 40% y el daño físico y mágico contra espíritus un 75% (no acumulable)",
+                "Meningkatkan ATK dan MAG sebanyak 40%, serta meningkatkan damage fisik dan magic terhadap jenis peri sebanyak 75% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aแฟรี่\u001a \u001a75% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts ATK and MAG by 40% and physical and magic damage against fairies by 75%. Not stackable.",
+                "提高40%攻擊魔力，以及物理、魔法攻擊時提高75%對精靈系魔物的傷害。[無法重複裝備]",
+                "공격력과 마력이 40% 상승하고, 물리, 마법 공격 시 정령형 마물에게 부여하는 피해량이 75% 상승합니다.(중복 장착 불가)",
+                "Augmente l'ATT et la MAGIE de 40 % et augmente les dégâts physiques et magiques infligés aux esprits de 75 %. Non cumulable.",
+                "Erhöht ANG sowie MAG um 40% und erhöht physischen sowie magischen Schaden gegen Feen um 75%. Nicht stapelbar.",
+                "Aumenta el ATQ y la MAG un 40% y el daño físico y mágico contra espíritus un 75%. No acumulable.",
+                "Meningkatkan ATK dan MAG sebanyak 40%, serta meningkatkan damage fisik dan magic terhadap jenis peri sebanyak 75%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aแฟรี่\u001a \u001a75% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504243690": {
@@ -26335,6 +26370,329 @@
                 "Meningkatkan resistansi angin, tanah, cahaya, dan kegelapan sebanyak 20%, serta parameter sebanyak 200% ketika esper dipasang. Tidak dapat ditumpuk.",
                 "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aลม\u001a,\u001a \u001aดิน\u001a,\u001a \u001aแสง\u001aและ\u001aมืด\u001a \u001a20% + เพิ่ม<br>ค่าสเตตัสที่ถูกเพิ่มเมื่อติดตั้ง Esper\u001a \u001a200% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
+        }
+    },
+    "504243808": {
+        "name": "竜喰らいの念",
+        "compendium_id": 1482,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [243808],
+        "effects": ["Grant '竜喰らいの念' passive"],
+        "unique": false,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243853": {
+        "name": "【エレメント】マナコール",
+        "compendium_id": 1483,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243853],
+        "effects": ["Grant '【エレメント】マナコール' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000004.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243854": {
+        "name": "【エレメント】Mイレイザー",
+        "compendium_id": 1484,
+        "compendium_shown": true,
+        "requirements": ["UNIT_ID", [345000107, 345000117]],
+        "skills": [243854],
+        "effects": ["Grant '【エレメント】Mイレイザー' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000004.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243855": {
+        "name": "【エレメント】ジーニアス",
+        "compendium_id": 1485,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243855],
+        "effects": ["Grant '【エレメント】ジーニアス' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000005.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243856": {
+        "name": "【エレメント】イーグルアイ",
+        "compendium_id": 1486,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243856],
+        "effects": ["Grant '【エレメント】イーグルアイ' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000002.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243857": {
+        "name": "【エレメント】トッター",
+        "compendium_id": 1487,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243857],
+        "effects": ["Grant '【エレメント】トッター' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000002.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243858": {
+        "name": "【エレメント】ケアラ",
+        "compendium_id": 1488,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243858],
+        "effects": ["Grant '【エレメント】ケアラ' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000000.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243859": {
+        "name": "【エレメント】オールクリア",
+        "compendium_id": 1489,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243859],
+        "effects": ["Grant '【エレメント】オールクリア' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000004.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243861": {
+        "name": "【エレメント】ライトニング",
+        "compendium_id": 1491,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243861],
+        "effects": ["Grant '【エレメント】ライトニング' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000003.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243862": {
+        "name": "【エレメント】ウーハー",
+        "compendium_id": 1492,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243862],
+        "effects": ["Grant '【エレメント】ウーハー' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000002.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243863": {
+        "name": "【エレメント】フリーズ",
+        "compendium_id": 1493,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243863],
+        "effects": ["Grant '【エレメント】フリーズ' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000000.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243864": {
+        "name": "【エレメント】アクアボール",
+        "compendium_id": 1494,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243864],
+        "effects": ["Grant '【エレメント】アクアボール' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000000.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243865": {
+        "name": "【エレメント】メルトストーン",
+        "compendium_id": 1495,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243865],
+        "effects": ["Grant '【エレメント】メルトストーン' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000001.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243866": {
+        "name": "【エレメント】↓フリクション",
+        "compendium_id": 1496,
+        "compendium_shown": true,
+        "requirements": ["UNIT_ID", [345000307, 345000317]],
+        "skills": [243866],
+        "effects": ["Grant '【エレメント】↓フリクション' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000005.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243867": {
+        "name": "【エレメント】フォトン",
+        "compendium_id": 1497,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7277]],
+        "skills": [243867],
+        "effects": ["Grant '【エレメント】フォトン' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_5000004.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243868": {
+        "name": "人喰らいの念",
+        "compendium_id": 1498,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [243868],
+        "effects": ["Grant '人喰らいの念' passive"],
+        "unique": false,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243870": {
+        "name": "クリスタルの導き",
+        "compendium_id": 1499,
+        "compendium_shown": true,
+        "requirements": ["RULE", [7203]],
+        "skills": [243870],
+        "effects": ["Grant 'クリスタルの導き' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243876": {
+        "name": "封印されし知識",
+        "compendium_id": 1500,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [243876],
+        "effects": ["Grant '封印されし知識' passive"],
+        "unique": false,
+        "price_buy": 30000,
+        "price_sell": 3000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504243877": {
+        "name": "封印されし秘術",
+        "compendium_id": 1501,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [243877],
+        "effects": ["Grant '封印されし秘術' passive"],
+        "unique": false,
+        "price_buy": 30000,
+        "price_sell": 3000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
         }
     },
     "504400110": {

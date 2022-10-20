@@ -13101,17 +13101,20 @@
 		"id":"204001705",
 		"game_id":"10004",
 		"game":"FFIV",
-		"max_rarity":"7",
+		"braveShift":"204001727",
+		"exAwakening": [{"hp":665,"mp":41,"atk":26,"def":33,"mag":35,"spr":26},{"hp":512,"mp":32,"atk":20,"def":25,"mag":27,"spr":20},{"hp":358,"mp":22,"atk":14,"def":18,"mag":19,"spr":14}],
+		"fragmentId": "250013100",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4496,"mp":282,"atk":137,"def":170,"mag":217,"spr":191},
-			"minStats":{"hp":1484,"mp":93,"atk":45,"def":56,"mag":72,"spr":63},
+			"maxStats":{"hp":5118,"mp":318,"atk":199,"def":250,"mag":270,"spr":200},
+			"minStats":{"hp":1689,"mp":105,"atk":66,"def":83,"mag":89,"spr":66},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["Meteor"],
+		"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Bioga","Meteor","Come, Shadow Dragon!","Dark Coercion","Twin Moon","Abyssal Quasar","Twin Meteor","Star-Transcending Power","Black Mage's Might","Ruler of the Night","Rod Mastery"],
 		"6_form": {
 			"name":"Schwarzmagier Golbez",
 			"roles":["magicalAttacker","debuffer"],
@@ -13120,7 +13123,7 @@
 			"game_id":"10004",
 			"game":"FFIV",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -13130,8 +13133,50 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"],
-			"enhancementSkills":["Meteor"]
+			"enhancementSkills":["Bioga","Meteor","Come, Shadow Dragon!","Dark Coercion","Twin Moon","Abyssal Quasar","Twin Meteor","Star-Transcending Power","Black Mage's Might","Ruler of the Night","Rod Mastery"]
+		},
+		"7_form": {
+			"name":"Schwarzmagier Golbez",
+			"roles":["magicalAttacker","debuffer"],
+			"wikiEntry":"Black_Mage Golbez",
+			"id":"204001705",
+			"game_id":"10004",
+			"game":"FFIV",
+			"sevenStarForm":true,
+			"max_rarity":"NV",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4496,"mp":282,"atk":137,"def":170,"mag":217,"spr":191},
+				"minStats":{"hp":1484,"mp":93,"atk":45,"def":56,"mag":72,"spr":63},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["Bioga","Meteor","Come, Shadow Dragon!","Dark Coercion","Twin Moon","Abyssal Quasar","Twin Meteor","Star-Transcending Power","Black Mage's Might","Ruler of the Night","Rod Mastery"]
 		}
+	},
+	"204001727": {
+		"name":"Schwarzmagier Golbez BS",
+		"roles":["magicalAttacker","debuffer"],
+		"wikiEntry":"Black_Mage Golbez",
+		"id":"204001727",
+		"game_id":"10004",
+		"game":"FFIV",
+		"braveShifted":"204001705",
+		"exAwakening": [{"hp":665,"mp":41,"atk":26,"def":33,"mag":35,"spr":26},{"hp":512,"mp":32,"atk":20,"def":25,"mag":27,"spr":20},{"hp":358,"mp":22,"atk":14,"def":18,"mag":19,"spr":14}],
+		"fragmentId": "250013100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5118,"mp":318,"atk":199,"def":250,"mag":270,"spr":200},
+			"minStats":{"hp":1689,"mp":105,"atk":66,"def":83,"mag":89,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Rod Mastery"]
 	},
 	"204001927": {
 		"name":"バルバリシア",
@@ -13393,6 +13438,93 @@
 		"stats_pattern":4,
 		"equip":["katana","throwing","fist","hat","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["Blitz+","Flame+"]
+	},
+	"204003207": {
+		"name":"Cecil der Rotschwingen",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"The_Red Wings's Cecil",
+		"id":"204003207",
+		"game_id":"10004",
+		"game":"FFIV",
+		"braveShift":"204003217",
+		"exAwakening": [{"hp":738,"mp":41,"atk":78,"def":34,"mag":26,"spr":86},{"hp":568,"mp":32,"atk":60,"def":26,"mag":20,"spr":66},{"hp":397,"mp":22,"atk":42,"def":18,"mag":14,"spr":46}],
+		"fragmentId": "250012900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5142,"mp":297,"atk":300,"def":197,"mag":143,"spr":188},
+			"minStats":{"hp":1697,"mp":98,"atk":99,"def":65,"mag":47,"spr":62},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Evil Sword"]
+	},
+	"204003217": {
+		"name":"Erwachter Paladin Cecil BS",
+		"roles":["magicalTank"],
+		"wikiEntry":"Awakened_Paladin Cecil",
+		"id":"204003217",
+		"game_id":"10004",
+		"game":"FFIV",
+		"braveShifted":"204003207",
+		"exAwakening": [{"hp":738,"mp":41,"atk":78,"def":34,"mag":26,"spr":86},{"hp":568,"mp":32,"atk":60,"def":26,"mag":20,"spr":66},{"hp":397,"mp":22,"atk":42,"def":18,"mag":14,"spr":46}],
+		"fragmentId": "250012900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5677,"mp":317,"atk":270,"def":260,"mag":199,"spr":330},
+			"minStats":{"hp":1873,"mp":105,"atk":89,"def":86,"mag":66,"spr":109},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","staff","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Paladin's Sword","Cover - Magic I","Shellga"]
+	},
+	"204003307": {
+		"name":"Weißmagierin der Benediktion Rosa",
+		"roles":["healer","support"],
+		"wikiEntry":"White_Mage of Benediction Rosa",
+		"id":"204003307",
+		"game_id":"10004",
+		"game":"FFIV",
+		"braveShift":"204003317",
+		"exAwakening": [{"hp":621,"mp":43,"atk":62,"def":20,"mag":28,"spr":70},{"hp":478,"mp":33,"atk":48,"def":16,"mag":22,"spr":54},{"hp":334,"mp":23,"atk":34,"def":11,"mag":15,"spr":38}],
+		"fragmentId": "250013000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4777,"mp":330,"atk":240,"def":155,"mag":217,"spr":270},
+			"minStats":{"hp":1576,"mp":109,"atk":79,"def":51,"mag":72,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Prayer of Vitality","True Glorious Rain of Arrows","Staff Mastery","Bow Mastery","Shellga","Protectga"]
+	},
+	"204003317": {
+		"name":"Weißmagierin der Benediktion Rosa BS",
+		"roles":["healer","support"],
+		"wikiEntry":"White_Mage of Benediction Rosa",
+		"id":"204003317",
+		"game_id":"10004",
+		"game":"FFIV",
+		"braveShifted":"204003307",
+		"exAwakening": [{"hp":621,"mp":43,"atk":62,"def":20,"mag":28,"spr":70},{"hp":478,"mp":33,"atk":48,"def":16,"mag":22,"spr":54},{"hp":334,"mp":23,"atk":34,"def":11,"mag":15,"spr":38}],
+		"fragmentId": "250013000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4777,"mp":330,"atk":240,"def":155,"mag":217,"spr":270},
+			"minStats":{"hp":1576,"mp":109,"atk":79,"def":51,"mag":72,"spr":89},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"]
 	},
 	"205000103": {
 		"name":"Bartz",
@@ -31843,7 +31975,6 @@
   "203001627":{"name":"賢者 BS","jpname":"賢者 BS","roles":["healer","magicalAttacker"],"id":"203001627","game_id":"undefined","game":"undefined","braveShifted":"203001617","exAwakening":[{"hp":662,"mp":40,"atk":35,"def":33,"mag":35,"spr":26},{"hp":509,"mp":31,"atk":27,"def":25,"mag":27,"spr":20},{"hp":356,"mp":22,"atk":19,"def":18,"mag":19,"spr":14}],"fragmentId":"250013600","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5089,"mp":310,"atk":198,"def":198,"mag":270,"spr":270},"minStats":{"hp":1679,"mp":102,"atk":65,"def":65,"mag":89,"spr":89},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe","visionCard"],"enhancementSkills":["ロッドの極意","杖の極意","両手持ちの奥義(魔)","ファイガ","ブリザガ","サンダガ","エアロガ","フレア","トルネド","クエイク","メテオ","プロテガ","シェルガ"]},
   "203004407":{"name":"赤魔道師イングズ","jpname":"赤魔道師イングズ","roles":["magicalAttacker","support"],"id":"203004407","game_id":"undefined","game":"undefined","braveShift":"203004417","exAwakening":[{"hp":652,"mp":52,"atk":33,"def":22,"mag":73,"spr":31},{"hp":501,"mp":40,"atk":25,"def":17,"mag":56,"spr":24},{"hp":351,"mp":28,"atk":18,"def":12,"mag":39,"spr":17}],"fragmentId":"250013500","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5012,"mp":400,"atk":250,"def":166,"mag":280,"spr":238},"minStats":{"hp":1654,"mp":132,"atk":83,"def":55,"mag":92,"spr":79},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","bow","lightShield","heavyShield","hat","helm","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["ワイトスレイヤー","剣の極意","ロッドの極意","ファイラ","ブリザラ","サンダラ","ファイガ","ブリザガ","サンダガ"]},
   "203004417":{"name":"風水師イングズ BS","jpname":"風水師イングズ BS","roles":["debuffer"],"id":"203004417","game_id":"undefined","game":"undefined","braveShifted":"203004407","exAwakening":[{"hp":652,"mp":52,"atk":33,"def":22,"mag":73,"spr":31},{"hp":501,"mp":40,"atk":25,"def":17,"mag":56,"spr":24},{"hp":351,"mp":28,"atk":18,"def":12,"mag":39,"spr":17}],"fragmentId":"250013500","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5012,"mp":400,"atk":198,"def":144,"mag":270,"spr":270},"minStats":{"hp":1654,"mp":132,"atk":65,"def":48,"mag":89,"spr":89},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","harp","hat","clothes","robe","visionCard"],"enhancementSkills":["楽器の極意"]},
-  "204001727":{"name":"漆黒の魔道士ゴルベーザ BS","jpname":"漆黒の魔道士ゴルベーザ BS","roles":["magicalAttacker","debuffer"],"id":"204001727","game_id":"undefined","game":"undefined","braveShifted":"204001705","exAwakening":[{"hp":665,"mp":41,"atk":26,"def":33,"mag":35,"spr":26},{"hp":512,"mp":32,"atk":20,"def":25,"mag":27,"spr":20},{"hp":358,"mp":22,"atk":14,"def":18,"mag":19,"spr":14}],"fragmentId":"250013100","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5118,"mp":318,"atk":199,"def":250,"mag":270,"spr":200},"minStats":{"hp":1689,"mp":105,"atk":66,"def":83,"mag":89,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["ロッドの極意"]},
   "204001805":{"name":"Rubicante","jpname":"ルビカンテ","roles":["magicalAttacker","debuffer"],"id":"204001805","game_id":"undefined","game":"undefined","braveShift":"204001827","exAwakening":[{"hp":652,"mp":40,"atk":23,"def":26,"mag":35,"spr":29},{"hp":501,"mp":31,"atk":18,"def":20,"mag":27,"spr":23},{"hp":351,"mp":22,"atk":13,"def":14,"mag":19,"spr":16}],"fragmentId":"250005600","max_rarity":"NV","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":5012,"mp":311,"atk":180,"def":198,"mag":270,"spr":228},"minStats":{"hp":1654,"mp":103,"atk":59,"def":65,"mag":89,"spr":75},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe","visionCard"],"enhancementSkills":["ファイガ","ブリザガ","フレア","メルトン","ゾファイ","なんだ　そのあわれな　じゅつは…","ほのおは　こうして　つかうものだ！","人間と決別せし者","狂える赤き戦士","武人の誇り","ファイラ"],"6_form":{"name":"Rubicante","jpname":"ルビカンテ","roles":["magicalAttacker","debuffer"],"id":"204001805","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3602,"mp":203,"atk":107,"def":114,"mag":165,"spr":156},"minStats":{"hp":1189,"mp":67,"atk":35,"def":38,"mag":54,"spr":51},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","rod","hat","clothes","robe"],"enhancementSkills":["ファイガ","ブリザガ","フレア","メルトン","ゾファイ","なんだ　そのあわれな　じゅつは…","ほのおは　こうして　つかうものだ！","人間と決別せし者","狂える赤き戦士","武人の誇り","ファイラ"]},"7_form":{"name":"Rubicante","jpname":"ルビカンテ","roles":["magicalAttacker","debuffer"],"id":"204001805","game_id":"undefined","game":"undefined","sevenStarForm":true,"max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4683,"mp":264,"atk":140,"def":149,"mag":215,"spr":204},"minStats":{"hp":1545,"mp":87,"atk":46,"def":49,"mag":71,"spr":67},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe"],"enhancementSkills":["ファイガ","ブリザガ","フレア","メルトン","ゾファイ","なんだ　そのあわれな　じゅつは…","ほのおは　こうして　つかうものだ！","人間と決別せし者","狂える赤き戦士","武人の誇り","ファイラ"]}},
   "204001827":{"name":"ルビカンテ BS","jpname":"ルビカンテ BS","roles":["magicalAttacker"],"id":"204001827","game_id":"undefined","game":"undefined","braveShifted":"204001805","exAwakening":[{"hp":652,"mp":40,"atk":23,"def":26,"mag":35,"spr":29},{"hp":501,"mp":31,"atk":18,"def":20,"mag":27,"spr":23},{"hp":351,"mp":22,"atk":13,"def":14,"mag":19,"spr":16}],"fragmentId":"250005600","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4711,"mp":311,"atk":187,"def":152,"mag":290,"spr":210},"minStats":{"hp":1555,"mp":103,"atk":62,"def":50,"mag":96,"spr":69},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe","visionCard"],"enhancementSkills":["ファイガ","ブリザガ","フレア","真の炎","ファイラ"]},
   "204001904":{"name":"Barbariccia","jpname":"バルバリシア","roles":["magicalAttacker","support"],"id":"204001904","game_id":"undefined","game":"undefined","braveShift":"204001927","exAwakening":[{"hp":583,"mp":32,"atk":19,"def":20,"mag":35,"spr":24},{"hp":449,"mp":25,"atk":14,"def":15,"mag":27,"spr":19},{"hp":314,"mp":17,"atk":10,"def":11,"mag":19,"spr":13}],"fragmentId":"250005200","max_rarity":"NV","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":4485,"mp":247,"atk":143,"def":154,"mag":270,"spr":186},"minStats":{"hp":1480,"mp":82,"atk":47,"def":51,"mag":89,"spr":61},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe","visionCard"],"enhancementSkills":["エアロガ","トルネド"],"6_form":{"name":"Barbariccia","jpname":"バルバリシア","roles":["magicalAttacker","support"],"id":"204001904","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":3450,"mp":190,"atk":110,"def":118,"mag":152,"spr":143},"minStats":{"hp":1139,"mp":63,"atk":36,"def":39,"mag":50,"spr":47},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],"enhancementSkills":["エアロガ","トルネド"]},"7_form":{"name":"Barbariccia","jpname":"バルバリシア","roles":["magicalAttacker","support"],"id":"204001904","game_id":"undefined","game":"undefined","sevenStarForm":true,"max_rarity":"7","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":4485,"mp":247,"atk":143,"def":154,"mag":198,"spr":186},"minStats":{"hp":1480,"mp":82,"atk":47,"def":51,"mag":65,"spr":61},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],"enhancementSkills":["エアロガ","トルネド"]}},
@@ -31851,10 +31982,6 @@
   "204002104":{"name":"Cagnazzo","jpname":"カイナッツォ","roles":["physicalTank"],"id":"204002104","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3901,"mp":145,"atk":120,"def":146,"mag":105,"spr":124},"minStats":{"hp":1287,"mp":48,"atk":40,"def":48,"mag":35,"spr":41},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["fist","helm","lightArmor","heavyArmor"]},
   "204002705":{"name":"Ceodore","jpname":"セオドア","roles":["physicalAttacker","physicalTank"],"id":"204002705","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4910,"mp":255,"atk":206,"def":193,"mag":164,"spr":192},"minStats":{"hp":1620,"mp":84,"atk":68,"def":64,"mag":54,"spr":63},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","axe","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],"enhancementSkills":["プロテガ","シェルガ"],"6_form":{"name":"Ceodore","jpname":"セオドア","roles":["physicalAttacker","physicalTank"],"id":"204002705","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3776,"mp":196,"atk":158,"def":148,"mag":126,"spr":147},"minStats":{"hp":1246,"mp":65,"atk":52,"def":49,"mag":42,"spr":49},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","katana","axe","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],"enhancementSkills":["プロテガ","シェルガ"]}},
   "204002805":{"name":"Ursula","jpname":"アーシュラ","roles":["physicalAttacker"],"id":"204002805","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4798,"mp":246,"atk":208,"def":176,"mag":158,"spr":176},"minStats":{"hp":1583,"mp":81,"atk":69,"def":58,"mag":52,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","hammer","throwing","mace","fist","hat","clothes","robe"],"6_form":{"name":"Ursula","jpname":"アーシュラ","roles":["physicalAttacker"],"id":"204002805","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3690,"mp":189,"atk":160,"def":135,"mag":121,"spr":135},"minStats":{"hp":1218,"mp":62,"atk":53,"def":45,"mag":40,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","hammer","throwing","mace","fist","hat","clothes","robe"]}},
-  "204003207":{"name":"赤い翼のセシル","jpname":"赤い翼のセシル","roles":["physicalAttacker"],"id":"204003207","game_id":"undefined","game":"undefined","braveShift":"204003217","exAwakening":[{"hp":738,"mp":41,"atk":78,"def":34,"mag":26,"spr":86},{"hp":568,"mp":32,"atk":60,"def":26,"mag":20,"spr":66},{"hp":397,"mp":22,"atk":42,"def":18,"mag":14,"spr":46}],"fragmentId":"250012900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5142,"mp":297,"atk":300,"def":197,"mag":143,"spr":188},"minStats":{"hp":1697,"mp":98,"atk":99,"def":65,"mag":47,"spr":62},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["イビルソード"]},
-  "204003217":{"name":"パラディン セシル BS","jpname":"パラディン セシル BS","roles":["magicalTank"],"id":"204003217","game_id":"undefined","game":"undefined","braveShifted":"204003207","exAwakening":[{"hp":738,"mp":41,"atk":78,"def":34,"mag":26,"spr":86},{"hp":568,"mp":32,"atk":60,"def":26,"mag":20,"spr":66},{"hp":397,"mp":22,"atk":42,"def":18,"mag":14,"spr":46}],"fragmentId":"250012900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5677,"mp":317,"atk":270,"def":260,"mag":199,"spr":330},"minStats":{"hp":1873,"mp":105,"atk":89,"def":86,"mag":66,"spr":109},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","staff","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["パラディンソード","かばう・魔法I","シェルガ"]},
-  "204003307":{"name":"祈りの白魔道士ローザ","jpname":"祈りの白魔道士ローザ","roles":["healer","support"],"id":"204003307","game_id":"undefined","game":"undefined","braveShift":"204003317","exAwakening":[{"hp":621,"mp":43,"atk":62,"def":20,"mag":28,"spr":70},{"hp":478,"mp":33,"atk":48,"def":16,"mag":22,"spr":54},{"hp":334,"mp":23,"atk":34,"def":11,"mag":15,"spr":38}],"fragmentId":"250013000","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4777,"mp":330,"atk":240,"def":155,"mag":217,"spr":270},"minStats":{"hp":1576,"mp":109,"atk":79,"def":51,"mag":72,"spr":89},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"],"enhancementSkills":["活力の祈り","真・光明の連矢","杖の極意","弓の極意","シェルガ","プロテガ"]},
-  "204003317":{"name":"祈りの白魔道士ローザ BS","jpname":"祈りの白魔道士ローザ BS","roles":["healer","support"],"id":"204003317","game_id":"undefined","game":"undefined","braveShifted":"204003307","exAwakening":[{"hp":621,"mp":43,"atk":62,"def":20,"mag":28,"spr":70},{"hp":478,"mp":33,"atk":48,"def":16,"mag":22,"spr":54},{"hp":334,"mp":23,"atk":34,"def":11,"mag":15,"spr":38}],"fragmentId":"250013000","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4777,"mp":330,"atk":240,"def":155,"mag":217,"spr":270},"minStats":{"hp":1576,"mp":109,"atk":79,"def":51,"mag":72,"spr":89},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","bow","lightShield","hat","clothes","robe","visionCard"]},
   "205000927":{"name":"暗黒魔道士エクスデス BS","roles":["magicalAttacker"],"id":"205000927","game_id":"undefined","game":"undefined","braveShifted":"205000905","exAwakening":[{"hp":670,"mp":41,"atk":23,"def":23,"mag":37,"spr":29},{"hp":516,"mp":32,"atk":17,"def":17,"mag":28,"spr":22},{"hp":361,"mp":22,"atk":12,"def":12,"mag":20,"spr":16}],"fragmentId":"250015100","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5156,"mp":318,"atk":172,"def":172,"mag":283,"spr":224},"minStats":{"hp":1701,"mp":105,"atk":57,"def":57,"mag":93,"spr":74},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"]},
   "205001807":{"name":"世界を巡る旅人バッツ","roles":["physicalAttacker"],"id":"205001807","game_id":"undefined","game":"undefined","braveShift":"205001817","exAwakening":[{"hp":687,"mp":42,"atk":82,"def":31,"mag":24,"spr":30},{"hp":529,"mp":32,"atk":63,"def":24,"mag":19,"spr":23},{"hp":370,"mp":23,"atk":44,"def":17,"mag":13,"spr":16}],"fragmentId":"250014900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5022,"mp":314,"atk":315,"def":245,"mag":173,"spr":202},"minStats":{"hp":1657,"mp":104,"atk":104,"def":81,"mag":57,"spr":67},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","hat","helm","clothes","lightArmor","visionCard"],"enhancementSkills":["クラッシュブレイド","剣の極意","きりひらく風の剣"]},
   "205001817":{"name":"魔法剣士バッツ BS","roles":["physicalAttacker"],"id":"205001817","game_id":"undefined","game":"undefined","braveShifted":"205001807","exAwakening":[{"hp":687,"mp":42,"atk":82,"def":31,"mag":24,"spr":30},{"hp":529,"mp":32,"atk":63,"def":24,"mag":19,"spr":23},{"hp":370,"mp":23,"atk":44,"def":17,"mag":13,"spr":16}],"fragmentId":"250014900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5288,"mp":322,"atk":315,"def":237,"mag":188,"spr":231},"minStats":{"hp":1745,"mp":106,"atk":104,"def":78,"mag":62,"spr":76},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","rod","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["クラッシュブレイド","剣の極意"]},
