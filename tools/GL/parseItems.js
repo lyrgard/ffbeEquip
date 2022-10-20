@@ -532,6 +532,17 @@ function treatItem(items, itemId, result, skills) {
                             itemOut = ruleType(itemOut, conditionalUnits)
                         }
                     })
+                } else {
+                    let ruleNum = currentArray[1]
+                    let conditionalUnits = {};
+
+                    if (!Object.keys(unitRules).includes(ruleNum.toString())) {
+                        console.log('Missing rule' + ruleId + ' for item: ' + itemIn.name)
+                    } else {
+                        unitRules[ruleNum](conditionalUnits);
+
+                        itemOut = ruleType(itemOut, conditionalUnits)
+                    }
                 }
             }   
         }

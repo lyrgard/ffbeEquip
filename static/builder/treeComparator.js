@@ -359,10 +359,6 @@ class TreeComparator {
             if (enh1 < enh2 || enhPhysMod1 < enhPhysMod2 || enhMagMod1 < enhMagMod2) {
                 return "strictlyBetter";
             } else if (enh1 > enh2 || enhPhysMod1 > enhPhysMod2 || enhMagMod1 > enhMagMod2) {
-                console.log(enhMagMod1 + " " + enhMagMod2)
-                console.log(skillId)
-                console.log(item1)
-                console.log(item2)
                 return "strictlyWorse";
             } else {
                 return "equivalent";

@@ -2243,7 +2243,47 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         // tag team effects - single unit chains an ability/lb cast
     } else if (rawEffect[2] == 165) {
         result = {"chainTag":true};
+        // MP Scaling Damage
+    } else if (rawEffect[2] == 169) {
+        let mecanism = null;
+        let magicAsterisk = "";
+        let targetText = "";
+        let baseStat = "";
+        let damageType  = "";
 
+        if (skillIn.attack_type === "Physical") {
+            mecanism = "physical";
+            magicAsterisk = "*";
+        } else if (skillIn.attack_type === "Magic") {
+            mecanism = "magical";
+        }
+
+        if (rawEffect[3][0] === 1) { // ATK
+            baseStat = "ATK";
+            damageType = "body";
+            mecanism = "mpAtkDamage";
+        } else if (rawEffect[3][0] === 2) { //DEF
+            baseStat = "DEF";
+            damageType = "body"
+            mecanism = "mpDefDamage"
+        } else if (rawEffect[3][0] === 3) { // MAG
+            baseStat = "MAG";
+            damageType = "mind";
+            mecanism = "mpMagDamage"
+        } else if (rawEffect[3][0] === 4) { //SPR
+            baseStat = "SPR";
+            damageType = "mind";
+            mecanism = "mpSprDamage"
+        }
+
+        if (rawEffect[0] == 1) {
+            targetText = `Consume all MP to deal magic${magicAsterisk} damage (1x, ${baseStat}) with (${rawEffect[3][1] / 100}x, consumed MP) bonus damage to one enemy`
+        } else if (rawEffect[0] == 2) {
+            targetText = `Consume all MP to deal magic${magicAsterisk} damage (1x, ${baseStat}) with (${rawEffect[3][1] / 100}x, consumed MP) bonus damage to all enemies`
+        }
+
+        result = {"damage":{"mecanism":mecanism, "attackType": mecanism, "damageType": damageType, "baseStat":baseStat, "mpCoef":(rawEffect[3][1] / 100), desc:targetText}}
+        
         // delay death timer
     } else if (rawEffect[2] == 1002) {
         result = {"noUse":true};
