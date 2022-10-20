@@ -31,7 +31,7 @@ const testCases = {
             "value": {
               "coef": 1,
               "damageType": "mind",
-              "mecanism": "magical"
+              "mechanism": "magical"
             }
           }
     },
@@ -61,7 +61,7 @@ const testCases = {
             "value": {
               "coef": 1,
               "damageType": "body",
-              "mecanism": "physical"
+              "mechanism": "physical"
             }
           }
     },
@@ -83,7 +83,7 @@ const testCases = {
             "value": {
               "coef": 1,
               "damageType": "body",
-              "mecanism": "physical"
+              "mechanism": "physical"
             }
           }
     },

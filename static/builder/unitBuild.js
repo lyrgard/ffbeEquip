@@ -3,18 +3,18 @@ const involvedStatsByValue = {
     "magicalDamage":                    ["mag","magicalKiller", "chainMastery", "meanDamageVariance"],
     "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
     "jumpDamage":                       ["atk","weaponElement","physicalKiller","meanDamageVariance","jumpDamage", "chainMastery"],
-    "magDamageWithPhysicalMecanism":    ["mag","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
-    "sprDamageWithPhysicalMecanism":    ["spr","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
-    "defDamageWithPhysicalMecanism":    ["def","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
-    "magDamageWithPhysicalMecanismMultiCast":    ["mag","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
-    "sprDamageWithPhysicalMecanismMultiCast":    ["spr","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
-    "defDamageWithPhysicalMecanismMultiCast":    ["def","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
-    "atkDamageWithMagicalMecanism":     ["atk","magicalKiller", "chainMastery", "meanDamageVariance"],
-    "atkDamageWithMagicalMecanismMultiCast":     ["atk","magicalKiller", "chainMastery", "meanDamageVariance"],
-    "sprDamageWithMagicalMecanism":     ["spr","magicalKiller", "chainMastery", "meanDamageVariance"],
-    "atkDamageWithFixedMecanism":       ["atk","meanDamageVariance", "chainMastery"],
+    "magDamageWithPhysicalMechanism":    ["mag","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
+    "sprDamageWithPhysicalMechanism":    ["spr","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
+    "defDamageWithPhysicalMechanism":    ["def","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
+    "magDamageWithPhysicalMechanismMultiCast":    ["mag","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
+    "sprDamageWithPhysicalMechanismMultiCast":    ["spr","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
+    "defDamageWithPhysicalMechanismMultiCast":    ["def","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
+    "atkDamageWithMagicalMechanism":     ["atk","magicalKiller", "chainMastery", "meanDamageVariance"],
+    "atkDamageWithMagicalMechanismMultiCast":     ["atk","magicalKiller", "chainMastery", "meanDamageVariance"],
+    "sprDamageWithMagicalMechanism":     ["spr","magicalKiller", "chainMastery", "meanDamageVariance"],
+    "atkDamageWithFixedMechanism":       ["atk","meanDamageVariance", "chainMastery"],
     "physicalDamageMultiCast":          ["atk","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
-    "fixedDamageWithPhysicalMecanism":  ["weaponElement", "physicalKiller", "meanDamageVariance"],
+    "fixedDamageWithPhysicalMechanism":  ["weaponElement", "physicalKiller", "meanDamageVariance"],
     "summonerSkill":                    ["mag","spr","evoMag", 'evokeDamageBoost.all', "chainMastery", "meanDamageVariance"]
 };
 
@@ -150,7 +150,7 @@ class UnitBuild {
             this.calculateInvolvedStats(formula.value);
         } else if (formula.type === "damage") {
             this.addToInvolvedStats(["chainMastery"]);
-            if (formula.value.mecanism === "physical") {
+            if (formula.value.mechanism === "physical") {
                 this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance"]);
                 
                 
@@ -171,7 +171,7 @@ class UnitBuild {
                 if (formula.value.jump) {
                     this.addToInvolvedStats(["jumpDamage"]);
                 }
-            } else if (formula.value.mecanism === "magical") {
+            } else if (formula.value.mechanism === "magical") {
                 this.addToInvolvedStats(["magicalKiller", "meanDamageVariance"]);
                 if (formula.value.damageType === "mind") {
                     if (formula.value.use) {
@@ -182,9 +182,9 @@ class UnitBuild {
                 } else {
                     this.addToInvolvedStats(["atk"]);
                 }
-            } else if (formula.value.mecanism === "hybrid") {
+            } else if (formula.value.mechanism === "hybrid") {
                 this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance", "atk", "mag"]);
-            } else if (formula.value.mecanism === "summonerSkill"){
+            } else if (formula.value.mechanism === "summonerSkill"){
                 this.addToInvolvedStats(["evoMag", "meanDamageVariance"]);
                 this.addToInvolvedStats(['evokeDamageBoost.all']);
                 if (formula.value.magSplit > 0) {
@@ -263,7 +263,7 @@ class UnitBuild {
             case "skill":
                 switch (formula.formulaName) {
                     case "physicalDamage":
-                    case 'atkDamageWithFixedMecanism':
+                    case 'atkDamageWithFixedMechanism':
                         if (!involvedStats.includes('def')) {
                             involvedStats.push('def');
                         }

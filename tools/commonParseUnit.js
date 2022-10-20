@@ -1443,7 +1443,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("Strange Physic damage");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}};
 
         // Healing
     } else if(rawEffect[2] == 2){
@@ -1498,7 +1498,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("Strange Delayed damage");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][5]/100, delay:rawEffect[3][0]}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][5]/100, delay:rawEffect[3][0]}};
 
         // Magical Damage
     } else if (rawEffect[2] == 15) {
@@ -1506,7 +1506,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("Strange Magic damage");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][5]/100}};
+        result = {"damage":{"mechanism":"magical", "damageType":"mind", "coef":rawEffect[3][5]/100}};
 
         // flat Restore HP
     } else if (rawEffect[2] == 16) {
@@ -1533,15 +1533,15 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("Strange Physic damage with ignoe DEF");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]/100, "ignore":{"def":-rawEffect[3][3]}}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][2]/100, "ignore":{"def":-rawEffect[3][3]}}};
 
         // Damage increased against a race
     } else if (rawEffect[2] == 22) {
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};
 
         // 1x mag dmg with race-specific damage boost. - skill 200840, 231747 - rawEffect[3][raceMap, ?, ?, dmgMultiplier]
     } else if (rawEffect[2] == 23) {
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};
+        result = {"damage":{"mechanism":"magical", "damageType":"mind", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};
 
         // break
     } else if (rawEffect[2] == 24) {
@@ -1555,9 +1555,9 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         // hp drain - [%drain, dmgCoef, ?]
     } else if (rawEffect[2] == 25) {
 
-        result = {"damage":{"mecanism":"magical", "coef":rawEffect[3][1]/100}};
+        result = {"damage":{"mechanism":"magical", "coef":rawEffect[3][1]/100}};
         if (skillIn.attack_type) {
-            result.damage.mecanism = skillIn.attack_type.toLocaleLowerCase();
+            result.damage.mechanism = skillIn.attack_type.toLocaleLowerCase();
         }
 
         // % hp restore
@@ -1633,7 +1633,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("Strange hybrid damage");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"hybrid", "coef":rawEffect[3][8]/100}};
+        result = {"damage":{"mechanism":"hybrid", "coef":rawEffect[3][8]/100}};
 
         // fixed damage
     } else if (rawEffect[2] == 41) {
@@ -1645,11 +1645,11 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("Strange Combo");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "combo": true, "minTime":rawEffect[3][2], "maxTime":rawEffect[3][3]}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "combo": true, "minTime":rawEffect[3][2], "maxTime":rawEffect[3][3]}};
 
         // Critical Physical Damage
     } else if (rawEffect[2] == 43) {
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]*1.5/100}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][2]*1.5/100}};
 
         // Dual Black Magic
     } else if (rawEffect[2] == 44) {
@@ -1708,7 +1708,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("Strange Jump damage");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][3]}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][3]}};
 
         // hide skills
     } else if (rawEffect[2] == 53 && rawEffect[3].length == 2) {
@@ -1819,7 +1819,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("Strange Magic damage with ignoe SPR");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, "ignore":{"spr":rawEffect[3][3]}}};
+        result = {"damage":{"mechanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, "ignore":{"spr":rawEffect[3][3]}}};
 
         // use skill - [skillNumber, ?]
     } else if (rawEffect[2] == 71 && rawEffect[3].length == 2) {
@@ -1827,7 +1827,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
 
         // Magical Damage with stacking
     } else if (rawEffect[2] == 72) {
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":(rawEffect[3][2] + rawEffect[3][3])/100, "stack":rawEffect[3][4]/100, "maxStack":rawEffect[3][5] - 1}};
+        result = {"damage":{"mechanism":"magical", "damageType":"mind", "coef":(rawEffect[3][2] + rawEffect[3][3])/100, "stack":rawEffect[3][4]/100, "maxStack":rawEffect[3][5] - 1}};
 
         // steal gil
     } else if (rawEffect[2] == 76) {
@@ -1839,7 +1839,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("Strange Physic damage");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}, hpSacrifice:rawEffect[3][7]};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}, hpSacrifice:rawEffect[3][7]};
 
         // use random ability. - same as 29 - [[skillId, chance]]
     } else if (rawEffect[2] == 82) {
@@ -2070,15 +2070,15 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
 
         // Physical Damage from DEF
     } else if (rawEffect[2] == 102) {
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]/100, use: {"stat":"def", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][2]/100, use: {"stat":"def", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
 
         // Magical Damage from SPR
     } else if (rawEffect[2] == 103) {
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, use: {"stat":"spr", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
+        result = {"damage":{"mechanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, use: {"stat":"spr", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
 
         // mp-based m_damage - raw doesn't make sense
     } else if (rawEffect[2] == 105) {
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, use: {"stat":"mp", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
+        result = {"damage":{"mechanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, use: {"stat":"mp", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
 
         // cure breaks
     } else if (rawEffect[2] == 111) {
@@ -2086,11 +2086,11 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
 
         // death or p_damage with def ignore - skill 503660 : [skill mod, death chance, damage chance, def ignore]
     } else if (rawEffect[2] == 112) {
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][0]/100, "ignore":{"def":rawEffect[3][3]}}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][0]/100, "ignore":{"def":rawEffect[3][3]}}};
 
         // death or m_damage - skill 511703 : [skill mod, death chance, damage chance, spr ignore]
     } else if (rawEffect[2] == 113) {
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][0]/100, "ignore":{"spr":rawEffect[3][3]}}};
+        result = {"damage":{"mechanism":"magical", "damageType":"mind", "coef":rawEffect[3][0]/100, "ignore":{"spr":rawEffect[3][3]}}};
 
         // Gain counters when ally is hit
     } else if (rawEffect[2] == 118) {
@@ -2114,7 +2114,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
 
         // Evo Damage
     } else if(rawEffect[2] == 124){
-        result = {"damage":{"mecanism":"summonerSkill", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
+        result = {"damage":{"mechanism":"summonerSkill", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
         if (rawEffect[3].length >= 10 && Array.isArray(rawEffect[3][9])) {
             result.damage.magSplit = rawEffect[3][9][0] / 100;
             result.damage.sprSplit = rawEffect[3][9][1] / 100;
@@ -2126,7 +2126,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
 
         // Physical Damage with stacking
     } else if (rawEffect[2] == 126) {
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":(rawEffect[3][3] + rawEffect[3][4])/100, "stack":rawEffect[3][5]/100, "maxStack":rawEffect[3][6] - 1}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":(rawEffect[3][3] + rawEffect[3][4])/100, "stack":rawEffect[3][5]/100, "maxStack":rawEffect[3][6] - 1}};
 
         // HP barrier
     } else if (rawEffect[2] == 127) {
@@ -2143,7 +2143,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             result.cooldownTurns = rawEffect[3][2][0] + 1;
             result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
             if (rawEffect[3][3] == 0) {
-                if (result.cooldownSkill.effects.some(e => e.effect && e.effect.damage && e.effect.damage.mecanism == 'physical')) {
+                if (result.cooldownSkill.effects.some(e => e.effect && e.effect.damage && e.effect.damage.mechanism == 'physical')) {
                     result.cooldownSkill.preventDualCastWithDualWield = true;
                 }
             }
@@ -2151,7 +2151,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
 
         // m_damage over turn - example 228350 - [?, coef/turn, ?, effectTurns, ?, ?]
     } else if (rawEffect[2] == 131) {
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][1]/100}};
+        result = {"damage":{"mechanism":"magical", "damageType":"mind", "coef":rawEffect[3][1]/100}};
 
         // auto cast skill later
     } else if (rawEffect[2] == 132) {
@@ -2167,7 +2167,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("Strange Timed Jump damage");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][2]}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][2]}};
 
         // skill enhancement
     } else if (rawEffect[2] == 136) {
@@ -2183,9 +2183,9 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
 
         // damage over turn - [stat, coef/turn, ?, ?, turns, ?, ?]
     } else if (rawEffect[2] == 139 && (rawEffect[3][0] == 1 || rawEffect[3][0] == 2)) {
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][1]/100}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][1]/100}};
     } else if (rawEffect[2] == 139 && (rawEffect[3][0] == 3 || rawEffect[3][0] == 4)) {
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][1]/100}};
+        result = {"damage":{"mechanism":"magical", "damageType":"mind", "coef":rawEffect[3][1]/100}};
 
         // remove buffs from enemy
     } else if (rawEffect[2] == 141) {
@@ -2226,7 +2226,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
 
         // p_damage + break mechanics damage - [typeMap, breakDamage, ?, p_damage, ?, ?] - only p_damage matters
     } else if (rawEffect[2] == 159) {
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":1}};
+        result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":1}};
 
         // enable area effect? - nv terra lb
     } else if (rawEffect[2] == 160) {
@@ -2245,35 +2245,35 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         result = {"chainTag":true};
         // MP Scaling Damage
     } else if (rawEffect[2] == 169) {
-        let mecanism = null;
+        let mechanism = null;
         let magicAsterisk = "";
         let targetText = "";
         let baseStat = "";
         let damageType  = "";
 
         if (skillIn.attack_type === "Physical") {
-            mecanism = "physical";
+            mechanism = "physical";
             magicAsterisk = "*";
         } else if (skillIn.attack_type === "Magic") {
-            mecanism = "magical";
+            mechanism = "magical";
         }
 
         if (rawEffect[3][0] === 1) { // ATK
             baseStat = "ATK";
             damageType = "body";
-            mecanism = "mpAtkDamage";
+            mechanism = "mpAtkDamage";
         } else if (rawEffect[3][0] === 2) { //DEF
             baseStat = "DEF";
             damageType = "body"
-            mecanism = "mpDefDamage"
+            mechanism = "mpDefDamage"
         } else if (rawEffect[3][0] === 3) { // MAG
             baseStat = "MAG";
             damageType = "mind";
-            mecanism = "mpMagDamage"
+            mechanism = "mpMagDamage"
         } else if (rawEffect[3][0] === 4) { //SPR
             baseStat = "SPR";
             damageType = "mind";
-            mecanism = "mpSprDamage"
+            mechanism = "mpSprDamage"
         }
 
         if (rawEffect[0] == 1) {
@@ -2282,7 +2282,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             targetText = `Consume all MP to deal magic${magicAsterisk} damage (1x, ${baseStat}) with (${rawEffect[3][1] / 100}x, consumed MP) bonus damage to all enemies`
         }
 
-        result = {"damage":{"mecanism":mecanism, "attackType": mecanism, "damageType": damageType, "baseStat":baseStat, "mpCoef":(rawEffect[3][1] / 100), desc:targetText}}
+        result = {"damage":{"mechanism":mechanism, "attackType": mechanism, "damageType": damageType, "baseStat":baseStat, "mpCoef":(rawEffect[3][1] / 100), desc:targetText}}
         
         // delay death timer
     } else if (rawEffect[2] == 1002) {
@@ -2342,13 +2342,13 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         let coefIncreaseMoraleBottomThreshold = rawEffect[3][5];
         result = {damage:{coef:baseCoef, coefIncreaseByStep: coefIncreaseByStep, coefIncreaseMoraleStep: coefIncreaseMoraleStep, coefIncreaseMoraleBottomThreshold: coefIncreaseMoraleBottomThreshold}};
         if (damageType === 1) {
-            result.damage.mecanism = "physical";
+            result.damage.mechanism = "physical";
             result.damage.damageType = "body";
         } else if (damageType === 2) {
-            result.damage.mecanism = "magical";
+            result.damage.mechanism = "magical";
             result.damage.damageType = "mind";
         } else if (damageType === 3) {
-            result.damage.mecanism = "hybrid";
+            result.damage.mechanism = "hybrid";
         }
         if (statUsedForDamage === 2) {
             result.damage.use = {"stat":"def","percent":100,"max":99999};
@@ -2362,7 +2362,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         // AoE, times to fire damaging EVO ability, [MAG modifier, SPR modifier, [MAG, SPR for base ability], [MAG, SPR for morale gain], morale interval, overThisValue, fireAditionalAbility once]
         result = {
             "damage":{
-                "mecanism":"summonerSkill", 
+                "mechanism":"summonerSkill", 
                 "damageType":"evoke", 
                 "magCoef":rawEffect[3][0]/100, 
                 "sprCoef":rawEffect[3][1]/100,
@@ -2435,22 +2435,22 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
     }
     if (result && result.damage) {
         if (skillIn.attack_type) {
-            result.damage.mecanism = skillIn.attack_type.toLocaleLowerCase();
+            result.damage.mechanism = skillIn.attack_type.toLocaleLowerCase();
         } else {
-            result.damage.mecanism = skillIn.damage_type.toLocaleLowerCase();
+            result.damage.mechanism = skillIn.damage_type.toLocaleLowerCase();
         }
         if (!result.damage.damageType) {
-            if (result.damage.mecanism == 'physical') {
+            if (result.damage.mechanism == 'physical') {
                 result.damage.damageType = 'body';
-            } else if (result.damage.mecanism == 'magical') {
+            } else if (result.damage.mechanism == 'magical') {
                 result.damage.damageType = 'mind';
             }
         }
-        if (result.damage.mecanism == "magic") {
-            result.damage.mecanism = "magical";
+        if (result.damage.mechanism == "magic") {
+            result.damage.mechanism = "magical";
         }
         if(result.damage.damageType == "evoke"){
-            result.damage.mecanism = "summonerSkill";
+            result.damage.mechanism = "summonerSkill";
         }
 
 

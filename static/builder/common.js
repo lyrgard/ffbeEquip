@@ -1,4 +1,4 @@
-const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMecanism", "sprDamageWithPhysicalMecanism", "defDamageWithPhysicalMecanism", "magDamageWithPhysicalMecanismMultiCast", "sprDamageWithPhysicalMecanismMultiCast", "defDamageWithPhysicalMecanismMultiCast", "atkDamageWithMagicalMecanism", "atkDamageWithMagicalMecanismMulticast", "sprDamageWithMagicalMecanism", "atkDamageWithFixedMecanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMecanism","summonerSkill"];
+const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMechanism", "sprDamageWithPhysicalMechanism", "defDamageWithPhysicalMechanism", "magDamageWithPhysicalMechanismMultiCast", "sprDamageWithPhysicalMechanismMultiCast", "defDamageWithPhysicalMechanismMultiCast", "atkDamageWithMagicalMechanism", "atkDamageWithMagicalMechanismMulticast", "sprDamageWithMagicalMechanism", "atkDamageWithFixedMechanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMechanism","summonerSkill"];
 const operatorsInFormula = ["/","*","+","-","OR","AND",">"];
 const weaponBaseDamageVariance =
     {
@@ -306,7 +306,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
         let newJpDamageFormulaCoef = 1;
         var coef = formula.value.coef;
 
-        if (formula.value.mecanism == "physical" || formula.value.mecanism == "hybrid") {
+        if (formula.value.mechanism == "physical" || formula.value.mechanism == "hybrid") {
             applicableKillerType = "physical";
 
             if (!context.savedValues.hasOwnProperty("resistModifier")) {
@@ -327,7 +327,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 };
             }
 
-            if (formula.value.damageType == "body" || formula.value.mecanism == "hybrid") {
+            if (formula.value.damageType == "body" || formula.value.mechanism == "hybrid") {
                 defendingStat = "def";
 
                 newJpDamageFormulaCoef = context.newJpDamageFormulaCoef;
@@ -364,7 +364,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 context.remainingLeftHandAttacks.push(formula);
             }
 
-        } else if (formula.value.mecanism == "magical") {
+        } else if (formula.value.mechanism == "magical") {
             applicableKillerType = "magical";
             if (formula.value.damageType == "mind") {
                 defendingStat = "spr";
@@ -386,7 +386,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 defendingStat = "def";
                 statValueToUse = getStatCalculatedValue(context, itemAndPassives, "atk", unitBuild).right;
             }
-        } else if(formula.value.mecanism == "summonerSkill"){
+        } else if(formula.value.mechanism == "summonerSkill"){
             defendingStat= "spr";
             coef = formula.value.magCoef;
             if (formula.value.magSplit > 0) {
@@ -480,10 +480,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
         if (context.currentSkill && context.skillEnhancement[context.currentSkill]) {
             coef += context.skillEnhancement[context.currentSkill];
         }
-        if (context.currentSkill && context.skillEnhancement["allMagicalAttacks"] && formula.value.mecanism == "magical") {
+        if (context.currentSkill && context.skillEnhancement["allMagicalAttacks"] && formula.value.mechanism == "magical") {
             coef += context.skillEnhancement["allMagicalAttacks"];
         }
-        if (context.currentSkill && context.skillEnhancement["allPhysicalAttacks"] && formula.value.mecanism == "physical") {
+        if (context.currentSkill && context.skillEnhancement["allPhysicalAttacks"] && formula.value.mechanism == "physical") {
             coef += context.skillEnhancement["allPhysicalAttacks"];
         }
         if (formula.value.stack) {
@@ -529,7 +529,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
             * lbMultiplier
             * newJpDamageFormulaCoef
             / (defendingStatValue  * (1 + (enemyStats.buffs[defendingStat] - enemyStats.breaks[defendingStat]) / 100));
-        if (formula.value.mecanism == "hybrid") {
+        if (formula.value.mechanism == "hybrid") {
             var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
             var magDamage = coef
                 * (magStat * magStat)
@@ -549,7 +549,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 "max": (baseDamage + magDamage) * context.damageMultiplier.max * variance.max / 2,
                 "switchWeapons": switchWeapons
             }
-        } else if(formula.value.mecanism == "summonerSkill"){
+        } else if(formula.value.mechanism == "summonerSkill"){
             if (formula.value.sprSplit > 0) {
                 var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
                 let coefIncrease = coef - formula.value.magCoef;
@@ -707,7 +707,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 "switchWeapons": false
             };
             var value;
-            if (formula.name == "fixedDamageWithPhysicalMecanism") {
+            if (formula.name == "fixedDamageWithPhysicalMechanism") {
                 var damage = 1000 * (1 - resistModifier) * killerMultiplicator
                 value = {
                     "min": damage,
@@ -1208,7 +1208,7 @@ function calculateMonsterDamage(monsterAttackFormula, itemAndPassives, unitBuild
                         "max": baseValue,
                         "switchWeapons": false
                     };
-                case 'fixedDamageWithPhysicalMecanism':
+                case 'fixedDamageWithPhysicalMechanism':
                     baseValue = 1;
                     return {
                         "min": baseValue,
@@ -1216,7 +1216,7 @@ function calculateMonsterDamage(monsterAttackFormula, itemAndPassives, unitBuild
                         "max": baseValue,
                         "switchWeapons": false
                     };
-                case 'atkDamageWithFixedMecanism':
+                case 'atkDamageWithFixedMechanism':
                     if (context.alreadyCalculatedValues['def']) {
                         def = context.alreadyCalculatedValues['def'];
                     } else {

@@ -1044,11 +1044,11 @@ function getDamageTypeHtml(effects) {
         if (effect.effect && effect.effect.damage) {
             let damageType = "";
             let damage = effect.effect.damage;
-            if (damage.mecanism === "physical") {
+            if (damage.mechanism === "physical") {
                damageType = '<i class="img img-equipment-sword"></i>';
-            } else if (damage.mecanism === "magical") {
+            } else if (damage.mechanism === "magical") {
                damageType = '<i class="img img-equipment-rod"></i>';
-            } else if (damage.mecanism === "hybrid") {
+            } else if (damage.mechanism === "hybrid") {
                damageType = '<i class="img img-equipment-hybrid"></i>';
             }
             if (!damageTypes.includes(damageType)) {
@@ -1076,7 +1076,7 @@ function getWarningStrangeStatsUsed(effects) {
         if (effect.effect && effect.effect.damage) {
             let damageType = "";
             let damage = effect.effect.damage;
-            if (damage.mecanism === "physical") {
+            if (damage.mechanism === "physical") {
                 if (damage.damageType === "mind") {
                     if (damage.use) {
                         return '<span class="strangeStatsUsed"><i class="fas fa-exclamation-triangle"></i>Uses <span class="stat">' + damage.use.stat + '</span> to damage monster <span class="monsterStat">SPR</span></span>';
@@ -1086,7 +1086,7 @@ function getWarningStrangeStatsUsed(effects) {
                 } else if (damage.use) {
                     return '<span class="strangeStatsUsed"><i class="fas fa-exclamation-triangle"></i>Uses <span class="stat">' + damage.use.stat + '</span></span>';
                 }
-            } else if (damage.mecanism === "magical") {
+            } else if (damage.mechanism === "magical") {
                if (damage.damageType === "body") {
                     if (damage.use) {
                         return '<span class="strangeStatsUsed"><i class="fas fa-exclamation-triangle"></i>Uses <span class="stat">' + damage.use.stat + '</span> to damage monster <span class="monsterStat">DEF</span></span>';

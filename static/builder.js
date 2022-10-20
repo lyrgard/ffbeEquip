@@ -2,19 +2,19 @@
 var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
 
 const formulaByGoal = {
-    "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
-    "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical MAG damage", "formulaName":"magicalDamage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1}}},
-    "hybridDamage":                     {"type":"skill", "id":"0","name":"1x hybrid ATK/MAG damage", "formulaName":"hybridDamage", "value": {"type":"damage", "value":{"mecanism":"hybrid", "coef":1}}},
-    "jumpDamage":                       {"type":"skill", "id":"0","name":"1x jump damage", "formulaName":"jumpDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "jump":true}}},
-    "magDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical MAG damage", "formulaName":"magDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1}}},
-    "sprDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
-    "defDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "formulaName":"defDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
-    "atkDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x magical ATK damage", "formulaName":"atkDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"body", "coef":1}}},
-    "sprDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x magical SPR damage", "formulaName":"sprDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
-    "mpDamageWithMagicalMecanism":      {"type":"skill", "id":"0","name":"1x magical MP damage", "formulaName":"mpDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"mp"}}}},
-    "atkDamageWithFixedMecanism":       {"type":"value","name":"atkDamageWithFixedMecanism"},
+    "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"body", "coef":1}}},
+    "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical MAG damage", "formulaName":"magicalDamage", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1}}},
+    "hybridDamage":                     {"type":"skill", "id":"0","name":"1x hybrid ATK/MAG damage", "formulaName":"hybridDamage", "value": {"type":"damage", "value":{"mechanism":"hybrid", "coef":1}}},
+    "jumpDamage":                       {"type":"skill", "id":"0","name":"1x jump damage", "formulaName":"jumpDamage", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"body", "coef":1, "jump":true}}},
+    "magDamageWithPhysicalMechanism":    {"type":"skill", "id":"0","name":"1x physical MAG damage", "formulaName":"magDamageWithPhysicalMechanism", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"mind", "coef":1}}},
+    "sprDamageWithPhysicalMechanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithPhysicalMechanism", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
+    "defDamageWithPhysicalMechanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "formulaName":"defDamageWithPhysicalMechanism", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
+    "atkDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x magical ATK damage", "formulaName":"atkDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"body", "coef":1}}},
+    "sprDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x magical SPR damage", "formulaName":"sprDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
+    "mpDamageWithMagicalMechanism":      {"type":"skill", "id":"0","name":"1x magical MP damage", "formulaName":"mpDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"mp"}}}},
+    "atkDamageWithFixedMechanism":       {"type":"value","name":"atkDamageWithFixedMechanism"},
     "physicalDamageMultiCast":          {"type":"value","name":"physicalDamageMultiCast"},
-    "fixedDamageWithPhysicalMecanism":  {"type":"value","name":"fixedDamageWithPhysicalMecanism"},
+    "fixedDamageWithPhysicalMechanism":  {"type":"value","name":"fixedDamageWithPhysicalMechanism"},
     "summonerSkill":                    {"type":"value","name":"summonerSkill"},
     "atk":                              {"type":"value","name":"atk"},
     "mag":                              {"type":"value","name":"mag"},
@@ -36,15 +36,15 @@ const goalQuickSelectDefaultValues = [
     ["magicalDamage","Magical damage"],
     ["hybridDamage","Hybrid damage"],
     ["jumpDamage","Jump damage"],
-    ["magDamageWithPhysicalMecanism","Physical type MAG damage"],
-    ["sprDamageWithPhysicalMecanism","Physical type SPR damage"],
-    ["defDamageWithPhysicalMecanism","Physical type DEF damage"],
-    ["atkDamageWithMagicalMecanism","Magical type ATK damage"],
-    ["sprDamageWithMagicalMecanism","Magical type SPR damage"],
-    ["mpDamageWithMagicalMecanism","Magical type MP damage"],
-    ["atkDamageWithFixedMecanism","Fixed type ATK damage"],
+    ["magDamageWithPhysicalMechanism","Physical type MAG damage"],
+    ["sprDamageWithPhysicalMechanism","Physical type SPR damage"],
+    ["defDamageWithPhysicalMechanism","Physical type DEF damage"],
+    ["atkDamageWithMagicalMechanism","Magical type ATK damage"],
+    ["sprDamageWithMagicalMechanism","Magical type SPR damage"],
+    ["mpDamageWithMagicalMechanism","Magical type MP damage"],
+    ["atkDamageWithFixedMechanism","Fixed type ATK damage"],
     ["physicalDamageMultiCast","Physical damage Multicast"],
-    ["fixedDamageWithPhysicalMecanism","Physical type Fixed damage (1000)"],
+    ["fixedDamageWithPhysicalMechanism","Physical type Fixed damage (1000)"],
     ["summonerSkill","Summoner skill"],
     ["physicaleHp","Physical eHP (HP * DEF)"],
     ["magicaleHp","Magical eHP (HP * SPR)"],
@@ -138,7 +138,7 @@ let displayOnly7StarsUnits = true;
 
 let fixItemList;
 
-let defaultMonsterAttackFormula = {"type":"*","value1":{"type":"constant","value":1},"value2":{"type":"skill","id":"0","name":"1x physical ATK damage","formulaName":"physicalDamage","value":{"type":"damage","value":{"mecanism":"physical","damageType":"body","coef":1}}}};
+let defaultMonsterAttackFormula = {"type":"*","value1":{"type":"constant","value":1},"value2":{"type":"skill","id":"0","name":"1x physical ATK damage","formulaName":"physicalDamage","value":{"type":"damage","value":{"mechanism":"physical","damageType":"body","coef":1}}}};
 let monsterAttackFormula;
 
 function onBuildClick() {
@@ -1245,14 +1245,14 @@ function goalSelectTemplate(state) {
             case "magicalDamage":
             case "hybridDamage":
             case "jumpDamage":
-            case "magDamageWithPhysicalMecanism":
-            case "sprDamageWithPhysicalMecanism":
-            case "defDamageWithPhysicalMecanism":
-            case "atkDamageWithMagicalMecanism":
-            case "sprDamageWithMagicalMecanism":
-            case "atkDamageWithFixedMecanism":
+            case "magDamageWithPhysicalMechanism":
+            case "sprDamageWithPhysicalMechanism":
+            case "defDamageWithPhysicalMechanism":
+            case "atkDamageWithMagicalMechanism":
+            case "sprDamageWithMagicalMechanism":
+            case "atkDamageWithFixedMechanism":
             case "physicalDamageMultiCast":
-            case "fixedDamageWithPhysicalMecanism":
+            case "fixedDamageWithPhysicalMechanism":
             case "summonerSkill":
                 html += "<span class='selectTag damageTag'>damage</span>";
                 break;

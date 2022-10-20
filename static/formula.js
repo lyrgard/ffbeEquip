@@ -29,17 +29,17 @@ const attributeByVariable = {
     "M_DAMAGE":"magicalDamage",
     "H_DAMAGE":"hybridDamage",
     "J_DAMAGE":"jumpDamage",
-    "F_DAMAGE":"fixedDamageWithPhysicalMecanism",
-    "P_DAMAGE_MAG":"magDamageWithPhysicalMecanism",
-    "P_DAMAGE_SPR":"sprDamageWithPhysicalMecanism",
-    "P_DAMAGE_DEF":"defDamageWithPhysicalMecanism",
-    "P_DAMAGE_MAG_MULTICAST":"magDamageWithPhysicalMecanismMultiCast",
-    "P_DAMAGE_SPR_MULTICAST":"sprDamageWithPhysicalMecanismMultiCast",
-    "P_DAMAGE_DEF_MULTICAST":"defDamageWithPhysicalMecanismMultiCast",
-    "F_DAMAGE_ATK":"atkDamageWithFixedMecanism",
-    "M_DAMAGE_ATK":"atkDamageWithMagicalMecanism",
-    "M_DAMAGE_ATK_MULTICAST":"atkDamageWithMagicalMecanismMultiCast",
-    "M_DAMAGE_SPR":"sprDamageWithMagicalMecanism",
+    "F_DAMAGE":"fixedDamageWithPhysicalMechanism",
+    "P_DAMAGE_MAG":"magDamageWithPhysicalMechanism",
+    "P_DAMAGE_SPR":"sprDamageWithPhysicalMechanism",
+    "P_DAMAGE_DEF":"defDamageWithPhysicalMechanism",
+    "P_DAMAGE_MAG_MULTICAST":"magDamageWithPhysicalMechanismMultiCast",
+    "P_DAMAGE_SPR_MULTICAST":"sprDamageWithPhysicalMechanismMultiCast",
+    "P_DAMAGE_DEF_MULTICAST":"defDamageWithPhysicalMechanismMultiCast",
+    "F_DAMAGE_ATK":"atkDamageWithFixedMechanism",
+    "M_DAMAGE_ATK":"atkDamageWithMagicalMechanism",
+    "M_DAMAGE_ATK_MULTICAST":"atkDamageWithMagicalMechanismMultiCast",
+    "M_DAMAGE_SPR":"sprDamageWithMagicalMechanism",
     "S_DAMAGE":"summonerSkill",
     "R_FIRE":"resist|fire.percent",
     "R_ICE":"resist|ice.percent",
@@ -73,16 +73,16 @@ const simpleResistValues = ["resist|fire.percent","resist|ice.percent","resist|l
 const simpleVariousValues = ['evade.physical', 'accuracy', 'drawAttacks'];
 
 var formulaByVariable = {
-    "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
-    "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical MAG damage", "formulaName":"magicalDamage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1}}},
-    "hybridDamage":                     {"type":"skill", "id":"0","name":"1x hybrid ATK damage", "formulaName":"hybridDamage", "value": {"type":"damage", "value":{"mecanism":"hybrid", "coef":1}}},
-    "jumpDamage":                       {"type":"skill", "id":"0","name":"1x jump damage", "formulaName":"jumpDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "jump":true}}},
-    "magDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical MAG damage", "formulaName":"magDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1}}},
-    "sprDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
-    "defDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "formulaName":"defDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
-    "atkDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"atkDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"body", "coef":1}}},
-    "sprDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x magical SPR damage", "formulaName":"sprDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
-    "summonerSkill":                    {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkill", "value": {"type":"damage", "value":{"mecanism":"summonerSkill", "damageType":"mind", "coef":1, "magSplit":0.5, "sprSplit":0.5}}},
+    "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"body", "coef":1}}},
+    "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical MAG damage", "formulaName":"magicalDamage", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1}}},
+    "hybridDamage":                     {"type":"skill", "id":"0","name":"1x hybrid ATK damage", "formulaName":"hybridDamage", "value": {"type":"damage", "value":{"mechanism":"hybrid", "coef":1}}},
+    "jumpDamage":                       {"type":"skill", "id":"0","name":"1x jump damage", "formulaName":"jumpDamage", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"body", "coef":1, "jump":true}}},
+    "magDamageWithPhysicalMechanism":    {"type":"skill", "id":"0","name":"1x physical MAG damage", "formulaName":"magDamageWithPhysicalMechanism", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"mind", "coef":1}}},
+    "sprDamageWithPhysicalMechanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithPhysicalMechanism", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
+    "defDamageWithPhysicalMechanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "formulaName":"defDamageWithPhysicalMechanism", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
+    "atkDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"atkDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"body", "coef":1}}},
+    "sprDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x magical SPR damage", "formulaName":"sprDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
+    "summonerSkill":                    {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkill", "value": {"type":"damage", "value":{"mechanism":"summonerSkill", "damageType":"mind", "coef":1, "magSplit":0.5, "sprSplit":0.5}}},
 }
 const abbreviations = {
     "I_AILMENTS" : "I_POISON; I_BLIND; I_SLEEP; I_SILENCE; I_PARALYSIS; I_CONFUSION; I_DISEASE; I_PETRIFICATION",
@@ -823,9 +823,9 @@ function isSimpleFormula(formula) {
             || formula.name == "spr"
             || formula.name == "evade.physical"
             || formula.name == "evade.magical"
-            || formula.name == "atkDamageWithFixedMecanism"
+            || formula.name == "atkDamageWithFixedMechanism"
             || formula.name == "physicalDamageMultiCast"
-            || formula.name == "fixedDamageWithPhysicalMecanism"
+            || formula.name == "fixedDamageWithPhysicalMechanism"
             || formula.name == "summonerSkill");
         default:
             return false;
@@ -844,8 +844,8 @@ function isAttackFormula(formula) {
                 formula.formulaName == "physicalDamage"
             || formula.formulaName == "magicalDamage" 
             || formula.formulaName == "hybridDamage" 
-            || formula.formulaName == "fixedDamageWithPhysicalMecanism" 
-            || formula.formulaName == "atkDamageWithFixedMecanism" 
+            || formula.formulaName == "fixedDamageWithPhysicalMechanism" 
+            || formula.formulaName == "atkDamageWithFixedMechanism" 
             );
         default:
             return false;

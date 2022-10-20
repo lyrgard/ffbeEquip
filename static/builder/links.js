@@ -1,4 +1,4 @@
-const goalList = ["custom", "physicalDamage", "magicalDamage", "magicalDamageWithPhysicalMecanism", "hybridDamage", "jumpDamage", "sprDamageWithPhysicalMecanism", "sprDamageWithMagicalMecanism", "summonerSkill"];
+const goalList = ["custom", "physicalDamage", "magicalDamage", "magicalDamageWithPhysicalMechanism", "hybridDamage", "jumpDamage", "sprDamageWithPhysicalMechanism", "sprDamageWithMagicalMechanism", "summonerSkill"];
 const equipmentToUseList = ["all", "owned", "shopRecipe"];
 
 function isMinified(data) {
