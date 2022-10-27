@@ -13163,7 +13163,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","throwing","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Flood","Waterga","Protectga","Shellga","True Water Infusion"],
+		"enhancementSkills":["Flood","Waterga","Protectga","Shellga","True Water Infusion","Unleashed Evocation (Lord of the Seas Nichol)"],
+		"enhancements": [
+			{"name":"Unleashed Evocation (Lord of the Seas Nichol)","levels":[[{"mag%":50}],[{"mag%":50}],[{"mag%":50}],[{"mag%":50}]]}
+		],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "evoMag":100, "evokeDamageBoost":{"all":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"water","percent":50},{"name":"confuse","percent":100}], "mpRefresh":7},
 			{"mag%":140, "equipedConditions":["rod"]},
@@ -13190,9 +13193,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","throwing","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Flood","Waterga","True Water Infusion","Crashing Tides","Water God's Rage"],
+		"enhancementSkills":["Unleashed Evocation (Lord of the Seas Nichol)","Flood","Waterga","True Water Infusion","Crashing Tides","Water God's Rage"],
+		"enhancements": [
+			{"name":"Unleashed Evocation (Lord of the Seas Nichol)","levels":[[{"mag%":50}],[{"mag%":50}],[{"mag%":50}],[{"mag%":50}]]}
+		],
 		"skills": [
-			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":110, "spr%":60, "evoMag":100, "evokeDamageBoost":{"all":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"water","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
+			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "evoMag":100, "evokeDamageBoost":{"all":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"water","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
 			{"mag%":140, "equipedConditions":["rod"]},
 			{"evoMag":200, "singleWielding":{"mag":100}, "esperStatsBonus":{"Leviathan":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}, "equipedConditions":[["504241450","405016500"]]}
 		]
@@ -13377,7 +13383,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","spear","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Thundaja","Thundaga","Protectga","Shellga","True Thunder Stone"],
+		"enhancementSkills":["Burst (FFBE)","Unleashed Evocation (Sage of Thunder Sakura)","Thundaja","Thundaga","Protectga","Shellga","True Thunder Stone"],
+		"enhancements": [
+			{"name":"Unleashed Evocation (Sage of Thunder Sakura)","levels":[[{"mag%":50}],[{"mag%":50}],[{"mag%":50}],[{"mag%":50}]]}
+		],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"lightning","percent":50},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"mag%":140, "equipedConditions":["rod"]},
@@ -13404,9 +13413,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","spear","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Thundaja","Thundaga","True Thunder Stone","Sage's Support","Sage's Rage"],
+		"enhancementSkills":["Burst (FFBE)","Unleashed Evocation (Sage of Thunder Sakura)","Thundaja","Thundaga","True Thunder Stone","Sage's Support","Sage's Rage"],
+		"enhancements": [
+			{"name":"Unleashed Evocation (Sage of Thunder Sakura)","levels":[[{"mag%":50}],[{"mag%":50}],[{"mag%":50}],[{"mag%":50}]]}
+		],
 		"skills": [
-			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":110, "spr%":60, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"lightning","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"lightning","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"mag%":140, "equipedConditions":["rod"]},
 			{"evoMag":200, "singleWielding":{"mag":100}, "esperStatsBonus":{"Ramuh":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}, "equipedConditions":[["504241700","405017200"]]}
 		]
@@ -43686,6 +43698,66 @@
 			{"hp%":100, "mp%":100, "def%":140, "mag%":280, "spr%":140, "evoMag":50, "evokeDamageBoost":{"all":100}, "evade":{"magical":50}, "singleWielding":{"mag":150}, "chainMastery":100, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
 			{"mag":500, "singleWielding":{"mag":100}, "exLevelCondition":2},
 			{"mag":1000, "chainMastery":100, "lbDamage":150, "exLevelCondition":3}
+		]
+	},
+	"401013707": {
+		"name":"Lilith, súcubo elegante",
+		"roles":["physicalTank","physicalAttacker"],
+		"wikiEntry":"Elegant_Temptress Lilith",
+		"id":"401013707",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401013717",
+		"exAwakening": [{"hp":737,"mp":40,"atk":29,"def":81,"mag":17,"spr":33},{"hp":567,"mp":31,"atk":22,"def":63,"mag":13,"spr":26},{"hp":396,"mp":21,"atk":15,"def":44,"mag":9,"spr":18}],
+		"fragmentId": "310000960",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5666,"mp":308,"atk":220,"def":314,"mag":130,"spr":255},
+			"minStats":{"hp":1870,"mp":102,"atk":73,"def":104,"mag":43,"spr":84},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Kiss of Betrayal","Rousing Dream"],
+		"enhancements": [
+			{"name":"Rousing Dream","levels":[[{"def":500,"equipedConditions":[["1500000073","1100000206","1500000209","1100000662"]]}],[{"def":500,"equipedConditions":[["1500000073","1100000206","1500000209","1100000662"]]}],[{"def":500,"equipedConditions":[["1500000073","1100000206","1500000209","1100000662"]]}],[{"def":500,"equipedConditions":[["1500000073","1100000206","1500000209","1100000662"]]}],[{"def":500,"equipedConditions":[["1500000073","1100000206","1500000209","1100000662"]]}]]}
+		],
+		"skills": [
+			{"hp%":250, "mp%":100, "def%":250, "spr%":180, "evade":{"physical":30}, "oneWeaponMastery":{"def":300}, "chainMastery":100, "resist":[{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":150},{"name":"human","physical":150},{"name":"stone","physical":150},{"name":"undead","physical":150}], "mpRefresh":15, "lbDamage":250, "drawAttacks":75},
+			{"hp":500, "def":500, "evade":{"magical":30}, "exLevelCondition":2},
+			{"hp":650, "def":650, "exLevelCondition":3}
+		]
+	},
+	"401013717": {
+		"name":"Lilith, súcubo elegante BS",
+		"roles":["physicalTank","physicalAttacker"],
+		"wikiEntry":"Elegant_Temptress Lilith",
+		"id":"401013717",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401013707",
+		"exAwakening": [{"hp":737,"mp":40,"atk":29,"def":81,"mag":17,"spr":33},{"hp":567,"mp":31,"atk":22,"def":63,"mag":13,"spr":26},{"hp":396,"mp":21,"atk":15,"def":44,"mag":9,"spr":18}],
+		"fragmentId": "310000960",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5666,"mp":308,"atk":220,"def":314,"mag":130,"spr":255},
+			"minStats":{"hp":1870,"mp":102,"atk":73,"def":104,"mag":43,"spr":84},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Kiss of Betrayal","Rousing Dream"],
+		"enhancements": [
+			{"name":"Rousing Dream","levels":[[{"def":500,"equipedConditions":[["1500000073","1100000206","1500000209","1100000662"]]}],[{"def":500,"equipedConditions":[["1500000073","1100000206","1500000209","1100000662"]]}],[{"def":500,"equipedConditions":[["1500000073","1100000206","1500000209","1100000662"]]}],[{"def":500,"equipedConditions":[["1500000073","1100000206","1500000209","1100000662"]]}],[{"def":500,"equipedConditions":[["1500000073","1100000206","1500000209","1100000662"]]}]]}
+		],
+		"skills": [
+			{"hp%":250, "mp%":100, "def%":250, "spr%":180, "evade":{"physical":30}, "oneWeaponMastery":{"def":300}, "chainMastery":100, "resist":[{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":150},{"name":"human","physical":150},{"name":"stone","physical":150},{"name":"undead","physical":150}], "mpRefresh":15, "lbDamage":250, "drawAttacks":75},
+			{"hp":500, "def":500, "evade":{"magical":30}, "exLevelCondition":2},
+			{"hp":650, "def":650, "exLevelCondition":3}
 		]
 	}
 ,

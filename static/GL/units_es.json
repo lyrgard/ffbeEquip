@@ -9748,7 +9748,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","throwing","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Flood","Waterga","Protectga","Shellga","True Water Infusion"]
+		"enhancementSkills":["Flood","Waterga","Protectga","Shellga","True Water Infusion","Unleashed Evocation (Lord of the Seas Nichol)"]
 	},
 	"100034717": {
 		"name":"Nichol, rey de los mares BS",
@@ -9770,7 +9770,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","throwing","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Flood","Waterga","True Water Infusion","Crashing Tides","Water God's Rage"]
+		"enhancementSkills":["Unleashed Evocation (Lord of the Seas Nichol)","Flood","Waterga","True Water Infusion","Crashing Tides","Water God's Rage"]
 	},
 	"100035107": {
 		"name":"Roca",
@@ -9922,7 +9922,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","spear","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Thundaja","Thundaga","Protectga","Shellga","True Thunder Stone"]
+		"enhancementSkills":["Burst (FFBE)","Unleashed Evocation (Sage of Thunder Sakura)","Thundaja","Thundaga","Protectga","Shellga","True Thunder Stone"]
 	},
 	"100035817": {
 		"name":"Sakura, sabia del trueno BS",
@@ -9944,7 +9944,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","spear","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Thundaja","Thundaga","True Thunder Stone","Sage's Support","Sage's Rage"]
+		"enhancementSkills":["Burst (FFBE)","Unleashed Evocation (Sage of Thunder Sakura)","Thundaja","Thundaga","True Thunder Stone","Sage's Support","Sage's Rage"]
 	},
 	"100035907": {
 		"name":"Taivas",
@@ -31936,6 +31936,50 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["Sacred Shrine's Blessing","Fox's Karma - Earthquake"]
+	},
+	"401013707": {
+		"name":"Lilith, súcubo elegante",
+		"roles":["physicalTank","physicalAttacker"],
+		"wikiEntry":"Elegant_Temptress Lilith",
+		"id":"401013707",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401013717",
+		"exAwakening": [{"hp":737,"mp":40,"atk":29,"def":81,"mag":17,"spr":33},{"hp":567,"mp":31,"atk":22,"def":63,"mag":13,"spr":26},{"hp":396,"mp":21,"atk":15,"def":44,"mag":9,"spr":18}],
+		"fragmentId": "310000960",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5666,"mp":308,"atk":220,"def":314,"mag":130,"spr":255},
+			"minStats":{"hp":1870,"mp":102,"atk":73,"def":104,"mag":43,"spr":84},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Kiss of Betrayal","Rousing Dream"]
+	},
+	"401013717": {
+		"name":"Lilith, súcubo elegante BS",
+		"roles":["physicalTank","physicalAttacker"],
+		"wikiEntry":"Elegant_Temptress Lilith",
+		"id":"401013717",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401013707",
+		"exAwakening": [{"hp":737,"mp":40,"atk":29,"def":81,"mag":17,"spr":33},{"hp":567,"mp":31,"atk":22,"def":63,"mag":13,"spr":26},{"hp":396,"mp":21,"atk":15,"def":44,"mag":9,"spr":18}],
+		"fragmentId": "310000960",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5666,"mp":308,"atk":220,"def":314,"mag":130,"spr":255},
+			"minStats":{"hp":1870,"mp":102,"atk":73,"def":104,"mag":43,"spr":84},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Kiss of Betrayal","Rousing Dream"]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker"],"id":"100000115","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"]},
