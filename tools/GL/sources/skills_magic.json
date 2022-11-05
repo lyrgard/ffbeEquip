@@ -1296,6 +1296,30 @@
         "effects_raw": [[1, 2, 8, [0,  1,  5000,  -1]]],
         "requirements": null
     },
+    "10411": {
+        "name": "Regen (Chrono Cross)",
+        "icon": "ability_4.png",
+        "compendium_id": 14,
+        "rarity": 8,
+        "cost": {},
+        "magic_type": "White",
+        "is_sealable": false,
+        "is_reflectable": false,
+        "in_exploration": false,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[120]],
+        "effect_frames": [[40,  40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": null,
+        "effects": [
+            ["Restore 400 (+3x, Heal) HP per turn to one ally"]
+        ],
+        "effects_raw": [[1, 2, 8, [300,  1,  400,  -1]]],
+        "requirements": null
+    },
     "10500": {
         "name": "Full-Life II",
         "icon": "ability_1.png",
@@ -5116,6 +5140,32 @@
             ["Increase Water magic damage by 25% to all allies for 5 turns"]
         ],
         "effects_raw": [[2, 2, 95, [0,  0,  0,  100,  0,  0,  0,  0,  5,  1]], [2, 2, 149, [0, [0,  0,  0,  25,  0,  0,  0,  0], 1, 5, 1]], [2, 2, 149, [1, [0,  0,  0,  25,  0,  0,  0,  0], 1, 5, 1]]],
+        "requirements": null
+    },
+    "30620": {
+        "name": "エンエアロラ",
+        "icon": "ability_25.png",
+        "compendium_id": 304,
+        "rarity": 8,
+        "cost": {"MP": 40},
+        "magic_type": "Green",
+        "is_sealable": true,
+        "is_reflectable": false,
+        "in_exploration": false,
+        "attack_count": [0],
+        "attack_damage": [[]],
+        "attack_frames": [[]],
+        "effect_frames": [[40,  40,  40,  40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": ["Wind"],
+        "effects": [
+            ["Add Wind element (100%) to physical attacks for 5 turns to all allies"],
+            ["Increase Wind physical damage by 25% to all allies for 5 turns"],
+            ["Increase Wind magic damage by 25% to all allies for 5 turns"]
+        ],
+        "effects_raw": [[2, 2, 95, [0,  0,  0,  0,  100,  0,  0,  0,  5,  1]], [2, 2, 149, [0, [0,  0,  0,  0,  25,  0,  0,  0], 1, 5, 1]], [2, 2, 149, [1, [0,  0,  0,  0,  25,  0,  0,  0], 1, 5, 1]]],
         "requirements": null
     },
     "30630": {

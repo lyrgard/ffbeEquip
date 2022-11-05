@@ -22284,7 +22284,7 @@
             "names": ["Danger Gets the Blood Pumping", "最喜歡來點刺激的了", "난 스릴을 사랑하거든", "Fana des émotions fortes", "Ich steh' einfach auf den Nervenkitzel!", "Nada como el peligro", "Bahaya yang Mendebarkan", "อันตราย\u001aช่าง\u001aเร้าใจ\u001a"],
             "desc_short": [
                 "Increase chance of being targeted by 20%, and 20% chance of evading some physical attacks (Not stackable)",
-                "20%機率容易被敵人攻擊+20%機率閃避部分物理攻擊[無法重複裝備]",
+                "增加20%機率容易被敵人攻擊+20%機率閃避部分物理攻擊[無法重複裝備]",
                 "적의 공격 대상이 될 확률 20% 상승+20% 확률로 일부 물리 공격 회피 (중복 장착 불가)",
                 "Augmente les chances d'être pris pour cible de 20 %, et confère 20 % de chance d'esquiver certaines attaques physiques (non cumulable)",
                 "Erhöht Chance, zum Ziel zu werden, um 20% und 20% Chance, einigen physischen Angriffen auszuweichen (nicht stapelbar).",
@@ -22294,7 +22294,7 @@
             ],
             "desc_long": [
                 "Increases chance of being targeted by 20%, and adds 20% chance of evading some physical attacks. Not stackable.",
-                "20%機率容易被敵人攻擊，以及20%機率閃避部分物理攻擊。[無法重複裝備]",
+                "增加20%機率容易被敵人攻擊，以及20%機率閃避部分物理攻擊。[無法重複裝備]",
                 "적의 공격 대상이 될 확률이 20% 상승하고, 20% 확률로 일부 물리 공격을 회피합니다. (중복 장착 불가)",
                 "Augmente les chances d'être pris pour cible 20 %, et confère de 20 % de chance d'esquiver certaines attaques physiques. Non cumulable.",
                 "Erhöht Chance, zum Ziel zu werden, um 20% und 20% Chance, einigen physischen Angriffen auszuweichen. Nicht stapelbar.",
@@ -23258,7 +23258,7 @@
             "names": ["Merry Maker", "活躍氣氛之人", "떠들썩 담당", "Boost Al Bhed", "Stimmungsmacher", "Espíritu alegre", "Pembangkit Semangat", "สร้าง\u001aความ\u001aครื้นเครง\u001aให้\u001aกลุ่ม\u001a"],
             "desc_short": [
                 "Boost ATK by 60% and increase chance of being targeted by 30% (Not stackable)",
-                "提高60%攻擊+30%機率容易被敵人攻擊[無法重複裝備]",
+                "提高60%攻擊+增加30%機率容易被敵人攻擊[無法重複裝備]",
                 "공격력 60% 상승+적의 공격 대상이 될 확률 30% 상승(중복 장착 불가)",
                 "Augmente l'ATT de 60 % et augmente les chances d'être pris pour cible de 30 % (non cumulable)",
                 "Erhöht ANG um 60% und erhöht Chance, zum Ziel einiger Angriffe zu werden, um 30% (nicht stapelbar).",
@@ -23268,7 +23268,7 @@
             ],
             "desc_long": [
                 "Boosts ATK by 60% and increases chance of being targeted by 30%. Not stackable.",
-                "提高60%攻擊，以及30%機率容易被敵人攻擊。[無法重複裝備]",
+                "提高60%攻擊，以及增加30%機率容易被敵人攻擊。[無法重複裝備]",
                 "공격력이 60% 상승하고, 적의 공격 대상이 될 확률이 30% 상승합니다.(중복 장착 불가)",
                 "Augmente l'ATT de 60 % et augmente les chances d'être pris pour cible de 30 %. Non cumulable.",
                 "Erhöht ANG um 60% und erhöht Chance, zum Ziel einiger Angriffe zu werden, um 30%. Nicht stapelbar.",
@@ -26390,241 +26390,583 @@
         }
     },
     "504243853": {
-        "name": "【エレメント】マナコール",
+        "name": "Element - Magnify",
         "compendium_id": 1483,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243853],
-        "effects": ["Grant '【エレメント】マナコール' ability"],
+        "effects": ["Grant 'Element - Magnify' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000004.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Magnify",
+                "【元素】瑪那之喚",
+                "엘리먼트: 마나 콜",
+                "Élément - Exaltation",
+                "Element - Verstärker",
+                "Elemento - Magnificador",
+                "Element - Magnify",
+                "Element\u001a \u001a-\u001a \u001aขยาย\u001aพลัง\u001a"
+            ],
+            "desc_short": [
+                "(One use per battle) Consume own LB gauge to boost damage of certain abilities and certain LBs for all allies and activate area effect (Chrono Cross units only)",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽提高全體隊員特定能力的傷害+提高特定極限技的傷害+施展區域效果(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 아군 전체의 특정 어빌리티와 특정 LB의 피해량 상승+범위 효과 발동(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour augmenter les dégâts de certaines aptitudes et de certaines limites de tous les alliés, et activer en effet de zone (unités de Chrono Cross uniquement)",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Schaden bestimmter Fertigkeiten aller Verbündeten sowie deren Schaden durch bestimmte Limiträusche zu erhöhen und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).",
+                "(Un uso por combate) Consume la barra de EL del usuario para aumentar el daño de determinados EL y habilidades de todos los aliados, y activa un efecto de zona (solo unidades de Chrono Cross)",
+                "(1 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk meningkatkan damage ability dan LB tertentu pada semua teman, serta mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aAbility\u001a \u001aและ\u001a \u001aLB\u001a \u001aที่\u001aกำหนด\u001aของ\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(One use per battle) Consumes own LB gauge to boost damage of certain abilities and certain LBs for all allies and activate area effect. Chrono Cross units only.",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽提高全體隊員特定能力的傷害，並提高特定極限技的傷害，以及施展區域效果。(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 아군 전체의 특정 어빌리티와 특정 LB의 피해량이 상승하고, 범위 효과를 발동합니다.(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour augmenter les dégâts de certaines aptitudes et de certaines limites pour tous les alliés, et activer un effet de zone. Unités de Chrono Cross uniquement.",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Schaden bestimmter Fertigkeiten aller Verbündeten sowie deren Schaden durch bestimmte Limiträusche zu erhöhen und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.",
+                "(Un uso por combate) Consume la barra de EL del usuario para aumentar el daño de determinados EL y habilidades de todos los aliados, y activa un efecto de zona. Solo unidades de Chrono Cross.",
+                "(1 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk meningkatkan damage ability dan limit burst tertentu pada semua teman, serta mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aAbility\u001a \u001aและ\u001a \u001aLB\u001a \u001aที่\u001aกำหนด\u001aของ\u001aสมาชิก\u001aใน\u001aทีม\u001aทุกราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243854": {
-        "name": "【エレメント】Mイレイザー",
+        "name": "Element - Mag Negate",
         "compendium_id": 1484,
         "compendium_shown": true,
         "requirements": ["UNIT_ID", [345000107, 345000117]],
         "skills": [243854],
-        "effects": ["Grant '【エレメント】Mイレイザー' ability"],
+        "effects": ["Grant 'Element - Mag Negate' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000004.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Mag Negate",
+                "【元素】魔效消除",
+                "엘리먼트: M이레이저",
+                "Élément - Bouclier magique",
+                "Element - M-Blocker",
+                "Elemento - Antimagia",
+                "Element - Mag Negate",
+                "Element\u001a \u001a-\u001a \u001aลบล้าง\u001aเวทย์\u001a"
+            ],
+            "desc_short": [
+                "(One use per battle) Consume own LB gauge to reduce magic damage taken by one ally and activate area effect (Serge only)",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽減少對1名隊員的魔法傷害+施展區域效果(塞爾吉專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 아군 1명이 받는 마법 피해량 감소+범위 효과 발동(세르주 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire les dégâts magiques subis par un allié, et activer un effet de zone (Serge uniquement)",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um von einem Verbündeten erlittenen magischen Schaden zu verringern und Gebietseffekt zu aktivieren (nur Serge).",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir el daño mágico que recibe un aliado, y activa un efecto de zona (solo Serge)",
+                "(1 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk mengurangi damage magic yang diterima satu teman dan mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aค่า\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aที่\u001aสมาชิก\u001aใน\u001aทีม\u001a \u001a1\u001a \u001aราย\u001aได้รับ\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aSerge\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(One use per battle) Consumes own LB gauge to reduce magic damage taken by one ally and activate area effect. Serge only.",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽減少對1名隊員的魔法傷害，並施展區域效果。(塞爾吉專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 아군 1명이 받는 마법 피해량이 감소하고, 범위 효과를 발동합니다(세르주 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire les dégâts magiques subis par un allié, et activer un effet de zone. Serge uniquement.",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um von einem Verbündeten erlittenen magischen Schaden zu verringern und Gebietseffekt zu aktivieren. Nur Serge.",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir el daño mágico que recibe un aliado, y activa un efecto de zona. Solo Serge.",
+                "(1 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk mengurangi damage magic yang diterima satu teman dan mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aค่า\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aที่\u001aสมาชิก\u001aใน\u001aทีม\u001a \u001a1\u001a \u001aราย\u001aได้รับ\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aSerge\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243855": {
-        "name": "【エレメント】ジーニアス",
+        "name": "Element - Genius",
         "compendium_id": 1485,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243855],
-        "effects": ["Grant '【エレメント】ジーニアス' ability"],
+        "effects": ["Grant 'Element - Genius' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000005.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Genius",
+                "【元素】術法之才",
+                "엘리먼트: 지니어스",
+                "Élément - Virtuose",
+                "Element - Magiefokus",
+                "Elemento - Inspiración",
+                "Element - Genius",
+                "Element\u001a \u001a-\u001a \u001aอัจฉริยะ\u001a"
+            ],
+            "desc_short": [
+                "(One use per battle) Consume own LB gauge to boost MAG for one ally and activate area effect (Chrono Cross units only)",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽提高1名隊員的魔力+施展區域效果(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 아군 1명의 마력 상승+범위 효과 발동(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour augmenter la MAGIE d'un allié, et activer un effet de zone (unités de Chrono Cross uniquement)",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um MAG eines Verbündeten zu erhöhen und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).",
+                "(Un uso por combate) Consume la barra de EL del usuario para aumentar la MAG de un aliado, y activa un efecto de zona (solo unidades de Chrono Cross)",
+                "(1 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk meningkatkan MAG satu teman dan mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aเพิ่มค่า\u001a \u001aMAG\u001a \u001aของ\u001aสมาชิก\u001aใน\u001aทีม\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(One use per battle) Consumes own LB gauge to boost MAG for one ally and activate area effect. Chrono Cross units only.",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽提高1名隊員的魔力，並施展區域效果。(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 아군 1명의 마력이 상승하고, 범위 효과를 발동합니다(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour augmenter la MAGIE d'un allié, et activer un effet de zone. Unités de Chrono Cross uniquement.",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um MAG eines Verbündeten zu erhöhen und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.",
+                "(Un uso por combate) Consume la barra de EL del usuario para aumentar la MAG de un aliado, y activa un efecto de zona. Solo unidades de Chrono Cross.",
+                "(1 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk meningkatkan MAG satu teman dan mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aเพิ่มค่า\u001a \u001aMAG\u001a \u001aของ\u001aสมาชิก\u001aใน\u001aทีม\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243856": {
-        "name": "【エレメント】イーグルアイ",
+        "name": "Element - Eagle Eye",
         "compendium_id": 1486,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243856],
-        "effects": ["Grant '【エレメント】イーグルアイ' ability"],
+        "effects": ["Grant 'Element - Eagle Eye' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000002.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Eagle Eye",
+                "【元素】鷹之目",
+                "엘리먼트: 이글 아이",
+                "Élément - Œil de faucon",
+                "Element - Adlerauge",
+                "Elemento - Vista de lince",
+                "Element - Eagle Eye",
+                "Element\u001a \u001a-\u001a \u001aนัยน์ตา\u001aเหยี่ยว\u001a"
+            ],
+            "desc_short": [
+                "(Two uses per battle) Consume own LB gauge to boost accuracy of some physical attacks and boost damage of certain abilities for one ally and activate area effect (Chrono Cross units only)",
+                "【每場戰鬥可使用2次】消耗自身的極限技槽提高1名隊員部分物理攻擊的命中率+提高特定能力的傷害+施展區域效果(CHRONO CROSS兵員專屬)",
+                "[전투 당 2회 사용 가능] 자신의 LB 게이지를 소비하여 아군 1명의 일부 물리 공격 명중률 상승, 특정 어빌리티의 피해량 상승+범위 효과 발동(Chrono Cross 유닛 전용)",
+                "(2 fois par combat) Consomme la jauge de limite du lanceur pour augmenter la précision de certaines attaques physiques et les dégâts de certaines aptitudes d'un allié, et activer un effet de zone (unités de Chrono Cross uniquement)",
+                "(Zweimal pro Kampf) Verbraucht Limitmeter des Benutzers, um Genauigkeit einiger physischer Angriffe eines Verbündeten sowie dessen Schaden bestimmter Fertigkeiten zu erhöhen und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).",
+                "(2 usos por combate) Consume la barra de EL del usuario para aumentar la precisión de algunos ataques físicos y el daño de determinadas habilidades de un aliado, y activa un efecto de zona (solo unidades de Chrono Cross)",
+                "(2 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk meningkatkan akurasi beberapa serangan fisik dan meningkatkan damage ability tertentu pada satu teman, serta mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a2\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aเพิ่ม\u001aความแม่นยำ\u001aใน\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001aบางส่วน\u001a \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aAbility\u001a \u001aที่\u001aกำหนด\u001aของ\u001aสมาชิก\u001aใน\u001aทีม\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(Two uses per battle) Consumes own LB gauge to boost accuracy of some physical attacks and boost damage of certain abilities for one ally and activate area effect. Chrono Cross units only.",
+                "【每場戰鬥可使用2次】消耗自身的極限技槽提高1名隊員物理攻擊的命中率，並提高特定能力的傷害，以及施展區域效果。(CHRONO CROSS兵員專屬)",
+                "[전투 당 2회 사용 가능] 자신의 LB 게이지를 소비하여 아군 1명의 일부 물리 공격 명중률이 상승하고, 특정 어빌리티의 피해량이 상승하며, 범위 효과를 발동합니다(Chrono Cross 유닛 전용)",
+                "(2 fois par combat) Consomme la jauge de limite du lanceur pour augmenter la précision de certaines attaques physiques et les dégâts de certaines aptitudes d'un allié, et activer un effet de zone. Unités de Chrono Cross uniquement.",
+                "(Zweimal pro Kampf) Verbraucht Limitmeter des Benutzers, um Genauigkeit einiger physischer Angriffe eines Verbündeten sowie dessen Schaden bestimmter Fertigkeiten zu erhöhen und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.",
+                "(2 usos por combate) Consume la barra de EL del usuario para aumentar la precisión de algunos ataques físicos y el daño de determinadas habilidades de un aliado, y activa un efecto de zona. Solo unidades de Chrono Cross.",
+                "(2 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk meningkatkan akurasi beberapa serangan fisik dan meningkatkan damage ability tertentu pada satu teman, serta mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a2\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aเพิ่ม\u001aความแม่นยำ\u001aใน\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001aบางส่วน\u001a \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aAbility\u001a \u001aที่\u001aกำหนด\u001aของ\u001aสมาชิก\u001aใน\u001aทีม\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243857": {
-        "name": "【エレメント】トッター",
+        "name": "Element - Bat Eye",
         "compendium_id": 1487,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243857],
-        "effects": ["Grant '【エレメント】トッター' ability"],
+        "effects": ["Grant 'Element - Bat Eye' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000002.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Bat Eye",
+                "【元素】蹣跚術",
+                "엘리먼트: 토터",
+                "Élément - Œil de taupe",
+                "Element - Maulwurfsauge",
+                "Elemento - Vista de topo",
+                "Element - Bat Eye",
+                "Element\u001a \u001a-\u001a \u001aนัยน์ตา\u001aค้างคาว\u001a"
+            ],
+            "desc_short": [
+                "(Two uses per battle) Consume own LB gauge to reduce accuracy of some physical attacks for one enemy and activate area effect (Chrono Cross units only)",
+                "【每場戰鬥可使用2次】消耗自身的極限技槽降低1名敵人部分物理攻擊的命中率+施展區域效果(CHRONO CROSS兵員專屬)",
+                "[전투 당 2회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 일부 물리 공격 명중률 감소+범위 효과 발동(Chrono Cross 유닛 전용)",
+                "(2 fois par combat) Consomme la jauge de limite du lanceur pour réduire la précision de certaines attaques physiques d'un ennemi, et activer un effet de zone (unités de Chrono Cross uniquement)",
+                "(Zweimal pro Kampf) Verbraucht Limitmeter des Benutzers, um Genauigkeit einiger physischer Angriffe eines Gegners zu verringern und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).",
+                "(2 usos por combate) Consume la barra de EL del usuario para reducir la precisión de algunos ataques físicos de un enemigo, y activa un efecto de zona (solo unidades de Chrono Cross)",
+                "(2 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk mengurangi akurasi beberapa serangan fisik satu musuh dan mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a2\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aความแม่นยำ\u001aใน\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001aบางส่วน\u001aของ\u001aศัตรู\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(Two uses per battle) Consumes own LB gauge to reduce accuracy of some physical attacks for one enemy and activate area effect. Chrono Cross units only.",
+                "【每場戰鬥可使用2次】消耗自身的極限技槽降低1名敵人物理攻擊的命中率，並施展區域效果。(CHRONO CROSS兵員專屬)",
+                "[전투 당 2회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 일부 물리 공격 명중률이 감소하고, 범위 효과를 발동합니다.(Chrono Cross 유닛 전용)",
+                "(2 fois par combat) Consomme la jauge de limite du lanceur pour réduire la précision de certaines attaques physiques d'un ennemi, et activer un effet de zone. Unités de Chrono Cross uniquement.",
+                "(Zweimal pro Kampf) Verbraucht Limitmeter des Benutzers, um Genauigkeit einiger physischer Angriffe eines Gegners zu verringern und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.",
+                "(2 usos por combate) Consume la barra de EL del usuario para reducir la precisión de algunos ataques físicos de un enemigo, y activa un efecto de zona. Solo unidades de Chrono Cross.",
+                "(2 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk mengurangi akurasi beberapa serangan fisik satu musuh dan mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a2\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aความแม่นยำ\u001aใน\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001aบางส่วน\u001aของ\u001aศัตรู\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243858": {
-        "name": "【エレメント】ケアラ",
+        "name": "Element - Cure Plus",
         "compendium_id": 1488,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243858],
-        "effects": ["Grant '【エレメント】ケアラ' ability"],
+        "effects": ["Grant 'Element - Cure Plus' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000000.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Cure Plus",
+                "【元素】高級治療術",
+                "엘리먼트: 케아라",
+                "Élément - Soins intensifs",
+                "Element - Arznei plus",
+                "Elemento - Sanación masiva",
+                "Element - Cure Plus",
+                "Element\u001a \u001a-\u001a \u001aรักษา\u001aเพิ่ม\u001aอีก\u001aขั้น\u001a"
+            ],
+            "desc_short": [
+                "(Three uses per battle) Consume own LB gauge to restore HP for one ally and activate area effect (Chrono Cross units only)",
+                "【每場戰鬥可使用3次】消耗自身的極限技槽恢復1名隊員的HP+施展區域效果(CHRONO CROSS兵員專屬)",
+                "[전투 당 3회 사용 가능] 자신의 LB 게이지를 소비하여 아군 1명의 HP 회복+범위 효과 발동(Chrono Cross 유닛 전용)",
+                "(3 fois par combat) Consomme la jauge de limite du lanceur pour restaurer les PV d'un allié, et activer un effet de zone (unités de Chrono Cross uniquement)",
+                "(Dreimal pro Kampf) Verbraucht Limitmeter des Benutzers, um LP eines Verbündeten zu regenerieren und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).",
+                "(3 usos por combate) Consume la barra de EL del usuario para recuperar VIT de un aliado, y activa un efecto de zona (solo unidades de Chrono Cross)",
+                "(3 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk memulihkan HP satu teman dan mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a3\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aฟื้นฟู\u001a \u001aHP\u001a \u001aของ\u001aสมาชิก\u001aใน\u001aทีม\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(Three uses per battle) Consumes own LB gauge to restore HP for one ally and activate area effect. Chrono Cross units only.",
+                "【每場戰鬥可使用3次】消耗自身的極限技槽恢復1名隊員的HP，並施展區域效果。(CHRONO CROSS兵員專屬)",
+                "[전투 당 3회 사용 가능] 자신의 LB 게이지를 소비하여 아군 1명의 HP를 회복하고, 범위 효과를 발동합니다.(Chrono Cross 유닛 전용)",
+                "(3 fois par combat) Consomme la jauge de limite du lanceur pour restaurer les PV d'un allié, et activer un effet de zone. Unités de Chrono Cross uniquement.",
+                "(Dreimal pro Kampf) Verbraucht Limitmeter des Benutzers, um LP eines Verbündeten zu regenerieren und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.",
+                "(3 usos por combate) Consume la barra de EL del usuario para recuperar VIT de un aliado, y activa un efecto de zona. Solo unidades de Chrono Cross.",
+                "(3 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk memulihkan HP satu teman dan mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a3\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aฟื้นฟู\u001a \u001aHP\u001a \u001aของ\u001aสมาชิก\u001aใน\u001aทีม\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243859": {
-        "name": "【エレメント】オールクリア",
+        "name": "Element - Panacea",
         "compendium_id": 1489,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243859],
-        "effects": ["Grant '【エレメント】オールクリア' ability"],
+        "effects": ["Grant 'Element - Panacea' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000004.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Panacea",
+                "【元素】萬能治療藥",
+                "엘리먼트: 올 클리어",
+                "Élément - Panacée",
+                "Element - Allheilmittel",
+                "Elemento - Panacea",
+                "Element - Panacea",
+                "Element\u001a \u001a-\u001a \u001aยาวิเศษ\u001a"
+            ],
+            "desc_short": ["Consume own LB gauge to cure poison, blind, sleep, silence, paralysis, confusion, disease, and stone and remove stop and charm for one ally and activate area effect (Chrono Cross units only)", "消耗自身的極限技槽治療1名隊員的中毒失明睡眠沉默麻痺混亂生病石化效果+解除停止魅惑效果+施展區域效果(CHRONO CROSS兵員專屬)", "자신의 LB 게이지를 소비하여 아군 1명의 독, 암흑, 수면, 침묵, 마비, 혼란, 질병, 석화 회복, 스톱과 매혹 해제+범위 효과 발동(Chrono Cross 유닛 전용)", "Consomme la jauge de limite du lanceur pour soigner poison, cécité, sommeil, silence, paralysie, confusion, maladie et pétrification, dissiper stop et charme pour un allié, et activer un effet de zone (unités de Chrono Cross uniquement)", "Verbraucht Limitmeter des Benutzers, um Gift, Blind, Schlaf, Stille, Lähmung, Konfus, Virus sowie Stein eines Verbündeten zu heilen, Stopp sowie Bezaubern von diesem zu entfernen und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).", "Consume la barra de EL del usuario para curar veneno, ceguera, sueño, silencio, parálisis, confusión, enfermedad y piedra a un aliado y le elimina paro y embrujo, y activa un efecto de zona (solo unidades de Chrono Cross)", "Menggunakan bar LB diri sendiri untuk menyembuhkan status poison, blind, sleep, silence, paralyze, confuse, disease, dan petrify, dan menghilangkan status stop dan charm dari satu teman, serta mengaktifkan efek area (Khusus unit Chrono Cross)", "ใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aยกเลิก\u001aสถานะ\u001a \u001aPoison\u001a,\u001a \u001aBlind\u001a,\u001a \u001aSleep\u001a,\u001a \u001aSilence\u001a,\u001a \u001aParalyze\u001a,\u001a \u001aConfuse\u001a,\u001a \u001aDisease\u001a,\u001a \u001aStone\u001a,\u001a \u001aStop\u001a \u001aและ\u001a \u001aCharm\u001a \u001aของ\u001aสมาชิก\u001aใน\u001aทีม\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"],
+            "desc_long": ["Consumes own LB gauge to cure poison, blind, sleep, silence, paralysis, confusion, disease, and stone and remove stop and charm for one ally and activate area effect. Chrono Cross units only.", "消耗自身的極限技槽治療1名隊員的中毒失明睡眠沉默麻痺混亂生病石化效果，並解除停止魅惑效果，以及施展區域效果。(CHRONO CROSS兵員專屬)", "자신의 LB 게이지를 소비하여 아군 1명의 독, 암흑, 수면, 침묵, 마비, 혼란, 질병, 석화를 회복하고, 스톱과 매혹을 해제하며, 범위 효과를 발동합니다.(Chrono Cross 유닛 전용)", "Consomme la jauge de limite du lanceur pour soigner poison, cécité, sommeil, silence, paralysie, confusion, maladie et pétrification, dissiper stop et charme pour un allié, et activer un effet de zone. Unités de Chrono Cross uniquement.", "Verbraucht Limitmeter des Benutzers, um Gift, Blind, Schlaf, Stille, Lähmung, Konfus, Virus sowie Stein eines Verbündeten zu heilen, Stopp sowie Bezaubern von diesem zu entfernen und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.", "Consume la barra de EL del usuario para curar veneno, ceguera, sueño, silencio, parálisis, confusión, enfermedad y piedra a un aliado y le elimina paro y embrujo, y activa un efecto de zona. Solo unidades de Chrono Cross.", "Menggunakan bar limit burst diri sendiri untuk menyembuhkan status poison, blind, sleep, silence, paralyze, confuse, disease, dan petrify, dan menghilangkan status stop dan charm dari satu teman, serta mengaktifkan efek area. Khusus unit Chrono Cross.", "ใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aยกเลิก\u001aสถานะ\u001a \u001aPoison\u001a,\u001a \u001aBlind\u001a,\u001a \u001aSleep\u001a,\u001a \u001aSilence\u001a,\u001a \u001aParalyze\u001a,\u001a \u001aConfuse\u001a,\u001a \u001aDisease\u001a,\u001a \u001aStone\u001a,\u001a \u001aStop\u001a \u001aและ\u001a \u001aCharm\u001a \u001aของ\u001aสมาชิก\u001aใน\u001aทีม\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"]
         }
     },
     "504243861": {
-        "name": "【エレメント】ライトニング",
+        "name": "Element - Electro Bolt",
         "compendium_id": 1491,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243861],
-        "effects": ["Grant '【エレメント】ライトニング' ability"],
+        "effects": ["Grant 'Element - Electro Bolt' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000003.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Electro Bolt",
+                "【元素】雷閃",
+                "엘리먼트: 라이트닝",
+                "Élément - Surtension",
+                "Element - Blitzschlag",
+                "Elemento - Rayo",
+                "Element - Electro Bolt",
+                "Element\u001a \u001a-\u001a \u001aกระสุน\u001aไฟฟ้า\u001a"
+            ],
+            "desc_short": [
+                "(One use per battle) Consume own LB gauge to reduce lightning resistance and deal lightning magic damage to one enemy and activate area effect (Chrono Cross units only)",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的雷屬性耐性+發動雷屬性魔法攻擊+施展區域效果(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 번개속성 저항력 감소, 번개속성 마법 피해+범위 효과 발동(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance à la foudre d'un ennemi, lui infliger des dégâts magiques de foudre, et activer un effet de zone (unités de Chrono Cross uniquement)",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Blitzresistenz eines Gegners zu verringern, diesem magischen Blitzschaden zuzufügen und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia al rayo de un enemigo y le inflige daño mágico de rayo, y activa un efecto de zona (solo unidades de Chrono Cross)",
+                "(1 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk mengurangi resistansi petir dan memberikan damage magic petir pada satu musuh, serta mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aสายฟ้า\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aสายฟ้า\u001aแก่\u001aศัตรู\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(One use per battle) Consumes own LB gauge to reduce lightning resistance and deal lightning magic damage to one enemy and activate area effect. Chrono Cross units only.",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的雷屬性耐性，並發動雷屬性魔法攻擊，以及施展區域效果。(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 번개속성 저항력을 감소시키고, 번개속성 마법 피해를 입히며, 범위 효과를 발동합니다.(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance à la foudre d'un ennemi, lui infliger des dégâts magiques de foudre, et activer un effet de zone. Unités de Chrono Cross uniquement.",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Blitzresistenz eines Gegners zu verringern, diesem magischen Blitzschaden zuzufügen und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia al rayo de un enemigo y le inflige daño mágico de rayo, y activa un efecto de zona. Solo unidades de Chrono Cross.",
+                "(1 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk mengurangi resistansi petir dan memberikan damage magic petir pada satu musuh, serta mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aสายฟ้า\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aสายฟ้า\u001aแก่\u001aศัตรู\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243862": {
-        "name": "【エレメント】ウーハー",
+        "name": "Element - Aero Blaster",
         "compendium_id": 1492,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243862],
-        "effects": ["Grant '【エレメント】ウーハー' ability"],
+        "effects": ["Grant 'Element - Aero Blaster' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000002.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Aero Blaster",
+                "【元素】音波",
+                "엘리먼트: 우퍼",
+                "Élément - Salve aérienne",
+                "Element - Windstoß",
+                "Elemento - Ráfaga",
+                "Element - Aero Blaster",
+                "Element\u001a \u001a-\u001a \u001aปืน\u001aยิง\u001aกระแสลม\u001a"
+            ],
+            "desc_short": [
+                "(One use per battle) Consume own LB gauge to reduce wind resistance, deal wind magic damage, and chance of inflicting sleep on one enemy, and activate area effect (Chrono Cross units only)",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的風屬性耐性+發動風屬性魔法攻擊+一定機率施加睡眠效果+施展區域效果(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 바람속성 저항력 감소, 바람속성 마법 피해, 일정 확률로 수면 부여+범위 효과 발동(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance au vent d'un ennemi, lui infliger des dégâts magiques de vent, confèrer une chance de lui infliger sommeil, et activer un effet de zone (unités de Chrono Cross uniquement)",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Windresistenz eines Gegners zu verringern, diesem magischen Windschaden zuzufügen, dem Benutzer eine Chance zu ermöglichen, dem Gegner Schlaf zuzufügen und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia al viento de un enemigo, le inflige daño mágico de viento y probabilidad de infligirle sueño, y activa un efecto de zona (solo unidades de Chrono Cross)",
+                "(1 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk mengurangi resistansi angin, memberikan damage magic angin, dan peluang untuk memberikan status sleep pada satu musuh, serta mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aลม\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aลม\u001a \u001a+\u001a \u001aมีโอกาส\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aSleep\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(One use per battle) Consumes own LB gauge to reduce wind resistance, deal wind magic damage, and chance of inflicting sleep on one enemy, and activate area effect. Chrono Cross units only.",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的風屬性耐性，並發動風屬性魔法攻擊，且一定機率施加睡眠效果，以及施展區域效果。(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 바람속성 저항력을 감소시키고, 바람속성 마법 피해를 입히며, 일정 확률로 수면을 부여하고, 범위 효과를 발동합니다.(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance au vent d'un ennemi, lui infliger des dégâts magiques de vent, confèrer une chance de lui infliger sommeil, et activer un effet de zone. Unités de Chrono Cross uniquement.",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Windresistenz eines Gegners zu verringern, diesem magischen Windschaden zuzufügen, dem Benutzer eine Chance zu ermöglichen, dem Gegner Schlaf zuzufügen und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia al viento de un enemigo, le inflige daño mágico de viento y probabilidad de infligirle sueño, y activa un efecto de zona. Solo unidades de Chrono Cross.",
+                "(1 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk mengurangi resistansi angin, memberikan damage magic angin, dan menambahkan peluang untuk memberikan status sleep pada satu musuh, serta mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aลม\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aลม\u001a \u001a+\u001a \u001aมีโอกาส\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aSleep\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243863": {
-        "name": "【エレメント】フリーズ",
+        "name": "Element - Ice Blast",
         "compendium_id": 1493,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243863],
-        "effects": ["Grant '【エレメント】フリーズ' ability"],
+        "effects": ["Grant 'Element - Ice Blast' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000000.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Ice Blast",
+                "【元素】冰結",
+                "엘리먼트: 프리즈",
+                "Élément - Explosion de glace",
+                "Element - Eissplitter",
+                "Elemento - Onda glacial",
+                "Element - Ice Blast",
+                "Element\u001a \u001a-\u001a \u001aระเบิด\u001aน้ำแข็ง\u001a"
+            ],
+            "desc_short": [
+                "(One use per battle) Consume own LB gauge to reduce ice resistance, deal ice magic damage, and chance of stopping one enemy, and activate area effect (Chrono Cross units only)",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的冰屬性耐性+發動冰屬性魔法攻擊+一定機率施加停止效果+施展區域效果(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 얼음속성 저항력 감소, 얼음속성 마법 피해, 일정 확률로 스톱 부여+범위 효과 발동(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance à la glace d'un ennemi, lui infliger des dégâts magiques de glace, confèrer une chance de lui infliger stop, et activer un effet de zone (unités de Chrono Cross uniquement)",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Eisresistenz eines Gegners zu verringern, diesem magischen Eisschaden zuzufügen, dem Benutzer eine Chance zu ermöglichen, dem Gegner Stopp zuzufügen und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia al hielo de un enemigo, le inflige daño mágico de hielo y probabilidad de infligirle paro, y activa un efecto de zona (solo unidades de Chrono Cross)",
+                "(1 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk mengurangi resistansi es, memberikan damage magic es, dan peluang untuk memberikan status stop pada satu musuh, serta mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำแข็ง\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aน้ำแข็ง\u001a \u001a+\u001a \u001aมีโอกาส\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aStop\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(One use per battle) Consumes own LB gauge to reduce ice resistance, deal ice magic damage, and chance of stopping one enemy, and activate area effect. Chrono Cross units only.",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的冰屬性耐性，並發動冰屬性魔法攻擊，且一定機率施加停止效果，以及施展區域效果。(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 얼음속성 저항력을 감소시키고, 얼음속성 마법 피해를 입히며, 일정 확률로 스톱을 부여하고, 범위 효과를 발동합니다.(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance à la glace d'un ennemi, lui infliger des dégâts magiques de glace, confèrer une chance de lui infliger stop, et activer un effet de zone. Unités de Chrono Cross uniquement.",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Eisresistenz eines Gegners zu verringern, diesem magischen Eisschaden zuzufügen, dem Benutzer eine Chance zu ermöglichen, dem Gegner Stopp zuzufügen und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia al hielo de un enemigo, le inflige daño mágico de hielo y probabilidad de infligirle paro, y activa un efecto de zona. Solo unidades de Chrono Cross.",
+                "(1 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk mengurangi resistansi es, memberikan damage magic es, dan menambahkan peluang untuk memberikan status stop pada satu musuh, serta mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำแข็ง\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aน้ำแข็ง\u001a \u001a+\u001a \u001aมีโอกาส\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aStop\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243864": {
-        "name": "【エレメント】アクアボール",
+        "name": "Element - Aquaball",
         "compendium_id": 1494,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243864],
-        "effects": ["Grant '【エレメント】アクアボール' ability"],
+        "effects": ["Grant 'Element - Aquaball' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000000.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Aquaball",
+                "【元素】水球",
+                "엘리먼트: 아쿠아 볼",
+                "Élément - Bulle d'eau",
+                "Element - Wasserblase",
+                "Elemento - Hidrobomba",
+                "Element - Aquaball",
+                "Element\u001a \u001a-\u001a \u001aลูกบอล\u001aวารี\u001a"
+            ],
+            "desc_short": [
+                "(One use per battle) Consume own LB gauge to reduce water resistance, deal water magic damage, and chance of inflicting disease on one enemy, and activate area effect (Chrono Cross units only)",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的水屬性耐性+發動水屬性魔法攻擊+一定機率施加生病效果+施展區域效果(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 물속성 저항력 감소, 물속성 마법 피해, 일정 확률로 질병 부여+범위 효과 발동(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance à l'eau d'un ennemi, lui infliger des dégâts magiques d'eau, confèrer une chance de lui infliger maladie, et activer un effet de zone (unités de Chrono Cross uniquement)",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Wasserresistenz eines Gegners zu verringern, diesem magischen Wasserschaden zuzufügen, dem Benutzer eine Chance zu ermöglichen, dem Gegner Virus zuzufügen und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia al agua de un enemigo, le inflige daño mágico de agua y probabilidad de infligirle enfermedad, y activa un efecto de zona (solo unidades de Chrono Cross)",
+                "(1 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk mengurangi resistansi air, memberikan damage magic air, dan peluang untuk memberikan status disease pada satu musuh, serta mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำ\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aน้ำ\u001a \u001a+\u001a \u001aมีโอกาส\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aDisease\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(One use per battle) Consumes own LB gauge to reduce water resistance, deal water magic damage, and chance of inflicting disease on one enemy, and activate area effect. Chrono Cross units only.",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的水屬性耐性，並發動水屬性魔法攻擊，且一定機率施加生病效果，以及施展區域效果。(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 물속성 저항력을 감소시키고, 물속성 마법 피해를 입히며, 일정 확률로 질병을 부여하고, 범위 효과를 발동합니다.(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance à l'eau d'un ennemi, lui infliger des dégâts magiques d'eau, confèrer une chance de lui infliger maladie, et activer un effet de zone. Unités de Chrono Cross uniquement.",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Wasserresistenz eines Gegners zu verringern, diesem magischen Wasserschaden zuzufügen, dem Benutzer eine Chance zu ermöglichen, dem Gegner Virus zuzufügen und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia al agua de un enemigo, le inflige daño mágico de agua y probabilidad de infligirle enfermedad, y activa un efecto de zona. Solo unidades de Chrono Cross.",
+                "(1 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk mengurangi resistansi air, memberikan damage magic air, dan menambahkan peluang untuk memberikan status disease pada satu musuh, serta mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aน้ำ\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aน้ำ\u001a \u001a+\u001a \u001aมีโอกาส\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aDisease\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243865": {
-        "name": "【エレメント】メルトストーン",
+        "name": "Element - Magma Burst",
         "compendium_id": 1495,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243865],
-        "effects": ["Grant '【エレメント】メルトストーン' ability"],
+        "effects": ["Grant 'Element - Magma Burst' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000001.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Magma Burst",
+                "【元素】熔岩噴發",
+                "엘리먼트: 멜트 스톤",
+                "Élément - Salve de lave",
+                "Element - Eruption",
+                "Elemento - Explosión de lava",
+                "Element - Magma Burst",
+                "Element\u001a \u001a-\u001a \u001aระเบิด\u001aแม็ก\u001aม่า\u001a"
+            ],
+            "desc_short": [
+                "(One use per battle) Consume own LB gauge to reduce fire resistance, deal fire magic damage, and chance of inflicting confusion on one enemy, and activate area effect (Chrono Cross units only)",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的火屬性耐性+發動火屬性魔法攻擊+一定機率施加混亂效果+施展區域效果(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 불속성 저항력 감소, 불속성 마법 피해, 일정 확률로 혼란 부여+범위 효과 발동(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance au feu d'un ennemi, lui infliger des dégâts magiques de feu, confèrer une chance de lui infliger confusion, et activer un effet de zone (unités de Chrono Cross uniquement)",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Feuerresistenz eines Gegners zu verringern, diesem magischen Feuerschaden zuzufügen, dem Benutzer eine Chance zu ermöglichen, dem Gegner Konfus zuzufügen und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia al fuego de un enemigo, le inflige daño mágico de fuego y probabilidad de infligirle confusión, y activa un efecto de zona (solo unidades de Chrono Cross)",
+                "(1 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk mengurangi resistansi api, memberikan damage magic api, dan peluang untuk memberikan status confuse pada satu musuh, serta mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aไฟ\u001a \u001a+\u001a \u001aมีโอกาส\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aConfuse\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(One use per battle) Consumes own LB gauge to reduce fire resistance, deal fire magic damage, and chance of inflicting confusion on one enemy, and activate area effect. Chrono Cross units only.",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的火屬性耐性，並發動火屬性魔法攻擊，且一定機率施加混亂效果，以及施展區域效果。(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 불속성 저항력을 감소시키고, 불속성 마법 피해를 입히며, 일정 확률로 혼란을 부여하고, 범위 효과를 발동합니다.(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance au feu d'un ennemi, lui infliger des dégâts magiques de feu, confèrer une chance de lui infliger confusion, et activer un effet de zone. Unités de Chrono Cross uniquement.",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Feuerresistenz eines Gegners zu verringern, diesem magischen Feuerschaden zuzufügen, dem Benutzer eine Chance zu ermöglichen, dem Gegner Konfus zuzufügen und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia al fuego de un enemigo, le inflige daño mágico de fuego y probabilidad de infligirle confusión, y activa un efecto de zona. Solo unidades de Chrono Cross.",
+                "(1 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk mengurangi resistansi api, memberikan damage magic api, dan menambahkan peluang untuk memberikan status confuse pada satu musuh, serta mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aไฟ\u001a \u001a+\u001a \u001aมีโอกาส\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aConfuse\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243866": {
-        "name": "【エレメント】↓フリクション",
+        "name": "Trap Element - Free Fall",
         "compendium_id": 1496,
         "compendium_shown": true,
         "requirements": ["UNIT_ID", [345000307, 345000317]],
         "skills": [243866],
-        "effects": ["Grant '【エレメント】↓フリクション' passive"],
+        "effects": ["Grant 'Trap Element - Free Fall' passive"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000005.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Trap Element - Free Fall",
+                "【元素】↓暗之衝突",
+                "엘리먼트: ↓프릭션",
+                "Élément piège - Chute libre",
+                "Element - ↓Freier Fall",
+                "Elemento - ↓Caída libre",
+                "Trap Element - Free Fall",
+                "Trap\u001a \u001aElement\u001a \u001a-\u001a \u001aร่วงหล่น\u001aแบบ\u001aอิสระ\u001a"
+            ],
+            "desc_short": ["Chance of enabling certain abilities when receiving a magic attack (Lynx only)", "受到魔法攻擊時一定機率可使用特定能力(山貓專屬)", "마법 공격을 받으면 일정 확률로 특정 어빌리티 사용 가능(야마네코 전용)", "Confère une chance d'activer certaines aptitudes en subissant une attaque magique (Lynx uniquement)", "Chance, dem Benutzer bestimmte Fertigkeiten zu ermöglichen, wenn dieser von einem magischem Angriff getroffen wird (nur Lynx).", "Probabilidad de aprender determinadas habilidades al recibir un ataque mágico (solo Lynx)", "Peluang untuk memungkinkan penggunaan ability tertentu ketika menerima serangan magic (Khusus Lynx)", "มีโอกาส\u001aสามารถ\u001aใช้งาน\u001a \u001aAbility\u001a \u001aที่\u001aกำหนด\u001aได้\u001aเมื่อ\u001aได้รับ\u001aการ\u001aโจมตี\u001aพลัง\u001aเวทย์\u001a \u001a(\u001aLynx\u001a \u001aเท่านั้น\u001a)\u001a"],
+            "desc_long": ["Chance of enabling certain abilities when receiving a magic attack. Lynx only.", "受到魔法攻擊時一定機率可使用特定能力。(山貓專屬)", "마법 공격을 받으면 일정 확률로 특정 어빌리티를 사용 가능합니다.(야마네코 전용)", "Confère une chance d'activer certaines aptitudes en subissant une attaque magique. Lynx uniquement.", "Chance, dem Benutzer bestimmte Fertigkeiten zu ermöglichen, wenn dieser von einem magischem Angriff getroffen wird. Nur Lynx.", "Probabilidad de aprender determinadas habilidades al recibir un ataque mágico. Solo Lynx.", "Menambahkan peluang untuk memungkinkan penggunaan ability tertentu ketika menerima serangan magic. Khusus Lynx.", "มีโอกาส\u001aสามารถ\u001aใช้งาน\u001a \u001aAbility\u001a \u001aที่\u001aกำหนด\u001aได้\u001aเมื่อ\u001aได้รับ\u001aการ\u001aโจมตี\u001aพลัง\u001aเวทย์\u001a \u001a(\u001aLynx\u001a \u001aเท่านั้น\u001a)\u001a"]
         }
     },
     "504243867": {
-        "name": "【エレメント】フォトン",
+        "name": "Element - Photon Beam",
         "compendium_id": 1497,
         "compendium_shown": true,
         "requirements": ["RULE", [7277]],
         "skills": [243867],
-        "effects": ["Grant '【エレメント】フォトン' ability"],
+        "effects": ["Grant 'Element - Photon Beam' ability"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_5000004.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Element - Photon Beam",
+                "【元素】凝光之彈",
+                "엘리먼트: 포톤",
+                "Élément - Faisceau de photons",
+                "Element - Photonenstrahl",
+                "Elemento - Cañón lumínico",
+                "Element - Photon Beam",
+                "Element\u001a \u001a-\u001a \u001aลำแสง\u001aโฟตอน\u001a"
+            ],
+            "desc_short": [
+                "(One use per battle) Consume own LB gauge to reduce light resistance, deal light magic damage, and chance of inflicting paralysis on one enemy, and activate area effect (Chrono Cross units only)",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的光屬性耐性+發動光屬性魔法攻擊+一定機率施加麻痺效果+施展區域效果(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 빛속성 저항력 감소, 빛속성 마법 피해, 일정 확률로 마비 부여+범위 효과 발동(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance à la lumière d'un ennemi, lui infliger des dégâts magiques de lumière, conférer une chance de lui infliger paralysie, et activer un effet de zone (unités de Chrono Cross uniquement)",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Lichtresistenz eines Gegners zu verringern, diesem magischen Lichtschaden zuzufügen, dem Benutzer eine Chance zu ermöglichen, dem Gegner Lähmung zuzufügen und Gebietseffekt zu aktivieren (nur Chrono Cross-Einheiten).",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia a la luz de un enemigo, le inflige daño mágico de luz y probabilidad de infligirle parálisis, y activa un efecto de zona (solo unidades de Chrono Cross)",
+                "(1 kali penggunaan per battle) Menggunakan bar LB diri sendiri untuk mengurangi resistansi cahaya, memberikan damage magic cahaya, dan peluang untuk memberikan status paralyze pada satu musuh, serta mengaktifkan efek area (Khusus unit Chrono Cross)",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aแสง\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aแสง\u001a \u001a+\u001a \u001aมีโอกาส\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aParalyze\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ],
+            "desc_long": [
+                "(One use per battle) Consumes own LB gauge to reduce light resistance, deal light magic damage, and chance of inflicting paralysis on one enemy, and activate area effect. Chrono Cross units only.",
+                "【每場戰鬥可使用1次】消耗自身的極限技槽降低1名敵人的光屬性耐性，並發動光屬性魔法攻擊，且一定機率施加麻痺效果，以及施展區域效果。(CHRONO CROSS兵員專屬)",
+                "[전투 당 1회 사용 가능] 자신의 LB 게이지를 소비하여 적 1명의 빛속성 저항력을 감소시키고, 빛속성 마법 피해를 입히며, 일정 확률로 마비를 부여하고, 범위 효과를 발동합니다.(Chrono Cross 유닛 전용)",
+                "(Une fois par combat) Consomme la jauge de limite du lanceur pour réduire la résistance à la lumière d'un ennemi, lui infliger des dégâts magiques de lumière, conférer une chance de lui infliger paralysie, et activer un effet de zone. Unités de Chrono Cross uniquement.",
+                "(Einmal pro Kampf) Verbraucht Limitmeter des Benutzers, um Lichtresistenz eines Gegners zu verringern, diesem magischen Lichtschaden zuzufügen, dem Benutzer eine Chance zu ermöglichen, dem Gegner Lähmung zuzufügen und Gebietseffekt zu aktivieren. Nur Chrono Cross-Einheiten.",
+                "(Un uso por combate) Consume la barra de EL del usuario para reducir la resistencia a la luz de un enemigo, le inflige daño mágico de luz y probabilidad de infligirle parálisis, y activa un efecto de zona. Solo unidades de Chrono Cross.",
+                "(1 kali penggunaan per battle) Menggunakan bar limit burst diri sendiri untuk mengurangi resistansi cahaya, memberikan damage magic cahaya, dan menambahkan peluang untuk memberikan status paralyze pada satu musuh, serta mengaktifkan efek area. Khusus unit Chrono Cross.",
+                "(\u001aใช้ได้\u001a \u001a1\u001a \u001aครั้ง\u001aต่อ\u001aการต่อสู้\u001a)\u001a \u001aใช้\u001a \u001aLB\u001a \u001aGauge\u001a \u001aของ\u001aตัวเอง\u001aเพื่อ\u001aลด\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aแสง\u001a \u001a+\u001a \u001aสร้าง\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aธาตุ\u001aแสง\u001a \u001a+\u001a \u001aมีโอกาส\u001aทำให้\u001aศัตรู\u001aติด\u001aสถานะ\u001a \u001aParalyze\u001a \u001a1\u001a \u001aราย\u001a \u001a+\u001a \u001aใช้งาน\u001a \u001aArea\u001a \u001aEffect\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aChrono\u001a \u001aCross\u001a \u001aเท่านั้น\u001a)\u001a"
+            ]
         }
     },
     "504243868": {
@@ -32652,7 +32994,7 @@
                 "Augmente la MAGIE et les dégâts de la limite de 50 % et augmente la MAGIE de l'équipement quand une arme est tenue avec les deux mains. Non cumulable",
                 "Erhöht MAG sowie Schaden durch Limitrausch um 50% und erhöht Ausrüstung-MAG, wenn eine einzige Waffe in beiden Händen ausgerüstet ist. Nicht stapelbar.",
                 "Aumenta la MAG y el daño del EL un 50%, y aumenta la MAG del equipo al llevar una sola arma en ambas manos. No acumulable.",
-                "Meningkatkan MAG dan meningkatkan damage limit burst sebanyak 50%, serta meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan. Tidak dapat ditumpuk.",
+                "Meningkatkan MAG, meningkatkan damage limit burst sebanyak 50%, dan meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan. Tidak dapat ditumpuk.",
                 "เพิ่มค่า\u001a \u001aMAG\u001a \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a50% + เพิ่มค่า MAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }

@@ -194,7 +194,7 @@ const unitRules = {
     7274: (item) => item.exclusiveUnits = ["312000205", "312001007", "312001017"],
     7275: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20036], // ActRaiser Renaissance
     7276: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20037], // Dragon Quest
-    //7277: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20038], // Chrono Cross
+    7277: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20038], // Chrono Cross
     7401: (item) => item.exclusiveUnits = ["100031507", "100031517"],
     7402: (item) => item.exclusiveUnits = ["100039407"],
     7601: (item) => item.max7StarUnit = true, // not implemented yet. Only for unit max 7*

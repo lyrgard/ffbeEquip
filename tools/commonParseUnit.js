@@ -388,10 +388,8 @@ export function manageUnlockableSkill(skillIn, skillId, unitOut, skills, lbs) {
 export function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit, lbs) {
     var skill = {"name" : skillIn.name, "id":skillId, "icon": skillIn.icon, "effects": []};
     var tmrAbilityEffects = [];
-    
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];
-
         var effects = parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs);
         if (effects) {
             if (skillIn.requirements && skillIn.requirements[0][0] == "EQUIP") {
@@ -977,7 +975,7 @@ export function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
             var killerData = rawEffect[3];
             let physicalPercent, magicalPercent;
             if (Array.isArray(killerData[1])){
-                for (let j = 0; j < killerData.length; j++){
+                for (let j = 0; j < killerData[1].length; j++){
                     let killerRace = raceMap[killerData[1][j]];
                     if (Array.isArray(killerData[2])){
                         physicalPercent = killerData[2][j];

@@ -889,8 +889,8 @@ function readSkills(itemIn, itemOut, skills) {
         for (var itemSetSkillIndex in itemSetSkills) {
             var skill = itemSetSkills[itemSetSkillIndex];
             var effectsNotTreated = [];
-            var lenght = result.length;
-            for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
+            var length = result.length;
+            for (var itemIndex = 0; itemIndex < length; itemIndex++) {
                 var copy = JSON.parse(JSON.stringify(result[itemIndex]));
                 var rawEffect = skill.effects_raw[0];
                 var conditions = rawEffect[3][0];
@@ -930,7 +930,7 @@ function addMasterySkills(item, masterySkills, result) {
                 result.push(copy);
                 treatedItems.push(copy);
                 for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
-                    if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
+                    if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) { 
                         let copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
                         addOneWeaponMastery(copy, masterySkills[masteryIndex][3][0], masterySkills[masteryIndex][3][1], weaponTypeId);
                         result.push(copy);
