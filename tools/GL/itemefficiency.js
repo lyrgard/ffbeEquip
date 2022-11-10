@@ -81,7 +81,7 @@ const typeMap = {
     60: 'accessory'
 }
 //'HP', 'HP%', 'MP', 'MP%', 'ATK', 'ATK%', 'MAG', 'MAG%', 'DEF', 'DEF%', 'SPR', 'SPR%', 'tdh', 'tdw', 'lbDamage', 'dualwield'
-let goalCritieria = ['tdw']
+let goalCritieria = ['DEF']
 
 let unitCriteria = {
     "baseATK": 430,
@@ -331,6 +331,7 @@ Object.keys(equipment).forEach((value) => {
         }
     })
 
+    // if this item is useful at all for the goal, add it to the efficiencyArray
     if (Object.keys(efficiencyObject).length > 0) {
         efficiencyObject.name = currentItem.name;
         efficiencyArray.push(efficiencyObject)

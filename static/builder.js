@@ -12,6 +12,7 @@ const formulaByGoal = {
     "atkDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x magical ATK damage", "formulaName":"atkDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"body", "coef":1}}},
     "sprDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x magical SPR damage", "formulaName":"sprDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
     "mpDamageWithMagicalMechanism":      {"type":"skill", "id":"0","name":"1x magical MP damage", "formulaName":"mpDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"mp"}}}},
+    "mpMagPhysicalDamage":               {"type":"value", "name":"mpMagPhysicalDamage"},
     "atkDamageWithFixedMechanism":       {"type":"value","name":"atkDamageWithFixedMechanism"},
     "physicalDamageMultiCast":          {"type":"value","name":"physicalDamageMultiCast"},
     "fixedDamageWithPhysicalMechanism":  {"type":"value","name":"fixedDamageWithPhysicalMechanism"},
@@ -392,6 +393,7 @@ function readGoal(index = currentUnitIndex) {
             || builds[index].involvedStats.includes("magicalKiller")
             || builds[index].involvedStats.includes("weaponElement"))) {
         $(".unitAttackElement").removeClass("hidden");
+        console.log(builds[index].involvedStats)
     }
     if (builds[index].involvedStats.includes("weaponElement")) {
         $(".unitAttackElement").removeClass("hidden");

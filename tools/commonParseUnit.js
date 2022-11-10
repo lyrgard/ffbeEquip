@@ -2248,12 +2248,13 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         let targetText = "";
         let baseStat = "";
         let damageType  = "";
+        let attackType = "";
 
         if (skillIn.attack_type === "Physical") {
-            mechanism = "physical";
+            attackType = "physical";
             magicAsterisk = "*";
         } else if (skillIn.attack_type === "Magic") {
-            mechanism = "magical";
+            attackType = "magical";
         }
 
         if (rawEffect[3][0] === 1) { // ATK
@@ -2267,11 +2268,22 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         } else if (rawEffect[3][0] === 3) { // MAG
             baseStat = "MAG";
             damageType = "mind";
-            mechanism = "mpMagDamage"
+
+            if (attackType === "physical") {
+                console.log("HEREEEEEE")
+                mechanism = "mpMagPhysicalDamage"
+            } else {
+                mechanism = "mpMagMagicalDamage"
+            }
+            
         } else if (rawEffect[3][0] === 4) { //SPR
             baseStat = "SPR";
             damageType = "mind";
-            mechanism = "mpSprDamage"
+            if (attackType === "physical") {
+                mechanism = "mpSprPhysicalDamage"
+            } else {
+                mechanism = "mpSprMagicalDamage"
+            }
         }
 
         if (rawEffect[0] == 1) {
@@ -2280,7 +2292,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             targetText = `Consume all MP to deal magic${magicAsterisk} damage (1x, ${baseStat}) with (${rawEffect[3][1] / 100}x, consumed MP) bonus damage to all enemies`
         }
 
-        result = {"damage":{"mechanism":mechanism, "attackType": mechanism, "damageType": damageType, "baseStat":baseStat, "mpCoef":(rawEffect[3][1] / 100), desc:targetText}}
+        result = {"damage":{"mechanism":mechanism, "attackType": attackType, "damageType": damageType, "baseStat":baseStat, "mpCoef":(rawEffect[3][1] / 100), desc:targetText}}
         
         // delay death timer
     } else if (rawEffect[2] == 1002) {
@@ -2433,7 +2445,9 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
     }
     if (result && result.damage) {
         if (skillIn.attack_type) {
-            result.damage.mechanism = skillIn.attack_type.toLocaleLowerCase();
+            if (result.damage.mechanism !== "mpMagPhysicalDamage") {
+                result.damage.mechanism = skillIn.attack_type.toLocaleLowerCase();
+            }
         } else {
             result.damage.mechanism = skillIn.damage_type.toLocaleLowerCase();
         }
@@ -2450,7 +2464,6 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         if(result.damage.damageType == "evoke"){
             result.damage.mechanism = "summonerSkill";
         }
-
 
         if (skillIn.element_inflict) {
             result.damage.elements = [];
@@ -2489,6 +2502,10 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         } else {
             console.log("unknown target : " + JSON.stringify(rawEffect));
         }
+    }
+    if (result?.damage?.mechanism === "mpMagPhysicalDamage") {
+        console.log("HERE2")
+        console.log(result)
     }
     return result;
 }

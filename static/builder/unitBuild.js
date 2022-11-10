@@ -15,7 +15,11 @@ const involvedStatsByValue = {
     "atkDamageWithFixedMechanism":       ["atk","meanDamageVariance", "chainMastery"],
     "physicalDamageMultiCast":          ["atk","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
     "fixedDamageWithPhysicalMechanism":  ["weaponElement", "physicalKiller", "meanDamageVariance"],
-    "summonerSkill":                    ["mag","spr","evoMag", 'evokeDamageBoost.all', "chainMastery", "meanDamageVariance"]
+    "summonerSkill":                    ["mag","spr","evoMag", 'evokeDamageBoost.all', "chainMastery", "meanDamageVariance"],
+    "mpMagPhysicalDamage":              ["mag", "mp", "physicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ],
+    "mpMagMagicalDamage":               ["mag", "mp", "magicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ],
+    "mpSprPhysicalDamage":              ["spr", "mp", "physicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ],
+    "mpSprMagicalDamage":               ["spr", "mp", "magicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ]
 };
 
 const statProgression = [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100];
@@ -193,6 +197,8 @@ class UnitBuild {
                 if (formula.value.sprSplit > 0) {
                     this.addToInvolvedStats(["spr"]);
                 }
+            } else if (formula.value.mechanism == "mpMagPhysicalDamage"){
+                this.addToInvolvedStats("mag", "mp", "physicalKiller", "meanDamageVariance", "weaponElement")
             }
         } else if (formula.type === "value") {
             let name = formula.name;
