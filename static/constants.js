@@ -86,6 +86,7 @@ const goalValuesCaract = {
     "atkDamageWithMagicalMechanismMultiCast":           {"statsToMaximize":["atk"], "type": "magical", "multicast":true},
     "fixedDamageWithPhysicalMechanism":  {"statsToMaximize":[], "type": "physical"},
     "summonerSkill":                    {"statsToMaximize":["mag","spr"], "type": "none"},
+    "mpMagPhysicalDamage":              {"statsToMaximize": ["mp", "mag"], "type": "physical"}
 };
 const itemEnhancementLabels = {
     "rare_3":{

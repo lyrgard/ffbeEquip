@@ -198,7 +198,7 @@ class UnitBuild {
                     this.addToInvolvedStats(["spr"]);
                 }
             } else if (formula.value.mechanism == "mpMagPhysicalDamage"){
-                this.addToInvolvedStats("mag", "mp", "physicalKiller", "meanDamageVariance", "weaponElement")
+                this.addToInvolvedStats(["mag", "mp", "physicalKiller", "meanDamageVariance", "weaponElement"])
             }
         } else if (formula.type === "value") {
             let name = formula.name;

@@ -1,4 +1,4 @@
-const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMechanism", "sprDamageWithPhysicalMechanism", "defDamageWithPhysicalMechanism", "magDamageWithPhysicalMechanismMultiCast", "sprDamageWithPhysicalMechanismMultiCast", "defDamageWithPhysicalMechanismMultiCast", "atkDamageWithMagicalMechanism", "atkDamageWithMagicalMechanismMulticast", "sprDamageWithMagicalMechanism", "atkDamageWithFixedMechanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMechanism","summonerSkill"];
+const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMechanism", "sprDamageWithPhysicalMechanism", "defDamageWithPhysicalMechanism", "magDamageWithPhysicalMechanismMultiCast", "sprDamageWithPhysicalMechanismMultiCast", "defDamageWithPhysicalMechanismMultiCast", "atkDamageWithMagicalMechanism", "atkDamageWithMagicalMechanismMulticast", "sprDamageWithMagicalMechanism", "atkDamageWithFixedMechanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMechanism","summonerSkill", "mpMagPhysicalDamage"];
 const operatorsInFormula = ["/","*","+","-","OR","AND",">"];
 const weaponBaseDamageVariance =
     {
@@ -398,6 +398,11 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
             } else {
                 statValueToUse = 0;
             }
+        } else if(formula.value.mechanism == "mpMagPhysicalDamage"){
+            applicableKillerType = "physical";
+            defendingStat = "spr";
+            coef = formula.value.mpCoef;
+            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
         }
         // Killer
         var killerMultiplicator = 1;
@@ -573,13 +578,27 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 "max" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.max * variance.max,
                 "switchWeapons" : switchWeapons
             }
-        } else {
-            result = {
-                "min": baseDamage * context.damageMultiplier.min * variance.min,
-                "avg": baseDamage * context.damageMultiplier.avg * variance.avg,
-                "max": baseDamage * context.damageMultiplier.max * variance.max,
-                "switchWeapons": switchWeapons
-            }
+        } else if(formula.value.mechanism == "mpMagPhysicalDamage") {
+            let magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
+            let mpStat = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
+            let totalCoef = (coef * mpStat ) + (magStat)
+            var magDamage =
+            (totalCoef)
+            * ((mpStat * mpStat) + magStat)
+            * resistModifier
+            * weaponImperilCoef
+            * elementBoostModifier
+            * jumpMultiplier
+            * lbMultiplier
+            * killerMultiplicator
+            * newJpDamageFormulaCoef
+            / (enemyStats.spr * (1 + (enemyStats.buffs.spr - enemyStats.breaks.spr) / 100));
+        }
+        result = {
+            "min": (baseDamage + magDamage) * context.damageMultiplier.min * variance.min,
+            "avg": (baseDamage + magDamage) * context.damageMultiplier.avg * variance.avg,
+            "max": (baseDamage + magDamage) * context.damageMultiplier.max * variance.max,
+            "switchWeapons": switchWeapons
         }
         return result
 
@@ -1431,14 +1450,7 @@ function calculateStateValueForIndex(items, index, baseValue, currentPercentIncr
             let staticValue = item.staticStats ? item.staticStats[stat] || 0 : 0;
             if (index === 10 && baseStats.includes(stat)) {
                 value = 0; // Vision Card flat stats are added to the base value directly earlier in the calculation
-            } else if (index === 4 || index === 5) {
-                if (items[4] === items[5]){ // If the accessories are the same, we need to account for double reductions.
-                    value = getValue(item, stat, notStackableSkillsAlreadyUsed, "accessory");
-                } else {
-                    value = getValue(item, stat, notStackableSkillsAlreadyUsed);
-                } 
-            }
-            else {
+            } else {
                 value = getValue(item, stat, notStackableSkillsAlreadyUsed);
             }
             if (item[percentValues[stat]]) {

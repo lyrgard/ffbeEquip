@@ -41,6 +41,7 @@ const attributeByVariable = {
     "M_DAMAGE_ATK_MULTICAST":"atkDamageWithMagicalMechanismMultiCast",
     "M_DAMAGE_SPR":"sprDamageWithMagicalMechanism",
     "S_DAMAGE":"summonerSkill",
+    "MPMAG_P_DAMAGE": "mpMagPhysicalDamage",
     "R_FIRE":"resist|fire.percent",
     "R_ICE":"resist|ice.percent",
     "R_LIGHTNING":"resist|lightning.percent",
@@ -83,6 +84,7 @@ var formulaByVariable = {
     "atkDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"atkDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"body", "coef":1}}},
     "sprDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x magical SPR damage", "formulaName":"sprDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
     "summonerSkill":                    {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkill", "value": {"type":"damage", "value":{"mechanism":"summonerSkill", "damageType":"mind", "coef":1, "magSplit":0.5, "sprSplit":0.5}}},
+    "mpMagPhysicalDamage":              {"type":"skill", "id":"0","name":"1x MP/MAG Physical Damage", "formulaName":"mpMagPhysicalDamage", "value": {"mechanism":"mpMagPhsicalDamage", "damageType":"body", "coef":1, "use":{"stat":"mp"}}}
 }
 const abbreviations = {
     "I_AILMENTS" : "I_POISON; I_BLIND; I_SLEEP; I_SILENCE; I_PARALYSIS; I_CONFUSION; I_DISEASE; I_PETRIFICATION",
@@ -826,7 +828,8 @@ function isSimpleFormula(formula) {
             || formula.name == "atkDamageWithFixedMechanism"
             || formula.name == "physicalDamageMultiCast"
             || formula.name == "fixedDamageWithPhysicalMechanism"
-            || formula.name == "summonerSkill");
+            || formula.name == "summonerSkill"
+            || formula.name == "mpMagPhysicalDamage");
         default:
             return false;
     }
@@ -855,8 +858,8 @@ function isAttackFormula(formula) {
 function getSkillIds(formula) {
     if (formula.type == "skill") {
         if (formula.id) {
-            return [formula.id];
         }
+            return [formula.id];
     } else if (formula.type == "multicast") {
         return formula.skills.map(skill => getSkillIds(skill)).reduce(
             (arr, ids) => {
