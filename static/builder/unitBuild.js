@@ -199,6 +199,12 @@ class UnitBuild {
                 }
             } else if (formula.value.mechanism == "mpMagPhysicalDamage"){
                 this.addToInvolvedStats(["mag", "mp", "physicalKiller", "meanDamageVariance", "weaponElement"])
+            } else if (formula.value.mechanism == "mpMagMagicalDamage"){
+                this.addToInvolvedStats(["mag", "mp", "magicalKiller", "meanDamageVariance"])
+            } else if (formula.value.mechanism == "mpSprPhysicalDamage"){
+                this.addToInvolvedStats(["spr", "mp", "physicalKiller", "meanDamageVariance", "weaponElement"])
+            } else if (formula.value.mechanism == "mpSprMagicalDamage"){
+                this.addToInvolvedStats(["spr", "mp", "magicalKiller", "meanDamageVariance"])
             }
         } else if (formula.type === "value") {
             let name = formula.name;

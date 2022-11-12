@@ -1,4 +1,4 @@
-const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMechanism", "sprDamageWithPhysicalMechanism", "defDamageWithPhysicalMechanism", "magDamageWithPhysicalMechanismMultiCast", "sprDamageWithPhysicalMechanismMultiCast", "defDamageWithPhysicalMechanismMultiCast", "atkDamageWithMagicalMechanism", "atkDamageWithMagicalMechanismMulticast", "sprDamageWithMagicalMechanism", "atkDamageWithFixedMechanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMechanism","summonerSkill", "mpMagPhysicalDamage"];
+const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMechanism", "sprDamageWithPhysicalMechanism", "defDamageWithPhysicalMechanism", "magDamageWithPhysicalMechanismMultiCast", "sprDamageWithPhysicalMechanismMultiCast", "defDamageWithPhysicalMechanismMultiCast", "atkDamageWithMagicalMechanism", "atkDamageWithMagicalMechanismMulticast", "sprDamageWithMagicalMechanism", "atkDamageWithFixedMechanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMechanism","summonerSkill", "mpMagPhysicalDamage", "mpMagMagicalDamage", "mpSprPhysicalDamage","mpSprMagicalDamage"];
 const operatorsInFormula = ["/","*","+","-","OR","AND",">"];
 const weaponBaseDamageVariance =
     {
@@ -403,6 +403,21 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
             defendingStat = "spr";
             coef = formula.value.mpCoef;
             statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
+        } else if(formula.value.mechanism == "mpMagMagicalDamage"){
+            applicableKillerType = "magical";
+            defendingStat = "spr";
+            coef = formula.value.mpCoef;
+            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
+        } else if(formula.value.mechanism == "mpSprPhysicalDamage"){
+            applicableKillerType = "physical";
+            defendingStat = "spr";
+            coef = formula.value.mpCoef;
+            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
+        } else if(formula.value.mechanism == "mpSprMagicalDamage"){
+            applicableKillerType = "magical";
+            defendingStat = "spr";
+            coef = formula.value.mpCoef;
+            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
         }
         // Killer
         var killerMultiplicator = 1;
@@ -534,6 +549,14 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
             * lbMultiplier
             * newJpDamageFormulaCoef
             / (defendingStatValue  * (1 + (enemyStats.buffs[defendingStat] - enemyStats.breaks[defendingStat]) / 100));
+
+            result = {
+                "min": baseDamage * context.damageMultiplier.min * variance.min,
+                "avg": baseDamage * context.damageMultiplier.avg * variance.avg,
+                "max": baseDamage * context.damageMultiplier.max * variance.max,
+                "switchWeapons": switchWeapons
+            }
+        
         if (formula.value.mechanism == "hybrid") {
             var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
             var magDamage = coef
@@ -593,15 +616,81 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
             * killerMultiplicator
             * newJpDamageFormulaCoef
             / (enemyStats.spr * (1 + (enemyStats.buffs.spr - enemyStats.breaks.spr) / 100));
-        }
-        result = {
-            "min": (baseDamage + magDamage) * context.damageMultiplier.min * variance.min,
-            "avg": (baseDamage + magDamage) * context.damageMultiplier.avg * variance.avg,
-            "max": (baseDamage + magDamage) * context.damageMultiplier.max * variance.max,
-            "switchWeapons": switchWeapons
-        }
-        return result
+            
+            result = {
+                "min": (baseDamage + magDamage) * context.damageMultiplier.min * variance.min,
+                "avg": (baseDamage + magDamage) * context.damageMultiplier.avg * variance.avg,
+                "max": (baseDamage + magDamage) * context.damageMultiplier.max * variance.max,
+                "switchWeapons": switchWeapons
+            }
+        } else if(formula.value.mechanism == "mpMagMagicalDamage") {
+            let magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
+            let mpStat = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
+            let totalCoef = (coef * mpStat ) + (magStat)
+            var magDamage =
+            (totalCoef)
+            * ((mpStat * mpStat) + magStat)
+            * resistModifier
+            * weaponImperilCoef
+            * elementBoostModifier
+            * jumpMultiplier
+            * lbMultiplier
+            * killerMultiplicator
+            * newJpDamageFormulaCoef
+            / (enemyStats.spr * (1 + (enemyStats.buffs.spr - enemyStats.breaks.spr) / 100));
 
+            result = {
+                "min": (baseDamage + magDamage) * context.damageMultiplier.min * variance.min,
+                "avg": (baseDamage + magDamage) * context.damageMultiplier.avg * variance.avg,
+                "max": (baseDamage + magDamage) * context.damageMultiplier.max * variance.max,
+                "switchWeapons": switchWeapons
+            }
+        } else if(formula.value.mechanism == "mpSprPhysicalDamage") {
+            let sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
+            let mpStat = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
+            let totalCoef = (coef * mpStat ) + (sprStat)
+            var sprDamage =
+            (totalCoef)
+            * ((mpStat * mpStat) + sprStat)
+            * resistModifier
+            * weaponImperilCoef
+            * elementBoostModifier
+            * jumpMultiplier
+            * lbMultiplier
+            * killerMultiplicator
+            * newJpDamageFormulaCoef
+            / (enemyStats.spr * (1 + (enemyStats.buffs.spr - enemyStats.breaks.spr) / 100));
+
+            result = {
+                "min": (baseDamage + sprDamage) * context.damageMultiplier.min * variance.min,
+                "avg": (baseDamage + sprDamage) * context.damageMultiplier.avg * variance.avg,
+                "max": (baseDamage + sprDamage) * context.damageMultiplier.max * variance.max,
+                "switchWeapons": switchWeapons
+            }
+        } else if(formula.value.mechanism == "mpSprMagicalDamage") {
+            let sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
+            let mpStat = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
+            let totalCoef = (coef * mpStat ) + (sprStat)
+            var sprDamage =
+            (totalCoef)
+            * ((mpStat * mpStat) + sprStat)
+            * resistModifier
+            * weaponImperilCoef
+            * elementBoostModifier
+            * jumpMultiplier
+            * lbMultiplier
+            * killerMultiplicator
+            * newJpDamageFormulaCoef
+            / (enemyStats.spr * (1 + (enemyStats.buffs.spr - enemyStats.breaks.spr) / 100));
+
+            result = {
+                "min": (baseDamage + sprDamage) * context.damageMultiplier.min * variance.min,
+                "avg": (baseDamage + sprDamage) * context.damageMultiplier.avg * variance.avg,
+                "max": (baseDamage + sprDamage) * context.damageMultiplier.max * variance.max,
+                "switchWeapons": switchWeapons
+            }
+        }
+        return result;
     } else if (formula.type == "value") {
         if (context.alreadyCalculatedValues[formula.name]) {
             return context.alreadyCalculatedValues[formula.name];

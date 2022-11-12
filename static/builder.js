@@ -13,6 +13,9 @@ const formulaByGoal = {
     "sprDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x magical SPR damage", "formulaName":"sprDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
     "mpDamageWithMagicalMechanism":      {"type":"skill", "id":"0","name":"1x magical MP damage", "formulaName":"mpDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"mp"}}}},
     "mpMagPhysicalDamage":               {"type":"skill", "id":"0","name":"1x physical MP + MAG damage", "formulaName":"mpMagPhysicalDamage", "value": {"type":"damage", "value":{"mechanism":"mpMagPhysicalDamage", "damageType": "body", "coef":1}}},
+    "mpMagMagicalDamage":                {"type":"skill", "id":"0","name":"1x magical MP + MAG damage", "formulaName":"mpMagMagicalDamage", "value": {"type":"damage", "value":{"mechanism":"mpMagMagicalDamage", "damageType": "mind", "coef":1}}},
+    "mpSprPhysicalDamage":               {"type":"skill", "id":"0","name":"1x physical MP + SPR damage", "formulaName":"mpSprPhysicalDamage", "value": {"type":"damage", "value":{"mechanism":"mpSprPhysicalDamage", "damageType": "body", "coef":1}}},
+    "mpSprMagicalDamage":                {"type":"skill", "id":"0","name":"1x magical MP + SPR damage", "formulaName":"mpSprMagicalDamage", "value": {"type":"damage", "value":{"mechanism":"mpSprMagicalDamage", "damageType": "mind", "coef":1}}},
     "atkDamageWithFixedMechanism":       {"type":"value","name":"atkDamageWithFixedMechanism"},
     "physicalDamageMultiCast":          {"type":"value","name":"physicalDamageMultiCast"},
     "fixedDamageWithPhysicalMechanism":  {"type":"value","name":"fixedDamageWithPhysicalMechanism"},
@@ -47,7 +50,10 @@ const goalQuickSelectDefaultValues = [
     ["physicalDamageMultiCast","Physical damage Multicast"],
     ["fixedDamageWithPhysicalMechanism","Physical type Fixed damage (1000)"],
     ["summonerSkill","Summoner skill"],
-    ["mpMagPhysicalDamage", "Physical MP/Mag Scaling Damage"],
+    ["mpMagPhysicalDamage", "Physical MP/MAG Scaling Damage"],
+    ["mpMagMagicalDamage", "Magical MP/MAG Scaling Damage"],
+    ["mpSprPhysicalDamage", "Magical MP/SPR Scaling Damage"],
+    ["mpSprMagicalDamage", "Magical MP/MAG Scaling Damage"],
     ["physicaleHp","Physical eHP (HP * DEF)"],
     ["magicaleHp","Magical eHP (HP * SPR)"],
     ["atk","ATK"],
@@ -1273,6 +1279,9 @@ function goalSelectTemplate(state) {
                 html += "<span class='selectTag statTag'>stat</span>";
                 break;
             case "mpMagPhysicalDamage":
+            case "mpMagMagicalDamage":
+            case "mpSprPhysicalDamage":
+            case "mpSprMagicalDamage":
             default:
                 break;
         }

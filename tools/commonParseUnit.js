@@ -2270,7 +2270,6 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             damageType = "mind";
 
             if (attackType === "physical") {
-                console.log("HEREEEEEE")
                 mechanism = "mpMagPhysicalDamage"
             } else {
                 mechanism = "mpMagMagicalDamage"
@@ -2443,9 +2442,11 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         }
         // console.log(rawEffect);
     }
+    let mechanismExclusions = ["mpMagPhysicalDamage", "mpMagMagicalDamage", "mpSprPhysicalDamage", "mpSprMagicalDamage"]
+
     if (result && result.damage) {
         if (skillIn.attack_type) {
-            if (result.damage.mechanism !== "mpMagPhysicalDamage") {
+            if (!mechanismExclusions.includes(result.damage.mechanism)) {
                 result.damage.mechanism = skillIn.attack_type.toLocaleLowerCase();
             }
         } else {
@@ -2503,7 +2504,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("unknown target : " + JSON.stringify(rawEffect));
         }
     }
-    if (result?.damage?.mechanism === "mpMagPhysicalDamage") {
+    if (result?.damage?.mechanism === "mpSprMagicalDamage") {
         console.log("HERE2")
         console.log(result)
     }
