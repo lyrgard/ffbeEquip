@@ -402,22 +402,22 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
             applicableKillerType = "physical";
             defendingStat = "spr";
             coef = formula.value.mpCoef;
-            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
+            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total
         } else if(formula.value.mechanism == "mpMagMagicalDamage"){
             applicableKillerType = "magical";
             defendingStat = "spr";
             coef = formula.value.mpCoef;
-            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
+            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total
         } else if(formula.value.mechanism == "mpSprPhysicalDamage"){
             applicableKillerType = "physical";
             defendingStat = "spr";
             coef = formula.value.mpCoef;
-            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
+            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total
         } else if(formula.value.mechanism == "mpSprMagicalDamage"){
             applicableKillerType = "magical";
             defendingStat = "spr";
             coef = formula.value.mpCoef;
-            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
+            statValueToUse = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total
         }
         // Killer
         var killerMultiplicator = 1;
@@ -604,10 +604,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
         } else if(formula.value.mechanism == "mpMagPhysicalDamage") {
             let magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
             let mpStat = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
-            let totalCoef = (coef * mpStat ) + (magStat)
+            let totalCoef = (coef * mpStat)
             var magDamage =
             (totalCoef)
-            * ((mpStat * mpStat) + magStat)
+            * (magStat * magStat)
             * resistModifier
             * weaponImperilCoef
             * elementBoostModifier
@@ -626,10 +626,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
         } else if(formula.value.mechanism == "mpMagMagicalDamage") {
             let magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
             let mpStat = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
-            let totalCoef = (coef * mpStat ) + (magStat)
+            let totalCoef = (coef * mpStat)
             var magDamage =
             (totalCoef)
-            * ((mpStat * mpStat) + magStat)
+            * (magStat * magStat)
             * resistModifier
             * weaponImperilCoef
             * elementBoostModifier
@@ -648,10 +648,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
         } else if(formula.value.mechanism == "mpSprPhysicalDamage") {
             let sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
             let mpStat = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
-            let totalCoef = (coef * mpStat ) + (sprStat)
+            let totalCoef = (coef * mpStat )
             var sprDamage =
             (totalCoef)
-            * ((mpStat * mpStat) + sprStat)
+            * (sprStat * sprStat)
             * resistModifier
             * weaponImperilCoef
             * elementBoostModifier
@@ -670,10 +670,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
         } else if(formula.value.mechanism == "mpSprMagicalDamage") {
             let sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
             let mpStat = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
-            let totalCoef = (coef * mpStat ) + (sprStat)
+            let totalCoef = (coef * mpStat )
             var sprDamage =
             (totalCoef)
-            * ((mpStat * mpStat) + sprStat)
+            * (sprStat * sprStat)
             * resistModifier
             * weaponImperilCoef
             * elementBoostModifier
