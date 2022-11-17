@@ -2504,10 +2504,6 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log("unknown target : " + JSON.stringify(rawEffect));
         }
     }
-    if (result?.damage?.mechanism === "mpSprMagicalDamage") {
-        console.log("HERE2")
-        console.log(result)
-    }
     return result;
 }
 
