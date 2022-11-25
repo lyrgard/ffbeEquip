@@ -20297,7 +20297,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Sentence","Enrage"]
+		"enhancementSkills":["Sentence","Enrage","Guardian's Tenacity"]
 	},
 	"212002305": {
 		"name":"미래를 비추는 빛 라사",
@@ -32423,6 +32423,93 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Kiss of Betrayal","Rousing Dream"]
+	},
+	"401013807": {
+		"name":"2B -네오 비전-",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"2B_-Neo Vision-",
+		"id":"401013807",
+		"game_id":"20010",
+		"game":"NieR:Automata",
+		"braveShift":"401013817",
+		"exAwakening": [{"hp":652,"mp":42,"atk":86,"def":26,"mag":18,"spr":23},{"hp":502,"mp":32,"atk":66,"def":20,"mag":14,"spr":18},{"hp":351,"mp":22,"atk":46,"def":14,"mag":10,"spr":13}],
+		"fragmentId": "310000970",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5017,"mp":320,"atk":330,"def":200,"mag":140,"spr":180},
+			"minStats":{"hp":1656,"mp":106,"atk":109,"def":66,"mag":46,"spr":59},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["True Charge Volt (2B -Neo Vision-)","Pod Charge (2B -Neo Vision-)"]
+	},
+	"401013817": {
+		"name":"2B -네오 비전- BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"2B_-Neo Vision-",
+		"id":"401013817",
+		"game_id":"20010",
+		"game":"NieR:Automata",
+		"braveShifted":"401013807",
+		"exAwakening": [{"hp":652,"mp":42,"atk":86,"def":26,"mag":18,"spr":23},{"hp":502,"mp":32,"atk":66,"def":20,"mag":14,"spr":18},{"hp":351,"mp":22,"atk":46,"def":14,"mag":10,"spr":13}],
+		"fragmentId": "310000970",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5400,"mp":300,"atk":330,"def":215,"mag":140,"spr":200},
+			"minStats":{"hp":1782,"mp":99,"atk":109,"def":71,"mag":46,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["True Charge Volt (2B -Neo Vision-)","Avoid (2B -Neo Vision-)"]
+	},
+	"401013907": {
+		"name":"A2 -네오 비전-",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"A2_-Neo Vision-",
+		"id":"401013907",
+		"game_id":"20010",
+		"game":"NieR:Automata",
+		"braveShift":"401013917",
+		"exAwakening": [{"hp":718,"mp":41,"atk":86,"def":23,"mag":22,"spr":29},{"hp":552,"mp":31,"atk":66,"def":18,"mag":17,"spr":22},{"hp":387,"mp":22,"atk":46,"def":12,"mag":11,"spr":16}],
+		"fragmentId": "310000980",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5522,"mp":314,"atk":330,"def":177,"mag":165,"spr":223},
+			"minStats":{"hp":1822,"mp":104,"atk":109,"def":58,"mag":54,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Attacker Type 2 (A2 -Neo Vision-)","Finisher (A2 -Neo Vision-)"]
+	},
+	"401013917": {
+		"name":"A2 -네오 비전- BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"A2_-Neo Vision-",
+		"id":"401013917",
+		"game_id":"20010",
+		"game":"NieR:Automata",
+		"braveShifted":"401013907",
+		"exAwakening": [{"hp":718,"mp":41,"atk":86,"def":23,"mag":22,"spr":29},{"hp":552,"mp":31,"atk":66,"def":18,"mag":17,"spr":22},{"hp":387,"mp":22,"atk":46,"def":12,"mag":11,"spr":16}],
+		"fragmentId": "310000980",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5522,"mp":314,"atk":330,"def":177,"mag":165,"spr":223},
+			"minStats":{"hp":1822,"mp":104,"atk":109,"def":58,"mag":54,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker"],"id":"100000115","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"]},

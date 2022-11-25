@@ -186,6 +186,7 @@ const unitRules = {
     7218: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[11003], // FF Type 0
     7219: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[11004], // FFX-2 units
     7245: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20006], // DQMSL
+    7249: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20010],  // Nier Automata
     7263: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20024], // Xenogear
     7269: (item) => item.exclusiveRoles = ['breaker'],              // Breaker role
     7271: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20032], // FMA Brotherhood

@@ -27702,6 +27702,13 @@
 		"enhancementSkills":["Sentence","Judge's Defense"],
 		"skills": [
 			{"hp%":30, "mp%":20, "atk%":20, "dualWielding":{"def":50}, "lbFillRate":100, "resist":[{"name":"dark","percent":30},{"name":"fire","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":10, "drawAttacks":70, "special":["dualWield"]},
+			{"improvedDW":true, "levelCondition":120},
+			{"killers":[{"name":"machine","physical":150,"magical":150}], "levelCondition":120},
+			{"killers":[{"name":"human","physical":150,"magical":150}], "levelCondition":120},
+			{"killers":[{"name":"undead","physical":150,"magical":150}], "levelCondition":120},
+			{"killers":[{"name":"spirit","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"beast","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"stone","physical":200,"magical":200}], "levelCondition":120},
 			{"def%":30, "equipedConditions":["helm"]},
 			{"def%":30, "equipedConditions":["lightArmor"]},
 			{"def%":30, "equipedConditions":["heavyArmor"]},
@@ -27710,13 +27717,14 @@
 			{"hp%":25, "def%":25, "equipedConditions":["helm"]},
 			{"hp%":25, "def%":25, "equipedConditions":["lightArmor"]},
 			{"hp%":25, "def%":25, "equipedConditions":["heavyArmor"]},
-			{"hp%":30, "dualWielding":{"def":100}, "equipedConditions":[["504236890","407005300"]]},
+			{"hp":7000, "hp%":150, "def":500, "dualWielding":{"def":100}, "equipedConditions":[["504236890","407005300"]]},
 			{"def%":20, "levelCondition":115},
 			{"mp%":40, "levelCondition":120},
-			{"hp%":20, "spr%":20, "equipedConditions":["lightArmor"], "levelCondition":120},
-			{"hp%":20, "spr%":20, "equipedConditions":["heavyArmor"], "levelCondition":120},
+			{"hp%":100, "spr%":100, "equipedConditions":["lightArmor"], "levelCondition":120},
+			{"hp%":100, "spr%":100, "equipedConditions":["heavyArmor"], "levelCondition":120},
 			{"mp%":20, "atk%":30, "def%":10, "spr%":20, "resist":[{"name":"fire","percent":20},{"name":"dark","percent":20}], "levelCondition":120},
-			{"hp":3000, "def":500, "exLevelCondition":2}
+			{"hp":3000, "def":500, "exLevelCondition":2},
+			{"def":500, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
 	"212002217": {
@@ -27739,9 +27747,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Sentence","Enrage"],
+		"enhancementSkills":["Sentence","Enrage","Guardian's Tenacity"],
 		"skills": [
 			{"hp%":50, "mp%":40, "atk%":20, "lbFillRate":100, "resist":[{"name":"dark","percent":30},{"name":"fire","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"human","physical":150}], "mpRefresh":10, "drawAttacks":70, "special":["dualWield"]},
+			{"improvedDW":true, "levelCondition":120},
+			{"killers":[{"name":"machine","physical":150,"magical":150}], "levelCondition":120},
+			{"killers":[{"name":"human","physical":150,"magical":150}], "levelCondition":120},
+			{"killers":[{"name":"undead","physical":150,"magical":150}], "levelCondition":120},
+			{"killers":[{"name":"spirit","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"beast","physical":200,"magical":200}], "levelCondition":120},
+			{"killers":[{"name":"stone","physical":200,"magical":200}], "levelCondition":120},
 			{"def%":30, "equipedConditions":["helm"]},
 			{"def%":30, "equipedConditions":["lightArmor"]},
 			{"def%":30, "equipedConditions":["heavyArmor"]},
@@ -27750,15 +27765,16 @@
 			{"def%":20, "equipedConditions":["lightArmor"]},
 			{"def%":20, "equipedConditions":["heavyArmor"]},
 			{"atk%":30, "spr%":30, "equipedConditions":["helm"]},
-			{"hp%":30, "dualWielding":{"def":100}, "equipedConditions":[["504236890","407005300"]]},
+			{"hp":7000, "hp%":150, "def":500, "dualWielding":{"def":100}, "equipedConditions":[["504236890","407005300"]]},
 			{"def%":20, "levelCondition":115},
 			{"mp%":40, "levelCondition":120},
-			{"hp%":20, "spr%":20, "equipedConditions":["lightArmor"], "levelCondition":120},
-			{"hp%":20, "spr%":20, "equipedConditions":["heavyArmor"], "levelCondition":120},
+			{"hp%":100, "spr%":100, "equipedConditions":["lightArmor"], "levelCondition":120},
+			{"hp%":100, "spr%":100, "equipedConditions":["heavyArmor"], "levelCondition":120},
 			{"dualWielding":{"def":50}, "lbDamage":100, "levelCondition":120},
 			{"def%":50, "equipedConditions":["lightArmor"], "levelCondition":120},
 			{"def%":50, "equipedConditions":["heavyArmor"], "levelCondition":120},
-			{"hp":3000, "def":500, "exLevelCondition":2}
+			{"hp":3000, "def":500, "exLevelCondition":2},
+			{"def":500, "levelCondition":120, "exLevelCondition":3}
 		]
 	},
 	"212002305": {
@@ -33721,7 +33737,7 @@
 		"enhancementSkills":["Retry","Avoid","YoRHa No. 2 Type B","Supreme Support Weapon","YoRHa Sword Dance","Update: 2B"],
 		"enhancements": [
 			{"name":"Retry","levels":[[],[{"spr%":20,"def%":20}],[{"spr%":30,"def%":30,"hp%":30,"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]},
-			{"name":"YoRHa No. 2 Type B","levels":[[{"def%":30,"atk%":30,"singleWielding":{"accuracy":25,"atk":100},"mpRefresh":7,"replaceLb":{"name":"Ho229 Type-B","minEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":11.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (11.1x * 2 = 22.2x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":14,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14x * 2 = 28x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"frames":[125,135,145,155,166,178,190,202,214,226],"move":"walk"},"equipedConditions":[["304001900","504230010"]]}],[{"def%":50,"atk%":50,"singleWielding":{"accuracy":25,"atk":100},"mpRefresh":10,"lbDamage":30,"replaceLb":{"name":"Ho229 Type-B","minEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":11.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (11.1x * 2 = 22.2x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":14,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14x * 2 = 28x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"frames":[125,135,145,155,166,178,190,202,214,226],"move":"walk"},"equipedConditions":[["304001900","504230010"]]}],[{"def%":50,"atk%":50,"singleWielding":{"accuracy":25,"atk":100},"mpRefresh":10,"lbDamage":100,"replaceLb":{"name":"Ho229 Type-B","minEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":15.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (15.2x * 2 = 30.4x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":21,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (21x * 2 = 42x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"frames":[125,135,145,155,166,178,190,202,214,226],"move":"walk"},"equipedConditions":[["304001900","504230010"]]}]]},
+			{"name":"YoRHa No. 2 Type B","levels":[[{"def%":30,"atk%":30,"singleWielding":{"accuracy":25,"atk":100},"mpRefresh":7,"replaceLb":{"name":"Ho229 Type-B","minEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":11.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (11.1x * 2 = 22.2x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":14,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14x * 2 = 28x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"frames":[125,135,145,155,166,178,190,202,214,226],"move":"walk"},"equipedConditions":[["304001900","504230010","1100000651","1500000204"]]}],[{"def%":50,"atk%":50,"singleWielding":{"accuracy":25,"atk":100},"mpRefresh":10,"lbDamage":30,"replaceLb":{"name":"Ho229 Type-B","minEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":11.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (11.1x * 2 = 22.2x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":14,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14x * 2 = 28x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"frames":[125,135,145,155,166,178,190,202,214,226],"move":"walk"},"equipedConditions":[["304001900","504230010","1100000651","1500000204"]]}],[{"def%":50,"atk%":50,"singleWielding":{"accuracy":25,"atk":100},"mpRefresh":10,"lbDamage":100,"replaceLb":{"name":"Ho229 Type-B","minEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":15.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (15.2x * 2 = 30.4x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":21,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (21x * 2 = 42x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"}],"frames":[125,135,145,155,166,178,190,202,214,226],"move":"walk"},"equipedConditions":[["304001900","504230010","1100000651","1500000204"]]}]]},
 			{"name":"Update: 2B","levels":[[{"spr%":40,"atk%":40,"mp%":40,"killers":[{"name":"machine","physical":50}],"dualWielding":{"atk":50},"levelCondition":110}],[{"spr%":50,"atk%":50,"mp%":50,"killers":[{"name":"machine","physical":75}],"dualWielding":{"atk":75},"levelCondition":110}],[{"spr%":70,"atk%":70,"mp%":70,"hp%":30,"killers":[{"name":"machine","physical":100}],"dualWielding":{"atk":100},"improvedDW":true,"levelCondition":110}]]}
 		],
 		"skills": [
@@ -44401,6 +44417,128 @@
 			{"hp%":250, "mp%":100, "def%":250, "spr%":180, "evade":{"physical":30}, "oneWeaponMastery":{"def":300}, "chainMastery":100, "resist":[{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":150},{"name":"human","physical":150},{"name":"stone","physical":150},{"name":"undead","physical":150}], "mpRefresh":15, "lbDamage":250, "drawAttacks":75},
 			{"hp":500, "def":500, "evade":{"magical":30}, "exLevelCondition":2},
 			{"hp":650, "def":650, "exLevelCondition":3}
+		]
+	},
+	"401013807": {
+		"name":"2B -Neo Vision-",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"2B_-Neo Vision-",
+		"id":"401013807",
+		"game_id":"20010",
+		"game":"NieR:Automata",
+		"braveShift":"401013817",
+		"exAwakening": [{"hp":652,"mp":42,"atk":86,"def":26,"mag":18,"spr":23},{"hp":502,"mp":32,"atk":66,"def":20,"mag":14,"spr":18},{"hp":351,"mp":22,"atk":46,"def":14,"mag":10,"spr":13}],
+		"fragmentId": "310000970",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5017,"mp":320,"atk":330,"def":200,"mag":140,"spr":180},
+			"minStats":{"hp":1656,"mp":106,"atk":109,"def":66,"mag":46,"spr":59},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["True Charge Volt (2B -Neo Vision-)","Pod Charge (2B -Neo Vision-)"],
+		"skills": [
+			{"hp%":100, "mp%":100, "atk%":150, "def%":100, "evade":{"physical":40}, "resist":[{"name":"lightning","percent":50},{"name":"light","percent":50},{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":150},{"name":"machine","physical":150}]},
+			{"atk%":100, "equipedConditions":["katana"]},
+			{"singleWielding":{"accuracy":50,"atk":300}, "chainMastery":100, "killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "lbDamage":200, "equipedConditions":[["1500000210","1100000649","304001900","1100000651","504230010","1500000204","401004801"]]},
+			{"atk":500, "exLevelCondition":2},
+			{"hp":2500, "atk":500, "exLevelCondition":2}
+		]
+	},
+	"401013817": {
+		"name":"2B -Neo Vision- BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"2B_-Neo Vision-",
+		"id":"401013817",
+		"game_id":"20010",
+		"game":"NieR:Automata",
+		"braveShifted":"401013807",
+		"exAwakening": [{"hp":652,"mp":42,"atk":86,"def":26,"mag":18,"spr":23},{"hp":502,"mp":32,"atk":66,"def":20,"mag":14,"spr":18},{"hp":351,"mp":22,"atk":46,"def":14,"mag":10,"spr":13}],
+		"fragmentId": "310000970",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5400,"mp":300,"atk":330,"def":215,"mag":140,"spr":200},
+			"minStats":{"hp":1782,"mp":99,"atk":109,"def":71,"mag":46,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["True Charge Volt (2B -Neo Vision-)","Avoid (2B -Neo Vision-)"],
+		"skills": [
+			{"hp%":100, "mp%":100, "atk%":150, "def%":100, "evade":{"physical":40}, "resist":[{"name":"lightning","percent":50},{"name":"light","percent":50},{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":150},{"name":"machine","physical":150}]},
+			{"atk%":100, "equipedConditions":["katana"]},
+			{"singleWielding":{"accuracy":50,"atk":300}, "chainMastery":100, "killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "lbDamage":200, "equipedConditions":[["1500000210","1100000649","304001900","1100000651","504230010","1500000204","401004801"]]},
+			{"atk":500, "exLevelCondition":2},
+			{"hp":2500, "atk":500, "exLevelCondition":2}
+		]
+	},
+	"401013907": {
+		"name":"A2 -Neo Vision-",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"A2_-Neo Vision-",
+		"id":"401013907",
+		"game_id":"20010",
+		"game":"NieR:Automata",
+		"braveShift":"401013917",
+		"exAwakening": [{"hp":718,"mp":41,"atk":86,"def":23,"mag":22,"spr":29},{"hp":552,"mp":31,"atk":66,"def":18,"mag":17,"spr":22},{"hp":387,"mp":22,"atk":46,"def":12,"mag":11,"spr":16}],
+		"fragmentId": "310000980",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5522,"mp":314,"atk":330,"def":177,"mag":165,"spr":223},
+			"minStats":{"hp":1822,"mp":104,"atk":109,"def":58,"mag":54,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Attacker Type 2 (A2 -Neo Vision-)","Finisher (A2 -Neo Vision-)"],
+		"enhancements": [
+			{"name":"Attacker Type 2 (A2 -Neo Vision-)","levels":[[{"singleWielding":{"accuracy":50,"atk":100},"chainMastery":100,"lbDamage":50}],[{"singleWielding":{"accuracy":50,"atk":150},"chainMastery":100,"lbDamage":50}],[{"singleWielding":{"accuracy":50,"atk":200},"chainMastery":100,"lbDamage":50}],[{"singleWielding":{"accuracy":50,"atk":250},"chainMastery":100,"lbDamage":50}],[{"singleWielding":{"accuracy":50,"atk":300},"chainMastery":100,"lbDamage":100}]]}
+		],
+		"skills": [
+			{"evade":{"physical":50,"magical":50}, "lbFillRate":150, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":75},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":75},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}], "mpRefresh":15},
+			{"atk%":100, "equipedConditions":["greatSword"]},
+			{"atk":250, "atk%":100, "killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "equipedConditions":[["1100000088","504230013","1500000211","1500000212","401004801"]]},
+			{"hp%":100, "mp%":100, "atk":500, "def":500, "spr":500, "exLevelCondition":2},
+			{"atk":1000, "atk%":100, "exLevelCondition":2}
+		]
+	},
+	"401013917": {
+		"name":"A2 -Neo Vision- BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"A2_-Neo Vision-",
+		"id":"401013917",
+		"game_id":"20010",
+		"game":"NieR:Automata",
+		"braveShifted":"401013907",
+		"exAwakening": [{"hp":718,"mp":41,"atk":86,"def":23,"mag":22,"spr":29},{"hp":552,"mp":31,"atk":66,"def":18,"mag":17,"spr":22},{"hp":387,"mp":22,"atk":46,"def":12,"mag":11,"spr":16}],
+		"fragmentId": "310000980",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5522,"mp":314,"atk":330,"def":177,"mag":165,"spr":223},
+			"minStats":{"hp":1822,"mp":104,"atk":109,"def":58,"mag":54,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Attacker Type 2 (A2 -Neo Vision-)","Finisher (A2 -Neo Vision-)"],
+		"enhancements": [
+			{"name":"Attacker Type 2 (A2 -Neo Vision-)","levels":[[{"singleWielding":{"accuracy":50,"atk":100},"chainMastery":100,"lbDamage":50}],[{"singleWielding":{"accuracy":50,"atk":150},"chainMastery":100,"lbDamage":50}],[{"singleWielding":{"accuracy":50,"atk":200},"chainMastery":100,"lbDamage":50}],[{"singleWielding":{"accuracy":50,"atk":250},"chainMastery":100,"lbDamage":50}],[{"singleWielding":{"accuracy":50,"atk":300},"chainMastery":100,"lbDamage":100}]]}
+		],
+		"skills": [
+			{"evade":{"physical":50,"magical":50}, "lbFillRate":150, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":75},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":75},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}], "mpRefresh":15},
+			{"atk%":100, "equipedConditions":["greatSword"]},
+			{"atk":250, "atk%":100, "killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "equipedConditions":[["1100000088","504230013","1500000211","1500000212","401004801"]]},
+			{"hp%":100, "mp%":100, "atk":500, "def":500, "spr":500, "exLevelCondition":2},
+			{"atk":1000, "atk%":100, "exLevelCondition":2}
 		]
 	}
 ,
