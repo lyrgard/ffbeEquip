@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 let itemProperties = ["id","name", "access", "maxNumber", "eventNames", "wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","staticStats","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "oneWeaponMastery", "chainMastery", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts", "evokeDamageBoost","exclusiveSex","exclusiveUnits","exclusiveRoles","equipedConditions","tmrUnit", "stmrUnit" ,"icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills","conditional"];
-let falsePositives = ["404003200"]
+let falsePositives = ["404003200", "302004300"]
 
 console.log("Starting");
 fs.readFile('./data.json', function (err, content) {

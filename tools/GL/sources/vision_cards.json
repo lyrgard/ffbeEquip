@@ -2252,6 +2252,43 @@
             "music_id": "400320"
         }
     },
+    "100006701": {
+        "name": "Omnibus Unleashed!",
+        "compendium_id": 141,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11001,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [65, 130, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [243944],
+            "7": [243945],
+            "10": [243946]
+        },
+        "restriction": null,
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "Having conquered the urge to destroy, Taivas and Yshe face Omega with new blades in hand. The legendary technique Omnibus described in Snovlinka's legend is once again given life by Elmont's mightiest warriors!",
+            "info": "Having conquered the urge to destroy, Taivas and Yshe face Omega with new blades in hand. The legendary technique Omnibus described in Snovlinka's legend is once again given life by Elmont's mightiest warriors!",
+            "shop": "Omnibus Unleashed!",
+            "music": "Ω",
+            "music_id": "5000002"
+        }
+    },
     "201000101": {
         "name": "And So Their Quest Began",
         "compendium_id": 100,
@@ -3139,6 +3176,157 @@
             "shop": "A Touching Reunion",
             "music": "Those Chosen by the Planet",
             "music_id": "401051"
+        }
+    },
+    "207001001": {
+        "name": "ユフィ参上！",
+        "compendium_id": 144,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10007,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [150, 150, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "1": [244004, 244005, 244006]
+        },
+        "restriction": {
+            "244006": [4008]
+        },
+        "max_level": 1,
+        "exp_pattern": 1,
+        "stat_pattern": 1,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "メインピラー整備場にて、神羅兵の前で名乗りをあげるユフィ。ある時は美少女忍者。ある時は凄腕マテリアハンター。はたしてその正体は……！？",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "ユフィ参上！",
+            "music": "♪忍びの末裔",
+            "music_id": "4000718"
+        }
+    },
+    "207001101": {
+        "name": "共闘！ウータイのシノビ",
+        "compendium_id": 145,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10007,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [100, 100, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "1": [244007, 244008, 244009]
+        },
+        "restriction": {
+            "244009": [4008]
+        },
+        "max_level": 1,
+        "exp_pattern": 1,
+        "stat_pattern": 1,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "神羅ビルの地下、兵器開発部門点検フロアで、突如現れた敵と戦うユフィとソノン。高い戦闘能力を持つ“ディープグラウンドソルジャー”たちを、二人は抜群の連携でなぎ倒していく。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "共闘！ウータイのシノビ",
+            "music": "♪ディープグラウンドソルジャー",
+            "music_id": "4000722"
+        }
+    },
+    "207001201": {
+        "name": "VSルーファウス神羅",
+        "compendium_id": 142,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10007,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [150, 150, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "1": [243984, 243985, 243986]
+        },
+        "restriction": {
+            "243986": [4008]
+        },
+        "max_level": 1,
+        "exp_pattern": 1,
+        "stat_pattern": 1,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "神羅ビルの屋上で、ルーファウス神羅と対峙するクラウド。仲間たちを脱出させるため、1人で戦うことを選ぶ。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "VSルーファウス神羅",
+            "music": "♪ルーファウス神羅",
+            "music_id": "400994"
+        }
+    },
+    "207001301": {
+        "name": "アバランチの死闘",
+        "compendium_id": 143,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10007,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [500, 1000, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [0, 0, 0, 0],
+            "DEF": [50, 100, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [243987],
+            "7": [243988],
+            "10": [243989]
+        },
+        "restriction": {
+            "243988": [7112],
+            "243989": [7112]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "七番街支柱の最上階で、タークスと戦うバレットたち。プレート解放システムを起動されれば、七番街スラムは落下したプレートによって押しつぶされてしまう。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "アバランチの死闘",
+            "music": "♪機械塔の決戦",
+            "music_id": "4000711"
         }
     },
     "208000101": {

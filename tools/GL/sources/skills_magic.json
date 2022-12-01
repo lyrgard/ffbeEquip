@@ -5426,6 +5426,34 @@
         "effects_raw": [[2, 2, 127, [4000,  4,  1]]],
         "requirements": null
     },
+    "30750": {
+        "name": "バファイジャ",
+        "icon": "ability_11.png",
+        "compendium_id": 326,
+        "rarity": 9,
+        "cost": {"MP": 500},
+        "magic_type": "Green",
+        "is_sealable": true,
+        "is_reflectable": true,
+        "in_exploration": false,
+        "attack_count": [1, 1, 1, 1, 1],
+        "attack_damage": [[100], [100], [100], [100], [100]],
+        "attack_frames": [[120], [120], [120], [120], [120]],
+        "effect_frames": [[40,  40,  40], [100,  100]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": ["Fire"],
+        "effects": [
+            ["Increase resistance to Fire by 200% for 5 turns to all allies"],
+            ["Reduce damage taken from physical attacks taken by 50% to all allies for 5 turns"],
+            ["Reduce damage taken by magic attacks by 50% to all allies for 5 turns"],
+            ["Reduce damage taken by 50% to all allies for 5 turns"],
+            ["Increase LB gauge by 10 to all allies"]
+        ],
+        "effects_raw": [[2, 2, 33, [200,  0,  0,  0,  0,  0,  0,  0,  1,  5]], [2, 2, 18, [50,  5,  1,  1]], [2, 2, 19, [50,  5,  1,  1]], [2, 2, 101, [50,  5,  1,  1]], [2, 2, 125, [1000,  1000]]],
+        "requirements": null
+    },
     "30760": {
         "name": "バブリザジャ",
         "icon": "ability_15.png",
@@ -5536,6 +5564,34 @@
             ["Increase LB gauge by 10 to all allies"]
         ],
         "effects_raw": [[2, 2, 33, [0,  0,  0,  0,  0,  0,  0,  200,  1,  5]], [2, 2, 18, [50,  5,  1,  1]], [2, 2, 19, [50,  5,  1,  1]], [2, 2, 101, [50,  5,  1,  1]], [2, 2, 125, [1000,  1000]]],
+        "requirements": null
+    },
+    "30820": {
+        "name": "バエアロジャ",
+        "icon": "ability_12.png",
+        "compendium_id": 331,
+        "rarity": 9,
+        "cost": {"MP": 500},
+        "magic_type": "Green",
+        "is_sealable": true,
+        "is_reflectable": true,
+        "in_exploration": false,
+        "attack_count": [1, 1, 1, 1, 1],
+        "attack_damage": [[100], [100], [100], [100], [100]],
+        "attack_frames": [[120], [120], [120], [120], [120]],
+        "effect_frames": [[40], [100,  100]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": ["Wind"],
+        "effects": [
+            ["Increase resistance to Wind by 200% for 5 turns to all allies"],
+            ["Reduce damage taken from physical attacks taken by 50% to all allies for 5 turns"],
+            ["Reduce damage taken by magic attacks by 50% to all allies for 5 turns"],
+            ["Reduce damage taken by 50% to all allies for 5 turns"],
+            ["Increase LB gauge by 10 to all allies"]
+        ],
+        "effects_raw": [[2, 2, 33, [0,  0,  0,  0,  200,  0,  0,  0,  1,  5]], [2, 2, 18, [50,  5,  1,  1]], [2, 2, 19, [50,  5,  1,  1]], [2, 2, 101, [50,  5,  1,  1]], [2, 2, 125, [1000,  1000]]],
         "requirements": null
     },
     "40010": {
