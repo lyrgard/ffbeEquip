@@ -35545,9 +35545,9 @@
 		]
 	},
 	"331001307": {
-		"name":"聖母の再来エリィ",
+		"name":"Elly, santa reencarnada",
 		"roles":["magicalAttacker"],
-		"wikiEntry":"聖母の再来エリィ",
+		"wikiEntry":"Holy_Mother Reborn Elly",
 		"id":"331001307",
 		"game_id":"20024",
 		"game":"Xenogears",
@@ -35564,18 +35564,20 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["リグ・ウェイブ"],
+		"enhancementSkills":["Anemo Wave","Rod Mastery"],
+		"enhancements": [
+			{"name":"Rod Mastery","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 		"skills": [
 			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"silence","percent":100}], "killers":[{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":150},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["rod"]},
 			{"mag":1000, "equipedConditions":[["405024200","409072200"]]},
 			{"mag":500, "exLevelCondition":3}
 		]
 	},
 	"331001317": {
-		"name":"ヴィエルジェ BS",
+		"name":"Vierge BS",
 		"roles":["magicalAttacker"],
-		"wikiEntry":"ヴィエルジェ",
+		"wikiEntry":"Vierge",
 		"id":"331001317",
 		"game_id":"20024",
 		"game":"Xenogears",
@@ -35592,21 +35594,21 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","visionCard"],
-		"enhancementSkills":["OMEGA100","リグ・ウェイブ"],
+		"enhancementSkills":["OMEGA100 (Elly)","Anemo Wave","Rod Mastery"],
 		"enhancements": [
-			{"name":"OMEGA100","levels":[[{"mag%":120,"lbDamage":120},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":140,"lbDamage":140},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":160,"lbDamage":160},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":180,"lbDamage":180},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":200,"lbDamage":200},{"equipedConditions":["unarmed"],"atk%":1000}]]}
+			{"name":"OMEGA100 (Elly)","levels":[[{"mag%":120,"lbDamage":120},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":140,"lbDamage":140},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":160,"lbDamage":160},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":180,"lbDamage":180},{"equipedConditions":["unarmed"],"atk%":1000}],[{"mag%":200,"lbDamage":200},{"equipedConditions":["unarmed"],"atk%":1000}]]},
+			{"name":"Rod Mastery","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
 		],
 		"skills": [
 			{"hp%":260, "mp%":60, "def%":360, "mag%":200, "spr%":360, "singleWielding":{"mag":200}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":150, "skillEnhancement":{"1148040":250,"1148050":250,"1148060":250,"1148070":250,"1148080":250,"1148090":200,"1148100":200,"1148110":200}},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["rod"]},
 			{"mag":1000, "equipedConditions":[["405024200","409072200"]]},
 			{"mag":500, "exLevelCondition":3}
 		]
 	},
 	"331001407": {
-		"name":"天帝の密使シタン",
+		"name":"Citán, agente doble",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"天帝の密使シタン",
+		"wikiEntry":"The_Emperor's Emissary Citan",
 		"id":"331001407",
 		"game_id":"20024",
 		"game":"Xenogears",
@@ -35623,19 +35625,21 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","fist","hat","helm","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["翔鳥"],
+		"enhancementSkills":["Kakedori","Katana Mastery"],
+		"enhancements": [
+			{"name":"Katana Mastery","levels":[[{"equipedConditions":["katana"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["katana"],"atk%":80,"def%":80,"mag%":80,"spr%":80}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}},{"equipedConditions":["katana"],"atk%":80,"def%":80,"mag%":80,"spr%":80}]]}
+		],
 		"skills": [
 			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":12,"max":12}, "resist":[{"name":"silence","percent":100}], "killers":[{"name":"human","physical":100,"magical":100}], "mpRefresh":8, "lbDamage":150},
-			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["katana"]},
-			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "equipedConditions":[["405024300","409072300"]]},
+			{"atk":1000, "killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "equipedConditions":[["405024300","409072300"]]},
 			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "exLevelCondition":2},
 			{"atk":500, "exLevelCondition":3}
 		]
 	},
 	"331001417": {
-		"name":"E・フェンリル BS",
+		"name":"Fenrir BS",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"E・フェンリル",
+		"wikiEntry":"Fenrir",
 		"id":"331001417",
 		"game_id":"20024",
 		"game":"Xenogears",
@@ -35652,13 +35656,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["greatSword","katana","visionCard"],
-		"enhancementSkills":["OMEGA100","烈風"],
+		"enhancementSkills":["OMEGA100 (Citan)","Reppu"],
 		"enhancements": [
-			{"name":"OMEGA100","levels":[[{"atk%":120,"lbDamage":120},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":140,"lbDamage":140},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":160,"lbDamage":160},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":180,"lbDamage":180},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":200,"lbDamage":200},{"equipedConditions":["unarmed"],"atk%":1000}]]}
+			{"name":"OMEGA100 (Citan)","levels":[[{"atk%":120,"lbDamage":120},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":140,"lbDamage":140},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":160,"lbDamage":160},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":180,"lbDamage":180},{"equipedConditions":["unarmed"],"atk%":1000}],[{"atk%":200,"lbDamage":200},{"equipedConditions":["unarmed"],"atk%":1000}]]}
 		],
 		"skills": [
 			{"hp%":210, "mp%":60, "atk%":200, "def%":260, "spr%":260, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":12,"max":12}, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":100,"magical":100}], "mpRefresh":8, "lbDamage":150},
-			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "equipedConditions":[["405024300","409072300"]]},
+			{"atk":1000, "killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "equipedConditions":[["405024300","409072300"]]},
 			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "exLevelCondition":2},
 			{"atk":500, "exLevelCondition":3}
 		]
