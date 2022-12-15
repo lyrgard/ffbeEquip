@@ -12454,7 +12454,7 @@
         "price_sell": 20000,
         "icon": "ability_77.png",
         "strings": {
-            "names": ["Battle Intelligence", "戰鬥情報", "배틀 인텔리전스", "Intelligence guerrière", "Schlachtintelligenz", "Astucia bélica", "Pengetahuan Kombat", "ปัญญา\u001aการต่อสู้\u001a"],
+            "names": ["Battle Intelligence", "戰鬥情報", "배틀 인텔리전스", "Intelligence guerrière", "Schlachtintelligenz", "Astucia bélica", "Pengetahuan Kombat", "ปัญญา\u001aใน\u001aการ\u001aรบ\u001a"],
             "desc_short": ["Boost ATK by 60% and boost physical damage against demons, fairies, and machina monsters (Not stackable)", "提高60%攻擊+物理攻擊時提高對惡魔機械精靈系魔物傷害(無法重複裝備)", "공격력 60% 상승+물리 공격 시 악마, 기계, 정령형 마물에게 부여하는 피해량 상승 (중복 장착 불가)", "Augmente l'ATT de 60% ainsi que les dégâts physiques contre les démons, les esprits et les machines (Non cumulable)", "Erhöht ANG um 60% und erhöht physischen Schaden gegen Dämonen, Feen und Maschinen (Nicht stapelbar).", "Aumenta el ATQ un 60% y el daño físico contra demonios, espíritus y máquinas (no acumulable)", "Meningkatkan ATK sebanyak 60%, serta meningkatkan damage fisik terhadap jenis demon, peri, dan mesin (Tidak dapat ditumpuk)", "เพิ่มค่า\u001a \u001aATK\u001a \u001a60% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a,\u001a \u001aแฟรี่\u001a \u001aและ\u001aจักรกล\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"],
             "desc_long": ["Boosts ATK by 60% and boosts physical damage against demons, fairies, and machina monsters. Not stackable.", "提高60%攻擊，並在物理攻擊時，提高對惡魔機械精靈系魔物的傷害。", "공격력이 60% 상승하고, 물리 공격 시 악마, 기계, 정령형 마물에게 부여하는 피해량이 상승합니다. (중복 장착 불가)", "Augmente l'ATT de 60% ainsi que les dégâts physiques contre les démons, les esprits et les machines. Non cumulable.", "Erhöht ANG um 60% und erhöht physischen Schaden gegen Dämonen, Feen und Maschinen. Nicht stapelbar.", "Aumenta el ATQ un 60% y el daño físico contra demonios, espíritus y máquinas. No acumulable.", "Meningkatkan ATK sebanyak 60%, serta meningkatkan damage fisik terhadap jenis demon, peri, dan mesin. Tidak dapat ditumpuk.", "เพิ่มค่า\u001a \u001aATK\u001a \u001a60% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a,\u001a \u001aแฟรี่\u001a \u001aและ\u001aจักรกล\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"]
         }
@@ -18110,7 +18110,7 @@
         "name": "Saviors of the Planet",
         "compendium_id": 1156,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [207000105, 207001005, 207000305, 207000805, 207000204, 207000703, 207000405, 207000505, 207001105, 207000605, 207002007, 207002207, 207002105, 207001305, 207002017, 207000327, 207000527, 207002217, 207000127, 207001205, 207001507, 207001517, 207002307, 207002317, 207001227, 207001327, 207001405, 207002407, 207002417, 207002505, 207002117, 207002127]],
+        "requirements": ["UNIT_ID", [207000105, 207001005, 207000305, 207000805, 207000204, 207000703, 207000405, 207000505, 207001105, 207000605, 207002007, 207002207, 207002105, 207001305, 207002017, 207000327, 207000527, 207002217, 207000127, 207001205, 207001507, 207001517, 207002307, 207002317, 207001227, 207001327, 207001405, 207002407, 207002417, 207002505, 207002117, 207002127, 207003107, 207003117, 207003207, 207003217]],
         "skills": [236247],
         "effects": ["Grant 'Saviors of the Planet' passive"],
         "unique": true,
@@ -22399,7 +22399,7 @@
         "name": "Fires of Resistance",
         "compendium_id": 1316,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [207002105, 207002127]],
+        "requirements": ["UNIT_ID", [207002105, 207002127, 207003207, 207003217]],
         "skills": [241344],
         "effects": ["Grant 'Fires of Resistance' passive"],
         "unique": true,
@@ -27184,122 +27184,248 @@
         }
     },
     "504243965": {
-        "name": "運命に対峙する力Lv1",
+        "name": "Power to Challenge Fate I",
         "compendium_id": 1503,
         "compendium_shown": true,
         "requirements": ["RULE", [7207]],
         "skills": [243965],
-        "effects": ["Grant '運命に対峙する力Lv1' passive"],
-        "unique": false,
+        "effects": ["Grant 'Power to Challenge Fate I' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Power to Challenge Fate I", "對抗命運的力量Lv.1", "운명에 대적하는 힘 I", "Force de défier le destin I", "Herausforderung des Schicksals I", "Poder para desafiar al destino I", "Kekuatan untuk Menantang Takdir I", "พลัง\u001aท้า\u001aชะตากรรม\u001a \u001aI\u001a"],
+            "desc_short": [
+                "Boost physical and magic damage against reapers for caster at the beginning of battle (FFVII units only) (Not stackable)",
+                "戰鬥開始時賦予自身物理、魔法攻擊時提高對死靈系魔物傷害的效果(FFVII兵員專屬)[無法重複裝備]",
+                "전투 시작 시 자신에게 물리, 마법 공격 시 사령형 마물에 대한 피해량 상승 효과 부여(FFVII 유닛 전용)(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants par le lanceur au début du combat (unités de FFVII uniquement) (non cumulable)",
+                "Erhöht zu Beginn des Kampfes physischen und magischen Schaden des Benutzers gegen Untote (nur FFVII-Einheiten) (nicht stapelbar).",
+                "Aumenta el daño físico y mágico del usuario contra muertos vivientes al inicio del combate (solo unidades de FFVII) (no acumulable)",
+                "Meningkatkan damage fisik dan magic diri sendiri terhadap jenis makhluk halus di awal battle (Khusus unit FFVII) (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aของ\u001aผู้ใช้\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aFFVII\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts physical and magic damage against reapers for caster at the beginning of battle. FFVII units only. Not stackable.",
+                "戰鬥開始時賦予自身物理、魔法攻擊時提高對死靈系魔物傷害的效果。(FFVII兵員專屬)[無法重複裝備]",
+                "전투 시작 시 자신에게 물리, 마법 공격 시 사령형 마물에 대한 피해량 상승 효과를 부여합니다.(FFVII 유닛 전용)(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants par le lanceur au début du combat. Unités de FFVII uniquement. Non cumulable.",
+                "Erhöht zu Beginn des Kampfes physischen und magischen Schaden des Benutzers gegen Untote. Nur FFVII-Einheiten. Nicht stapelbar.",
+                "Aumenta el daño físico y mágico del usuario contra muertos vivientes al inicio del combate. Solo unidades de FFVII. No acumulable.",
+                "Meningkatkan damage fisik dan magic diri sendiri terhadap jenis makhluk halus di awal battle. Khusus unit FFVII. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aของ\u001aผู้ใช้\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aFFVII\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504243966": {
-        "name": "運命に対峙する力Lv2",
+        "name": "Power to Challenge Fate II",
         "compendium_id": 1504,
         "compendium_shown": true,
         "requirements": ["RULE", [7207]],
         "skills": [243966],
-        "effects": ["Grant '運命に対峙する力Lv2' passive"],
-        "unique": false,
+        "effects": ["Grant 'Power to Challenge Fate II' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Power to Challenge Fate II", "對抗命運的力量Lv.2", "운명에 대적하는 힘 II", "Force de défier le destin II", "Herausforderung des Schicksals II", "Poder para desafiar al destino II", "Kekuatan untuk Menantang Takdir II", "พลัง\u001aท้า\u001aชะตากรรม\u001a \u001aII\u001a"],
+            "desc_short": [
+                "Boost physical and magic damage against reapers for caster at the beginning of battle (FFVII units only) (Not stackable)",
+                "戰鬥開始時賦予自身物理、魔法攻擊時提高對死靈系魔物傷害的效果(FFVII兵員專屬)[無法重複裝備]",
+                "전투 시작 시 자신에게 물리, 마법 공격 시 사령형 마물에 대한 피해량 상승 효과 부여(FFVII 유닛 전용)(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants par le lanceur au début du combat (unités de FFVII uniquement) (non cumulable)",
+                "Erhöht zu Beginn des Kampfes physischen und magischen Schaden des Benutzers gegen Untote (nur FFVII-Einheiten) (nicht stapelbar).",
+                "Aumenta el daño físico y mágico del usuario contra muertos vivientes al inicio del combate (solo unidades de FFVII) (no acumulable)",
+                "Meningkatkan damage fisik dan magic diri sendiri terhadap jenis makhluk halus di awal battle (Khusus unit FFVII) (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aของ\u001aผู้ใช้\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aFFVII\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts physical and magic damage against reapers for caster at the beginning of battle. FFVII units only. Not stackable.",
+                "戰鬥開始時賦予自身物理、魔法攻擊時提高對死靈系魔物傷害的效果。(FFVII兵員專屬)[無法重複裝備]",
+                "전투 시작 시 자신에게 물리, 마법 공격 시 사령형 마물에 대한 피해량 상승 효과를 부여합니다.(FFVII 유닛 전용)(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants par le lanceur au début du combat. Unités de FFVII uniquement. Non cumulable.",
+                "Erhöht zu Beginn des Kampfes physischen und magischen Schaden des Benutzers gegen Untote. Nur FFVII-Einheiten. Nicht stapelbar.",
+                "Aumenta el daño físico y mágico del usuario contra muertos vivientes al inicio del combate. Solo unidades de FFVII. No acumulable.",
+                "Meningkatkan damage fisik dan magic diri sendiri terhadap jenis makhluk halus di awal battle. Khusus unit FFVII. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aของ\u001aผู้ใช้\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aFFVII\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504243967": {
-        "name": "運命に対峙する力Lv3",
+        "name": "Power to Challenge Fate III",
         "compendium_id": 1505,
         "compendium_shown": true,
         "requirements": ["RULE", [7207]],
         "skills": [243967],
-        "effects": ["Grant '運命に対峙する力Lv3' passive"],
-        "unique": false,
+        "effects": ["Grant 'Power to Challenge Fate III' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Power to Challenge Fate III", "對抗命運的力量Lv.3", "운명에 대적하는 힘 III", "Force de défier le destin III", "Herausforderung des Schicksals III", "Poder para desafiar al destino III", "Kekuatan untuk Menantang Takdir III", "พลัง\u001aท้า\u001aชะตากรรม\u001a \u001aIII\u001a"],
+            "desc_short": [
+                "Boost physical and magic damage against reapers for caster at the beginning of battle (FFVII units only) (Not stackable)",
+                "戰鬥開始時賦予自身物理、魔法攻擊時提高對死靈系魔物傷害的效果(FFVII兵員專屬)[無法重複裝備]",
+                "전투 시작 시 자신에게 물리, 마법 공격 시 사령형 마물에 대한 피해량 상승 효과 부여(FFVII 유닛 전용)(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants par le lanceur au début du combat (unités de FFVII uniquement) (non cumulable)",
+                "Erhöht zu Beginn des Kampfes physischen und magischen Schaden des Benutzers gegen Untote (nur FFVII-Einheiten) (nicht stapelbar).",
+                "Aumenta el daño físico y mágico del usuario contra muertos vivientes al inicio del combate (solo unidades de FFVII) (no acumulable)",
+                "Meningkatkan damage fisik dan magic diri sendiri terhadap jenis makhluk halus di awal battle (Khusus unit FFVII) (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aของ\u001aผู้ใช้\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aFFVII\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts physical and magic damage against reapers for caster at the beginning of battle. FFVII units only. Not stackable.",
+                "戰鬥開始時賦予自身物理、魔法攻擊時提高對死靈系魔物傷害的效果。(FFVII兵員專屬)[無法重複裝備]",
+                "전투 시작 시 자신에게 물리, 마법 공격 시 사령형 마물에 대한 피해량 상승 효과를 부여합니다.(FFVII 유닛 전용)(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants par le lanceur au début du combat. Unités de FFVII uniquement. Non cumulable.",
+                "Erhöht zu Beginn des Kampfes physischen und magischen Schaden des Benutzers gegen Untote. Nur FFVII-Einheiten. Nicht stapelbar.",
+                "Aumenta el daño físico y mágico del usuario contra muertos vivientes al inicio del combate. Solo unidades de FFVII. No acumulable.",
+                "Meningkatkan damage fisik dan magic diri sendiri terhadap jenis makhluk halus di awal battle. Khusus unit FFVII. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aของ\u001aผู้ใช้\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aFFVII\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504243968": {
-        "name": "運命に対峙する力Lv4",
+        "name": "Power to Challenge Fate IV",
         "compendium_id": 1506,
         "compendium_shown": true,
         "requirements": ["RULE", [7207]],
         "skills": [243968],
-        "effects": ["Grant '運命に対峙する力Lv4' passive"],
-        "unique": false,
+        "effects": ["Grant 'Power to Challenge Fate IV' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Power to Challenge Fate IV", "對抗命運的力量Lv.4", "운명에 대적하는 힘 IV", "Force de défier le destin IV", "Herausforderung des Schicksals IV", "Poder para desafiar al destino IV", "Kekuatan untuk Menantang Takdir IV", "พลัง\u001aท้า\u001aชะตากรรม\u001a \u001aIV\u001a"],
+            "desc_short": [
+                "Boost physical and magic damage against reapers for caster at the beginning of battle (FFVII units only) (Not stackable)",
+                "戰鬥開始時賦予自身物理、魔法攻擊時提高對死靈系魔物傷害的效果(FFVII兵員專屬)[無法重複裝備]",
+                "전투 시작 시 자신에게 물리, 마법 공격 시 사령형 마물에 대한 피해량 상승 효과 부여(FFVII 유닛 전용)(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants par le lanceur au début du combat (unités de FFVII uniquement) (non cumulable)",
+                "Erhöht zu Beginn des Kampfes physischen und magischen Schaden des Benutzers gegen Untote (nur FFVII-Einheiten) (nicht stapelbar).",
+                "Aumenta el daño físico y mágico del usuario contra muertos vivientes al inicio del combate (solo unidades de FFVII) (no acumulable)",
+                "Meningkatkan damage fisik dan magic diri sendiri terhadap jenis makhluk halus di awal battle (Khusus unit FFVII) (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aของ\u001aผู้ใช้\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aFFVII\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts physical and magic damage against reapers for caster at the beginning of battle. FFVII units only. Not stackable.",
+                "戰鬥開始時賦予自身物理、魔法攻擊時提高對死靈系魔物傷害的效果。(FFVII兵員專屬)[無法重複裝備]",
+                "전투 시작 시 자신에게 물리, 마법 공격 시 사령형 마물에 대한 피해량 상승 효과를 부여합니다.(FFVII 유닛 전용)(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants par le lanceur au début du combat. Unités de FFVII uniquement. Non cumulable.",
+                "Erhöht zu Beginn des Kampfes physischen und magischen Schaden des Benutzers gegen Untote. Nur FFVII-Einheiten. Nicht stapelbar.",
+                "Aumenta el daño físico y mágico del usuario contra muertos vivientes al inicio del combate. Solo unidades de FFVII. No acumulable.",
+                "Meningkatkan damage fisik dan magic diri sendiri terhadap jenis makhluk halus di awal battle. Khusus unit FFVII. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aของ\u001aผู้ใช้\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aFFVII\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504243969": {
-        "name": "運命に対峙する力Lv5",
+        "name": "Power to Challenge Fate V",
         "compendium_id": 1507,
         "compendium_shown": true,
         "requirements": ["RULE", [7207]],
         "skills": [243969],
-        "effects": ["Grant '運命に対峙する力Lv5' passive"],
-        "unique": false,
+        "effects": ["Grant 'Power to Challenge Fate V' passive"],
+        "unique": true,
         "price_buy": 200000,
         "price_sell": 20000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Power to Challenge Fate V", "對抗命運的力量Lv.5", "운명에 대적하는 힘 V", "Force de défier le destin V", "Herausforderung des Schicksals V", "Poder para desafiar al destino V", "Kekuatan untuk Menantang Takdir V", "พลัง\u001aท้า\u001aชะตากรรม\u001a \u001aV\u001a"],
+            "desc_short": [
+                "Boost physical and magic damage against reapers for caster at the beginning of battle (FFVII units only) (Not stackable)",
+                "戰鬥開始時賦予自身物理、魔法攻擊時提高對死靈系魔物傷害的效果(FFVII兵員專屬)[無法重複裝備]",
+                "전투 시작 시 자신에게 물리, 마법 공격 시 사령형 마물에 대한 피해량 상승 효과 부여(FFVII 유닛 전용)(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants par le lanceur au début du combat (unités de FFVII uniquement) (non cumulable)",
+                "Erhöht zu Beginn des Kampfes physischen und magischen Schaden des Benutzers gegen Untote (nur FFVII-Einheiten) (nicht stapelbar).",
+                "Aumenta el daño físico y mágico del usuario contra muertos vivientes al inicio del combate (solo unidades de FFVII) (no acumulable)",
+                "Meningkatkan damage fisik dan magic diri sendiri terhadap jenis makhluk halus di awal battle (Khusus unit FFVII) (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aของ\u001aผู้ใช้\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aFFVII\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts physical and magic damage against reapers for caster at the beginning of battle. FFVII units only. Not stackable.",
+                "戰鬥開始時賦予自身物理、魔法攻擊時提高對死靈系魔物傷害的效果。(FFVII兵員專屬)[無法重複裝備]",
+                "전투 시작 시 자신에게 물리, 마법 공격 시 사령형 마물에 대한 피해량 상승 효과를 부여합니다.(FFVII 유닛 전용)(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants par le lanceur au début du combat. Unités de FFVII uniquement. Non cumulable.",
+                "Erhöht zu Beginn des Kampfes physischen und magischen Schaden des Benutzers gegen Untote. Nur FFVII-Einheiten. Nicht stapelbar.",
+                "Aumenta el daño físico y mágico del usuario contra muertos vivientes al inicio del combate. Solo unidades de FFVII. No acumulable.",
+                "Meningkatkan damage fisik dan magic diri sendiri terhadap jenis makhluk halus di awal battle. Khusus unit FFVII. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aของ\u001aผู้ใช้\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(\u001aยู\u001aนิ\u001aท\u001a \u001aFFVII\u001a \u001aเท่านั้น\u001a)\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504243979": {
-        "name": "魔晄を浴びし者",
+        "name": "Showered with Mako",
         "compendium_id": 1508,
         "compendium_shown": true,
         "requirements": null,
         "skills": [243979],
-        "effects": ["Grant '魔晄を浴びし者' passive"],
-        "unique": false,
+        "effects": ["Grant 'Showered with Mako' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Showered with Mako", "沐浴魔晄之人", "마황을 쐰 자", "Imprégné de mako", "Mit Mako überhäuft", "Ojos verdes como el mako", "Bermandikan Mako", "อาบ\u001aไป\u001aด้วย\u001aพลัง\u001a \u001aMako\u001a"],
+            "desc_short": [
+                "Boost LB damage by 50% and boost physical and magic damage against humans and machina monsters by 50% (Not stackable)",
+                "提高50%極限技的傷害+物理、魔法攻擊時提高50%對人機械系魔物的傷害[無法重複裝備]",
+                "LB 피해량 50% 상승+물리, 마법 공격 시 인간과 기계형 마물에게 부여하는 피해량 50% 상승(중복 장착 불가)",
+                "Augmente les dégâts de la limite de 50 % et augmente les dégâts physiques et magiques infligés aux humains et aux machines de 50 % (non cumulable)",
+                "Erhöht Schaden durch Limitrausch um 50% und erhöht physischen sowie magischen Schaden gegen Menschen und Maschinen um 50% (nicht stapelbar).",
+                "Aumenta el daño del EL un 50% y el daño físico y mágico contra humanos y máquinas un 50% (no acumulable)",
+                "Meningkatkan damage LB sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis manusia dan mesin sebanyak 50% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมนุษย์\u001aและ\u001aจักรกล\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts LB damage by 50% and boosts physical and magic damage against humans and machina monsters by 50%. Not stackable.",
+                "提高50%極限技的傷害，以及物理、魔法攻擊時提高50%對人機械系魔物的傷害。[無法重複裝備]",
+                "LB 피해량이 50% 상승하고, 물리, 마법 공격 시 인간과 기계형 마물에게 부여하는 피해량이 50% 상승합니다.(중복 장착 불가)",
+                "Augmente les dégâts de la limite de 50 % et augmente les dégâts physiques et magiques infligés aux humains et aux machines de 50 %. Non cumulable.",
+                "Erhöht Schaden durch Limitrausch um 50% und erhöht physischen sowie magischen Schaden gegen Menschen und Maschinen um 50%. Nicht stapelbar.",
+                "Aumenta el daño del EL un 50% y el daño físico y mágico contra humanos y máquinas un 50%. No acumulable.",
+                "Meningkatkan damage limit burst sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis manusia dan mesin sebanyak 50%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมนุษย์\u001aและ\u001aจักรกล\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504243981": {
-        "name": "父ちゃんのプライド",
+        "name": "A Dad's Pride",
         "compendium_id": 1509,
         "compendium_shown": true,
         "requirements": null,
         "skills": [243981],
-        "effects": ["Grant '父ちゃんのプライド' passive"],
-        "unique": false,
+        "effects": ["Grant 'A Dad's Pride' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_6000200.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["A Dad's Pride", "父親的驕傲", "아빠의 프라이드", "La fierté d'un père", "Stolz eines Vaters", "Orgullo de papá", "Kebanggaan Ayah", "ความภูมิใจ\u001aของ\u001aป๊ะ\u001aป๋า\u001a"],
+            "desc_short": [
+                "Boost equipment DEF by 100% when a single gun or fist is equipped in one or both hands (Not stackable)",
+                "只裝備1把火槍格鬥武器時武具防禦提升100%[無法重複裝備]",
+                "한손 또는 양손에 총 또는 격투무기 1개 장착 시 장비의 방어력 100% 상승(중복 장착 불가)",
+                "Augmente la DEF de l'équipement de 100 % quand un seul pistolet ou un seul poing est équipé dans une ou les deux mains (non cumulable)",
+                "Erhöht Ausrüstung-ABW um 100%, wenn eine einzelne Schusswaffe oder Faust in einer oder beiden Händen ausgerüstet ist (nicht stapelbar).",
+                "Aumenta la DEF del equipo un 100% al llevar una sola arma de fuego o puños en una o ambas manos (no acumulable)",
+                "Meningkatkan DEF perlengkapan sebanyak 100% ketika 1 senapan atau senjata tinju digunakan dengan satu tangan atau kedua tangan (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aDEF\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a100% \u001aเมื่อ\u001aติดตั้ง\u001aปืน\u001aหรือ\u001aสนับมือ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aมือ\u001aเดียว\u001aหรือ\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts equipment DEF by 100% when a single gun or fist is equipped in one or both hands. Not stackable.",
+                "只裝備1把火槍格鬥武器時武具防禦提升100%。[無法重複裝備]",
+                "한손 또는 양손에 총 또는 격투무기 1개 장착 시 장비의 방어력이 100% 상승합니다.(중복 장착 불가)",
+                "Augmente la DEF de l'équipement de 100 % quand un seul pistolet ou un seul poing est équipé dans une ou les deux mains. Non cumulable.",
+                "Erhöht Ausrüstung-ABW um 100%, wenn eine einzelne Schusswaffe oder Faust in einer oder beiden Händen ausgerüstet ist. Nicht stapelbar.",
+                "Aumenta la DEF del equipo un 100% al llevar una sola arma de fuego o puños en una o ambas manos. No acumulable.",
+                "Meningkatkan DEF perlengkapan sebanyak 100% ketika 1 senapan atau senjata tinju digunakan dengan satu tangan atau kedua tangan. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aDEF\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a100% \u001aเมื่อ\u001aติดตั้ง\u001aปืน\u001aหรือ\u001aสนับมือ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aมือ\u001aเดียว\u001aหรือ\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504244000": {
@@ -27972,7 +28098,7 @@
         "name": "Lightspeed Jab",
         "compendium_id": 90009,
         "compendium_shown": true,
-        "requirements": null,
+        "requirements": ["UNIT_ID", [254001003]],
         "skills": [101470, 910133],
         "effects": ["Grant 'Last Stand' passive", "Grant 'Lightspeed Jab' passive"],
         "unique": false,
@@ -27998,7 +28124,7 @@
         "name": "Cheerleader",
         "compendium_id": 90010,
         "compendium_shown": true,
-        "requirements": null,
+        "requirements": ["UNIT_ID", [254000503]],
         "skills": [200450, 910134],
         "effects": ["Grant 'Cheer' ability", "Grant 'Cheerleader' passive"],
         "unique": false,
@@ -28732,7 +28858,7 @@
         "name": "Power of the Sands",
         "compendium_id": 90041,
         "compendium_shown": true,
-        "requirements": null,
+        "requirements": ["UNIT_ID", [401003605, 401003505, 401003404, 401003303]],
         "skills": [910929, 910967],
         "effects": ["Grant 'Power of the Sands' passive", "Grant 'Power of the Sands' passive"],
         "unique": false,
@@ -28937,7 +29063,7 @@
         "name": "Frigo and Etcetera",
         "compendium_id": 90052,
         "compendium_shown": true,
-        "requirements": null,
+        "requirements": ["UNIT_ID", [401004005, 401004006, 401004007, 401004104, 401004105, 401004106, 401004203, 401004204, 401004205, 401004303, 401004304, 401004305]],
         "skills": [911034, 911035],
         "effects": ["Grant 'Frigo and Etcetera' passive", "Grant 'Rebellion' passive"],
         "unique": true,
@@ -29610,7 +29736,7 @@
         "name": "Spiritualism",
         "compendium_id": 90081,
         "compendium_shown": true,
-        "requirements": null,
+        "requirements": ["UNIT_ID", [401006305, 401006306, 401006307]],
         "skills": [911841, 911674],
         "effects": ["Grant 'Spiritualism' passive", "Grant 'Distress Signal' passive"],
         "unique": false,
@@ -30237,7 +30363,7 @@
         "price_sell": 2000,
         "icon": "global_ability_10080.png",
         "strings": {
-            "names": ["Sea Dragon", "蒼海龍", "푸른 해룡", "Dragon des mers", "Meeresdrache", "Dragón de los mares", "Naga Laut", "มังกร\u001aทะเล\u001a"],
+            "names": ["Sea Dragon", "蒼海龍", "푸른 해룡", "Dragon des mers", "Meeresdrache", "Dragón de los mares", "Naga Laut", "มังกร\u001aสมุทร\u001a"],
             "desc_short": ["Boost ATK by 50% and water and wind resistance by 30%, boost ATK when equipped with a katana, and chance of evading some physical attacks (Not stackable)", "提高50%攻擊、30%水風屬性耐性+裝備刀時提高攻擊+一定機率閃避部分物理攻擊(無法重複裝備)", "공격력 50%, 물과 바람속성 저항력 30% 상승+도 장착 시 공격력 상승+일정 확률로 일부 물리 공격 회피 (중복 장착 불가)", "Augmente l'ATT de 50 % et la résistance à l'eau et au vent de 30 %, augmente l'ATT lorsqu'un katana est équipé, et confère une chance d'esquiver certaines attaques physiques (non cumulable)", "Erhöht ANG um 50% und Wasser- und Windresistenz um 30%, erhöht ANG, wenn mit einem Katana ausgerüstet und Chance, einigen physischen Angriffen auszuweichen (Nicht stapelbar).", "Aumenta el ATQ un 50% y la resistencia al agua y al viento un 30%, aumento extra de ATQ al llevar también katana y probabilidad de evadir algunos ataques físicos (no acumulable)", "Meningkatkan ATK sebanyak 50%, dan resistansi air dan angin sebanyak 30%, meningkatkan ATK ketika katana digunakan, dan meningkatkan peluang untuk menghindari beberapa serangan fisik (Tidak dapat ditumpuk)", "เพิ่มค่า\u001a \u001aATK\u001a \u001a50% + เพิ่มพลังต้านทานธาตุน้ำและลม 30% + เพิ่มค่า ATK\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aดาบ\u001aคาตา\u001aนะ\u001a \u001a+\u001a \u001aมีโอกาส\u001aหลบ\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001aบางส่วน\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"],
             "desc_long": ["Boosts ATK by 50% and water and wind resistance by 30%, boosts ATK when equipped with a katana, and adds chance of evading some physical attacks. Not stackable.", "提高50%攻擊、30%水風屬性耐性，裝備刀時提高攻擊，一定機率閃避部分物理攻擊。(無法重複裝備)", "공격력이 50%, 물과 바람속성 저항력이 30% 상승하고, 도 장착 시 공격력 상승하며, 일정 확률로 일부 물리 공격을 회피합니다. (중복 장착 불가)", "Augmente l'ATT de 50 % et la résistance à l'eau et au vent de 30 %, augmente l'ATT lorsqu'un katana est équipé, et confère une chance d'esquiver certaines attaques physiques. Non cumulable.", "Erhöht ANG um 50% und Wasser- und Windresistenz um 30%, erhöht ANG, wenn mit einem Katana ausgerüstet und Chance, einigen physischen Angriffen auszuweichen (Nicht stapelbar).", "Aumenta el ATQ un 50% y la resistencia al agua y al viento un 30%, aumento extra de ATQ al llevar también katana y probabilidad de evadir algunos ataques físicos. No acumulable.", "Meningkatkan ATK sebanyak 50%, dan resistansi air dan angin sebanyak 30%, meningkatkan ATK ketika katana digunakan, dan meningkatkan peluang untuk menghindari beberapa serangan fisik. Tidak dapat ditumpuk.", "เพิ่มค่า\u001a \u001aATK\u001a \u001a50% + เพิ่มพลังต้านทานธาตุน้ำและลม 30% + เพิ่มค่า ATK\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aดาบ\u001aคาตา\u001aนะ\u001a \u001a+\u001a \u001aมีโอกาส\u001aหลบ\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001aบางส่วน\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"]
         }
@@ -32690,7 +32816,7 @@
         "name": "Overclocked Cannon",
         "compendium_id": 90190,
         "compendium_shown": true,
-        "requirements": null,
+        "requirements": ["UNIT_ID", [401011607, 401011617]],
         "skills": [916345, 916346],
         "effects": ["Grant 'Overclocked Cannon' passive", "Grant 'Overclocked Cannon' passive"],
         "unique": true,
@@ -32760,7 +32886,7 @@
         "name": "Code of the Samurai",
         "compendium_id": 90192,
         "compendium_shown": true,
-        "requirements": null,
+        "requirements": ["UNIT_ID", [100004604, 100004605, 100004606, 401013407, 401013417]],
         "skills": [916451, 916452, 916453],
         "effects": ["Grant 'Samurai's Strength' passive", "Grant 'Samurai's Technique' passive", "Grant 'Follower of the Code' passive"],
         "unique": true,
@@ -33180,7 +33306,7 @@
         "name": "Nine Tails of Vengeance",
         "compendium_id": 90204,
         "compendium_shown": true,
-        "requirements": null,
+        "requirements": ["UNIT_ID", [401007105, 401007106, 401007107, 401013607, 401013617]],
         "skills": [916608, 916609],
         "effects": ["Grant 'Karmic Kitsune' passive", "Grant 'Furious Fox Maiden' passive"],
         "unique": true,
