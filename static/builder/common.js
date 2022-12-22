@@ -1684,8 +1684,17 @@ function isEquipedConditionOK(equiped, condition) {
             }
         } else {
             for (var equipedIndex = 0; equipedIndex < 11; equipedIndex++) {
-                if (equiped[equipedIndex] && equiped[equipedIndex].id == condition) {
-                    return true;
+                if (equiped[equipedIndex] && equiped[equipedIndex].id) {
+                    if (equiped[equipedIndex].id.toString().includes("-")) {
+                        let cardLevelId = equiped[equipedIndex].id.split('-');
+                        if (equiped[equipedIndex] && cardLevelId[0] == condition) {
+                            return true;
+                        }
+                    } else {
+                        if (equiped[equipedIndex] && equiped[equipedIndex].id == condition) {
+                            return true;
+                        }
+                    }
                 }
             }
         }
@@ -2004,7 +2013,7 @@ function applyEnhancements(item, enhancements) {
         result.originalItem = item;
         return result;
     } else {
-        return item;
+        return item; 
     }
 }
 

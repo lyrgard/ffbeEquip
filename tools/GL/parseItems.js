@@ -207,14 +207,15 @@ const jpExclusiveItemIds = ["403044000", "404002700", "407002900", "310003500", 
 
 var unitNamesById = {};
 var unitIdByTmrId = {};
-var unitIdBySTmrId = {};
+var unitIdByStmrId = {};
+var unitIdByVCId = {};
 var oldItemsAccessById = {};
 var oldItemsEventById = {};
 var oldItemsMaxNumberById = {};
 var oldItemsWikiEntryById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
-var dev = false;
+var dev = true;
 var languageId;
 let skillNameTrads;
 let skillDescTrads;
@@ -336,8 +337,25 @@ getData('equipment.json', function (items) {
                                                                                         if (unit.TMR && !unitIdByTmrId[unit.TMR[1]]) {
                                                                                             unitIdByTmrId[unit.TMR[1]] = unitIndex;
                                                                                         }
-                                                                                        if (unit.sTMR && !unitIdBySTmrId[unit.sTMR[1]]) {
-                                                                                            unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
+                                                                                        if (unit.sTMR && !unitIdByStmrId[unit.sTMR[1]]) {
+                                                                                            unitIdByStmrId[unit.sTMR[1]] = unitIndex;
+                                                                                        }
+                                                                                        if (unit.entries[unitIndex]?.nv_upgrade) {
+                                                                                            let rewards = unit.entries[unitIndex].nv_upgrade
+                                                                                            Object.keys(rewards).forEach(rewardId => {
+                                                                                                rewards[rewardId].reward?.forEach(reward => {
+                                                                                                    if (reward[0] == 'VISIONCARD' && reward[1] !== 900020101){
+                                                                                                        if (!unitIdByVCId[reward[1]]){
+                                                                                                            unitIdByVCId[[reward[1]]] = [unitIndex];
+                                                                                                        } else {
+                                                                                                            "Checking to see if reward 1 is included already:"
+                                                                                                            if (!unitIdByVCId[reward[1]].includes(unitIndex)) {
+                                                                                                                unitIdByVCId[[reward[1]]].push(unitIndex);
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                })
+                                                                                            })
                                                                                         }
                                                                                     }
 
@@ -478,10 +496,10 @@ function treatItem(items, itemId, result, skills) {
 
         itemOut.tmrUnit = unitIdByTmrId[itemOut.id];
     }
-    if (unitIdBySTmrId[itemOut.id]) {
-        var unitId = unitIdBySTmrId[itemOut.id];
+    if (unitIdByStmrId[itemOut.id]) {
+        var unitId = unitIdByStmrId[itemOut.id];
         var unit = unitNamesById[unitId];
-        itemOut.stmrUnit = unitIdBySTmrId[itemOut.id];
+        itemOut.stmrUnit = unitIdByStmrId[itemOut.id];
         addAccess(itemOut,"STMR");   
         if (!releasedUnits[unitId] || unit.maxRarity < 7) {
             addAccess(itemOut,"not released yet");
@@ -683,6 +701,13 @@ function treatVisionCard(visionCard, visionCardId, skills) {
             }
         }
     }
+
+    if (unitIdByVCId[visionCardId]) {
+        console.log(unitIdByVCId[visionCardId])
+        console.log(visionCard)
+        card.vc = unitIdByVCId[visionCardId]
+    }
+
     return card;
 }
 
@@ -2476,7 +2501,7 @@ function formatItem(item) {
 }
 
 function formatVisionCards(cards) {
-    var baseProperties = ["id","name","jpname","type","access","maxNumber","eventNames","icon","sortId"];
+    var baseProperties = ["id","name","jpname","type","access","maxNumber","eventNames","icon","sortId", "vc"];
     var result = "[\n";
     var first = true;
     for (var index in cards) {

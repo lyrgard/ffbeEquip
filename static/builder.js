@@ -4549,8 +4549,8 @@ function startPage() {
     resetMonsterAttack();
 
     registerWaitingCallback(["data", "unitsWithPassives", "defaultBuilderEspers"], () => {
+        populateUnitSelect();
         readStateHashData(function(hashData) {
-            populateUnitSelect();
             prepareSearch(data);
             initWorkerNumber();
             initWorkers();
