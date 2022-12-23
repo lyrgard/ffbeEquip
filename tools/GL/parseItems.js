@@ -215,7 +215,7 @@ var oldItemsMaxNumberById = {};
 var oldItemsWikiEntryById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
-var dev = true;
+var dev = false;
 var languageId;
 let skillNameTrads;
 let skillDescTrads;
@@ -703,8 +703,6 @@ function treatVisionCard(visionCard, visionCardId, skills) {
     }
 
     if (unitIdByVCId[visionCardId]) {
-        console.log(unitIdByVCId[visionCardId])
-        console.log(visionCard)
         card.vc = unitIdByVCId[visionCardId]
     }
 

@@ -14522,9 +14522,9 @@
 		]
 	},
 	"100039107": {
-		"name":"Christmas Charlotte",
+		"name":"Charlotte, caballero silente",
 		"roles":["magicalTank"],
-		"wikiEntry":"クリスマスシャルロット",
+		"wikiEntry":"Silent_Knight Charlotte",
 		"id":"100039107",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -14541,21 +14541,21 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","staff","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["オルネート・ゲイル"],
+		"enhancementSkills":["Shellga","Banishga","Cover - Magic I","Elegant Gale"],
 		"skills": [
 			{"hp%":200, "mp%":200, "def%":100, "spr%":200, "evade":{"physical":30,"magical":50}, "oneWeaponMastery":{"spr":200}, "chainMastery":100, "lbPerTurn":{"min":6,"max":6}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":80},{"name":"ice","percent":80},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"disease","percent":100}], "killers":[{"name":"machine","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"dragon","physical":150,"magical":150},{"name":"bug","physical":150,"magical":150}], "mpRefresh":8, "lbDamage":150, "drawAttacks":70},
 			{"hp%":100, "mp%":100, "atk%":100, "def%":100, "spr%":100, "equipedConditions":["lightShield"]},
 			{"hp%":100, "mp%":100, "atk%":100, "def%":100, "spr%":100, "equipedConditions":["heavyShield"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["lightShield"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["heavyShield"]},
-			{"oneWeaponMastery":{"spr":100}, "lbDamage":100, "equipedConditions":[["405021000","307004900"]]},
+			{"spr":1000, "oneWeaponMastery":{"spr":100}, "lbDamage":100, "equipedConditions":[["405021000","307004900"]]},
 			{"spr":500, "exLevelCondition":3}
 		]
 	},
 	"100039117": {
-		"name":"Christmas Charlotte BS",
+		"name":"Charlotte, caballero silente BS",
 		"roles":["magicalTank"],
-		"wikiEntry":"クリスマスシャルロット",
+		"wikiEntry":"Silent_Knight Charlotte",
 		"id":"100039117",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -14578,7 +14578,7 @@
 			{"hp%":100, "mp%":100, "atk%":100, "def%":100, "spr%":100, "equipedConditions":["heavyShield"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["lightShield"]},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["heavyShield"]},
-			{"oneWeaponMastery":{"spr":100}, "lbDamage":100, "equipedConditions":[["405021000","307004900"]]},
+			{"spr":1000, "oneWeaponMastery":{"spr":100}, "lbDamage":100, "equipedConditions":[["405021000","307004900"]]},
 			{"spr":500, "exLevelCondition":3}
 		]
 	},
@@ -22103,7 +22103,7 @@
 		"wikiEntry":"Cloud_(FFVII: AC)",
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -22126,7 +22126,7 @@
 			"wikiEntry":"Cloud_(FFVII: AC)",
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -22149,7 +22149,7 @@
 		"wikiEntry":"Tifa_(FFVII: AC)",
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -22174,7 +22174,7 @@
 			"wikiEntry":"Tifa_(FFVII: AC)",
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -22199,7 +22199,7 @@
 		"wikiEntry":"Kadaj",
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -22223,7 +22223,7 @@
 			"wikiEntry":"Kadaj",
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -22247,7 +22247,7 @@
 		"wikiEntry":"Yazoo_& Loz",
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -24718,11 +24718,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","mace","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["Speedy Evasion (Lightning-Fast Zidane)","Swift Raid"],
+		"enhancementSkills":["Dagger Mastery","Speedy Evasion (Lightning-Fast Zidane)","Swift Raid"],
+		"enhancements": [
+			{"name":"Dagger Mastery","levels":[[{"equipedConditions":["dagger"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["dagger"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["dagger"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
 		"skills": [
-			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "evade":{"physical":50,"magical":50}, "improvedDW":true, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":100,"magical":100},{"name":"plant","physical":200}], "mpRefresh":7, "lbDamage":150, "drawAttacks":50, "special":["dualWield"]},
+			{"hp%":60, "mp%":60, "atk%":60, "def%":60, "mag%":60, "spr%":60, "evade":{"physical":50,"magical":50}, "improvedDW":true, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"plant","physical":300,"magical":100},{"name":"dragon","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200}], "mpRefresh":7, "lbDamage":150, "drawAttacks":50, "special":["dualWield"]},
 			{"mp%":50, "atk%":140, "equipedConditions":["dagger"]},
-			{"dualWielding":{"atk":100,"spr":100}, "lbPerTurn":{"min":2,"max":2}, "equipedConditions":[["405014100","504240422"]]}
+			{"dualWielding":{"atk":100,"spr":100}, "lbPerTurn":{"min":2,"max":2}, "equipedConditions":[["405014100","504240422"]]},
+			{"atk":500, "exLevelCondition":3}
 		]
 	},
 	"209002817": {
@@ -24745,11 +24749,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","mace","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["Speedy Evasion (Lightning-Fast Zidane)","True Stellar Circle 5"],
+		"enhancementSkills":["Dagger Mastery","Light from a World in Red","Speedy Evasion (Lightning-Fast Zidane)","True Stellar Circle 5"],
+		"enhancements": [
+			{"name":"Dagger Mastery","levels":[[{"equipedConditions":["dagger"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["dagger"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["dagger"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"Light from a World in Red","levels":[[],[{"atk":1000,"replaceLb":{"name":"Grand Lethal (Lightning-Fast Zidane)","minEffects":[{"effect":{"break":{"def":87,"spr":87},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF and SPR by 87% for 4 turns to one enemy"},{"effect":{"imperil":{"wind":135},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Wind by 135% for 4 turns to one enemy"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":180.5,"stack":100,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (180.5x, ATK) with consecutive damage increase (max. 1 times, +100x ATK each, 280.5x total) to one enemy"}],"maxEffects":[{"effect":{"break":{"def":87,"spr":87},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF and SPR by 87% for 4 turns to one enemy"},{"effect":{"imperil":{"wind":135},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Wind by 135% for 4 turns to one enemy"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":200,"stack":100,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (200x, ATK) with consecutive damage increase (max. 1 times, +100x ATK each, 300x total) to one enemy"}],"frames":[145],"move":"walk"}}],[{"atk":1500,"replaceLb":{"name":"Grand Lethal (Lightning-Fast Zidane)","minEffects":[{"effect":{"break":{"def":87,"spr":87},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF and SPR by 87% for 4 turns to one enemy"},{"effect":{"imperil":{"wind":140},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Wind by 140% for 4 turns to one enemy"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":180.5,"stack":100,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (180.5x, ATK) with consecutive damage increase (max. 1 times, +100x ATK each, 280.5x total) to one enemy"}],"maxEffects":[{"effect":{"break":{"def":87,"spr":87},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF and SPR by 87% for 4 turns to one enemy"},{"effect":{"imperil":{"wind":140},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Wind by 140% for 4 turns to one enemy"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":200,"stack":100,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (200x, ATK) with consecutive damage increase (max. 1 times, +100x ATK each, 300x total) to one enemy"}],"frames":[145],"move":"walk"}}],[{"atk":2000,"replaceLb":{"name":"Grand Lethal (Lightning-Fast Zidane)","minEffects":[{"effect":{"break":{"def":87,"spr":87},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF and SPR by 87% for 4 turns to one enemy"},{"effect":{"imperil":{"wind":145},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Wind by 145% for 4 turns to one enemy"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":180.5,"stack":100,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (180.5x, ATK) with consecutive damage increase (max. 1 times, +100x ATK each, 280.5x total) to one enemy"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Use Grand Lethal (Lightning-Fast Zidane) (516112) next turn on caster"}],"maxEffects":[{"effect":{"break":{"def":87,"spr":87},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF and SPR by 87% for 4 turns to one enemy"},{"effect":{"imperil":{"wind":145},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Wind by 145% for 4 turns to one enemy"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":200,"stack":100,"maxStack":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (200x, ATK) with consecutive damage increase (max. 1 times, +100x ATK each, 300x total) to one enemy"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Use Grand Lethal (Lightning-Fast Zidane) (516112) next turn on caster"}],"frames":[145],"move":"walk"}}]]}
+		],
 		"skills": [
-			{"hp%":60, "mp%":60, "atk%":110, "def%":110, "mag%":60, "spr%":110, "evade":{"physical":50,"magical":50}, "dualWielding":{"atk":50,"spr":50}, "improvedDW":true, "lbPerTurn":{"min":7,"max":7}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":200,"magical":100},{"name":"plant","physical":200}], "mpRefresh":14, "lbDamage":150, "drawAttacks":50, "special":["dualWield"]},
+			{"hp%":60, "mp%":60, "atk%":110, "def%":110, "mag%":60, "spr%":110, "evade":{"physical":50,"magical":50}, "dualWielding":{"atk":50,"spr":50}, "improvedDW":true, "lbPerTurn":{"min":7,"max":7}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"plant","physical":300,"magical":100},{"name":"dragon","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"bird","physical":300,"magical":200}], "mpRefresh":14, "lbDamage":150, "drawAttacks":50, "special":["dualWield"]},
 			{"mp%":50, "atk%":140, "equipedConditions":["dagger"]},
-			{"dualWielding":{"atk":100,"spr":100}, "lbPerTurn":{"min":2,"max":2}, "equipedConditions":[["405014100","504240422"]]}
+			{"dualWielding":{"atk":100,"spr":100}, "lbPerTurn":{"min":2,"max":2}, "equipedConditions":[["405014100","504240422"]]},
+			{"atk":500, "exLevelCondition":3}
 		]
 	},
 	"209002907": {
@@ -39566,7 +39575,7 @@
 		],
 		"skills": [
 			{"hp%":60, "mp%":30, "def%":20, "spr%":20, "evade":{"physical":30,"magical":20}, "resist":[{"name":"poison","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"disease","percent":100}], "killers":[{"name":"human","magical":50},{"name":"spirit","magical":50}], "mpRefresh":5},
-			{"mp%":30, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "equipedConditions":[["1500000034","1100000226"]]},
+			{"mp%":30, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "equipedConditions":[["1500000034","1100000226","1100000686"]]},
 			{"spr%":30, "skillEnhancement":{"910610":1,"910611":1,"910613":1,"912869":1}, "levelCondition":110},
 			{"def%":20, "levelCondition":115},
 			{"hp%":20, "mp%":20, "spr%":20, "levelCondition":120},
@@ -39623,7 +39632,7 @@
 		],
 			"skills": [
 				{"hp%":60, "mp%":30, "def%":20, "spr%":20, "evade":{"physical":30,"magical":20}, "resist":[{"name":"poison","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"disease","percent":100}], "killers":[{"name":"human","magical":50},{"name":"spirit","magical":50}], "mpRefresh":5},
-				{"mp%":30, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "equipedConditions":[["1500000034","1100000226"]]},
+				{"mp%":30, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "equipedConditions":[["1500000034","1100000226","1100000686"]]},
 				{"spr%":30, "skillEnhancement":{"910610":1,"910611":1,"910613":1,"912869":1}, "levelCondition":110},
 				{"def%":20, "levelCondition":115},
 				{"hp%":20, "mp%":20, "spr%":20, "levelCondition":120}
@@ -39655,7 +39664,7 @@
 			{"def%":20, "spr%":50, "killers":[{"name":"human","magical":100},{"name":"spirit","magical":100}], "levelCondition":120},
 			{"spr":200, "lbPerTurn":{"min":10,"max":10}, "levelCondition":120},
 			{"spr%":50, "equipedConditions":["staff"], "levelCondition":120},
-			{"hp%":70, "def%":30, "spr%":70, "resist":[{"name":"stop","percent":100}], "mpRefresh":7, "equipedConditions":[["1500000034","1100000226"]], "levelCondition":120},
+			{"hp%":70, "def%":30, "spr%":70, "resist":[{"name":"stop","percent":100}], "mpRefresh":7, "equipedConditions":[["1500000034","1100000226","1100000686"]], "levelCondition":120},
 			{"mp%":40, "def%":40, "spr%":40, "lbFillRate":100, "levelCondition":120},
 			{"hp%":50, "mp%":50, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "levelCondition":120},
 			{"resist":[{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "replaceLb":{"name":"Chaotic Cauldron Mix","minEffects":[{"effect":{"break":{"atk":80,"def":80,"mag":80,"spr":80},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 80% for 3 turns to one enemy"},{"effect":{"imperil":{"light":130,"dark":130},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Light and Dark by 130% for 3 turns to one enemy"},{"effect":{"damage":{"mechanism":"magical","damageType":"mind","coef":170,"use":{"stat":"spr","percent":100,"max":99999},"elements":["dark","light"]},"area":"ST","target":"ENEMY"},"desc":"Magic light and dark damage (170x, SPR) to one enemy"}],"maxEffects":[{"effect":{"break":{"atk":80,"def":80,"mag":80,"spr":80},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 80% for 3 turns to one enemy"},{"effect":{"imperil":{"light":130,"dark":130},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Light and Dark by 130% for 3 turns to one enemy"},{"effect":{"damage":{"mechanism":"magical","damageType":"mind","coef":200,"use":{"stat":"spr","percent":100,"max":99999},"elements":["dark","light"]},"area":"ST","target":"ENEMY"},"desc":"Magic light and dark damage (200x, SPR) to one enemy"}],"frames":[210,225,240,255,270,285,300],"move":"walk"}, "levelCondition":120, "exLevelCondition":2}
@@ -44839,6 +44848,68 @@
 			{"atk":250, "atk%":100, "killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "equipedConditions":[["1100000088","504230013","1500000211","1500000212","401004801"]]},
 			{"hp%":100, "mp%":100, "atk":500, "def":500, "spr":500, "exLevelCondition":2},
 			{"atk":1000, "atk%":100, "exLevelCondition":2}
+		]
+	},
+	"401014007": {
+		"name":"Ayaka villanciquera",
+		"roles":["magicalAttacker","support"],
+		"wikiEntry":"Cheerful_Caroler Ayaka",
+		"id":"401014007",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401014017",
+		"exAwakening": [{"hp":689,"mp":39,"atk":18,"def":31,"mag":83,"spr":38},{"hp":530,"mp":30,"atk":14,"def":24,"mag":64,"spr":29},{"hp":371,"mp":21,"atk":10,"def":17,"mag":45,"spr":20}],
+		"fragmentId": "310000990",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":300,"atk":140,"def":240,"mag":320,"spr":290},
+			"minStats":{"hp":1749,"mp":99,"atk":46,"def":79,"mag":106,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Sweetest of Memories","Finale - Dashing Through the Snow"],
+		"enhancements": [
+			{"name":"Sweetest of Memories","levels":[[{"mag":500,"chainMastery":100,"singleWielding":{"mag":150},"equipedConditions":[["1100000691","1100000685"]]}],[{"mag":750,"chainMastery":100,"singleWielding":{"mag":150},"equipedConditions":[["1100000691","1100000685"]]}],[{"mag":1000,"chainMastery":100,"singleWielding":{"mag":200},"equipedConditions":[["1100000691","1100000685"]]}],[{"mag":1250,"chainMastery":100,"singleWielding":{"mag":200},"equipedConditions":[["1100000691","1100000685"]]}],[{"mag":1500,"chainMastery":100,"singleWielding":{"mag":250},"equipedConditions":[["1100000691","1100000685"]]}]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":100, "mag%":150, "spr%":100, "evade":{"physical":50}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":75},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":10},
+			{"hp%":100, "mag%":100, "equipedConditions":["rod"]},
+			{"hp":750, "mag":625, "singleWielding":{"mag":150}, "exLevelCondition":2},
+			{"hp":750, "mag":625, "evade":{"magical":50}, "chainMastery":50, "exLevelCondition":3}
+		]
+	},
+	"401014017": {
+		"name":"Ayaka villanciquera BS",
+		"roles":["magicalAttacker","support"],
+		"wikiEntry":"Cheerful_Caroler Ayaka",
+		"id":"401014017",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401014007",
+		"exAwakening": [{"hp":689,"mp":39,"atk":18,"def":31,"mag":83,"spr":38},{"hp":530,"mp":30,"atk":14,"def":24,"mag":64,"spr":29},{"hp":371,"mp":21,"atk":10,"def":17,"mag":45,"spr":20}],
+		"fragmentId": "310000990",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":300,"atk":140,"def":240,"mag":320,"spr":290},
+			"minStats":{"hp":1749,"mp":99,"atk":46,"def":79,"mag":106,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Sweetest of Memories","Finale - Dashing Through the Snow"],
+		"enhancements": [
+			{"name":"Sweetest of Memories","levels":[[{"mag":500,"chainMastery":100,"singleWielding":{"mag":150},"equipedConditions":[["1100000691","1100000685"]]}],[{"mag":750,"chainMastery":100,"singleWielding":{"mag":150},"equipedConditions":[["1100000691","1100000685"]]}],[{"mag":1000,"chainMastery":100,"singleWielding":{"mag":200},"equipedConditions":[["1100000691","1100000685"]]}],[{"mag":1250,"chainMastery":100,"singleWielding":{"mag":200},"equipedConditions":[["1100000691","1100000685"]]}],[{"mag":1500,"chainMastery":100,"singleWielding":{"mag":250},"equipedConditions":[["1100000691","1100000685"]]}]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":100, "mag%":150, "spr%":100, "evade":{"physical":50}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":75},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":10},
+			{"hp%":100, "mag%":100, "equipedConditions":["rod"]},
+			{"hp":750, "mag":625, "singleWielding":{"mag":150}, "exLevelCondition":2},
+			{"hp":750, "mag":625, "evade":{"magical":50}, "chainMastery":50, "exLevelCondition":3}
 		]
 	}
 ,

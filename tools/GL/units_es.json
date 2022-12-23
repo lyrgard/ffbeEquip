@@ -10814,9 +10814,9 @@
 		"equip":["katana","staff","rod","spear","hat","clothes","robe","visionCard"]
 	},
 	"100039107": {
-		"name":"Christmas Charlotte",
+		"name":"Charlotte, caballero silente",
 		"roles":["magicalTank"],
-		"wikiEntry":"クリスマスシャルロット",
+		"wikiEntry":"Silent_Knight Charlotte",
 		"id":"100039107",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -10833,12 +10833,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","staff","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["オルネート・ゲイル"]
+		"enhancementSkills":["Shellga","Banishga","Cover - Magic I","Elegant Gale"]
 	},
 	"100039117": {
-		"name":"Christmas Charlotte BS",
+		"name":"Charlotte, caballero silente BS",
 		"roles":["magicalTank"],
-		"wikiEntry":"クリスマスシャルロット",
+		"wikiEntry":"Silent_Knight Charlotte",
 		"id":"100039117",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -16256,7 +16256,7 @@
 		"wikiEntry":"Cloud_(FFVII: AC)",
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -16273,7 +16273,7 @@
 			"wikiEntry":"Cloud_(FFVII: AC)",
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16293,7 +16293,7 @@
 		"wikiEntry":"Tifa_(FFVII: AC)",
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -16310,7 +16310,7 @@
 			"wikiEntry":"Tifa_(FFVII: AC)",
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16330,7 +16330,7 @@
 		"wikiEntry":"Kadaj",
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -16347,7 +16347,7 @@
 			"wikiEntry":"Kadaj",
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16367,7 +16367,7 @@
 		"wikiEntry":"Yazoo_& Loz",
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -18192,7 +18192,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","mace","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["Speedy Evasion (Lightning-Fast Zidane)","Swift Raid"]
+		"enhancementSkills":["Dagger Mastery","Speedy Evasion (Lightning-Fast Zidane)","Swift Raid"]
 	},
 	"209002817": {
 		"name":"Yitán, ladrón ultrarrápido BS",
@@ -18214,7 +18214,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","mace","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["Speedy Evasion (Lightning-Fast Zidane)","True Stellar Circle 5"]
+		"enhancementSkills":["Dagger Mastery","Light from a World in Red","Speedy Evasion (Lightning-Fast Zidane)","True Stellar Circle 5"]
 	},
 	"209002907": {
 		"name":"Vivi, mago negro cándido",
@@ -32749,6 +32749,50 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"401014007": {
+		"name":"Ayaka villanciquera",
+		"roles":["magicalAttacker","support"],
+		"wikiEntry":"Cheerful_Caroler Ayaka",
+		"id":"401014007",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401014017",
+		"exAwakening": [{"hp":689,"mp":39,"atk":18,"def":31,"mag":83,"spr":38},{"hp":530,"mp":30,"atk":14,"def":24,"mag":64,"spr":29},{"hp":371,"mp":21,"atk":10,"def":17,"mag":45,"spr":20}],
+		"fragmentId": "310000990",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":300,"atk":140,"def":240,"mag":320,"spr":290},
+			"minStats":{"hp":1749,"mp":99,"atk":46,"def":79,"mag":106,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Sweetest of Memories","Finale - Dashing Through the Snow"]
+	},
+	"401014017": {
+		"name":"Ayaka villanciquera BS",
+		"roles":["magicalAttacker","support"],
+		"wikiEntry":"Cheerful_Caroler Ayaka",
+		"id":"401014017",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401014007",
+		"exAwakening": [{"hp":689,"mp":39,"atk":18,"def":31,"mag":83,"spr":38},{"hp":530,"mp":30,"atk":14,"def":24,"mag":64,"spr":29},{"hp":371,"mp":21,"atk":10,"def":17,"mag":45,"spr":20}],
+		"fragmentId": "310000990",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":300,"atk":140,"def":240,"mag":320,"spr":290},
+			"minStats":{"hp":1749,"mp":99,"atk":46,"def":79,"mag":106,"spr":96},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Sweetest of Memories","Finale - Dashing Through the Snow"]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker"],"id":"100000115","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"]},
