@@ -21332,7 +21332,7 @@
 		"roles":["physicalAttacker","debuffer"],
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -21354,7 +21354,7 @@
 			"roles":["physicalAttacker","debuffer"],
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -21376,7 +21376,7 @@
 		"roles":["physicalAttacker"],
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -21400,7 +21400,7 @@
 			"roles":["physicalAttacker"],
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -21424,7 +21424,7 @@
 		"roles":["physicalAttacker","debuffer"],
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -21447,7 +21447,7 @@
 			"roles":["physicalAttacker","debuffer"],
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -21470,7 +21470,7 @@
 		"roles":["physicalAttacker"],
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -41868,11 +41868,11 @@
 		"equip":["staff","rod","bow","harp","throwing","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["Lotus Retribution","Merciless Waterfall"],
 		"skills": [
-			{"hp%":30, "mp%":80, "def%":30, "mag%":160, "spr%":30, "lbFillRate":50, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":100}], "mpRefresh":10, "lbDamage":50},
+			{"hp%":150, "mp%":150, "def%":100, "mag":3000, "mag%":210, "spr%":100, "chainMastery":100, "lbFillRate":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200}], "mpRefresh":15, "lbDamage":100},
 			{"mag%":40, "equipedConditions":["rod"]},
-			{"def%":40, "mag%":40, "spr%":40, "singleWielding":{"mag":100}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "equipedConditions":[["1500000143","1100000454"]]},
+			{"def%":40, "mag%":40, "spr%":40, "singleWielding":{"mag":200}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "equipedConditions":[["1500000143","1100000454"]]},
 			{"mp%":20, "levelCondition":115},
-			{"mp%":50, "mag%":50, "singleWielding":{"mag":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"disease","percent":100}], "levelCondition":120}
+			{"mp%":50, "mag%":50, "singleWielding":{"mag":100}, "levelCondition":120}
 		]
 	},
 	"401011217": {
@@ -41896,11 +41896,11 @@
 		"equip":["staff","rod","bow","harp","throwing","hat","clothes","lightArmor","robe","visionCard"],
 		"enhancementSkills":["Lotus Retribution","Petal Wall"],
 		"skills": [
-			{"hp%":30, "mp%":50, "def%":30, "mag%":50, "spr%":120, "lbFillRate":50, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":100}], "mpRefresh":10, "lbDamage":50},
+			{"hp%":150, "mp%":150, "def%":100, "mag%":100, "spr":3000, "spr%":210, "chainMastery":100, "lbFillRate":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200}], "mpRefresh":15, "lbDamage":100},
 			{"spr%":40, "equipedConditions":["rod"]},
-			{"def%":40, "mag%":40, "spr%":40, "singleWielding":{"spr":100}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "lbDamage":50, "equipedConditions":[["1500000143","1100000454"]]},
+			{"def%":40, "mag%":40, "spr%":40, "singleWielding":{"spr":300}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "lbDamage":100, "equipedConditions":[["1500000143","1100000454"]]},
 			{"spr%":20, "levelCondition":115},
-			{"mp%":50, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"demon","magical":75}], "lbDamage":100, "levelCondition":120}
+			{"mp%":50, "spr%":50, "killers":[{"name":"demon","magical":100}], "lbDamage":100, "levelCondition":120}
 		]
 	},
 	"401011307": {

@@ -177,6 +177,7 @@ const unitRules = {
     7204: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10004], // FF4
     7205: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10005], // FF5
     7206: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10006], // FF6
+    7207: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10007], // FF7
     7208: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10008], // FF8
     7209: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10009], // FF9
     7210: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10010], // FF10
