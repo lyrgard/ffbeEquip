@@ -2289,6 +2289,43 @@
             "music_id": "5000002"
         }
     },
+    "100006801": {
+        "name": "珊瑚の森の休日",
+        "compendium_id": 146,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11001,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [55, 110, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [55, 110, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244050],
+            "7": [244051],
+            "10": [244052]
+        },
+        "restriction": null,
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "海中遊泳を楽しむフィーナとルンド。海面からの陽光が照らす珊瑚の森。色とりどりの魚たちの群れが、陸からの来訪者を迎え入れてくれる。二人がそれぞれたどり着くかもしれない安寧のひとときのビジョン。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "珊瑚の森の休日",
+            "music": "♪Joie de Vivre",
+            "music_id": "400312"
+        }
+    },
     "201000101": {
         "name": "And So Their Quest Began",
         "compendium_id": 100,
@@ -2796,6 +2833,124 @@
             "music_id": "400902"
         }
     },
+    "205000401": {
+        "name": "新たな旅の予感",
+        "compendium_id": 147,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10005,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [65, 130, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244060],
+            "7": [244061],
+            "10": [244062]
+        },
+        "restriction": {
+            "244062": [7205]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "父の遺言に従い、相棒であるチョコボのボコに乗って旅をつづけるバッツ。世界に異変が迫るなか、「クリスタルを守る」という新たな旅が始まろうとしていた……。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "新たな旅の予感",
+            "music": "♪4つの心",
+            "music_id": "4000130"
+        }
+    },
+    "205000501": {
+        "name": "この命　燃えつきても！",
+        "compendium_id": 148,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10005,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [400, 800, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [0, 0, 0, 0],
+            "DEF": [40, 80, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [40, 80, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244063],
+            "7": [244064],
+            "10": [244065]
+        },
+        "restriction": {
+            "244065": [7205]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "ムーアの大森林にある長老の木へ、バッツたちを助けに来たものの、エクスデスに追い詰められるクルル。孫娘の危機に立ち上がったガラフは、エクスデスとの一騎打ちに挑む。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "この命　燃えつきても！",
+            "music": "♪決戦",
+            "music_id": "4000803"
+        }
+    },
+    "205000601": {
+        "name": "ビッグブリッジの死闘",
+        "compendium_id": 149,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10005,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [50, 100, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244075],
+            "7": [244076],
+            "10": [244077]
+        },
+        "restriction": {
+            "244076": [7116],
+            "244077": [7116]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "エクスデス城から脱出したバッツたちを、ビッグブリッジで待ち伏せしていたギルガメッシュ。「来なかったらどうしようかと不安になりながら扉の裏で待っていた」と、ギルガメッシュは心情を吐露する。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "ビッグブリッジの死闘",
+            "music": "♪ビッグブリッヂの死闘",
+            "music_id": "400817"
+        }
+    },
     "206000101": {
         "name": "Search for the Esper",
         "compendium_id": 26,
@@ -3179,7 +3334,7 @@
         }
     },
     "207001001": {
-        "name": "ユフィ参上！",
+        "name": "Hey, you! Evildoers!",
         "compendium_id": 144,
         "compendium_shown": true,
         "rarity": 1,
@@ -3208,15 +3363,15 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "メインピラー整備場にて、神羅兵の前で名乗りをあげるユフィ。ある時は美少女忍者。ある時は凄腕マテリアハンター。はたしてその正体は……！？",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "ユフィ参上！",
-            "music": "♪忍びの末裔",
+            "desc": "Yuffie announces herself before a pair of Shinra troopers at the main pillar maintenance facility. Some know her as a beguiling ninja. Others as the world's greatest materia hunter. But! Who is she truly?",
+            "info": "Yuffie announces herself before a pair of Shinra troopers at the main pillar maintenance facility. Some know her as a beguiling ninja. Others as the world's greatest materia hunter. But! Who is she truly?",
+            "shop": "Hey, you! Evildoers!",
+            "music": "Descendant of Shinobi",
             "music_id": "4000718"
         }
     },
     "207001101": {
-        "name": "共闘！ウータイのシノビ",
+        "name": "Fight Together, Ninjas of Wutai!",
         "compendium_id": 145,
         "compendium_shown": true,
         "rarity": 1,
@@ -3245,10 +3400,10 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "神羅ビルの地下、兵器開発部門点検フロアで、突如現れた敵と戦うユフィとソノン。高い戦闘能力を持つ“ディープグラウンドソルジャー”たちを、二人は抜群の連携でなぎ倒していく。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "共闘！ウータイのシノビ",
-            "music": "♪ディープグラウンドソルジャー",
+            "desc": "Yuffie and Sonon battle it out against an enemy ambush on the Inspection floor of Advanced Weaponry in the Shinra Building. With impeccable teamwork, the two move to topple the highly skilled Deepground SOLDIERs.",
+            "info": "Yuffie and Sonon battle it out against an enemy ambush on the Inspection floor of Advanced Weaponry in the Shinra Building. With impeccable teamwork, the two move to topple the highly skilled Deepground SOLDIERs.",
+            "shop": "Fight Together, Ninjas of Wutai!",
+            "music": "Deepground SOLDIERs",
             "music_id": "4000722"
         }
     },

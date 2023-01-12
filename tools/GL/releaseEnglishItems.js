@@ -15,8 +15,8 @@ fs.readFile('./data.json', function (err, content) {
 
         if (english === true) {
             items[item].access.forEach((accessType)=> {
-                if (accessType === 'not released yet'){
-                    console.log("Found English unreleased: " + currentName)
+                if (accessType === 'not released yet' && !falsePositives.includes(items[item].id)){
+                    console.log("\"" + items[item].id + "\":" + currentName)
                     if (currentName.includes('Dark')){
                         items[item].access = ['darkVisions']
                     } else if (currentName.includes('Coeurl Whip') || 
@@ -28,9 +28,6 @@ fs.readFile('./data.json', function (err, content) {
                         items[item].access = ['event']
                     } else if (currentName.includes('Fixed Dice')) {
                         items[item].access = ['TMR-4*']
-                    } else if (falsePositives.includes(items[item].id)){
-                        console.log("Marking " + currentName + " as not released (false positive)")
-                        items[item].access = ['not released yet']
                     }
                     else {
                         items[item].access = ['released']
@@ -48,9 +45,7 @@ fs.readFile('./data.json', function (err, content) {
 
     result.items = items;
 
-    fs.writeFile('../../static/GL/data.json', formatOutput(result.items), (err) => {
-        console.log(err)
-    })
+    fs.writeFileSync('../../static/GL/data.json', formatOutput(result.items))
 });
 
 function checkForJapanese(checkString){
