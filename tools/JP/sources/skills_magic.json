@@ -9373,6 +9373,30 @@
         "effects_raw": [[2, 1, 15, [0,  0,  0,  0,  0,  27500,  0]]],
         "requirements": null
     },
+    "70496": {
+        "name": "アポカリプス",
+        "icon": "ability_37.png",
+        "compendium_id": 155,
+        "rarity": 8,
+        "cost": {"MP": 80},
+        "magic_type": "Black",
+        "is_sealable": false,
+        "is_reflectable": false,
+        "in_exploration": false,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[540]],
+        "effect_frames": [[40,  40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": ["Dark"],
+        "effects": [
+            ["Magic dark damage (450x, MAG) to all enemies"]
+        ],
+        "effects_raw": [[2, 1, 15, [0,  0,  0,  0,  0,  45000,  0]]],
+        "requirements": null
+    },
     "70497": {
         "name": "クエイク",
         "icon": "ability_34.png",

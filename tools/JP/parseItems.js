@@ -108,7 +108,7 @@ const visionCardStatPatterns = {
 }
 
 const unitRules = {
-    4008: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10007], // FF7 units
+    4008: (item) => item.exclusiveUnits = unitIdsByGameId[10007], // FF7 units
     7102: (item) => item.exclusiveSex = 'male',// Male units
     7103: (item) => item.exclusiveSex = 'female',// Female units,
     7110: (item) => item.exclusiveRoles = ['physicalAttacker'],
@@ -118,30 +118,37 @@ const unitRules = {
     7114: (item) => item.exclusiveRoles = ['healer'],
     7115: (item) => item.exclusiveRoles = ['support'],
     7116: (item) => item.exclusiveRoles = ['debuffer'],
-    7201: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10001], // FF1
-    7202: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10002], // FF2
-    7203: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10003], // FF3
-    7204: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10004], // FF4
-    7205: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10005], // FF5
-    7206: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10006], // FF6
-    7208: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10008], // FF8
-    7209: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10009], // FF9
-    7210: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10010], // FF10
-    7212: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10012], // FF12
-    7215: (item) => item.exclusiveUnits = nvUnitIdsByGameId[10015], // FF15
-    7216: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11001], // FFBE units
-    7218: (item) => item.exclusiveUnits = nvUnitIdsByGameId[11003], // FF Type 0
-    7225: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[11001] || []).concat(nvUnitIdsByGameId[11010]), // FFBE or WotV
-    7245: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20006], // DQMSL
-    7263: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20024], // Xenogear
+    7201: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10001], // FF1
+    7202: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10002], // FF2
+    7203: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10003], // FF3
+    7204: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10004], // FF4
+    7205: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10005], // FF5
+    7206: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10006], // FF6
+    7207: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10007], // FF7
+    7208: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10008], // FF8
+    7209: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10009], // FF9
+    7210: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10010], // FF10
+    7212: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10012], // FF12
+    7215: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10015], // FF15
+    7216: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[11001], // FFBE units
+    7218: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[11003], // FF Type 0
+    7219: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[11004], // FFX-2 units
+    7245: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20006], // DQMSL
+    7249: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20010],  // Nier Automata
+    7263: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20024], // Xenogear
     7269: (item) => item.exclusiveRoles = ['breaker'],              // Breaker role
-    7271: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20032], // Fullmetal Alchemist units
-    7272: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20033], // KH units
-    7273: (item) => item.exclusiveUnits = (nvUnitIdsByGameId[10013] || []).concat(nvUnitIdsByGameId[11006] || []).concat(nvUnitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units
+    7271: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20032], // FMA Brotherhood
+    7272: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20033], // KH units
+    7273: (item, nvFlag) => item.exclusiveUnits = (unitIdsByGameId[10013] || []).concat(unitIdsByGameId[11006] || []).concat(unitIdsByGameId[11007] || []), // FF13, FF13-2 and LR FF13 units
     7274: (item) => item.exclusiveUnits = ["312000205", "312001007", "312001017"],
-    7275: (item) => item.exclusiveRoles = ['physicalTank'],          // Physical tank role
-    7276: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20037],  // Dragon Quest Dai
-    7403: (item) => item.exclusiveUnits = nvUnitIdsByGameId[20033], // KH units
+    7275: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20036], // ActRaiser Renaissance
+    7276: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20037], // Dragon Quest
+    7277: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[20038], // Chrono Cross
+    7401: (item) => item.exclusiveUnits = ["100031507", "100031517"],
+    7402: (item) => item.exclusiveUnits = ["100039407"],
+    7601: (item) => item.max7StarUnit = true, // not implemented yet. Only for unit max 7*
+    9501: (item) => item.exclusiveUnits = unitIdsByGameId[11001].concat(unitIdsByGameId[11010]), // FFBE & WOTV units
+    9502: (item) => item.exclusiveUnits = (unitIdsByGameId[90003] || []).concat((unitIdsByGameId[90008] || [])), // Tomb raider units
 }
 
 var unitNamesById = {};
