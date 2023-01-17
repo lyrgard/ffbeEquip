@@ -147,6 +147,7 @@ const unitRules = {
     7401: (item) => item.exclusiveUnits = ["100031507", "100031517"],
     7402: (item) => item.exclusiveUnits = ["100039407"],
     7601: (item) => item.max7StarUnit = true, // not implemented yet. Only for unit max 7*
+    7708: (item) => item.element = "dark",
     9501: (item) => item.exclusiveUnits = unitIdsByGameId[11001].concat(unitIdsByGameId[11010]), // FFBE & WOTV units
     9502: (item) => item.exclusiveUnits = (unitIdsByGameId[90003] || []).concat((unitIdsByGameId[90008] || [])), // Tomb raider units
 }
@@ -160,7 +161,8 @@ var oldItemsMaxNumberById = {};
 var releasedUnits;
 var glNameById = {};
 var dev = false;
-var nvUnitIdsByGameId = {};
+var unitIdsByGameId = {};
+var unitIdByVCId = {};
 var jpUnits;
 
 
@@ -170,6 +172,7 @@ function getData(filename, callback) {
             if (!error && response.statusCode == 200) {
                 console.log(filename + " downloaded");
                 var result = JSON.parse(body);
+                fs.writeFileSync('./sources/' + filename, body);
                 callback(result);
             } else {
                 console.log("Error for file " + filename);
@@ -387,6 +390,9 @@ function treatVisionCard(visionCard, visionCardId, skills) {
     let card = {};
     card.id = visionCardId;
     card.name = visionCard.name;
+    if (!card.name && alreadyKnownVisionCardNames[visionCardId]) {
+        card.name = alreadyKnownVisionCardNames[visionCardId];
+    }
     card.type = 'visionCard';
     card.icon = 'vc_vignette_item_icon_' + visionCardId + '.png';
     verifyImage(card.icon);
@@ -403,50 +409,72 @@ function treatVisionCard(visionCard, visionCardId, skills) {
             addStat(levelData, stat.toLowerCase(), Math.floor(value));
         });
         for (let i = 1; i <= level; i++) {
-            if (visionCard.skills && visionCard.skills[i]) {
-                for (let j = 0; j < visionCard.skills[i].length; j++) {
+            if (visionCard.skills && visionCard.skills[i] && visionCard.skills[i].length) {
+                for (let j = 0; j < visionCard.skills[i].length; j++) { //Skill loop
                     let skill = skills[visionCard.skills[i][j].toString()];
-                    skill.effects_raw.forEach((rawEffect, index) => {
-                        if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
-                            // mastery skill
-                            let conditional = {};
-                            addMastery(conditional, rawEffect);
-                            if (!levelData.conditional) levelData.conditional = [];
-                            const sameCondition = levelData.conditional.filter(cond => arrayEquivalents(cond.equipedConditions, conditional.equipedConditions));
-                            if (sameCondition.length === 0) {
-                                levelData.conditional.push(conditional);
-                            } else {
-                                stats.forEach(stat => {
-                                    if (conditional[stat.toLowerCase() + '%']) {
-                                        addStat(sameCondition[0], stat.toLowerCase() + '%', conditional[stat.toLowerCase() + '%']);
-                                    }
-                                });
-                            }
-                        } else {
-                            if (visionCard.restriction && visionCard.restriction[visionCard.skills[i].toString()]) {
-                                let ruleId = visionCard.restriction[visionCard.skills[i].toString()][0];
+                    if (skill) {
+                        skill.effects_raw.forEach((rawEffect, index) => { // Effect loop
+                            if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
+                                // conditional equipment mastery skill (base stats by weapon, equipment type, element, etc.)
                                 let conditional = {};
-                                addEffectToItem(conditional, skill, index, skills);
+                                addMastery(conditional, rawEffect);
                                 if (!levelData.conditional) levelData.conditional = [];
-                                if (!Object.keys(unitRules).includes(ruleId.toString())) {
-                                    console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                                const sameCondition = levelData.conditional.filter(cond => arrayEquivalents(cond.equipedConditions, conditional.equipedConditions));
+                                if (sameCondition.length === 0) {
+                                    levelData.conditional.push(conditional);
+                                } else {
+                                    stats.forEach(stat => {
+                                        if (conditional[stat.toLowerCase() + '%']) {
+                                            addStat(sameCondition[0], stat.toLowerCase() + '%', conditional[stat.toLowerCase() + '%']);
+                                        }
+                                    });
                                 }
-                                console.log(ruleId)
-                                unitRules[ruleId](conditional);
-                                levelData.conditional.push(conditional);
+                                
+                                if (visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]) {
+                                    let ruleArray = visionCard.restriction[visionCard.skills[i][j].toString()]
+                                    ruleArray.forEach((ruleId) => {
+                                        if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                                            console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                                        } else {
+                                            unitRules[ruleId](conditional);
+                                        }
+                                    })
+
+                                    levelData.conditional.push(conditional)
+                                }
                             } else {
-                                addEffectToItem(levelData, skill, index, skills);
+                                //if (card.id == '207000401') console.log('HAS RESTRICTION ?', visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]);
+                                if (visionCard.restriction && visionCard.restriction[visionCard.skills[i][j].toString()]) {
+                                    let ruleArray = visionCard.restriction[visionCard.skills[i][j].toString()]
+                                    let conditional = {}
+                                    addEffectToItem(conditional, skill, index, skills);
+                                    ruleArray.forEach((ruleId) => {
+
+                                        if (!levelData.conditional) levelData.conditional = [];
+                                        if (!Object.keys(unitRules).includes(ruleId.toString())) {
+                                            console.log('Missing rule ' + ruleId + ' for vision card ' + visionCard.name);
+                                        } else {
+                                            unitRules[ruleId](conditional);
+                                        }
+                                    });
+                                    levelData.conditional.push(conditional)
+                                } else {
+                                    addEffectToItem(levelData, skill, index, skills);
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 }
             }
         }
-        // TODO restriction
     }
+
+    if (unitIdByVCId[visionCardId]) {
+        card.vc = unitIdByVCId[visionCardId]
+    }
+
     return card;
 }
-
 function arrayEquivalents(a1, a2) {
     return a1.length === a2.length && a1.every(item => a2.includes(item));
 }
