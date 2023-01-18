@@ -438,6 +438,9 @@ getData('equipment.json', function (items) {
 
 
 function treatItem(items, itemId, result, skills) {
+    if (itemId === "1500000217") {
+        console.log("pause")
+    }
     var itemIn = items[itemId];
     /*if (itemIn.name.match(/[^\x00-\xFF’]/) && !itemIn.name.startsWith("Firewall: Power") && !itemIn.name.startsWith("Copper Cuirass")) {
         // exclude item whose name contain non english char
@@ -480,9 +483,6 @@ function treatItem(items, itemId, result, skills) {
         var uitId = unitIdByTmrId[itemOut.id];
         var unit = unitNamesById[uitId];
         var access = "TMR-" + unit.minRarity + "*";
-        if (uitId == "401008505") {
-            console.log(JSON.stringify(releasedUnits[uitId]));
-        }
         if (unit.event || (releasedUnits[uitId] && releasedUnits[uitId].type == "event")) {
             if (uitId == "401008505") {
                 console.log("added event");
@@ -539,7 +539,6 @@ function treatItem(items, itemId, result, skills) {
             } else if (currentArray[0] === "RULE"){
 
                 if (Array.isArray(currentArray[1])) {
-                    let arrayLength = currentArray[1].length;
                     let ruleArray = currentArray[1];
                     let conditionalUnits = {};
 
@@ -814,9 +813,9 @@ function manageRequirement(skill, debugItems, copy) {
 }
 
 function readSkills(itemIn, itemOut, skills) {
-    let debugItems = ['504242660'];
+    let debugItems = ['504205260'];
     var result = [];
-    
+
     if (itemIn.skills) {
         var masterySkills = [];
         var restrictedSkills = [];
@@ -858,9 +857,13 @@ function readSkills(itemIn, itemOut, skills) {
                     if (!skill.active) {
                         for (var rawEffectIndex in skill.effects_raw) {
                             rawEffect = skill.effects_raw[rawEffectIndex];
-
+                            //Light Armor Mastery & Helm Mastery
+                            if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 5 && skill.effects_raw[1] && (skill.effects_raw[1][0] == 0 || skill.effects_raw[1][0] == 1 ) && skill.effects_raw[1][1] == 3 && skill.effects_raw[1][2] == 6) {
+                                addEffectToItem(itemOut, skill, rawEffectIndex, skills)
+                                result.push(itemOut)
+                            }
                             // Mastery (+X% stat if equiped with ...)
-                            if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
+                            else if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
                                 masterySkills.push(rawEffect);
 
                                 // element based mastery

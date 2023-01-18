@@ -716,6 +716,11 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
 	 if (skill.active) {
         return false; // don't consider active skills
     }
+
+    if (item.name.includes("Light Armor Mastery")) {
+        console.log(skill)
+        sada
+    }
     var rawEffect = skill.effects_raw[rawEffectIndex];
     // + X % to a stat
     if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {
