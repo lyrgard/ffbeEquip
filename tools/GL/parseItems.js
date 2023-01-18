@@ -438,9 +438,6 @@ getData('equipment.json', function (items) {
 
 
 function treatItem(items, itemId, result, skills) {
-    if (itemId === "1500000217") {
-        console.log("pause")
-    }
     var itemIn = items[itemId];
     /*if (itemIn.name.match(/[^\x00-\xFF’]/) && !itemIn.name.startsWith("Firewall: Power") && !itemIn.name.startsWith("Copper Cuirass")) {
         // exclude item whose name contain non english char
