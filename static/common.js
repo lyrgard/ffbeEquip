@@ -1208,9 +1208,11 @@ function unitLimitations(unit, item) {
         }
         return false;
     } else if (item.exclusiveRoles) {
-        if (item.exclusiveRoles.includes(unit.roles)) {
-            return true;
-        }
+        item.exclusiveRoles.forEach(role => {
+            if (unit.roles.includes(role)) {
+                return true;
+            }
+        })
         return false;
     } else {
         return true;
