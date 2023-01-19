@@ -1168,7 +1168,11 @@ function itemMatches(item, filter) {
         case 'type':
             return filter.value === item?.type;
         case 'currentUnit':
-            return unitLimitations(units[filter.value], item) 
+            return exclusiveUnits(units[filter.value], item);
+        case 'role':
+            return true;
+        case 'sex':
+            return true;
         case 'element':
             return (item.element && item.element.includes(filter.value))
             || (filter.value === 'noElement' && !item.element)
@@ -1193,27 +1197,13 @@ function itemMatches(item, filter) {
     }
 }
 
-function unitLimitations(unit, item) {
+function exclusiveUnits(unit, item) {
     // check if the unit is exclusive
     if (item.exclusiveUnits) {
         if (item.exclusiveUnits.includes(unit.id)) {
             return true;
         }
     }
-    else if (item.exclusiveSex){
-        if (item.exclusiveSex == unit.sex) {
-            return true;
-        }
-    } else if (item.exclusiveRoles) {
-        item.exclusiveRoles.forEach(role => {
-            if (unit.roles.includes(role)) {
-                return true;
-            }
-        })
-    } else {
-        return true;
-    }
-
     return false;
 }
 
