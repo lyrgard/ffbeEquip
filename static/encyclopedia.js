@@ -71,6 +71,12 @@ var update = function() {
     
     
     var filters = [];
+	 // Filter out gear that this unit does not qualify for by unitID, Role, or Sex
+    let currentUnit = $('#unitsSelect').val()
+    
+    if (currentUnit > 1) {
+        filters.push(convertValuesToFilter([currentUnit], 'currentUnit'))
+    }
     if (stat.length > 0) filters.push({type: 'stat', value: stat});
     if (searchText) filters.push({type: 'text', value: searchText});
     if (additionalStat.length > 0) filters.push({type: 'stat', value: additionalStat});
@@ -86,12 +92,6 @@ var update = function() {
     if (types.length > 0) filters.push(convertValuesToFilter(types, 'type'));
     if (onlyShowOwnedItems) filters.push({type: 'onlyOwned'});
     
-    // Filter out gear that this unit does not qualify for by unitID, Role, or Sex
-    let currentUnit = $('#unitsSelect').val()
-    
-    if (currentUnit > 1) {
-        filters.push(convertValuesToFilter([currentUnit], 'currentUnit'))
-    }
     
     let filter = andFilters(...filters);
     

@@ -1198,27 +1198,23 @@ function unitLimitations(unit, item) {
     if (item.exclusiveUnits) {
         if (item.exclusiveUnits.includes(unit.id)) {
             return true;
-        } else {
-            return false;
         }
     }
     else if (item.exclusiveSex){
         if (item.exclusiveSex == unit.sex) {
             return true;
-        } else {
-            return false;
         }
     } else if (item.exclusiveRoles) {
         item.exclusiveRoles.forEach(role => {
             if (unit.roles.includes(role)) {
                 return true;
-            } else {
-                return false;
             }
         })
+    } else {
+        return true;
     }
 
-    return true;
+    return false;
 }
 
 
