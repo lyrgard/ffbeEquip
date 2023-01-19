@@ -88,19 +88,15 @@ var update = function() {
     
     // Filter out gear that this unit does not qualify for by unitID, Role, or Sex
     let currentUnit = $('#unitsSelect').val()
-    console.log(currentUnit)
+    
     if (currentUnit > 1) {
-        filters.push(
-            {
-                "type": 'currentUnit',
-                "currentUnit": currentUnit
-            }
-        );
+        filters.push(convertValuesToFilter([currentUnit], 'currentUnit'))
     }
     
     let filter = andFilters(...filters);
     
     let filteredItems = filterItems(data, filter, showNotReleasedYet);
+
     filteredItems.forEach(item => calculateValue(item, baseStat, stat, ailments, elements, killers));
     
 	// filter, sort and display the results

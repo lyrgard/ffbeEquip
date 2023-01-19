@@ -1,4 +1,3 @@
-
 var wikiBaseUrl = "https://exvius.fandom.com/";
 
 var data;
@@ -1169,7 +1168,7 @@ function itemMatches(item, filter) {
         case 'type':
             return filter.value === item?.type;
         case 'currentUnit':
-            return unitLimitations(units[filter.currentUnit], item) 
+            return unitLimitations(units[filter.value], item) 
         case 'element':
             return (item.element && item.element.includes(filter.value))
             || (filter.value === 'noElement' && !item.element)
@@ -1199,24 +1198,27 @@ function unitLimitations(unit, item) {
     if (item.exclusiveUnits) {
         if (item.exclusiveUnits.includes(unit.id)) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
     else if (item.exclusiveSex){
         if (item.exclusiveSex.includes(unit.sex)) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     } else if (item.exclusiveRoles) {
         item.exclusiveRoles.forEach(role => {
             if (unit.roles.includes(role)) {
                 return true;
+            } else {
+                return false;
             }
         })
-        return false;
-    } else {
-        return true;
     }
+
+    return true;
 }
 
 
