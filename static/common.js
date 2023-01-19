@@ -1203,7 +1203,7 @@ function unitLimitations(unit, item) {
         }
     }
     else if (item.exclusiveSex){
-        if (item.exclusiveSex.includes(unit.sex)) {
+        if (item.exclusiveSex == unit.sex) {
             return true;
         } else {
             return false;
