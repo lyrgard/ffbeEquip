@@ -1168,6 +1168,8 @@ function itemMatches(item, filter) {
             return !itemMatches(item, filter.value);
         case 'type':
             return filter.value === item?.type;
+        case 'currentUnit':
+            return unitLimitations(units[filter.currentUnit], item) 
         case 'element':
             return (item.element && item.element.includes(filter.value))
             || (filter.value === 'noElement' && !item.element)
@@ -1189,6 +1191,29 @@ function itemMatches(item, filter) {
             return itemInventory && itemInventory[item.id];
         case 'boolean':
             return filter.value;
+    }
+}
+
+function unitLimitations(unit, item) {
+    // check if the unit is exclusive
+    if (item.exclusiveUnits) {
+        if (item.exclusiveUnits.includes(unit.id)) {
+            return true;
+        }
+        return false;
+    }
+    else if (item.exclusiveSex){
+        if (item.exclusiveSex.includes(unit.sex)) {
+            return true;
+        }
+        return false;
+    } else if (item.exclusiveRoles) {
+        if (item.exclusiveRoles.includes(unit.roles)) {
+            return true;
+        }
+        return false;
+    } else {
+        return true;
     }
 }
 

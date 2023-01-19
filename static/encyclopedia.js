@@ -86,6 +86,18 @@ var update = function() {
     if (types.length > 0) filters.push(convertValuesToFilter(types, 'type'));
     if (onlyShowOwnedItems) filters.push({type: 'onlyOwned'});
     
+    // Filter out gear that this unit does not qualify for by unitID, Role, or Sex
+    let currentUnit = $('#unitsSelect').val()
+    console.log(currentUnit)
+    if (currentUnit > 1) {
+        filters.push(
+            {
+                "type": 'currentUnit',
+                "currentUnit": currentUnit
+            }
+        );
+    }
+    
     let filter = andFilters(...filters);
     
     let filteredItems = filterItems(data, filter, showNotReleasedYet);
