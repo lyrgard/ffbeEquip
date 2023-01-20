@@ -1167,12 +1167,12 @@ function itemMatches(item, filter) {
             return !itemMatches(item, filter.value);
         case 'type':
             return filter.value === item?.type;
-        case 'currentUnit':
+        case 'unitExclusives':
             return exclusiveUnits(units[filter.value], item);
-        case 'role':
-            return true;
-        case 'sex':
-            return true;
+        case 'unitRoles':
+            return roleCheck(filter.value, item);
+        case 'unitSex':
+            return sexCheck(filter.value, item);
         case 'element':
             return (item.element && item.element.includes(filter.value))
             || (filter.value === 'noElement' && !item.element)
@@ -1203,7 +1203,33 @@ function exclusiveUnits(unit, item) {
         if (item.exclusiveUnits.includes(unit.id)) {
             return true;
         }
+    } else {
+        return true;
     }
+    return false;
+}
+
+function roleCheck(roles, item) {
+    if (item.exclusiveRoles) {
+        if (item.exclusiveRoles.some(role => roles.includes(role))){
+            return true;
+        }
+    } else {
+        return true;
+    }
+    return false;
+}
+
+function sexCheck(sex, item) {
+    if (item.exclusiveSex) {
+        if (item.exclusiveSex == sex) {
+            return true;
+        }
+    }
+    else {
+        return true;
+    }
+
     return false;
 }
 
