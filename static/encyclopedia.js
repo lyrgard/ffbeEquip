@@ -75,8 +75,6 @@ var update = function() {
     let currentUnit = $('#unitsSelect').val()
     let unitData = units[currentUnit]
 
-    console.log(unitData)
-
     if (unitData && unitData.id) {
         filters.push({type: 'unitExclusives', value: unitData.id})
     }
