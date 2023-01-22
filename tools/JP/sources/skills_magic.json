@@ -1368,6 +1368,33 @@
         "effects_raw": [[2, 2, 27, [100,  4,  0]]],
         "requirements": null
     },
+    "10520": {
+        "name": "エスナガII",
+        "icon": "ability_3.png",
+        "compendium_id": 44,
+        "rarity": 8,
+        "cost": {"MP": 500},
+        "magic_type": "White",
+        "is_sealable": true,
+        "is_reflectable": true,
+        "in_exploration": true,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[120]],
+        "effect_frames": [[40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": null,
+        "effects": [
+            ["Cure all status effects for all allies"],
+            ["Remove Stop and Charm debuff from all allies"],
+            ["Increase resistance to all status effects by 100% for all allies for 2 turns"],
+            ["Increase Stop resistance by 100% for 2 turns to all allies", "Increase Charm resistance by 100% for 2 turns to all allies"]
+        ],
+        "effects_raw": [[2, 2, 5, [1,  2,  3,  4,  5,  6,  7,  8]], [2, 2, 111, [0,  0,  0,  0,  1,  1]], [2, 2, 7, [100,  100,  100,  100,  100,  100,  100,  100,  1,  2]], [2, 2, 89, [0,  0,  0,  0,  100,  100,  2,  1]]],
+        "requirements": null
+    },
     "10530": {
         "name": "ヒーリング効果",
         "icon": "ability_4.png",
@@ -5668,6 +5695,30 @@
             ["Increase LB gauge by 10 to all allies"]
         ],
         "effects_raw": [[2, 2, 33, [0,  0,  0,  0,  200,  0,  0,  0,  1,  5]], [2, 2, 18, [50,  5,  1,  1]], [2, 2, 19, [50,  5,  1,  1]], [2, 2, 101, [50,  5,  1,  1]], [2, 2, 125, [1000,  1000]]],
+        "requirements": null
+    },
+    "30830": {
+        "name": "バダークガ",
+        "icon": "ability_98.png",
+        "compendium_id": 332,
+        "rarity": 6,
+        "cost": {"MP": 15},
+        "magic_type": "Green",
+        "is_sealable": true,
+        "is_reflectable": true,
+        "in_exploration": false,
+        "attack_count": [0],
+        "attack_damage": [[]],
+        "attack_frames": [[]],
+        "effect_frames": [[40,  40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": ["Dark"],
+        "effects": [
+            ["Increase resistance to Dark by 80% for 4 turns to all allies"]
+        ],
+        "effects_raw": [[2, 2, 33, [0,  0,  0,  0,  0,  0,  0,  80,  1,  4]]],
         "requirements": null
     },
     "40010": {

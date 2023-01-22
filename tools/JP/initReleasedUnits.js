@@ -1,5 +1,5 @@
-var fs = require('fs');
-var request = require('request');
+import fs from 'fs'
+import request from 'request'
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -71,8 +71,8 @@ var elementsMap = {
     8: 'dark'
 }
 
-filterGame = [];
-filterUnits = []
+let filterGame = [];
+let filterUnits = []
 
 var unitNamesById = {};
 var unitIdByTmrId = {};

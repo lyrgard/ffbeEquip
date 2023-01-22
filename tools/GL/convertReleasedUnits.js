@@ -1,6 +1,4 @@
-import e from 'express';
 import fs from 'fs'
-import request from 'request'
 
 
 console.log("Starting");

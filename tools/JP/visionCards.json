@@ -691,7 +691,7 @@
 	{"atk":130, "killers":[{"name":"bird","physical":75,"magical":75},{"name":"demon","physical":75,"magical":75},{"name":"dragon","physical":75,"magical":75}]}
 ]},
 {"id":"100007001", "name":"復讐の時は来た！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100007001.png", "sortId":151, "levels":[
-	{"atk":170, "mag":170, "conditional":[{"atk%":80,"mag%":80},{"lbDamage":100},{"staticStats":{"atk":500,"mag":500}}]}
+	{"atk":170, "mag":170, "conditional":[{"atk%":80,"mag%":80,"element":"dark"},{"lbDamage":100,"element":"dark"},{"staticStats":{"atk":500,"mag":500},"element":"dark"}]}
 ]},
 {"id":"100007101", "name":"新型魔導兵器テスト", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100007101.png", "sortId":152, "levels":[
 	{"mag":65},
@@ -737,6 +737,18 @@
 ]},
 {"id":"100007601", "name":"魔将の系譜", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100007601.png", "sortId":157, "levels":[
 	{"atk":100, "atk%":50, "def":100, "def%":50, "mag":100, "mag%":50, "spr":100, "spr%":50, "staticStats":{"atk":300,"mag":300}, "lbDamage":50}
+]},
+{"id":"100007801", "name":"戦乱を終わらせるために", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100007801.png", "sortId":168, "levels":[
+	{"atk":55, "mag":55},
+	{"atk":60, "mag":60},
+	{"atk":66, "mag":66},
+	{"atk":71, "mag":71, "killers":[{"name":"bug","physical":75,"magical":75}]},
+	{"atk":77, "mag":77, "killers":[{"name":"bug","physical":75,"magical":75}]},
+	{"atk":82, "mag":82, "killers":[{"name":"bug","physical":75,"magical":75}]},
+	{"atk":88, "mag":88, "killers":[{"name":"bug","physical":75,"magical":75},{"name":"plant","physical":75,"magical":75}]},
+	{"atk":93, "mag":93, "killers":[{"name":"bug","physical":75,"magical":75},{"name":"plant","physical":75,"magical":75}]},
+	{"atk":99, "mag":99, "killers":[{"name":"bug","physical":75,"magical":75},{"name":"plant","physical":75,"magical":75}]},
+	{"atk":110, "mag":110, "killers":[{"name":"bug","physical":75,"magical":75},{"name":"plant","physical":75,"magical":75},{"name":"dragon","physical":75,"magical":75}]}
 ]},
 {"id":"201000101", "name":"And So Their Quest Began", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000101.png", "sortId":100, "levels":[
 	{"hp":500, "def":50},
@@ -1050,10 +1062,10 @@
 	{"mag":117, "mag%":50, "lbDamage":25},
 	{"mag":130, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500}}]}
 ]},
-{"id":"207001001", "name":"ユフィ参上！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207001001.png", "sortId":144, "levels":[
+{"id":"207001001", "name":"Hey, you! Evildoers!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207001001.png", "sortId":144, "levels":[
 	{"atk":150, "killers":[{"name":"machine","physical":100,"magical":100}], "lbDamage":100, "conditional":[{"staticStats":{"atk":500}}]}
 ]},
-{"id":"207001101", "name":"共闘！ウータイのシノビ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207001101.png", "sortId":145, "levels":[
+{"id":"207001101", "name":"Fight Together, Ninjas of Wutai!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207001101.png", "sortId":145, "levels":[
 	{"atk":100, "atk%":50, "dualWielding":{"atk":50}, "oneWeaponMastery":{"atk":50}, "conditional":[{"staticStats":{"atk":300}}]}
 ]},
 {"id":"207001201", "name":"VS Rufus Shinra", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207001201.png", "sortId":142, "levels":[
