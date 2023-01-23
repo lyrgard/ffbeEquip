@@ -811,6 +811,7 @@ function logBuild(build, value) {
     displayStat("#resultStats .drawAttacks", calculateStatValue(build, "drawAttacks", builds[currentUnitIndex]).total);
     displayStat("#resultStats .jumpDamage", calculateStatValue(build, "jumpDamage", builds[currentUnitIndex]).total, 'jumpDamage');
     displayStat("#resultStats .lbDamage", calculateStatValue(build, "lbDamage", builds[currentUnitIndex]).total, 'lbDamage');
+    displayStat("#resultStats .chainMastery", calculateStatValue(build, "chainMastery", builds[currentUnitIndex]).total, 'chainMastery');
 
 
     for (var index in elementList) {

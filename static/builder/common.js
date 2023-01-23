@@ -42,7 +42,7 @@ const weaponBaseDamageVariance =
     }
 
 
-const valuesToNotRoundDown = ["lbPerTurn"];
+const valuesToNotRoundDown = ["lbPerTurn", "chainMastery"];
 
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed, accessory) {
 
@@ -1488,6 +1488,10 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         }
     }
 
+    if (stat === "chainMastery") {
+        calculatedValue = 4  + (calculatedValue / 100)
+    }
+
 
 
     if ("atk" == stat) {
@@ -1509,6 +1513,9 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
             calculatedValue = Math.floor(calculatedValue);
         }
         var result = {"right":0,"left":0,"total":calculatedValue,"bonusPercent":currentPercentIncrease.value};
+        if (stat === "chainMastery") {
+            result.total = calculatedValue + "x"
+        }
         if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
             result.right = result.total;
         }
