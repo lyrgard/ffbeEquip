@@ -1482,7 +1482,7 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     }
 
     if (stat === "lbDamage" || stat === "jumpDamage" || stat === "evoMag" || stat === "evokeDamageBoost.all") {
-        calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
+        //calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
         if (stat === 'lbDamage') {
             calculatedValue += unitBuild.baseValues["lbDamage"];
         }

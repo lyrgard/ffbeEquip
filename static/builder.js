@@ -810,17 +810,9 @@ function logBuild(build, value) {
     displayStat("#resultStats .evokeDamageBoost_all", calculateStatValue(build, "evokeDamageBoost.all", builds[currentUnitIndex]).total);
     displayStat("#resultStats .accuracy", calculateStatValue(build, "accuracy", builds[currentUnitIndex]).total);
     displayStat("#resultStats .drawAttacks", calculateStatValue(build, "drawAttacks", builds[currentUnitIndex]).total);
-    displayStat("#resultStats .jumpDamage", calculateStatValue(build, "jumpDamage", builds[currentUnitIndex]).total, 'jumpDamage');
-    displayStat("#resultStats .lbDamage", calculateStatValue(build, "lbDamage", builds[currentUnitIndex]).total, 'lbDamage');
-
-    if (calculateStatValue(build, "chainMastery", builds[currentUnitIndex]).total > getStatBonusCap('chainMastery')) {
-        $("#resultStats>.chainMastery>div>div:nth-child(2)")
-        $("#resultStats>.chainMastery>div>div:nth-child(2)").css('color', 'red').html("<span style='color:red;' title='Only " + getStatBonusCap('chainMastery') + "x taken into account'>" + calculateStatValue(build, "chainMastery", builds[currentUnitIndex]).total + "x" + " </span>");
-    } else {
-        $("#resultStats>.chainMastery>div>div:nth-child(2)").css('color', '')
-        displayStat("#resultStats .chainMastery", calculateStatValue(build, "chainMastery", builds[currentUnitIndex]).total + "x", 'chainMastery');
-    }
-
+    checkOvercap("jumpDamage");
+    checkOvercap("lbDamage");
+    checkOvercap("chainMastery");
 
     for (var index in elementList) {
         $("#resultStats .resists .resist." + elementList[index] + " .value").text(calculateStatValue(build, "resist|" + elementList[index] + ".percent", builds[currentUnitIndex]).total + '%');
@@ -937,6 +929,21 @@ function logBuild(build, value) {
     $("#resultStats .monsterDefValue").text(" " + enemyStats.def);
     $("#resultStats .monsterSprValue").text(" " + enemyStats.spr);
     $("#resultStats .damageCoef").html("1x");
+}
+
+function checkOvercap(damageType) {
+    if (calculateStatValue(build, damageType, builds[currentUnitIndex]).total > getStatBonusCap(damageType)) {
+        let end = "%";
+        switch(damageType) {
+            case ("chainMastery"):
+                end = "x"
+            
+        }        
+        $("#resultStats>" + damageType + ">div>div:nth-child(2)")
+        $("#resultStats>" + damageType + ">div>div:nth-child(2)").css('color', 'red').html("<span style='color:red;' title='Only " + getStatBonusCap(damageType) + "% taken into account'>" + calculateStatValue(build, damageType, builds[currentUnitIndex]).total + end + " </span>")        } else {
+        $("#resultStats>" + damageType + ">div>div:nth-child(2)").css('color', '')
+        displayStat("#resultStats ." + damageType, calculateStatValue(build, damageType, builds[currentUnitIndex]).total, damageType);
+    }
 }
 
 function displayStat(htmlClass, value) {
