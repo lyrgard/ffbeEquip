@@ -798,6 +798,7 @@ function logBuild(build, value) {
         pMitigation = pMitigation * (1 - (builds[currentUnitIndex].baseValues["mitigation"].global / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].physical / 100));
         mMitigation = mMitigation * (1 - (builds[currentUnitIndex].baseValues["mitigation"].global / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].magical / 100))
     }
+
     displayStat("#resultStats .physicaleHp", Math.floor(values["def"] * values["hp"] / pMitigation).toLocaleString());
     displayStat("#resultStats .magicaleHp", Math.floor(values["spr"] * values["hp"] / mMitigation).toLocaleString());
     displayStat("#resultStats .evade_physical", calculateStatValue(build, "evade.physical", builds[currentUnitIndex]).total);
@@ -811,7 +812,14 @@ function logBuild(build, value) {
     displayStat("#resultStats .drawAttacks", calculateStatValue(build, "drawAttacks", builds[currentUnitIndex]).total);
     displayStat("#resultStats .jumpDamage", calculateStatValue(build, "jumpDamage", builds[currentUnitIndex]).total, 'jumpDamage');
     displayStat("#resultStats .lbDamage", calculateStatValue(build, "lbDamage", builds[currentUnitIndex]).total, 'lbDamage');
-    displayStat("#resultStats .chainMastery", calculateStatValue(build, "chainMastery", builds[currentUnitIndex]).total, 'chainMastery');
+
+    if (calculateStatValue(build, "chainMastery", builds[currentUnitIndex]).total > getStatBonusCap('chainMastery')) {
+        $("#resultStats>.chainMastery>div>div:nth-child(2)")
+        $("#resultStats>.chainMastery>div>div:nth-child(2)").css('color', 'red').html("<span style='color:red;' title='Only " + getStatBonusCap('chainMastery') + "x taken into account'>" + calculateStatValue(build, "chainMastery", builds[currentUnitIndex]).total + "x" + " </span>");
+    } else {
+        $("#resultStats>.chainMastery>div>div:nth-child(2)").css('color', '')
+        displayStat("#resultStats .chainMastery", calculateStatValue(build, "chainMastery", builds[currentUnitIndex]).total + "x", 'chainMastery');
+    }
 
 
     for (var index in elementList) {

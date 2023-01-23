@@ -1513,9 +1513,6 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
             calculatedValue = Math.floor(calculatedValue);
         }
         var result = {"right":0,"left":0,"total":calculatedValue,"bonusPercent":currentPercentIncrease.value};
-        if (stat === "chainMastery") {
-            result.total = calculatedValue + "x"
-        }
         if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
             result.right = result.total;
         }
@@ -1580,6 +1577,8 @@ function getStatBonusCap(stat) {
             return 300;
         case 'evokeDamageBoost.all':
             return 300;
+        case 'chainMastery':
+            return 6;
         default:
             return 400;
     }
