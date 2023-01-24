@@ -49,7 +49,7 @@ const goalQuickSelectDefaultValues = [
     ["atkDamageWithFixedMechanism","Fixed type ATK damage"],
     ["physicalDamageMultiCast","Physical damage Multicast"],
     ["fixedDamageWithPhysicalMechanism","Physical type Fixed damage (1000)"],
-    ["summonerSkill","Summoner skill"],
+    ["summonerSkill","Summoner Skill"],
     ["mpMagPhysicalDamage", "Physical MP/MAG Scaling Damage"],
     ["mpMagMagicalDamage", "Magical MP/MAG Scaling Damage"],
     ["mpSprPhysicalDamage", "Magical MP/SPR Scaling Damage"],
@@ -801,18 +801,18 @@ function logBuild(build, value) {
 
     displayStat("#resultStats .physicaleHp", Math.floor(values["def"] * values["hp"] / pMitigation).toLocaleString());
     displayStat("#resultStats .magicaleHp", Math.floor(values["spr"] * values["hp"] / mMitigation).toLocaleString());
-    displayStat("#resultStats .evade_physical", calculateStatValue(build, "evade.physical", builds[currentUnitIndex]).total);
     displayStat("#resultStats .evade_magical", calculateStatValue(build, "evade.magical", builds[currentUnitIndex]).total);
     displayStat("#resultStats .mpRefresh", Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh", builds[currentUnitIndex]).total / 100));
-    displayStat("#resultStats .lbPerTurn", calculateStatValue(build, "lbPerTurn", builds[currentUnitIndex]).total);
-    displayStat("#resultStats .lbFillRate", calculateStatValue(build, "lbFillRate", builds[currentUnitIndex]).total);
-    displayStat("#resultStats .evoMag", calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total);
-    displayStat("#resultStats .evokeDamageBoost_all", calculateStatValue(build, "evokeDamageBoost.all", builds[currentUnitIndex]).total);
-    displayStat("#resultStats .accuracy", calculateStatValue(build, "accuracy", builds[currentUnitIndex]).total);
-    displayStat("#resultStats .drawAttacks", calculateStatValue(build, "drawAttacks", builds[currentUnitIndex]).total);
-    checkOvercap("jumpDamage");
-    checkOvercap("lbDamage");
-    checkOvercap("chainMastery");
+    checkOvercap("evade.physical", build, builds, currentUnitIndex);
+    checkOvercap("lbPerTurn", build, builds, currentUnitIndex);
+    checkOvercap("accuracy", build, builds, currentUnitIndex);
+    checkOvercap("drawAttacks", build, builds, currentUnitIndex);
+    checkOvercap("evokeDamageBoost.all", build, builds, currentUnitIndex);
+    checkOvercap("evoMag", build, builds, currentUnitIndex);
+    checkOvercap("lbFillRate", build, builds, currentUnitIndex);
+    checkOvercap("jumpDamage", build, builds, currentUnitIndex);
+    checkOvercap("lbDamage", build, builds, currentUnitIndex);
+    checkOvercap("chainMastery", build, builds, currentUnitIndex);
 
     for (var index in elementList) {
         $("#resultStats .resists .resist." + elementList[index] + " .value").text(calculateStatValue(build, "resist|" + elementList[index] + ".percent", builds[currentUnitIndex]).total + '%');
@@ -931,28 +931,50 @@ function logBuild(build, value) {
     $("#resultStats .damageCoef").html("1x");
 }
 
-function checkOvercap(damageType) {
-    if (calculateStatValue(build, damageType, builds[currentUnitIndex]).total > getStatBonusCap(damageType)) {
-        let end = "%";
-        switch(damageType) {
-            case ("chainMastery"):
-                end = "x"
-            
-        }        
-        $("#resultStats>" + damageType + ">div>div:nth-child(2)")
-        $("#resultStats>" + damageType + ">div>div:nth-child(2)").css('color', 'red').html("<span style='color:red;' title='Only " + getStatBonusCap(damageType) + "% taken into account'>" + calculateStatValue(build, damageType, builds[currentUnitIndex]).total + end + " </span>")        } else {
-        $("#resultStats>" + damageType + ">div>div:nth-child(2)").css('color', '')
-        displayStat("#resultStats ." + damageType, calculateStatValue(build, damageType, builds[currentUnitIndex]).total, damageType);
+function checkOvercap(damageType, build, builds, currentUnitIndex) {    
+    let endChar = checkEndChar(damageType);
+    let statValue = calculateStatValue(build, damageType, builds[currentUnitIndex]).total;
+    let statCap = getStatBonusCap(damageType);
+
+    if (statValue > statCap) {
+        displayStat("#resultStats ." + escapeDot(damageType), statValue, endChar)
+        $("#resultStats>." + escapeDot(damageType) + ">div>div:nth-child(2)").css('color', 'red').html("<span style='color:red;' title='Only " + statCap + "" + endChar + " taken into account'>" + statValue + "" + endChar + " </span>")
+    } else {
+        displayStat("#resultStats ." + escapeDot(damageType), statValue, endChar);
+        $("#resultStats>." + escapeDot(damageType) + ">div>div:nth-child(2)").css('color', '').html(statValue + "" + endChar)
     }
 }
 
-function displayStat(htmlClass, value) {
+function checkEndChar(damageType) {
+    let endChar = "";
+    switch(damageType) {
+        case 'chainMastery':
+            endChar = "x";
+            break;
+        case 'lbPerTurn':
+            endChar = "";
+            break;
+        default:
+            endChar = "%"
+            break;
+    }
+
+    return endChar
+}
+
+
+function displayStat(htmlClass, value, endChar) {
     if (value === 0 || value === "0") {
         $(htmlClass).addClass("hidden");
     } else {
         let div = $(htmlClass);
-        div.removeClass("hidden");
-        div.find('.value').html(value);
+        div.removeClass("hidden");       
+        
+        if (endChar && endChar.length > 0) {
+            div.find('.value').html(value + endChar);
+        } else {
+            div.find('.value').html(value);
+        }
     }
 }
 

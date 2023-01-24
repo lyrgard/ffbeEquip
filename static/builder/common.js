@@ -1439,9 +1439,8 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     } else if (stat == "lbPerTurn") {
         baseValue = unitBuild.baseValues["lbFillRate"].total;
         buffValue = unitBuild.baseValues["lbFillRate"].buff * baseValue / 100;
-    } else if (stat == 'drawAttacks') {
-        baseValue = unitBuild.baseValues["drawAttacks"];
     }
+
     var calculatedValue = baseValue + buffValue;
 
     if (stat == "accuracy") {
@@ -1482,10 +1481,11 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     }
 
     if (stat === "lbDamage" || stat === "jumpDamage" || stat === "evoMag" || stat === "evokeDamageBoost.all") {
-        //calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
-        if (stat === 'lbDamage') {
+        if (stat === 'lbDamage' ) {
             calculatedValue += unitBuild.baseValues["lbDamage"];
-        }
+        } //else {
+        //     calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
+        // }
     }
 
     if (stat === "chainMastery") {
@@ -1530,9 +1530,7 @@ function calculateStateValueForIndex(items, index, baseValue, currentPercentIncr
             var value = 0;
             if (item.lbPerTurn) {
                 var lbPerTurn = getValue(item, "lbPerTurn", notStackableSkillsAlreadyUsed);
-                var lbPerTurnTakenIntoAccount = Math.min(lbPerTurn, Math.max(12 - currentPercentIncrease.value, 0));
-                currentPercentIncrease.value += lbPerTurnTakenIntoAccount;
-                value += lbPerTurnTakenIntoAccount;
+                value += lbPerTurn;
             }
             if (item.lbFillRate) {
                 value += item.lbFillRate * baseValue / 100;
@@ -1579,6 +1577,12 @@ function getStatBonusCap(stat) {
             return 300;
         case 'chainMastery':
             return 6;
+        case 'drawAttacks':
+            return 100;
+        case 'accuracy':
+            return 100;
+        case 'evade.physical':
+            return 100;
         default:
             return 400;
     }

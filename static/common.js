@@ -1853,7 +1853,6 @@ function onUnitsOrInventoryLoaded() {
             // After, they are {"unitId": {"number":number,"farmable":number}
             $.get(getLocalizedFileUrl("data"), function(data) {
                 $.get("/" + server + "/units.json", function(unitResult) {
-                    console.log("here")
                     var allUnitsTmp = unitResult;
                     var tmrNumberByUnitId = {};
                     for (var index = data.length; index--; ) {
