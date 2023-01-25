@@ -1526,8 +1526,6 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
             result.left = result.total;
         }
-        console.log(stat)
-        console.log(calculatedValue)
         return result;
     }
 }
