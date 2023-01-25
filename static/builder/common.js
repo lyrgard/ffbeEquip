@@ -1497,12 +1497,6 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
 
     if ("atk" == stat) {
         let realCap =  calculatedValue;
-        if (stat === "lbDamage" || stat === "jumpDamage" || stat === "evoMag" || stat === "evokeDamageBoost.all" || stat.includes("%")) {
-            if (stat === 'lbDamage' ) {
-                calculatedValue += unitBuild.baseValues["lbDamage"];
-            }
-            calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
-        }
         var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value, "overcap": realCap};
         var right = calculateFlatStateValueForIndex(itemAndPassives, 0, 1, stat);
         var left = calculateFlatStateValueForIndex(itemAndPassives, 1, 1, stat);
@@ -1519,9 +1513,7 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     } else {
         let realCap = calculatedValue;
         if (stat === "lbDamage" || stat === "jumpDamage" || stat === "evoMag" || stat === "evokeDamageBoost.all" || stat.includes("%")) {
-            if (stat === 'lbDamage' ) {
-                calculatedValue += unitBuild.baseValues["lbDamage"];
-            }
+            
             calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
         }
         var result = {"right":0,"left":0,"total":calculatedValue,"bonusPercent":currentPercentIncrease.value, "overcap": realCap};
@@ -1534,6 +1526,8 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
             result.left = result.total;
         }
+        console.log(stat)
+        console.log(calculatedValue)
         return result;
     }
 }
