@@ -40,7 +40,9 @@ const attributeByVariable = {
     "M_DAMAGE_ATK":"atkDamageWithMagicalMechanism",
     "M_DAMAGE_ATK_MULTICAST":"atkDamageWithMagicalMechanismMultiCast",
     "M_DAMAGE_SPR":"sprDamageWithMagicalMechanism",
-    "S_DAMAGE":"summonerSkill",
+    "S_DAMAGE_MS":"summonerSkillMAG/SPRMechanism",
+    "S_DAMAGE_M":"summonerSkillMAGMechanism",
+    "S_DAMAGE_S":"summonerSkillSPRMechanism",
     "MPMAG_P_DAMAGE": "mpMagPhysicalDamage",
     "MPMAG_M_DAMAGE": "mpMagMagicalDamage",
     "MPSPR_P_DAMAGE": "mpSprPhysicalDamage",
@@ -71,7 +73,6 @@ const attributeByVariable = {
     "DRAW_ATTACKS": "drawAttacks",
     "ANY":"any",
     "MONSTER_DAMAGE": "monsterDamage",
-    "SUMMONER_SKILL": "summonerSkill",
     "CHAIN_MASTERY": "chainMastery"
 };
 
@@ -89,7 +90,9 @@ var formulaByVariable = {
     "defDamageWithPhysicalMechanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "formulaName":"defDamageWithPhysicalMechanism", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
     "atkDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"atkDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"body", "coef":1}}},
     "sprDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x magical SPR damage", "formulaName":"sprDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
-    "summonerSkill":                    {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkill", "value": {"type":"damage", "value":{"mechanism":"summonerSkill", "damageType":"mind", "coef":1, "magSplit":0.5, "sprSplit":0.5}}},
+    "summonerSkillMAGMechanism":                 {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkillMAGMechanism", "value": {"type":"damage", "value":{"mechanism":"summonerSkillMAGMechanism", "damageType":"mind", "coef":1, "magSplit":1, "sprSplit":0}}},
+    "summonerSkillSPRMechanism":                 {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkillSPRMMechanism", "value": {"type":"damage", "value":{"mechanism":"summonerSkillSPRMechanism", "damageType":"mind", "coef":1, "magSplit":0, "sprSplit":1}}},
+    "summonerSkillMAG/SPRMechanism":              {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkillMAG/SPRMechanism", "value": {"type":"damage", "value":{"mechanism":"summonerSkillMAG/SPRMechanism", "damageType":"mind", "coef":1, "magSplit":0.5, "sprSplit":0.5}}},
     "mpMagPhysicalDamage":              {"type":"skill", "id":"0","name":"1x MP/MAG Physical Damage", "formulaName":"mpMagPhysicalDamage", "value": {"mechanism":"mpMagPhysicalDamage", "damageType":"body", "coef":1, "use":{"stat":"mp"}}},
     "mpMagMagicalDamage":              {"type":"skill", "id":"0","name":"1x MP/MAG Magical Damage", "formulaName":"mpMagMagicalDamage", "value": {"mechanism":"mpMagMagicalDamage", "damageType":"mind", "coef":1, "use":{"stat":"mp"}}},
     "mpSprPhysicalDamage":              {"type":"skill", "id":"0","name":"1x MP/SPR Physical Damage", "formulaName":"mpSprPhysicalDamage", "value": {"mechanism":"mpMagPhysicalDamage", "damageType":"body", "coef":1, "use":{"stat":"mp"}}},
@@ -837,7 +840,9 @@ function isSimpleFormula(formula) {
             || formula.name == "atkDamageWithFixedMechanism"
             || formula.name == "physicalDamageMultiCast"
             || formula.name == "fixedDamageWithPhysicalMechanism"
-            || formula.name == "summonerSkill"
+            || formula.name == "summonerSkillMAG/SPRMechanism"
+            || formula.name == "summonerSkillSPRMechanism"
+            || formula.name == "summonerSkillMAGMechanism"
             || formula.name == "mpMagPhysicalDamage"
             || formula.name == "mpMagMagicalDamage"
             || formula.name == "mpSprPhysicalDamage"

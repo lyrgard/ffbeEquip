@@ -19,7 +19,9 @@ const formulaByGoal = {
     "atkDamageWithFixedMechanism":       {"type":"value","name":"atkDamageWithFixedMechanism"},
     "physicalDamageMultiCast":          {"type":"value","name":"physicalDamageMultiCast"},
     "fixedDamageWithPhysicalMechanism":  {"type":"value","name":"fixedDamageWithPhysicalMechanism"},
-    "summonerSkill":                    {"type":"value","name":"summonerSkill"},
+    "summonerSkillMAG/SPRMechanism":     {"type":"value","name":"summonerSkillMAG/SPRMechanism"},
+    "summonerSkillMAGMechanism":         {"type":"value","name":"summonerSkillMAGMechanism"},
+    "summonerSkillSPRMechanism":         {"type":"value","name":"summonerSkillSPRMechanism"},
     "atk":                              {"type":"value","name":"atk"},
     "mag":                              {"type":"value","name":"mag"},
     "def":                              {"type":"value","name":"def"},
@@ -49,7 +51,9 @@ const goalQuickSelectDefaultValues = [
     ["atkDamageWithFixedMechanism","Fixed type ATK damage"],
     ["physicalDamageMultiCast","Physical damage Multicast"],
     ["fixedDamageWithPhysicalMechanism","Physical type Fixed damage (1000)"],
-    ["summonerSkill","Summoner Skill"],
+    ["summonerSkillMAG/SPRMechanism","Summoner Skill MAG/SPR"],
+    ["summonerSkillMAGMechanism","Summoner Skill MAG"],
+    ["summonerSkillSPRMechanism","Summoner Skill SPR"],
     ["mpMagPhysicalDamage", "Physical MP/MAG Scaling Damage"],
     ["mpMagMagicalDamage", "Magical MP/MAG Scaling Damage"],
     ["mpSprPhysicalDamage", "Magical MP/SPR Scaling Damage"],
@@ -775,7 +779,7 @@ function logBuild(build, value) {
                     cap = builds[currentUnitIndex].tdwCap * 100;
                 }
                 if (equipmentFlatStatBonus > cap) {
-                    bonusPercent += "<span style='color:red;' title='Only " + cap + " taken into account'>" + equipmentFlatStatBonus + "%</span>";
+                    bonusPercent += "<span style='color:red;' title='Only " + cap + "% taken into account'>" + equipmentFlatStatBonus + "%</span>";
                 } else {
                     bonusPercent += equipmentFlatStatBonus + "%";
                 }
@@ -933,7 +937,7 @@ function logBuild(build, value) {
 
 function checkOvercap(damageType, build, builds, currentUnitIndex) {    
     let endChar = checkEndChar(damageType);
-    let statValue = calculateStatValue(build, damageType, builds[currentUnitIndex]).total;
+    let statValue = calculateStatValue(build, damageType, builds[currentUnitIndex]).overcap;
     let statCap = getStatBonusCap(damageType);
 
     if (statValue > statCap) {
@@ -1299,7 +1303,13 @@ function goalSelectTemplate(state) {
             case "atkDamageWithFixedMechanism":
             case "physicalDamageMultiCast":
             case "fixedDamageWithPhysicalMechanism":
-            case "summonerSkill":
+            case "summonerSkillMAG/SPR":
+                html += "<span class='selectTag damageTag'>damage</span>";
+                break;
+            case "summonerSkillMAG":
+                html += "<span class='selectTag damageTag'>damage</span>";
+                break;
+            case "summonerSkillSPR":
                 html += "<span class='selectTag damageTag'>damage</span>";
                 break;
             case "physicaleHp":

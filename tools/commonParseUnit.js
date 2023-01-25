@@ -2112,10 +2112,16 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
 
         // Evo Damage
     } else if(rawEffect[2] == 124){
-        result = {"damage":{"mechanism":"summonerSkill", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
         if (rawEffect[3].length >= 10 && Array.isArray(rawEffect[3][9])) {
-            result.damage.magSplit = rawEffect[3][9][0] / 100;
-            result.damage.sprSplit = rawEffect[3][9][1] / 100;
+            let magSplit = rawEffect[3][7]/100;
+            let sprSplit = rawEffect[3][8]/100;
+            if (magSplit > sprSplit) {
+                result = {"damage":{"mechanism":"summonerSkillMAGMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":(rawEffect[3][9][0] / 100), "sprSplit":(rawEffect[3][9][1] / 100)}};    
+            } else if (magSplit > sprSplit) {
+                result = {"damage":{"mechanism":"summonerSkillSPRMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":(rawEffect[3][9][0] / 100), "sprSplit":(rawEffect[3][9][1] / 100)}};  
+            } else {
+                result = {"damage":{"mechanism":"summonerSkillMAG/SPRMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
+            }
         }
 
         // +LB
@@ -2369,9 +2375,20 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
     } else if (rawEffect[2] == 1024) {
         // [ 2, 1, 1024, [ 12500, 0, [ 100, 0 ], [ 500, 0 ], 5, 100, 1 ] ]
         // AoE, times to fire damaging EVO ability, [MAG modifier, SPR modifier, [MAG, SPR for base ability], [MAG, SPR for morale gain], morale interval, overThisValue, fireAditionalAbility once]
+        let magCoef = rawEffect[3][0]/100;
+        let sprCoef = rawEffect[3][1]/100;
+        let mechanismSelection = "";
+
+        if (magCoef > sprCoef) {
+            mechanismSelection = "summonerSkillMAGMechanism"
+        } else if (sprCoef < magCoef) {
+            mechanismSelection = "summonerSkillSPRMechanism"
+        } else {
+            mechanismSelection = "summonerSkillMAG/SPRMechanism"
+        }
         result = {
             "damage":{
-                "mechanism":"summonerSkill", 
+                "mechanism": mechanismSelection, 
                 "damageType":"evoke", 
                 "magCoef":rawEffect[3][0]/100, 
                 "sprCoef":rawEffect[3][1]/100,
@@ -2463,7 +2480,18 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             result.damage.mechanism = "magical";
         }
         if(result.damage.damageType == "evoke"){
-            result.damage.mechanism = "summonerSkill";
+            
+            let magCoef = rawEffect[3][0]/100;
+            let sprCoef = rawEffect[3][1]/100;
+            let mechanismSelection = "";
+            
+            if (magCoef > sprCoef) {
+                result.damage.mechanism = "summonerSkillMAGMechanism"
+            } else if (sprCoef < magCoef) {
+                result.damage.mechanism = "summonerSkillSPRMechanism"
+            } else {
+                result.damage.mechanism = "summonerSkillMAG/SPRMechanism"
+            }
         }
 
         if (skillIn.element_inflict) {

@@ -1784,10 +1784,16 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, item, skillId, enhance
         result = {"damage":{"mechanism":"hybrid", "coef":rawEffect[3][8]/100}};
     // Evo Damage
     } else if(rawEffect[2] == 124){
-        result = {"damage":{"mechanism":"summonerSkill", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
         if (rawEffect[3].length >= 10 && Array.isArray(rawEffect[3][9])) {
-            result.damage.magSplit = rawEffect[3][9][0] / 100;
-            result.damage.sprSplit = rawEffect[3][9][1] / 100;
+            let magSplit = rawEffect[3][7]/100;
+            let sprSplit = rawEffect[3][8]/100;
+            if (magSplit > sprSplit) {
+                result = {"damage":{"mechanism":"summonerSkillMAGMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":rawEffect[3][9][0] / 100, "sprSplit":rawEffect[3][9][1] / 100}};    
+            } else if (magSplit > sprSplit) {
+                result = {"damage":{"mechanism":"summonerSkillSPRMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":rawEffect[3][9][0] / 100, "sprSplit":rawEffect[3][9][1] / 100}};  
+            } else {
+                result = {"damage":{"mechanism":"summonerSkillMAG/SPRMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
+            }
         }
     // Healing
     } else if(rawEffect[2] == 2){
@@ -2137,7 +2143,17 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, item, skillId, enhance
             result.damage.mechanism = "magical";
         }
         if(result.damage.damageType == "evoke"){
-            result.damage.mechanism = "summonerSkill";
+            let magCoef = rawEffect[3][0]/100;
+            let sprCoef = rawEffect[3][1]/100;
+            let mechanismSelection = "";
+            
+            if (magCoef > sprCoef) {
+                result.damage.mechanism = "summonerSkillMAGMechanism"
+            } else if (sprCoef < magCoef) {
+                result.damage.mechanism = "summonerSkillSPRMechanism"
+            } else {
+                result.damage.mechanism = "summonerSkillMAG/SPRMechanism"
+            }
         }
         
         if (skillIn.element_inflict) {

@@ -1,4 +1,4 @@
-const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMechanism", "sprDamageWithPhysicalMechanism", "defDamageWithPhysicalMechanism", "magDamageWithPhysicalMechanismMultiCast", "sprDamageWithPhysicalMechanismMultiCast", "defDamageWithPhysicalMechanismMultiCast", "atkDamageWithMagicalMechanism", "atkDamageWithMagicalMechanismMulticast", "sprDamageWithMagicalMechanism", "atkDamageWithFixedMechanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMechanism","summonerSkill", "mpMagPhysicalDamage", "mpMagMagicalDamage", "mpSprPhysicalDamage","mpSprMagicalDamage"];
+const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMechanism", "sprDamageWithPhysicalMechanism", "defDamageWithPhysicalMechanism", "magDamageWithPhysicalMechanismMultiCast", "sprDamageWithPhysicalMechanismMultiCast", "defDamageWithPhysicalMechanismMultiCast", "atkDamageWithMagicalMechanism", "atkDamageWithMagicalMechanismMulticast", "sprDamageWithMagicalMechanism", "atkDamageWithFixedMechanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMechanism","summonerSkillMAG/SPRMechanism","summonerSkillSPRMechanism", "summonerSkillMAGMechanism", "mpMagPhysicalDamage", "mpMagMagicalDamage", "mpSprPhysicalDamage","mpSprMagicalDamage"];
 const operatorsInFormula = ["/","*","+","-","OR","AND",">"];
 const weaponBaseDamageVariance =
     {
@@ -42,7 +42,7 @@ const weaponBaseDamageVariance =
     }
 
 
-const valuesToNotRoundDown = ["lbPerTurn", "chainMastery"];
+const valuesToNotRoundDown = ["lbPerTurn", "chainMastery", "evoMag", "lbDamage"];
 
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed, accessory) {
 
@@ -386,14 +386,20 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 defendingStat = "def";
                 statValueToUse = getStatCalculatedValue(context, itemAndPassives, "atk", unitBuild).right;
             }
-        } else if(formula.value.mechanism == "summonerSkill"){
+        } else if(formula.value.mechanism == "summonerSkillMAG/SPRMechanism" || formula.value.mechanism == "summonerSkillMAGMechanism" || formula.value.mechanism == "summonerSkillSPRMechanism" ){
             defendingStat= "spr";
-            coef = formula.value.magCoef;
-            if (formula.value.magSplit > 0) {
+            coef = formula.value.magCoef > formula.value.sprCoef ? formula.value.magCoef: formula.value.sprCoef;
+            if (formula.value.magCoef > formula.value.sprCoef) {
                 if (formula.value.use) {
                     statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
                 } else {
                     statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
+                }
+            } else if  (formula.value.magCoef < formula.value.sprCoef){
+                if (formula.value.use) {
+                    statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
+                } else {
+                    statValueToUse = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
                 }
             } else {
                 statValueToUse = 0;
@@ -523,6 +529,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
             lbMultiplier += getStatCalculatedValue(context, itemAndPassives, "lbDamage", unitBuild).total/100;
         }
 
+        var chainMult;
+        chainMult += getStatCalculatedValue(context, itemAndPassives, "chainMastery", unitBuild).total / 100;
+
         var evoMagMultiplier = 1;
         if (unitBuild.involvedStats.includes("evoMag")) {
             evoMagMultiplier += getStatCalculatedValue(context, itemAndPassives, "evoMag", unitBuild).total/100;
@@ -577,7 +586,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 "max": (baseDamage + magDamage) * context.damageMultiplier.max * variance.max / 2,
                 "switchWeapons": switchWeapons
             }
-        } else if(formula.value.mechanism == "summonerSkill"){
+        } else if(formula.value.mechanism == "summonerSkillMAG/SPRMechanism" || formula.value.mechanism == "summonerSkillMAGMechanism" || formula.value.mechanism == "summonerSkillSPRMechanism"){
+            console.log(formula)
             if (formula.value.sprSplit > 0) {
                 var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
                 let coefIncrease = coef - formula.value.magCoef;
@@ -1480,14 +1490,6 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         }
     }
 
-    if (stat === "lbDamage" || stat === "jumpDamage" || stat === "evoMag" || stat === "evokeDamageBoost.all") {
-        if (stat === 'lbDamage' ) {
-            calculatedValue += unitBuild.baseValues["lbDamage"];
-        } //else {
-        //     calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
-        // }
-    }
-
     if (stat === "chainMastery") {
         calculatedValue = 4  + (calculatedValue / 100)
     }
@@ -1495,7 +1497,14 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
 
 
     if ("atk" == stat) {
-        var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value};
+        let realCap =  calculatedValue;
+        if (stat === "lbDamage" || stat === "jumpDamage" || stat === "evoMag" || stat === "evokeDamageBoost.all" || stat.includes("%")) {
+            if (stat === 'lbDamage' ) {
+                calculatedValue += unitBuild.baseValues["lbDamage"];
+            }
+            calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
+        }
+        var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value, "overcap": realCap};
         var right = calculateFlatStateValueForIndex(itemAndPassives, 0, 1, stat);
         var left = calculateFlatStateValueForIndex(itemAndPassives, 1, 1, stat);
         if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
@@ -1509,10 +1518,17 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         }
         return result;
     } else {
+        let realCap = calculatedValue;
+        if (stat === "lbDamage" || stat === "jumpDamage" || stat === "evoMag" || stat === "evokeDamageBoost.all" || stat.includes("%")) {
+            if (stat === 'lbDamage' ) {
+                calculatedValue += unitBuild.baseValues["lbDamage"];
+            }
+            calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
+        }
+        var result = {"right":0,"left":0,"total":calculatedValue,"bonusPercent":currentPercentIncrease.value, "overcap": realCap};
         if (!valuesToNotRoundDown.includes(stat)) {
             calculatedValue = Math.floor(calculatedValue);
         }
-        var result = {"right":0,"left":0,"total":calculatedValue,"bonusPercent":currentPercentIncrease.value};
         if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
             result.right = result.total;
         }

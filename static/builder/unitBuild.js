@@ -1,8 +1,8 @@
 const involvedStatsByValue = {
-    "physicalDamage":                   ["atk","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
-    "magicalDamage":                    ["mag","magicalKiller", "chainMastery", "meanDamageVariance"],
-    "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
-    "jumpDamage":                       ["atk","weaponElement","physicalKiller","meanDamageVariance","jumpDamage", "chainMastery"],
+    "physicalDamage":                    ["atk","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
+    "magicalDamage":                     ["mag","magicalKiller", "chainMastery", "meanDamageVariance"],
+    "hybridDamage":                      ["atk","mag","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
+    "jumpDamage":                        ["atk","weaponElement","physicalKiller","meanDamageVariance","jumpDamage", "chainMastery"],
     "magDamageWithPhysicalMechanism":    ["mag","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
     "sprDamageWithPhysicalMechanism":    ["spr","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
     "defDamageWithPhysicalMechanism":    ["def","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
@@ -13,13 +13,15 @@ const involvedStatsByValue = {
     "atkDamageWithMagicalMechanismMultiCast":     ["atk","magicalKiller", "chainMastery", "meanDamageVariance"],
     "sprDamageWithMagicalMechanism":     ["spr","magicalKiller", "chainMastery", "meanDamageVariance"],
     "atkDamageWithFixedMechanism":       ["atk","meanDamageVariance", "chainMastery"],
-    "physicalDamageMultiCast":          ["atk","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
+    "physicalDamageMultiCast":           ["atk","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
     "fixedDamageWithPhysicalMechanism":  ["weaponElement", "physicalKiller", "meanDamageVariance"],
-    "summonerSkill":                    ["mag","spr","evoMag", 'evokeDamageBoost.all', "chainMastery", "meanDamageVariance"],
-    "mpMagPhysicalDamage":              ["mag", "mp", "physicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ],
-    "mpMagMagicalDamage":               ["mag", "mp", "magicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ],
-    "mpSprPhysicalDamage":              ["spr", "mp", "physicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ],
-    "mpSprMagicalDamage":               ["spr", "mp", "magicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ]
+    "summonerSkillMAG/SPRMechanism":     ["mag","spr","evoMag", 'evokeDamageBoost.all', "chainMastery", "meanDamageVariance"],
+    "summonerSkillMAGMechanism":         ["mag","spr","evoMag", 'evokeDamageBoost.all', "chainMastery", "meanDamageVariance"],
+    "summonerSkillSPRMechanism":         ["mag","spr","evoMag", 'evokeDamageBoost.all', "chainMastery", "meanDamageVariance"],
+    "mpMagPhysicalDamage":               ["mag", "mp", "physicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ],
+    "mpMagMagicalDamage":                ["mag", "mp", "magicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ],
+    "mpSprPhysicalDamage":               ["spr", "mp", "physicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ],
+    "mpSprMagicalDamage":                ["spr", "mp", "magicalKiller", "meanDamageVariance", "chainMastery", "weaponElement" ]
 };
 
 const statProgression = [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100];
@@ -188,9 +190,8 @@ class UnitBuild {
                 }
             } else if (formula.value.mechanism === "hybrid") {
                 this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance", "atk", "mag"]);
-            } else if (formula.value.mechanism === "summonerSkill"){
-                this.addToInvolvedStats(["evoMag", "meanDamageVariance"]);
-                this.addToInvolvedStats(['evokeDamageBoost.all']);
+            } else if (formula.value.mechanism === "summonerSkillMAG/SPRMechanism" || formula.value.mechanism === "summonerSkillMAGMechanism" || formula.value.mechanism === "summonerSkillSPRMechanism"){
+                this.addToInvolvedStats(['evoMag', 'evokeDamageBoost.all', 'meanDamageVariance']);
                 if (formula.value.magSplit > 0) {
                     this.addToInvolvedStats(["mag"]);
                 }
