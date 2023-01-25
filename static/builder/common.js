@@ -587,7 +587,6 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 "switchWeapons": switchWeapons
             }
         } else if(formula.value.mechanism == "summonerSkillMAG/SPRMechanism" || formula.value.mechanism == "summonerSkillMAGMechanism" || formula.value.mechanism == "summonerSkillSPRMechanism"){
-            console.log(formula)
             if (formula.value.sprSplit > 0) {
                 var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
                 let coefIncrease = coef - formula.value.magCoef;

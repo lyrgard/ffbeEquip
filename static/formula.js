@@ -1,5 +1,5 @@
 const skillToken = "SKILL";
-const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE", "EVO_MAG","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER", "R_LIGHTNING","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","R_STOP","R_CHARM","I_DISABLE","LB_PER_TURN", "ACCURACY", "LB_DAMAGE", "DRAW_ATTACKS", "ANY", "MONSTER_DAMAGE", "SUMMONER_SKILL", "LB_FILL_RATE", "CHAIN_MASTERY"];
+const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE", "EVO_MAG","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "E_DAMAGE_MS","E_DAMAGE_M","E_DAMAGE_S","R_FIRE","R_ICE","R_THUNDER", "R_LIGHTNING","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","R_STOP","R_CHARM","I_DISABLE","LB_PER_TURN", "ACCURACY", "LB_DAMAGE", "DRAW_ATTACKS", "ANY", "MONSTER_DAMAGE", "SUMMONER_SKILL", "LB_FILL_RATE", "CHAIN_MASTERY"];
 const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK", "E_NONE"];
 const operators = ["/","*","+","-",">", "OR", "AND", ";"];
 const booleanResultOperators=[">", "OR", "AND", ";"];
@@ -40,9 +40,9 @@ const attributeByVariable = {
     "M_DAMAGE_ATK":"atkDamageWithMagicalMechanism",
     "M_DAMAGE_ATK_MULTICAST":"atkDamageWithMagicalMechanismMultiCast",
     "M_DAMAGE_SPR":"sprDamageWithMagicalMechanism",
-    "S_DAMAGE_MS":"summonerSkillMAG/SPRMechanism",
-    "S_DAMAGE_M":"summonerSkillMAGMechanism",
-    "S_DAMAGE_S":"summonerSkillSPRMechanism",
+    "E_DAMAGE_MS":"summonerSkillMAG/SPRMechanism",
+    "E_DAMAGE_M":"summonerSkillMAGMechanism",
+    "E_DAMAGE_S":"summonerSkillSPRMechanism",
     "MPMAG_P_DAMAGE": "mpMagPhysicalDamage",
     "MPMAG_M_DAMAGE": "mpMagMagicalDamage",
     "MPSPR_P_DAMAGE": "mpSprPhysicalDamage",
@@ -90,13 +90,13 @@ var formulaByVariable = {
     "defDamageWithPhysicalMechanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "formulaName":"defDamageWithPhysicalMechanism", "value": {"type":"damage", "value":{"mechanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
     "atkDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"atkDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"body", "coef":1}}},
     "sprDamageWithMagicalMechanism":     {"type":"skill", "id":"0","name":"1x magical SPR damage", "formulaName":"sprDamageWithMagicalMechanism", "value": {"type":"damage", "value":{"mechanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
-    "summonerSkillMAGMechanism":                 {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkillMAGMechanism", "value": {"type":"damage", "value":{"mechanism":"summonerSkillMAGMechanism", "damageType":"mind", "coef":1, "magSplit":1, "sprSplit":0}}},
-    "summonerSkillSPRMechanism":                 {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkillSPRMMechanism", "value": {"type":"damage", "value":{"mechanism":"summonerSkillSPRMechanism", "damageType":"mind", "coef":1, "magSplit":0, "sprSplit":1}}},
-    "summonerSkillMAG/SPRMechanism":              {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkillMAG/SPRMechanism", "value": {"type":"damage", "value":{"mechanism":"summonerSkillMAG/SPRMechanism", "damageType":"mind", "coef":1, "magSplit":0.5, "sprSplit":0.5}}},
-    "mpMagPhysicalDamage":              {"type":"skill", "id":"0","name":"1x MP/MAG Physical Damage", "formulaName":"mpMagPhysicalDamage", "value": {"mechanism":"mpMagPhysicalDamage", "damageType":"body", "coef":1, "use":{"stat":"mp"}}},
-    "mpMagMagicalDamage":              {"type":"skill", "id":"0","name":"1x MP/MAG Magical Damage", "formulaName":"mpMagMagicalDamage", "value": {"mechanism":"mpMagMagicalDamage", "damageType":"mind", "coef":1, "use":{"stat":"mp"}}},
-    "mpSprPhysicalDamage":              {"type":"skill", "id":"0","name":"1x MP/SPR Physical Damage", "formulaName":"mpSprPhysicalDamage", "value": {"mechanism":"mpMagPhysicalDamage", "damageType":"body", "coef":1, "use":{"stat":"mp"}}},
-    "mpSprMagicalDamage":              {"type":"skill", "id":"0","name":"1x MP/SPR Magical Damage", "formulaName":"mpSprMagicalDamage", "value": {"mechanism":"mpMagMagicalDamage", "damageType":"mind", "coef":1, "use":{"stat":"mp"}}}
+    "summonerSkillMAGMechanism":         {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkillMAGMechanism", "value": {"type":"damage", "value":{"mechanism":"summonerSkillMAGMechanism", "damageType":"mind", "coef":1, "magSplit":1, "sprSplit":0}}},
+    "summonerSkillSPRMechanism":         {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkillSPRMechanism", "value": {"type":"damage", "value":{"mechanism":"summonerSkillSPRMechanism", "damageType":"mind", "coef":1, "magSplit":0, "sprSplit":1}}},
+    "summonerSkillMAG/SPRMechanism":     {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkillMAG/SPRMechanism", "value": {"type":"damage", "value":{"mechanism":"summonerSkillMAG/SPRMechanism", "damageType":"mind", "coef":1, "magSplit":0.5, "sprSplit":0.5}}},
+    "mpMagPhysicalDamage":               {"type":"skill", "id":"0","name":"1x MP/MAG Physical Damage", "formulaName":"mpMagPhysicalDamage", "value": {"mechanism":"mpMagPhysicalDamage", "damageType":"body", "coef":1, "use":{"stat":"mp"}}},
+    "mpMagMagicalDamage":                {"type":"skill", "id":"0","name":"1x MP/MAG Magical Damage", "formulaName":"mpMagMagicalDamage", "value": {"mechanism":"mpMagMagicalDamage", "damageType":"mind", "coef":1, "use":{"stat":"mp"}}},
+    "mpSprPhysicalDamage":               {"type":"skill", "id":"0","name":"1x MP/SPR Physical Damage", "formulaName":"mpSprPhysicalDamage", "value": {"mechanism":"mpMagPhysicalDamage", "damageType":"body", "coef":1, "use":{"stat":"mp"}}},
+    "mpSprMagicalDamage":                {"type":"skill", "id":"0","name":"1x MP/SPR Magical Damage", "formulaName":"mpSprMagicalDamage", "value": {"mechanism":"mpMagMagicalDamage", "damageType":"mind", "coef":1, "use":{"stat":"mp"}}}
 }
 const abbreviations = {
     "I_AILMENTS" : "I_POISON; I_BLIND; I_SLEEP; I_SILENCE; I_PARALYSIS; I_CONFUSION; I_DISEASE; I_PETRIFICATION",
