@@ -1789,7 +1789,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, item, skillId, enhance
             let sprSplit = rawEffect[3][8]/100;
             if (magSplit > sprSplit) {
                 result = {"damage":{"mechanism":"summonerSkillMAGMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":rawEffect[3][9][0] / 100, "sprSplit":rawEffect[3][9][1] / 100}};    
-            } else if (magSplit > sprSplit) {
+            } else if (magSplit < sprSplit) {
                 result = {"damage":{"mechanism":"summonerSkillSPRMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":rawEffect[3][9][0] / 100, "sprSplit":rawEffect[3][9][1] / 100}};  
             } else {
                 result = {"damage":{"mechanism":"summonerSkillMAG/SPRMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};

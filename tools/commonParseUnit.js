@@ -2113,11 +2113,11 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
         // Evo Damage
     } else if(rawEffect[2] == 124){
         if (rawEffect[3].length >= 10 && Array.isArray(rawEffect[3][9])) {
-            let magSplit = rawEffect[3][7]/100;
-            let sprSplit = rawEffect[3][8]/100;
-            if (magSplit > sprSplit) {
+            let magCoef = rawEffect[3][7]/100;
+            let sprCoef = rawEffect[3][8]/100;
+            if (magCoef > sprCoef) {
                 result = {"damage":{"mechanism":"summonerSkillMAGMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":(rawEffect[3][9][0] / 100), "sprSplit":(rawEffect[3][9][1] / 100)}};    
-            } else if (magSplit > sprSplit) {
+            } else if (magCoef < sprCoef) {
                 result = {"damage":{"mechanism":"summonerSkillSPRMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":(rawEffect[3][9][0] / 100), "sprSplit":(rawEffect[3][9][1] / 100)}};  
             } else {
                 result = {"damage":{"mechanism":"summonerSkillMAG/SPRMechanism", "damageType":"evoke", "magCoef":rawEffect[3][7]/100, "sprCoef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
@@ -2381,7 +2381,7 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
 
         if (magCoef > sprCoef) {
             mechanismSelection = "summonerSkillMAGMechanism"
-        } else if (sprCoef < magCoef) {
+        } else if (sprCoef > magCoef) {
             mechanismSelection = "summonerSkillSPRMechanism"
         } else {
             mechanismSelection = "summonerSkillMAG/SPRMechanism"
