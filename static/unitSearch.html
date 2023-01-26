@@ -198,26 +198,6 @@
                         </div>
                     </div>
 
-                    <div class="panel panel-default elements">
-                        <div class="panel-heading">
-                            <span>Elemental resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a>
-                            <div class="filters hidden">
-                                <div class="threshold">
-                                    <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
-                                </div>
-                                <div class="btn-group choice" id="elementsTargetAreaTypes" data-toggle="buttons">
-                                </div>
-                                <div class="btn-group choice" id="elementsSkillTypes" data-toggle="buttons">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="btn-group elements choice" data-toggle="buttons" id="elements">
-                            </div>
-                        </div>
-                    </div>
-                    
                     <div class="panel panel-default buffs">
                         <div class="panel-heading">
                             <span>Stat buffs</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('buffs')">unselect all</a>
@@ -238,62 +218,6 @@
                         </div>
                     </div>
 
-                    <div class="panel panel-default ailments">
-                        <div class="panel-heading">
-                            <span>Ailment resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a>
-                            <div class="filters hidden">
-                                <div class="btn-group choice" id="ailmentsTargetAreaTypes" data-toggle="buttons">
-                                </div>
-                                <div class="btn-group choice" id="ailmentsSkillTypes" data-toggle="buttons">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="btn-group ailments choice" data-toggle="buttons" id="ailments">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default killers">
-                        <div class="panel-heading">
-                            <span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('physicalKillers');unselectAll('magicalKillers');">unselect all</a>
-                            <div class="filters hidden">
-                                <div class="threshold">
-                                    <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
-                                </div>
-                                <div class="btn-group choice" id="killersTargetAreaTypes" data-toggle="buttons">
-                                </div>
-                                <div class="btn-group choice" id="killersSkillTypes" data-toggle="buttons">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="btn-group elements choice" data-toggle="buttons" id="physicalKillers"></div>
-                            <div class="btn-group elements choice" data-toggle="buttons" id="magicalKillers"></div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default imperils">
-                        <div class="panel-heading">
-                            <span>Imperils</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('imperils')">unselect all</a>
-                            <div class="filters hidden">
-                                <div class="threshold">
-                                    <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
-                                </div>
-                                <div class="btn-group choice" id="imperilsTargetAreaTypes" data-toggle="buttons">
-                                </div>
-                                <div class="btn-group choice" id="imperilsSkillTypes" data-toggle="buttons">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="btn-group imperils choice" data-toggle="buttons" id="imperils">
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="panel panel-default breaks">
                         <div class="panel-heading">
                             <span>Breaks</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('breaks')">unselect all</a>
@@ -310,6 +234,60 @@
                         </div>
                         <div class="panel-body">
                             <div class="btn-group breaks choice" data-toggle="buttons" id="breaks">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default tankAbilities">
+                        <div class="panel-heading">
+                            <span>Tank abilities</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('tankAbilities')">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="btn-group choice" id="tankAbilitiesSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group tankAbilities choice" data-toggle="buttons" id="tankAbilities">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default mitigation">
+                        <div class="panel-heading">
+                            <span>Mitigation</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('mitigation')">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="threshold">
+                                    <i class="fas fa-greater-than-equal"></i>
+                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                </div>
+                                <div class="btn-group choice" id="mitigationTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="mitigationSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group mitigation choice" data-toggle="buttons" id="mitigation">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default elements">
+                        <div class="panel-heading">
+                            <span>Elemental resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="threshold">
+                                    <i class="fas fa-greater-than-equal"></i>
+                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                </div>
+                                <div class="btn-group choice" id="elementsTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="elementsSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group elements choice" data-toggle="buttons" id="elements">
                             </div>
                         </div>
                     </div>
@@ -354,6 +332,78 @@
                         </div>
                     </div>
 
+                    <div class="panel panel-default imbues">
+                        <div class="panel-heading">
+                            <span>Imbues</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('imbues')">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="btn-group choice" id="imbuesTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="imbuesSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group imbues choice" data-toggle="buttons" id="imbues">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default imperils">
+                        <div class="panel-heading">
+                            <span>Imperils</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('imperils')">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="threshold">
+                                    <i class="fas fa-greater-than-equal"></i>
+                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                </div>
+                                <div class="btn-group choice" id="imperilsTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="imperilsSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group imperils choice" data-toggle="buttons" id="imperils">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default killers">
+                        <div class="panel-heading">
+                            <span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('physicalKillers');unselectAll('magicalKillers');">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="threshold">
+                                    <i class="fas fa-greater-than-equal"></i>
+                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                </div>
+                                <div class="btn-group choice" id="killersTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="killersSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group elements choice" data-toggle="buttons" id="physicalKillers"></div>
+                            <div class="btn-group elements choice" data-toggle="buttons" id="magicalKillers"></div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default ailments">
+                        <div class="panel-heading">
+                            <span>Ailment resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="btn-group choice" id="ailmentsTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="ailmentsSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group ailments choice" data-toggle="buttons" id="ailments">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="panel panel-default weaponImperils">
                         <div class="panel-heading">
                             <span>Weapon imperils</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('weaponImperils')">unselect all</a>
@@ -370,56 +420,6 @@
                         </div>
                         <div class="panel-body">
                             <div class="btn-group weaponImperils choice" data-toggle="buttons" id="weaponImperils">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default tankAbilities">
-                        <div class="panel-heading">
-                            <span>Tank abilities</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('tankAbilities')">unselect all</a>
-                            <div class="filters hidden">
-                                <div class="btn-group choice" id="tankAbilitiesSkillTypes" data-toggle="buttons">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="btn-group tankAbilities choice" data-toggle="buttons" id="tankAbilities">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="panel panel-default imbues">
-                        <div class="panel-heading">
-                            <span>Imbues</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('imbues')">unselect all</a>
-                            <div class="filters hidden">
-                                <div class="btn-group choice" id="imbuesTargetAreaTypes" data-toggle="buttons">
-                                </div>
-                                <div class="btn-group choice" id="imbuesSkillTypes" data-toggle="buttons">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="btn-group imbues choice" data-toggle="buttons" id="imbues">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="panel panel-default mitigation">
-                        <div class="panel-heading">
-                            <span>Mitigation</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('mitigation')">unselect all</a>
-                            <div class="filters hidden">
-                                <div class="threshold">
-                                    <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
-                                </div>
-                                <div class="btn-group choice" id="mitigationTargetAreaTypes" data-toggle="buttons">
-                                </div>
-                                <div class="btn-group choice" id="mitigationSkillTypes" data-toggle="buttons">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="btn-group mitigation choice" data-toggle="buttons" id="mitigation">
                             </div>
                         </div>
                     </div>
