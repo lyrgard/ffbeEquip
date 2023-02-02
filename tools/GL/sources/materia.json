@@ -3819,7 +3819,7 @@
         "compendium_shown": true,
         "requirements": null,
         "skills": [203240],
-        "effects": ["Grant 'MP + 15%' passive"],
+        "effects": ["Grant 'MP +15%' passive"],
         "unique": false,
         "price_buy": 3000,
         "price_sell": 300,
@@ -27482,20 +27482,38 @@
         }
     },
     "504244022": {
-        "name": "機械人形の休日",
+        "name": "Robot's Holiday",
         "compendium_id": 1511,
         "compendium_shown": true,
         "requirements": null,
         "skills": [244022],
-        "effects": ["Grant '機械人形の休日' passive"],
-        "unique": false,
+        "effects": ["Grant 'Robot's Holiday' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Robot's Holiday", "機械人偶的假日", "기계인형의 휴일", "Vacances de robot", "Roboterurlaub", "Vacaciones de robot", "Liburan Robot", "วันหยุด\u001aของ\u001aหุ่นยนต์\u001a"],
+            "desc_short": [
+                "Boost ATK by 50% and physical and magic damage against aquatic monsters by 50% (Not stackable)",
+                "提高50%攻擊+物理、魔法攻擊時提高50%對水生系魔物的傷害[無法重複裝備]",
+                "공격력 50% 상승+물리, 마법 공격 시 수중형 마물에게 부여하는 피해량 50% 상승(중복 장착 불가)",
+                "Augmente l'ATT de 50 % et les dégâts physiques et magiques contre les monstres aquatiques de 50 % (non cumulable)",
+                "Erhöht ANG um 50% und physischen sowie magischen Schaden gegen Wassermonster um 50% (nicht stapelbar).",
+                "Aumenta el ATQ un 50% y el daño físico y mágico contra acuáticos un 50% (no acumulable)",
+                "Meningkatkan ATK sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis makhluk perairan sebanyak 50% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aสัตว์น้ำ\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts ATK by 50% and physical and magic damage against aquatic monsters by 50%. Not stackable.",
+                "提高50%攻擊，且物理、魔法攻擊時提高50%對水生系魔物的傷害。[無法重複裝備]",
+                "공격력이 50% 상승하고, 물리, 마법 공격 시 수중형 마물에게 부여하는 피해량이 50% 상승합니다.(중복 장착 불가)",
+                "Augmente l'ATT de 50 % et les dégâts physiques et magiques contre les monstres aquatiques de 50 %. Non cumulable.",
+                "Erhöht ANG um 50% und physischen sowie magischen Schaden gegen Wassermonster um 50%. Nicht stapelbar.",
+                "Aumenta el ATQ un 50% y el daño físico y mágico contra acuáticos un 50%. No acumulable.",
+                "Meningkatkan ATK sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis makhluk perairan sebanyak 50%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aATK\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aสัตว์น้ำ\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504400110": {
@@ -30544,7 +30562,7 @@
                 "雙手只裝備1把武器時武具攻擊提升+每回合增加極限技槽[無法重複裝備]",
                 "매 턴마다 LB 게이지 증가+양손의 장비가 무기 1개일 경우 장비의 공격력 상승 (중복 장착 불가)",
                 "Augmente l'ATT de l'équipement quand une arme est équipée dans les deux mains, et remplit la jauge de limite à chaque tour (non cumulable)",
-                "Erhöht Ausrüstung-ANG, wenn eine einzige Waffe in beiden Händen ausgerüstet ist, und füllt jede Runde Limitmeter. Nicht stapelbar.",
+                "Erhöht Ausrüstung-ANG, wenn eine einzige Waffe in beiden Händen ausgerüstet ist, und füllt jede Runde Limitmeter (nicht stapelbar).",
                 "Aumenta el ATQ del equipo al llevar una sola arma en ambas manos, y rellena la barra de EL cada turno (no acumulable)",
                 "Meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan dan mengisi bar LB setiap giliran (Tidak dapat ditumpuk)",
                 "เพิ่มค่า\u001a \u001aATK\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001a<br>\u001aยู\u001aนิ\u001aท\u001aใช้\u001aมือ\u001aทั้งสอง\u001aข้าง\u001aถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a+\u001a \u001aเติม\u001a \u001aLB\u001a \u001aGauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"

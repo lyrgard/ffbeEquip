@@ -6683,6 +6683,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Calming Strike","Light of Repentance","Silver Hammer","Black Elemental Veil","White Elemental Veil","Crowning Veil"],
 		"6_form": {
 			"name":"Blaumagierin Fina",
 			"roles":["healer","support"],
@@ -6700,7 +6701,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"]
+			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["Calming Strike","Light of Repentance","Silver Hammer","Black Elemental Veil","White Elemental Veil","Crowning Veil"]
 		},
 		"7_form": {
 			"name":"Blaumagierin Fina",
@@ -6719,7 +6721,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":4,
-			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"]
+			"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["Calming Strike","Light of Repentance","Silver Hammer","Black Elemental Veil","White Elemental Veil","Crowning Veil"]
 		}
 	},
 	"100025727": {
@@ -6742,7 +6745,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Lotus Light Assault"]
+		"enhancementSkills":["Seeking Ideals","Lotus Light Assault"]
 	},
 	"100025805": {
 		"name":"Delta-Stern-Sakura",
@@ -11340,9 +11343,9 @@
 		"enhancementSkills":["To Svaerd","Large Sword Mastery","Katana Mastery"]
 	},
 	"100040407": {
-		"name":"フィーナ2022夏",
+		"name":"Strandurlauberin Fina",
 		"roles":["magicalAttacker"],
-		"wikiEntry":"フィーナ2022夏",
+		"wikiEntry":"Vacation_Voyager Fina",
 		"id":"100040407",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -11359,12 +11362,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","throwing","gun","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["ドキドキの純白ビーチ","思いっきり楽しもう！"]
+		"enhancementSkills":["Thrilling White Sand Beach","Let's have lots of fun!","Thundara","Watera","Thundaga","Waterga","Burst (FFBE)","Flood"]
 	},
 	"100040417": {
-		"name":"フィーナ2022夏 BS",
+		"name":"Strandurlauberin Fina BS",
 		"roles":["magicalAttacker"],
-		"wikiEntry":"フィーナ2022夏",
+		"wikiEntry":"Vacation_Voyager Fina",
 		"id":"100040417",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -11383,9 +11386,9 @@
 		"equip":["staff","rod","bow","throwing","gun","hat","clothes","robe","visionCard"]
 	},
 	"100040507": {
-		"name":"ルンド マリンタイプ",
+		"name":"Runda (Typ: Marine)",
 		"roles":["physicalAttacker","support"],
-		"wikiEntry":"ルンド_マリンタイプ",
+		"wikiEntry":"Marine-Type_Runda",
 		"id":"100040507",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -11402,12 +11405,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["greatSword","axe","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["ルンドトルピード・アルファ"]
+		"enhancementSkills":["Runda Torpedo - Alpha","Protectga","Barrier"]
 	},
 	"100040517": {
-		"name":"ルンド マリンタイプ BS",
+		"name":"Runda (Typ: Marine) BS",
 		"roles":["physicalAttacker","support"],
-		"wikiEntry":"ルンド_マリンタイプ",
+		"wikiEntry":"Marine-Type_Runda",
 		"id":"100040517",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -13949,9 +13952,6 @@
 		"id":"205000905",
 		"game_id":"10005",
 		"game":"FFV",
-		"braveShift":"205000927",
-		"exAwakening": [{"hp":670,"mp":41,"atk":23,"def":23,"mag":37,"spr":29},{"hp":516,"mp":32,"atk":17,"def":17,"mag":28,"spr":22},{"hp":361,"mp":22,"atk":12,"def":12,"mag":20,"spr":16}],
-		"fragmentId": "250015100",
 		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
@@ -13961,7 +13961,7 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
+		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Firaga","Blizzaga","Thundaga","Meteor","Wicked Light (Dark Mage Exdeath)","Wicked Magic","Quake"],
 		"6_form": {
 			"name":"Dunkelmagier Exdeath",
@@ -14003,27 +14003,6 @@
 			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 			"enhancementSkills":["Firaga","Blizzaga","Thundaga","Meteor","Wicked Light (Dark Mage Exdeath)","Wicked Magic","Quake"]
 		}
-	},
-	"205000927": {
-		"name":"Dunkelmagier Exdeath BS",
-		"roles":["magicalAttacker"],
-		"wikiEntry":"Dark_Mage Exdeath",
-		"id":"205000927",
-		"game_id":"10005",
-		"game":"FFV",
-		"braveShifted":"205000905",
-		"exAwakening": [{"hp":670,"mp":41,"atk":23,"def":23,"mag":37,"spr":29},{"hp":516,"mp":32,"atk":17,"def":17,"mag":28,"spr":22},{"hp":361,"mp":22,"atk":12,"def":12,"mag":20,"spr":16}],
-		"fragmentId": "250015100",
-		"max_rarity":"NV",
-		"min_rarity":"NV",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":5156,"mp":318,"atk":172,"def":172,"mag":283,"spr":224},
-			"minStats":{"hp":1701,"mp":105,"atk":57,"def":57,"mag":93,"spr":74},
-			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
-		},
-		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor","robe","visionCard"]
 	},
 	"205001005": {
 		"name":"Krieger der Morgendämmerung Galuf",
@@ -33210,6 +33189,7 @@
   "204002104":{"name":"Cagnazzo","jpname":"カイナッツォ","roles":["physicalTank"],"id":"204002104","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3901,"mp":145,"atk":120,"def":146,"mag":105,"spr":124},"minStats":{"hp":1287,"mp":48,"atk":40,"def":48,"mag":35,"spr":41},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["fist","helm","lightArmor","heavyArmor"]},
   "204002705":{"name":"Ceodore","jpname":"セオドア","roles":["physicalAttacker","physicalTank"],"id":"204002705","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4910,"mp":255,"atk":206,"def":193,"mag":164,"spr":192},"minStats":{"hp":1620,"mp":84,"atk":68,"def":64,"mag":54,"spr":63},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","axe","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],"enhancementSkills":["プロテガ","シェルガ"],"6_form":{"name":"Ceodore","jpname":"セオドア","roles":["physicalAttacker","physicalTank"],"id":"204002705","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3776,"mp":196,"atk":158,"def":148,"mag":126,"spr":147},"minStats":{"hp":1246,"mp":65,"atk":52,"def":49,"mag":42,"spr":49},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","katana","axe","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],"enhancementSkills":["プロテガ","シェルガ"]}},
   "204002805":{"name":"Ursula","jpname":"アーシュラ","roles":["physicalAttacker"],"id":"204002805","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4798,"mp":246,"atk":208,"def":176,"mag":158,"spr":176},"minStats":{"hp":1583,"mp":81,"atk":69,"def":58,"mag":52,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","hammer","throwing","mace","fist","hat","clothes","robe"],"6_form":{"name":"Ursula","jpname":"アーシュラ","roles":["physicalAttacker"],"id":"204002805","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3690,"mp":189,"atk":160,"def":135,"mag":121,"spr":135},"minStats":{"hp":1218,"mp":62,"atk":53,"def":45,"mag":40,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","hammer","throwing","mace","fist","hat","clothes","robe"]}},
+  "205000927":{"name":"暗黒魔道士エクスデス BS","jpname":"暗黒魔道士エクスデス BS","roles":["magicalAttacker"],"id":"205000927","game_id":"undefined","game":"undefined","braveShifted":"205000905","exAwakening":[{"hp":670,"mp":41,"atk":23,"def":23,"mag":37,"spr":29},{"hp":516,"mp":32,"atk":17,"def":17,"mag":28,"spr":22},{"hp":361,"mp":22,"atk":12,"def":12,"mag":20,"spr":16}],"fragmentId":"250015100","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5156,"mp":318,"atk":172,"def":172,"mag":283,"spr":224},"minStats":{"hp":1701,"mp":105,"atk":57,"def":57,"mag":93,"spr":74},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"]},
   "207002607":{"name":"英雄になった青年ザックス","jpname":"英雄になった青年ザックス","roles":["physicalAttacker"],"id":"207002607","game_id":"undefined","game":"undefined","braveShift":"207002617","exAwakening":[{"hp":695,"mp":42,"atk":86,"def":32,"mag":20,"spr":34},{"hp":534,"mp":33,"atk":66,"def":24,"mag":16,"spr":26},{"hp":374,"mp":23,"atk":46,"def":17,"mag":11,"spr":18}],"fragmentId":"250017200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5344,"mp":326,"atk":330,"def":242,"mag":158,"spr":261},"minStats":{"hp":1764,"mp":108,"atk":109,"def":80,"mag":52,"spr":86},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["八刀一閃","大剣の極意","剣の極意","急所斬り","ラッキースター"]},
   "207002617":{"name":"英雄になった青年ザックス BS","jpname":"英雄になった青年ザックス BS","roles":["physicalAttacker"],"id":"207002617","game_id":"undefined","game":"undefined","braveShifted":"207002607","exAwakening":[{"hp":695,"mp":42,"atk":86,"def":32,"mag":20,"spr":34},{"hp":534,"mp":33,"atk":66,"def":24,"mag":16,"spr":26},{"hp":374,"mp":23,"atk":46,"def":17,"mag":11,"spr":18}],"fragmentId":"250017200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5344,"mp":326,"atk":330,"def":242,"mag":158,"spr":261},"minStats":{"hp":1764,"mp":108,"atk":109,"def":80,"mag":52,"spr":86},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
   "207002707":{"name":"アンジール","jpname":"アンジール","roles":["debuffer","support"],"id":"207002707","game_id":"undefined","game":"undefined","braveShift":"207002717","exAwakening":[{"hp":712,"mp":44,"atk":73,"def":31,"mag":24,"spr":28},{"hp":548,"mp":34,"atk":56,"def":24,"mag":18,"spr":22},{"hp":384,"mp":24,"atk":39,"def":17,"mag":13,"spr":15}],"fragmentId":"250017300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5479,"mp":338,"atk":280,"def":237,"mag":184,"spr":215},"minStats":{"hp":1808,"mp":112,"atk":92,"def":78,"mag":61,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["サンダーラッシュ","大剣の極意","剣の極意","サンダラ","サンダガ","プロテガ","シェルガ"]},
