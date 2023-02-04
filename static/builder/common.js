@@ -1515,6 +1515,9 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         if (stat === "lbDamage" || stat === "jumpDamage" || stat === "evoMag" || stat === "evokeDamageBoost.all" || stat.includes("%")) {
             
             calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
+            if (stat === "lbDamage") {
+                calculatedValue = calculatedValue + unitBuild.baseValues["lbDamage"]
+            }
         }
         var result = {"right":0,"left":0,"total":calculatedValue,"bonusPercent":currentPercentIncrease.value, "overcap": realCap};
         if (!valuesToNotRoundDown.includes(stat)) {

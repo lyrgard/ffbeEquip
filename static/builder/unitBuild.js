@@ -147,7 +147,7 @@ class UnitBuild {
     calculateInvolvedStats(formula) {
         if (formula.type === "multicast") {
             for (let i = formula.skills.length; i--;) {
-                this.calculateInvolvedStats(formula.skills[i]);
+                this.calculateInvolvedStats(formula.skills[i]);                
             }
         } else if (formula.type === "skill") {
             if (formula.lb) {
@@ -436,7 +436,7 @@ class UnitBuild {
     
     hasDualWieldMastery() {
         for (let index in this.unit.skills) {
-            if (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this.level) {
+            if (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this.level) {
                 if (this.unit.skills[index].improvedDW) {
                     return true;
                 }
