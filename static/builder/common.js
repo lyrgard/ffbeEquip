@@ -1667,12 +1667,16 @@ function isApplicable(item, unit) {
     return true;
 }
 
-function areConditionOK(item, equiped, level = 0, exLevel = 0) {
+function areConditionOK(item, equiped, level = 0, exLevel) {
     if (level && item.levelCondition && item.levelCondition > level) {
         return false;
     }
-    if (exLevel && item.exLevelCondition && item.exLevelCondition > exLevel) {
-        return false;
+
+    console.log(item.exLevelCondition)
+    if (exLevel  > -1 && item.exLevelCondition){
+        if (item.exLevelCondition > exLevel) {
+            return false;
+        }
     }
     if (item.equipedConditions) {
         for (var conditionIndex = item.equipedConditions.length; conditionIndex--;) {
