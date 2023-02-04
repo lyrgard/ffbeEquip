@@ -1087,7 +1087,7 @@ i.img.img-slot-hand.leftHand {
 
 .goal .elements .element {
     display: flex;
-    width: 88px;
+    width: 100px;
 }
 
 .goal .elements .element input {
@@ -1387,52 +1387,7 @@ i.img.img-slot-hand.leftHand {
     margin-left: 10px;
 }
 
-#abilitySelectionGroup {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-}
 
-#skillStats {
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    border-radius: 5px;
-    width: 46%;
-    box-sizing: border-box;
-}
-
-#skillStats .panel-heading {
-    background-color: #464545;
-    font-weight: bold;
-    border: 1px solid black;
-}
-
-#skillStats .panel-body {
-    border: 1px solid black;
-    border-top: 0;
-    border-radius: 0px 0px 5px 5px;
-    background-color: #222222;
-    text-align: left;
-}
-
-#skillStats .panel-body i {
-    width: 8%;
-}
-
-.skillDetail {
-    display: flex;
-    flex-direction: column;
-}
-
-#buildAUnit {
-    display: flex;
-    box-sizing: content-box;
-}   
 
 @media (max-width: 991px) {
 

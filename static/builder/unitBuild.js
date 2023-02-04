@@ -436,7 +436,7 @@ class UnitBuild {
     
     hasDualWieldMastery() {
         for (let index in this.unit.skills) {
-            if (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this.level) {
+            if (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this.level) {
                 if (this.unit.skills[index].improvedDW) {
                     return true;
                 }
