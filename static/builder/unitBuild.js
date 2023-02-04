@@ -147,7 +147,7 @@ class UnitBuild {
     calculateInvolvedStats(formula) {
         if (formula.type === "multicast") {
             for (let i = formula.skills.length; i--;) {
-                this.calculateInvolvedStats(formula.skills[i]);
+                this.calculateInvolvedStats(formula.skills[i]);                
             }
         } else if (formula.type === "skill") {
             if (formula.lb) {

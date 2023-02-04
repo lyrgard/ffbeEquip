@@ -1,4 +1,4 @@
-﻿page = "builder";
+page = "builder";
 var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
 
 const formulaByGoal = {
@@ -726,6 +726,7 @@ function logCurrentBuild() {
     readGoal();
     readEnemyStats();
     logBuild(builds[currentUnitIndex].build);
+    updateSkillDetails()
 }
 
 function logBuild(build, value) {
@@ -1994,6 +1995,150 @@ function onGoalChange() {
     updateGoal();
     if (builds[currentUnitIndex].unit) {
         logCurrentBuild();
+    }
+}
+
+function updateSkillDetails() {
+    // Check if a unit is assigned
+    // Get the maximize selections
+    // Check if skill is selected
+    let skillStats = $("#skillStats");
+    let skillStatsBody = $("#skillStats .panel-body");
+
+    if (builds[currentUnitIndex].unit) {
+        // Remove any existing data
+        if (skillStatsBody.children().length > 0) {
+            skillStatsBody.empty();
+            skillStats.addClass("hidden");
+        }
+
+        // Rebuild the Skill Details
+        if (builds[currentUnitIndex].unit) {
+            let formula = builds[currentUnitIndex].formula;
+            let htmlString = "<div class='skillDetail'>";
+            if (formula.skills) {
+                // Display Skill Window
+                skillStats.removeClass("hidden");
+                // Detect skill tree values recursively
+                
+                let selectedSkills = [];
+                let unitWithSkillsActives = unitsWithSkills[builds[currentUnitIndex].unit.id].actives;
+
+                Object.keys(formula.skills).forEach((id) => {
+                    // Get the ID from the formula.skills
+                    let newId = formula.skills[id].id;
+
+                    // Loop through the actives to get the right skill and push to selectedSkills
+                    Object.keys(unitWithSkillsActives).forEach((skillNumber) => {
+                        if (newId === unitWithSkillsActives[skillNumber].id) {
+                            selectedSkills.push(unitWithSkillsActives[skillNumber])
+                        }
+                    })
+                })
+
+                console.log(selectedSkills)
+
+                Object.keys(selectedSkills).forEach((skillId) => {
+                    htmlString += skillTrees(selectedSkills[skillId])
+                })
+                
+            }
+            htmlString += "</div>";
+            // Append the constructed skill div
+            skillStatsBody.append(htmlString)
+        }
+    }
+}
+
+function skillTrees(skillObject) {
+    htmlString = "<div class='panel-heading'>" + skillObject.name + " (" + skillObject.id + ")</div><div class='panel-body'>"
+
+    let skillEffects = skillObject.effects;
+    let frames = skillObject.frames;
+    let chainFamily = skillObject.chainFamily;
+    let move = skillObject.move;
+
+    Object.keys(skillEffects).forEach((skillNumber) => {
+        if (skillEffects[skillNumber].effect) {
+            let effect = skillEffects[skillNumber].effect;
+            let effectDesc = skillEffects[skillNumber].desc;
+            let target = effect.target;
+
+            if (effectDesc.toLowerCase() !== "no effect") {
+                if (effect.cooldownSkill) {
+                    let cooldownSkill = effect.cooldownSkill;
+                    htmlString += "<div class='panel-heading'>" + cooldownSkill.name + " (" + cooldownSkill.id + ")</div><div class='panel-body'>"
+            
+                    let cooldownSkillEffects = cooldownSkill.effects;
+                    
+                    // Loop through effects and add them to the HTML String.
+                    Object.keys(cooldownSkillEffects).forEach((skillNumber) => {
+                        let skillInfo = cooldownSkillEffects[skillNumber];
+                        let newText = skillInfo.desc
+                        
+                        // Ailments images
+                        if (skillInfo.desc.includes("effects 27, 28, 29, 30, 31, 32, 33 and 34")) {
+                            newText = skillInfo.desc.replace("effects 27, 28, 29, 30, 31, 32, 33 and 34", "<i class='img img-ailment-poison'></i><i class='img img-ailment-blind'></i><i class='img img-ailment-sleep'></i><i class='img img-ailment-silence'></i><i class='img img-ailment-paralysis'></i><i class='img img-ailment-confuse'></i><i class='img img-ailment-disease'></i><i class='img img-ailment-petrification'></i>")
+                        }
+    
+                        //element images
+                        if (skillInfo.desc.includes(" light ") || skillInfo.desc.includes(" Light ")) {
+                            let lowerCaseDesc = skillInfo.desc.toLowerCase();
+                            newText = lowerCaseDesc.replace("light", "light <i class='img img-element-light'></i>")
+                            newText = newText.replace(newText.charAt(0), newText.charAt(0).toUpperCase());
+                        }
+                        
+                        htmlString += "<p>" + newText + "</p>"
+                    })
+                    
+                }
+
+                if (chainFamily && effect.damage) {
+                    htmlString += "<p>Chaining Family: " + chainFamily + "</p>"
+                }
+
+                if (frames && effect.damage) {
+                    let frameString = "";
+                    Object.keys(frames).forEach((frameNumber) => {
+                        frameString += frames[frameNumber] + ","
+                    })
+                    frameString = frameString.substring(0, frameString.length -1)
+                    htmlString += "<p>Frames: " + frameString + "</p>"
+                }
+
+                if (move && effect.damage){
+                    if (typeof(move) === "undefined") {
+                        htmlString += "<p>Move: none </p>"
+                    } else {
+                        htmlString += "<p>Move: " + effect.move + "</p>"
+                    }
+                }
+    
+                if (effectDesc) {
+                    htmlString += "<p>Effect: " + effectDesc + "</p>"
+                }
+
+                if (target) {
+                    target = target.toLowerCase();
+                    target = target.replace(target.charAt(0), target.charAt(0).toUpperCase());
+                    htmlString += "<p>Target: " + target + "</p>"
+                }
+            }
+        }
+    })
+
+    htmlString += "</div></div>"
+    return htmlString;
+}
+
+function collapseSkillDetails() {
+    let skillDetails = $("#skillStats > #collapseSkills");
+    if (skillDetails.hasClass("hidden")) {
+        skillDetails.removeClass("hidden");
+        $("#skillDetailsCollapseIcon").html("-");
+    } else {
+        skillDetails.addClass("hidden")
+        $("#skillDetailsCollapseIcon").html("+");
     }
 }
 

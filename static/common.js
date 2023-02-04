@@ -25,6 +25,7 @@ var mustSaveUnits = false;
 var mustSaveInventory = false;
 var mustSaveEspers = false;
 var userSettings;
+var visionCards;
 var lazyLoader = (window.LazyLoad) ? new LazyLoad({
     elements_selector: 'img.lazyload'
 }) : null;

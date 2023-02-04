@@ -1669,17 +1669,21 @@ function startPage() {
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("data", true, function(result) {
         data = result;
-        dataById = {};
-        result.forEach(e => dataById[e.id] = e);
-        getStaticData("unitsWithSkill", false, function(result) {
-            units = result;
-            prepareUnitSearch();
-            getStaticData("unitSearch", false, function(result) {
-                unitSearch = result;
-                getStaticData("releasedUnits", false, function(result) {
-                    releasedUnits = result;
-                    initFilters();
-                    update();
+        getStaticData("visionCards", false, function(result) {
+            visionCards = result;
+            addCardsToData(visionCards, data)
+            dataById = {};
+            data.forEach(e => dataById[e.id] = e);
+            getStaticData("unitsWithSkill", false, function(result) {
+                units = result;
+                prepareUnitSearch();
+                getStaticData("unitSearch", false, function(result) {
+                    unitSearch = result;
+                    getStaticData("releasedUnits", false, function(result) {
+                        releasedUnits = result;
+                        initFilters();
+                        update();
+                    });
                 });
             });
         });

@@ -108,7 +108,15 @@ function getEquipedCondition(effect) {
                 return '<i class="img img-equipment-sword miniIcon"></i><i class="img img-element-' + condition + ' withMiniIcon"></i>';
             } else {
                 if (Array.isArray(condition)) {
-                    return condition.map(itemId => '<img src="img/items/' + dataById[itemId].icon + '" class="icon">' + dataById[itemId].name).join(' or ');
+                    let outputString  = condition.map((itemId) =>  {
+                        try {
+                            let testItemId = itemId + "-1";
+                            return '<img src="img/items/' + dataById[testItemId].icon + '" class="icon">' + dataById[testItemId].name
+                        } catch (err){
+                            return '<img src="img/items/' + dataById[itemId].icon + '" class="icon">' + dataById[itemId].name
+                        }
+                    }).join(' or ');
+                    return outputString
                 } else {
                     return '<img src="img/items/' + dataById[condition].icon + '" class="icon">' + dataById[condition].name;
                 }
