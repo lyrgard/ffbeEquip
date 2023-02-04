@@ -239,7 +239,6 @@ function optimize() {
     var forceDoubleHand = $("#forceDoublehand").prop('checked');
     var forceDualWield = $("#forceDualWield").prop('checked');
     var tryEquipSources = $("#tryEquipsources").prop('checked');
-    var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
 
     prepareDataStorage();
 
@@ -274,8 +273,7 @@ function optimize() {
             "useEspers":!dataStorage.onlyUseShopRecipeItems,
             "desirableElements":dataStorage.desirableElements,
             "enemyStats":enemyStats,
-            "goalVariation": goalVariation,
-            "useNewJpDamageFormula": useNewJpDamageFormula,
+            "goalVariation": goalVariation
         }));
     }
     let forceTmrAbility = $("#forceTmrAbility").prop('checked');
@@ -743,8 +741,6 @@ function logBuild(build, value) {
         $("#buildResult").removeClass("conciseView");
     }
 
-    var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
-
     $("#resultStats .statToMaximize").removeClass("statToMaximize");
 
     var link = Piramidata.getImageLink(builds[currentUnitIndex]);
@@ -837,7 +833,7 @@ function logBuild(build, value) {
     }
 
     if (!value && builds[currentUnitIndex].formula) {
-        value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], enemyStats, builds[currentUnitIndex].formula, goalVariation, useNewJpDamageFormula, false, true);
+        value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], enemyStats, builds[currentUnitIndex].formula, goalVariation, false, true);
     }
 
     var killers = [];
@@ -891,22 +887,22 @@ function logBuild(build, value) {
     if (!formulaIsOneSkill) {
         if (importantStats.includes("atk")) {
             $("#resultStats .physicalDamageResult").removeClass("hidden");
-            physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], enemyStats, formulaByGoal["physicalDamage"], goalVariation, useNewJpDamageFormula, false);
+            physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], enemyStats, formulaByGoal["physicalDamage"], goalVariation, false);
             $("#resultStats .physicalDamageResult .calcValue").html(getValueWithVariationHtml(physicalDamageResult));
         }
         if (importantStats.includes("mag")) {
             $("#resultStats .magicalDamageResult").removeClass("hidden");
-            magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], enemyStats, formulaByGoal["magicalDamage"], goalVariation, useNewJpDamageFormula, false);
+            magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], enemyStats, formulaByGoal["magicalDamage"], goalVariation, false);
             $("#resultStats .magicalDamageResult .calcValue").html(getValueWithVariationHtml(magicalDamageResult));
         }
         if (importantStats.includes("atk") && importantStats.includes("mag")) {
             $("#resultStats .hybridDamageResult").removeClass("hidden");
-            hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], enemyStats, formulaByGoal["hybridDamage"], goalVariation, useNewJpDamageFormula, false);
+            hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], enemyStats, formulaByGoal["hybridDamage"], goalVariation, false);
             $("#resultStats .hybridDamageResult .calcValue").html(getValueWithVariationHtml(hybridDamageResult));
         }
         if (importantStats.includes("mag") && importantStats.includes("spr")) {
             $("#resultStats .healingResult").removeClass("hidden");
-            healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], enemyStats, formulaByGoal["heal"], goalVariation, useNewJpDamageFormula, false);
+            healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], enemyStats, formulaByGoal["heal"], goalVariation, false);
             $("#resultStats .healingResult .calcValue").html(getValueWithVariationHtml(healingResult));
         }
     }
@@ -3047,7 +3043,6 @@ function getStateHash(onlyCurrent = true) {
             data.itemSelector.additionalFilters.push(additionalFilters[i]);
         }
     }
-    data.useNewJpDamageFormula = $("#useNewJpDamageFormula").prop("checked");
 
     return data;
 }
@@ -3377,12 +3372,6 @@ async function loadStateHashAndBuild(data, importMode = false) {
 
     if (data.itemSelector.mainSelector == "owned" && !itemInventory) {
         return;
-    }
-
-    if (data.useNewJpDamageFormula) {
-        $("#useNewJpDamageFormula").prop("checked", true);
-    } else {
-        $("#useNewJpDamageFormula").prop("checked", false);
     }
 
 
@@ -4593,7 +4582,6 @@ function ensureInitUnitWithSkills(unitId) {
 // will be called by common.js at page load
 function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
-    $('#useNewJpDamageFormula').prop('checked', false);
     resetMonsterAttack();
 
     registerWaitingCallback(["data", "unitsWithPassives", "defaultBuilderEspers"], () => {
@@ -4767,7 +4755,7 @@ function startPage() {
         logCurrentBuild();
     });
     $("#unitExAwakeningLevel select").change(function() {
-        let exLevel = +$("#unitExAwakeningLevel select").val();
+        let exLevel = $("#unitExAwakeningLevel select").val();
         builds[currentUnitIndex].setExAwakeningLevel(exLevel);
         if (exLevel === 0) {
             if (builds[currentUnitIndex].unit.braveShifted) {
@@ -4781,7 +4769,6 @@ function startPage() {
         recalculateApplicableSkills();
         logCurrentBuild();
     });
-    $("#useNewJpDamageFormula").change(function() {logCurrentBuild();});
 
     $("#monsterStats input").on('input',$.debounce(300,function() {
         readEnemyStats();

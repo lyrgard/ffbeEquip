@@ -7,7 +7,6 @@ FFBEEquipExternalControl = {
         'tryEquipsources',
         'tryReduceOverCap',
         'forceTmrAbility',
-        'useNewJpDamageFormula',
         'includeEasilyObtainableItems',
         'includeChocoboItems',
         'includeTMROfOwnedUnits',

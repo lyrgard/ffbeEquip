@@ -405,7 +405,7 @@ class BuildOptimizer {
     tryEsper(build, esper, fixedItems) {
         build[11] = esper;
         
-        var value = calculateBuildValueWithFormula(build, this._unitBuild, this.enemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
+        var value = calculateBuildValueWithFormula(build, this._unitBuild, this.enemyStats, this._unitBuild.formula, this.goalVariation);
         if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == -1) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {
             
             var slotsRemoved = this.tryLessSlots(build, value, this._unitBuild.fixedItems, fixedItems);
@@ -473,7 +473,7 @@ class BuildOptimizer {
             var removedItem = build[slotToRemove];
             build[slotToRemove] = null;
             
-            var testValue = calculateBuildValueWithFormula(build, this._unitBuild, this.enemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
+            var testValue = calculateBuildValueWithFormula(build, this._unitBuild, this.enemyStats, this._unitBuild.formula, this.goalVariation);
             if (testValue[this.goalVariation] >= value[this.goalVariation]) {
                 slotToRemove--;
                 slotsRemoved++;
