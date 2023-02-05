@@ -1640,8 +1640,7 @@ function areConditionOK(item, equiped, level = 0, exLevel) {
     if (level && item.levelCondition && item.levelCondition > level) {
         return false;
     }
-
-    console.log(item.exLevelCondition)
+    
     if (exLevel  > -1 && item.exLevelCondition){
         if (item.exLevelCondition > exLevel) {
             return false;
