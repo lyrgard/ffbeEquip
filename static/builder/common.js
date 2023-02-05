@@ -47,7 +47,7 @@ const valuesToNotRoundDown = ["lbPerTurn", "chainMastery", "evoMag", "lbDamage"]
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed, accessory) {
 
     var value = item[valuePath]; // Item[atk] for instance.
-
+    
     if (value == undefined) { // If there isn't a stat of that kind on this item
         if (valuePath.indexOf('.') > -1) {
             value = getValueFromPath(item, valuePath); // evade.magical, evade.physical, resist|sleep.percent, resist|fire.percent for example.
@@ -1640,7 +1640,7 @@ function areConditionOK(item, equiped, level = 0, exLevel) {
     if (level && item.levelCondition && item.levelCondition > level) {
         return false;
     }
-    
+
     if (exLevel  > -1 && item.exLevelCondition){
         if (item.exLevelCondition > exLevel) {
             return false;

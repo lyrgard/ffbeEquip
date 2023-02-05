@@ -2511,10 +2511,26 @@ function addCardsToData(cards, data) {
             cardInstance.level = level + 1;
             let conditionals = card.levels[level].conditional || [];
             computeConditionalCombinations(cardInstance, conditionals, (card) => {
+                // Once conditional is found, move level stats up to the item level.
+                card = vcLevelsToCardAttribute(card)
                 data.push(card);
             });
         }
     });
+}
+
+function vcLevelsToCardAttribute(card){
+    if (card.levels){
+        let cardLevels = card.levels;
+        let cardLevelsTotal = cardLevels.length;
+        let maxLevelStats = cardLevels[cardLevelsTotal - 1]
+        Object.keys(maxLevelStats).forEach((stat)=> {
+            let currentStatValue = maxLevelStats[stat];
+            card[stat] = currentStatValue;
+        })
+    }
+
+    return card;
 }
 
 function computeConditionalCombinations(item, conditionals, onCombinationFound,index = 0) {

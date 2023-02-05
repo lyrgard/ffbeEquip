@@ -492,7 +492,21 @@ class DataStorage {
             } else if (stats[index] == "meanDamageVariance") {
                 if (item.meanDamageVariance && item.meanDamageVariance > 1) return true;
             } else if (stats[index] == "chainMastery") {
-                if (item.chainMastery && item.chainMastery > 0) return true;
+                if (item.chainMastery && item.chainMastery > 0) {
+                    return true;
+                }
+                
+                if (item.type == "visionCard") {
+                    if (item.name.includes("Not until the end")) {
+                        console.log(item)
+                    }
+                    let vcLevels = item.levels;
+                    vcLevels.forEach((levelNumber) => {
+                        if (levelNumber.chainMastery &&  levelNumber.chainMastery > 0) {
+                            return true;
+                        }
+                    })
+                }
             } else {
                 if (getValue(item, stats[index]) > 0) return true;
                 if (item[stats[index] + '%'] && item[stats[index] + '%'] > 0) return true;
@@ -539,8 +553,8 @@ class DataStorage {
             if (item[stat] == value) {
                 delete item[stat];
             } else {
-                item[stat] -= value;
             }
+                item[stat] -= value;
         } else if (stat == "evade") {
             if (value.physical) {
                 this.removeStat(item.evade, 'physical', value.physical);

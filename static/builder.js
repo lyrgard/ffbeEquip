@@ -931,23 +931,23 @@ function logBuild(build, value) {
     $("#resultStats .damageCoef").html("1x");
 }
 
-function checkOvercap(damageType, build, builds, currentUnitIndex) {    
-    let endChar = checkEndChar(damageType);
-    let statValue = calculateStatValue(build, damageType, builds[currentUnitIndex]).overcap;
-    let statCap = getStatBonusCap(damageType);
+function checkOvercap(stat, build, builds, currentUnitIndex) {    
+    let endChar = checkEndChar(stat);
+    let statValue = calculateStatValue(build, stat, builds[currentUnitIndex]).overcap;
+    let statCap = getStatBonusCap(stat);
 
     if (statValue > statCap) {
-        displayStat("#resultStats ." + escapeDot(damageType), statValue, endChar)
-        $("#resultStats>." + escapeDot(damageType) + ">div>div:nth-child(2)").css('color', 'red').html("<span style='color:red;' title='Only " + statCap + "" + endChar + " taken into account'>" + statValue + "" + endChar + " </span>")
+        displayStat("#resultStats ." + escapeDot(stat), statValue, endChar)
+        $("#resultStats>." + escapeDot(stat) + ">div>div:nth-child(2)").css('color', 'red').html("<span style='color:red;' title='Only " + statCap + "" + endChar + " taken into account'>" + statValue + "" + endChar + " </span>")
     } else {
-        displayStat("#resultStats ." + escapeDot(damageType), statValue, endChar);
-        $("#resultStats>." + escapeDot(damageType) + ">div>div:nth-child(2)").css('color', '').html(statValue + "" + endChar)
+        displayStat("#resultStats ." + escapeDot(stat), statValue, endChar);
+        $("#resultStats>." + escapeDot(stat) + ">div>div:nth-child(2)").css('color', '').html(statValue + "" + endChar)
     }
 }
 
-function checkEndChar(damageType) {
+function checkEndChar(stat) {
     let endChar = "";
-    switch(damageType) {
+    switch(stat) {
         case 'chainMastery':
             endChar = "x";
             break;
