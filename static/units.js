@@ -1300,7 +1300,7 @@ function treatImportFile(evt) {
                             return;
                         } else {
                             if (!importedOwnedUnit[baseUnitId]) {
-                                importedOwnedUnit[baseUnitId] = {"number":0,"farmable":0,"sevenStar":0,"farmableStmr":0};
+                                importedOwnedUnit[baseUnitId] = {"number":0,"farmable":0,"sevenStar":0,"farmableStmr":0,"exRank":0};
                             }
                             if (unit.tmr < 1000) {
                                 importedOwnedUnit[baseUnitId].farmable++;
@@ -1313,6 +1313,8 @@ function treatImportFile(evt) {
                                 if (unit.stmr < 1000) {
                                     importedOwnedUnit[baseUnitId].farmableStmr++;
                                 }
+                                // Store the max awakened ex level of this unit.
+                                importedOwnedUnit[baseUnitId].exRank = Math.max(importedOwnedUnit[baseUnitId].exRank, unit.exRank);
                             } else if (unit.id.endsWith("7")) { // Seven star units
                                 importedOwnedUnit[baseUnitId].sevenStar++;
                                 if (unit.stmr < 1000) {

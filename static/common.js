@@ -3,6 +3,7 @@ var wikiBaseUrl = "https://exvius.fandom.com/";
 var data;
 var units;
 var ownedUnits;
+var actuallyOwnedUnits;
 var itemInventory;
 var ownedEspers;
 var ownedConsumables;
@@ -2652,6 +2653,7 @@ $(function() {
         });
         $.get(server + '/units', function(result) {
             ownedUnits = result;
+            actuallyOwnedUnits = result;
             if (result.version && result.version == 3) {
                 getStaticData("units", false, function(allUnitResult) {
                     for (var unitSerieId in allUnitResult) {
