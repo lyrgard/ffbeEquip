@@ -748,6 +748,10 @@ function awakenFollowUp(unitId) {
     markSaveNeeded();
 }
 
+function clamp(value, minValue, maxValue) {
+    return Math.max(minValue, Math.min(maxValue, value));
+}
+
 function editUnit(unitId) {
     
     if (!ownedUnits[unitId]) {
@@ -793,6 +797,10 @@ function editUnit(unitId) {
             '<label for="ownedFragmentNumber">Owned Fragment number</label>' +
             '<input type="number" class="form-control" id="ownedFragmentNumber" placeholder="Enter owned number" value="' + (ownedConsumables[unit.fragmentId] || 0) + '" step="5">' +
             '</div>';
+        form += '<div class="form-group">' +
+            '<label for="exRank">EX Level</label>' +
+            '<input type="number" class="form-control" id="exRank" placeholder="Enter highest ex rank" value="' + (ownedUnits[unitId].exRank ?? 0) + '">' +
+            '</div>';
     }
 
 
@@ -819,6 +827,8 @@ function editUnit(unitId) {
                             if (unit.fragmentId) {
                                 ownedConsumables[unit.fragmentId] = parseInt($("#ownedFragmentNumber").val() || 0);
                             }
+                            const exRankString = $("#exRank").val();
+                            ownedUnits[unitId].exRank = exRankString ? clamp(parseInt(exRankString), 0, 3) : undefined;
                         }
                         if (unit.max_rarity == '7' || (unit.max_rarity == 'NV' && unit.min_rarity != 'NV')) {
                             ownedUnits[unitId].sevenStar = parseInt($("#ownedSeventStarNumber").val() || 0);

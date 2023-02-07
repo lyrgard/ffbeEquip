@@ -386,6 +386,10 @@ class UnitBuild {
         this._braveShift = unitShift;
     }
 
+    getBraveshift() {
+        return this._braveShift;
+    }
+
     hasBraveShift() {
         return this._braveShift !== null;
     }

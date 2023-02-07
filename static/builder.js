@@ -1641,7 +1641,9 @@ function updateUnitLevelDisplay() {
             if (builds[currentUnitIndex]._exAwakeningLevel > -1) {
                 $("#unitExAwakeningLevel select").val(builds[currentUnitIndex]._exAwakeningLevel.toString());
             } else {
-                const exRank = actuallyOwnedUnits[builds[currentUnitIndex].unit.id]?.exRank ?? 1;
+                // See if they own the unit. We need to look for both the current unit as well as the braveshift to handle the case where they start with the braveshifted unit.
+                const ownedUnit = actuallyOwnedUnits[builds[currentUnitIndex].unit.id] ?? actuallyOwnedUnits[builds[currentUnitIndex].getBraveshift().unit.id];
+                const exRank = ownedUnit?.exRank ?? 1;
                 $("#unitExAwakeningLevel select").val(exRank.toString());
                 builds[currentUnitIndex].setExAwakeningLevel(exRank);
             }
