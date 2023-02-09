@@ -13203,7 +13203,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Snowpetal","Weapon Collector","Tri-Attack","Military Way of Life"],
+		"enhancementSkills":["Snowpetal","Weapon Collector","Tri-Attack","Secret Sword Art - Naginata","Military Way of Life"],
 		"6_form": {
 			"name":"Gilgamesh (FFV)",
 			"roles":["physicalAttacker"],
@@ -13221,7 +13221,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["Snowpetal","Weapon Collector","Tri-Attack","Military Way of Life"]
+			"enhancementSkills":["Snowpetal","Weapon Collector","Tri-Attack","Secret Sword Art - Naginata","Military Way of Life"]
 		},
 		"7_form": {
 			"name":"Gilgamesh (FFV)",
@@ -13240,7 +13240,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["Snowpetal","Weapon Collector","Tri-Attack","Military Way of Life"]
+			"enhancementSkills":["Snowpetal","Weapon Collector","Tri-Attack","Secret Sword Art - Naginata","Military Way of Life"]
 		}
 	},
 	"205000827": {
@@ -13262,7 +13262,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Secret Sword Art - Murakumo","Prized Weapons"]
+		"enhancementSkills":["Secret Sword Art - Murakumo","Secret Sword Art - Naginata","Secret Sword Art - Genji Blade","Prized Weapons"]
 	},
 	"205000905": {
 		"name":"Dark Mage Exdeath",
@@ -13650,7 +13650,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","rod","lightShield","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Summon Flaming Spirit"]
+		"enhancementSkills":["Summon Flaming Spirit","Princess of Tycoon's Magic"]
 	},
 	"205001617": {
 		"name":"Dancer Lenna BS",
@@ -13671,7 +13671,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","rod","lightShield","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Sylph Spin"]
+		"enhancementSkills":["Passionate Tap Dance","Sylph Spin"]
 	},
 	"205001707": {
 		"name":"Warrior of Dawn Dorgann",
@@ -13800,7 +13800,7 @@
 		"enhancementSkills":["Crazed Rampage","Axe Mastery"]
 	},
 	"205002007": {
-		"name":"天下の豪傑ギルガメッシュ",
+		"name":"World's Hero Gilgamesh",
 		"roles":["debuffer"],
 		"id":"205002007",
 		"game_id":"10005",
@@ -13818,10 +13818,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["奥義・天上天下"]
+		"enhancementSkills":["Bushido - Heaven","Secret Sword Art - Genji Blade","Secret Sword Art - Naginata"]
 	},
 	"205002017": {
-		"name":"天下の豪傑ギルガメッシュ BS",
+		"name":"World's Hero Gilgamesh BS",
 		"roles":["debuffer"],
 		"id":"205002017",
 		"game_id":"10005",
@@ -13838,10 +13838,11 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Bushido - Heaven","Secret Sword Art - Genji Blade","Secret Sword Art - Naginata"]
 	},
 	"205002107": {
-		"name":"ケルガー",
+		"name":"Kelger",
 		"roles":["physicalAttacker"],
 		"id":"205002107",
 		"game_id":"10005",
@@ -13859,10 +13860,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["ルパインファング"]
+		"enhancementSkills":["Lupine Fang","Sword Mastery"]
 	},
 	"205002117": {
-		"name":"ケルガー BS",
+		"name":"Kelger BS",
 		"roles":["physicalAttacker"],
 		"id":"205002117",
 		"game_id":"10005",
@@ -13879,7 +13880,8 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Lupine Fang","Sword Mastery"]
 	},
 	"206000103": {
 		"name":"Terra",
