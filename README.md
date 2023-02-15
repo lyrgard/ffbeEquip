@@ -25,6 +25,8 @@ Rename `.config.json.sample` into `.config.json`
 
 Edit `.config.json` to change the `secret` value into some random characters
 
+If you want to use Google Drive for personal data make sure to set the enabled flag in the google section of .config.json to true.
+
 ## Run docker-compose
 In the folder where you saved the files, run `docker-compose up -d`
 
