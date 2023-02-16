@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="css-img/killers.css">
         <link rel="stylesheet" type="text/css" href="css-img/tankAbilities.css">
         <link rel="stylesheet" type="text/css" href="css-img/mitigationAbilities.css">
+        <link rel="stylesheet" type="text/css" href="css-img/racialMitigationAbilities.css">
 		<link rel="stylesheet" type="text/css" href="common.css">
         <link rel="stylesheet" type="text/css" href="encyclopedia.css">
         <link rel="stylesheet" type="text/css" href="unitSearch.css">
@@ -204,7 +205,7 @@
                             <div class="filters hidden">
                                 <div class="threshold">
                                     <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                    <input type="number" min="0" max="300" step="5" class="form-control">
                                 </div>
                                 <div class="btn-group choice" id="buffsTargetAreaTypes" data-toggle="buttons">
                                 </div>
@@ -224,7 +225,7 @@
                             <div class="filters hidden">
                                 <div class="threshold">
                                     <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                    <input type="number" min="0" max="300" step="1" class="form-control">
                                 </div>
                                 <div class="btn-group choice" id="breaksTargetAreaTypes" data-toggle="buttons">
                                 </div>
@@ -258,7 +259,7 @@
                             <div class="filters hidden">
                                 <div class="threshold">
                                     <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                    <input type="number" min="0" max="300" step="5" class="form-control">
                                 </div>
                                 <div class="btn-group choice" id="mitigationTargetAreaTypes" data-toggle="buttons">
                                 </div>
@@ -278,7 +279,7 @@
                             <div class="filters hidden">
                                 <div class="threshold">
                                     <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                    <input type="number" min="0" max="300" step="5" class="form-control">
                                 </div>
                                 <div class="btn-group choice" id="elementsTargetAreaTypes" data-toggle="buttons">
                                 </div>
@@ -298,7 +299,7 @@
                             <div class="filters hidden">
                                 <div class="threshold">
                                     <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                    <input type="number" min="0" max="300" step="5" class="form-control">
                                 </div>
                                 <div class="btn-group choice" id="physicalElementDamageBoostsTargetAreaTypes" data-toggle="buttons">
                                 </div>
@@ -318,7 +319,7 @@
                             <div class="filters hidden">
                                 <div class="threshold">
                                     <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                    <input type="number" min="0" max="300" step="5" class="form-control">
                                 </div>
                                 <div class="btn-group choice" id="magicalElementDamageBoostsTargetAreaTypes" data-toggle="buttons">
                                 </div>
@@ -354,7 +355,7 @@
                             <div class="filters hidden">
                                 <div class="threshold">
                                     <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                    <input type="number" min="0" max="300" step="5" class="form-control">
                                 </div>
                                 <div class="btn-group choice" id="imperilsTargetAreaTypes" data-toggle="buttons">
                                 </div>
@@ -374,7 +375,7 @@
                             <div class="filters hidden">
                                 <div class="threshold">
                                     <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                    <input type="number" min="0" max="300" step="5" class="form-control">
                                 </div>
                                 <div class="btn-group choice" id="killersTargetAreaTypes" data-toggle="buttons">
                                 </div>
@@ -385,6 +386,25 @@
                         <div class="panel-body">
                             <div class="btn-group elements choice" data-toggle="buttons" id="physicalKillers"></div>
                             <div class="btn-group elements choice" data-toggle="buttons" id="magicalKillers"></div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default racialMitigations">
+                        <div class="panel-heading">
+                            <span>Racial Mitigations</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('racialMitigations');">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="threshold">
+                                    <i class="fas fa-greater-than-equal"></i>
+                                    <input type="number" min="0" max="300" step="5" class="form-control">
+                                </div>
+                                <div class="btn-group choice" id="racialMitigationsTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="racialMitigationsSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group elements choice" data-toggle="buttons" id="racialMitigations"></div>
                         </div>
                     </div>
 
@@ -410,7 +430,7 @@
                             <div class="filters hidden">
                                 <div class="threshold">
                                     <i class="fas fa-greater-than-equal"></i>
-                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                    <input type="number" min="0" max="300" step="5" class="form-control">
                                 </div>
                                 <div class="btn-group choice" id="weaponImperilsTargetAreaTypes" data-toggle="buttons">
                                 </div>

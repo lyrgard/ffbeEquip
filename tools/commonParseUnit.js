@@ -605,8 +605,8 @@ export function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
         
         if (!Array.isArray(killerRaces)) {
             killerRaces = [killerRaces];
-            physicalPercents = [physicalPercents];
             magicalPercents = [magicalPercents];
+            physicalPercents = [physicalPercents];
         } else {
             if (!Array.isArray(physicalPercents)) {
                 physicalPercents = Array(killerRaces.length).fill(physicalPercents)
@@ -2218,11 +2218,28 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
 
         // reduce p_damage from enemy types [[[raceMap, %] || -1] x6], ?, turns, ?
     } else if (rawEffect[2] == 153) {
-        result = {"noUse":true};
+        result = {"racialMitigations":{race:[], mitigation:[], type:"physical"}, "turns": rawEffect[3][7]};
+        rawEffect[3].forEach((value) => {
+            if (Array.isArray(value)) {
+                result["racialMitigations"]["race"].push(raceMap[value[0]])
+                result["racialMitigations"]["mitigation"].push(value[1])
+            }
+        })
 
         // reduce m_damage from enemy types [[[raceMap, %] || -1] x6], ?, turns, ?
+        // 2 = AOE , 2 = ALLY
+        // [2, 2, 154, [
+        //     [6, 85],
+        //     [10, 85], -1, -1, -1, -1, 1, 3, 1
+        // ]]
     } else if (rawEffect[2] == 154) {
-        result = {"noUse":true};
+        result = {"racialMitigations":{race:[], mitigation:[], type:"magical"}, "turns": rawEffect[3][7]};
+        rawEffect[3].forEach((value) => {
+            if (Array.isArray(value)) {
+                result["racialMitigations"]["race"].push(raceMap[value[0]])
+                result["racialMitigations"]["mitigation"].push(value[1])
+            }
+        })
 
         // use skill once - [skillId, ?, ?, ?, ?, ?, ?, ?, ?]
     } else if (rawEffect[2] == 157) {
@@ -3172,6 +3189,10 @@ export function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
             } else if(effect.effect.physicalMitigation){
                 if(!effectOut.physicalMitigation){
                     effectOut.physicalMitigation = effect.effect.physicalMitigation
+                }
+            } else if(effect.effect.racialMitigations) {
+                if (!effectOut.racialMitigations) {
+                    effectOut.racialMitigations = effect.effect.racialMitigations
                 }
             } else if(effect.effect.mirage){
                 if(!effectOut.mirage || effectOut.mirage < effect.effect.mirage){
