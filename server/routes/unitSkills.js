@@ -22,7 +22,7 @@ route.get('/:server/unit/:unitId', async (req, res) => {
           const dataVersion = JSON.parse(dataVersionContent).version;
           if (dataVersion > data[server].version) {
             try {
-                data[server].data = compression(JSON.parse(fs.readFileSync(`./static/${server}/unitsWithSkill.json`, 'utf8')));
+                data[server].data = JSON.parse(fs.readFileSync(`./static/${server}/unitsWithSkill.json`, 'utf8'));
             } catch (err) {
                 console.log(err)
             }
