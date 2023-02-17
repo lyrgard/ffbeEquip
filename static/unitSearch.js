@@ -96,11 +96,11 @@ var update = function() {
         ailments,
         physicalKillers,
         magicalKillers,
-        racialMitigations,
         breaks,
         baseRarity,
         maxRarity,
-        seriesValues
+        seriesValues,
+        racialMitigations
     )));
 
 	// If the text search box was used, highlight the corresponding parts of the results
@@ -140,12 +140,11 @@ var filterUnits = function(searchUnits,
                            ailments = [],
                            physicalKillers = [],
                            magicalKillers = [],
-                           mitigation  = [],
-                           racialMitigations = [],
                            breaks = [],
                            baseRarity = [],
                            maxRarity = [],
-                           seriesValues = []
+                           seriesValues = [],
+                           racialMitigations = []
 
 ) {
     var result = [];
@@ -162,15 +161,15 @@ var filterUnits = function(searchUnits,
                                         if (matchesCriteria(ailments, unit, "ailmentResist")) {
                                             if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
                                                 if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
-                                                    if (matchesCriteria(racialMitigations, unit, "racialMitigations")) {
-                                                        if (matchesCriteria(imperils, unit, "imperil")) {
-                                                            if (matchesCriteria(physicalElementDamageBoosts, unit, "physicalElementDamageBoost")) {
-                                                                if (matchesCriteria(magicalElementDamageBoosts, unit, "magicalElementDamageBoost")) {
-                                                                    if (matchesCriteria(weaponImperils, unit, "weaponImperil")) {
-                                                                        if (matchesCriteria(breaks, unit, "break")) {
-                                                                            if (matchesCriteria(imbues, unit, "imbue")) {
-                                                                                if (matchesCriteria(tankAbilities, unit, null, true)) {
-                                                                                    if (matchesCriteria(mitigation, unit, null, true)) {
+                                                    if (matchesCriteria(mitigation, unit, null, true)) {
+                                                        if (matchesCriteria(racialMitigations, unit, null, true)) {
+                                                            if (matchesCriteria(imperils, unit, "imperil")) {
+                                                                if (matchesCriteria(physicalElementDamageBoosts, unit, "physicalElementDamageBoost")) {
+                                                                    if (matchesCriteria(magicalElementDamageBoosts, unit, "magicalElementDamageBoost")) {
+                                                                        if (matchesCriteria(weaponImperils, unit, "weaponImperil")) {
+                                                                            if (matchesCriteria(breaks, unit, "break")) {
+                                                                                if (matchesCriteria(imbues, unit, "imbue")) {
+                                                                                    if (matchesCriteria(tankAbilities, unit, null, true)) {
                                                                                         if(matchesSeriesCriteria(seriesValues, unit, true)) {
                                                                                             if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
                                                                                                 if (!skillSearchMatcher || matchesSkillSearch(skillSearchMatcher, units[unit.id])) {
@@ -337,7 +336,6 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
                         if (criteria.threshold) {
                             let foundValues = [];
                             
-                            console.log(unitProperty)
                             if (dataToCheck.racialMitigations) {
                                 for (let i = 0; i < dataToCheck.racialMitigations.race.length; i++) {
                                   let unit = dataToCheck.racialMitigations.race[i];
@@ -347,7 +345,7 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
                                     foundValues.push(mitigation)
                                   }
                                 }
-                              }
+                            }
                             
                             let arrayToCheck = foundValues.length > 0 ? foundValues : dataToCheck;
                             if (foundValues.length > 0 ? arrayToCheck.every(value => value >= criteria.threshold) : criteria.values.every(value => arrayToCheck[value] >= criteria.threshold)) {
@@ -684,6 +682,7 @@ var readFilterValues = function() {
 
     tankAbilities.values = getSelectedValuesFor("tankAbilities");
     tankAbilities.skillTypes = getSelectedValuesFor("tankAbilitiesSkillTypes");
+    tankAbilities.values = getSelectedValuesFor("tankAbilities");
 
     mitigation.values = getSelectedValuesFor("mitigation");
     mitigation.targetAreaTypes = getSelectedValuesFor("mitigationTargetAreaTypes");
@@ -1338,14 +1337,6 @@ function mustDisplaySkill(skill, effects, type, skillName) {
             }
             if (weaponImperils.values.length > 0 && weaponImperils.skillTypes.includes(type) && isTargetToBeDispalyed(weaponImperils, effect, type) && effect.effect.weaponImperil && weaponImperils.values.includes(effect.effect.weaponImperil.weaponType) && (!weaponImperils.threshold || weaponImperils.values.every(weaponType => effect.effect.weaponImperil[weaponType] >= weaponImperils.threshold))) {
                 return true;
-            }
-            if(effect.effect.break) {
-                console.log(type)
-                console.log(effect.effect)
-                console.log(breaks.values.length)
-                console.log(breaks.skillTypes.includes(type))
-                console.log(isTargetToBeDispalyed(breaks, effect, type))
-                console.log(matches(breaks.values, Object.keys(effect.effect.break)) && (!breaks.threshold || breaks.values.every(stat => effect.effect.break[stat] >= breaks.threshold)))
             }
             if (breaks.values.length > 0 && breaks.skillTypes.includes(type) && isTargetToBeDispalyed(breaks, effect, type) && effect.effect.break && matches(breaks.values, Object.keys(effect.effect.break)) && (!breaks.threshold || breaks.values.every(stat => effect.effect.break[stat] >= breaks.threshold))) {
                 return true;
