@@ -2679,7 +2679,7 @@
         "price_sell": 100,
         "icon": "ability_21.png",
         "strings": {
-            "names": ["Fire Blade", "火焰劍", "파이어 검", "Lame Feu", "Feuer-Klinge", "Hoja Piro", "Fire Blade", "Fire\u001a \u001aBlade\u001a"],
+            "names": ["Fire Blade", "火焰劍", "파이어 검", "Lame Feu", "Feuerklinge", "Hoja Piro", "Fire Blade", "Fire\u001a \u001aBlade\u001a"],
             "desc_short": ["Deal fire damage to one enemy", "對1名敵人發動火屬性攻擊", "적 1명에게 불속성 피해", "Dégâts de feu sur un ennemi", "Feuerschaden, ein Ziel", "Inflige daño de fuego a un enemigo.", "Memberikan damage api pada satu musuh", "สร้าง\u001aความเสียหาย\u001aธาตุ\u001aไฟ\u001aแก่\u001aศัตรู\u001a \u001a1\u001a \u001aราย\u001a"],
             "desc_long": ["Deals fire damage to one enemy.", "對1名敵人發動火屬性攻擊。", "적 1명에게 불속성 피해를 줍니다.", "Inflige des dégâts de feu à un ennemi.", "Fügt einem Gegner Feuerschaden zu.", "Inflige daño de fuego a un enemigo.", "Memberikan damage api pada satu musuh.", "สร้าง\u001aความเสียหาย\u001aธาตุ\u001aไฟ\u001aแก่\u001aศัตรู\u001a \u001a1\u001a \u001aราย\u001a"]
         }
@@ -2764,7 +2764,7 @@
         "price_sell": 300,
         "icon": "ability_23.png",
         "strings": {
-            "names": ["Water Blade", "流水劍", "워터 검", "Lame Eau", "Aqua-Klinge", "Hoja Aqua", "Water Blade", "Water\u001a \u001aBlade\u001a"],
+            "names": ["Water Blade", "流水劍", "워터 검", "Lame Eau", "Wasserklinge", "Hoja Aqua", "Water Blade", "Water\u001a \u001aBlade\u001a"],
             "desc_short": ["Deal water damage to one enemy", "對1名敵人發動水屬性攻擊", "적 1명에게 물속성 피해", "Dégâts d'eau sur un ennemi", "Wasserschaden, ein Ziel", "Inflige daño de agua a un enemigo.", "Memberikan damage air pada satu musuh", "สร้าง\u001aความเสียหาย\u001aธาตุ\u001aน้ำ\u001aแก่\u001aศัตรู\u001a \u001a1\u001a \u001aราย\u001a"],
             "desc_long": ["Deals water damage to one enemy.", "對1名敵人發動水屬性攻擊。", "적 1명에게 물속성 피해를 줍니다.", "Inflige des dégâts d'eau à un ennemi.", "Fügt einem Gegner Wasserschaden zu.", "Inflige daño de agua a un enemigo.", "Memberikan damage air pada satu musuh.", "สร้าง\u001aความเสียหาย\u001aธาตุ\u001aน้ำ\u001aแก่\u001aศัตรู\u001a \u001a1\u001a \u001aราย\u001a"]
         }
@@ -27514,6 +27514,142 @@
                 "Meningkatkan ATK sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis makhluk perairan sebanyak 50%. Tidak dapat ditumpuk.",
                 "เพิ่มค่า\u001a \u001aATK\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aสัตว์น้ำ\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
+        }
+    },
+    "504244110": {
+        "name": "パラデイア式ガンブレード剣術",
+        "compendium_id": 1512,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244110],
+        "effects": ["Grant 'パラデイア式ガンブレード剣術' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244120": {
+        "name": "一徹なる武人",
+        "compendium_id": 1513,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244120],
+        "effects": ["Grant '一徹なる武人' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244140": {
+        "name": "魔導兵器防衛戦術",
+        "compendium_id": 1514,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244140],
+        "effects": ["Grant '魔導兵器防衛戦術' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244165": {
+        "name": "麗しき戦場の華",
+        "compendium_id": 1516,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244165],
+        "effects": ["Grant '麗しき戦場の華' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244202": {
+        "name": "戦士フルカスの教え",
+        "compendium_id": 1517,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244202],
+        "effects": ["Grant '戦士フルカスの教え' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244205": {
+        "name": "勇者アレルの教え",
+        "compendium_id": 1518,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244205],
+        "effects": ["Grant '勇者アレルの教え' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_78.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244213": {
+        "name": "武闘家フォンの教え",
+        "compendium_id": 1519,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244213],
+        "effects": ["Grant '武闘家フォンの教え' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_78.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244215": {
+        "name": "賢者カダルの教え",
+        "compendium_id": 1520,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244215],
+        "effects": ["Grant '賢者カダルの教え' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_78.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
         }
     },
     "504400110": {

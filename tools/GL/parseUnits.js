@@ -117,7 +117,7 @@ getData('units.json', function (units) {
                                             let unitIds = [];
                                             Object.keys(units).forEach(unitId => {
                                                 var unitIn = units[unitId];
-                                                if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && !unitId.startsWith("7") && unitIn.name && !filterUnits.includes(unitId)) {
+                                                if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && !unitId.startsWith("7") && unitIn.name && checkForJapanese(unitIn.name) && !filterUnits.includes(unitId)) {
                                                     unitIds.push(unitId);
                                                 } else {
                                                     delete units[unitId];
@@ -176,6 +176,12 @@ getData('units.json', function (units) {
         });
     });
 });
+
+function checkForJapanese(checkString){
+    let allowedChars = new RegExp(/^[\u00C0-\u017Fa-zA-Z0-9' !@#$%^&*+()-’]+$/)
+
+    return allowedChars.test(checkString)
+}
 
 function slbSkillMerge(units, unitsOut){
     Object.keys(unitsOut).forEach((unitOutId) => {

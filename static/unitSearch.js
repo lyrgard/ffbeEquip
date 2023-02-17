@@ -337,6 +337,7 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
                         if (criteria.threshold) {
                             let foundValues = [];
                             
+                            console.log(unitProperty)
                             if (dataToCheck.racialMitigations) {
                                 for (let i = 0; i < dataToCheck.racialMitigations.race.length; i++) {
                                   let unit = dataToCheck.racialMitigations.race[i];
@@ -536,6 +537,8 @@ function sortUnits(units) {
             }
         }
 
+        console.log(unit1)
+        console.log(unit2)
         return unit1.unit.name.localeCompare(unit2.unit.name);
     });
     return units;
@@ -1349,14 +1352,8 @@ function mustDisplaySkill(skill, effects, type, skillName) {
                     return true;
                 }
             }
-            if (effect.effect[racialMitigations]) {
-                console.log(effect.effect)
-                console.log(effect.effect[racialMitigationsType])
-            }
             
             if (racialMitigations.values.length > 0 && racialMitigations.skillTypes.includes(type) && isTargetToBeDispalyed(racialMitigations, effect, type) && effect.effect.racialMitigations && matches(racialMitigations.values, effect.effect.racialMitigations.race)) {
-                console.log(effect.effect.racialMitigations.mitigation)
-                console.log(racialMitigations.threshold)
                 if ((!racialMitigations.threshold || effect.effect.racialMitigations.mitigation.every(racialMitigationsType => racialMitigationsType >= racialMitigations.threshold))) {
                     return true;
                 }
