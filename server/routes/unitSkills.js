@@ -1,7 +1,9 @@
 import fs from 'fs'
 import express from 'express'
-
+import compression from 'compression';
 export const route = express.Router();
+
+route.use(compression())
 
 let data = {
     GL: {version: 0, date: 0, data: {}},
@@ -19,7 +21,11 @@ route.get('/:server/unit/:unitId', async (req, res) => {
           const dataVersionContent = fs.readFileSync(`./static/${server}/dataVersion.json`, 'utf8');
           const dataVersion = JSON.parse(dataVersionContent).version;
           if (dataVersion > data[server].version) {
-              data[server].data = JSON.parse(fs.readFileSync(`./static/${server}/unitsWithSkill.json`, 'utf8'));
+            try {
+                data[server].data = compression(JSON.parse(fs.readFileSync(`./static/${server}/unitsWithSkill.json`, 'utf8')));
+            } catch (err) {
+                console.log(err)
+            }
           }
           data[server].date = now;
           data[server].version = dataVersion;

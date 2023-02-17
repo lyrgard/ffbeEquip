@@ -537,8 +537,6 @@ function sortUnits(units) {
             }
         }
 
-        console.log(unit1)
-        console.log(unit2)
         return unit1.unit.name.localeCompare(unit2.unit.name);
     });
     return units;
@@ -1340,6 +1338,14 @@ function mustDisplaySkill(skill, effects, type, skillName) {
             }
             if (weaponImperils.values.length > 0 && weaponImperils.skillTypes.includes(type) && isTargetToBeDispalyed(weaponImperils, effect, type) && effect.effect.weaponImperil && weaponImperils.values.includes(effect.effect.weaponImperil.weaponType) && (!weaponImperils.threshold || weaponImperils.values.every(weaponType => effect.effect.weaponImperil[weaponType] >= weaponImperils.threshold))) {
                 return true;
+            }
+            if(effect.effect.break) {
+                console.log(type)
+                console.log(effect.effect)
+                console.log(breaks.values.length)
+                console.log(breaks.skillTypes.includes(type))
+                console.log(isTargetToBeDispalyed(breaks, effect, type))
+                console.log(matches(breaks.values, Object.keys(effect.effect.break)) && (!breaks.threshold || breaks.values.every(stat => effect.effect.break[stat] >= breaks.threshold)))
             }
             if (breaks.values.length > 0 && breaks.skillTypes.includes(type) && isTargetToBeDispalyed(breaks, effect, type) && effect.effect.break && matches(breaks.values, Object.keys(effect.effect.break)) && (!breaks.threshold || breaks.values.every(stat => effect.effect.break[stat] >= breaks.threshold))) {
                 return true;

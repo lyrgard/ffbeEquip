@@ -16,6 +16,7 @@ import { route as drive } from './server/routes/drive.js';
 import { boomJS as errorHandler } from './server/middlewares/boom.js';
 import { fileURLToPath } from 'url';
 import esMain from 'es-main';
+import compression from 'compression';
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -25,6 +26,9 @@ let config = ServerConfig.ServerConfig;
 const app = express();
 
 console.log(`Environment is: ${config.env}`);
+
+app.use(compression())
+app.use('/', corrections, unitSkills);
 
 // Helmet Middleware
 app.use(helmet.frameguard({
@@ -132,7 +136,6 @@ app.use('/clientConfig', clientConfig);
 if (config.google.enabled) {
     app.use('/', oauth);
 }
-app.use('/', corrections, unitSkills);
 if (config.firebase.enabled) {
     console.log("Firebase is enabled.")
     app.use('/', firebase.unAuthenticatedRoute);
