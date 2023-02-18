@@ -1,6 +1,8 @@
-import e from 'express';
 import fs from 'fs';
 import request from 'request';
+import unorm from 'unorm';
+
+const { nfkc } = unorm;
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -440,8 +442,22 @@ getData('equipment.json', function (items) {
     });
 });
 
+function checkForJapanese(inputString) {
+    const allowedRegex = /^[a-zA-Z0-9' !@#$%^&*()+\[\]:@{-~À-ÿ´’.,:;!?'"&$%#(){}\[\]+<>=\/*\s\-]+$/u;
+  const normalizedString = unorm.nfc(inputString);
+  if (!allowedRegex.test(normalizedString)) {
+    return false;
+  }
+  for (const char of normalizedString) {
+    if (/[\u3040-\u30ff\u31f0-\u31ff\u4e00-\u9faf\uff00-\uffef]/.test(char)) {
+      return false;
+    }
+  }
+  return true;
+}
 
 function treatItem(items, itemId, result, skills) {
+
     const itemIn = items[itemId];
     if (["405003400", "409013400", "504220290", "308003700", "409018100", "408003100", "301002800"].includes(itemId)) return;
     if (!itemIn.strings || (!itemIn.strings.name && !itemIn.strings.names)) return;
@@ -453,6 +469,11 @@ function treatItem(items, itemId, result, skills) {
         rarity: itemIn.rarity,
         icon: itemIn.icon
     };
+
+    if (!checkForJapanese(itemOut.name)) {
+        console.log(`Invalid name: ${itemOut.name}. Name should only contain English, numbers or special characters.`);
+        return null;
+    }
 
     currentItemName = itemOut.name;
     readStats(itemIn, itemOut);
@@ -514,9 +535,8 @@ function treatVisionCard(visionCard, visionCardId, skills) {
     card.id = visionCardId;
     card.name = visionCard.name;
 
-    const allowedRegex = /^[a-zA-Z0-9' !@#$%^&*+()\[\]\-/:@{-~À-ÿ´’.,:;!?'"&$%#(){}\[\]+<>=\/*\s]+$/;
-    if (!allowedRegex.test(card.name)) {
-        console.log(`Invalid name: ${card.name}. Name should only contain English, numbers or special characters.`);
+    if (!checkForJapanese(visionCard.name)) {
+        console.log(`Invalid name: ${visionCard.name}. Name should only contain English, numbers or special characters.`);
         return null;
     }
 
@@ -2361,10 +2381,12 @@ function isItemEmpty(item) {
 
 function addAccess(item, access) {
     if (!item.access) {
-        item.access = [];
+      item.access = [access];
+    } else if (!item.access.includes(access)) {
+      item.access.push(access);
     }
-    item.access.push(access);
-}
+  }
+  
 
 function addLbPerTurn(item, min, max) {
     if (!item.lbPerTurn) {

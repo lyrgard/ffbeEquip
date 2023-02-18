@@ -1,4 +1,7 @@
 import fs from 'fs'
+import unorm from 'unorm';
+
+const { nfkc } = unorm;
 
 
 console.log("Starting");
@@ -31,11 +34,19 @@ fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
     });
 });
 
-function checkForJapanese(checkString) {
-    const englishSpecialCharRegex = /^[a-zA-Z0-9\u00C0-\u017F\u0300-\u036f' !@#$%^&*+(){}\[\]:;<>=\/*\-.,?"\\_]+$/;
-    return englishSpecialCharRegex.test(checkString);
+function checkForJapanese(inputString) {
+    const allowedRegex = /^[a-zA-Z0-9' !@#$%^&*()+\[\]:@{-~À-ÿ´’.,:;!?'"&$%#(){}\[\]+<>=\/*\s\-]+$/u;
+  const normalizedString = unorm.nfc(inputString);
+  if (!allowedRegex.test(normalizedString)) {
+    return false;
+  }
+  for (const char of normalizedString) {
+    if (/[\u3040-\u30ff\u31f0-\u31ff\u4e00-\u9faf\uff00-\uffef]/.test(char)) {
+      return false;
+    }
+  }
+  return true;
 }
-
 
 function formatOutput(units) {
     var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];

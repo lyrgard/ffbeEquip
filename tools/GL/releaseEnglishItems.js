@@ -1,4 +1,8 @@
 import fs from 'fs';
+import unorm from 'unorm';
+
+const { nfkc } = unorm;
+
 
 let itemProperties = ["id","name", "access", "maxNumber", "eventNames", "wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","staticStats","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "oneWeaponMastery", "chainMastery", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts", "evokeDamageBoost","exclusiveSex","exclusiveUnits","exclusiveRoles","equipedConditions","tmrUnit", "stmrUnit" ,"icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills","conditional"];
 let falsePositives = ["404003200", "302004300"]
@@ -48,10 +52,20 @@ fs.readFile('./data.json', function (err, content) {
     fs.writeFileSync('../../static/GL/data.json', formatOutput(result.items))
 });
 
-function checkForJapanese(checkString) {
-    const englishSpecialCharRegex = /^[a-zA-Z0-9\u00C0-\u017F\u0300-\u036f' !@#$%^&*+(){}\[\]:;<>=\/*\-.,?"\\_]+$/;
-    return englishSpecialCharRegex.test(checkString);
+function checkForJapanese(inputString) {
+    const allowedRegex = /^[a-zA-Z0-9' !@#$%^&*()+\[\]:@{-~À-ÿ´’.,:;!?'"&$%#(){}\[\]+<>=\/*\s\-]+$/u;
+  const normalizedString = unorm.nfc(inputString);
+  if (!allowedRegex.test(normalizedString)) {
+    return false;
+  }
+  for (const char of normalizedString) {
+    if (/[\u3040-\u30ff\u31f0-\u31ff\u4e00-\u9faf\uff00-\uffef]/.test(char)) {
+      return false;
+    }
+  }
+  return true;
 }
+
 
 
 function formatOutput(items) {

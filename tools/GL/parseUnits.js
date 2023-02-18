@@ -1,6 +1,9 @@
 import fs from 'fs'
 import request from 'request'
 import * as commonParse from '../commonParseUnit.js'
+import unorm from 'unorm';
+
+const { nfkc } = unorm;
 
 
 
@@ -177,11 +180,19 @@ getData('units.json', function (units) {
     });
 });
 
-function checkForJapanese(checkString) {
-    const englishSpecialCharRegex = /^[a-zA-Z0-9\u00C0-\u017F\u0300-\u036f' !@#$%^&*+(){}\[\]:;<>=\/*\-.,?"\\_]+$/;
-    return englishSpecialCharRegex.test(checkString);
+function checkForJapanese(inputString) {
+    const allowedRegex = /^[a-zA-Z0-9' !@#$%^&*()+\[\]:@{-~À-ÿ´’.,:;!?'"&$%#(){}\[\]+<>=\/*\s\-]+$/u;
+  const normalizedString = unorm.nfc(inputString);
+  if (!allowedRegex.test(normalizedString)) {
+    return false;
+  }
+  for (const char of normalizedString) {
+    if (/[\u3040-\u30ff\u31f0-\u31ff\u4e00-\u9faf\uff00-\uffef]/.test(char)) {
+      return false;
+    }
+  }
+  return true;
 }
-
   
 
 function slbSkillMerge(units, unitsOut){
