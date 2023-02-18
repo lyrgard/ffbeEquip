@@ -177,11 +177,12 @@ getData('units.json', function (units) {
     });
 });
 
-function checkForJapanese(checkString){
-    let allowedChars = new RegExp(/^[\u00C0-\u017Fa-zA-Z0-9' !@#$%^&*+()-’]+$/)
-
-    return allowedChars.test(checkString)
+function checkForJapanese(checkString) {
+    const englishSpecialCharRegex = /^[a-zA-Z0-9\u00C0-\u017F\u0300-\u036f' !@#$%^&*+(){}\[\]:;<>=\/*\-.,?"\\_]+$/;
+    return englishSpecialCharRegex.test(checkString);
 }
+
+  
 
 function slbSkillMerge(units, unitsOut){
     Object.keys(unitsOut).forEach((unitOutId) => {

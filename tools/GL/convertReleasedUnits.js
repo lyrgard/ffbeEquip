@@ -31,11 +31,11 @@ fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
     });
 });
 
-function checkForJapanese(checkString){
-    let allowedChars = new RegExp(/^[\u00C0-\u017Fa-zA-Z0-9' !@#$%^&*+()-’]+$/)
-
-    return allowedChars.test(checkString)
+function checkForJapanese(checkString) {
+    const englishSpecialCharRegex = /^[a-zA-Z0-9\u00C0-\u017F\u0300-\u036f' !@#$%^&*+(){}\[\]:;<>=\/*\-.,?"\\_]+$/;
+    return englishSpecialCharRegex.test(checkString);
 }
+
 
 function formatOutput(units) {
     var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
