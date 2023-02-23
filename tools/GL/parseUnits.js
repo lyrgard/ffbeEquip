@@ -180,10 +180,7 @@ getData('units.json', function (units) {
 });
 
 function exDeathFix(units) {
-    //console.log(units)
-    //get unit 202500905
     var exDeathBase = units[205000905];
-    //get unit 
     var exDeathBS = {};
 
     // copy all values from exDeathBase to exDeathBS except for exDeathBase.entries should only include the last entry not all of them
@@ -200,7 +197,6 @@ function exDeathFix(units) {
     // add key 205000927 to units with the values that are in exDeathBS
     units[205000927] = exDeathBS;
     units[205000927].rarity_min = 7;
-    console.log(exDeathBS)
 }
 
 function checkForJapanese(inputString) {
