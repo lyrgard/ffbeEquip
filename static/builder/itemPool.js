@@ -41,7 +41,7 @@ class ItemPool {
         var betterItemCount = 0;
 
         //if the item is a weapon and does not takes 2 hands, don't consider it if we're not allowing doublehanding
-        if (weaponList.includes(entry.item.type) && !this.forceDoublehand) {
+        if (weaponList.includes(entry.item.type) && this.forceDoublehand) {
             //check to see if entry.special is defined
             if (!entry.item.special) {
                 return;
