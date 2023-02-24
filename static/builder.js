@@ -251,7 +251,8 @@ function optimize() {
         }
     }
 
-    itemPool = new ItemPool(4, builds[0].involvedStats, enemyStats);
+    itemPool = new ItemPool(4, builds[0].involvedStats, enemyStats, forceDoubleHand);
+    itemPool.forceDoubleHand = forceDoubleHand;
 
     for (var index = workers.length; index--; index) {
         workers[index].postMessage(JSON.stringify({

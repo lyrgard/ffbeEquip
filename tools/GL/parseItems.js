@@ -600,7 +600,7 @@ function treatVisionCard(visionCard, visionCardId, skills) {
     card.id = visionCardId;
     card.name = visionCard.name;
 
-    if (!checkForJapanese(visionCard.name) && languageId === 0) {
+    if (!checkForJapanese(visionCard.name)) {
         console.log(`Invalid name: ${visionCard.name}. Name should only contain English, numbers or special characters.`);
         return null;
     }
