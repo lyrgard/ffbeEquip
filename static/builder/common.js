@@ -62,14 +62,7 @@ function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
     if (value.min && value.max) { // if it has a min and max, get the average.
         value = (value.min + value.max) / 2;
     }
-    
-    if (notStackableSkillsAlreadyUsed && item.notStackableSkills) {
-        for (var index = notStackableSkillsAlreadyUsed.length; index--;) {
-            if (item.notStackableSkills[notStackableSkillsAlreadyUsed[index]]) {
-                value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath);
-            }
-        }
-    }
+
     return value;
 }
 
