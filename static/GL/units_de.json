@@ -4747,17 +4747,20 @@
 		"id":"100019205",
 		"game_id":"11001",
 		"game":"FFBE",
-		"max_rarity":"7",
+		"braveShift":"100019227",
+		"exAwakening": [{"hp":685,"mp":39,"atk":35,"def":28,"mag":23,"spr":27},{"hp":527,"mp":30,"atk":27,"def":21,"mag":18,"spr":21},{"hp":369,"mp":21,"atk":19,"def":15,"mag":13,"spr":14}],
+		"fragmentId": "250015500",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4790,"mp":209,"atk":204,"def":192,"mag":163,"spr":187},
-			"minStats":{"hp":1581,"mp":69,"atk":67,"def":63,"mag":54,"spr":62},
+			"maxStats":{"hp":5269,"mp":302,"atk":270,"def":212,"mag":180,"spr":206},
+			"minStats":{"hp":1739,"mp":100,"atk":89,"def":70,"mag":59,"spr":68},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["Malboro Rider","Bad Breath","Ground Whip","Gamma Star","Get Serious","Brutal Whip","Toxic Whip","Malboro Support"],
+		"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Malboro Rider","Bad Breath","Ground Whip","Gamma Star","Get Serious","Brutal Whip","Toxic Whip","Malboro Support","Landslide Whip","I'll fight for everyone's sake!"],
 		"6_form": {
 			"name":"Yego",
 			"roles":["physicalAttacker","debuffer"],
@@ -4766,7 +4769,7 @@
 			"game_id":"11001",
 			"game":"FFBE",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -4776,8 +4779,50 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"],
-			"enhancementSkills":["Malboro Rider","Bad Breath","Ground Whip","Gamma Star","Get Serious","Brutal Whip","Toxic Whip","Malboro Support"]
+			"enhancementSkills":["Malboro Rider","Bad Breath","Ground Whip","Gamma Star","Get Serious","Brutal Whip","Toxic Whip","Malboro Support","Landslide Whip","I'll fight for everyone's sake!"]
+		},
+		"7_form": {
+			"name":"Yego",
+			"roles":["physicalAttacker","debuffer"],
+			"wikiEntry":"Yego",
+			"id":"100019205",
+			"game_id":"11001",
+			"game":"FFBE",
+			"sevenStarForm":true,
+			"max_rarity":"NV",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4790,"mp":209,"atk":204,"def":192,"mag":163,"spr":187},
+				"minStats":{"hp":1581,"mp":69,"atk":67,"def":63,"mag":54,"spr":62},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Malboro Rider","Bad Breath","Ground Whip","Gamma Star","Get Serious","Brutal Whip","Toxic Whip","Malboro Support","Landslide Whip","I'll fight for everyone's sake!"]
 		}
+	},
+	"100019227": {
+		"name":"Yego BS",
+		"roles":["physicalAttacker","debuffer"],
+		"wikiEntry":"Yego",
+		"id":"100019227",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"100019205",
+		"exAwakening": [{"hp":685,"mp":39,"atk":35,"def":28,"mag":23,"spr":27},{"hp":527,"mp":30,"atk":27,"def":21,"mag":18,"spr":21},{"hp":369,"mp":21,"atk":19,"def":15,"mag":13,"spr":14}],
+		"fragmentId": "250015500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5269,"mp":302,"atk":270,"def":212,"mag":180,"spr":206},
+			"minStats":{"hp":1739,"mp":100,"atk":89,"def":70,"mag":59,"spr":68},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Malboro Rider","Bad Breath","Ground Whip","Gamma Star","Get Serious","Brutal Whip","Toxic Whip","Malboro Support","Landslide Whip","I'll fight for everyone's sake!"]
 	},
 	"100019304": {
 		"name":"Zolulu & Delulu",
@@ -8779,7 +8824,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","lightShield","hat","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Firaga","Thundaga","Flood","Lone Mirror of Equity","Execrating Mirror of Equity"]
+		"enhancementSkills":["Soul Replication","Firaga","Thundaga","Flood","Darkra","Lone Mirror of Equity","Execrating Mirror of Equity"]
 	},
 	"100034417": {
 		"name":"Imperator Vlad BS",
@@ -8801,7 +8846,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Lone Mirror of Equity","True Power of Solitude"]
+		"enhancementSkills":["Soul Replication","Alpha Star's True Identity","Lone Mirror of Equity","True Power of Solitude"]
 	},
 	"100034707": {
 		"name":"Herr der Meere Nichol",
@@ -10458,9 +10503,9 @@
 		"equip":["greatSword","axe","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
 	},
 	"100041407": {
-		"name":"Demnächst veröffentlicht",
+		"name":"Mid",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"To_be announced",
+		"wikiEntry":"Mid",
 		"id":"100041407",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -10477,12 +10522,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["spear","helm","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["ジオフォースダイブ","Jump Master"]
+		"enhancementSkills":["Geo-Force Dive","Jump","Spear Mastery","Jump Master"]
 	},
 	"100041417": {
-		"name":"Demnächst veröffentlicht BS",
+		"name":"Mid BS",
 		"roles":["physicalAttacker"],
-		"wikiEntry":"To_be announced",
+		"wikiEntry":"Mid",
 		"id":"100041417",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -10499,7 +10544,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["spear","helm","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Jump Master","Tornado Blast","Final Spineshatter Dive"]
+		"enhancementSkills":["Jump","Spear Mastery","Jump Master","Tornado Blast","Final Spineshatter Dive"]
 	},
 	"201000104": {
 		"name":"Krieger des Lichts",
@@ -32005,7 +32050,6 @@
   "100014703":{"name":"Aiden","jpname":"エイデン","roles":["healer"],"id":"100014703","game_id":"undefined","game":"undefined","max_rarity":"5","min_rarity":"3","sex":"male","stats":{"maxStats":{"hp":2635,"mp":110,"atk":115,"def":92,"mag":84,"spr":115},"minStats":{"hp":870,"mp":36,"atk":38,"def":30,"mag":28,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","staff","axe","hammer","mace","fist","lightShield","heavyShield","hat","clothes","lightArmor","robe"]},
   "100015227":{"name":"ザイル BS","jpname":"ザイル BS","roles":["support"],"id":"100015227","game_id":"undefined","game":"undefined","braveShifted":"100015204","exAwakening":[{"hp":625,"mp":25,"atk":27,"def":20,"mag":16,"spr":20},{"hp":480,"mp":19,"atk":21,"def":15,"mag":13,"spr":16},{"hp":336,"mp":13,"atk":14,"def":10,"mag":9,"spr":11}],"fragmentId":"250000910","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4329,"mp":215,"atk":236,"def":140,"mag":117,"spr":176},"minStats":{"hp":1429,"mp":71,"atk":78,"def":46,"mag":39,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["炎氷封じの砲弾","悪魔討伐の空砲"]},
   "100017005":{"name":"Santa Roselia","jpname":"サンタローゼリア","roles":["healer","support"],"id":"100017005","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4518,"mp":257,"atk":93,"def":167,"mag":152,"spr":214},"minStats":{"hp":1495,"mp":89,"atk":31,"def":54,"mag":50,"spr":67},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],"enhancementSkills":["プレゼント・HP","プレゼント・MP","ホーリーリバイブ","防御+20%"],"6_form":{"name":"Santa Roselia","jpname":"サンタローゼリア","roles":["healer","support"],"id":"100017005","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3476,"mp":198,"atk":72,"def":123,"mag":117,"spr":157},"minStats":{"hp":1150,"mp":69,"atk":24,"def":42,"mag":39,"spr":52},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],"enhancementSkills":["プレゼント・HP","プレゼント・MP","ホーリーリバイブ","防御+20%"]}},
-  "100019227":{"name":"イーゴ BS","jpname":"イーゴ BS","roles":["physicalAttacker","debuffer"],"id":"100019227","game_id":"undefined","game":"undefined","braveShifted":"100019205","exAwakening":[{"hp":685,"mp":39,"atk":35,"def":28,"mag":23,"spr":27},{"hp":527,"mp":30,"atk":27,"def":21,"mag":18,"spr":21},{"hp":369,"mp":21,"atk":19,"def":15,"mag":13,"spr":14}],"fragmentId":"250015500","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5269,"mp":302,"atk":270,"def":212,"mag":180,"spr":206},"minStats":{"hp":1739,"mp":100,"atk":89,"def":70,"mag":59,"spr":68},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe","visionCard"]},
   "100019927":{"name":"カルエラート BS","jpname":"カルエラート BS","roles":["physicalAttacker","magicalAttacker","debuffer"],"id":"100019927","game_id":"undefined","game":"undefined","braveShifted":"100019905","exAwakening":[{"hp":651,"mp":40,"atk":34,"def":22,"mag":36,"spr":29},{"hp":501,"mp":31,"atk":26,"def":17,"mag":28,"spr":22},{"hp":350,"mp":22,"atk":18,"def":12,"mag":20,"spr":16}],"fragmentId":"250015800","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5007,"mp":310,"atk":260,"def":168,"mag":280,"spr":222},"minStats":{"hp":1652,"mp":102,"atk":86,"def":55,"mag":92,"spr":73},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe","visionCard"]},
   "100024605":{"name":"Arie","jpname":"アリエ","roles":["physicalAttacker"],"id":"100024605","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4690,"mp":219,"atk":204,"def":165,"mag":154,"spr":176},"minStats":{"hp":1548,"mp":72,"atk":67,"def":54,"mag":51,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","hammer","whip","throwing","fist","hat","clothes"],"6_form":{"name":"Arie","jpname":"アリエ","roles":["physicalAttacker"],"id":"100024605","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3608,"mp":169,"atk":157,"def":127,"mag":119,"spr":136},"minStats":{"hp":1191,"mp":56,"atk":52,"def":42,"mag":39,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","hammer","whip","throwing","fist","hat","clothes"]}},
   "100024705":{"name":"Cantilena","jpname":"シャンティレーナ","roles":["magicalAttacker","support"],"id":"100024705","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4560,"mp":285,"atk":128,"def":156,"mag":216,"spr":207},"minStats":{"hp":1505,"mp":94,"atk":42,"def":51,"mag":71,"spr":68},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],"enhancementSkills":["風精に愛されし者","遮光の魔奏","日輪の大魔奏","芽吹きのアリア","魔奏の歌姫"],"6_form":{"name":"Cantilena","jpname":"シャンティレーナ","roles":["magicalAttacker","support"],"id":"100024705","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3507,"mp":219,"atk":98,"def":120,"mag":166,"spr":159},"minStats":{"hp":1157,"mp":72,"atk":32,"def":40,"mag":55,"spr":52},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],"enhancementSkills":["風精に愛されし者","遮光の魔奏","日輪の大魔奏","芽吹きのアリア","魔奏の歌姫"]}},

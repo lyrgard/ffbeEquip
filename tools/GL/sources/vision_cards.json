@@ -2327,7 +2327,7 @@
         }
     },
     "100006901": {
-        "name": "私たちは家族に",
+        "name": "Found Family",
         "compendium_id": 150,
         "compendium_shown": true,
         "rarity": 1,
@@ -2356,10 +2356,10 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "三闘星のイーゴが敗れ、モルボルの体内から生還したミド。彼女は倒れるイーゴに手を差し伸べる。「過去の孤独は消えない。けど癒すことはできる」――ミドたちの言葉に、イーゴは共に歩むことを決意する。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "私たちは家族に",
-            "music": "♪Moment of Recall",
+            "desc": "Mid, freshly spat up by a malboro, approaches the defeated Yego. The dragoon extends a hand to her former ally and rival, and proclaims, \"You can't erase the loneliness of your past, but you can heal from it.\" Touched by Mid and Cid's words, Yego decides to join them, having finally found a (non-malboro) family of her own.",
+            "info": "Mid, freshly spat up by a malboro, approaches the defeated Yego. The dragoon extends a hand to her former ally and rival, and proclaims, \"You can't erase the loneliness of your past, but you can heal from it.\" Touched by Mid and Cid's words, Yego decides to join them, having finally found a (non-malboro) family of her own.",
+            "shop": "Found Family",
+            "music": "Moment of Recall",
             "music_id": "400003"
         }
     },
@@ -7647,6 +7647,43 @@
             "desc": "She continues to stand on the front lines with the shield bestowed upon her by the king. With her sustained diligence and unfailing effort as a knight, her shield has become in both name and substance the \"Sacred Shield\" that protects the capital.",
             "info": "She continues to stand on the front lines with the shield bestowed upon her by the king. With her sustained diligence and unfailing effort as a knight, her shield has become in both name and substance the \"Sacred Shield\" that protects the capital.",
             "shop": "Steady and Sacred Shield",
+            "music": "Celestial Battle",
+            "music_id": "400007"
+        }
+    },
+    "401005801": {
+        "name": "Wind Across the Heavens",
+        "compendium_id": 9057,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11001,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [135, 135, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "1": [917035, 917036, 917037]
+        },
+        "restriction": {
+            "917037": [7216]
+        },
+        "max_level": 1,
+        "exp_pattern": 1,
+        "stat_pattern": 1,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "To protect her family and the warmth she has found with them, Mid swings the spears that she trained with while in the Orders. The sight of her spears raining from the heavens is sure to strike fear into any and all enemies on the ground below.",
+            "info": "To protect her family and the warmth she has found with them, Mid swings the spears that she trained with while in the Orders. The sight of her spears raining from the heavens is sure to strike fear into any and all enemies on the ground below.",
+            "shop": "Wind Across the Heavens",
             "music": "Celestial Battle",
             "music_id": "400007"
         }
