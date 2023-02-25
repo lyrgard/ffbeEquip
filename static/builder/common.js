@@ -44,7 +44,7 @@ const weaponBaseDamageVariance =
 
 const valuesToNotRoundDown = ["lbPerTurn", "chainMastery", "evoMag", "lbDamage"];
 
-function getValue(item, valuePath, notStackableSkillsAlreadyUsed, accessory) {
+function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
 
     var value = item[valuePath]; // Item[atk] for instance.
     
@@ -61,15 +61,10 @@ function getValue(item, valuePath, notStackableSkillsAlreadyUsed, accessory) {
         value = (value.min + value.max) / 2;
     }
 
-    if (notStackableSkillsAlreadyUsed && item.notStackableSkills) { // If there's nonstackableSkills and this item has notStackableSkills, then for each nonStackableSkill, reduce the value by that amount recursively.
+    if (notStackableSkillsAlreadyUsed && item.notStackableSkills) {
         for (var index = notStackableSkillsAlreadyUsed.length; index--;) {
             if (item.notStackableSkills[notStackableSkillsAlreadyUsed[index]]) {
-                if (accessory){
-                    value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath) / 2;
-                    value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]].staticStats, valuePath);
-                } else {
-                    value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath);
-                }
+                value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath);
             }
         }
     }

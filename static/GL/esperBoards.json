@@ -217,7 +217,11 @@
                     }],
                     "cost": 30,
                     "position": [2, -1],
-                    "special": ["[Water|ability_23.png]:Magic water damage (1.2x, MAG) to one enemy"]
+                    "special": ["[Water|ability_23.png]:Magic water damage (1.2x, MAG) to one enemy", "[Water|ability_23.png]:Reduce resistance to Water by 100% for 5 turns to one enemy"],
+                    "lbPerUse": {
+                        "min": 400,
+                        "max": 400
+                    }
                 }],
                 "cost": 10,
                 "position": [1, -1],
@@ -307,7 +311,7 @@
                     "children": [],
                     "cost": 30,
                     "position": [3, 1],
-                    "special": ["[Dispel|ability_3.png]:Remove all buffs and debuffs from one enemy"]
+                    "special": ["[Dispel|ability_3.png]:No effect"]
                 }],
                 "cost": 10,
                 "position": [2, 1],
@@ -638,7 +642,11 @@
             }],
             "cost": 5,
             "position": [-1, 0],
-            "special": ["[Fire|ability_21.png]:Magic fire damage (1.2x, MAG) to one enemy"]
+            "special": ["[Fire|ability_21.png]:Magic fire damage (1.2x, MAG) to one enemy", "[Fire|ability_21.png]:Reduce resistance to Fire by 100% for 5 turns to one enemy"],
+            "lbPerUse": {
+                "min": 400,
+                "max": 400
+            }
         }, {
             "children": [{
                 "children": [{
@@ -1166,7 +1174,11 @@
             }],
             "cost": 5,
             "position": [1, 1],
-            "special": ["[Blizzard|ability_22.png]:Magic ice damage (1.2x, MAG) to one enemy"]
+            "special": ["[Blizzard|ability_22.png]:Magic ice damage (1.2x, MAG) to one enemy", "[Blizzard|ability_22.png]:Reduce resistance to Ice by 100% for 5 turns to one enemy"],
+            "lbPerUse": {
+                "min": 400,
+                "max": 400
+            }
         }],
         "progression": {
             "1": [0, 5, 4, 5, 4, 4, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 4, 4, 5, 4, 5, 4, 5],
@@ -1273,7 +1285,7 @@
                             }],
                             "cost": 30,
                             "position": [-2, -3],
-                            "special": ["[Dispel|ability_3.png]:Remove all buffs and debuffs from one enemy"]
+                            "special": ["[Dispel|ability_3.png]:No effect"]
                         }, {
                             "children": [{
                                 "children": [{
@@ -2235,7 +2247,11 @@
             }],
             "cost": 5,
             "position": [1, 0],
-            "special": ["[Stone|ability_28.png]:Magic earth damage (1.2x, MAG) to one enemy"]
+            "special": ["[Stone|ability_28.png]:Magic earth damage (1.2x, MAG) to one enemy", "[Stone|ability_28.png]:Reduce resistance to Earth by 100% for 5 turns to one enemy"],
+            "lbPerUse": {
+                "min": 400,
+                "max": 400
+            }
         }, {
             "children": [{
                 "children": [{
@@ -2734,7 +2750,7 @@
                         "children": [],
                         "cost": 30,
                         "position": [0, 3],
-                        "special": ["[Dispel|ability_3.png]:Remove all buffs and debuffs from one enemy"]
+                        "special": ["[Dispel|ability_3.png]:No effect"]
                     }],
                     "cost": 30,
                     "position": [1, 3],
@@ -2747,9 +2763,9 @@
             "cost": 5,
             "position": [1, 1],
             "special": ["[Thunder|ability_20.png]:Magic lightning damage (1.2x, MAG) to one enemy", "[Thunder|ability_20.png]:Reduce resistance to Lightning by 100% for 5 turns to one enemy"],
-            "lbPerTurn": {
-                "min": 4,
-                "max": 4
+            "lbPerUse": {
+                "min": 400,
+                "max": 400
             }
         }],
         "progression": {
@@ -2961,7 +2977,11 @@
                 "children": [],
                 "cost": 10,
                 "position": [1, -1],
-                "special": ["[Stone|ability_28.png]:Magic earth damage (1.2x, MAG) to one enemy"]
+                "special": ["[Stone|ability_28.png]:Magic earth damage (1.2x, MAG) to one enemy", "[Stone|ability_28.png]:Reduce resistance to Earth by 100% for 5 turns to one enemy"],
+                "lbPerUse": {
+                    "min": 400,
+                    "max": 400
+                }
             }],
             "cost": 5,
             "position": [0, -1],
@@ -3481,7 +3501,11 @@
                     }],
                     "cost": 10,
                     "position": [-1, 1],
-                    "special": ["[Aero|ability_25.png]:Magic wind damage (1.2x, MAG) to one enemy"]
+                    "special": ["[Aero|ability_25.png]:Magic wind damage (1.2x, MAG) to one enemy", "[Aero|ability_25.png]:Reduce resistance to Wind by 100% for 5 turns to one enemy"],
+                    "lbPerUse": {
+                        "min": 400,
+                        "max": 400
+                    }
                 }],
                 "cost": 5,
                 "position": [0, 1],
@@ -3628,7 +3652,7 @@
                         }],
                         "cost": 10,
                         "position": [-2, -2],
-                        "special": ["[Fingersnap|ability_53.png]:Physical damage (1.1x, ATK) to one enemy", "[Fingersnap|ability_53.png]:Remove all buffs and debuffs from one enemy"]
+                        "special": ["[Fingersnap|ability_53.png]:Physical damage (1.1x, ATK) to one enemy", "[Fingersnap|ability_53.png]:No effect"]
                     }, {
                         "children": [{
                             "children": [{
@@ -4093,7 +4117,7 @@
                                                 "children": [],
                                                 "cost": 120,
                                                 "position": [4, 0],
-                                                "special": ["[Dispelling Smile|ability_3.png]:Remove all buffs and debuffs from one ally"]
+                                                "special": ["[Dispelling Smile|ability_3.png]:No effect"]
                                             }],
                                             "cost": 80,
                                             "position": [3, -1],
@@ -4539,7 +4563,11 @@
                         }],
                         "cost": 10,
                         "position": [-1, 1],
-                        "special": ["[Aero|ability_25.png]:Magic wind damage (1.2x, MAG) to one enemy"]
+                        "special": ["[Aero|ability_25.png]:Magic wind damage (1.2x, MAG) to one enemy", "[Aero|ability_25.png]:Reduce resistance to Wind by 100% for 5 turns to one enemy"],
+                        "lbPerUse": {
+                            "min": 400,
+                            "max": 400
+                        }
                     }],
                     "cost": 10,
                     "position": [-2, 0],
@@ -4676,7 +4704,11 @@
                         }],
                         "cost": 10,
                         "position": [2, 1],
-                        "special": ["[Water|ability_23.png]:Magic water damage (1.2x, MAG) to one enemy"]
+                        "special": ["[Water|ability_23.png]:Magic water damage (1.2x, MAG) to one enemy", "[Water|ability_23.png]:Reduce resistance to Water by 100% for 5 turns to one enemy"],
+                        "lbPerUse": {
+                            "min": 400,
+                            "max": 400
+                        }
                     }],
                     "cost": 10,
                     "position": [2, 0],
@@ -4803,7 +4835,7 @@
                                         }],
                                         "cost": 30,
                                         "position": [-3, -2],
-                                        "special": ["[Dispel|ability_3.png]:Remove all buffs and debuffs from one enemy"]
+                                        "special": ["[Dispel|ability_3.png]:No effect"]
                                     }, {
                                         "children": [],
                                         "cost": 80,
@@ -5097,9 +5129,9 @@
                     "cost": 10,
                     "position": [2, 2],
                     "special": ["[Thunder|ability_20.png]:Magic lightning damage (1.2x, MAG) to one enemy", "[Thunder|ability_20.png]:Reduce resistance to Lightning by 100% for 5 turns to one enemy"],
-                    "lbPerTurn": {
-                        "min": 4,
-                        "max": 4
+                    "lbPerUse": {
+                        "min": 400,
+                        "max": 400
                     }
                 }],
                 "cost": 10,
@@ -5516,11 +5548,19 @@
                     }],
                     "cost": 10,
                     "position": [1, 0],
-                    "special": ["[Stone|ability_28.png]:Magic earth damage (1.2x, MAG) to one enemy"]
+                    "special": ["[Stone|ability_28.png]:Magic earth damage (1.2x, MAG) to one enemy", "[Stone|ability_28.png]:Reduce resistance to Earth by 100% for 5 turns to one enemy"],
+                    "lbPerUse": {
+                        "min": 400,
+                        "max": 400
+                    }
                 }],
                 "cost": 5,
                 "position": [1, -1],
-                "special": ["[Fire|ability_21.png]:Magic fire damage (1.2x, MAG) to one enemy"]
+                "special": ["[Fire|ability_21.png]:Magic fire damage (1.2x, MAG) to one enemy", "[Fire|ability_21.png]:Reduce resistance to Fire by 100% for 5 turns to one enemy"],
+                "lbPerUse": {
+                    "min": 400,
+                    "max": 400
+                }
             }],
             "cost": 5,
             "position": [0, -1],
@@ -6162,7 +6202,11 @@
                     }],
                     "cost": 10,
                     "position": [1, -1],
-                    "special": ["[Blizzard|ability_22.png]:Magic ice damage (1.2x, MAG) to one enemy"]
+                    "special": ["[Blizzard|ability_22.png]:Magic ice damage (1.2x, MAG) to one enemy", "[Blizzard|ability_22.png]:Reduce resistance to Ice by 100% for 5 turns to one enemy"],
+                    "lbPerUse": {
+                        "min": 400,
+                        "max": 400
+                    }
                 }, {
                     "children": [{
                         "children": [{
@@ -6248,7 +6292,11 @@
                     }],
                     "cost": 10,
                     "position": [-1, 1],
-                    "special": ["[Dark|ability_26.png]:Magic dark damage (1.2x, MAG) to one enemy"]
+                    "special": ["[Dark|ability_26.png]:Magic dark damage (1.2x, MAG) to one enemy", "[Dark|ability_26.png]:Reduce resistance to Dark by 100% for 5 turns to one enemy"],
+                    "lbPerUse": {
+                        "min": 400,
+                        "max": 400
+                    }
                 }, {
                     "children": [{
                         "children": [],
@@ -6537,7 +6585,11 @@
                                     }],
                                     "cost": 10,
                                     "position": [-1, 1],
-                                    "special": ["[Water|ability_23.png]:Magic water damage (1.2x, MAG) to one enemy"]
+                                    "special": ["[Water|ability_23.png]:Magic water damage (1.2x, MAG) to one enemy", "[Water|ability_23.png]:Reduce resistance to Water by 100% for 5 turns to one enemy"],
+                                    "lbPerUse": {
+                                        "min": 400,
+                                        "max": 400
+                                    }
                                 }],
                                 "cost": 10,
                                 "position": [-2, 0],
@@ -6757,7 +6809,11 @@
                                     }],
                                     "cost": 10,
                                     "position": [2, 1],
-                                    "special": ["[Dark|ability_26.png]:Magic dark damage (1.2x, MAG) to one enemy"]
+                                    "special": ["[Dark|ability_26.png]:Magic dark damage (1.2x, MAG) to one enemy", "[Dark|ability_26.png]:Reduce resistance to Dark by 100% for 5 turns to one enemy"],
+                                    "lbPerUse": {
+                                        "min": 400,
+                                        "max": 400
+                                    }
                                 }],
                                 "cost": 10,
                                 "position": [2, 0],
@@ -7347,7 +7403,7 @@
                     }],
                     "cost": 30,
                     "position": [0, -3],
-                    "special": ["[Fingersnap|ability_53.png]:Physical damage (1.1x, ATK) to one enemy", "[Fingersnap|ability_53.png]:Remove all buffs and debuffs from one enemy"]
+                    "special": ["[Fingersnap|ability_53.png]:Physical damage (1.1x, ATK) to one enemy", "[Fingersnap|ability_53.png]:No effect"]
                 }],
                 "cost": 10,
                 "position": [0, -2],
@@ -7440,7 +7496,11 @@
                     }],
                     "cost": 10,
                     "position": [-2, 0],
-                    "special": ["[Water|ability_23.png]:Magic water damage (1.2x, MAG) to one enemy"]
+                    "special": ["[Water|ability_23.png]:Magic water damage (1.2x, MAG) to one enemy", "[Water|ability_23.png]:Reduce resistance to Water by 100% for 5 turns to one enemy"],
+                    "lbPerUse": {
+                        "min": 400,
+                        "max": 400
+                    }
                 }],
                 "cost": 10,
                 "position": [-1, 1],
@@ -7492,7 +7552,11 @@
                     }],
                     "cost": 10,
                     "position": [2, 0],
-                    "special": ["[Stone|ability_28.png]:Magic earth damage (1.2x, MAG) to one enemy"]
+                    "special": ["[Stone|ability_28.png]:Magic earth damage (1.2x, MAG) to one enemy", "[Stone|ability_28.png]:Reduce resistance to Earth by 100% for 5 turns to one enemy"],
+                    "lbPerUse": {
+                        "min": 400,
+                        "max": 400
+                    }
                 }],
                 "cost": 10,
                 "position": [1, -1],
@@ -7621,7 +7685,11 @@
                 }],
                 "cost": 10,
                 "position": [1, 2],
-                "special": ["[Dark|ability_26.png]:Magic dark damage (1.2x, MAG) to one enemy"]
+                "special": ["[Dark|ability_26.png]:Magic dark damage (1.2x, MAG) to one enemy", "[Dark|ability_26.png]:Reduce resistance to Dark by 100% for 5 turns to one enemy"],
+                "lbPerUse": {
+                    "min": 400,
+                    "max": 400
+                }
             }],
             "cost": 5,
             "position": [1, 1],

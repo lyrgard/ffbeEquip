@@ -1,8 +1,7 @@
-const { Console } = require('console');
-var fs = require('fs');
-var request = require('request');
-const { experiments } = require('webpack');
-var PNG = require('pngjs').PNG;
+import fs from 'fs';
+import request from 'request';
+import experiments  from 'webpack';
+import PNG from 'pngjs';
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -216,7 +215,7 @@ function addSkill(node, itemOut, skills_ability, skills_magic, skills_passive) {
             // Goes through the effect_raw list for the skill
             for (var rawEffectIndex in skill.effects_raw) {
                 // set the raw effect to the effect_raw at index
-                rawEffect = skill.effects_raw[rawEffectIndex];
+                let rawEffect = skill.effects_raw[rawEffectIndex];
 
                 // If the effect is not added, add the skill to Not Treated Effects
                 if (!addEffectToItem(itemOut, skill, rawEffectIndex, skills_ability, skills_passive)) {
@@ -357,10 +356,11 @@ function addEffectToItem(item, skill, rawEffectIndex, skills_ability, skills_pas
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 33) {
         var lbPerTurn = rawEffect[3][0]/100;
         addLbPerTurn(item, lbPerTurn, lbPerTurn);
+    // LB on Use
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 125) {
-        var lbPerTurnMin = rawEffect[3][0]/100;
-        var lbPerTurnMax = rawEffect[3][1]/100;
-        addLbPerTurn(item, lbPerTurnMin, lbPerTurnMax);
+        var lbPerUseMin = rawEffect[3][0];
+        var lbPerUseMax = rawEffect[3][1];
+        addLbPerUse(item, lbPerUseMin, lbPerUseMax);
 
     // LB fill rate
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 31) {
@@ -541,6 +541,14 @@ function addLbPerTurn(item, min, max) {
     }
     item.lbPerTurn.min += min;
     item.lbPerTurn.max += max;
+}
+
+function addLbPerUse(item, min, max) {
+    if (!item.lbPerUse) {
+        item.lbPerUse = {"min":0, "max":0};
+    }
+    item.lbPerUse.min += min;
+    item.lbPerUse.max += max;
 }
 
 function formatOutput(espers) {
