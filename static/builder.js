@@ -2496,7 +2496,7 @@ function recalculateApplicableSkills() {
         var skill = builds[currentUnitIndex].unit.skills[skillIndex];
         if (areConditionOK(skill, builds[currentUnitIndex].build, builds[currentUnitIndex].level, builds[currentUnitIndex]._exAwakeningLevel)) {
             builds[currentUnitIndex].build.push(skill);
-        }
+        } 
     }
 }
 

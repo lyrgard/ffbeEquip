@@ -44,6 +44,8 @@ const weaponBaseDamageVariance =
 
 const valuesToNotRoundDown = ["lbPerTurn", "chainMastery", "evoMag", "lbDamage"];
 
+let notStackableSkillsAlreadyUsed = [];
+
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
 
     var value = item[valuePath]; // Item[atk] for instance.
@@ -60,7 +62,7 @@ function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
     if (value.min && value.max) { // if it has a min and max, get the average.
         value = (value.min + value.max) / 2;
     }
-
+    
     if (notStackableSkillsAlreadyUsed && item.notStackableSkills) {
         for (var index = notStackableSkillsAlreadyUsed.length; index--;) {
             if (item.notStackableSkills[notStackableSkillsAlreadyUsed[index]]) {
@@ -1419,12 +1421,7 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     if (stat == "accuracy") {
         calculatedValue += (equipmentStatBonus - 1)*100;
         equipmentStatBonus = 1;
-    }
-
-    if (notStackableSkillsAlreadyUsed === null || notStackableSkillsAlreadyUsed === undefined){
-        var notStackableSkillsAlreadyUsed = [];
-    }
-    
+    }    
 
     for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
         if (itemAndPassives[equipedIndex]) {
@@ -1513,6 +1510,18 @@ function calculateStateValueForIndex(items, index, baseValue, currentPercentIncr
         } else {
             let value;
             let staticValue = item.staticStats ? item.staticStats[stat] || 0 : 0;
+            // Check to see if item.notStackableSkills is defined
+            if (item.notStackableSkills) {
+                // see if any of the skills in item.notStackableSkills are in notStackableSkillsAlreadyUsed
+                for (var skillId in item.notStackableSkills) {
+                    if (notStackableSkillsAlreadyUsed.includes(skillId)) {
+                        // if this is not the only copy of the item equipped, staticValue = 0
+                        if (items.filter(i => i && i.id === item.id).length > 1) {
+                            staticValue =  staticValue / 2;
+                        }
+                    }  
+                }
+            }
             if (index === 10 && baseStats.includes(stat)) {
                 value = 0; // Vision Card flat stats are added to the base value directly earlier in the calculation
             } else {
