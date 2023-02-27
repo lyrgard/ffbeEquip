@@ -2061,23 +2061,22 @@ function getStaticData(name, localized, callback) {
         let notification = $('.notifyjs-corner').children().first();
         let start = Date.now();
         $.get(name, function(result) {
-           requestIdleCallback(function() {
-                staticFileCache.store(name, result);
-           });
-
-            callback(result);
-            let end = Date.now();
-            if (end - start < 1000) {
+            requestIdleCallback(function() {
+              staticFileCache.store(name, result);
+              callback(result);
+              let end = Date.now();
+              if (end - start < 1000) {
                 setTimeout(function () {
-                    notification.trigger('notify-hide');
+                  notification.trigger('notify-hide');
                 }, 1000);
-            } else {
+              } else {
                 notification.trigger('notify-hide');
-            }
-
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+              }
+            });
+          }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             Modal.showErrorGet(this.url, errorThrown);
-        });
+          });
+          
     }
 }
 
