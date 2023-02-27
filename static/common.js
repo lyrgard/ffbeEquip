@@ -2101,7 +2101,25 @@ staticFileCache = {
             console.log("Compressed "+filename+" (" + data.length+" bytes" + ")")
           }
           // Save (may throw if storage full)
-          localStorage.setItem(filename, data);
+          try {
+            localStorage.setItem(filename, data);
+          } catch (err) {
+            // supress error
+            // if storage is full, remove the file at this filename
+            localStorage.removeItem(filename);
+            // create a web worker to compress the file and save it
+            var worker = new Worker('compressionWorker.js');
+            // compress case worker
+            worker.postMessage({filename: filename, data: data});
+            worker.onmessage = function(e) {
+                // console.log('Message received from worker');
+                // console.log(e.data);
+                // save the file
+                localStorage.setItem(e.data.filename, e.data.data);
+            }
+            // close the worker
+            worker.terminate();
+          }
           // Update savedFiles
           var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
           if (!savedFiles) savedFiles = {};
@@ -2116,8 +2134,6 @@ staticFileCache = {
           try { localStorage.removeItem(filename); } catch(e){}
         }
       },
-      
-
     /*
      * staticFileCache.retrieve
      * Read from localStorage, decompress, convert to JS
@@ -2130,7 +2146,11 @@ staticFileCache = {
             var dataString = localStorage.getItem(filename);
             if (dataString) {
                 // Decompress string and parse
-                data = JSON.parse(LZString.decompressFromUTF16(dataString));
+                // Check if the data is already in JSON format if not decompress it
+                var isJSON = (dataString[0] === '{' || dataString[0] === '[');
+                if (!isJSON) {
+                    dataString = LZString.decompressFromUTF16(dataString);
+                }
                 // Log to console
                 window.console && window.console.log("Retrieved "+filename+" (" + dataString.length + " bytes)");
             }

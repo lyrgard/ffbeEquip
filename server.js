@@ -24,7 +24,7 @@ const __dirname = path.dirname(__filename)
 let config = ServerConfig.ServerConfig;
 
 const app = express();
-
+app.use(compression({level: 9}));
 console.log(`Environment is: ${config.env}`);
 
 app.use(express.static(path.join(__dirname, '/dist/'), {

@@ -2111,7 +2111,7 @@ function removeCustomGoal() {
     $('#customFormulaModal').modal('hide');
 }
 
-function onEquipmentsChange() {
+async function onEquipmentsChange() {
     var equipments = $(".equipments select").val();
     if (equipments == "all") {
         $("#exludeEvent").parent().removeClass("hidden");
@@ -4017,7 +4017,7 @@ function onBuffChange(stat) {
     }
 }
 
-function updateEspers() {
+async function updateEspers() {
 
     var esperSource = espers;
     var equipments = $(".equipments select").val();
@@ -4626,18 +4626,18 @@ function startPage() {
         unitsWithSkills = unitsWithSkillsData;
     }
 
-    getStaticData("defaultBuilderEspers", false, function(result) {
+    getStaticData("defaultBuilderEspers", false, async function(result) {
         espers = [];
         for (var index = result.length; index--;) {
             espers.push(getEsperItem(result[index]))
         }
-        updateEspers();
+        await updateEspers(); // wait for updateEspers to finish
 
         waitingCallbackKeyReady("defaultBuilderEspers");
     });
-    $.get("/" + server + "/units.json", function(result) {
+    $.get("/" + server + "/units.json", async function(result) {
         ownedUnits = result;
-        onEquipmentsChange();
+        await onEquipmentsChange(); // wait for onEquipmentsChange to finish
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
     getStaticData("monsters", false, function(result) {
