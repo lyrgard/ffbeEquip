@@ -27,7 +27,25 @@ const app = express();
 
 console.log(`Environment is: ${config.env}`);
 
-app.use(compression())
+app.use(express.static(path.join(__dirname, '/dist/'), {
+  etag: false,
+  lastModified: config.isProd,
+  cacheControl: config.isProd,
+  maxAge: "365d",
+  immutable: config.isProd,
+  index: 'homepage.html',
+  setHeaders: function (res, path) {
+    if (mime.lookup(path) === 'text/html') {
+      // For HTML, avoid long and immutable cache since it can't be busted
+      res.setHeader('Cache-Control', 'public, max-age=0');
+    }
+    if (mime.getType(path) === 'application/json') {
+      // For JSON, avoid caching
+      res.setHeader('Cache-Control', 'public, max-age=0');
+    }
+  }
+}));
+
 app.use('/', corrections, unitSkills);
 
 // Helmet Middleware

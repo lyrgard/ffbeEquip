@@ -2087,30 +2087,36 @@ staticFileCache = {
      */
     store: function(filename, data) {
         if (!localStorageAvailable) return;
-
+          
         try {
-            // Convert to string if not already (may throw if bad data)
-            if (typeof data !== 'string') {
-                data = JSON.stringify(data);
-            }
-            // Compress string (*ToUTF16 is important, localStorage can only contain JS strings encoded in UTF16)
-            var compressedData = LZString.compressToUTF16(data);
-            // Save (may throw if storage full)
-            localStorage.setItem(filename, compressedData);
-            // Update savedFiles
-            var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
-            if (!savedFiles) savedFiles = {};
-            savedFiles[filename] = compressedData.length;
-            localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
-            // Log to console
-            window.console && window.console.log("Stored "+filename+" (" + data.length + " bytes, ratio "+ (compressedData.length*100/data.length).toFixed(0) +"% )");
+          // Convert to string if not already (may throw if bad data)
+          if (typeof data !== 'string') {
+            data = JSON.stringify(data);
+          }
+          // Check if data is already in UTF16 format
+          var isUTF16 = (decodeURIComponent(encodeURIComponent(data)).length === data.length);
+          // Compress string if not already in UTF16 format
+          if (!isUTF16) {
+            data = LZString.compressToUTF16(data);
+            console.log("Compressed "+filename+" (" + data.length+" bytes" + ")")
+          }
+          // Save (may throw if storage full)
+          localStorage.setItem(filename, data);
+          // Update savedFiles
+          var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
+          if (!savedFiles) savedFiles = {};
+          savedFiles[filename] = data.length;
+          localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
+          // Log to console
+          window.console && window.console.log("Stored "+filename+" (" + data.length+" bytes" + (isUTF16 ? "" : ", ratio "+ (data.length*100/JSON.stringify(data).length).toFixed(0) +"%") + ")");
         } catch (error) {
-            // Modal.showError("An error occured while trying to save data to your local storage.", error);
-            window.console && window.console.warn("An error occured while trying to save the file "+filename+" to your local storage", error);
-            // Failsafe: remove item in case of error (to free space if needed)
-            try { localStorage.removeItem(filename); } catch(e){}
+          // Modal.showError("An error occured while trying to save data to your local storage.", error);
+          window.console && window.console.warn("An error occured while trying to save the file "+filename+" to your local storage", error);
+          // Failsafe: remove item in case of error (to free space if needed)
+          try { localStorage.removeItem(filename); } catch(e){}
         }
-    },
+      },
+      
 
     /*
      * staticFileCache.retrieve
