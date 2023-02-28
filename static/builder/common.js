@@ -269,7 +269,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
 
             switchWeapons = canSwitchWeapon && ((variance[goalVariance] < variance1[goalVariance]) || (stat == "atk" && (variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk));
             if (context.multicast) {
-                // in normal DW, we want the strongest attack to be the second one. In multicast, it's the contrary
+                // in normal DW, we want the strongest attack to be the second on-e. In multicast, it's the contrary
                 switchWeapons = !switchWeapons
             }
             if (switchWeapons) {
