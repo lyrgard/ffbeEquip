@@ -24,8 +24,38 @@ const __dirname = path.dirname(__filename)
 let config = ServerConfig.ServerConfig;
 
 const app = express();
+
+const cspDirectives = {
+  "default-src": ["'self'"],
+  "script-src": ["'self'",'code.jquery.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com', 'kit.fontawesome.com', 'ka-f.fontawesome.com', "'unsafe-inline'"],
+  "script-src-attr": ["'unsafe-inline'"],
+  "style-src": ["'self'",'code.jquery.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', "'unsafe-inline'"],
+  "img-src": ["'self'", 'data:', 'blob:', 'content:', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequipnext.com', 'cdn.jsdelivr.net'],
+  "font-src": ["'self'", 'fonts.gstatic.com', 'kit-free.fontawesome.com', 'ka-f.fontawesome.com', 'maxcdn.bootstrapcdn.com'],
+  "connect-src": ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image', 'https://ka-f.fontawesome.com'],
+  "media-src": ["'none'"],
+  "object-src": ["'none'"],
+  "child-src": ["'self'"],
+  "worker-src": ["'self'"],
+  "frame-src": ["'self'"],
+  "form-action": ["'self'"],
+  "block-all-mixed-content": [],
+  "upgrade-insecure-requests": []
+};
+
 app.use(compression({level: 9}));
 console.log(`Environment is: ${config.env}`);
+
+// Helmet Middleware
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: cspDirectives,
+    reportOnly: false, // Set this to false for enforcing policy
+  },
+  referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
+  hsts: { maxAge: 63072000, includeSubDomains: true, preload: true },
+  frameguard: { action: 'deny' },
+}));
 
 app.use(express.static(path.join(__dirname, '/dist/'), {
   etag: false,
@@ -48,18 +78,6 @@ app.use(express.static(path.join(__dirname, '/dist/'), {
 
 app.use('/', corrections, unitSkills);
 
-// Helmet Middleware
-app.use(helmet.frameguard({
-  action: "deny"
-}));
-
-app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
-app.use(helmet.hsts({
-  maxAge: 63072000, // 2 years
-  includeSubDomains: true,
-  preload: true,
-}));
-
 let corsOptions = {
   origin: 'https://www.ffbeequipnext.com',
 }
@@ -75,24 +93,6 @@ app.use(cors(corsOptions));
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')))
-
-var cspDirectives = {
-  "default-src": ["'self'"],
-  "script-src": ["'self'",'code.jquery.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com', 'kit.fontawesome.com', 'ka-f.fontawesome.com', "'unsafe-inline'"],
-  "script-src-attr": ["'unsafe-inline'"],
-  "style-src": ["'self'",'code.jquery.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', "'unsafe-inline'"],
-  "img-src": ["'self'", 'data:', 'blob:', 'content:', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequipnext.com', 'cdn.jsdelivr.net'],
-  "font-src": ["'self'", 'fonts.gstatic.com', 'kit-free.fontawesome.com', 'ka-f.fontawesome.com', 'maxcdn.bootstrapcdn.com'],
-  "connect-src": ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image', 'https://ka-f.fontawesome.com'],
-  "media-src": ["'none'"],
-  "object-src": ["'none'"],
-  "child-src": ["'self'"],
-  "worker-src": ["'self'"],
-  "frame-src": ["'self'"],
-  "formAction": ["'self'"],
-  "blockAllMixedContent": [],
-  "reportUri": 'https://ffbeequipnext.report-uri.com/r/d/csp/reportOnly',
-};
 
 // In development, do not report
 if (config.isDev) {

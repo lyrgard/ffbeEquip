@@ -3842,22 +3842,6 @@ function resetIncludeList() {
     showIncludedItems();
 }
 
-function saveExcludeList() {
-    $.ajax({
-        url: server + '/defaultExclusionList',
-        method: 'PUT',
-        data: JSON.stringify(itemsToExclude),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function() {
-            $.notify("Data saved", "success");
-        },
-        error: function() {
-            Modal.showMessage('Default exclusion list not saved', 'Error while saving the default exclusion list.');
-        }
-    });
-}
-
 function getItemLineAsText(prefix, slot, buildIndex = currentUnitIndex) {
     var item = builds[buildIndex].build[slot];
     if (item) {
@@ -4644,14 +4628,7 @@ function startPage() {
         bestiary = new Bestiary(result);
         $("#monsterListLink").removeClass("hidden");
     });
-    $.get(server + "/defaultExclusionList", function(result) {
-        if (Array.isArray(result)) {
-            defaultItemsToExclude = result;
-            itemsToExclude = defaultItemsToExclude.slice();
-        }
-        $(".excludedItemNumber").html(itemsToExclude.length);
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-    });
+
     $(".includedItemNumber").html(itemsToInclude.length);
 
 
