@@ -94,18 +94,10 @@ var cspDirectives = {
   "reportUri": 'https://ffbeequipnext.report-uri.com/r/d/csp/reportOnly'
 };
 
-// In development, do not report
-if (config.isDev) {
-  delete cspDirectives.reportUri;
-}
-
-// Remove the 'upgrade-insecure-requests' directive
-delete cspDirectives['upgrade-insecure-requests'];
-
 app.use(helmet.contentSecurityPolicy({ 
-  directives: cspDirectives
+  directives: cspDirectives,
+  reportOnly: false // make sure reportOnly is set to false
 }));
-
 
 
 // In development, do not report
