@@ -39,8 +39,8 @@ const cspDirectives = {
   workerSrc: ["'self'"],
   frameSrc: ["'self'"],
   formAction: ["'self'"],
-  blockAllMixedContent: [],
-  upgradeInsecureRequests: []
+  blockAllMixedContent: ["'self'"],
+  upgradeInsecureRequests: ["'self'"]
 };
 
 app.use(compression({level: 9}));
