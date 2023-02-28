@@ -92,6 +92,7 @@ var cspDirectives = {
   "formAction": ["'self'"],
   "blockAllMixedContent": [],
   "reportUri": 'https://ffbeequipnext.report-uri.com/r/d/csp/reportOnly',
+  "upgrade-insecure-requests": [],
 };
 
 // In development, do not report
@@ -101,7 +102,7 @@ if (config.isDev) {
 
 app.use(helmet.contentSecurityPolicy({ 
   directives: cspDirectives, 
-  reportOnly: true
+  reportOnly: false 
 }));
 
 // Static middleware
