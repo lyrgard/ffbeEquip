@@ -26,21 +26,21 @@ let config = ServerConfig.ServerConfig;
 const app = express();
 
 const cspDirectives = {
-  "default-src": ["'self'"],
-  "script-src": ["'self'",'code.jquery.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com', 'kit.fontawesome.com', 'ka-f.fontawesome.com', "'unsafe-inline'"],
-  "script-src-attr": ["'unsafe-inline'"],
-  "style-src": ["'self'",'code.jquery.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', "'unsafe-inline'"],
-  "img-src": ["'self'", 'data:', 'blob:', 'content:', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequipnext.com', 'cdn.jsdelivr.net'],
-  "font-src": ["'self'", 'fonts.gstatic.com', 'kit-free.fontawesome.com', 'ka-f.fontawesome.com', 'maxcdn.bootstrapcdn.com'],
-  "connect-src": ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image', 'https://ka-f.fontawesome.com'],
-  "media-src": ["'none'"],
-  "object-src": ["'none'"],
-  "child-src": ["'self'"],
-  "worker-src": ["'self'"],
-  "frame-src": ["'self'"],
-  "form-action": ["'self'"],
-  "block-all-mixed-content": [],
-  "upgrade-insecure-requests": []
+  defaultSrc: ["'self'"],
+  scriptSrc: ["'self'", 'code.jquery.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com', 'kit.fontawesome.com', 'ka-f.fontawesome.com', "'unsafe-inline'"],
+  scriptSrcAttr: ["'unsafe-inline'"],
+  styleSrc: ["'self'", 'code.jquery.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', "'unsafe-inline'"],
+  imgSrc: ["'self'", 'data:', 'blob:', 'content:', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequipnext.com', 'cdn.jsdelivr.net'],
+  fontSrc: ["'self'", 'fonts.gstatic.com', 'kit-free.fontawesome.com', 'ka-f.fontawesome.com', 'maxcdn.bootstrapcdn.com'],
+  connectSrc: ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image', 'https://ka-f.fontawesome.com'],
+  mediaSrc: ["'none'"],
+  objectSrc: ["'none'"],
+  childSrc: ["'self'"],
+  workerSrc: ["'self'"],
+  frameSrc: ["'self'"],
+  formAction: ["'self'"],
+  blockAllMixedContent: [],
+  upgradeInsecureRequests: []
 };
 
 app.use(compression({level: 9}));
