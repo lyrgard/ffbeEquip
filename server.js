@@ -99,9 +99,13 @@ if (config.isDev) {
   delete cspDirectives.reportUri;
 }
 
+// Remove the 'upgrade-insecure-requests' directive
+delete cspDirectives['upgrade-insecure-requests'];
+
 app.use(helmet.contentSecurityPolicy({ 
   directives: cspDirectives
 }));
+
 
 
 // In development, do not report
