@@ -101,7 +101,7 @@ if (config.isDev) {
 
 app.use(helmet.contentSecurityPolicy({ 
   directives: cspDirectives, 
-  reportOnly: false 
+  reportOnly: true
 }));
 
 // Static middleware
