@@ -2046,13 +2046,11 @@ function getStaticData(name, localized, callback) {
         name = server + "/" + name + ".json";
     }
 
-    console.log("Retrieve " + name)
     var data = staticFileCache.retrieve(name);
 
     // Check data, should not be empty
     if (data && !$.isEmptyObject(data)) {
         // Data found, not empty, good to go!
-        console.log("Found data...")
         callback(data);
     } else {
         // Data NOT found, let's fetch it
