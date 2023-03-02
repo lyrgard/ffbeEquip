@@ -42485,6 +42485,64 @@
 			{"hp":500, "def":500, "spr":500, "evade":{"physical":50}, "exLevelCondition":2},
 			{"def":500, "spr":500, "exLevelCondition":3}
 		]
+	},
+	"401014307": {
+		"name":"Curse of Immunity Melissa",
+		"roles":["healer","support"],
+		"id":"401014307",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401014317",
+		"exAwakening": [{"hp":601,"mp":43,"atk":18,"def":33,"mag":18,"spr":77},{"hp":462,"mp":33,"atk":14,"def":25,"mag":14,"spr":59},{"hp":323,"mp":23,"atk":10,"def":17,"mag":10,"spr":42}],
+		"fragmentId": "310001020",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4620,"mp":330,"atk":140,"def":250,"mag":140,"spr":296},
+			"minStats":{"hp":1525,"mp":109,"atk":46,"def":83,"mag":46,"spr":98},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Shellga","Protectga","Full-Life","Darkra","Darkga","Purifying Parasol","Chronic Flow"],
+		"enhancements": [
+			{"name":"Purifying Parasol","levels":[[{"spr":500,"oneWeaponMastery":{"spr":50},"equipedConditions":[["1100000703","1100000704"]]},{"equipedConditions":["staff",["1100000703","1100000704"]],"spr%":80}],[{"spr":600,"oneWeaponMastery":{"spr":60},"equipedConditions":[["1100000703","1100000704"]]},{"equipedConditions":["staff",["1100000703","1100000704"]],"spr%":80}],[{"spr":700,"oneWeaponMastery":{"spr":70},"equipedConditions":[["1100000703","1100000704"]]},{"equipedConditions":["staff",["1100000703","1100000704"]],"spr%":80}],[{"spr":800,"oneWeaponMastery":{"spr":80},"equipedConditions":[["1100000703","1100000704"]]},{"equipedConditions":["staff",["1100000703","1100000704"]],"spr%":80}],[{"spr":1000,"oneWeaponMastery":{"spr":100},"equipedConditions":[["1100000703","1100000704"]]},{"equipedConditions":["staff",["1100000703","1100000704"]],"spr%":80}]]}
+		],
+		"skills": [
+			{"hp%":200, "mp%":140, "def%":140, "spr%":200, "oneWeaponMastery":{"spr":200}, "lbPerTurn":{"min":10,"max":10}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":50},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":15},
+			{"spr":250, "exLevelCondition":2},
+			{"hp":3000, "spr":250, "exLevelCondition":3}
+		]
+	},
+	"401014317": {
+		"name":"Curse of Immunity Melissa BS",
+		"roles":["healer","support"],
+		"id":"401014317",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401014307",
+		"exAwakening": [{"hp":601,"mp":43,"atk":18,"def":33,"mag":18,"spr":77},{"hp":462,"mp":33,"atk":14,"def":25,"mag":14,"spr":59},{"hp":323,"mp":23,"atk":10,"def":17,"mag":10,"spr":42}],
+		"fragmentId": "310001020",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4620,"mp":330,"atk":140,"def":250,"mag":140,"spr":296},
+			"minStats":{"hp":1525,"mp":109,"atk":46,"def":83,"mag":46,"spr":98},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Shellga","Protectga","Full-Life","Darkra","Darkga","Purifying Parasol","Chronic Flow"],
+		"enhancements": [
+			{"name":"Purifying Parasol","levels":[[{"spr":500,"oneWeaponMastery":{"spr":50},"equipedConditions":[["1100000703","1100000704"]]},{"equipedConditions":["staff",["1100000703","1100000704"]],"spr%":80}],[{"spr":600,"oneWeaponMastery":{"spr":60},"equipedConditions":[["1100000703","1100000704"]]},{"equipedConditions":["staff",["1100000703","1100000704"]],"spr%":80}],[{"spr":700,"oneWeaponMastery":{"spr":70},"equipedConditions":[["1100000703","1100000704"]]},{"equipedConditions":["staff",["1100000703","1100000704"]],"spr%":80}],[{"spr":800,"oneWeaponMastery":{"spr":80},"equipedConditions":[["1100000703","1100000704"]]},{"equipedConditions":["staff",["1100000703","1100000704"]],"spr%":80}],[{"spr":1000,"oneWeaponMastery":{"spr":100},"equipedConditions":[["1100000703","1100000704"]]},{"equipedConditions":["staff",["1100000703","1100000704"]],"spr%":80}]]}
+		],
+		"skills": [
+			{"hp%":200, "mp%":140, "def%":140, "spr%":200, "oneWeaponMastery":{"spr":200}, "lbPerTurn":{"min":10,"max":10}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":50},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":15},
+			{"spr":250, "exLevelCondition":2},
+			{"hp":3000, "spr":250, "exLevelCondition":3}
+		]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker"],"id":"100000115","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"],"skills":[{"hp%":30,"def%":30,"singleWieldingOneHanded":{"accuracy":25,"atk":75},"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50}],"killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25},{"name":"dragon","physical":25},{"name":"bug","physical":25}]},{"def%":60,"equipedConditions":["heavyArmor"]},{"atk%":50,"equipedConditions":["greatSword"]}]},
