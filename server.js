@@ -78,12 +78,12 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist'
 
 var cspDirectives = {
   "default-src": ["'self'"],
-  "script-src": ["'self'",'code.jquery.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com', 'kit.fontawesome.com', 'ka-f.fontawesome.com', "'unsafe-inline'"],
+  "script-src": ["'self'",'code.jquery.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.googletagmanager.com', 'www.google-analytics.com', 'kit.fontawesome.com', 'ka-f.fontawesome.com', "'unsafe-inline'"],
   "script-src-attr": ["'unsafe-inline'"],
   "style-src": ["'self'",'code.jquery.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', "'unsafe-inline'"],
-  "img-src": ["'self'", 'data:', 'blob:', 'content:', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequipnext.com', 'cdn.jsdelivr.net'],
+  "img-src": ["'self'", 'data:', 'blob:', 'content:', 'www.googletagmanager.com', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequipnext.com', 'cdn.jsdelivr.net'],
   "font-src": ["'self'", 'fonts.gstatic.com', 'kit-free.fontawesome.com', 'ka-f.fontawesome.com', 'maxcdn.bootstrapcdn.com'],
-  "connect-src": ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image', 'https://ka-f.fontawesome.com'],
+  "connect-src": ["'self'", 'www.googletagmanager.com', 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image', 'https://ka-f.fontawesome.com'],
   "media-src": ["'none'"],
   "object-src": ["'none'"],
   "child-src": ["'self'"],
