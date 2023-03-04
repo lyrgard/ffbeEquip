@@ -35,7 +35,7 @@ fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
 });
 
 function checkForJapanese(inputString) {
-    const allowedRegex = /^[a-zA-Z0-9' !@#$%^&*()+\[\]:@{-~À-ÿ´’.,:;!?'"&$%#(){}\[\]+<>=\/*\s\-]+$/u;
+    const allowedRegex = /^[a-zA-Z0-9' !@#$%^&*()+\[\]:@{-~À-ÿ´’.,:;!?'"&$%#(){}\[\]+<>=\/*\s\u2191\-]+$/u;
   const normalizedString = unorm.nfc(inputString);
   if (!allowedRegex.test(normalizedString)) {
     return false;

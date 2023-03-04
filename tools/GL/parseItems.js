@@ -443,17 +443,17 @@ getData('equipment.json', function (items) {
 });
 
 function checkForJapanese(inputString) {
-    const allowedRegex = /^[a-zA-Z0-9' !@#$%^&*()+\[\]:@{-~À-ÿ´’.,:;!?'"&$%#(){}\[\]+<>=\/*\s\-]+$/u;
-  const normalizedString = unorm.nfc(inputString);
-  if (!allowedRegex.test(normalizedString)) {
-    return false;
-  }
-  for (const char of normalizedString) {
-    if (/[\u3040-\u30ff\u31f0-\u31ff\u4e00-\u9faf\uff00-\uffef]/.test(char)) {
-      return false;
+    const allowedRegex = /^[a-zA-Z0-9' !@#$%^&*()+\[\]:@{-~À-ÿ´’.,:;!?'"&$%#(){}\[\]+<>=\/*\s\u2191\-]+$/u;
+    const normalizedString = unorm.nfc(inputString);
+    if (!allowedRegex.test(normalizedString)) {
+        return false;
     }
-  }
-  return true;
+    for (const char of normalizedString) {
+        if (/[\u3040-\u30ff\u31f0-\u31ff\u4e00-\u9faf\uff00-\uffef]/.test(char)) {
+        return false;
+        }
+    }
+    return true;
 }
 
 function treatItem(items, itemId, result, skills) {
