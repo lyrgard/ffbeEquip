@@ -2856,3 +2856,20 @@ const throttle = (func, limit) => {
     }
   }
 }
+
+/** Saves a setting to local storage. */
+function saveSetting(key, value) {
+    if (localStorageAvailable) {
+        localStorage.setItem(key, value);
+    }
+}
+
+/** Returns a setting from local storage if available, otherwise returns defaultValue. */
+function getSetting(key, defaultValue) {
+    let result = defaultValue;
+    if (localStorageAvailable) {
+        result = localStorage.getItem(key) ?? defaultValue;
+    }
+
+    return result;
+}
