@@ -22,9 +22,9 @@
  */
 
 
-var fs = require( 'fs' );
-var path = require( 'path' );
-var sizeOf = require('image-size');
+import fs from 'fs'
+import path from 'path'
+import * as imageSize from 'image-size'
 
 const LISTING = [
     {
@@ -107,6 +107,11 @@ const LISTING = [
         basePath: '../static/img/icons/mitigationAbilities',
         outPath: '../static/css-img/mitigationAbilities.css'
     },
+    {
+        className: 'racialMitigations',
+        basePath: '../static/img/icons/racialMitigationAbilities',
+        outPath: '../static/css-img/racialMitigationAbilities.css'
+    },
 ];
 
 var CssTemplate = function(className, filename, dimensions, base64Data) {
@@ -139,10 +144,15 @@ var BuildCssFromImgFolder = function(className, basePath, outPath) {
 
         console.log(`   Processing ${name}...`);
 
-        var dimensions = sizeOf(currPath);
-        var fileContentBase64 = (fs.readFileSync(currPath)).toString('base64');
+        try {
+            var dimensions = imageSize.imageSize(currPath);
+            var fileContentBase64 = (fs.readFileSync(currPath)).toString('base64');
         
-        CssContent += CssTemplate(className, name, dimensions, fileContentBase64);
+            CssContent += CssTemplate(className, name, dimensions, fileContentBase64);
+        } catch (err) {
+            console.log("Wrong file type")
+            console.log(err)
+        }
     });
 
     fs.writeFileSync(outPath, CssContent, 'utf8');

@@ -253,7 +253,8 @@ function optimize() {
         }
     }
 
-    itemPool = new ItemPool(4, builds[0].involvedStats, enemyStats);
+    itemPool = new ItemPool(4, builds[0].involvedStats, enemyStats, forceDoubleHand);
+    itemPool.forceDoubleHand = forceDoubleHand;
 
     for (var index = workers.length; index--; index) {
         workers[index].postMessage(JSON.stringify({
@@ -2115,7 +2116,7 @@ function removeCustomGoal() {
     $('#customFormulaModal').modal('hide');
 }
 
-function onEquipmentsChange() {
+async function onEquipmentsChange() {
     var equipments = $(".equipments select").val();
     if (equipments == "all") {
         $("#exludeEvent").parent().removeClass("hidden");
@@ -2500,7 +2501,7 @@ function recalculateApplicableSkills() {
         var skill = builds[currentUnitIndex].unit.skills[skillIndex];
         if (areConditionOK(skill, builds[currentUnitIndex].build, builds[currentUnitIndex].level, builds[currentUnitIndex]._exAwakeningLevel)) {
             builds[currentUnitIndex].build.push(skill);
-        }
+        } 
     }
 }
 
@@ -3846,22 +3847,6 @@ function resetIncludeList() {
     showIncludedItems();
 }
 
-function saveExcludeList() {
-    $.ajax({
-        url: server + '/defaultExclusionList',
-        method: 'PUT',
-        data: JSON.stringify(itemsToExclude),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function() {
-            $.notify("Data saved", "success");
-        },
-        error: function() {
-            Modal.showMessage('Default exclusion list not saved', 'Error while saving the default exclusion list.');
-        }
-    });
-}
-
 function getItemLineAsText(prefix, slot, buildIndex = currentUnitIndex) {
     var item = builds[buildIndex].build[slot];
     if (item) {
@@ -4021,7 +4006,7 @@ function onBuffChange(stat) {
     }
 }
 
-function updateEspers() {
+async function updateEspers() {
 
     var esperSource = espers;
     var equipments = $(".equipments select").val();
@@ -4630,32 +4615,25 @@ function startPage() {
         unitsWithSkills = unitsWithSkillsData;
     }
 
-    getStaticData("defaultBuilderEspers", false, function(result) {
+    getStaticData("defaultBuilderEspers", false, async function(result) {
         espers = [];
         for (var index = result.length; index--;) {
             espers.push(getEsperItem(result[index]))
         }
-        updateEspers();
+        await updateEspers(); // wait for updateEspers to finish
 
         waitingCallbackKeyReady("defaultBuilderEspers");
     });
-    $.get("/" + server + "/units.json", function(result) {
+    $.get("/" + server + "/units.json", async function(result) {
         ownedUnits = result;
-        onEquipmentsChange();
+        await onEquipmentsChange(); // wait for onEquipmentsChange to finish
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
     getStaticData("monsters", false, function(result) {
         bestiary = new Bestiary(result);
         $("#monsterListLink").removeClass("hidden");
     });
-    $.get(server + "/defaultExclusionList", function(result) {
-        if (Array.isArray(result)) {
-            defaultItemsToExclude = result;
-            itemsToExclude = defaultItemsToExclude.slice();
-        }
-        $(".excludedItemNumber").html(itemsToExclude.length);
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-    });
+
     $(".includedItemNumber").html(itemsToInclude.length);
 
 

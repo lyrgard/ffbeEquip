@@ -1,4 +1,7 @@
 import fs from 'fs'
+import unorm from 'unorm';
+
+const { nfkc } = unorm;
 
 
 console.log("Starting");
@@ -31,10 +34,18 @@ fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
     });
 });
 
-function checkForJapanese(checkString){
-    let allowedChars = new RegExp(/^[\u00C0-\u017Fa-zA-Z0-9' !@#$%^&*+()-’]+$/)
-
-    return allowedChars.test(checkString)
+function checkForJapanese(inputString) {
+    const allowedRegex = /^[a-zA-Z0-9' !@#$%^&*()+\[\]:@{-~À-ÿ´’.,:;!?'"&$%#(){}\[\]+<>=\/*\s\u2191\-]+$/u;
+  const normalizedString = unorm.nfc(inputString);
+  if (!allowedRegex.test(normalizedString)) {
+    return false;
+  }
+  for (const char of normalizedString) {
+    if (/[\u3040-\u30ff\u31f0-\u31ff\u4e00-\u9faf\uff00-\uffef]/.test(char)) {
+      return false;
+    }
+  }
+  return true;
 }
 
 function formatOutput(units) {

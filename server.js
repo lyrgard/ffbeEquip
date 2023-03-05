@@ -16,6 +16,7 @@ import { route as drive } from './server/routes/drive.js';
 import { boomJS as errorHandler } from './server/middlewares/boom.js';
 import { fileURLToPath } from 'url';
 import esMain from 'es-main';
+import compression from 'compression';
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -23,8 +24,29 @@ const __dirname = path.dirname(__filename)
 let config = ServerConfig.ServerConfig;
 
 const app = express();
-
+app.use(compression({level: 9}));
 console.log(`Environment is: ${config.env}`);
+
+app.use(express.static(path.join(__dirname, '/dist/'), {
+  etag: false,
+  lastModified: config.isProd,
+  cacheControl: config.isProd,
+  maxAge: "365d",
+  immutable: config.isProd,
+  index: 'homepage.html',
+  setHeaders: function (res, path) {
+    if (mime.lookup(path) === 'text/html') {
+      // For HTML, avoid long and immutable cache since it can't be busted
+      res.setHeader('Cache-Control', 'public, max-age=0');
+    }
+    if (mime.getType(path) === 'application/json') {
+      // For JSON, avoid caching
+      res.setHeader('Cache-Control', 'public, max-age=0');
+    }
+  }
+}));
+
+app.use('/', corrections, unitSkills);
 
 // Helmet Middleware
 app.use(helmet.frameguard({
@@ -56,12 +78,12 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist'
 
 var cspDirectives = {
   "default-src": ["'self'"],
-  "script-src": ["'self'",'code.jquery.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com', 'kit.fontawesome.com', 'ka-f.fontawesome.com', "'unsafe-inline'"],
+  "script-src": ["'self'",'code.jquery.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.googletagmanager.com', 'www.google-analytics.com', 'kit.fontawesome.com', 'ka-f.fontawesome.com', "'unsafe-inline'"],
   "script-src-attr": ["'unsafe-inline'"],
   "style-src": ["'self'",'code.jquery.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com', 'cdn.jsdelivr.net', 'maxcdn.bootstrapcdn.com', "'unsafe-inline'"],
-  "img-src": ["'self'", 'data:', 'blob:', 'content:', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequipnext.com', 'cdn.jsdelivr.net'],
+  "img-src": ["'self'", 'data:', 'blob:', 'content:', 'www.googletagmanager.com', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequipnext.com', 'cdn.jsdelivr.net'],
   "font-src": ["'self'", 'fonts.gstatic.com', 'kit-free.fontawesome.com', 'ka-f.fontawesome.com', 'maxcdn.bootstrapcdn.com'],
-  "connect-src": ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image', 'https://ka-f.fontawesome.com'],
+  "connect-src": ["'self'", 'www.googletagmanager.com', 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image', 'https://ka-f.fontawesome.com'],
   "media-src": ["'none'"],
   "object-src": ["'none'"],
   "child-src": ["'self'"],
@@ -69,8 +91,14 @@ var cspDirectives = {
   "frame-src": ["'self'"],
   "formAction": ["'self'"],
   "blockAllMixedContent": [],
-  "reportUri": 'https://ffbeequipnext.report-uri.com/r/d/csp/reportOnly',
+  "reportUri": 'https://ffbeequipnext.report-uri.com/r/d/csp/reportOnly'
 };
+
+app.use(helmet.contentSecurityPolicy({ 
+  directives: cspDirectives,
+  reportOnly: false // make sure reportOnly is set to false
+}));
+
 
 // In development, do not report
 if (config.isDev) {
@@ -78,9 +106,9 @@ if (config.isDev) {
 }
 
 app.use(helmet.contentSecurityPolicy({ 
-  directives: cspDirectives, 
-  reportOnly: !config.isDev 
+  directives: cspDirectives
 }));
+
 
 // Static middleware
 if (config.isProd || process.env.DEV_USE_DIST === "yes") {
@@ -132,7 +160,6 @@ app.use('/clientConfig', clientConfig);
 if (config.google.enabled) {
     app.use('/', oauth);
 }
-app.use('/', corrections, unitSkills);
 if (config.firebase.enabled) {
     console.log("Firebase is enabled.")
     app.use('/', firebase.unAuthenticatedRoute);

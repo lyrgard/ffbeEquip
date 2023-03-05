@@ -1,6 +1,6 @@
-var fs = require('fs');
-var request = require('request');
-var PNG = require('pngjs').PNG;
+import fs from 'fs';
+import request from 'request'
+import PNG from 'pngjs'
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -290,12 +290,16 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         var lbPerTurnMin = rawEffect[3][0]/100;
         var lbPerTurnMax = rawEffect[3][1]/100;
         addLbPerTurn(item, lbPerTurnMin, lbPerTurnMax);
-
     // LB fill rate
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 31) {
         var lbFillRate = rawEffect[3][0];
         addStat(item, "lbFillRate", lbFillRate);
-
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 125) {
+        var lbFill = {
+            max: rawEffect[3][0][1],
+            min: rawEffect[3][0][0]
+        }
+        addStat(item, "lbFill", lbFillRate);
     // +Jump damage
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 17) {
         var jumpDamage = rawEffect[3][0];

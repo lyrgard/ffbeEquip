@@ -44,7 +44,9 @@ const weaponBaseDamageVariance =
 
 const valuesToNotRoundDown = ["lbPerTurn", "chainMastery", "evoMag", "lbDamage"];
 
-function getValue(item, valuePath, notStackableSkillsAlreadyUsed, accessory) {
+let notStackableSkillsAlreadyUsed = [];
+
+function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
 
     var value = item[valuePath]; // Item[atk] for instance.
     
@@ -61,18 +63,6 @@ function getValue(item, valuePath, notStackableSkillsAlreadyUsed, accessory) {
         value = (value.min + value.max) / 2;
     }
 
-    if (notStackableSkillsAlreadyUsed && item.notStackableSkills) { // If there's nonstackableSkills and this item has notStackableSkills, then for each nonStackableSkill, reduce the value by that amount recursively.
-        for (var index = notStackableSkillsAlreadyUsed.length; index--;) {
-            if (item.notStackableSkills[notStackableSkillsAlreadyUsed[index]]) {
-                if (accessory){
-                    value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath) / 2;
-                    value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]].staticStats, valuePath);
-                } else {
-                    value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath);
-                }
-            }
-        }
-    }
     return value;
 }
 
@@ -279,7 +269,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
 
             switchWeapons = canSwitchWeapon && ((variance[goalVariance] < variance1[goalVariance]) || (stat == "atk" && (variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk));
             if (context.multicast) {
-                // in normal DW, we want the strongest attack to be the second one. In multicast, it's the contrary
+                // in normal DW, we want the strongest attack to be the second on-e. In multicast, it's the contrary
                 switchWeapons = !switchWeapons
             }
             if (switchWeapons) {
@@ -1424,12 +1414,7 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     if (stat == "accuracy") {
         calculatedValue += (equipmentStatBonus - 1)*100;
         equipmentStatBonus = 1;
-    }
-
-    if (notStackableSkillsAlreadyUsed === null || notStackableSkillsAlreadyUsed === undefined){
-        var notStackableSkillsAlreadyUsed = [];
-    }
-    
+    }    
 
     for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
         if (itemAndPassives[equipedIndex]) {
@@ -1518,6 +1503,18 @@ function calculateStateValueForIndex(items, index, baseValue, currentPercentIncr
         } else {
             let value;
             let staticValue = item.staticStats ? item.staticStats[stat] || 0 : 0;
+            // Check to see if item.notStackableSkills is defined
+            if (item.notStackableSkills) {
+                // see if any of the skills in item.notStackableSkills are in notStackableSkillsAlreadyUsed
+                for (var skillId in item.notStackableSkills) {
+                    if (notStackableSkillsAlreadyUsed.includes(skillId)) {
+                        // if this is not the only copy of the item equipped, staticValue = 0
+                        if (items.filter(i => i && i.id === item.id).length > 1) {
+                            staticValue =  staticValue / 2;
+                        }
+                    }  
+                }
+            }
             if (index === 10 && baseStats.includes(stat)) {
                 value = 0; // Vision Card flat stats are added to the base value directly earlier in the calculation
             } else {

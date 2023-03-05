@@ -1,8 +1,10 @@
 import fs from 'fs'
 import express from 'express'
 import Ajv from 'ajv'
-
+import compression from 'compression';
 export const route = express.Router();
+
+route.use(compression())
 
 route.post('/:server/corrections', async (req, res) => {
     var ajv = new Ajv({allErrors: true, jsonPointers: true});

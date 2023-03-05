@@ -6,8 +6,7 @@ var unitSearch = [];
 var releasedUnits;
 var dataById;
 
-var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "weaponImperils", "magicalElementDamageBoosts", "physicalElementDamageBoosts", "tankAbilities", "mitigation", "buffs", "series"];
-
+var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "weaponImperils", "magicalElementDamageBoosts", "physicalElementDamageBoosts", "tankAbilities", "mitigation", "racialMitigations", "buffs", "series"];
 var baseRarity;
 var maxRarity;
 var skillFilter;
@@ -21,6 +20,7 @@ var ailments;
 var imbues;
 var physicalKillers;
 var magicalKillers;
+var racialMitigations;
 var tankAbilities;
 var mitigation;
 var seriesValues;
@@ -46,6 +46,7 @@ var defaultFilter = {
     "weaponImperils": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"], "threshold":null},
     "tankAbilities": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
     "mitigation":{values:[], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
+    "racialMitigations":{values:[], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes":["actives", "lb"]},
     "series": {values:[]}
 };
 
@@ -73,6 +74,7 @@ var update = function() {
         && imbues.values.length == 0
         && tankAbilities.values.length == 0
         && mitigation.values.length == 0
+        && racialMitigations.values.length == 0
         && baseRarity.length == 0
         && maxRarity.length == 0
         && skillFilter.chainFamily == "none") {
@@ -97,7 +99,8 @@ var update = function() {
         breaks,
         baseRarity,
         maxRarity,
-        seriesValues
+        seriesValues,
+        racialMitigations
     )));
 
 	// If the text search box was used, highlight the corresponding parts of the results
@@ -140,7 +143,8 @@ var filterUnits = function(searchUnits,
                            breaks = [],
                            baseRarity = [],
                            maxRarity = [],
-                           seriesValues = []
+                           seriesValues = [],
+                           racialMitigations = []
 
 ) {
     var result = [];
@@ -157,21 +161,24 @@ var filterUnits = function(searchUnits,
                                         if (matchesCriteria(ailments, unit, "ailmentResist")) {
                                             if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
                                                 if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
-                                                    if (matchesCriteria(imperils, unit, "imperil")) {
-                                                        if (matchesCriteria(physicalElementDamageBoosts, unit, "physicalElementDamageBoost")) {
-                                                            if (matchesCriteria(magicalElementDamageBoosts, unit, "magicalElementDamageBoost")) {
-                                                                if (matchesCriteria(weaponImperils, unit, "weaponImperil")) {
-                                                                    if (matchesCriteria(breaks, unit, "break")) {
-                                                                        if (matchesCriteria(imbues, unit, "imbue")) {
-                                                                            if (matchesCriteria(tankAbilities, unit, null, true)) {
-                                                                                if (matchesCriteria(mitigation, unit, null, true)) {
-                                                                                    if(matchesSeriesCriteria(seriesValues, unit, true)) {
-                                                                                        if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
-                                                                                            if (!skillSearchMatcher || matchesSkillSearch(skillSearchMatcher, units[unit.id]))
-                                                                                                result.push({
-                                                                                                    "searchData": unit,
-                                                                                                    "unit": units[unit.id]
-                                                                                                });
+                                                    if (matchesCriteria(mitigation, unit, null, true)) {
+                                                        if (matchesCriteria(racialMitigations, unit, null, true)) {
+                                                            if (matchesCriteria(imperils, unit, "imperil")) {
+                                                                if (matchesCriteria(physicalElementDamageBoosts, unit, "physicalElementDamageBoost")) {
+                                                                    if (matchesCriteria(magicalElementDamageBoosts, unit, "magicalElementDamageBoost")) {
+                                                                        if (matchesCriteria(weaponImperils, unit, "weaponImperil")) {
+                                                                            if (matchesCriteria(breaks, unit, "break")) {
+                                                                                if (matchesCriteria(imbues, unit, "imbue")) {
+                                                                                    if (matchesCriteria(tankAbilities, unit, null, true)) {
+                                                                                        if(matchesSeriesCriteria(seriesValues, unit, true)) {
+                                                                                            if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
+                                                                                                if (!skillSearchMatcher || matchesSkillSearch(skillSearchMatcher, units[unit.id])) {
+                                                                                                    result.push({
+                                                                                                        "searchData": unit,
+                                                                                                        "unit": units[unit.id]
+                                                                                                    });
+                                                                                                }
+                                                                                            }
                                                                                         }
                                                                                     }
                                                                                 }
@@ -327,7 +334,21 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
                 } else {
                     if (containAllKeyPositive(dataToCheck, criteria.values, acceptZero)) {
                         if (criteria.threshold) {
-                            if (criteria.values.every(value => dataToCheck[value] >= criteria.threshold)) {
+                            let foundValues = [];
+                            
+                            if (dataToCheck.racialMitigations) {
+                                for (let i = 0; i < dataToCheck.racialMitigations.race.length; i++) {
+                                  let unit = dataToCheck.racialMitigations.race[i];
+                                  let index = criteria.values.indexOf(unit);
+                                  if (index !== -1) {
+                                    let mitigation = dataToCheck.racialMitigations.mitigation[index];
+                                    foundValues.push(mitigation)
+                                  }
+                                }
+                            }
+                            
+                            let arrayToCheck = foundValues.length > 0 ? foundValues : dataToCheck;
+                            if (foundValues.length > 0 ? arrayToCheck.every(value => value >= criteria.threshold) : criteria.values.every(value => arrayToCheck[value] >= criteria.threshold)) {
                                 return true;
                             }
                         } else {
@@ -500,6 +521,20 @@ function sortUnits(units) {
             }
         }
 
+        if (racialMitigations.values.length > 0) {
+            var value1 = 0;
+            var value2 = 0;
+            for (var i = racialMitigations.values.length; i--;) {
+                value1 += getValue(unit1.searchData, null, racialMitigations, i);
+                value2 += getValue(unit2.searchData, null, racialMitigations, i);
+            }
+            if (value1 > value2) {
+                return -1;
+            } else if (value2 > value1) {
+                return 1
+            }
+        }
+
         return unit1.unit.name.localeCompare(unit2.unit.name);
     });
     return units;
@@ -524,8 +559,19 @@ function getValue(unit, type, filterValues, index) {
                 if (type) {
                     skill = skill[type];
                 }
-                if (skill && skill[filterValues.values[index]]) {
-                    result = Math.max(result, skill[filterValues.values[index]]);
+                if (skill && skill.racialMitigations) {
+                    let racialMitigationsObject = skill.racialMitigations;
+                    let raceArray = racialMitigationsObject.race;
+            
+                    if (filterValues.values[index] && raceArray.some(race => filterValues.values.includes(race))) {
+                        result = Math.max(result, racialMitigationsObject.mitigation[index])
+                    }
+                }
+
+                if (result == 0) {
+                    if (skill && skill[filterValues.values[index]]) {
+                        result = Math.max(result, skill[filterValues.values[index]]);
+                    }
                 }
             }
         }
@@ -537,6 +583,16 @@ var containAllKeyPositive = function(object, array, acceptZero = false) {
     if (!object) {
         return false;
     }
+    // Check to see if we're looking at racial mitigations
+    if (object.racialMitigations) {
+        let racialMitigationsObject = object.racialMitigations;
+        let raceArray = racialMitigationsObject.race;
+
+        if (raceArray.some(race => array.includes(race))) {
+            return true;
+        }
+    }
+    
     for (var index = array.length; index--;) {
         if (!(array[index] in object) || object[array[index]] < 0 || (!acceptZero && object[array[index]] == 0)) {
             return false;
@@ -626,11 +682,17 @@ var readFilterValues = function() {
 
     tankAbilities.values = getSelectedValuesFor("tankAbilities");
     tankAbilities.skillTypes = getSelectedValuesFor("tankAbilitiesSkillTypes");
+    tankAbilities.values = getSelectedValuesFor("tankAbilities");
 
     mitigation.values = getSelectedValuesFor("mitigation");
     mitigation.targetAreaTypes = getSelectedValuesFor("mitigationTargetAreaTypes");
     mitigation.skillTypes = getSelectedValuesFor("mitigationSkillTypes");
     mitigation.threshold = parseInt($('.mitigation .threshold input').val()) || 0;
+
+    racialMitigations.values = getSelectedValuesFor("racialMitigations");
+    racialMitigations.targetAreaTypes = getSelectedValuesFor("racialMitigationsTargetAreaTypes");
+    racialMitigations.skillTypes = getSelectedValuesFor("racialMitigationsSkillTypes");
+    racialMitigations.threshold = parseInt($('.racialMitigations .threshold input').val()) || 0;
 
     types = getSelectedValuesFor("types");
 
@@ -659,6 +721,7 @@ var updateFilterHeadersDisplay = function() {
     $(".breaks .unselectAll").toggleClass("hidden", breaks.length == 0);
     $(".tankAbilities .unselectAll").toggleClass("hidden", tankAbilities.length == 0);
     $(".mitigation .unselectAll").toggleClass("hidden", mitigation.length == 0);
+    $(".racialMitigations .unselectAll").toggleClass("hidden", racialMitigations.length == 0);
 
     $(".elements .filters").toggleClass("hidden", elements.values.length == 0);
     $(".buffs .filters").toggleClass("hidden", buffs.values.length == 0);
@@ -672,6 +735,7 @@ var updateFilterHeadersDisplay = function() {
     $(".imbues .filters").toggleClass("hidden", imbues.values.length == 0);
     $(".tankAbilities .filters").toggleClass("hidden", tankAbilities.values.length == 0);
     $(".mitigation .filters").toggleClass("hidden", mitigation.values.length == 0);
+    $(".racialMitigations .filters").toggleClass("hidden", racialMitigations.values.length == 0);
     $("#elementsTargetAreaTypes").toggleClass("hidden", !elements.skillTypes.includes("actives") && !elements.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#buffsTargetAreaTypes").toggleClass("hidden", !buffs.skillTypes.includes("actives") && !buffs.skillTypes.includes("lb") && !buffs.skillTypes.includes("counter"));
     $("#ailmentsTargetAreaTypes").toggleClass("hidden", !ailments.skillTypes.includes("actives") && !ailments.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
@@ -683,6 +747,7 @@ var updateFilterHeadersDisplay = function() {
     $("#breaksTargetAreaTypes").toggleClass("hidden", !breaks.skillTypes.includes("actives") && !breaks.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#imbuesTargetAreaTypes").toggleClass("hidden", !imbues.skillTypes.includes("actives") && !imbues.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#mitigationTargetAreaTypes").toggleClass("hidden", !mitigation.skillTypes.includes("actives") && !mitigation.skillTypes.includes("lb"));
+    $("#racialMitigationsTargetAreaTypes").toggleClass("hidden", !racialMitigations.skillTypes.includes("actives") && !racialMitigations.skillTypes.includes("lb"));
 }
 
 
@@ -1284,6 +1349,12 @@ function mustDisplaySkill(skill, effects, type, skillName) {
                     return true;
                 }
             }
+            
+            if (racialMitigations.values.length > 0 && racialMitigations.skillTypes.includes(type) && isTargetToBeDispalyed(racialMitigations, effect, type) && effect.effect.racialMitigations && matches(racialMitigations.values, effect.effect.racialMitigations.race)) {
+                if ((!racialMitigations.threshold || effect.effect.racialMitigations.mitigation.every(racialMitigationsType => racialMitigationsType >= racialMitigations.threshold))) {
+                    return true;
+                }
+            }
             if (tankAbilities.values.length > 0 && tankAbilities.skillTypes.includes(type) && isTargetToBeDispalyed(tankAbilities, effect, type)) {
                 if (matches(tankAbilities.values, Object.keys(effect.effect))) {
                     return true;
@@ -1647,11 +1718,15 @@ function startPage() {
     addTextChoicesTo("mitigationSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     addTextChoicesTo("mitigationTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
 
+    // Racial Mitigation
+    addIconChoicesTo("racialMitigations", racialMitigationList, "checkbox", "racialMitigations", function(v){return "Racial "+v+" mitigations"});
+    addTextChoicesTo("racialMitigationsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb'});
+    addTextChoicesTo("racialMitigationsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
+
     // Item types
     addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment", function(v){return typeListLiterals[v]});
 
     // Game Series
-    //addIconChoicesTo("series", series, "checkbox", "series", function(v){return series[v]});
     addTextChoicesTo("series",'checkbox', Object.entries(series));
 
     $("#results").addClass(server);

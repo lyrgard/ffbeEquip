@@ -2062,23 +2062,22 @@ function getStaticData(name, localized, callback) {
         let notification = $('.notifyjs-corner').children().first();
         let start = Date.now();
         $.get(name, function(result) {
-           requestIdleCallback(function() {
-                staticFileCache.store(name, result);
-           });
-
-            callback(result);
-            let end = Date.now();
-            if (end - start < 1000) {
+            requestIdleCallback(function() {
+              staticFileCache.store(name, result);
+              callback(result);
+              let end = Date.now();
+              if (end - start < 1000) {
                 setTimeout(function () {
-                    notification.trigger('notify-hide');
+                  notification.trigger('notify-hide');
                 }, 1000);
-            } else {
+              } else {
                 notification.trigger('notify-hide');
-            }
-
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+              }
+            });
+          }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             Modal.showErrorGet(this.url, errorThrown);
-        });
+          });
+          
     }
 }
 
@@ -2089,31 +2088,43 @@ staticFileCache = {
      */
     store: function(filename, data) {
         if (!localStorageAvailable) return;
-
+          
         try {
             // Convert to string if not already (may throw if bad data)
             if (typeof data !== 'string') {
                 data = JSON.stringify(data);
             }
-            // Compress string (*ToUTF16 is important, localStorage can only contain JS strings encoded in UTF16)
-            var compressedData = LZString.compressToUTF16(data);
-            // Save (may throw if storage full)
-            localStorage.setItem(filename, compressedData);
-            // Update savedFiles
-            var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
-            if (!savedFiles) savedFiles = {};
-            savedFiles[filename] = compressedData.length;
-            localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
-            // Log to console
-            window.console && window.console.log("Stored "+filename+" (" + data.length + " bytes, ratio "+ (compressedData.length*100/data.length).toFixed(0) +"% )");
+            // Check if data is already in UTF16 format
+            var isUTF16 = (decodeURIComponent(encodeURIComponent(data)).length === data.length);
+            // Compress string if not already in UTF16 format
+            if (!isUTF16) {
+                data = LZString.compressToUTF16(data);
+                console.log("Compressed "+filename+" (" + data.length+" bytes" + ")")
+            }
+            // create a web worker to compress the file and save it
+            var worker = new Worker('compressionWorker.js');
+            // compress case worker
+            worker.postMessage({process: "compress", filename: filename, data: data});
+            worker.onmessage = function(e) {
+                // save the file
+                data = e.data;
+                localStorage.removeItem(filename);
+                localStorage.setItem(filename, e.data);
+                // Update savedFiles
+                var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
+                if (!savedFiles) savedFiles = {};
+                savedFiles[filename] = data.length;
+                localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
+                // Log to console
+                window.console && window.console.log("Stored "+filename+" (" + data.length+" bytes" + (isUTF16 ? "" : ", ratio "+ (data.length*100/JSON.stringify(data).length).toFixed(0) +"%") + ")");
+            }
         } catch (error) {
-            // Modal.showError("An error occured while trying to save data to your local storage.", error);
-            window.console && window.console.warn("An error occured while trying to save the file "+filename+" to your local storage", error);
-            // Failsafe: remove item in case of error (to free space if needed)
-            try { localStorage.removeItem(filename); } catch(e){}
+          // Modal.showError("An error occured while trying to save data to your local storage.", error);
+          window.console && window.console.warn("An error occured while trying to save the file "+filename+" to your local storage", error);
+          // Failsafe: remove item in case of error (to free space if needed)
+          try { localStorage.removeItem(filename); } catch(e){}
         }
-    },
-
+      },
     /*
      * staticFileCache.retrieve
      * Read from localStorage, decompress, convert to JS
@@ -2123,12 +2134,16 @@ staticFileCache = {
 
         var data = null;
         try {
-            var dataString = localStorage.getItem(filename);
-            if (dataString) {
+            data = localStorage.getItem(filename);
+            if (data) {
                 // Decompress string and parse
-                data = JSON.parse(LZString.decompressFromUTF16(dataString));
+                // Check if the data is already in JSON format if not decompress it
+                
+                data = LZString.decompressFromUTF16(data);
+                data = JSON.parse(data);
+
                 // Log to console
-                window.console && window.console.log("Retrieved "+filename+" (" + dataString.length + " bytes)");
+                window.console && window.console.log("Retrieved "+filename+" (" + data.length + " bytes)");
             }
         } catch (error) {
             window.console && window.console.warn("An error occured while trying to retrieve the file "+filename+" from your local storage", error);

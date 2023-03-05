@@ -1,6 +1,8 @@
-import e from 'express';
 import fs from 'fs';
 import request from 'request';
+import unorm from 'unorm';
+
+const { nfkc } = unorm;
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -405,10 +407,14 @@ getData('equipment.json', function (items) {
                                                                                     let cards = [];
                                                                                     for (let visionCardId in visionCards) {
                                                                                         if (visionCards[visionCardId].name) {
-                                                                                            cards.push(treatVisionCard(visionCards[visionCardId], visionCardId, skills));
+                                                                                            const card = treatVisionCard(visionCards[visionCardId], visionCardId, skills);
+                                                                                            if (card) { // check if the card is not null
+                                                                                                cards.push(card);
+                                                                                            }
                                                                                         }
                                                                                     }
-                                                                                    fs.writeFileSync('visionCards.json', formatVisionCards(cards));
+                                                                                    fs.writeFileSync('visionCards.json', formatVisionCards(cards.filter(card => card))); // filter out the null values
+
 
                                                                                 }
                                                                                 // Object.keys(notParsedSkillType).forEach(key => {
@@ -436,16 +442,25 @@ getData('equipment.json', function (items) {
     });
 });
 
+function checkForJapanese(inputString) {
+    const allowedRegex = /^[a-zA-Z0-9' !@#$%^&*()+\[\]:@{-~À-ÿ´’.,:;!?'"&$%#(){}\[\]+<>=\/*\s\u2191\-]+$/u;
+    const normalizedString = unorm.nfc(inputString);
+    if (!allowedRegex.test(normalizedString)) {
+        return false;
+    }
+    for (const char of normalizedString) {
+        if (/[\u3040-\u30ff\u31f0-\u31ff\u4e00-\u9faf\uff00-\uffef]/.test(char)) {
+        return false;
+        }
+    }
+    return true;
+}
 
 function treatItem(items, itemId, result, skills) {
     var itemIn = items[itemId];
-    /*if (itemIn.name.match(/[^\x00-\xFF’]/) && !itemIn.name.startsWith("Firewall: Power") && !itemIn.name.startsWith("Copper Cuirass")) {
-        // exclude item whose name contain non english char
-        console.log("excluded : " + itemIn.name)
-        return;
-    }*/
-    if (itemId == "405003400" || itemId == "409013400" || itemId == "504220290" || itemId == "308003700" || itemId == "409018100" || itemId == "408003100" || itemId == "301002800") {
-        // exclude 2nd occurence of Stylish Black Dress and Evening Glove, and Half-elf heart
+
+    const excludedIds = ["405003400", "409013400", "504220290", "308003700", "409018100", "408003100", "301002800"];
+    if (excludedIds.includes(itemId)) {
         return;
     }
     if (!itemIn.strings || (!itemIn.strings.name && !itemIn.strings.names)) {
@@ -454,114 +469,43 @@ function treatItem(items, itemId, result, skills) {
     }
     var itemOut = {};
     itemOut.id = itemId;
-    if (itemIn.strings.name) {
-        itemOut.name = itemIn.strings.name[languageId];    
-    } else {
-        itemOut.name = itemIn.strings.names[languageId];
+    itemOut.name = itemIn.strings?.name?.[languageId] ?? itemIn.strings?.names?.[languageId] ?? itemIn.name;
+    itemOut.rarity = itemIn.rarity;
+    itemOut.type = itemIn.type_id ? typeMap[itemIn.type_id] : "materia";
+
+
+    if (!checkForJapanese(itemOut.name) && languageId === 0) {
+        console.log(`Invalid name: ${itemOut.name}. Name should only contain English, numbers or special characters.`);
+        return null;
     }
-    if (!itemOut.name) {
-        itemOut.name = itemIn.name;
-    }
-    if (itemIn.type_id) {
-        itemOut.rarity = itemIn.rarity;
-        itemOut.type = typeMap[itemIn.type_id];
-    } else {
-        itemOut.type = "materia";
-    }
+
     currentItemName = itemOut.name;
     readStats(itemIn, itemOut);
+    
+    if (unitIdByTmrId[itemOut.id]) {
+        const unitId = unitIdByTmrId[itemOut.id];
+        const unit = unitNamesById[unitId];
+        const access = `TMR-${unit.minRarity}*${(unit.event || (releasedUnits[unitId] && releasedUnits[unitId].type == "event")) ? "-event" : ""}`;
+        if (!releasedUnits[unitId]) addAccess(itemOut,"not released yet");
+        addAccess(itemOut, access);
+        itemOut.tmrUnit = unitIdByTmrId[itemOut.id];
+      } else if (unitIdByStmrId[itemOut.id]) {
+        const unitId = unitIdByStmrId[itemOut.id];
+        const unit = unitNamesById[unitId];
+        const access = "STMR";
+        if (!releasedUnits[unitId] || unit.maxRarity < 7) addAccess(itemOut,"not released yet");
+        addAccess(itemOut,access);
+        itemOut.stmrUnit = unitIdByStmrId[itemOut.id];
+    }
+
+    readRequirements(itemIn, itemOut);
+
     if (itemIn.is_twohanded) {
         addSpecial(itemOut,"twoHanded");
     }
+    
     if (itemIn.unique) {
         addSpecial(itemOut,"notStackable");
-    }
-    if (unitIdByTmrId[itemOut.id]) {
-        var uitId = unitIdByTmrId[itemOut.id];
-        var unit = unitNamesById[uitId];
-        var access = "TMR-" + unit.minRarity + "*";
-        if (unit.event || (releasedUnits[uitId] && releasedUnits[uitId].type == "event")) {
-            if (uitId == "401008505") {
-                console.log("added event");
-                console.log(unit.event);
-            }
-            access += "-event";
-        }
-        if (!releasedUnits[uitId]) {
-            addAccess(itemOut,"not released yet");
-        }
-        addAccess(itemOut,access);
-
-        itemOut.tmrUnit = unitIdByTmrId[itemOut.id];
-    }
-    if (unitIdByStmrId[itemOut.id]) {
-        var unitId = unitIdByStmrId[itemOut.id];
-        var unit = unitNamesById[unitId];
-        itemOut.stmrUnit = unitIdByStmrId[itemOut.id];
-        addAccess(itemOut,"STMR");   
-        if (!releasedUnits[unitId] || unit.maxRarity < 7) {
-            addAccess(itemOut,"not released yet");
-        }
-    }
-    
-    if (itemIn.requirements) {
-
-        let ruleCount = 0;
-
-        // [Rule, #] && [[Rule, #], [Rule, #]] length both are > 1
-        // We have to differentiate between the two.
-        if (Array.isArray(itemIn.requirements[0])){
-            ruleCount = itemIn.requirements.length;
-        } else {
-            ruleCount = 1;
-        }
-        
-        for (let i = 0; i < ruleCount; i++ ){
-            let currentArray = [];
-            
-            if (ruleCount === 1){
-                currentArray = itemIn.requirements;
-            } else if (ruleCount > 1){
-                currentArray = itemIn.requirements[i];
-            }
-
-            if (currentArray[0] == "SEX") {
-                if (currentArray[1] == 1) {
-                    itemOut.exclusiveSex = "male";
-                } else if (currentArray[1] == 2) {
-                    itemOut.exclusiveSex = "female";
-                }
-            } else if (currentArray[0] == "UNIT_ID") {
-                addExclusiveUnit(itemOut, itemIn.requirements[1]);
-            } else if (currentArray[0] === "RULE"){
-
-                if (Array.isArray(currentArray[1])) {
-                    let ruleArray = currentArray[1];
-                    let conditionalUnits = {};
-
-                    ruleArray.forEach((ruleId) => {
-                        if (!Object.keys(unitRules).includes(ruleId.toString())) {
-                            console.log('Item Requirements #1: Missing rule ' + ruleId + ' for item: ' + itemIn.name);
-                        } else {
-                            unitRules[ruleId](conditionalUnits);
-
-                            itemOut = ruleType(itemOut, conditionalUnits)
-                        }
-                    })
-                } else {
-                    let ruleNum = currentArray[1]
-                    let conditionalUnits = {};
-
-                    if (!Object.keys(unitRules).includes(ruleNum.toString())) {
-                        console.log('Item Requirements #2: Missing rule' + ruleId + ' for item: ' + itemIn.name)
-                    } else {
-                        unitRules[ruleNum](conditionalUnits);
-
-                        itemOut = ruleType(itemOut, conditionalUnits)
-                    }
-                }
-            }   
-        }
     }
 
     if (itemIn.accuracy) {
@@ -580,35 +524,37 @@ function treatItem(items, itemId, result, skills) {
     if (itemIn.compendium_id) {
         itemOut.sortId = itemIn.compendium_id;
     }
-
-    if (!itemOut.access && oldItemsAccessById[itemOut.id]) {
+    
+    if ((!itemOut.access && oldItemsAccessById[itemOut.id]) || (!itemOut.eventNames && oldItemsEventById[itemOut.id])) {
         for (var index in oldItemsAccessById[itemOut.id]) {
             var access = oldItemsAccessById[itemOut.id][index];
             if (access != "not released yet") {
                 addAccess(itemOut, access);
             }
         }
-    }
-    if (!itemOut.eventNames && oldItemsEventById[itemOut.id]) {
-        itemOut.eventNames = oldItemsEventById[itemOut.id];
-        if (!Array.isArray(itemOut.eventNames)) {
-            itemOut.eventNames = [itemOut.eventNames];
+        if (!itemOut.eventNames && oldItemsEventById[itemOut.id]) {
+            itemOut.eventNames = oldItemsEventById[itemOut.id];
+            if (!Array.isArray(itemOut.eventNames)) {
+                itemOut.eventNames = [itemOut.eventNames];
+            }
+            if (!itemOut.access || !itemOut.access.includes("event")) {
+                addAccess(itemOut, "event");
+            }
         }
-        if (!itemOut.access || !itemOut.access.includes("event")) {
-            addAccess(itemOut, "event");
-        }
     }
+
     if (!itemOut.maxNumber && oldItemsMaxNumberById[itemOut.id]) {
         itemOut.maxNumber = oldItemsMaxNumberById[itemOut.id];
     }
-    if (oldItemsWikiEntryById[itemOut.id]) {
-        itemOut.wikiEntry = oldItemsWikiEntryById[itemOut.id];
-    } else if (languageId != 0) {
-        itemOut.wikiEntry = itemIn.name.replace(' ', '_');
+    
+    if (oldItemsWikiEntryById[itemOut.id] || languageId != 0) {
+        itemOut.wikiEntry = oldItemsWikiEntryById[itemOut.id] || itemIn.name.replace(' ', '_');
     }
+   
     if (!itemOut.access) {
         itemOut.access = ["not released yet"];
     }
+    
     if (!oldItemsAccessById[itemOut.id]) {
         console.log("new item : " + itemOut.id + " - " + itemOut.name);
     }
@@ -616,10 +562,50 @@ function treatItem(items, itemId, result, skills) {
     result.items = result.items.concat(readSkills(itemIn, itemOut, skills));
 }
 
+function readRequirements(itemIn, itemOut) {
+    if (!itemIn.requirements) {
+      return;
+    }
+  
+    const rules = Array.isArray(itemIn.requirements[0]) ? itemIn.requirements : [itemIn.requirements];
+    rules.forEach((rule) => {
+      switch (rule[0]) {
+        case "SEX":
+          itemOut.exclusiveSex = rule[1] === 1 ? "male" : "female";
+          break;
+        case "UNIT_ID":
+          addExclusiveUnit(itemOut, rule[1]);
+          break;
+        case "RULE":
+          const conditionalUnits = {};
+          const ruleIds = Array.isArray(rule[1]) ? rule[1] : [rule[1]];
+          ruleIds.forEach((ruleId) => {
+            if (!Object.keys(unitRules).includes(ruleId.toString())) {
+              console.log(`Item Requirements: Missing rule ${ruleId} for item: ${itemIn.name}`);
+            } else {
+              unitRules[ruleId](conditionalUnits);
+              itemOut = ruleType(itemOut, conditionalUnits);
+            }
+          });
+          break;
+        default:
+          break;
+      }
+    });
+  }
+  
+
 function treatVisionCard(visionCard, visionCardId, skills) {
     let card = {};
     card.id = visionCardId;
     card.name = visionCard.name;
+
+    if (!checkForJapanese(visionCard.name)) {
+        console.log(`Invalid name: ${visionCard.name}. Name should only contain English, numbers or special characters.`);
+        return null;
+    }
+
+
     if (!card.name && alreadyKnownVisionCardNames[visionCardId]) {
         card.name = alreadyKnownVisionCardNames[visionCardId];
     }
@@ -2460,10 +2446,12 @@ function isItemEmpty(item) {
 
 function addAccess(item, access) {
     if (!item.access) {
-        item.access = [];
+      item.access = [access];
+    } else if (!item.access.includes(access)) {
+      item.access.push(access);
     }
-    item.access.push(access);
-}
+  }
+  
 
 function addLbPerTurn(item, min, max) {
     if (!item.lbPerTurn) {
