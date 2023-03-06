@@ -2560,7 +2560,7 @@ function computeConditionalCombinations(item, conditionals, onCombinationFound,i
         if (conditionals[index].equipedConditions) {
             if (!item.equipedConditions) item.equipedConditions = [];
             item.equipedConditions = item.equipedConditions.concat(conditionals[index].equipedConditions).filter((c, i, a) => a.indexOf(c) === i);
-            if (!isEquipedConditionViable(item.equipedConditions)) {
+            if (areConditionOK(item.equipedConditions)) {
                 return;
             }
         }
@@ -2587,10 +2587,6 @@ function computeConditionalCombinations(item, conditionals, onCombinationFound,i
     }
 }
 
-function isEquipedConditionViable(equipedConditions) {
-    // TODO
-    return true;
-}
 
 function checkUnitImageLevel(unitId, unitData){
     let iconId = unitId;
