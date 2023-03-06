@@ -1442,7 +1442,7 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     // check if the itemAndPassives have a not stackable skill
     calculatedValue = checkForNotStackableSkills(itemAndPassives, stat, unitBuild, calculatedValue)
 
-    if (baseStats.includes(stat)) {
+    if (stat === "atk") {
         let realCap =  calculatedValue;
         var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value, "overcap": realCap};
         var right = calculateFlatStateValueForIndex(itemAndPassives, 0, 1, stat);
