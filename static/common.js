@@ -2576,6 +2576,13 @@ function computeConditionalCombinations(item, conditionals, onCombinationFound,i
         if (conditionals[index].exclusiveRoles) {
             item.exclusiveRoles = conditionals[index].exclusiveRoles;
         }
+        if (conditionals[index].chainMastery) {
+          item.chainMastery = conditionals[index].chainMastery;
+        }
+        if (conditionals[index].singleWielding) {
+          item.singleWielding = conditionals[index].singleWielding;
+        }
+        
         computeConditionalCombinations(item, conditionals, onCombinationFound, index + 1);
     }
 }
