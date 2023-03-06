@@ -815,17 +815,7 @@ function readSkills(itemIn, itemOut, skills) {
 
             if (skill) {
                 skill.id = skillId;
-                if (skill.unique && !skill.active) {
-                    if (!itemOut.notStackableSkills) {
-                        itemOut.notStackableSkills = {};
-                    }
-                    var notStackableSkill = {};
-                    for (var rawEffectIndex in skill.effects_raw) {
-                        rawEffect = skill.effects_raw[rawEffectIndex];
-                        addEffectToItem(notStackableSkill, skill, rawEffectIndex, skills)
-                    }
-                    itemOut.notStackableSkills[skillId] = notStackableSkill;
-                }
+                itemOut = addNonStackableSkills(skill, itemOut);
                 if (skill.type == "MAGIC") {
                     skill = parseActiveSkill(skillId, skills[skillId], skills, itemOut);
                     if (!itemOut.skills) {
@@ -887,37 +877,7 @@ function readSkills(itemIn, itemOut, skills) {
         var emptyItem = isItemEmpty(itemOut);
         if (debugItems.includes(itemOut.id)) console.log("is Empty ? for item", itemOut.name, emptyItem);
 
-        if (masterySkills.length == 0 && restrictedSkills.length > 0 && itemOut.notStackableSkills){
-            if (itemOut.name === ("Holly Headpiece")) {
-                console.log("Holly Headpiece")
-                console.log(itemOut)
-                console.log(restrictedSkills)
-                console.log(emptyItem)
-                console.log(masterySkills.length)
-                console.log(restrictedSkills.length)
-                console.log(!emptyItem)
-            }
-            // Check if the item has a notStackableSkills property
-            if(itemOut.notStackableSkills) {
-                // check itemOut.notStackableSkills are also in restrictedSkills
-                // loop through restrictedSkills
-                for (var restrictedIndex in restrictedSkills) {
-                    var skill = restrictedSkills[restrictedIndex];
-                    // if the skill is in the notStackableSkills
-                    if(itemOut.notStackableSkills[skill.id]) {
-                        // remove the skill from the notStackableSkills
-                        delete itemOut.notStackableSkills[skill.id];
-                    }
-                }
-
-                // if itemOut.notStackableSkills is empty
-                // delete the property
-                if(Object.keys(itemOut.notStackableSkills).length === 0) {
-                    delete itemOut.notStackableSkills;
-                }
-            }
-            result.push(itemOut);
-        } else if ((masterySkills.length == 0 && restrictedSkills.length == 0) || !emptyItem) {
+        if ((masterySkills.length == 0 && restrictedSkills.length == 0) || !emptyItem) {
             result.push(itemOut);
         }
 
@@ -946,6 +906,7 @@ function readSkills(itemIn, itemOut, skills) {
                     }
                 }
                 addNotTreatedEffects(copy, effectsNotTreated, skill, skill.id);
+                copy = addNonStackableSkills(skill, copy, skill);
                 result.push(copy);
                 if (masterySkills.length > 0) {
                     addMasterySkills(copy, masterySkills, result);
@@ -953,7 +914,7 @@ function readSkills(itemIn, itemOut, skills) {
             }
             if (emptyItem) {
                 var copy = JSON.parse(JSON.stringify(itemOut));
-                manageRequirement(skill, debugItems, copy);
+                manageRequirement(skill, debugItems, copy, skills);
 
                 for (var rawEffectIndex in skill.effects_raw) {
                     rawEffect = skill.effects_raw[rawEffectIndex];
@@ -964,6 +925,7 @@ function readSkills(itemIn, itemOut, skills) {
                     }
                 }
                 addNotTreatedEffects(copy, effectsNotTreated, skill, skill.id);
+                copy = addNonStackableSkills(skill, copy);
                 result.push(copy);
                 if (masterySkills.length > 0) {
                     addMasterySkills(copy, masterySkills, result);
@@ -995,6 +957,20 @@ function readSkills(itemIn, itemOut, skills) {
         result.push(itemOut);
     }
     return result;
+}
+function addNonStackableSkills(skill, itemOut, skills) {
+    if (skill.unique && !skill.active) {
+        if (!itemOut.notStackableSkills) {
+            itemOut.notStackableSkills = {};
+        }
+        var notStackableSkill = {};
+        for (var rawEffectIndex in skill.effects_raw) {
+            addEffectToItem(notStackableSkill, skill, rawEffectIndex, skills)
+        }
+        itemOut.notStackableSkills[skill.id] = notStackableSkill;
+    }
+
+    return itemOut;
 }
 
 function intersect(array1, array2) {
@@ -1433,6 +1409,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         
     // Cast at start of turn
     } else if (rawEffect[2] == 66) {
+        console.log(rawEffect)
         let skill = parseActiveSkill(rawEffect[3][0], skills[rawEffect[3][0]], skills, item);
         if (!item.startOfTurnSkills) {
             item.startOfTurnSkills = [];
