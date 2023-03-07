@@ -2561,7 +2561,7 @@ function computeConditionalCombinations(item, conditionals, onCombinationFound,i
         if (conditionals[index].equipedConditions) {
             if (!item.equipedConditions) item.equipedConditions = [];
             item.equipedConditions = item.equipedConditions.concat(conditionals[index].equipedConditions).filter((c, i, a) => a.indexOf(c) === i);
-            if (!isEquipedConditionViable(item.equipedConditions)) {
+            if (areConditionOK(item.equipedConditions)) {
                 return;
             }
         }
@@ -2577,14 +2577,17 @@ function computeConditionalCombinations(item, conditionals, onCombinationFound,i
         if (conditionals[index].exclusiveRoles) {
             item.exclusiveRoles = conditionals[index].exclusiveRoles;
         }
+        if (conditionals[index].chainMastery) {
+          item.chainMastery = conditionals[index].chainMastery;
+        }
+        if (conditionals[index].singleWielding) {
+          item.singleWielding = conditionals[index].singleWielding;
+        }
+        
         computeConditionalCombinations(item, conditionals, onCombinationFound, index + 1);
     }
 }
 
-function isEquipedConditionViable(equipedConditions) {
-    // TODO
-    return true;
-}
 
 function checkUnitImageLevel(unitId, unitData){
     let iconId = unitId;
