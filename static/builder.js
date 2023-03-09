@@ -153,8 +153,6 @@ let fixItemList;
 let defaultMonsterAttackFormula = {"type":"*","value1":{"type":"constant","value":1},"value2":{"type":"skill","id":"0","name":"1x physical ATK damage","formulaName":"physicalDamage","value":{"type":"damage","value":{"mechanism":"physical","damageType":"body","coef":1}}}};
 let monsterAttackFormula;
 
-const AutoSelectHighestExLevelSettingName = "AutoSelectHighestExLevel"
-
 function onBuildClick() {
     if (builds[currentUnitIndex] && builds[currentUnitIndex].unit.id === '777700004') {
         Modal.showMessage("Hum ?", "Are you saying you want me to help you build my foe? I'm afraid not! You're on your own there !");
@@ -1644,9 +1642,7 @@ function updateUnitLevelDisplay() {
             if (builds[currentUnitIndex]._exAwakeningLevel > -1) {
                 $("#unitExAwakeningLevel select").val(builds[currentUnitIndex]._exAwakeningLevel.toString());
             } else {
-                // See if they own the unit. We need to look for both the current unit as well as the braveshift to handle the case where they start with the braveshifted unit.
-                const ownedUnit = actuallyOwnedUnits[builds[currentUnitIndex].unit.id] ?? actuallyOwnedUnits[builds[currentUnitIndex].getBraveshift().unit.id];
-                const exRank = $("#autoSelectHighestExLevel").prop('checked') ? ownedUnit?.exRank ?? 1 : 1;
+                const exRank = actuallyOwnedUnits[builds[currentUnitIndex].unit.id]?.exRank ?? 1;
                 $("#unitExAwakeningLevel select").val(exRank.toString());
                 builds[currentUnitIndex].setExAwakeningLevel(exRank);
             }
@@ -4767,8 +4763,6 @@ function startPage() {
     $("#ailmentImunities input").change($.debounce(300,onGoalChange));
     $("#defaultVisionCardLevel").change(() => dataStorage.defaultVisionCardLevel = $("#defaultVisionCardLevel").val());
     dataStorage.defaultVisionCardLevel = $("#defaultVisionCardLevel").val();
-    $("#autoSelectHighestExLevel").prop('checked', getSetting(AutoSelectHighestExLevelSettingName, false) === "true");
-    $("#autoSelectHighestExLevel").change(saveAutoSelectHighestLevel);
 
     if (window !== window.parent) {
         window.addEventListener("message", handleExternalControl);
@@ -5225,9 +5219,4 @@ let handleExternalControl = function(message) {
             build();
             break;
     }
-}
-
-function saveAutoSelectHighestLevel() {
-  const autoSelectHighestExLevelEnabled = $("#autoSelectHighestExLevel").prop('checked');
-  saveSetting(AutoSelectHighestExLevelSettingName, autoSelectHighestExLevelEnabled.toString());
 }
