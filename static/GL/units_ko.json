@@ -19071,7 +19071,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["String Shredder"]
+		"enhancementSkills":["Life in Vana'diel","Bond with the Adventurer","String Shredder"]
 	},
 	"211001517": {
 		"name":"손을 쓰지 않는 인형사 아프마우 BS",
@@ -19093,7 +19093,93 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Stout Servant"]
+		"enhancementSkills":["Life in Vana'diel","Awareness as Empress","Stout Servant","Slapstick"]
+	},
+	"211001607": {
+		"name":"과격한 숙녀 샨토토",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Lady_Shantotto",
+		"id":"211001607",
+		"game_id":"10011",
+		"game":"FFXI",
+		"braveShift":"211001617",
+		"exAwakening": [{"hp":625,"mp":44,"atk":13,"def":21,"mag":78,"spr":33},{"hp":481,"mp":34,"atk":10,"def":16,"mag":60,"spr":25},{"hp":337,"mp":24,"atk":7,"def":11,"mag":42,"spr":18}],
+		"fragmentId": "250016600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4811,"mp":341,"atk":97,"def":163,"mag":300,"spr":252},
+			"minStats":{"hp":1588,"mp":113,"atk":32,"def":54,"mag":99,"spr":83},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["The Most Feared and Renowned","Salvation Scythe (Lady Shantotto)","Mana Wall","Firaga","Blizzaga","Thundaga","Waterga","Aeroga","Stonga","Darkga","Tornado","Flood","Quake","Freeze","Burst (FFBE)"]
+	},
+	"211001617": {
+		"name":"과격한 숙녀 샨토토 BS",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Lady_Shantotto",
+		"id":"211001617",
+		"game_id":"10011",
+		"game":"FFXI",
+		"braveShifted":"211001607",
+		"exAwakening": [{"hp":625,"mp":44,"atk":13,"def":21,"mag":78,"spr":33},{"hp":481,"mp":34,"atk":10,"def":16,"mag":60,"spr":25},{"hp":337,"mp":24,"atk":7,"def":11,"mag":42,"spr":18}],
+		"fragmentId": "250016600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4811,"mp":341,"atk":97,"def":163,"mag":300,"spr":252},
+			"minStats":{"hp":1588,"mp":113,"atk":32,"def":54,"mag":99,"spr":83},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe","visionCard"]
+	},
+	"211001707": {
+		"name":"라이온",
+		"roles":["debuffer"],
+		"wikiEntry":"Lion",
+		"id":"211001707",
+		"game_id":"10011",
+		"game":"FFXI",
+		"braveShift":"211001717",
+		"exAwakening": [{"hp":672,"mp":40,"atk":75,"def":25,"mag":19,"spr":22},{"hp":517,"mp":31,"atk":58,"def":19,"mag":15,"spr":17},{"hp":362,"mp":22,"atk":41,"def":13,"mag":10,"spr":12}],
+		"fragmentId": "250016700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5168,"mp":311,"atk":290,"def":190,"mag":148,"spr":170},
+			"minStats":{"hp":1705,"mp":103,"atk":96,"def":63,"mag":49,"spr":56},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","hat","clothes","visionCard"],
+		"enhancementSkills":["Pirate Pummel","Dagger Mastery"]
+	},
+	"211001717": {
+		"name":"라이온 BS",
+		"roles":["debuffer"],
+		"wikiEntry":"Lion",
+		"id":"211001717",
+		"game_id":"10011",
+		"game":"FFXI",
+		"braveShifted":"211001707",
+		"exAwakening": [{"hp":672,"mp":40,"atk":75,"def":25,"mag":19,"spr":22},{"hp":517,"mp":31,"atk":58,"def":19,"mag":15,"spr":17},{"hp":362,"mp":22,"atk":41,"def":13,"mag":10,"spr":12}],
+		"fragmentId": "250016700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5168,"mp":311,"atk":290,"def":190,"mag":148,"spr":170},
+			"minStats":{"hp":1705,"mp":103,"atk":96,"def":63,"mag":49,"spr":56},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","hat","clothes","visionCard"]
 	},
 	"212000103": {
 		"name":"반",
@@ -32162,10 +32248,6 @@
   "209001305":{"name":"Dagger","jpname":"ダガー","roles":["healer","support","magicalAttacker"],"id":"209001305","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4747,"mp":264,"atk":128,"def":166,"mag":176,"spr":216},"minStats":{"hp":1567,"mp":87,"atk":42,"def":55,"mag":58,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","mace","hat","clothes","robe"],"6_form":{"name":"Dagger","jpname":"ダガー","roles":["healer","support","magicalAttacker"],"id":"209001305","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3651,"mp":203,"atk":98,"def":127,"mag":135,"spr":166},"minStats":{"hp":1205,"mp":67,"atk":32,"def":42,"mag":45,"spr":55},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","mace","hat","clothes","robe"]}},
   "209002505":{"name":"Summoner Scion Eiko","jpname":"召喚士の末裔エーコ","roles":["magicalAttacker","healer"],"id":"209002505","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4379,"mp":241,"atk":134,"def":164,"mag":178,"spr":218},"minStats":{"hp":1445,"mp":80,"atk":44,"def":54,"mag":59,"spr":72},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","hat","clothes","robe"],"6_form":{"name":"Summoner Scion Eiko","jpname":"召喚士の末裔エーコ","roles":["magicalAttacker","healer"],"id":"209002505","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3368,"mp":185,"atk":103,"def":126,"mag":136,"spr":167},"minStats":{"hp":1111,"mp":61,"atk":34,"def":42,"mag":45,"spr":55},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","harp","hat","clothes","robe"]}},
   "209002704":{"name":"Queen Brahne","jpname":"ブラネ女王","roles":["debuffer","support"],"id":"209002704","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":3639,"mp":146,"atk":113,"def":119,"mag":133,"spr":149},"minStats":{"hp":1201,"mp":48,"atk":37,"def":39,"mag":44,"spr":49},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","rod","hat","clothes","robe"]},
-  "211001607":{"name":"過激な淑女シャントット","jpname":"過激な淑女シャントット","roles":["magicalAttacker"],"id":"211001607","game_id":"undefined","game":"undefined","braveShift":"211001617","exAwakening":[{"hp":625,"mp":44,"atk":13,"def":21,"mag":78,"spr":33},{"hp":481,"mp":34,"atk":10,"def":16,"mag":60,"spr":25},{"hp":337,"mp":24,"atk":7,"def":11,"mag":42,"spr":18}],"fragmentId":"250016600","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4811,"mp":341,"atk":97,"def":163,"mag":300,"spr":252},"minStats":{"hp":1588,"mp":113,"atk":32,"def":54,"mag":99,"spr":83},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe","visionCard"],"enhancementSkills":["最強にして最凶","サルベイションサイズ","マナウォール","ファイガ","ブリザガ","サンダガ","ウォタガ","エアロガ","ストンガ","ダーガ","トルネド","フラッド","クエイク","フリーズ","バースト(FFBE)"]},
-  "211001617":{"name":"過激な淑女シャントット BS","jpname":"過激な淑女シャントット BS","roles":["magicalAttacker"],"id":"211001617","game_id":"undefined","game":"undefined","braveShifted":"211001607","exAwakening":[{"hp":625,"mp":44,"atk":13,"def":21,"mag":78,"spr":33},{"hp":481,"mp":34,"atk":10,"def":16,"mag":60,"spr":25},{"hp":337,"mp":24,"atk":7,"def":11,"mag":42,"spr":18}],"fragmentId":"250016600","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4811,"mp":341,"atk":97,"def":163,"mag":300,"spr":252},"minStats":{"hp":1588,"mp":113,"atk":32,"def":54,"mag":99,"spr":83},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe","visionCard"]},
-  "211001707":{"name":"ライオン","jpname":"ライオン","roles":["debuffer"],"id":"211001707","game_id":"undefined","game":"undefined","braveShift":"211001717","exAwakening":[{"hp":672,"mp":40,"atk":75,"def":25,"mag":19,"spr":22},{"hp":517,"mp":31,"atk":58,"def":19,"mag":15,"spr":17},{"hp":362,"mp":22,"atk":41,"def":13,"mag":10,"spr":12}],"fragmentId":"250016700","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5168,"mp":311,"atk":290,"def":190,"mag":148,"spr":170},"minStats":{"hp":1705,"mp":103,"atk":96,"def":63,"mag":49,"spr":56},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","hat","clothes","visionCard"],"enhancementSkills":["パイレーツパメル","短剣の極意"]},
-  "211001717":{"name":"ライオン BS","jpname":"ライオン BS","roles":["debuffer"],"id":"211001717","game_id":"undefined","game":"undefined","braveShifted":"211001707","exAwakening":[{"hp":672,"mp":40,"atk":75,"def":25,"mag":19,"spr":22},{"hp":517,"mp":31,"atk":58,"def":19,"mag":15,"spr":17},{"hp":362,"mp":22,"atk":41,"def":13,"mag":10,"spr":12}],"fragmentId":"250016700","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5168,"mp":311,"atk":290,"def":190,"mag":148,"spr":170},"minStats":{"hp":1705,"mp":103,"atk":96,"def":63,"mag":49,"spr":56},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","hat","clothes","visionCard"]},
   "256000101":{"name":"Riko","jpname":"リコ(リコドキッ！)","roles":["healer","support"],"id":"256000101","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"1","sex":"female","stats":{"maxStats":{"hp":3575,"mp":183,"atk":104,"def":109,"mag":124,"spr":136},"minStats":{"hp":1180,"mp":60,"atk":34,"def":36,"mag":41,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","hammer","harp","hat","clothes","lightArmor","robe"]},
   "257000104":{"name":"Lilikin Reynn & Lann","jpname":"ラァン&レェン","roles":["magicalAttacker"],"id":"257000104","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"4","sex":"other","stats":{"maxStats":{"hp":3563,"mp":186,"atk":115,"def":124,"mag":146,"spr":137},"minStats":{"hp":1176,"mp":61,"atk":38,"def":41,"mag":48,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","staff","rod","bow","harp","throwing","mace","lightShield","hat","clothes","lightArmor","robe"]},
   "257000205":{"name":"Lilikin Yuna","jpname":"ユウナ(WOFF)","roles":["healer","support","magicalAttacker"],"id":"257000205","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4516,"mp":257,"atk":119,"def":163,"mag":176,"spr":206},"minStats":{"hp":1490,"mp":85,"atk":39,"def":54,"mag":58,"spr":68},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],"enhancementSkills":["月輪の印","シューティング・レイ","召喚獣への祈り","シューティング・パワー"],"6_form":{"name":"Lilikin Yuna","jpname":"ユウナ(WOFF)","roles":["healer","support","magicalAttacker"],"id":"257000205","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3474,"mp":198,"atk":92,"def":120,"mag":136,"spr":151},"minStats":{"hp":1146,"mp":65,"atk":30,"def":40,"mag":45,"spr":50},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],"enhancementSkills":["月輪の印","シューティング・レイ","召喚獣への祈り","シューティング・パワー"]}},

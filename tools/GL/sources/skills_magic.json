@@ -2311,9 +2311,9 @@
         "is_sealable": false,
         "is_reflectable": false,
         "in_exploration": false,
-        "attack_count": [12],
-        "attack_damage": [[8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  12]],
-        "attack_frames": [[133,  145,  157,  169,  181,  193,  205,  217,  229,  241,  253,  265]],
+        "attack_count": [9],
+        "attack_damage": [[11,  11,  11,  11,  11,  11,  11,  11,  12]],
+        "attack_frames": [[133,  145,  157,  169,  181,  193,  205,  217,  229]],
         "effect_frames": [[40,  40]],
         "move_type": 0,
         "effect_type": "Default",
@@ -2906,9 +2906,9 @@
         "attack_type": "Magic",
         "element_inflict": ["Earth"],
         "effects": [
-            ["Magic earth damage (37.5x, MAG) with consecutive damage increase (max. 17 times, +5x MAG each, 122.5x total) to all enemies"]
+            ["Magic earth damage (200x, MAG) with consecutive damage increase (max. 2 times, +50x MAG each, 300x total) to all enemies"]
         ],
-        "effects_raw": [[2, 1, 72, [0,  0,  3250,  500,  500,  18]]],
+        "effects_raw": [[2, 1, 72, [0,  0,  15000,  5000,  5000,  3]]],
         "requirements": null
     },
     "20640": {
@@ -2930,9 +2930,9 @@
         "attack_type": "Magic",
         "element_inflict": ["Water"],
         "effects": [
-            ["Magic water damage (37.5x, MAG) with consecutive damage increase (max. 17 times, +5x MAG each, 122.5x total) to all enemies"]
+            ["Magic water damage (200x, MAG) with consecutive damage increase (max. 2 times, +50x MAG each, 300x total) to all enemies"]
         ],
-        "effects_raw": [[2, 1, 72, [0,  0,  3250,  500,  500,  18]]],
+        "effects_raw": [[2, 1, 72, [0,  0,  15000,  5000,  5000,  3]]],
         "requirements": null
     },
     "20650": {
@@ -2954,9 +2954,9 @@
         "attack_type": "Magic",
         "element_inflict": ["Wind"],
         "effects": [
-            ["Magic wind damage (37.5x, MAG) with consecutive damage increase (max. 17 times, +5x MAG each, 122.5x total) to all enemies"]
+            ["Magic wind damage (200x, MAG) with consecutive damage increase (max. 2 times, +50x MAG each, 300x total) to all enemies"]
         ],
-        "effects_raw": [[2, 1, 72, [0,  0,  3250,  500,  500,  18]]],
+        "effects_raw": [[2, 1, 72, [0,  0,  15000,  5000,  5000,  3]]],
         "requirements": null
     },
     "20660": {
@@ -2978,9 +2978,9 @@
         "attack_type": "Magic",
         "element_inflict": ["Fire"],
         "effects": [
-            ["Magic fire damage (37.5x, MAG) with consecutive damage increase (max. 17 times, +5x MAG each, 122.5x total) to all enemies"]
+            ["Magic fire damage (200x, MAG) with consecutive damage increase (max. 2 times, +50x MAG each, 300x total) to all enemies"]
         ],
-        "effects_raw": [[2, 1, 72, [0,  0,  3250,  500,  500,  18]]],
+        "effects_raw": [[2, 1, 72, [0,  0,  15000,  5000,  5000,  3]]],
         "requirements": null
     },
     "20670": {
@@ -3002,9 +3002,9 @@
         "attack_type": "Magic",
         "element_inflict": ["Ice"],
         "effects": [
-            ["Magic ice damage (37.5x, MAG) with consecutive damage increase (max. 17 times, +5x MAG each, 122.5x total) to all enemies"]
+            ["Magic ice damage (200x, MAG) with consecutive damage increase (max. 2 times, +50x MAG each, 300x total) to all enemies"]
         ],
-        "effects_raw": [[2, 1, 72, [0,  0,  3250,  500,  500,  18]]],
+        "effects_raw": [[2, 1, 72, [0,  0,  15000,  5000,  5000,  3]]],
         "requirements": null
     },
     "20680": {
@@ -3026,9 +3026,9 @@
         "attack_type": "Magic",
         "element_inflict": ["Lightning"],
         "effects": [
-            ["Magic lightning damage (37.5x, MAG) with consecutive damage increase (max. 17 times, +5x MAG each, 122.5x total) to all enemies"]
+            ["Magic lightning damage (200x, MAG) with consecutive damage increase (max. 2 times, +50x MAG each, 300x total) to all enemies"]
         ],
-        "effects_raw": [[2, 1, 72, [0,  0,  3250,  500,  500,  18]]],
+        "effects_raw": [[2, 1, 72, [0,  0,  15000,  5000,  5000,  3]]],
         "requirements": null
     },
     "20690": {
@@ -7885,9 +7885,9 @@
         "is_sealable": false,
         "is_reflectable": false,
         "in_exploration": false,
-        "attack_count": [12],
-        "attack_damage": [[8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  12]],
-        "attack_frames": [[133,  145,  157,  169,  181,  193,  205,  217,  229,  241,  253,  265]],
+        "attack_count": [9],
+        "attack_damage": [[11,  11,  11,  11,  11,  11,  11,  11,  12]],
+        "attack_frames": [[133,  145,  157,  169,  181,  193,  205,  217,  229]],
         "effect_frames": [[40,  40]],
         "move_type": 0,
         "effect_type": "Default",
@@ -7910,9 +7910,9 @@
         "is_sealable": false,
         "is_reflectable": false,
         "in_exploration": false,
-        "attack_count": [12],
-        "attack_damage": [[8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  12]],
-        "attack_frames": [[133,  145,  157,  169,  181,  193,  205,  217,  229,  241,  253,  265]],
+        "attack_count": [9],
+        "attack_damage": [[11,  11,  11,  11,  11,  11,  11,  11,  12]],
+        "attack_frames": [[133,  145,  157,  169,  181,  193,  205,  217,  229]],
         "effect_frames": [[40,  40]],
         "move_type": 0,
         "effect_type": "Default",
@@ -9184,9 +9184,9 @@
         "is_sealable": false,
         "is_reflectable": false,
         "in_exploration": false,
-        "attack_count": [12],
-        "attack_damage": [[8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  12]],
-        "attack_frames": [[133,  145,  157,  169,  181,  193,  205,  217,  229,  241,  253,  265]],
+        "attack_count": [9],
+        "attack_damage": [[11,  11,  11,  11,  11,  11,  11,  11,  12]],
+        "attack_frames": [[133,  145,  157,  169,  181,  193,  205,  217,  229]],
         "effect_frames": [[40,  40]],
         "move_type": 0,
         "effect_type": "Default",

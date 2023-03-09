@@ -17862,7 +17862,7 @@
         "strings": {
             "names": ["Black Blade Princess", "黑刀姬", "흑의 검희", "Princesse de la lame noire", "Schwarzklingenprinzessin", "Princesa del filo negro", "Putri Berpedang Hitam", "องค์\u001aหญิง\u001aดาบ\u001aนิลกาฬ\u001a"],
             "desc_short": ["Boost ATK by 40% and physical and magic damage against reapers and machina monsters by 25%", "提高40%攻擊+物理、魔法攻擊時提高25%對死靈機械系魔物的傷害", "공격력 40% 상승+물리, 마법 공격 시 사령과 기계형 마물에게 부여하는 피해량 25% 상승", "Augmente l'ATT de 40 % et augmente les dégâts physiques et magiques infligés aux morts-vivants et aux machines de 25 %", "Erhöht ANG um 40% und erhöht physischen und magischen Schaden gegen Untote und Maschinen um 25%.", "Aumenta el ATQ un 40% y el daño físico y mágico contra muertos vivientes y máquinas un 25%", "Meningkatkan ATK sebanyak 40%, serta meningkatkan damage fisik dan magic terhadap jenis makhluk halus dan mesin sebanyak 25%", "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aและ\u001aจักรกล\u001a \u001a25%"],
-            "desc_long": ["Boosts ATK by 40% and physical and magic damage against reapers and machina monsters by 25%.", "提高40%攻擊，以及物理、魔法攻擊時提高25%對死靈機械系魔物的傷害。", "공격력이 40% 상승하고, 물리, 마법 공격 시 사령과 기계형 마물에게 부여하는 피해량이 25% 상승합니다.", "Augmente l'ATT de 40 % et augmente les dégâts physiques et magiques infligés aux morts-vivants et aux machines de 25 %", "Erhöht ANG um 40% und erhöht physischen und magischen Schaden gegen Untote und Maschinen um 25%.", "Aumenta el ATQ un 40% y el daño físico y mágico contra muertos vivientes y máquinas un 25%.", "Meningkatkan ATK sebanyak 40%, serta meningkatkan damage fisik dan magic terhadap jenis makhluk halus dan mesin sebanyak 25%.", "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aและ\u001aจักรกล\u001a \u001a25%.\u001a"]
+            "desc_long": ["Boosts ATK by 40% and physical and magic damage against reapers and machina monsters by 25%.", "提高40%攻擊，以及物理、魔法攻擊時提高25%對死靈機械系魔物的傷害。", "공격력이 40% 상승하고, 물리, 마법 공격 시 사령과 기계형 마물에게 부여하는 피해량이 25% 상승합니다.", "Augmente l'ATT de 40 % et augmente les dégâts physiques et magiques infligés aux morts-vivants et aux machines de 25 %", "Erhöht ANG um 40% und erhöht physischen und magischen Schaden gegen Untote und Maschinen um 25%.", "Aumenta el ATQ un 40% y el daño físico y mágico contra muertos vivientes y máquinas un 25%.", "Meningkatkan ATK sebanyak 40%, serta meningkatkan damage fisik dan magic terhadap jenis makhluk halus dan mesin sebanyak 25%.", "เพิ่มค่า\u001a \u001aATK\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aและ\u001aจักรกล\u001a \u001a25%"]
         }
     },
     "504235873": {
@@ -27568,20 +27568,38 @@
         }
     },
     "504244165": {
-        "name": "麗しき戦場の華",
+        "name": "Most Respected Doctor",
         "compendium_id": 1516,
         "compendium_shown": true,
         "requirements": null,
         "skills": [244165],
-        "effects": ["Grant '麗しき戦場の華' passive"],
-        "unique": false,
+        "effects": ["Grant 'Most Respected Doctor' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Most Respected Doctor", "戰場上的秀麗之花", "아름다운 전장의 꽃", "La docteure la plus respectée", "Geschätzte Professorin", "Excelentísima doctora", "Dokter yang Paling Dihormati", "แพทย์\u001aที่\u001aเคารพ\u001aสูงสุด\u001a"],
+            "desc_short": [
+                "Boost MAG by 50% and physical and magic damage against humans by 50% (Not stackable)",
+                "提高50%魔力+物理、魔法攻擊時提高50%對人系魔物的傷害[無法重複裝備]",
+                "마력 50% 상승+물리, 마법 공격 시 인간형 마물에게 부여하는 피해량 50% 상승(중복 장착 불가)",
+                "Augmente la MAGIE de 50 % et les dégâts physiques et magiques infligés aux humains de 50 % (non cumulable)",
+                "Erhöht MAG um 50% und physischen sowie magischen Schaden gegen Menschen um 50% (nicht stapelbar).",
+                "Aumenta la MAG un 50% y el daño físico y mágico contra humanos un 50% (no acumulable)",
+                "Meningktkan MAG sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis manusia sebanyak 50% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมนุษย์\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts MAG by 50% and physical and magic damage against humans by 50%. Not stackable.",
+                "提高50%魔力，且物理、魔法攻擊時提高50%對人系魔物的傷害。[無法重複裝備]",
+                "마력이 50% 상승하고, 물리, 마법 공격 시 인간형 마물에게 부여하는 피해량이 50% 상승합니다.(중복 장착 불가)",
+                "Augmente la MAGIE de 50 % et les dégâts physiques et magiques infligés aux humains de 50 %. Non cumulable.",
+                "Erhöht MAG um 50% und physischen sowie magischen Schaden gegen Menschen um 50%. Nicht stapelbar.",
+                "Aumenta la MAG un 50% y el daño físico y mágico contra humanos un 50%. No acumulable.",
+                "Meningktkan MAG sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis manusia sebanyak 50%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมนุษย์\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504244202": {

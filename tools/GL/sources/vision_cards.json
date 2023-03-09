@@ -4237,7 +4237,7 @@
         }
     },
     "211000201": {
-        "name": "淑女たちの饗宴",
+        "name": "A Feast for Gnats",
         "compendium_id": 158,
         "compendium_shown": true,
         "rarity": 1,
@@ -4268,10 +4268,10 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "レコ率いるウィンダスのミスラ傭兵部隊が獣人血盟軍を迎え撃っていたところ、国外追放され軍事権を剥奪されたはずのシャントットが突如乱入。屈強な獣人たちを魔法で圧倒する。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "淑女たちの饗宴",
-            "music": "♪Iron Colossus",
+            "desc": "Windurst's Mithra Mercenaries, led by Lehko, stand to meet the Beastmen Confederate—when who should appear but Shantotto, raining hellfire from on high! Being exiled and stripped of her military standing have done little to dull the black mage's edge, and the mighty beastmen prove no match for her mightier magicks.",
+            "info": "Windurst's Mithra Mercenaries, led by Lehko, stand to meet the Beastmen Confederate—when who should appear but Shantotto, raining hellfire from on high! Being exiled and stripped of her military standing have done little to dull the black mage's edge, and the mighty beastmen prove no match for her mightier magicks.",
+            "shop": "A Feast for Gnats",
+            "music": "Iron Colossus",
             "music_id": "401036"
         }
     },
@@ -7725,6 +7725,43 @@
             "shop": "Wind Across the Heavens",
             "music": "Celestial Battle",
             "music_id": "400007"
+        }
+    },
+    "401005901": {
+        "name": "Shimmering Hoarfrost",
+        "compendium_id": 9058,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11001,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [0, 0, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [135, 135, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "1": [917105, 917106, 917107]
+        },
+        "restriction": {
+            "917107": [7216]
+        },
+        "max_level": 1,
+        "exp_pattern": 1,
+        "stat_pattern": 1,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "At once both ethereal in its beauty, yet possessed of a might powerful enough to turn all the land into a frigid icescape, the ice magic Mediena commands features prominently in the multitude of tales surrounding her. Ever in pursuit of the true essence of magic, she continues to put all who dare stand in her way on ice.",
+            "info": "At once both ethereal in its beauty, yet possessed of a might powerful enough to turn all the land into a frigid icescape, the ice magic Mediena commands features prominently in the multitude of tales surrounding her. Ever in pursuit of the true essence of magic, she continues to put all who dare stand in her way on ice.",
+            "shop": "Shimmering Hoarfrost",
+            "music": "The Initiation",
+            "music_id": "400101"
         }
     },
     "900020101": {

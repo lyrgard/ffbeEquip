@@ -358,7 +358,7 @@ function readGoal(index = currentUnitIndex) {
                         }
                     }
 
-                } else if (goalValue.startsWith("SKILL_")) {
+                } else if (goalValue.startsWith("SKILL_")) {
                     builds[index].goal = "custom";
                     var skillId = goalValue.substr(6);
                     var skill = getSkillFromId(skillId, unitWithSkills);
@@ -1642,9 +1642,8 @@ function updateUnitLevelDisplay() {
             if (builds[currentUnitIndex]._exAwakeningLevel > -1) {
                 $("#unitExAwakeningLevel select").val(builds[currentUnitIndex]._exAwakeningLevel.toString());
             } else {
-                const exRank = actuallyOwnedUnits[builds[currentUnitIndex].unit.id]?.exRank ?? 1;
-                $("#unitExAwakeningLevel select").val(exRank.toString());
-                builds[currentUnitIndex].setExAwakeningLevel(exRank);
+                $("#unitExAwakeningLevel select").val("1");
+                builds[currentUnitIndex].setExAwakeningLevel(1);
             }
         } else {
             $("#unitExAwakeningLevel").addClass("hidden");
