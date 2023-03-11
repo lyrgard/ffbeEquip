@@ -666,7 +666,7 @@
 	{"atk":117, "killers":[{"name":"bug","physical":75,"magical":75},{"name":"undead","physical":75,"magical":75}]},
 	{"atk":130, "killers":[{"name":"bug","physical":75,"magical":75},{"name":"undead","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75}]}
 ]},
-{"id":"100006801", "name":"珊瑚の森の休日", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006801.png", "sortId":146, "levels":[
+{"id":"100006801", "name":"Coral Forest Getaway", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006801.png", "sortId":146, "levels":[
 	{"atk":55, "mag":55},
 	{"atk":60, "mag":60},
 	{"atk":66, "mag":66},
@@ -678,7 +678,7 @@
 	{"atk":99, "mag":99, "killers":[{"name":"aquatic","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}]},
 	{"atk":110, "mag":110, "killers":[{"name":"aquatic","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75},{"name":"beast","physical":75,"magical":75}]}
 ]},
-{"id":"100006901", "name":"私たちは家族に", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006901.png", "sortId":150, "levels":[
+{"id":"100006901", "name":"Found Family", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100006901.png", "sortId":150, "levels":[
 	{"atk":65},
 	{"atk":71},
 	{"atk":78},
@@ -749,6 +749,30 @@
 	{"atk":93, "mag":93, "killers":[{"name":"bug","physical":75,"magical":75},{"name":"plant","physical":75,"magical":75}]},
 	{"atk":99, "mag":99, "killers":[{"name":"bug","physical":75,"magical":75},{"name":"plant","physical":75,"magical":75}]},
 	{"atk":110, "mag":110, "killers":[{"name":"bug","physical":75,"magical":75},{"name":"plant","physical":75,"magical":75},{"name":"dragon","physical":75,"magical":75}]}
+]},
+{"id":"100007901", "name":"雨の結婚式前夜", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100007901.png", "sortId":171, "levels":[
+	{"atk":65, "spr":65},
+	{"atk":71, "spr":71},
+	{"atk":78, "spr":78},
+	{"atk":84, "atk%":30, "def%":30, "mag%":30, "spr":84, "spr%":30},
+	{"atk":91, "atk%":30, "def%":30, "mag%":30, "spr":91, "spr%":30},
+	{"atk":97, "atk%":30, "def%":30, "mag%":30, "spr":97, "spr%":30},
+	{"atk":104, "atk%":30, "def%":30, "mag%":30, "spr":104, "spr%":30, "conditional":[{"staticStats":{"spr":500}}]},
+	{"atk":110, "atk%":30, "def%":30, "mag%":30, "spr":110, "spr%":30, "conditional":[{"staticStats":{"spr":500}}]},
+	{"atk":117, "atk%":30, "def%":30, "mag%":30, "spr":117, "spr%":30, "conditional":[{"staticStats":{"spr":500}}]},
+	{"atk":130, "atk%":30, "def%":30, "mag%":30, "spr":130, "spr%":30, "conditional":[{"staticStats":{"spr":500}},{"staticStats":{"atk":500}}]}
+]},
+{"id":"100008001", "name":"自己犠牲と別れ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100008001.png", "sortId":172, "levels":[
+	{"atk":85, "mag":85},
+	{"atk":93, "mag":93},
+	{"atk":102, "mag":102},
+	{"atk":110, "mag":110, "conditional":[{"atk%":80,"mag%":80}]},
+	{"atk":119, "mag":119, "conditional":[{"atk%":80,"mag%":80}]},
+	{"atk":127, "mag":127, "conditional":[{"atk%":80,"mag%":80}]},
+	{"atk":136, "mag":136, "conditional":[{"atk%":80,"mag%":80},{"lbDamage":100}]},
+	{"atk":144, "mag":144, "conditional":[{"atk%":80,"mag%":80},{"lbDamage":100}]},
+	{"atk":153, "mag":153, "conditional":[{"atk%":80,"mag%":80},{"lbDamage":100}]},
+	{"atk":170, "mag":170, "conditional":[{"atk%":80,"mag%":80},{"lbDamage":100},{"staticStats":{"atk":500,"mag":500}}]}
 ]},
 {"id":"201000101", "name":"And So Their Quest Began", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000101.png", "sortId":100, "levels":[
 	{"hp":500, "def":50},
@@ -906,7 +930,7 @@
 	{"atk":72, "atk%":40, "mag":72, "mag%":40, "lbDamage":25},
 	{"atk":80, "atk%":40, "mag":80, "mag%":40, "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"mag":300}}]}
 ]},
-{"id":"205000401", "name":"新たな旅の予感", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000401.png", "sortId":147, "levels":[
+{"id":"205000401", "name":"The Cusp of a New Journey", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000401.png", "sortId":147, "levels":[
 	{"atk":65},
 	{"atk":71},
 	{"atk":78},
@@ -918,7 +942,7 @@
 	{"atk":117, "atk%":50, "lbDamage":25},
 	{"atk":130, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500}}]}
 ]},
-{"id":"205000501", "name":"この命　燃えつきても！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000501.png", "sortId":148, "levels":[
+{"id":"205000501", "name":"A Vow of Destruction", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000501.png", "sortId":148, "levels":[
 	{"hp":400, "def":40, "spr":40},
 	{"hp":440, "def":44, "spr":44},
 	{"hp":480, "def":48, "spr":48},
@@ -930,7 +954,7 @@
 	{"hp":720, "def":72, "spr":72, "mpRefresh":10},
 	{"hp":800, "def":80, "spr":80, "mpRefresh":10, "conditional":[{"resist":[{"name":"fire","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20}]}]}
 ]},
-{"id":"205000601", "name":"ビッグブリッジの死闘", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000601.png", "sortId":149, "levels":[
+{"id":"205000601", "name":"Battle at the Big Bridge", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000601.png", "sortId":149, "levels":[
 	{"atk":50},
 	{"atk":55},
 	{"atk":60},
@@ -1141,10 +1165,10 @@
 	{"atk":61, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
 	{"atk":68, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
 	{"atk":75, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
-	{"atk":82, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
-	{"atk":89, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
-	{"atk":96, "conditional":[{"equipedConditions":["dagger"],"atk%":80}]},
-	{"atk":110, "conditional":[{"equipedConditions":["dagger"],"atk%":80},{"lbDamage":50}]}
+	{"atk":82, "atk%":40, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
+	{"atk":89, "atk%":40, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
+	{"atk":96, "atk%":40, "conditional":[{"equipedConditions":["dagger"],"atk%":40}]},
+	{"atk":110, "atk%":40, "conditional":[{"equipedConditions":["dagger"],"atk%":40},{"lbDamage":50},{"staticStats":{"atk":500}}]}
 ]},
 {"id":"209000201", "name":"Divine Judgment", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_209000201.png", "sortId":130, "levels":[
 	{"mag":60, "spr":60},
@@ -1157,6 +1181,42 @@
 	{"mag":102, "spr":102, "evoMag":50, "evokeDamageBoost":{"all":50}},
 	{"mag":108, "spr":108, "evoMag":50, "evokeDamageBoost":{"all":50}},
 	{"mag":120, "spr":120, "evoMag":50, "lbDamage":50, "evokeDamageBoost":{"all":50}}
+]},
+{"id":"209000301", "name":"おまえが行くって言ったからさ", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_209000301.png", "sortId":174, "levels":[
+	{"atk":85, "def":85},
+	{"atk":93, "def":93},
+	{"atk":102, "def":102},
+	{"atk":110, "def":110, "conditional":[{"atk%":80,"def%":80}]},
+	{"atk":119, "def":119, "conditional":[{"atk%":80,"def%":80}]},
+	{"atk":127, "def":127, "conditional":[{"atk%":80,"def%":80}]},
+	{"atk":136, "def":136, "conditional":[{"atk%":80,"def%":80},{"lbDamage":100}]},
+	{"atk":144, "def":144, "conditional":[{"atk%":80,"def%":80},{"lbDamage":100}]},
+	{"atk":153, "def":153, "conditional":[{"atk%":80,"def%":80},{"lbDamage":100}]},
+	{"atk":170, "def":170, "conditional":[{"atk%":80,"def%":80},{"lbDamage":100},{"staticStats":{"atk":500,"def":500}}]}
+]},
+{"id":"209000401", "name":"守るべきもの", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_209000401.png", "sortId":175, "levels":[
+	{"atk":60, "def":60},
+	{"atk":66, "def":66},
+	{"atk":72, "def":72},
+	{"atk":78, "atk%":50, "def":78, "def%":50},
+	{"atk":84, "atk%":50, "def":84, "def%":50},
+	{"atk":90, "atk%":50, "def":90, "def%":50},
+	{"atk":96, "atk%":50, "def":96, "def%":50, "lbDamage":25},
+	{"atk":102, "atk%":50, "def":102, "def%":50, "lbDamage":25},
+	{"atk":108, "atk%":50, "def":108, "def%":50, "lbDamage":25},
+	{"atk":120, "atk%":50, "def":120, "def%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500,"def":500}}]}
+]},
+{"id":"209000501", "name":"テラホーミングを唱えるクポ！", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_209000501.png", "sortId":173, "levels":[
+	{"mag":65},
+	{"mag":71},
+	{"mag":78},
+	{"mag":84, "mpRefresh":5},
+	{"mag":91, "mpRefresh":5},
+	{"mag":97, "mpRefresh":5},
+	{"mag":104, "mpRefresh":5, "lbDamage":25},
+	{"mag":110, "mpRefresh":5, "lbDamage":25},
+	{"mag":117, "mpRefresh":5, "lbDamage":25},
+	{"mag":130, "mpRefresh":5, "lbDamage":25, "conditional":[{"staticStats":{"mag":500}}]}
 ]},
 {"id":"210000101", "name":"The Sending", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_210000101.png", "sortId":73, "levels":[
 	{"spr":125, "spr%":80, "killers":[{"name":"spirit","physical":100,"magical":100}], "conditional":[{"staticStats":{"spr":500}}]}
@@ -1218,7 +1278,7 @@
 	{"hp":720, "def":72, "conditional":[{"equipedConditions":["fist"],"def%":40}]},
 	{"hp":800, "def":80, "oneWeaponMastery":{"def":50}, "conditional":[{"equipedConditions":["fist"],"def%":40}]}
 ]},
-{"id":"211000201", "name":"淑女たちの饗宴", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_211000201.png", "sortId":158, "levels":[
+{"id":"211000201", "name":"A Feast for Gnats", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_211000201.png", "sortId":158, "levels":[
 	{"atk":55, "mag":55},
 	{"atk":60, "mag":60},
 	{"atk":66, "mag":66},
@@ -1361,6 +1421,30 @@
 	{"atk":85, "atk%":50, "mag":85, "mag%":50, "lbDamage":25},
 	{"atk":90, "atk%":50, "mag":90, "mag%":50, "lbDamage":25},
 	{"atk":100, "atk%":50, "mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
+]},
+{"id":"254000201", "name":"あなたの言　まずは聞きましょう", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_254000201.png", "sortId":169, "levels":[
+	{"mag":65},
+	{"mag":71},
+	{"mag":78},
+	{"mag":84, "mag%":50},
+	{"mag":91, "mag%":50},
+	{"mag":97, "mag%":50},
+	{"mag":104, "mag%":50, "lbDamage":25},
+	{"mag":110, "mag%":50, "lbDamage":25},
+	{"mag":117, "mag%":50, "lbDamage":25},
+	{"mag":130, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500}}]}
+]},
+{"id":"254000301", "name":"VSカトル・バシュタール", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_254000301.png", "sortId":170, "levels":[
+	{"atk":65},
+	{"atk":71},
+	{"atk":78},
+	{"atk":84, "atk%":50},
+	{"atk":91, "atk%":50},
+	{"atk":97, "atk%":50},
+	{"atk":104, "atk%":50, "lbDamage":25},
+	{"atk":110, "atk%":50, "lbDamage":25},
+	{"atk":117, "atk%":50, "lbDamage":25},
+	{"atk":130, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500}}]}
 ]},
 {"id":"306000101", "name":"Alena vs. the Abominable Showmen", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_306000101.png", "sortId":70, "levels":[
 	{"atk":50, "mag":50},

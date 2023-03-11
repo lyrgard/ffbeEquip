@@ -1110,6 +1110,17 @@
         "price_sell": 1500,
         "icon": "ability_96.png"
     },
+    "504100930": {
+        "name": "軽鎧装備",
+        "compendium_id": 1538,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [100930],
+        "effects": ["Grant '軽鎧装備' passive"],
+        "price_buy": 50000,
+        "price_sell": 5000,
+        "icon": "ability_96.png"
+    },
     "504100940": {
         "name": "重鎧装備",
         "compendium_id": 238,
@@ -2225,7 +2236,7 @@
         "name": "デッキオープン",
         "compendium_id": 491,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [254000105, 254001505]],
+        "requirements": ["UNIT_ID", [254000105, 254001505, 254002307, 254002317]],
         "skills": [203220],
         "effects": ["Grant 'Cut Cards' ability"],
         "price_buy": 50000,
@@ -2238,7 +2249,7 @@
         "compendium_shown": true,
         "requirements": null,
         "skills": [203240],
-        "effects": ["Grant 'MP + 15%' passive"],
+        "effects": ["Grant 'MP +15%' passive"],
         "price_buy": 3000,
         "price_sell": 300,
         "icon": "ability_77.png"
@@ -2753,7 +2764,7 @@
         "name": "アスピルフィールド",
         "compendium_id": 554,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [254000905, 254001605]],
+        "requirements": ["UNIT_ID", [254000905, 254001605, 254001627]],
         "skills": [206650],
         "effects": ["Grant 'Siphon Delta' ability"],
         "price_buy": 50000,
@@ -11066,7 +11077,7 @@
         "icon": "ability_19.png"
     },
     "504241640": {
-        "name": "0組を導く者",
+        "name": "０組を導く者",
         "compendium_id": 1325,
         "compendium_shown": true,
         "requirements": null,
@@ -11088,7 +11099,7 @@
         "icon": "ability_79.png"
     },
     "504241643": {
-        "name": "0組が誇る才媛",
+        "name": "０組が誇る才媛",
         "compendium_id": 1327,
         "compendium_shown": true,
         "requirements": ["UNIT_ID", [254000205, 254000217, 254000227]],
@@ -12853,7 +12864,7 @@
         "compendium_shown": true,
         "requirements": null,
         "skills": [244022],
-        "effects": ["Grant '機械人形の休日' passive"],
+        "effects": ["Grant 'Robot's Holiday' passive"],
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png"
@@ -12908,7 +12919,7 @@
         "compendium_shown": true,
         "requirements": null,
         "skills": [244165],
-        "effects": ["Grant '麗しき戦場の華' passive"],
+        "effects": ["Grant 'Most Respected Doctor' passive"],
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png"
@@ -13096,6 +13107,50 @@
         "requirements": null,
         "skills": [244355],
         "effects": ["Grant '戦場での魔導知識' passive"],
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png"
+    },
+    "504244375": {
+        "name": "聡明なカード使い",
+        "compendium_id": 1535,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244375],
+        "effects": ["Grant '聡明なカード使い' passive"],
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png"
+    },
+    "504244378": {
+        "name": "心優しき演奏者",
+        "compendium_id": 1536,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244378],
+        "effects": ["Grant '心優しき演奏者' passive"],
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_9.png"
+    },
+    "504244447": {
+        "name": "ユニルシオンの秘剣技",
+        "compendium_id": 1537,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244447],
+        "effects": ["Grant 'ユニルシオンの秘剣技' passive"],
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_6000200.png"
+    },
+    "504244490": {
+        "name": "食にかける執念",
+        "compendium_id": 1540,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244490],
+        "effects": ["Grant '食にかける執念' passive"],
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png"

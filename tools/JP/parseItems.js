@@ -390,13 +390,6 @@ function treatVisionCard(visionCard, visionCardId, skills) {
     let card = {};
     card.id = visionCardId;
     card.name = visionCard.name;
-
-    // Check if name contains any JP characters
-    const jpRegex = /[\u3040-\u30ff\u31f0-\u31ff\u4e00-\u9faf]/g;
-    if (jpRegex.test(card.name)) {
-        console.log(`Invalid name: ${card.name}. Name should only contain English or special characters.`);
-        return null;
-    }
     
     if (!card.name && alreadyKnownVisionCardNames[visionCardId]) {
         card.name = alreadyKnownVisionCardNames[visionCardId];

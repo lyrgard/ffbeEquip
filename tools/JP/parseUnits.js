@@ -242,8 +242,10 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
     if (unitIn.base_id != unitId) {
         data["braveShifted"] = unitIn.base_id;
     }
-    if (maxRariry == 'NV') {
+    //unitIn.nv_upgrade //isn't null or undefined
+    if (maxRariry == 'NV' && unitIn.nv_upgrade != null && unitIn.nv_upgrade != undefined) {
         data.equip.push("visionCard");
+        console.log(unitIn)
         data.exAwakenings = [
             lowerCaseKeys(unitIn.nv_upgrade[0].stats),
             lowerCaseKeys(unitIn.nv_upgrade[1].stats),

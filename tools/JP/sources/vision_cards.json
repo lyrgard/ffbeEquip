@@ -2287,7 +2287,7 @@
         }
     },
     "100006801": {
-        "name": "珊瑚の森の休日",
+        "name": "Coral Forest Getaway",
         "compendium_id": 146,
         "compendium_shown": true,
         "rarity": 1,
@@ -2316,15 +2316,15 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "海中遊泳を楽しむフィーナとルンド。海面からの陽光が照らす珊瑚の森。色とりどりの魚たちの群れが、陸からの来訪者を迎え入れてくれる。二人がそれぞれたどり着くかもしれない安寧のひとときのビジョン。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "珊瑚の森の休日",
-            "music": "♪Joie de Vivre",
+            "desc": "Fina and Runda, enjoying a dip under the sea. Light gently filters down to an underwater forest of coral as diverse schools of colorful fish welcome their terrestrial visitors. This vision is a glimpse into a moment of peace the two may someday find.",
+            "info": "Fina and Runda, enjoying a dip under the sea. Light gently filters down to an underwater forest of coral as diverse schools of colorful fish welcome their terrestrial visitors. This vision is a glimpse into a moment of peace the two may someday find.",
+            "shop": "Coral Forest Getaway",
+            "music": "Joie de Vivre",
             "music_id": "400312"
         }
     },
     "100006901": {
-        "name": "私たちは家族に",
+        "name": "Found Family",
         "compendium_id": 150,
         "compendium_shown": true,
         "rarity": 1,
@@ -2353,10 +2353,10 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "三闘星のイーゴが敗れ、モルボルの体内から生還したミド。彼女は倒れるイーゴに手を差し伸べる。「過去の孤独は消えない。けど癒すことはできる」――ミドたちの言葉に、イーゴは共に歩むことを決意する。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "私たちは家族に",
-            "music": "♪Moment of Recall",
+            "desc": "Mid, freshly spat up by a malboro, approaches the defeated Yego. The dragoon extends a hand to her former ally and rival, and proclaims, \"You can't erase the loneliness of your past, but you can heal from it.\" Touched by Mid and Cid's words, Yego decides to join them, having finally found a (non-malboro) family of her own.",
+            "info": "Mid, freshly spat up by a malboro, approaches the defeated Yego. The dragoon extends a hand to her former ally and rival, and proclaims, \"You can't erase the loneliness of your past, but you can heal from it.\" Touched by Mid and Cid's words, Yego decides to join them, having finally found a (non-malboro) family of her own.",
+            "shop": "Found Family",
+            "music": "Moment of Recall",
             "music_id": "400003"
         }
     },
@@ -2660,6 +2660,87 @@
             "shop": "戦乱を終わらせるために",
             "music": "♪Celestial Battle",
             "music_id": "400007"
+        }
+    },
+    "100007901": {
+        "name": "雨の結婚式前夜",
+        "compendium_id": 171,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11001,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [65, 130, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [65, 130, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244434],
+            "7": [244435],
+            "10": [244436]
+        },
+        "restriction": {
+            "244435": [7216],
+            "244436": [7216]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "結婚式を控えた雨の夜。スネフリンガの元にリダルが現れた。彼はスネフリンガを連れて逃げ出すつもりだったが、王女としての責務を全うしようとする彼女の覚悟を知り、一言「おめでとう」とだけ伝える。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "雨の結婚式前夜",
+            "music": "♪Mystic Ruins",
+            "music_id": "400205"
+        }
+    },
+    "100008001": {
+        "name": "自己犠牲と別れ",
+        "compendium_id": 172,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11001,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [85, 170, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [85, 170, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244444],
+            "7": [244445],
+            "10": [244446]
+        },
+        "restriction": {
+            "244444": [7706],
+            "244445": [7706],
+            "244446": [7706]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "オメガと一体化したスネフリンガは、火口に飛び込むことでこの怪物を倒そうとする。その決断を認められず涙するリダル。自分のために泣いてくれる幼馴染に感謝の言葉を残し、彼女は溶岩の中へと没した。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "自己犠牲と別れ",
+            "music": "♪The Oath",
+            "music_id": "400106"
         }
     },
     "201000101": {
@@ -3170,7 +3251,7 @@
         }
     },
     "205000401": {
-        "name": "新たな旅の予感",
+        "name": "The Cusp of a New Journey",
         "compendium_id": 147,
         "compendium_shown": true,
         "rarity": 1,
@@ -3201,15 +3282,15 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "父の遺言に従い、相棒であるチョコボのボコに乗って旅をつづけるバッツ。世界に異変が迫るなか、「クリスタルを守る」という新たな旅が始まろうとしていた……。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "新たな旅の予感",
-            "music": "♪4つの心",
+            "desc": "Bartz, following his late father's wish, travels the world with Boko, his trusty chocobo. A new journey lies on the horizon—a journey to defend the crystals as the world descends into chaos.",
+            "info": "Bartz, following his late father's wish, travels the world with Boko, his trusty chocobo. A new journey lies on the horizon—a journey to defend the crystals as the world descends into chaos.",
+            "shop": "The Cusp of a New Journey",
+            "music": "Four Hearts",
             "music_id": "4000130"
         }
     },
     "205000501": {
-        "name": "この命　燃えつきても！",
+        "name": "A Vow of Destruction",
         "compendium_id": 148,
         "compendium_shown": true,
         "rarity": 1,
@@ -3240,15 +3321,15 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "ムーアの大森林にある長老の木へ、バッツたちを助けに来たものの、エクスデスに追い詰められるクルル。孫娘の危機に立ち上がったガラフは、エクスデスとの一騎打ちに挑む。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "この命　燃えつきても！",
-            "music": "♪決戦",
+            "desc": "Krile, having rushed to the Great Forest of Moore's Guardian Tree to aid Bartz and his party, now finds herself beset by Exdeath's mighty magics. Seeing his granddaughter's peril, Galuf rises to face the warlock in a duel for all he holds dear.",
+            "info": "Krile, having rushed to the Great Forest of Moore's Guardian Tree to aid Bartz and his party, now finds herself beset by Exdeath's mighty magics. Seeing his granddaughter's peril, Galuf rises to face the warlock in a duel for all he holds dear.",
+            "shop": "A Vow of Destruction",
+            "music": "The Final Battle",
             "music_id": "4000803"
         }
     },
     "205000601": {
-        "name": "ビッグブリッジの死闘",
+        "name": "Battle at the Big Bridge",
         "compendium_id": 149,
         "compendium_shown": true,
         "rarity": 1,
@@ -3280,10 +3361,10 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "エクスデス城から脱出したバッツたちを、ビッグブリッジで待ち伏せしていたギルガメッシュ。「来なかったらどうしようかと不安になりながら扉の裏で待っていた」と、ギルガメッシュは心情を吐露する。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "ビッグブリッジの死闘",
-            "music": "♪ビッグブリッヂの死闘",
+            "desc": "Gilgamesh waits at the Big Bridge to ambush Bartz and his party, who have just escaped from Castle Exdeath. When discovered at last, he is surprisingly forthcoming, stating, \"Guess who's been waiting behind this door the whole time? I was getting worried you might have gotten lost!\"",
+            "info": "Gilgamesh waits at the Big Bridge to ambush Bartz and his party, who have just escaped from Castle Exdeath. When discovered at last, he is surprisingly forthcoming, stating, \"Guess who's been waiting behind this door the whole time? I was getting worried you might have gotten lost!\"",
+            "shop": "Battle at the Big Bridge",
+            "music": "Battle at the Big Bridge",
             "music_id": "400817"
         }
     },
@@ -4156,7 +4237,7 @@
             "10": [240442]
         },
         "restriction": {
-            "240442": [7209]
+            "240442": [7909]
         },
         "max_level": 10,
         "exp_pattern": 110,
@@ -4206,6 +4287,125 @@
             "shop": "Divine Judgment",
             "music": "Alexander",
             "music_id": "4000506"
+        }
+    },
+    "209000301": {
+        "name": "おまえが行くって言ったからさ",
+        "compendium_id": 174,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10009,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [85, 170, 0, 0],
+            "DEF": [85, 170, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244471],
+            "7": [244472],
+            "10": [244473]
+        },
+        "restriction": {
+            "244471": [7705],
+            "244472": [7705],
+            "244473": [7705]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "マダイン・サリの船着き場で語り合うジタンとダガー。「どうして一緒に来てくれたの？」と問うダガーに、ジタンは冒険家イプセンの友人コリンのセリフで返答した。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "おまえが行くって言ったからさ",
+            "music": "♪奪われた瞳",
+            "music_id": "4001304"
+        }
+    },
+    "209000401": {
+        "name": "守るべきもの",
+        "compendium_id": 175,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10009,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [60, 120, 0, 0],
+            "DEF": [60, 120, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244486],
+            "7": [244487],
+            "10": [244488]
+        },
+        "restriction": {
+            "244488": [7909]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "クジャによる襲撃を受けたアレクサンドリアの城下町で戦うスタイナーとベアトリクス。2人は決死の覚悟で、次から次へと現れる霧の魔獣を討伐する。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "守るべきもの",
+            "music": "♪守るべきもの",
+            "music_id": "401031"
+        }
+    },
+    "209000501": {
+        "name": "テラホーミングを唱えるクポ！",
+        "compendium_id": 173,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10009,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [0, 0, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [65, 130, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244475],
+            "7": [244476],
+            "10": [244477]
+        },
+        "restriction": {
+            "244477": [7909]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "ゾーンとソーンからエーコを守るため、モグはエーコにテラホーミングを唱えるよう語りかける。エーコの詠唱でモグは本来の姿である召喚獣・マディーンとなって眼前の敵を撃退した。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "テラホーミングを唱えるクポ！",
+            "music": "♪バトル1",
+            "music_id": "400852"
         }
     },
     "210000101": {
@@ -4505,7 +4705,7 @@
         }
     },
     "211000201": {
-        "name": "淑女たちの饗宴",
+        "name": "A Feast for Gnats",
         "compendium_id": 158,
         "compendium_shown": true,
         "rarity": 1,
@@ -4536,10 +4736,10 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "レコ率いるウィンダスのミスラ傭兵部隊が獣人血盟軍を迎え撃っていたところ、国外追放され軍事権を剥奪されたはずのシャントットが突如乱入。屈強な獣人たちを魔法で圧倒する。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "淑女たちの饗宴",
-            "music": "♪Iron Colossus",
+            "desc": "Windurst's Mithra Mercenaries, led by Lehko, stand to meet the Beastmen Confederate—when who should appear but Shantotto, raining hellfire from on high! Being exiled and stripped of her military standing have done little to dull the black mage's edge, and the mighty beastmen prove no match for her mightier magicks.",
+            "info": "Windurst's Mithra Mercenaries, led by Lehko, stand to meet the Beastmen Confederate—when who should appear but Shantotto, raining hellfire from on high! Being exiled and stripped of her military standing have done little to dull the black mage's edge, and the mighty beastmen prove no match for her mightier magicks.",
+            "shop": "A Feast for Gnats",
+            "music": "Iron Colossus",
             "music_id": "401036"
         }
     },
@@ -4956,7 +5156,7 @@
             "10": [241652]
         },
         "restriction": {
-            "241652": [7218]
+            "241652": [7933]
         },
         "max_level": 10,
         "exp_pattern": 110,
@@ -4969,6 +5169,84 @@
             "shop": "We Have Arrived",
             "music": "We Have Arrived",
             "music_id": "400881"
+        }
+    },
+    "254000201": {
+        "name": "あなたの言　まずは聞きましょう",
+        "compendium_id": 169,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11003,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [0, 0, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [65, 130, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244381],
+            "7": [244382],
+            "10": [244383]
+        },
+        "restriction": {
+            "244383": [7933]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "０組の前に立ちふさがった蒼龍最強の戦士ホシヒメ。０組がコンコルディア女王の仇であるという誤解をとくために、デュースは命を懸けて身の潔白を証明する。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "あなたの言　まずは聞きましょう",
+            "music": "♪寂しき心",
+            "music_id": "4001205"
+        }
+    },
+    "254000301": {
+        "name": "VSカトル・バシュタール",
+        "compendium_id": 170,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11003,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [65, 130, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244424],
+            "7": [244425],
+            "10": [244426]
+        },
+        "restriction": {
+            "244426": [7933]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "コンコルディア王国に勝利し、オリエンス統一への最後の障害となるミリテス皇国首都を攻略すべく、作戦を開始した０組。その前に、皇国最強の魔導アーマー乗り・カトルが立ちはだかる。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "VSカトル・バシュタール",
+            "music": "♪戦-白の兵器",
+            "music_id": "4001206"
         }
     },
     "306000101": {

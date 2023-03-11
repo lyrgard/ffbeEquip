@@ -522,7 +522,7 @@
         "attack_type": "None",
         "element_inflict": null,
         "effects": [
-            ["Remove all buffs and debuffs from one enemy"]
+            ["No effect"]
         ],
         "effects_raw": [[1, 1, 59, ["none"]]],
         "requirements": null
@@ -690,7 +690,7 @@
         "attack_type": "None",
         "element_inflict": null,
         "effects": [
-            ["Remove all buffs and debuffs from all enemies"]
+            ["No effect"]
         ],
         "effects_raw": [[2, 1, 59, ["none"]]],
         "requirements": null
@@ -5505,6 +5505,32 @@
         "effects_raw": [[2, 2, 95, [100,  0,  0,  0,  0,  0,  0,  0,  5,  1]], [2, 2, 149, [0, [45,  0,  0,  0,  0,  0,  0,  0], 1, 5, 1]], [2, 2, 149, [1, [45,  0,  0,  0,  0,  0,  0,  0], 1, 5, 1]]],
         "requirements": null
     },
+    "30732": {
+        "name": "エンブリザジャ",
+        "icon": "ability_22.png",
+        "compendium_id": 317,
+        "rarity": 9,
+        "cost": {"MP": 100},
+        "magic_type": "Green",
+        "is_sealable": true,
+        "is_reflectable": false,
+        "in_exploration": false,
+        "attack_count": [0],
+        "attack_damage": [[]],
+        "attack_frames": [[]],
+        "effect_frames": [[40,  40,  40,  40,  40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": ["Ice"],
+        "effects": [
+            ["Add Ice element (100%) to physical attacks for 5 turns to all allies"],
+            ["Increase Ice physical damage by 45% to all allies for 5 turns"],
+            ["Increase Ice magic damage by 45% to all allies for 5 turns"]
+        ],
+        "effects_raw": [[2, 2, 95, [0,  100,  0,  0,  0,  0,  0,  0,  5,  1]], [2, 2, 149, [0, [0,  45,  0,  0,  0,  0,  0,  0], 1, 5, 1]], [2, 2, 149, [1, [0,  45,  0,  0,  0,  0,  0,  0], 1, 5, 1]]],
+        "requirements": null
+    },
     "30740": {
         "name": "バリア",
         "icon": "ability_43.png",
@@ -5639,6 +5665,62 @@
             ["Increase LB gauge by 10 to all allies"]
         ],
         "effects_raw": [[2, 2, 33, [0,  0,  0,  200,  0,  0,  0,  0,  1,  5]], [2, 2, 18, [50,  5,  1,  1]], [2, 2, 19, [50,  5,  1,  1]], [2, 2, 101, [50,  5,  1,  1]], [2, 2, 125, [1000,  1000]]],
+        "requirements": null
+    },
+    "30790": {
+        "name": "バライトジャ",
+        "icon": "ability_99.png",
+        "compendium_id": 334,
+        "rarity": 9,
+        "cost": {"MP": 500},
+        "magic_type": "Green",
+        "is_sealable": true,
+        "is_reflectable": true,
+        "in_exploration": false,
+        "attack_count": [1, 1, 1, 1, 1],
+        "attack_damage": [[100], [100], [100], [100], [100]],
+        "attack_frames": [[120], [120], [120], [120], [120]],
+        "effect_frames": [[40,  40], [100,  100]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": ["Light"],
+        "effects": [
+            ["Increase resistance to Light by 200% for 5 turns to all allies"],
+            ["Reduce damage taken from physical attacks taken by 50% to all allies for 5 turns"],
+            ["Reduce damage taken by magic attacks by 50% to all allies for 5 turns"],
+            ["Reduce damage taken by 50% to all allies for 5 turns"],
+            ["Increase LB gauge by 10 to all allies"]
+        ],
+        "effects_raw": [[2, 2, 33, [0,  0,  0,  0,  0,  0,  200,  0,  1,  5]], [2, 2, 18, [50,  5,  1,  1]], [2, 2, 19, [50,  5,  1,  1]], [2, 2, 101, [50,  5,  1,  1]], [2, 2, 125, [1000,  1000]]],
+        "requirements": null
+    },
+    "30800": {
+        "name": "バストンジャ",
+        "icon": "ability_17.png",
+        "compendium_id": 333,
+        "rarity": 9,
+        "cost": {"MP": 500},
+        "magic_type": "Green",
+        "is_sealable": true,
+        "is_reflectable": true,
+        "in_exploration": false,
+        "attack_count": [1, 1, 1, 1, 1],
+        "attack_damage": [[100], [100], [100], [100], [100]],
+        "attack_frames": [[120], [120], [120], [120], [120]],
+        "effect_frames": [[40], [100,  100]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": ["Earth"],
+        "effects": [
+            ["Increase resistance to Earth by 200% for 5 turns to all allies"],
+            ["Reduce damage taken from physical attacks taken by 50% to all allies for 5 turns"],
+            ["Reduce damage taken by magic attacks by 50% to all allies for 5 turns"],
+            ["Reduce damage taken by 50% to all allies for 5 turns"],
+            ["Increase LB gauge by 10 to all allies"]
+        ],
+        "effects_raw": [[2, 2, 33, [0,  0,  0,  0,  0,  200,  0,  0,  1,  5]], [2, 2, 18, [50,  5,  1,  1]], [2, 2, 19, [50,  5,  1,  1]], [2, 2, 101, [50,  5,  1,  1]], [2, 2, 125, [1000,  1000]]],
         "requirements": null
     },
     "30810": {
@@ -5790,12 +5872,12 @@
         "attack_type": "Magic",
         "element_inflict": null,
         "effects": [
-            ["Increase DEF and SPR by 150% for 3 turns to all allies"],
-            ["Reduce damage taken from physical attacks taken by 20% to all allies for 3 turns"],
-            ["Reduce damage taken by magic attacks by 20% to all allies for 3 turns"],
-            ["Grant a 3000 HP shield to all allies for 3 turns"]
+            ["Increase DEF and SPR by 200% for 3 turns to all allies"],
+            ["Reduce damage taken from physical attacks taken by 40% to all allies for 3 turns"],
+            ["Reduce damage taken by magic attacks by 40% to all allies for 3 turns"],
+            ["Grant a 5000 HP shield to all allies for 3 turns"]
         ],
-        "effects_raw": [[2, 2, 3, [0,  150,  0,  150,  3,  1,  0]], [2, 2, 18, [20,  3,  1]], [2, 2, 19, [20,  3,  1]], [2, 2, 127, [3000,  3,  1]]],
+        "effects_raw": [[2, 2, 3, [0,  200,  0,  200,  3,  1,  0]], [2, 2, 18, [40,  3,  1]], [2, 2, 19, [40,  3,  1]], [2, 2, 127, [5000,  3,  1]]],
         "requirements": [["SWITCH",  18496701]]
     },
     "40040": {
@@ -5915,9 +5997,9 @@
         "attack_type": "Magic",
         "element_inflict": null,
         "effects": [
-            ["Auto-revive (1% HP) for 3 turns to one ally"]
+            ["Auto-revive (100% HP) for 3 turns to one ally"]
         ],
-        "effects_raw": [[1, 2, 27, [1,  3,  0]]],
+        "effects_raw": [[1, 2, 27, [100,  3,  0]]],
         "requirements": [["SWITCH",  18496721]]
     },
     "40090": {
@@ -5939,10 +6021,10 @@
         "attack_type": "Magic",
         "element_inflict": null,
         "effects": [
-            ["Magic damage (7.5x * 2 = 15x, MAG) to one enemy (ignore reflect)"],
-            ["Increase ability modifier of ゴブリンパンチ (40090) by 7.5x to caster for 4 turns"]
+            ["Magic damage (50x * 2 = 100x, MAG) to one enemy (ignore reflect)"],
+            ["Increase ability modifier of ゴブリンパンチ (40090) by 25x to caster for 4 turns"]
         ],
-        "effects_raw": [[1, 1, 70, [0,  0,  750,  50]], [0, 3, 136, [40090,  0,  0,  750,  4,  1,  2410,  0]]],
+        "effects_raw": [[1, 1, 70, [0,  0,  5000,  50]], [0, 3, 136, [40090,  0,  0,  2500,  4,  1,  2410,  0]]],
         "requirements": [["SWITCH",  18496721]]
     },
     "40100": {
@@ -5955,20 +6037,20 @@
         "is_sealable": false,
         "is_reflectable": false,
         "in_exploration": false,
-        "attack_count": [4, 1],
-        "attack_damage": [[25,  25,  25,  25], [100]],
-        "attack_frames": [[52,  72,  92,  112], [132]],
-        "effect_frames": [[50,  50,  70,  90,  110,  130,  130,  130,  40]],
+        "attack_count": [9, 1],
+        "attack_damage": [[11,  11,  11,  11,  11,  11,  11,  11,  12], [100]],
+        "attack_frames": [[110,  120,  130,  140,  150,  160,  170,  180,  190], [200]],
+        "effect_frames": [[40,  40,  40,  40,  40]],
         "move_type": 0,
         "effect_type": "Default",
         "attack_type": "Magic",
         "element_inflict": ["Wind"],
         "effects": [
-            ["Magic wind damage (3x * 2 = 6x, MAG) to all enemies (ignore reflect)"],
-            ["Magic wind damage (14x * 2 = 28x, MAG) to all enemies (ignore reflect)"],
-            ["Reduce resistance to Wind by 100% for 3 turns to all enemies"]
+            ["Magic wind damage (10x * 2 = 20x, MAG) to all enemies (ignore reflect)"],
+            ["Magic wind damage (100x * 2 = 200x, MAG) to all enemies (ignore reflect)"],
+            ["Reduce resistance to Wind by 135% for 3 turns to all enemies"]
         ],
-        "effects_raw": [[2, 1, 70, [0,  0,  300,  50]], [2, 1, 70, [0,  0,  1400,  50]], [2, 1, 33, [0,  0,  0,  0,  -100,  0,  0,  0,  1,  3]]],
+        "effects_raw": [[2, 1, 70, [0,  0,  1000,  50]], [2, 1, 70, [0,  0,  10000,  50]], [2, 1, 33, [0,  0,  0,  0,  -135,  0,  0,  0,  1,  3]]],
         "requirements": [["SWITCH",  18496731]]
     },
     "40110": {
@@ -5981,20 +6063,20 @@
         "is_sealable": false,
         "is_reflectable": false,
         "in_exploration": false,
-        "attack_count": [4, 1],
-        "attack_damage": [[25,  25,  25,  25], [100]],
-        "attack_frames": [[52,  72,  92,  112], [132]],
-        "effect_frames": [[50,  50,  70,  90,  110,  130,  130,  130,  40]],
+        "attack_count": [9, 1],
+        "attack_damage": [[11,  11,  11,  11,  11,  11,  11,  11,  12], [100]],
+        "attack_frames": [[110,  120,  130,  140,  150,  160,  170,  180,  190], [200]],
+        "effect_frames": [[40,  40,  40,  40,  40]],
         "move_type": 0,
         "effect_type": "Default",
         "attack_type": "Magic",
         "element_inflict": ["Earth"],
         "effects": [
-            ["Magic earth damage (3x * 2 = 6x, MAG) to all enemies (ignore reflect)"],
-            ["Magic earth damage (14x * 2 = 28x, MAG) to all enemies (ignore reflect)"],
-            ["Reduce resistance to Earth by 100% for 3 turns to all enemies"]
+            ["Magic earth damage (10x * 2 = 20x, MAG) to all enemies (ignore reflect)"],
+            ["Magic earth damage (100x * 2 = 200x, MAG) to all enemies (ignore reflect)"],
+            ["Reduce resistance to Earth by 135% for 3 turns to all enemies"]
         ],
-        "effects_raw": [[2, 1, 70, [0,  0,  300,  50]], [2, 1, 70, [0,  0,  1400,  50]], [2, 1, 33, [0,  0,  0,  0,  0,  -100,  0,  0,  1,  3]]],
+        "effects_raw": [[2, 1, 70, [0,  0,  1000,  50]], [2, 1, 70, [0,  0,  10000,  50]], [2, 1, 33, [0,  0,  0,  0,  0,  -135,  0,  0,  1,  3]]],
         "requirements": [["SWITCH",  18496741]]
     },
     "40120": {
@@ -6861,6 +6943,54 @@
         ],
         "effects_raw": [[2, 1, 6, [0,  0,  0,  0,  0,  0,  0,  100,  1]]],
         "requirements": null
+    },
+    "40490": {
+        "name": "バニシュ【IX】",
+        "icon": "ability_97.png",
+        "compendium_id": 304,
+        "rarity": 8,
+        "cost": {"MP": 36},
+        "magic_type": "Blue",
+        "is_sealable": false,
+        "is_reflectable": false,
+        "in_exploration": false,
+        "attack_count": [0],
+        "attack_damage": [[]],
+        "attack_frames": [[]],
+        "effect_frames": [[40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": null,
+        "effects": [
+            ["Dodge 2 physical attacks for 3 turns to all allies"]
+        ],
+        "effects_raw": [[2, 2, 54, [2,  3,  0]]],
+        "requirements": [["SWITCH",  18496741]]
+    },
+    "40500": {
+        "name": "パンプキンヘッド",
+        "icon": "ability_10.png",
+        "compendium_id": 305,
+        "rarity": 8,
+        "cost": {"MP": 150},
+        "magic_type": "Blue",
+        "is_sealable": false,
+        "is_reflectable": false,
+        "in_exploration": false,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[42]],
+        "effect_frames": [[40,  40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Physical",
+        "element_inflict": null,
+        "effects": [
+            ["Magic* damage (200x, MAG) to all enemies"]
+        ],
+        "effects_raw": [[2, 1, 15, [0,  0,  0,  0,  0,  20000,  0]]],
+        "requirements": [["SWITCH",  18496731]]
     },
     "70010": {
         "name": "サンダガ",

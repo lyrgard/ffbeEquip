@@ -1,0 +1,3076 @@
+[{
+    "name": "Katar (FFVIII)",
+    "special": {
+        "name": "Accelerator",
+        "icon": "ability_91.png",
+        "compendium_id": 15673,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [1, 1],
+        "attack_damage": [
+            [100],
+            [100]
+        ],
+        "attack_frames": [
+            [42],
+            [42]
+        ],
+        "effect_frames": [
+            [40]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase the limit burst gauge fill rate by 200% for 99999 turns to caster"],
+            ["Reduce ability cooldown by 10 to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 63, [200, 99999]],
+            [0, 3, 170, [10, 0]]
+        ],
+        "requirements": ["UNIT_ID", [208002307, 208002317]]
+    }
+}, {
+    "name": "Edged Carbine (FFXIII)",
+    "special": {
+        "name": "Edged Carbine",
+        "icon": "ability_43.png",
+        "compendium_id": 5313,
+        "rarity": 4,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 5% to caster for 9999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [5, 9999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Balmung (FFXV)",
+    "special": {
+        "name": "Guide to the Light",
+        "icon": "ability_77.png",
+        "compendium_id": 12834,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Light physical damage by 10% to caster for 99999 turns"],
+            ["Increase Light magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [0, 0, 0, 0, 0, 0, 10, 0], 1, 99999, 0]],
+            [0, 3, 149, [1, [0, 0, 0, 0, 0, 0, 10, 0], 1, 99999, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Katar (FFVIII)",
+    "special": {
+        "name": "Accelerator",
+        "icon": "ability_91.png",
+        "compendium_id": 15673,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [1, 1],
+        "attack_damage": [
+            [100],
+            [100]
+        ],
+        "attack_frames": [
+            [42],
+            [42]
+        ],
+        "effect_frames": [
+            [40]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase the limit burst gauge fill rate by 200% for 99999 turns to caster"],
+            ["Reduce ability cooldown by 10 to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 63, [200, 99999]],
+            [0, 3, 170, [10, 0]]
+        ],
+        "requirements": ["UNIT_ID", [208002307, 208002317]]
+    }
+}, {
+    "name": "Spelldaggers (FFXV)",
+    "special": {
+        "name": "Foreseer of the Future",
+        "icon": "ability_9.png",
+        "compendium_id": 13065,
+        "rarity": 7,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 5, 10]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Fire, Ice and Lightning physical damage by 10% to caster for 99999 turns"],
+            ["Increase Fire, Ice and Lightning magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [10, 10, 10, 0, 0, 0, 0, 0], 1, 99999, 0]],
+            [0, 3, 149, [1, [10, 10, 10, 0, 0, 0, 0, 0], 1, 99999, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Rakshasa Blade (FFXV)",
+    "special": {
+        "name": "Two Thousand Year Old Grudge",
+        "icon": "ability_77.png",
+        "compendium_id": 12837,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Dark physical damage by 10% to caster for 99999 turns"],
+            ["Increase Dark magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [0, 0, 0, 0, 0, 0, 0, 10], 1, 99999, 0]],
+            [0, 3, 149, [1, [0, 0, 0, 0, 0, 0, 0, 10], 1, 99999, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Balmung (FFXV)",
+    "special": {
+        "name": "Guide to the Light",
+        "icon": "ability_77.png",
+        "compendium_id": 12834,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Light physical damage by 10% to caster for 99999 turns"],
+            ["Increase Light magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [0, 0, 0, 0, 0, 0, 10, 0], 1, 99999, 0]],
+            [0, 3, 149, [1, [0, 0, 0, 0, 0, 0, 10, 0], 1, 99999, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Tempest Rod",
+    "special": {
+        "name": "As the Wind Blows",
+        "icon": "ability_91.png",
+        "compendium_id": 10804,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [40, 40]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Wind physical damage by 10% to caster for 99999 turns"],
+            ["Increase Wind magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [0, 0, 0, 0, 10, 0, 0, 0], 1, 99999, 1]],
+            [0, 3, 149, [1, [0, 0, 0, 0, 10, 0, 0, 0], 1, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Astral Rod",
+    "special": {
+        "name": "Rod of Souls",
+        "icon": "ability_63.png",
+        "compendium_id": 10263,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase MAG by 200% for one turn to caster"],
+            ["Use Rod of Souls (512831) next turn on caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [0, 0, 200, 0, 1, 1, 0]],
+            [0, 3, 132, [512831, 1, 1, 100, 0, 5]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Shield of Light",
+    "special": {
+        "name": "Sentinel",
+        "icon": "ability_43.png",
+        "compendium_id": 6000,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken from physical attacks taken by 10% to caster for 9999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 18, [10, 9999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Obliterating Crimson Saber",
+    "special": {
+        "name": "Power of the Sun",
+        "icon": "ability_77.png",
+        "compendium_id": 9750,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Fire physical damage by 10% to caster for 99999 turns"],
+            ["Increase Fire magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [10, 0, 0, 0, 0, 0, 0, 0], 1, 99999, 0]],
+            [0, 3, 149, [1, [10, 0, 0, 0, 0, 0, 0, 0], 1, 99999, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Cursed Shield (FFVI)",
+    "special": {
+        "name": "Accursed Fate",
+        "icon": "ability_14.png",
+        "compendium_id": 5745,
+        "rarity": 7,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 5,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Inflict Poison and Silence (100%) on caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 6, [100, 0, 0, 100, 0, 0, 0, 0, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Sword of Kings",
+    "special": {
+        "name": "Treaty-Blade",
+        "icon": "ability_43.png",
+        "compendium_id": 9272,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 25% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [25, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Emperor's Rod",
+    "special": {
+        "name": "700-Year Dictator",
+        "icon": "ability_77.png",
+        "compendium_id": 13518,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase MAG by 300% for one turn to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [0, 0, 300, 0, 1, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Brumal Cores",
+    "special": {
+        "name": "Angel's Magic",
+        "icon": "ability_9.png",
+        "compendium_id": 9345,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Fire and Light physical damage by 10% to caster for 99999 turns"],
+            ["Increase Fire and Light magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [10, 0, 0, 0, 0, 0, 10, 0], 1, 99999, 0]],
+            [0, 3, 149, [1, [10, 0, 0, 0, 0, 0, 10, 0], 1, 99999, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Rakshasa Blade (FFXV)",
+    "special": {
+        "name": "Two Thousand Year Old Grudge",
+        "icon": "ability_77.png",
+        "compendium_id": 12837,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Dark physical damage by 10% to caster for 99999 turns"],
+            ["Increase Dark magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [0, 0, 0, 0, 0, 0, 0, 10], 1, 99999, 0]],
+            [0, 3, 149, [1, [0, 0, 0, 0, 0, 0, 0, 10], 1, 99999, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Black Tekko - Yin-Yang Cloth",
+    "special": {
+        "name": "Inexhaustible Spirit",
+        "icon": "ability_91.png",
+        "compendium_id": 4557,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [1],
+        "attack_damage": [
+            [100]
+        ],
+        "attack_frames": [
+            [60]
+        ],
+        "effect_frames": [
+            [40, 40]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK and MAG by 80% for 99999 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [80, 0, 80, 0, 99999, 1, 0]]
+        ],
+        "requirements": ["UNIT_ID", [100019105]]
+    }
+}, {
+    "name": "Obliterating Crimson Saber",
+    "special": {
+        "name": "Power of the Sun",
+        "icon": "ability_77.png",
+        "compendium_id": 9750,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Fire physical damage by 10% to caster for 99999 turns"],
+            ["Increase Fire magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [10, 0, 0, 0, 0, 0, 0, 0], 1, 99999, 0]],
+            [0, 3, 149, [1, [10, 0, 0, 0, 0, 0, 0, 0], 1, 99999, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Scarlet Glove",
+    "special": {
+        "name": "Beat Up Preparations",
+        "icon": "ability_63.png",
+        "compendium_id": 10800,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK by 250% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [250, 0, 0, 0, 3, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Poppy's Passionate Paintbrush",
+    "special": {
+        "name": "Happy Little Painting",
+        "icon": "ability_9.png",
+        "compendium_id": 8857,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Water, Wind and Light physical damage by 10% to caster for 99999 turns"],
+            ["Increase Water, Wind and Light magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [0, 0, 0, 10, 10, 0, 10, 0], 1, 99999, 0]],
+            [0, 3, 149, [1, [0, 0, 0, 10, 10, 0, 10, 0], 1, 99999, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Saintly Castle",
+    "special": {
+        "name": "Imbued with the Sacred Castle's Might",
+        "icon": "ability_43.png",
+        "compendium_id": 7699,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by 30% to caster for 99999 turns (can not be removed)"]
+        ],
+        "effects_raw": [
+            [0, 3, 101, [30, 99999, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Impenetrable Pendant",
+    "special": {
+        "name": "Protector Pendant",
+        "icon": "ability_40.png",
+        "compendium_id": 3719,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken from physical attacks taken by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 18, [10, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Behemoth Suit",
+    "special": {
+        "name": "Rage Beast's Protection",
+        "icon": "ability_77.png",
+        "compendium_id": 9280,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce physical damage from Beasts (10%) done to caster for 99999 turns"],
+            ["Reduce magic damage from Beasts (10%) done to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 153, [
+                [1, 10], -1, -1, -1, -1, -1, 0, 99999, 1
+            ]],
+            [0, 3, 154, [
+                [1, 10], -1, -1, -1, -1, -1, 0, 99999, 1
+            ]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Curse Ring (FFVII)",
+    "special": {
+        "name": "Impending Death",
+        "icon": "ability_77.png",
+        "compendium_id": 4944,
+        "rarity": 5,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Fixed damage (2000) to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 41, [2000, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Protect Ring (FFVII)",
+    "special": {
+        "name": "Protect Ring",
+        "icon": "ability_40.png",
+        "compendium_id": 11020,
+        "rarity": 7,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken from physical attacks taken by 5% to caster for 99999 turns"],
+            ["Reduce damage taken by magic attacks by 5% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 18, [5, 99999, 1]],
+            [0, 3, 19, [5, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Rinora's Conductor Uniform",
+    "special": {
+        "name": "A Mother's Love",
+        "icon": "ability_77.png",
+        "compendium_id": 9885,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce physical damage from Machinas (10%) done to caster for 99999 turns"],
+            ["Reduce magic damage from Machinas (10%) done to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 153, [
+                [6, 10], -1, -1, -1, -1, -1, 0, 99999, 1
+            ]],
+            [0, 3, 154, [
+                [6, 10], -1, -1, -1, -1, -1, 0, 99999, 1
+            ]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Antiquated Uniform",
+    "special": {
+        "name": "Playing With Puzzles",
+        "icon": "ability_97.png",
+        "compendium_id": 10798,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Dodge 1 physical attacks for 4 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 54, [1, 4, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Giant's Gloves (FFI)",
+    "special": {
+        "name": "Saber",
+        "icon": "ability_91.png",
+        "compendium_id": 6002,
+        "rarity": 6,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK by 60% for 9999 turns to caster (can not be removed)"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [60, 0, 0, 0, 9999, 1, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Vossler's Gauntlets",
+    "special": {
+        "name": "Unsullied Pride",
+        "icon": "ability_43.png",
+        "compendium_id": 9273,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [10, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Calming Garb",
+    "special": {
+        "name": "Reflexive Defense",
+        "icon": "ability_97.png",
+        "compendium_id": 3590,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Dodge 1 physical attacks for 99999 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 54, [1, 99999]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Oracle's Codex+",
+    "special": {
+        "name": "Wild Card",
+        "icon": "ability_97.png",
+        "compendium_id": 8705,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Dodge 1 physical attacks for 2 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 54, [1, 2, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Vossler's Gauntlets",
+    "special": {
+        "name": "Unsullied Pride",
+        "icon": "ability_43.png",
+        "compendium_id": 9273,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [10, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Giant's Gloves (FFI)",
+    "special": {
+        "name": "Saber",
+        "icon": "ability_91.png",
+        "compendium_id": 6002,
+        "rarity": 6,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK by 60% for 9999 turns to caster (can not be removed)"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [60, 0, 0, 0, 9999, 1, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Dragon's Brush",
+    "special": {
+        "name": "Spirit of Calligraphy",
+        "icon": "ability_63.png",
+        "compendium_id": 50077,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [1],
+        "attack_damage": [
+            [100]
+        ],
+        "attack_frames": [
+            [42]
+        ],
+        "effect_frames": [
+            [40, 40]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK by 240% for 3 turns to caster"],
+            ["Increase LB gauge by 7 to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [240, 0, 0, 0, 3, 1, 0]],
+            [0, 3, 125, [700, 700]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Giant's Gloves (FFI)",
+    "special": {
+        "name": "Saber",
+        "icon": "ability_91.png",
+        "compendium_id": 6002,
+        "rarity": 6,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK by 60% for 9999 turns to caster (can not be removed)"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [60, 0, 0, 0, 9999, 1, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Third Nirvana",
+    "special": {
+        "name": "Imperial Heir",
+        "icon": "global_ability_10105.png",
+        "compendium_id": 87028,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Fill esper gauge by 5"]
+        ],
+        "effects_raw": [
+            [0, 3, 32, [5, 5]]
+        ],
+        "requirements": ["UNIT_ID", [401008705, 401008706, 401008707]]
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Giant's Gloves (FFI)",
+    "special": {
+        "name": "Saber",
+        "icon": "ability_91.png",
+        "compendium_id": 6002,
+        "rarity": 6,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK by 60% for 9999 turns to caster (can not be removed)"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [60, 0, 0, 0, 9999, 1, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Anti-Virus Software",
+    "special": {
+        "name": "Installation Program",
+        "icon": "global_ability_10086.png",
+        "compendium_id": 86539,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase break resistance to ATK, DEF, MAG and SPR by 100% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 89, [100, 100, 100, 100, 0, 0, 3, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Daisy's Armguard",
+    "special": {
+        "name": "Power to Fight the Hollow",
+        "icon": "ability_43.png",
+        "compendium_id": 8341,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by magic attacks by 30% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 19, [30, 99999, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Dragontouched Cloak++",
+    "special": {
+        "name": "Ancestor's Protection",
+        "icon": "ability_77.png",
+        "compendium_id": 89503,
+        "rarity": 7,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [40, 40]
+        ],
+        "move_type": 4,
+        "motion_type": 4,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce physical damage from Dragons (15%) done to caster for 9999 turns"],
+            ["Reduce magic damage from Dragons (15%) done to caster for 9999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 153, [
+                [7, 15], -1, -1, -1, -1, -1, 0, 9999, 1
+            ]],
+            [0, 3, 154, [
+                [7, 15], -1, -1, -1, -1, -1, 0, 9999, 1
+            ]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Anti-Decay Amulet",
+    "special": {
+        "name": "Tentacle Tolerance",
+        "icon": "ability_68.png",
+        "compendium_id": 87915,
+        "rarity": 7,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase break resistance to ATK, DEF, MAG and SPR by 100% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [1, 3, 89, [100, 100, 100, 100, 0, 0, 3, 3]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Kupo Sword",
+    "special": {
+        "name": "Mighty Moogle",
+        "icon": "ability_63.png",
+        "compendium_id": 88162,
+        "rarity": 7,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK by 250% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [250, 0, 0, 0, 3, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Hisame Clan Shuriken",
+    "special": {
+        "name": "Secret of the Hisame",
+        "icon": "ability_15.png",
+        "compendium_id": 87290,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Ice physical damage by 10% to caster for 99999 turns"],
+            ["Increase Ice magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [0, 10, 0, 0, 0, 0, 0, 0], 1, 99999, 0]],
+            [0, 3, 149, [1, [0, 10, 0, 0, 0, 0, 0, 0], 1, 99999, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Rico's Wingsuit",
+    "special": {
+        "name": "Agility",
+        "icon": "ability_64.png",
+        "compendium_id": 9912,
+        "rarity": 4,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Dodge 1 physical attacks for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 54, [1, 3]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Guardian's Celestite Chainmail of Will",
+    "special": {
+        "name": "Guardian's Tenet",
+        "icon": "ability_99.png",
+        "compendium_id": 89914,
+        "rarity": 10,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken by 50% to caster for 3 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 101, [50, 3, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Giant's Gloves (FFI)",
+    "special": {
+        "name": "Saber",
+        "icon": "ability_91.png",
+        "compendium_id": 6002,
+        "rarity": 6,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK by 60% for 9999 turns to caster (can not be removed)"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [60, 0, 0, 0, 9999, 1, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Cozy Scarf",
+    "special": {
+        "name": "Holiday Protection",
+        "icon": "ability_39.png",
+        "compendium_id": 90045,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce physical damage from Stones and Demons (20%) done to caster for 9999 turns"],
+            ["Reduce magic damage from Stones and Demons (20%) done to caster for 9999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 153, [
+                [10, 20],
+                [4, 20], -1, -1, -1, -1, 0, 9999, 1
+            ]],
+            [0, 3, 154, [
+                [10, 20],
+                [4, 20], -1, -1, -1, -1, 0, 9999, 1
+            ]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Opposition",
+    "special": {
+        "name": "Opposition",
+        "icon": "ability_63.png",
+        "compendium_id": 3744,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [40, 40]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK, DEF, MAG and SPR by 150% for one turn to caster"],
+            ["Increase ATK, DEF, MAG and SPR by 125% for 2 turns to caster"],
+            ["Increase ATK, DEF, MAG and SPR by 100% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [150, 150, 150, 150, 1, 1, 0]],
+            [0, 3, 3, [125, 125, 125, 125, 2, 1, 0]],
+            [0, 3, 3, [100, 100, 100, 100, 3, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Cozy Scarf",
+    "special": {
+        "name": "Holiday Protection",
+        "icon": "ability_39.png",
+        "compendium_id": 90045,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce physical damage from Stones and Demons (20%) done to caster for 9999 turns"],
+            ["Reduce magic damage from Stones and Demons (20%) done to caster for 9999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 153, [
+                [10, 20],
+                [4, 20], -1, -1, -1, -1, 0, 9999, 1
+            ]],
+            [0, 3, 154, [
+                [10, 20],
+                [4, 20], -1, -1, -1, -1, 0, 9999, 1
+            ]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Anti-Malice Amulet",
+    "special": {
+        "name": "Tentacle Countervail",
+        "icon": "ability_39.png",
+        "compendium_id": 89742,
+        "rarity": 10,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce physical damage from Aquatics and Demons (10%) done to caster for 9999 turns"],
+            ["Reduce magic damage from Aquatics and Demons (10%) done to caster for 9999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 153, [
+                [3, 10],
+                [4, 10], -1, -1, -1, -1, 0, 9999, 1
+            ]],
+            [0, 3, 154, [
+                [3, 10],
+                [4, 10], -1, -1, -1, -1, 0, 9999, 1
+            ]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Opposition",
+    "special": {
+        "name": "Opposition",
+        "icon": "ability_63.png",
+        "compendium_id": 3744,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [40, 40]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK, DEF, MAG and SPR by 150% for one turn to caster"],
+            ["Increase ATK, DEF, MAG and SPR by 125% for 2 turns to caster"],
+            ["Increase ATK, DEF, MAG and SPR by 100% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [150, 150, 150, 150, 1, 1, 0]],
+            [0, 3, 3, [125, 125, 125, 125, 2, 1, 0]],
+            [0, 3, 3, [100, 100, 100, 100, 3, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Opposition",
+    "special": {
+        "name": "Opposition",
+        "icon": "ability_63.png",
+        "compendium_id": 3744,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [40, 40]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK, DEF, MAG and SPR by 150% for one turn to caster"],
+            ["Increase ATK, DEF, MAG and SPR by 125% for 2 turns to caster"],
+            ["Increase ATK, DEF, MAG and SPR by 100% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [150, 150, 150, 150, 1, 1, 0]],
+            [0, 3, 3, [125, 125, 125, 125, 2, 1, 0]],
+            [0, 3, 3, [100, 100, 100, 100, 3, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Opposition",
+    "special": {
+        "name": "Opposition",
+        "icon": "ability_63.png",
+        "compendium_id": 3744,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [40, 40]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK, DEF, MAG and SPR by 150% for one turn to caster"],
+            ["Increase ATK, DEF, MAG and SPR by 125% for 2 turns to caster"],
+            ["Increase ATK, DEF, MAG and SPR by 100% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [150, 150, 150, 150, 1, 1, 0]],
+            [0, 3, 3, [125, 125, 125, 125, 2, 1, 0]],
+            [0, 3, 3, [100, 100, 100, 100, 3, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Stubborn Ox",
+    "special": {
+        "name": "Stubborn Ox",
+        "icon": "ability_63.png",
+        "compendium_id": 10762,
+        "rarity": 7,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK by 80% for 99999 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [80, 0, 0, 0, 99999, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Spiritualism",
+    "special": {
+        "name": "Distress Signal",
+        "icon": "ability_91.png",
+        "compendium_id": 85612,
+        "rarity": 5,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase MAG and SPR by 20% for this fight to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [0, 0, 20, 20, -1, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Call of the Wild",
+    "special": {
+        "name": "Wild Heart",
+        "icon": "ability_4.png",
+        "compendium_id": 10439,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["No effect"],
+            ["Increase LB gauge by 8 to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 24, [0, 0, 0, 0, 0, 0]],
+            [0, 3, 125, [800, 800]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "One's True Desire",
+    "special": {
+        "name": "Solid Recovery",
+        "icon": "ability_43.png",
+        "compendium_id": 12688,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Reduce damage taken from physical attacks taken by 25% to caster for 3 turns"],
+            ["Reduce damage taken by magic attacks by 25% to caster for 3 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 18, [25, 3, 1, 0]],
+            [0, 3, 19, [25, 3, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Overclocked Cannon",
+    "special": {
+        "name": "Overclocked Cannon",
+        "icon": "ability_63.png",
+        "compendium_id": 89418,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [40, 40]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": ["Wind"],
+        "effects": [
+            ["Increase LB modifier of  by 80x to caster for 9999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 171, [0, 1, 0, 8000, 9999, 916348, 0]]
+        ],
+        "requirements": ["UNIT_ID", [401011607, 401011617]]
+    }
+}, {
+    "name": "バトラーケーン",
+    "special": {
+        "name": "エクセレントバトラー",
+        "icon": "ability_63.png",
+        "compendium_id": 9136,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK by 250% for one turn to caster (can not be removed)"],
+            ["Use エクセレントバトラー (512231) next turn on caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [250, 0, 0, 0, 1, 0, 1]],
+            [0, 3, 132, [512231, 1, 1, 100, 0, 20, 1]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner+",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner+",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner+",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "King of Lucis' Character",
+    "special": {
+        "name": "King of Lucis' Character",
+        "icon": "ability_77.png",
+        "compendium_id": 6593,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase DEF and SPR by 80% for 99999 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [0, 80, 0, 80, 99999, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Overclocked Cannon",
+    "special": {
+        "name": "Overclocked Cannon",
+        "icon": "ability_63.png",
+        "compendium_id": 89418,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [40, 40]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": ["Wind"],
+        "effects": [
+            ["Increase LB modifier of  by 80x to caster for 9999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 171, [0, 1, 0, 8000, 9999, 916348, 0]]
+        ],
+        "requirements": ["UNIT_ID", [401011607, 401011617]]
+    }
+}, {
+    "name": "Executioner+",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner+",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "ラブリーミラーベア",
+    "special": {
+        "name": "最も美しい存在の写し身",
+        "icon": "ability_97.png",
+        "compendium_id": 8894,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Dodge 1 physical attacks for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 54, [1, 3, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner+",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "絶・イルカの浮き輪",
+    "special": {
+        "name": "マリンバカンス++",
+        "icon": "ability_18.png",
+        "compendium_id": 10707,
+        "rarity": 8,
+        "cost": {},
+        "attack_count": [1],
+        "attack_damage": [
+            [100]
+        ],
+        "attack_frames": [
+            [1]
+        ],
+        "effect_frames": [
+            [0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase resistance to Water by 70% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 33, [0, 0, 0, 70, 0, 0, 0, 0, 1, 3]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "エルナトアーム",
+    "special": {
+        "name": "エルナトアーム",
+        "icon": "ability_77.png",
+        "compendium_id": 6672,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0, 0]
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase ATK by 250% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 3, [250, 0, 0, 0, 3, 1, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "サイケデリックアンギュラー",
+    "special": {
+        "name": "トリコロールコンポジション",
+        "icon": "ability_9.png",
+        "compendium_id": 8859,
+        "rarity": 9,
+        "cost": {},
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            [0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase Ice, Wind and Light physical damage by 10% to caster for 99999 turns"],
+            ["Increase Ice, Wind and Light magic damage by 10% to caster for 99999 turns"]
+        ],
+        "effects_raw": [
+            [0, 3, 149, [0, [0, 10, 0, 0, 10, 0, 10, 0], 1, 99999, 0]],
+            [0, 3, 149, [1, [0, 10, 0, 0, 10, 0, 10, 0], 1, 99999, 0]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "Executioner+",
+    "special": {
+        "name": "or not to [B]e",
+        "icon": "ability_38.png",
+        "compendium_id": 5052,
+        "rarity": 8,
+        "cost": {
+            "MP": 46
+        },
+        "attack_count": [0],
+        "attack_damage": [
+            []
+        ],
+        "attack_frames": [
+            []
+        ],
+        "effect_frames": [
+            []
+        ],
+        "move_type": 4,
+        "motion_type": 3,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Gain or not to [B]e (230015)"]
+        ],
+        "effects_raw": [
+            [0, 3, 100, [2, 230015, 99999, -1, 1, 101]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "真・イルカの浮き輪",
+    "special": {
+        "name": "マリンバカンス+",
+        "icon": "ability_18.png",
+        "compendium_id": 10706,
+        "rarity": 7,
+        "cost": {},
+        "attack_count": [1],
+        "attack_damage": [
+            [100]
+        ],
+        "attack_frames": [
+            [1]
+        ],
+        "effect_frames": [
+            [0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase resistance to Water by 50% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 33, [0, 0, 0, 50, 0, 0, 0, 0, 1, 3]]
+        ],
+        "requirements": null
+    }
+}, {
+    "name": "イルカの浮き輪",
+    "special": {
+        "name": "マリンバカンス",
+        "icon": "ability_18.png",
+        "compendium_id": 10705,
+        "rarity": 6,
+        "cost": {},
+        "attack_count": [1],
+        "attack_damage": [
+            [100]
+        ],
+        "attack_frames": [
+            [1]
+        ],
+        "effect_frames": [
+            [0]
+        ],
+        "move_type": 4,
+        "motion_type": 2,
+        "effect_type": "Default",
+        "attack_type": "None",
+        "element_inflict": null,
+        "effects": [
+            ["Increase resistance to Water by 30% for 3 turns to caster"]
+        ],
+        "effects_raw": [
+            [0, 3, 33, [0, 0, 0, 30, 0, 0, 0, 0, 1, 3]]
+        ],
+        "requirements": null
+    }
+}]
