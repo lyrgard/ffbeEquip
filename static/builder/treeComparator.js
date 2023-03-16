@@ -5,71 +5,29 @@ class TreeComparator {
     }
 
     static insertItemIntoTree(treeItem, newTreeItem, involvedStats, enemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding = true, includeDualWielding = true, currentDepth = 0) {
-        var comparison = comparisonFunction(treeItem, newTreeItem, involvedStats, enemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding);
-        switch (comparison) {
-            case "strictlyWorse":
-                // Entry is strictly worse than treeItem
-                if (currentDepth < maxDepth) {
-                    var inserted = false
-                    for (var index = 0, len = treeItem.children.length; index < len; index++) {
-                        inserted = inserted || TreeComparator.insertItemIntoTree(treeItem.children[index], newTreeItem, involvedStats, enemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding, includeDualWielding, depthFunction(treeItem.children[index], currentDepth));
-                    }
-
-                    if (!inserted) {
-                        newTreeItem.parent = treeItem;
-                        treeItem.children.push(newTreeItem);
-                        //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") under " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
-                    }
-                    if (treeItem.children.indexOf(newTreeItem) != -1) {
-                        var indexToRemove = [];
-                        for (var index = 0, len = treeItem.children.length; index < len; index++) {
-                            var oldTreeItem = treeItem.children[index]
-                            if (oldTreeItem != newTreeItem && comparisonFunction(oldTreeItem, newTreeItem, involvedStats, enemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding) == "strictlyBetter") {
-                                indexToRemove.push(index);
-                                TreeComparator.insertItemIntoTree(newTreeItem, oldTreeItem, involvedStats, enemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding, includeDualWielding, depthFunction(newTreeItem, currentDepth));
-                            }
-                        }
-                        for (var index = indexToRemove.length - 1; index >= 0; index--) {
-                            treeItem.children.splice(indexToRemove[index], 1);
-                        }
-                    }
-                }
-                break;
-            case "equivalent":
-                // entry is equivalent to treeItem
-                treeItem.equivalents.push(newTreeItem.equivalents[0]);
-
-                treeItem.equivalents.sort(function(entry1, entry2) {
-                    if (entry1.owned && !entry2.owned) {
-                        return -1;
-                    } else if (!entry1.owned && entry2.owned) {
-                        return 1;
-                    } else {
-                        if (entry1.defenseValue == entry2.defenseValue) {
-                            return entry2.available - entry1.available;    
-                        } else {
-                            return entry2.defenseValue - entry1.defenseValue;    
-                        }
-                    }   
-                });
-                //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") as equivalent of " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
-                break;
-            case "strictlyBetter":
-                // entry is strictly better than treeItem
-                var parentDepth = currentDepth - depthFunction(treeItem, 0);
-                newTreeItem.parent = treeItem.parent;
-                var index = treeItem.parent.children.indexOf(treeItem);
-                treeItem.parent.children[index] = newTreeItem;
-                newTreeItem.children = [treeItem];
-                treeItem.parent = newTreeItem;
-                TreeComparator.cutUnderMaxDepth(newTreeItem, maxDepth, depthFunction, depthFunction(newTreeItem, parentDepth));
-                //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") in place of " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
-                break;
-            case "sameLevel":
-                // Should be inserted at the same level.
-                return false;
+        // Use a binary search to find the index where the item should be inserted
+        let low = 0;
+        let high = treeItem.children.length - 1;
+        let index = -1;
+        while (low <= high) {
+          let mid = Math.floor((low + high) / 2);
+          let result = comparisonFunction(treeItem.children[mid]);
+          if (result === "strictlyBetter") {
+            // The item should be inserted before the mid element
+            high = mid - 1;
+            index = mid;
+          } else if (result === "strictlyWorse") {
+            // The item should be inserted after the mid element
+            low = mid + 1;
+            index = low;
+          } else {
+            // The item is equal to the mid element
+            index = mid;
+            break;
+          }
         }
-        return true;
+        // Insert the item at the found index
+        treeItem.children.splice(index, 0, treeItem);
     }
     
     static cutUnderMaxDepth(treeItem, maxDepth, depthFunction, currentDepth) {

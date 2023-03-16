@@ -112,51 +112,98 @@ class BuildOptimizer {
         });
         return selectedEspers;
     }
+
+    preprocessDataWithCondition() {
+        var result = {};
     
-    selectItems(type, typeCombination, fixedItems, forcedItems, dataWithCondition) {
-        
-        var itemsOfType = this.dataByType[type];
-        var dataWithoutConditionIds = [];
-        for (var index = itemsOfType.length; index--; ) {
-            if (!dataWithoutConditionIds.includes(itemsOfType[index].item.id)) {
-                dataWithoutConditionIds.push(itemsOfType[index].item.id);
-            }
-        }
-        var tempResult = itemsOfType.slice();
-        var dataWithConditionKeyAlreadyAddedOwned = [];
-        var dataWithConditionKeyAlreadyAddedNotOwned = [];
         for (var index = 0, len = this.dataWithCondition.length; index < len; index++) {
             var entry = this.dataWithCondition[index];
             var item = entry.item;
-            if (item.type == type && ((entry.owned && !dataWithConditionKeyAlreadyAddedOwned.includes(item.id)) || (!entry.owned && !dataWithConditionKeyAlreadyAddedNotOwned.includes(item.id))))  {
-                var allFound = true;
-                for (var conditionIndex in item.equipedConditions) {
-                    let condition = item.equipedConditions[conditionIndex]
-                    if (!typeCombination.includes(condition)) {
-                        allFound = false;
-                        break;
-                    }
+            var type = item.type;
+    
+            if (!result[type]) {
+                result[type] = {
+                    owned: [],
+                    notOwned: []
+                };
+            }
+    
+            if (entry.owned) {
+                result[type].owned.push(entry);
+            } else {
+                result[type].notOwned.push(entry);
+            }
+        }
+    
+        return result;
+    }
+    
+    selectItems(type, typeCombination, fixedItems, forcedItems, dataWithCondition) {
+        forcedItems = new Set(forcedItems); // convert forcedItems to a Set
+        var itemsOfType = this.dataByType[type];
+        var dataWithoutConditionIds = new Set();
+        for (var index = itemsOfType.length; index--; ) {
+            if (!dataWithoutConditionIds.has(itemsOfType[index].item.id)) {
+                dataWithoutConditionIds.add(itemsOfType[index].item.id);
+            }
+        }
+        var tempResult = itemsOfType.slice();
+        var dataWithConditionKeyAlreadyAddedOwned = new Set();
+        var dataWithConditionKeyAlreadyAddedNotOwned = new Set();
+    
+        // Preprocess the dataWithCondition array
+        var preprocessedDataWithCondition = this.preprocessDataWithCondition();
+        var dataWithConditionForType = preprocessedDataWithCondition[type] || { owned: [], notOwned: [] };
+    
+        for (var index = 0, len = dataWithConditionForType.owned.length; index < len; index++) {
+            var entry = dataWithConditionForType.owned[index];
+            var item = entry.item;
+            var allFound = true;
+            for (var conditionIndex in item.equipedConditions) {
+                let condition = item.equipedConditions[conditionIndex];
+                if (!typeCombination.includes(condition)) {
+                    allFound = false;
+                    break;
                 }
-                if (allFound) {
-                    if (dataWithoutConditionIds && dataWithoutConditionIds.includes(entry.item.id)) {
-                        // If we add a condition items that have a none conditioned version alreadty selected, remove that second version
-                        for (var alreadyAddedIndex = tempResult.length; alreadyAddedIndex--;) {
-                            if (tempResult[alreadyAddedIndex].item.id == entry.item.id) {
-                                tempResult.splice(alreadyAddedIndex,1);
-                                break;    
-                            }
+            }
+            if (allFound) {
+                if (dataWithoutConditionIds && dataWithoutConditionIds.has(entry.item.id)) {
+                    for (var alreadyAddedIndex = tempResult.length; alreadyAddedIndex--;) {
+                        if (tempResult[alreadyAddedIndex].item.id == entry.item.id) {
+                            tempResult.splice(alreadyAddedIndex,1);
+                            break;    
                         }
                     }
-
-                    tempResult.push(entry);
-                    if (entry.owned) {
-                        dataWithConditionKeyAlreadyAddedOwned.push(item.id);    
-                    } else {
-                        dataWithConditionKeyAlreadyAddedNotOwned.push(item.id);    
-                    }
-                    
-
                 }
+    
+                tempResult.push(entry);
+                dataWithConditionKeyAlreadyAddedOwned.add(item.id);
+            }
+        }
+    
+        for (var index = 0, len = dataWithConditionForType.notOwned.length; index < len; index++) {
+            var entry = dataWithConditionForType.notOwned[index];
+            var item = entry.item;
+            var allFound = true;
+            for (var conditionIndex in item.equipedConditions) {
+                let condition = item.equipedConditions[conditionIndex];
+                if (!typeCombination.includes(condition)) {
+                    allFound = false;
+                    break;
+                }
+            }
+            if (allFound) {
+                if (dataWithoutConditionIds && dataWithoutConditionIds.has(entry.item.id)) {
+                    for (var alreadyAddedIndex = tempResult.length; alreadyAddedIndex--;) {
+                        if (tempResult[alreadyAddedIndex].item.id == entry.item.id) {
+                            tempResult.splice(alreadyAddedIndex,1);
+                            break;    
+                        }
+                    }
+                }
+    
+                tempResult.push(entry);
+                dataWithConditionKeyAlreadyAddedNotOwned.add(item.id);
             }
         }
         
@@ -182,7 +229,7 @@ class BuildOptimizer {
                 continue; // ignore 2 handed weapon if we are in a DW build, or a weapon was already fixed
             }
             let available = entry.available;
-            if (forcedItems.includes(entry.item.id)) {
+            if (forcedItems.has(entry.item.id)) {
                 available--;
                 if (available <= 0) {
                     continue;

@@ -1698,6 +1698,9 @@ function isApplicable(item, unit) {
     return true;
 }
 
+const elementSet = new Set(elementList);
+const typeSet = new Set(typeList);
+
 function areConditionOK(item, equiped, level = 0, exLevel) {
     if (level && item.levelCondition && item.levelCondition > level) {
         return false;
@@ -1709,7 +1712,7 @@ function areConditionOK(item, equiped, level = 0, exLevel) {
         }
     }
     if (item.equipedConditions) {
-        for (var conditionIndex = item.equipedConditions.length; conditionIndex--;) {
+        for (var conditionIndex = 0, len = item.equipedConditions.length; conditionIndex < len; conditionIndex++) {
             if (!isEquipedConditionOK(equiped, item.equipedConditions[conditionIndex])) {
                 return false;
             }
@@ -1722,39 +1725,32 @@ function isEquipedConditionOK(equiped, condition) {
     if (Array.isArray(condition)) {
         return condition.some(c => isEquipedConditionOK(equiped, c));
     } else {
-        if (elementList.includes(condition)) {
-            if ((equiped[0] && equiped[0].element && equiped[0].element.includes(condition)) || (equiped[1] && equiped[1].element && equiped[1].element.includes(condition))) {
-                return true;
-            }
-        } else if (typeList.includes(condition)) {
-            for (var equipedIndex = 0; equipedIndex < 11; equipedIndex++) {
-                if (equiped[equipedIndex] && equiped[equipedIndex].type == condition) {
-                    return true;
-                }
-            }
-        } else if (condition == "unarmed") {
-            if (!equiped[0] && ! equiped[1]) {
-                return true;
-            }
-        } else {
-            for (var equipedIndex = 0; equipedIndex < 11; equipedIndex++) {
-                if (equiped[equipedIndex] && equiped[equipedIndex].id) {
-                    if (equiped[equipedIndex].id.toString().includes("-")) {
-                        let cardLevelId = equiped[equipedIndex].id.split('-');
-                        if (equiped[equipedIndex] && cardLevelId[0] == condition) {
-                            return true;
-                        }
-                    } else {
-                        if (equiped[equipedIndex] && equiped[equipedIndex].id == condition) {
-                            return true;
+        switch (true) {
+            case elementSet.has(condition):
+                return (equiped[0] && equiped[0].element && equiped[0].element.includes(condition)) || (equiped[1] && equiped[1].element && equiped[1].element.includes(condition));
+            case typeSet.has(condition):
+                return equiped.some((equipment, index) => {
+                    if (equipment && equipment.type === condition) {
+                        return true;
+                    }
+                });
+            case condition === "unarmed":
+                return !equiped[0] && !equiped[1];
+            default:
+                return equiped.some((equipment, index) => {
+                    if (equipment && equipment.id) {
+                        if (equipment.id.toString().includes("-")) {
+                            let cardLevelId = equipment.id.split('-');
+                            return cardLevelId[0] === condition;
+                        } else {
+                            return equipment.id === condition;
                         }
                     }
-                }
-            }
+                });
         }
     }
-    return false;
 }
+
 
 function findBestItemVersion(build, item, itemWithVariation, unit) {
     var itemVersions = itemWithVariation[item.id];

@@ -459,6 +459,11 @@ function checkForJapanese(inputString) {
 function treatItem(items, itemId, result, skills) {
     var itemIn = items[itemId];
 
+    // if itemIn.name includes Souls Joined then log it
+    if (itemIn.name && itemIn?.name.includes("Souls Joined")) {
+        console.log(itemIn.name);
+    }
+
     const excludedIds = ["405003400", "409013400", "504220290", "308003700", "409018100", "408003100", "301002800"];
     if (excludedIds.includes(itemId)) {
         return;
@@ -1336,32 +1341,6 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 24) {
         var drawAttacks = rawEffect[3][0];
         addStat(item, "drawAttacks", drawAttacks);
-
-    // Skill enhancement
-    } else if (rawEffect[2] == 73) {
-        if (!item.skillEnhancement) {
-            item.skillEnhancement = {};
-        }
-        if (Array.isArray(rawEffect[3][0])) {
-            // Skill List 
-            for (var i = rawEffect[3][0].length; i--;) {
-                addStat(item.skillEnhancement, rawEffect[3][0][i].toString(), rawEffect[3][3] / 100);
-            }
-        } else if (Array.isArray(rawEffect[3]) && parseInt(rawEffect[3][1])){
-            // All Abilities of Type
-            let type;
-            if (rawEffect[3][1] === 1) {
-                type = "allPhysicalAttacks"
-            } else if (rawEffect[3][1] === 2) {
-                type = "allMagicalAttacks"
-            } else {
-                console.log("NEW TYPE : " + rawEffect[3][1])
-            }
-            addStat(item.skillEnhancement, type, rawEffect[3][3] / 100);
-        } else {
-            addStat(item.skillEnhancement, rawEffect[3][0].toString(), rawEffect[3][3] / 100);
-        }    
-        
     // Break, stop and charm resistance with turn number
     } else if (rawEffect[2] == 55) {
         if (!item.resist) {
@@ -1434,7 +1413,63 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             item.startOfTurnSkills = [];
         }
         item.startOfTurnSkills.push({chance: rawEffect[3][1], skill:skill});
+    // Skill enhancement
+    } else if (rawEffect[2] == 73) {
+        if (!item.skillEnhancement) {
+            item.skillEnhancement = {};
+        }
+        if (Array.isArray(rawEffect[3][0])) {
+            // Skill List 
+            for (var i = rawEffect[3][0].length; i--;) {
+                addStat(item.skillEnhancement, rawEffect[3][0][i].toString(), rawEffect[3][3] / 100);
+            }
+        } else if (Array.isArray(rawEffect[3]) && parseInt(rawEffect[3][1])){
+            // All Abilities of Type
+            let type;
+            if (rawEffect[3][1] === 1) {
+                type = "allPhysicalAttacks"
+            } else if (rawEffect[3][1] === 2) {
+                type = "allMagicalAttacks"
+            } else {
+                console.log("NEW TYPE : " + rawEffect[3][1])
+            }
+            addStat(item.skillEnhancement, type, rawEffect[3][3] / 100);
+        } else {
+            addStat(item.skillEnhancement, rawEffect[3][0].toString(), rawEffect[3][3] / 100);
+        }    
+    } else if (rawEffect[0] == 0 && rawEffect[1] == 3 && rawEffect[2] == 75) {
+        // killers dependent on weapon type
+        if (!item.killers) {
+            item.killers = [];
+        }
 
+        if (!item.equipedConditions) {
+            item.equipedConditions = [];
+        }
+
+        // if the fourth element of the rawEffect is an array, the array contains the valid weapon types
+        if (Array.isArray(rawEffect[3][0])) {
+            // for each value in the array, get it's value in the typeMap
+            for (var i = rawEffect[3][0].length; i--;) {
+                var weaponType = typeMap[rawEffect[3][0][i]];
+                if (weaponType) {
+                    // if the weapoType is not already in the equipedConditions, add it
+                    if (item.equipedConditions.indexOf(weaponType) == -1) {
+                        item.equipedConditions.push(weaponType);
+                    }
+                } else {
+                    console.log("Weapon type not found", rawEffect[3][0][i]);
+                }
+            }
+        }
+
+        // value 1 of rawEffect[3] is the killer type
+        // values 2 and 3 of rawEffect[3] are the physial and magical percentages
+        // addKiller for each killer type
+        // raceID needs to be pulled from the raceMap
+        // addKiller(item, raceId, physicalPercent, magicalPercent))
+        addKiller(item, rawEffect[3][1], rawEffect[3][2], rawEffect[3][3]);
+        
         // Increase max chain coef
     } else if (rawEffect[2] == 98) {
         addStat(item, 'chainMastery', rawEffect[3][1]);

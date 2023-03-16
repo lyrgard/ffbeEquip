@@ -29,10 +29,12 @@ class TypeCombinationGenerator {
     
     generateTypeCombinations(forcedItem) {
         var combinations = [];
+        const baseForcedItems = forcedItem ? [forcedItem] : [];
 
         if (this.forceTmrAbility && !forcedItem) {
-            let tmrPinned = dataStorage.availableTmr && this.unitBuild.fixedItems.filter(i => i).some(i => i.id == dataStorage.availableTmr.id);
-            let stmrPinned = dataStorage.availableStmr && this.unitBuild.fixedItems.filter(i => i).some(i => i.id == dataStorage.availableStmr.id);
+            let tmrPinned = dataStorage.availableTmr && this.unitBuild.fixedItems.some(i => i && i.id === dataStorage.availableTmr.id);
+            let stmrPinned = dataStorage.availableStmr && this.unitBuild.fixedItems.some(i => i && i.id === dataStorage.availableStmr.id);
+
             if (!tmrPinned && !stmrPinned) {
                 if (dataStorage.availableTmr && !this.unitBuild.bannedEquipableTypes.includes(dataStorage.availableTmr.type)) {
                     combinations = combinations.concat(this.generateTypeCombinations(dataStorage.availableTmr));
@@ -44,30 +46,23 @@ class TypeCombinationGenerator {
             }
         }
 
-        let baseForcedItems;
         let forcedItemSlot = -1;
-        if (!forcedItem) {
-            baseForcedItems = [];
-        } else {
+        if (forcedItem) {
             forcedItemSlot = this.unitBuild.getItemSlotFor(forcedItem, this.forceDoubleHand);
-            if (forcedItemSlot == -1) {
+            if (forcedItemSlot === -1) {
                 return [];
-            } else {
-                this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
-                this.unitBuild.fixedItems[forcedItemSlot] = forcedItem;
             }
-            baseForcedItems = [forcedItem];
+            this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
+            this.unitBuild.fixedItems[forcedItemSlot] = forcedItem;
         }
 
-        var typeCombination = [null, null, null, null, null, null, null, null, null, null, null];
-        this.buildTypeCombination(0,typeCombination, combinations, baseForcedItems);
-        this.unitBuild.build.splice(0, 11, ...(this.unitBuild.fixedItems));
-        
-        if (!this.unitBuild.build[0] 
-            && !this.unitBuild.build[1] 
-            && this.unitBuild.unit.skills.some(skill => skill.equipedConditions && skill.equipedConditions.includes("unarmed"))) {
+        var typeCombination = Array(11).fill(null);
+        this.buildTypeCombination(0, typeCombination, combinations, baseForcedItems);
+        this.unitBuild.build.splice(0, 11, ...this.unitBuild.fixedItems);
+
+        if (!this.unitBuild.build[0] && !this.unitBuild.build[1] && this.unitBuild.unit.skills.some(skill => skill.equipedConditions && skill.equipedConditions.includes("unarmed"))) {
             // If no weapons are pinned and the unit has an "unarmed" passive, try combinations without weapons
-            this.buildTypeCombination(2,[null, null, null, null, null, null, null, null, null, null, null], combinations, baseForcedItems);
+            this.buildTypeCombination(2, Array(11).fill(null), combinations, baseForcedItems);
         }
 
         var unitPartialDualWield = this.unitBuild.getPartialDualWield();
