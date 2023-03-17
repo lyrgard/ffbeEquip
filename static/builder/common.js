@@ -44,25 +44,25 @@ const weaponBaseDamageVariance =
 
 const valuesToNotRoundDown = ["lbPerTurn", "chainMastery", "evoMag", "lbDamage"];
 
-function getValue(item, valuePath) {
+function getValue(item, valuePath, defaultValue = 0) {
+    var value = item[valuePath];
 
-    var value = item[valuePath]; // Item[atk] for instance.
-    
-    if (value == undefined) { // If there isn't a stat of that kind on this item
+    if (value === undefined) {
         if (valuePath.indexOf('.') > -1) {
-            value = getValueFromPath(item, valuePath); // evade.magical, evade.physical, resist|sleep.percent, resist|fire.percent for example.
+            value = getValueFromPath(item, valuePath);
         } else {
-            value = 0; // If we  have no idea what it is, value just equal zero for this stat.
+            value = defaultValue;
         }
-        item[valuePath] = value; // item.atk = value
+        item[valuePath] = value;
     }
-    
-    if (value.min && value.max) { // if it has a min and max, get the average.
+
+    if (value && value.min && value.max) {
         value = (value.min + value.max) / 2;
     }
 
     return value;
 }
+
 
 function getValueFromPath(item, valuePath) {
     var pathTokens = valuePath.split(".");
@@ -249,7 +249,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
         }
         if (unitBuild.involvedStats.includes("jumpDamage") && (isTwoHanded(itemAndPassives[0]) || isTwoHanded(itemAndPassives[1]))) {
             // variance override for two handed weapons and jumps
-            variance = {"min":2.3,"avg":2.45,"max":2.6};
+            variance = {"min":2.5,"avg":2.65,"max":2.8};
         }
 
         var switchWeapons = false;
@@ -483,8 +483,13 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
             coef += context.skillEnhancement["allMagicalAttacks"];
         }
         if (context.currentSkill && context.skillEnhancement["allPhysicalAttacks"] && formula.value.mechanism == "physical") {
+            
             coef += context.skillEnhancement["allPhysicalAttacks"];
         }
+        if (context.currentSkill && context.skillEnhancement["jumpDamage"] && formula.value.mechanism == "physical") {
+            coef += context.skillEnhancement["jumpDamage"];
+        }
+
         if (formula.value.stack) {
             if (context.stack.lastStackingSkillId != "any" && context.stack.lastStackingSkillId != context.currentSkill) {
                 context.stack.lastStackingSkillId == "any";

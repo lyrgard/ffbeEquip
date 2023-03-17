@@ -108,8 +108,8 @@ class TreeComparator {
     }
 
     static compareByValue(item1, item2, valuePath, coef1 = 1, coef2 = 1) {
-        var value1 = getValue(item1, valuePath) * coef1;
-        var value2 = getValue(item2, valuePath) * coef2;
+        var value1 = getValue(item1, valuePath, 0) * coef1;
+        var value2 = getValue(item2, valuePath, 0) * coef2;
         if (value1 > value2) {
             return "strictlyWorse"
         } else if (value1 < value2){
@@ -117,7 +117,7 @@ class TreeComparator {
         } else {
             return "equivalent";
         }
-    }
+    }    
     
     static compareByDoublehand(item1, item2, stat) {
         var valueTDH1 = getValue(item1, "singleWielding." + stat);

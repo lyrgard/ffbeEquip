@@ -2,7 +2,7 @@ const involvedStatsByValue = {
     "physicalDamage":                    ["atk","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
     "magicalDamage":                     ["mag","magicalKiller", "chainMastery", "meanDamageVariance"],
     "hybridDamage":                      ["atk","mag","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
-    "jumpDamage":                        ["atk","weaponElement","physicalKiller","meanDamageVariance","jumpDamage", "chainMastery"],
+    "jumpDamage":                        ["atk","weaponElement","physicalKiller","meanDamageVariance","jumpDamage", "chainMastery", "skillEnhancement"],
     "magDamageWithPhysicalMechanism":    ["mag","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
     "sprDamageWithPhysicalMechanism":    ["spr","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
     "defDamageWithPhysicalMechanism":    ["def","weaponElement","physicalKiller","meanDamageVariance", "chainMastery"],
@@ -175,7 +175,7 @@ class UnitBuild {
                     }
                 }
                 if (formula.value.jump) {
-                    this.addToInvolvedStats(["jumpDamage"]);
+                    this.addToInvolvedStats(["jumpDamage", "skillEnhancement"]);
                 }
             } else if (formula.value.mechanism === "magical") {
                 this.addToInvolvedStats(["magicalKiller", "meanDamageVariance"]);

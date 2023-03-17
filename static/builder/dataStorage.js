@@ -491,15 +491,14 @@ class DataStorage {
                 if (item.lbPerTurn || item.lbFillRate) return true;
             } else if (stats[index] == "meanDamageVariance") {
                 if (item.meanDamageVariance && item.meanDamageVariance > 1) return true;
+            } else if (stats[index] == "skillEnhancement") {
+                if (item.skillEnhancement && item.skillEnhancement[0] > 0) return true;
             } else if (stats[index] == "chainMastery") {
                 if (item.chainMastery && item.chainMastery > 0) {
                     return true;
                 }
                 
                 if (item.type == "visionCard") {
-                    if (item.name.includes("Not until the end")) {
-                        console.log(item)
-                    }
                     let vcLevels = item.levels;
                     vcLevels.forEach((levelNumber) => {
                         if (levelNumber.chainMastery &&  levelNumber.chainMastery > 0) {

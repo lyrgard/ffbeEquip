@@ -40,6 +40,7 @@ onmessage = function(event) {
             optimizer.alreadyUsedEspers = messageData.alreadyUsedEspers;
             optimizer.goalVariation = messageData.goalVariation;
             optimizer.desirableElements = messageData.desirableElements;
+            optimizer.forceDoublehand = messageData.forceDoublehand;
             break;
         case "optimize":
             optimizer.optimizeFor(

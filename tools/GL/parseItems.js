@@ -1423,10 +1423,17 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             for (var i = rawEffect[3][0].length; i--;) {
                 addStat(item.skillEnhancement, rawEffect[3][0][i].toString(), rawEffect[3][3] / 100);
             }
-        } else if (Array.isArray(rawEffect[3]) && parseInt(rawEffect[3][1])){
+        } else if (Array.isArray(rawEffect[3]) && parseInt(rawEffect[3][1]) > -1){
             // All Abilities of Type
             let type;
-            if (rawEffect[3][1] === 1) {
+            if (rawEffect[3][1] === 0) {
+                if (Array.isArray(rawEffect[3][2])) {
+                    //[ 0, 3, 73, [ 0, 0, [ 52, 134 ], 5000 ] ] JUMP DAMAGE
+                    if (rawEffect[3][2][0] == 52 || rawEffect[3][2][0] == 134) {
+                        type = "jumpDamage"
+                    }
+                }
+            } else if (rawEffect[3][1] === 1) {
                 type = "allPhysicalAttacks"
             } else if (rawEffect[3][1] === 2) {
                 type = "allMagicalAttacks"

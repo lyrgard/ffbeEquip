@@ -110,8 +110,6 @@ var defaultItemsToExclude = ["409009000"];
 var itemsToExclude = defaultItemsToExclude.slice(); // Ring of Dominion
 var itemsToInclude = [];
 
-var itemPool;
-
 var running = false;
 
 var workers = [];
@@ -251,9 +249,6 @@ function optimize() {
         }
     }
 
-    itemPool = new ItemPool(4, builds[0].involvedStats, enemyStats, forceDoubleHand);
-    itemPool.forceDoubleHand = forceDoubleHand;
-
     for (var index = workers.length; index--; index) {
         workers[index].postMessage(JSON.stringify({
             "type":"setData",
@@ -274,7 +269,8 @@ function optimize() {
             "useEspers":!dataStorage.onlyUseShopRecipeItems,
             "desirableElements":dataStorage.desirableElements,
             "enemyStats":enemyStats,
-            "goalVariation": goalVariation
+            "goalVariation": goalVariation,
+            "forceDoubleHand": forceDoubleHand,
         }));
     }
     let forceTmrAbility = $("#forceTmrAbility").prop('checked');
@@ -2575,6 +2571,9 @@ function displaySearchResultsAsync(items, start, div) {
 }
 
 function getItemHtml(item) {
+    if (item.name.includes("Kimahri")) {
+        console.log(item)
+    }
     let html = "";
     if (item) {
         var enhancementString = "null";

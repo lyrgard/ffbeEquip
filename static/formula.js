@@ -864,7 +864,7 @@ function isAttackFormula(formula) {
             return !formula.lb && (
                 formula.formulaName == "physicalDamage"
             || formula.formulaName == "magicalDamage" 
-            || formula.formulaName == "hybridDamage" 
+            || formula.formulaName == "hybridDamage"
             || formula.formulaName == "fixedDamageWithPhysicalMechanism" 
             || formula.formulaName == "atkDamageWithFixedMechanism" 
             );

@@ -843,7 +843,7 @@ function getEnhancementCandidates() {
         "breakability": {"atk": true,"def": true,"mag": true,"spr": true},
         "imperils": {"fire": 0,"ice": 0,"lightning": 0,"water": 0,"earth": 0,"wind": 0,"light": 0,"dark": 0}
     }
-    let involvedStats = baseStats.concat(["physicalKiller", "magicalKiller","meanDamageVariance", "evoMag", "jumpDamage", "lbDamage", "drawAttacks", "lbPerTurn", "evade.physical", "evade.magical", "mpRefresh"]).concat(ailmentList.map(a => 'resist|' + a + '.percent')).concat(elementList.map(e => 'resist|' + e + '.percent'));
+    let involvedStats = baseStats.concat(["physicalKiller", "magicalKiller","meanDamageVariance", "evoMag", "jumpDamage", "lbDamage", "drawAttacks", "lbPerTurn", "evade.physical", "evade.magical", "mpRefresh", "skillEnhancement"]).concat(ailmentList.map(a => 'resist|' + a + '.percent')).concat(elementList.map(e => 'resist|' + e + '.percent'));
     
     let candidateItemIds = [];
     let itemEntriesToSearchIn = equipments.filter(ie => weaponList.includes(ie.item.type) && itemInventory[ie.item.id]);
