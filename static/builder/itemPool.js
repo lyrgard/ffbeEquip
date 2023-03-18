@@ -1,5 +1,5 @@
 class ItemPool {
-    constructor(maxDepth, involvedStats, enemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding, includeDualWielding, forceDoublehand = false) {
+    constructor(maxDepth, involvedStats, enemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding, includeDualWielding, forceDoublehand = false, formula) {
         this.maxDepth = maxDepth;
         this.involvedStats = involvedStats;
         this.enemyStats = enemyStats;
@@ -8,6 +8,7 @@ class ItemPool {
         this.includeSingleWielding = includeSingleWielding;
         this.includeDualWielding = includeDualWielding;
         this.forceDoublehand = forceDoublehand;
+        this.formula = formula;
         this.keptItems = [];
         this.groupByIds = {};
         this.groupByItemIds = {};
@@ -20,7 +21,7 @@ class ItemPool {
     }
 
     clone() {
-        let clone = new ItemPool(this.maxDepth, this.involvedStats, this.enemyStats, this.desirableElements, this.desirableItemIds, this.skillIds, this.includeSingleWielding, this.includeDualWielding, this.forceDoublehand);
+        let clone = new ItemPool(this.maxDepth, this.involvedStats, this.enemyStats, this.desirableElements, this.desirableItemIds, this.skillIds, this.includeSingleWielding, this.includeDualWielding, this.forceDoublehand, this.formula);
         clone.addItems(this.getEntries());
         return clone;
     }
@@ -65,7 +66,7 @@ class ItemPool {
         }
 
         for (var i = this.keptItems.length; i--;) {
-            var comparison = ItemPool.getComparison(this.keptItems[i].equivalents[0], entry, this.involvedStats, this.enemyStats, this.desirableElements, this.desirableItemIds, this.skillIds, this.includeSingleWielding, this.includeDualWielding, this.forceDoublehand);
+            var comparison = ItemPool.getComparison(this.keptItems[i].equivalents[0], entry, this.involvedStats, this.enemyStats, this.desirableElements, this.desirableItemIds, this.skillIds, this.includeSingleWielding, this.includeDualWielding, this.forceDoublehand, this.formula);
             switch (comparison) {
                 case "strictlyWorse":
                     betterItemCount += this.keptItems[i].available;
@@ -194,11 +195,7 @@ class ItemPool {
         group.equivalents[group.currentEquivalent].currentAvailable++;
     }
     
-    static getComparison(entry1, entry2, stats, enemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding = true, includeDualWielding = true, simplifiedAilments) {
-        if (entry1.item.skillEnhancement) {
-            console.log(entry1.item.skillEnhancement)
-        }
-        
+    static getComparison(entry1, entry2, stats, enemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding = true, includeDualWielding = true, simplifiedAilments, formula) {
         var comparisionStatus = [];
         let ailmentsToSimplify;
         for (var index = stats.length; index--;) {
@@ -227,12 +224,18 @@ class ItemPool {
             } else if (stat === 'newDamageFormula' && weaponList.includes(entry1.item.type)) {
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, 'atk'));
             } else if (stat == "skillEnhancement.jumpDamage" || stat == "skillEnhancement.allPhysicalAttacks" || stat == "skillEnhancement.allMagicalAttacks") {
-                if (getValue(entry1.item, "skillEnhancement.jumpDamage") || getValue(entry2.item, "skillEnhancement.jumpDamage")) {
-                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "skillEnhancement.jumpDamage"));
-                } else if (getValue(entry1.item, "skillEnhancement.allPhysicalAttacks") || getValue(entry2.item, "skillEnhancement.allPhysicalAttacks")) {
-                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "skillEnhancement.allPhysicalAttacks"));
-                } else if (getValue(entry1.item, "skillEnhancement.allMagicalAttacks") || getValue(entry2.item, "skillEnhancement.allMagicalAttacks")) {
-                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "skillEnhancement.allMagicalAttacks"));
+                if (formula && formula?.formulaName === "jumpDamage") {
+                    if (getValue(entry1.item, "skillEnhancement.jumpDamage") || getValue(entry2.item, "skillEnhancement.jumpDamage")) {
+                        comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "skillEnhancement.jumpDamage"));
+                    } else if (getValue(entry1.item, "skillEnhancement.allPhysicalAttacks") || getValue(entry2.item, "skillEnhancement.allPhysicalAttacks")) {
+                        comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "skillEnhancement.allPhysicalAttacks"));
+                    } 
+                } else {
+                    if (getValue(entry1.item, "skillEnhancement.allPhysicalAttacks") || getValue(entry2.item, "skillEnhancement.allPhysicalAttacks")) {
+                        comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "skillEnhancement.allPhysicalAttacks"));
+                    } else if (getValue(entry1.item, "skillEnhancement.allMagicalAttacks") || getValue(entry2.item, "skillEnhancement.allMagicalAttacks")) {
+                        comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "skillEnhancement.allMagicalAttacks"));
+                    }
                 }
             } else {
                 if (!baseStats.includes(stat) || getValue(entry1.item, stat) >= 5 ||  getValue(entry2.item, stat) >= 5) {

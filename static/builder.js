@@ -302,7 +302,7 @@ function prepareDataStorage() {
     dataStorage.itemsToExclude = itemsToExclude;
     dataStorage.itemsToInclude = itemsToInclude;
     dataStorage.useElementConditionedMateria = $("#useElementConditionedMateria").prop('checked');
-    dataStorage.prepareData(itemsToExclude, enemyStats, builds[currentUnitIndex].baseValues.elementBuffs);
+    dataStorage.prepareData(itemsToExclude, enemyStats, builds[currentUnitIndex].baseValues.elementBuffs, builds[currentUnitIndex].formula);
 }
 
 function processTypeCombinations(workerIndex) {

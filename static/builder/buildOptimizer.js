@@ -223,7 +223,7 @@ class BuildOptimizer {
             }
         }
         var skillsIds = getSkillIds(this._unitBuild.formula) || [];
-        var itemPool = new ItemPool(numberNeeded, this._unitBuild.involvedStats, this.enemyStats, this.desirableElements, this.desirableItemIds, skillsIds, includeSingleWielding, includeDualWielding, this.forceDoublehand);
+        var itemPool = new ItemPool(numberNeeded, this._unitBuild.involvedStats, this.enemyStats, this.desirableElements, this.desirableItemIds, skillsIds, includeSingleWielding, includeDualWielding, this.forceDoublehand, this._unitBuild.formula);
         for (var i = tempResult.length; i--;) {
             var entry = tempResult[i];
             if (weaponList.includes(type) && (typeCombination[1] || this._unitBuild.fixedItems[0] || this._unitBuild.fixedItems[1]) && isTwoHanded(entry.item) ) {
