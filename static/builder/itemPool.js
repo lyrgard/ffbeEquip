@@ -226,16 +226,12 @@ class ItemPool {
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "chainMastery"));
             } else if (stat === 'newDamageFormula' && weaponList.includes(entry1.item.type)) {
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, 'atk'));
-            } else if (stat == "skillEnhancement") {
+            } else if (stat == "skillEnhancement.jumpDamage" || stat == "skillEnhancement.allPhysicalAttacks" || stat == "skillEnhancement.allMagicalAttacks") {
                 if (getValue(entry1.item, "skillEnhancement.jumpDamage") || getValue(entry2.item, "skillEnhancement.jumpDamage")) {
                     comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "skillEnhancement.jumpDamage"));
-                }
-                
-                if (getValue(entry1.item, "skillEnhancement.allPhysicalAttacks") || getValue(entry2.item, "skillEnhancement.allPhysicalAttacks")) {
+                } else if (getValue(entry1.item, "skillEnhancement.allPhysicalAttacks") || getValue(entry2.item, "skillEnhancement.allPhysicalAttacks")) {
                     comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "skillEnhancement.allPhysicalAttacks"));
-                }
-                
-                if (getValue(entry1.item, "skillEnhancement.allMagicalAttacks") || getValue(entry2.item, "skillEnhancement.allMagicalAttacks")) {
+                } else if (getValue(entry1.item, "skillEnhancement.allMagicalAttacks") || getValue(entry2.item, "skillEnhancement.allMagicalAttacks")) {
                     comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "skillEnhancement.allMagicalAttacks"));
                 }
             } else {

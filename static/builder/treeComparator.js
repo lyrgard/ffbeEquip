@@ -117,8 +117,8 @@ class TreeComparator {
         } else {
             return "equivalent";
         }
-    }    
-    
+    }
+
     static compareByDoublehand(item1, item2, stat) {
         var valueTDH1 = getValue(item1, "singleWielding." + stat);
         var valueTDH2 = getValue(item2, "singleWielding." + stat);

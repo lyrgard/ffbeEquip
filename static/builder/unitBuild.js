@@ -161,6 +161,7 @@ class UnitBuild {
                 
                 
                 if (formula.value.damageType === "body") {
+                    this.addToInvolvedStats(["skillEnhancement.allPhysicalAttacks"]);
                     if (formula.value.use) {
                         this.addToInvolvedStats([formula.value.use.stat]);
                         this.addToInvolvedStats(["newDamageFormula"]);
@@ -175,10 +176,10 @@ class UnitBuild {
                     }
                 }
                 if (formula.value.jump) {
-                    this.addToInvolvedStats(["jumpDamage", "skillEnhancement"]);
+                    this.addToInvolvedStats(["jumpDamage", "skillEnhancement.jumpDamage"]);
                 }
             } else if (formula.value.mechanism === "magical") {
-                this.addToInvolvedStats(["magicalKiller", "meanDamageVariance"]);
+                this.addToInvolvedStats(["magicalKiller", "meanDamageVariance", "skillEnhancement.allMagicalAttacks"]);
                 if (formula.value.damageType === "mind") {
                     if (formula.value.use) {
                         this.addToInvolvedStats([formula.value.use.stat]);
