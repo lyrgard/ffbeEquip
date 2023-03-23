@@ -666,6 +666,9 @@
 	{"atk":117, "killers":[{"name":"bird","physical":75,"magical":75},{"name":"demon","physical":75,"magical":75}]},
 	{"atk":130, "killers":[{"name":"bird","physical":75,"magical":75},{"name":"demon","physical":75,"magical":75},{"name":"dragon","physical":75,"magical":75}]}
 ]},
+{"id":"100007001", "name":"The Hour of My Vengeance Is at Hand!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100007001.png", "sortId":151, "vc":["100040607"], "levels":[
+	{"atk":170, "mag":170, "conditional":[{"atk%":80,"mag%":80},{"lbDamage":100},{"staticStats":{"atk":500,"mag":500}}]}
+]},
 {"id":"201000101", "name":"And So Their Quest Began", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000101.png", "sortId":100, "vc":["201000607"], "levels":[
 	{"hp":500, "def":50},
 	{"hp":550, "def":55},

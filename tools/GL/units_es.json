@@ -9433,7 +9433,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"],
-		"enhancementSkills":["Darkga","Doomsday","Dark Suppression","Chaotic Mirage"]
+		"enhancementSkills":["Darkga","Doomsday","Dark Suppression","Chaotic Mirage","One and Only Ruler","Warring Spirit"]
 	},
 	"100037817": {
 		"name":"Rain oscuro BS",
@@ -9454,7 +9454,8 @@
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"]
+		"equip":["rod","spear","hat","helm","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Warring Spirit"]
 	},
 	"100037907": {
 		"name":"Raegen (Nueva era)",
@@ -10494,6 +10495,50 @@
 		},
 		"stats_pattern":4,
 		"equip":["greatSword","axe","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"100040607": {
+		"name":"Dioxus",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Dioxus",
+		"id":"100040607",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"100040617",
+		"exAwakening": [{"hp":687,"mp":36,"atk":86,"def":14,"mag":35,"spr":17},{"hp":528,"mp":28,"atk":66,"def":11,"mag":27,"spr":13},{"hp":370,"mp":20,"atk":46,"def":8,"mag":19,"spr":9}],
+		"fragmentId": "250015600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5284,"mp":340,"atk":330,"def":220,"mag":180,"spr":240},
+			"minStats":{"hp":1744,"mp":112,"atk":109,"def":73,"mag":59,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","hat","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Fatal Black Fang","Large Sword Mastery","Blade of Carnage"]
+	},
+	"100040617": {
+		"name":"Dioxus BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Dioxus",
+		"id":"100040617",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"100040607",
+		"exAwakening": [{"hp":687,"mp":36,"atk":86,"def":14,"mag":35,"spr":17},{"hp":528,"mp":28,"atk":66,"def":11,"mag":27,"spr":13},{"hp":370,"mp":20,"atk":46,"def":8,"mag":19,"spr":9}],
+		"fragmentId": "250015600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5284,"mp":280,"atk":330,"def":110,"mag":270,"spr":130},
+			"minStats":{"hp":1744,"mp":92,"atk":109,"def":36,"mag":89,"spr":43},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","hat","helm","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Large Sword Mastery"]
 	},
 	"100041407": {
 		"name":"Mid",
@@ -32264,8 +32309,6 @@
   "100034005":{"name":"Belmera","jpname":"ベルメーラ","roles":["physicalAttacker"],"id":"100034005","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4722,"mp":246,"atk":212,"def":182,"mag":142,"spr":175},"minStats":{"hp":1558,"mp":81,"atk":70,"def":60,"mag":47,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","throwing","gun","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"],"6_form":{"name":"Belmera","jpname":"ベルメーラ","roles":["physicalAttacker"],"id":"100034005","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3632,"mp":189,"atk":163,"def":140,"mag":109,"spr":134},"minStats":{"hp":1199,"mp":62,"atk":54,"def":46,"mag":36,"spr":44},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","throwing","gun","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"]}},
   "100039207":{"name":"Christmas Domino","jpname":"クリスマスドミノ","roles":["physicalAttacker"],"id":"100039207","game_id":"undefined","game":"undefined","braveShift":"100039217","exAwakening":[{"hp":647,"mp":30,"atk":74,"def":21,"mag":5,"spr":26},{"hp":498,"mp":23,"atk":57,"def":16,"mag":4,"spr":20},{"hp":348,"mp":16,"atk":40,"def":11,"mag":3,"spr":14}],"fragmentId":"250008400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4977,"mp":230,"atk":284,"def":164,"mag":37,"spr":199},"minStats":{"hp":1642,"mp":76,"atk":94,"def":54,"mag":12,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","gun","mace","fist","hat","clothes","visionCard"],"enhancementSkills":["銃の極意","格闘の極意","ボリアススマッシュ","オーロラシュート","けり"]},
   "100039217":{"name":"Christmas Domino BS","jpname":"クリスマスドミノ BS","roles":["physicalAttacker"],"id":"100039217","game_id":"undefined","game":"undefined","braveShifted":"100039207","exAwakening":[{"hp":647,"mp":30,"atk":74,"def":21,"mag":5,"spr":26},{"hp":498,"mp":23,"atk":57,"def":16,"mag":4,"spr":20},{"hp":348,"mp":16,"atk":40,"def":11,"mag":3,"spr":14}],"fragmentId":"250008400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4977,"mp":230,"atk":284,"def":164,"mag":37,"spr":199},"minStats":{"hp":1642,"mp":76,"atk":94,"def":54,"mag":12,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","gun","mace","fist","hat","clothes","visionCard"]},
-  "100040607":{"name":"ディオセス","jpname":"ディオセス","roles":["physicalAttacker"],"id":"100040607","game_id":"undefined","game":"undefined","braveShift":"100040617","exAwakening":[{"hp":687,"mp":36,"atk":86,"def":14,"mag":35,"spr":17},{"hp":528,"mp":28,"atk":66,"def":11,"mag":27,"spr":13},{"hp":370,"mp":20,"atk":46,"def":8,"mag":19,"spr":9}],"fragmentId":"250015600","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5284,"mp":340,"atk":330,"def":220,"mag":180,"spr":240},"minStats":{"hp":1744,"mp":112,"atk":109,"def":73,"mag":59,"spr":79},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["greatSword","hat","helm","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["散華の黒牙","大剣の極意","修羅の獄剣"]},
-  "100040617":{"name":"ディオセス BS","jpname":"ディオセス BS","roles":["physicalAttacker"],"id":"100040617","game_id":"undefined","game":"undefined","braveShifted":"100040607","exAwakening":[{"hp":687,"mp":36,"atk":86,"def":14,"mag":35,"spr":17},{"hp":528,"mp":28,"atk":66,"def":11,"mag":27,"spr":13},{"hp":370,"mp":20,"atk":46,"def":8,"mag":19,"spr":9}],"fragmentId":"250015600","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5284,"mp":280,"atk":330,"def":110,"mag":270,"spr":130},"minStats":{"hp":1744,"mp":92,"atk":109,"def":36,"mag":89,"spr":43},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["greatSword","hat","helm","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["大剣の極意"]},
   "100040707":{"name":"レーゲン -魔将の系譜-","jpname":"レーゲン -魔将の系譜-","roles":["physicalAttacker"],"id":"100040707","game_id":"undefined","game":"undefined","braveShift":"100040717","exAwakening":[{"hp":690,"mp":43,"atk":75,"def":33,"mag":26,"spr":29},{"hp":531,"mp":33,"atk":58,"def":26,"mag":20,"spr":22},{"hp":372,"mp":23,"atk":41,"def":18,"mag":14,"spr":16}],"fragmentId":"250016000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5311,"mp":330,"atk":290,"def":255,"mag":197,"spr":224},"minStats":{"hp":1753,"mp":109,"atk":96,"def":84,"mag":65,"spr":74},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["超速八連刃","緋の剣","蒼の剣","剣の極意","大剣の極意"]},
   "100040717":{"name":"レーゲン -魔将の系譜- BS","jpname":"レーゲン -魔将の系譜- BS","roles":["physicalAttacker"],"id":"100040717","game_id":"undefined","game":"undefined","braveShifted":"100040707","exAwakening":[{"hp":690,"mp":43,"atk":75,"def":33,"mag":26,"spr":29},{"hp":531,"mp":33,"atk":58,"def":26,"mag":20,"spr":22},{"hp":372,"mp":23,"atk":41,"def":18,"mag":14,"spr":16}],"fragmentId":"250016000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5311,"mp":330,"atk":290,"def":255,"mag":197,"spr":224},"minStats":{"hp":1753,"mp":109,"atk":96,"def":84,"mag":65,"spr":74},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
   "100040807":{"name":"ラスウェル -魔将の系譜-","jpname":"ラスウェル -魔将の系譜-","roles":["physicalAttacker"],"id":"100040807","game_id":"undefined","game":"undefined","braveShift":"100040817","exAwakening":[{"hp":686,"mp":49,"atk":78,"def":27,"mag":82,"spr":22},{"hp":527,"mp":38,"atk":60,"def":21,"mag":63,"spr":17},{"hp":369,"mp":27,"atk":42,"def":15,"mag":44,"spr":12}],"fragmentId":"250015900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5274,"mp":360,"atk":300,"def":210,"mag":130,"spr":160},"minStats":{"hp":1740,"mp":119,"atk":99,"def":69,"mag":43,"spr":53},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["katana","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["氷河断刃","終・明鏡"]},
