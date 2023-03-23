@@ -434,7 +434,7 @@ class UnitBuild {
         if(this.unitShift._tdwCap) {
             return this.unitShift._tdwCap.value;
         } else {
-            this.unitShift._tdwCap = { "value": 2};
+            this.unitShift._tdwCap = { "value": 4};
             return this.unitShift._tdwCap.value;
         }
     }

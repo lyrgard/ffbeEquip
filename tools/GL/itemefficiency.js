@@ -277,18 +277,26 @@ function getStatBonusCap(stat) {
             return 300;
         case 'lbPerTurn':
             return 12;
-        case 'lbFillRate': // removed bugged support.
+        case 'lbFillRate':
             return 1000;
         case 'tdh':
             return 400;
         case 'tdw':
-            return 200;
+            return 400;
         case 'jumpDamage':
             return 800;
         case 'evoMag':
             return 300;
         case 'evokeDamageBoost.all':
             return 300;
+        case 'chainMastery':
+            return 6;
+        case 'drawAttacks':
+            return 100;
+        case 'accuracy':
+            return 100;
+        case 'evade.physical':
+            return 100;
         default:
             return 400;
     }

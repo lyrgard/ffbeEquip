@@ -1609,12 +1609,12 @@ function getStatBonusCap(stat) {
             return 300;
         case 'lbPerTurn':
             return 12;
-        case 'lbFillRate': // removed bugged support.
+        case 'lbFillRate':
             return 1000;
         case 'tdh':
             return 400;
         case 'tdw':
-            return 200;
+            return 400;
         case 'jumpDamage':
             return 800;
         case 'evoMag':
