@@ -2,7 +2,7 @@
 
 	"100000102": {
 		"name":"레인",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","debuffer","support"],
 		"wikiEntry":"Rain",
 		"id":"100000102",
 		"game_id":"11001",
@@ -181,7 +181,7 @@
 	},
 	"100000603": {
 		"name":"사쿠라",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"wikiEntry":"Sakura",
 		"id":"100000603",
 		"game_id":"11001",
@@ -200,7 +200,7 @@
 	},
 	"100000703": {
 		"name":"제이크",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Jake",
 		"id":"100000703",
 		"game_id":"11001",
@@ -219,7 +219,7 @@
 	},
 	"100000901": {
 		"name":"라이저",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Rizer",
 		"id":"100000901",
 		"game_id":"11001",
@@ -276,7 +276,7 @@
 	},
 	"100001201": {
 		"name":"엘딘",
-		"roles":["support"],
+		"roles":["support","debuffer"],
 		"wikiEntry":"Eldin",
 		"id":"100001201",
 		"game_id":"11001",
@@ -314,7 +314,7 @@
 	},
 	"100001401": {
 		"name":"김리",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","healer"],
 		"wikiEntry":"Gimlee",
 		"id":"100001401",
 		"game_id":"11001",
@@ -333,7 +333,7 @@
 	},
 	"100001501": {
 		"name":"맥셀",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker"],
 		"wikiEntry":"Maxell",
 		"id":"100001501",
 		"game_id":"11001",
@@ -447,7 +447,7 @@
 	},
 	"100002103": {
 		"name":"클라인",
-		"roles":["healer"],
+		"roles":["healer","physicalTank"],
 		"wikiEntry":"Clyne",
 		"id":"100002103",
 		"game_id":"11001",
@@ -522,7 +522,7 @@
 	},
 	"100002503": {
 		"name":"딘",
-		"roles":["debuffer"],
+		"roles":["debuffer","physicalAttacker","magicalAttacker"],
 		"wikiEntry":"Duane",
 		"id":"100002503",
 		"game_id":"11001",
@@ -635,7 +635,7 @@
 	},
 	"100003202": {
 		"name":"켄유",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Kenyu",
 		"id":"100003202",
 		"game_id":"11001",
@@ -749,7 +749,7 @@
 	},
 	"100003803": {
 		"name":"미유키",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"wikiEntry":"Miyuki",
 		"id":"100003803",
 		"game_id":"11001",
@@ -768,7 +768,7 @@
 	},
 	"100003903": {
 		"name":"질베르",
-		"roles":["debuffer"],
+		"roles":["debuffer","support"],
 		"wikiEntry":"Gilbert",
 		"id":"100003903",
 		"game_id":"11001",
@@ -824,7 +824,7 @@
 	},
 	"100004203": {
 		"name":"류드밀라",
-		"roles":["magicalAttacker","healer"],
+		"roles":["magicalAttacker","healer","debuffer"],
 		"wikiEntry":"Ludmille",
 		"id":"100004203",
 		"game_id":"11001",
@@ -899,7 +899,7 @@
 	},
 	"100004703": {
 		"name":"하야테",
-		"roles":["physicalAttacker","magicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"wikiEntry":"Hayate",
 		"id":"100004703",
 		"game_id":"11001",
@@ -936,7 +936,7 @@
 	},
 	"100005004": {
 		"name":"루루카",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"wikiEntry":"Luka",
 		"id":"100005004",
 		"game_id":"11001",
@@ -955,7 +955,7 @@
 	},
 	"100005104": {
 		"name":"메르세데스",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Mercedes",
 		"id":"100005104",
 		"game_id":"11001",
@@ -974,7 +974,7 @@
 	},
 	"100005203": {
 		"name":"로렌스",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Lawrence",
 		"id":"100005203",
 		"game_id":"11001",
@@ -1048,7 +1048,7 @@
 	},
 	"100005604": {
 		"name":"소제",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Sozhe",
 		"id":"100005604",
 		"game_id":"11001",
@@ -1067,7 +1067,7 @@
 	},
 	"100005703": {
 		"name":"헬틱",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"wikiEntry":"Heltich",
 		"id":"100005703",
 		"game_id":"11001",
@@ -1125,7 +1125,7 @@
 	},
 	"100005905": {
 		"name":"아이린",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Aileen",
 		"id":"100005905",
 		"game_id":"11001",
@@ -1166,7 +1166,7 @@
 		},
 		"7_form": {
 			"name":"아이린",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"wikiEntry":"Aileen",
 			"id":"100005905",
 			"game_id":"11001",
@@ -1228,7 +1228,7 @@
 	},
 	"100006105": {
 		"name":"빌헬름",
-		"roles":["physicalTank","support"],
+		"roles":["physicalTank","support","debuffer"],
 		"wikiEntry":"Wilhelm",
 		"id":"100006105",
 		"game_id":"11001",
@@ -1341,7 +1341,7 @@
 	},
 	"100006603": {
 		"name":"카밀",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Camille",
 		"id":"100006603",
 		"game_id":"11001",
@@ -1379,7 +1379,7 @@
 	},
 	"100006805": {
 		"name":"포렌",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Fohlen",
 		"id":"100006805",
 		"game_id":"11001",
@@ -1397,7 +1397,7 @@
 		"enhancementSkills":["Spear Mastery","Aggravate","Vortex","Sonic Blast"],
 		"6_form": {
 			"name":"포렌",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"wikiEntry":"Fohlen",
 			"id":"100006805",
 			"game_id":"11001",
@@ -1418,7 +1418,7 @@
 	},
 	"100006904": {
 		"name":"빅토리아",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Victoria",
 		"id":"100006904",
 		"game_id":"11001",
@@ -1475,7 +1475,7 @@
 	},
 	"100007205": {
 		"name":"바닷바람의 마인 피나",
-		"roles":["magicalAttacker","support"],
+		"roles":["magicalAttacker","support","debuffer"],
 		"wikiEntry":"Seabreeze_Dark Fina",
 		"id":"100007205",
 		"game_id":"11001",
@@ -1532,7 +1532,7 @@
 	},
 	"100007404": {
 		"name":"브란",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","healer"],
 		"wikiEntry":"Bran",
 		"id":"100007404",
 		"game_id":"11001",
@@ -1551,7 +1551,7 @@
 	},
 	"100007505": {
 		"name":"루네라",
-		"roles":["magicalAttacker","healer"],
+		"roles":["magicalAttacker","healer","support"],
 		"wikiEntry":"Lunera",
 		"id":"100007505",
 		"game_id":"11001",
@@ -1569,7 +1569,7 @@
 		"enhancementSkills":["Elven Song","Elf Superior","Bran's Love","Aureole Ray"],
 		"6_form": {
 			"name":"루네라",
-			"roles":["magicalAttacker","healer"],
+			"roles":["magicalAttacker","healer","support"],
 			"wikiEntry":"Lunera",
 			"id":"100007505",
 			"game_id":"11001",
@@ -1590,7 +1590,7 @@
 	},
 	"100007603": {
 		"name":"러글스",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Ruggles",
 		"id":"100007603",
 		"game_id":"11001",
@@ -1609,7 +1609,7 @@
 	},
 	"100007705": {
 		"name":"영원한 어둠의 베리어스",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Veritas_of the Dark",
 		"id":"100007705",
 		"game_id":"11001",
@@ -1630,7 +1630,7 @@
 		"enhancementSkills":["Darklord","Impact","Dark Punishment","Dark Edge","Dark Blade of Vengeance+","Shadowy Punishment","Heroic Aura"],
 		"6_form": {
 			"name":"영원한 어둠의 베리어스",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"wikiEntry":"Veritas_of the Dark",
 			"id":"100007705",
 			"game_id":"11001",
@@ -1650,7 +1650,7 @@
 		},
 		"7_form": {
 			"name":"영원한 어둠의 베리어스",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"wikiEntry":"Veritas_of the Dark",
 			"id":"100007705",
 			"game_id":"11001",
@@ -1712,7 +1712,7 @@
 	},
 	"100007904": {
 		"name":"물꽃의 베리어스",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","healer"],
 		"wikiEntry":"Veritas_of the Waters",
 		"id":"100007904",
 		"game_id":"11001",
@@ -1731,7 +1731,7 @@
 	},
 	"100008005": {
 		"name":"지옥불의 베리어스",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Veritas_of the Flame",
 		"id":"100008005",
 		"game_id":"11001",
@@ -1749,7 +1749,7 @@
 		"enhancementSkills":["Axe Mastery","Flamelord","Heavy Stomp","Uplift"],
 		"6_form": {
 			"name":"지옥불의 베리어스",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"wikiEntry":"Veritas_of the Flame",
 			"id":"100008005",
 			"game_id":"11001",
@@ -1789,7 +1789,7 @@
 	},
 	"100008205": {
 		"name":"찬란한 빛의 베리어스",
-		"roles":["physicalAttacker","magicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"wikiEntry":"Veritas_of the Light",
 		"id":"100008205",
 		"game_id":"11001",
@@ -1807,7 +1807,7 @@
 		"enhancementSkills":["Splendor","Ultima","License to Kill","Divine Shot"],
 		"6_form": {
 			"name":"찬란한 빛의 베리어스",
-			"roles":["physicalAttacker","magicalAttacker"],
+			"roles":["physicalAttacker","magicalAttacker","debuffer"],
 			"wikiEntry":"Veritas_of the Light",
 			"id":"100008205",
 			"game_id":"11001",
@@ -1828,7 +1828,7 @@
 	},
 	"100008504": {
 		"name":"헬레나",
-		"roles":["support"],
+		"roles":["support","healer"],
 		"wikiEntry":"Helena",
 		"id":"100008504",
 		"game_id":"11001",
@@ -2044,7 +2044,7 @@
 	},
 	"100009204": {
 		"name":"쿠포르칸",
-		"roles":["debuffer"],
+		"roles":["support","debuffer"],
 		"wikiEntry":"Kupolkan",
 		"id":"100009204",
 		"game_id":"11001",
@@ -2062,7 +2062,7 @@
 	},
 	"100009304": {
 		"name":"아슈테로제",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Ashteroze",
 		"id":"100009304",
 		"game_id":"11001",
@@ -2098,7 +2098,7 @@
 	},
 	"100009504": {
 		"name":"냐루루",
-		"roles":["healer"],
+		"roles":["healer","debuffer"],
 		"wikiEntry":"Nyalu",
 		"id":"100009504",
 		"game_id":"11001",
@@ -2116,7 +2116,7 @@
 	},
 	"100009604": {
 		"name":"샌디",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support","debuffer"],
 		"wikiEntry":"Sandee",
 		"id":"100009604",
 		"game_id":"11001",
@@ -2134,7 +2134,7 @@
 	},
 	"100009704": {
 		"name":"그린필드",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","support"],
 		"wikiEntry":"Grinfield",
 		"id":"100009704",
 		"game_id":"11001",
@@ -2152,7 +2152,7 @@
 	},
 	"100009805": {
 		"name":"엘프리데",
-		"roles":["physicalTank","debuffer"],
+		"roles":["physicalTank","debuffer","support"],
 		"wikiEntry":"Elfreeda",
 		"id":"100009805",
 		"game_id":"11001",
@@ -2209,7 +2209,7 @@
 	},
 	"100010005": {
 		"name":"레겐",
-		"roles":["physicalAttacker","debuffer","support"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Raegen",
 		"id":"100010005",
 		"game_id":"11001",
@@ -2312,7 +2312,7 @@
 	},
 	"100010203": {
 		"name":"카무이",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Kamui",
 		"id":"100010203",
 		"game_id":"11001",
@@ -2349,7 +2349,7 @@
 	},
 	"100010405": {
 		"name":"로이",
-		"roles":["support","healer"],
+		"roles":["support","healer","debuffer"],
 		"wikiEntry":"Roy",
 		"id":"100010405",
 		"game_id":"11001",
@@ -2367,7 +2367,7 @@
 		"enhancementSkills":["Pizzicato Tonic","Life's Refrain","Fool's Ballad"],
 		"6_form": {
 			"name":"로이",
-			"roles":["support","healer"],
+			"roles":["support","healer","debuffer"],
 			"wikiEntry":"Roy",
 			"id":"100010405",
 			"game_id":"11001",
@@ -2444,7 +2444,7 @@
 	},
 	"100010805": {
 		"name":"듀크",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Duke",
 		"id":"100010805",
 		"game_id":"11001",
@@ -2462,7 +2462,7 @@
 		"enhancementSkills":["Dragon Sealer","Spear Mastery","Super Heavenfall Spear","Hexa Thrust"],
 		"6_form": {
 			"name":"듀크",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"wikiEntry":"Duke",
 			"id":"100010805",
 			"game_id":"11001",
@@ -2483,7 +2483,7 @@
 	},
 	"100010904": {
 		"name":"올리프",
-		"roles":["support"],
+		"roles":["support","magicalAttacker"],
 		"wikiEntry":"Olif",
 		"id":"100010904",
 		"game_id":"11001",
@@ -2540,7 +2540,7 @@
 	},
 	"100011203": {
 		"name":"류난",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Ryunan",
 		"id":"100011203",
 		"game_id":"11001",
@@ -2597,7 +2597,7 @@
 	},
 	"100011404": {
 		"name":"카에데",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Kaede",
 		"id":"100011404",
 		"game_id":"11001",
@@ -2635,7 +2635,7 @@
 	},
 	"100011603": {
 		"name":"오토기리",
-		"roles":["healer"],
+		"roles":["healer","debuffer"],
 		"wikiEntry":"Otogiri",
 		"id":"100011603",
 		"game_id":"11001",
@@ -2821,7 +2821,7 @@
 	},
 	"100011905": {
 		"name":"성홍의 기술자 리드",
-		"roles":["debuffer"],
+		"roles":["debuffer","support"],
 		"wikiEntry":"Heavenly_Technician Lid",
 		"id":"100011905",
 		"game_id":"11001",
@@ -2839,7 +2839,7 @@
 		"enhancementSkills":["Full Metal Kick","Airbag","Sunlight Beam","Barrier Dissolver","Arms Dissolver","Super Invention","Magic Absorb","Bore Up","Mind Absorb","Guard Absorb","Attack Absorb","ATK +20%"],
 		"6_form": {
 			"name":"성홍의 기술자 리드",
-			"roles":["debuffer"],
+			"roles":["debuffer","support"],
 			"wikiEntry":"Heavenly_Technician Lid",
 			"id":"100011905",
 			"game_id":"11001",
@@ -2918,7 +2918,7 @@
 	},
 	"100012203": {
 		"name":"라일리",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Riley",
 		"id":"100012203",
 		"game_id":"11001",
@@ -2936,7 +2936,7 @@
 	},
 	"100012304": {
 		"name":"오제타",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","support"],
 		"wikiEntry":"Ozetta",
 		"id":"100012304",
 		"game_id":"11001",
@@ -3099,7 +3099,7 @@
 		"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements","Enhanced Holy Water Spellblade","Enhanced Firestorm Spellblade","Longing for Peace"],
 		"6_form": {
 			"name":"쿤시라",
-			"roles":["physicalAttacker","magicalAttacker"],
+			"roles":["physicalAttacker","magicalAttacker","support"],
 			"wikiEntry":"Kunshira",
 			"id":"100012605",
 			"game_id":"11001",
@@ -3119,7 +3119,7 @@
 		},
 		"7_form": {
 			"name":"쿤시라",
-			"roles":["physicalAttacker","magicalAttacker"],
+			"roles":["physicalAttacker","magicalAttacker","support"],
 			"wikiEntry":"Kunshira",
 			"id":"100012605",
 			"game_id":"11001",
@@ -3162,7 +3162,7 @@
 	},
 	"100012704": {
 		"name":"와도우",
-		"roles":["physicalAttacker","magicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","support"],
 		"wikiEntry":"Wadow",
 		"id":"100012704",
 		"game_id":"11001",
@@ -3219,7 +3219,7 @@
 	},
 	"100013203": {
 		"name":"어윈",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Erwin",
 		"id":"100013203",
 		"game_id":"11001",
@@ -3237,7 +3237,7 @@
 	},
 	"100013305": {
 		"name":"시엘라 황제",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Emperor_Shera",
 		"id":"100013305",
 		"game_id":"11001",
@@ -3255,7 +3255,7 @@
 		"enhancementSkills":["Blade Adept","Zoldaad Pedigree","Flughöhe","Wach Fire","Declaration of War"],
 		"6_form": {
 			"name":"시엘라 황제",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"wikiEntry":"Emperor_Shera",
 			"id":"100013305",
 			"game_id":"11001",
@@ -3276,7 +3276,7 @@
 	},
 	"100013404": {
 		"name":"킬리언",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Killian",
 		"id":"100013404",
 		"game_id":"11001",
@@ -3295,7 +3295,7 @@
 	},
 	"100013504": {
 		"name":"실트",
-		"roles":["magicalTank"],
+		"roles":["magicalTank","support"],
 		"wikiEntry":"Shylt",
 		"id":"100013504",
 		"game_id":"11001",
@@ -3472,7 +3472,7 @@
 	},
 	"100014104": {
 		"name":"렉사",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"wikiEntry":"Lexa",
 		"id":"100014104",
 		"game_id":"11001",
@@ -3491,7 +3491,7 @@
 	},
 	"100014204": {
 		"name":"엘비스",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Elbis",
 		"id":"100014204",
 		"game_id":"11001",
@@ -3621,7 +3621,7 @@
 	},
 	"100015405": {
 		"name":"나루",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Nalu",
 		"id":"100015405",
 		"game_id":"11001",
@@ -3642,7 +3642,7 @@
 		"enhancementSkills":["Panther Strike","Fearless","Blaster","Hunting Expertise","Lightning Spear Jab","Thunder Spear","SPR +20%","Thunderbolt Thrust","Lightning Beast Claw","Coeurl Whisperer"],
 		"6_form": {
 			"name":"나루",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"wikiEntry":"Nalu",
 			"id":"100015405",
 			"game_id":"11001",
@@ -3662,7 +3662,7 @@
 		},
 		"7_form": {
 			"name":"나루",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"wikiEntry":"Nalu",
 			"id":"100015405",
 			"game_id":"11001",
@@ -3705,7 +3705,7 @@
 	},
 	"100015504": {
 		"name":"페초타",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Pecciotta",
 		"id":"100015504",
 		"game_id":"11001",
@@ -3724,7 +3724,7 @@
 	},
 	"100015604": {
 		"name":"신쥬",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Shinju",
 		"id":"100015604",
 		"game_id":"11001",
@@ -3743,7 +3743,7 @@
 	},
 	"100015703": {
 		"name":"류카",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Ryuka",
 		"id":"100015703",
 		"game_id":"11001",
@@ -3761,7 +3761,7 @@
 	},
 	"100015805": {
 		"name":"레인(각성한 힘)",
-		"roles":["magicalTank"],
+		"roles":["magicalTank","support"],
 		"wikiEntry":"Awakened_Rain",
 		"id":"100015805",
 		"game_id":"11001",
@@ -3800,7 +3800,7 @@
 	},
 	"100016205": {
 		"name":"효우",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Hyoh",
 		"id":"100016205",
 		"game_id":"11001",
@@ -4033,7 +4033,7 @@
 	},
 	"100017105": {
 		"name":"엘핌",
-		"roles":["debuffer","support"],
+		"roles":["debuffer","support","healer"],
 		"wikiEntry":"Elephim",
 		"id":"100017105",
 		"game_id":"11001",
@@ -4051,7 +4051,7 @@
 		"enhancementSkills":["Magical String Musician","Fairy's Gavotte","Marvelous Queen","Passionate Fugue","Spiritual Rondo","Healing Fragrance"],
 		"6_form": {
 			"name":"엘핌",
-			"roles":["debuffer","support"],
+			"roles":["debuffer","support","healer"],
 			"wikiEntry":"Elephim",
 			"id":"100017105",
 			"game_id":"11001",
@@ -4861,7 +4861,7 @@
 	},
 	"100019505": {
 		"name":"시드",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Cid",
 		"id":"100019505",
 		"game_id":"11001",
@@ -5111,7 +5111,7 @@
 	},
 	"100020303": {
 		"name":"마조라",
-		"roles":["debuffer"],
+		"roles":["debuffer","magicalAttacker"],
 		"wikiEntry":"Majora",
 		"id":"100020303",
 		"game_id":"11001",
@@ -5129,7 +5129,7 @@
 	},
 	"100020505": {
 		"name":"여름의 피나&리드",
-		"roles":["debuffer"],
+		"roles":["debuffer","healer"],
 		"wikiEntry":"Summer_Fina & Lid",
 		"id":"100020505",
 		"game_id":"11001",
@@ -5150,7 +5150,7 @@
 		"enhancementSkills":["Aqua Replenishment","Deep Sea Swimming","Beach Tag"],
 		"6_form": {
 			"name":"여름의 피나&리드",
-			"roles":["debuffer"],
+			"roles":["debuffer","healer"],
 			"wikiEntry":"Summer_Fina & Lid",
 			"id":"100020505",
 			"game_id":"11001",
@@ -5170,7 +5170,7 @@
 		},
 		"7_form": {
 			"name":"여름의 피나&리드",
-			"roles":["debuffer"],
+			"roles":["debuffer","healer"],
 			"wikiEntry":"Summer_Fina & Lid",
 			"id":"100020505",
 			"game_id":"11001",
@@ -5213,7 +5213,7 @@
 	},
 	"100020605": {
 		"name":"크림슨",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Crimson",
 		"id":"100020605",
 		"game_id":"11001",
@@ -5231,7 +5231,7 @@
 		"enhancementSkills":["Ice Riser","Fire Riser","Earnest Swordsman","The Burden of a Hero","Noble Banishing Blade","Heatwave Formation Strike","Blizzard Formation Strike","SPR +20%"],
 		"6_form": {
 			"name":"크림슨",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"wikiEntry":"Crimson",
 			"id":"100020605",
 			"game_id":"11001",
@@ -5288,7 +5288,7 @@
 	},
 	"100020905": {
 		"name":"여름의 폴카&시트라",
-		"roles":["magicalAttacker","support"],
+		"roles":["magicalAttacker","support","healer"],
 		"wikiEntry":"Summer_Folka & Citra",
 		"id":"100020905",
 		"game_id":"11001",
@@ -5329,7 +5329,7 @@
 		},
 		"7_form": {
 			"name":"여름의 폴카&시트라",
-			"roles":["magicalAttacker","support"],
+			"roles":["magicalAttacker","support","healer"],
 			"wikiEntry":"Summer_Folka & Citra",
 			"id":"100020905",
 			"game_id":"11001",
@@ -5445,7 +5445,7 @@
 	},
 	"100021504": {
 		"name":"앰버",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Amber",
 		"id":"100021504",
 		"game_id":"11001",
@@ -5481,7 +5481,7 @@
 	},
 	"100021705": {
 		"name":"신성한 방패의 샤를로트",
-		"roles":["physicalAttacker","support"],
+		"roles":["magicalTank","support","physicalAttacker"],
 		"wikiEntry":"Sacred_Shield Charlotte",
 		"id":"100021705",
 		"game_id":"11001",
@@ -5502,7 +5502,7 @@
 		"enhancementSkills":["Knight's Command","Undying Loyalty","Knight of Knights","Noble Knight","Light of Grandshelt","Veil of the Sacred Shield","Evil-Warding Shield","Adored by the People of Grandshelt"],
 		"6_form": {
 			"name":"신성한 방패의 샤를로트",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","magicalTank"],
 			"wikiEntry":"Sacred_Shield Charlotte",
 			"id":"100021705",
 			"game_id":"11001",
@@ -5522,7 +5522,7 @@
 		},
 		"7_form": {
 			"name":"신성한 방패의 샤를로트",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","magicalTank"],
 			"wikiEntry":"Sacred_Shield Charlotte",
 			"id":"100021705",
 			"game_id":"11001",
@@ -5620,7 +5620,7 @@
 	},
 	"100022005": {
 		"name":"드레스업 아이린",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Dressy_Aileen",
 		"id":"100022005",
 		"game_id":"11001",
@@ -5637,7 +5637,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"6_form": {
 			"name":"드레스업 아이린",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"wikiEntry":"Dressy_Aileen",
 			"id":"100022005",
 			"game_id":"11001",
@@ -5897,7 +5897,7 @@
 	},
 	"100023005": {
 		"name":"헤스의 왕 라스웰",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Hess_King Lasswell",
 		"id":"100023005",
 		"game_id":"11001",
@@ -5914,7 +5914,7 @@
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
 			"name":"헤스의 왕 라스웰",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"wikiEntry":"Hess_King Lasswell",
 			"id":"100023005",
 			"game_id":"11001",
@@ -5971,7 +5971,7 @@
 	},
 	"100023305": {
 		"name":"백합꽃의 마인 피나",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"White_Lily Dark Fina",
 		"id":"100023305",
 		"game_id":"11001",
@@ -5988,7 +5988,7 @@
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"6_form": {
 			"name":"백합꽃의 마인 피나",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"wikiEntry":"White_Lily Dark Fina",
 			"id":"100023305",
 			"game_id":"11001",
@@ -6026,7 +6026,7 @@
 	},
 	"100023503": {
 		"name":"테센",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Tessen",
 		"id":"100023503",
 		"game_id":"11001",
@@ -6117,7 +6117,7 @@
 	},
 	"100023903": {
 		"name":"윈켈",
-		"roles":["debuffer"],
+		"roles":["debuffer","support"],
 		"wikiEntry":"Winkel",
 		"id":"100023903",
 		"game_id":"11001",
@@ -6135,7 +6135,7 @@
 	},
 	"100024003": {
 		"name":"라틸",
-		"roles":["magicalTank"],
+		"roles":["magicalTank","support","debuffer"],
 		"wikiEntry":"Latyl",
 		"id":"100024003",
 		"game_id":"11001",
@@ -6192,7 +6192,7 @@
 	},
 	"100024205": {
 		"name":"스위트 루루카",
-		"roles":["magicalAttacker","support"],
+		"roles":["support","debuffer"],
 		"wikiEntry":"Sweet_Luka",
 		"id":"100024205",
 		"game_id":"11001",
@@ -6266,7 +6266,7 @@
 	},
 	"100024404": {
 		"name":"디젤",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Diezell",
 		"id":"100024404",
 		"game_id":"11001",
@@ -6543,7 +6543,7 @@
 	},
 	"100025905": {
 		"name":"오성투사 니콜",
-		"roles":["support"],
+		"roles":["support","debuffer"],
 		"wikiEntry":"Nichol_of the Epsilon Star",
 		"id":"100025905",
 		"game_id":"11001",
@@ -6560,7 +6560,7 @@
 		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
 		"6_form": {
 			"name":"오성투사 니콜",
-			"roles":["support"],
+			"roles":["support","debuffer"],
 			"wikiEntry":"Nichol_of the Epsilon Star",
 			"id":"100025905",
 			"game_id":"11001",
@@ -6737,7 +6737,7 @@
 	},
 	"100027205": {
 		"name":"용의 공주 피나",
-		"roles":["magicalAttacker","support"],
+		"roles":["magicalAttacker","support","healer"],
 		"wikiEntry":"Draconian_Princess Fina",
 		"id":"100027205",
 		"game_id":"11001",
@@ -6758,7 +6758,7 @@
 		"enhancementSkills":["Pact with Bahamut"],
 		"6_form": {
 			"name":"용의 공주 피나",
-			"roles":["magicalAttacker","support"],
+			"roles":["magicalAttacker","support","healer"],
 			"wikiEntry":"Draconian_Princess Fina",
 			"id":"100027205",
 			"game_id":"11001",
@@ -6778,7 +6778,7 @@
 		},
 		"7_form": {
 			"name":"용의 공주 피나",
-			"roles":["magicalAttacker","support"],
+			"roles":["magicalAttacker","support","healer"],
 			"wikiEntry":"Draconian_Princess Fina",
 			"id":"100027205",
 			"game_id":"11001",
@@ -6895,7 +6895,7 @@
 	},
 	"100027505": {
 		"name":"신성한 요새 샤를로트",
-		"roles":["physicalTank","support"],
+		"roles":["physicalTank","magicalTank","support"],
 		"wikiEntry":"Hallowed_Aegis Charlotte",
 		"id":"100027505",
 		"game_id":"11001",
@@ -6912,7 +6912,7 @@
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
 			"name":"신성한 요새 샤를로트",
-			"roles":["physicalTank","support"],
+			"roles":["physicalTank","magicalTank","support"],
 			"wikiEntry":"Hallowed_Aegis Charlotte",
 			"id":"100027505",
 			"game_id":"11001",
@@ -7164,7 +7164,7 @@
 	},
 	"100028305": {
 		"name":"데이지",
-		"roles":["physicalTank","support"],
+		"roles":["versatile"],
 		"wikiEntry":"Daisy",
 		"id":"100028305",
 		"game_id":"11001",
@@ -7205,7 +7205,7 @@
 		},
 		"7_form": {
 			"name":"데이지",
-			"roles":["physicalTank","support"],
+			"roles":["versatile"],
 			"wikiEntry":"Daisy",
 			"id":"100028305",
 			"game_id":"11001",
@@ -8052,7 +8052,7 @@
 	},
 	"100032005": {
 		"name":"무적의 철근 엘비스",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Relentless_Might Elbis",
 		"id":"100032005",
 		"game_id":"11001",
@@ -10579,7 +10579,7 @@
 	},
 	"201000104": {
 		"name":"빛의 전사",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","debuffer","support"],
 		"wikiEntry":"Warrior_of Light",
 		"id":"201000104",
 		"game_id":"10001",
@@ -10617,7 +10617,7 @@
 	},
 	"201000302": {
 		"name":"셰라",
-		"roles":["support"],
+		"roles":["support","magicalAttacker"],
 		"wikiEntry":"Sarah",
 		"id":"201000302",
 		"game_id":"10001",
@@ -10636,7 +10636,7 @@
 	},
 	"201000405": {
 		"name":"워리어 오브 라이트",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","support"],
 		"wikiEntry":"Awakened_Warrior of Light",
 		"id":"201000405",
 		"game_id":"10001",
@@ -10654,7 +10654,7 @@
 		"enhancementSkills":["Invincible Shield"],
 		"6_form": {
 			"name":"워리어 오브 라이트",
-			"roles":["physicalTank"],
+			"roles":["physicalTank","support"],
 			"wikiEntry":"Awakened_Warrior of Light",
 			"id":"201000405",
 			"game_id":"10001",
@@ -10675,7 +10675,7 @@
 	},
 	"201000505": {
 		"name":"윤회의 기사 가란드",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Immortal_Knight Garland",
 		"id":"201000505",
 		"game_id":"10001",
@@ -10696,7 +10696,7 @@
 		"enhancementSkills":["Chaotic Influence","All-Consuming Chaos","Fira","Darkra","Round Edge"],
 		"6_form": {
 			"name":"윤회의 기사 가란드",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"wikiEntry":"Immortal_Knight Garland",
 			"id":"201000505",
 			"game_id":"10001",
@@ -10716,7 +10716,7 @@
 		},
 		"7_form": {
 			"name":"윤회의 기사 가란드",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"wikiEntry":"Immortal_Knight Garland",
 			"id":"201000505",
 			"game_id":"10001",
@@ -10883,7 +10883,7 @@
 	},
 	"202000303": {
 		"name":"가이",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","debuffer"],
 		"wikiEntry":"Guy",
 		"id":"202000303",
 		"game_id":"10002",
@@ -10904,7 +10904,7 @@
 		"enhancementSkills":["Cover - Physical I","Shield Level Increase","Gigant Attack"],
 		"6_form": {
 			"name":"가이",
-			"roles":["physicalTank"],
+			"roles":["physicalTank","debuffer"],
 			"wikiEntry":"Guy",
 			"id":"202000303",
 			"game_id":"10002",
@@ -10924,7 +10924,7 @@
 		},
 		"7_form": {
 			"name":"가이",
-			"roles":["physicalTank"],
+			"roles":["physicalTank","debuffer"],
 			"wikiEntry":"Guy",
 			"id":"202000303",
 			"game_id":"10002",
@@ -11125,7 +11125,7 @@
 	},
 	"202001705": {
 		"name":"다크 나이트 레온하르트",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Dark_Knight Leon",
 		"id":"202001705",
 		"game_id":"10002",
@@ -11146,7 +11146,7 @@
 		"enhancementSkills":["Tainted by Darkness","Dark Corruption II","Ambition of the New Emperor"],
 		"6_form": {
 			"name":"다크 나이트 레온하르트",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"wikiEntry":"Dark_Knight Leon",
 			"id":"202001705",
 			"game_id":"10002",
@@ -11166,7 +11166,7 @@
 		},
 		"7_form": {
 			"name":"다크 나이트 레온하르트",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"wikiEntry":"Dark_Knight Leon",
 			"id":"202001705",
 			"game_id":"10002",
@@ -11290,7 +11290,7 @@
 	},
 	"202002205": {
 		"name":"민우",
-		"roles":["magicalAttacker","healer"],
+		"roles":["magicalAttacker","healer","support"],
 		"wikiEntry":"Minwu",
 		"id":"202002205",
 		"game_id":"10002",
@@ -11307,7 +11307,7 @@
 		"equip":["staff","rod","lightShield","hat","clothes","lightArmor","robe"],
 		"6_form": {
 			"name":"민우",
-			"roles":["magicalAttacker","healer"],
+			"roles":["magicalAttacker","healer","support"],
 			"wikiEntry":"Minwu",
 			"id":"202002205",
 			"game_id":"10002",
@@ -11510,7 +11510,7 @@
 	},
 	"203000404": {
 		"name":"레피아",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"wikiEntry":"Refia",
 		"id":"203000404",
 		"game_id":"10003",
@@ -11584,7 +11584,7 @@
 	},
 	"203000803": {
 		"name":"어둠의 구름",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","physicalAttacker","support"],
 		"wikiEntry":"Cloud_of Darkness",
 		"id":"203000803",
 		"game_id":"10003",
@@ -12188,7 +12188,7 @@
 	},
 	"204000304": {
 		"name":"로자",
-		"roles":["healer","physicalAttacker"],
+		"roles":["healer","magicalAttacker","physicalAttacker"],
 		"wikiEntry":"Rosa",
 		"id":"204000304",
 		"game_id":"10004",
@@ -12226,7 +12226,7 @@
 	},
 	"204000503": {
 		"name":"테라",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","healer"],
 		"wikiEntry":"Tellah",
 		"id":"204000503",
 		"game_id":"10004",
@@ -12299,7 +12299,7 @@
 	},
 	"204001103": {
 		"name":"엣지",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"wikiEntry":"Edge",
 		"id":"204001103",
 		"game_id":"10004",
@@ -12336,7 +12336,7 @@
 	},
 	"204001403": {
 		"name":"골베자",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Golbez",
 		"id":"204001403",
 		"game_id":"10004",
@@ -12516,7 +12516,7 @@
 	},
 	"204002205": {
 		"name":"성기사 세실",
-		"roles":["support","magicalTank"],
+		"roles":["debuffer","support","magicalTank"],
 		"wikiEntry":"Paladin_Cecil",
 		"id":"204002205",
 		"game_id":"10004",
@@ -12533,7 +12533,7 @@
 		"equip":["dagger","sword","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
 		"6_form": {
 			"name":"성기사 세실",
-			"roles":["support","magicalTank"],
+			"roles":["debuffer","support","magicalTank"],
 			"wikiEntry":"Paladin_Cecil",
 			"id":"204002205",
 			"game_id":"10004",
@@ -12882,7 +12882,7 @@
 	},
 	"205000303": {
 		"name":"가라프",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","debuffer"],
 		"wikiEntry":"Galuf",
 		"id":"205000303",
 		"game_id":"10005",
@@ -12900,7 +12900,7 @@
 	},
 	"205000403": {
 		"name":"파리스",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Faris",
 		"id":"205000403",
 		"game_id":"10005",
@@ -13123,7 +13123,7 @@
 	},
 	"205001005": {
 		"name":"새벽의 전사 가라프",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","physicalTank"],
 		"wikiEntry":"Warrior_of Dawn Galuf",
 		"id":"205001005",
 		"game_id":"10005",
@@ -13144,7 +13144,7 @@
 		"enhancementSkills":["Strength to Protect the Warriors of Light","Stronghold Advance"],
 		"6_form": {
 			"name":"새벽의 전사 가라프",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","physicalTank"],
 			"wikiEntry":"Warrior_of Dawn Galuf",
 			"id":"205001005",
 			"game_id":"10005",
@@ -13164,7 +13164,7 @@
 		},
 		"7_form": {
 			"name":"새벽의 전사 가라프",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","physicalTank"],
 			"wikiEntry":"Warrior_of Dawn Galuf",
 			"id":"205001005",
 			"game_id":"10005",
@@ -13228,7 +13228,7 @@
 		"enhancementSkills":["Soaring Blade","Blade of Pursuit","Straight Sense of Justice"],
 		"6_form": {
 			"name":"빛의 전사 버츠",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"wikiEntry":"Warrior_of Light Bartz",
 			"id":"205001105",
 			"game_id":"10005",
@@ -13248,7 +13248,7 @@
 		},
 		"7_form": {
 			"name":"빛의 전사 버츠",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"wikiEntry":"Warrior_of Light Bartz",
 			"id":"205001105",
 			"game_id":"10005",
@@ -13749,7 +13749,7 @@
 	},
 	"206000125": {
 		"name":"트랜스 티나",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"wikiEntry":"Trance_Terra",
 		"id":"206000125",
 		"game_id":"10006",
@@ -13767,7 +13767,7 @@
 		"enhancementSkills":["Chaos Wave","Inherited Power","Ultima","Magical Activation"],
 		"6_form": {
 			"name":"트랜스 티나",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","support"],
 			"wikiEntry":"Trance_Terra",
 			"id":"206000125",
 			"game_id":"10006",
@@ -13844,7 +13844,7 @@
 	},
 	"206000503": {
 		"name":"섀도우",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Shadow",
 		"id":"206000503",
 		"game_id":"10006",
@@ -13900,7 +13900,7 @@
 	},
 	"206000804": {
 		"name":"셋쳐",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Setzer",
 		"id":"206000804",
 		"game_id":"10006",
@@ -14076,7 +14076,7 @@
 	},
 	"206001502": {
 		"name":"웨지",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","healer"],
 		"wikiEntry":"Wedge",
 		"id":"206001502",
 		"game_id":"10006",
@@ -14095,7 +14095,7 @@
 	},
 	"206001602": {
 		"name":"빅스",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Biggs",
 		"id":"206001602",
 		"game_id":"10006",
@@ -14114,7 +14114,7 @@
 	},
 	"206001703": {
 		"name":"케프카",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Kefka",
 		"id":"206001703",
 		"game_id":"10006",
@@ -14152,7 +14152,7 @@
 	},
 	"206001905": {
 		"name":"피가로의 왕 에드가",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"King_Edgar of Figaro",
 		"id":"206001905",
 		"game_id":"10006",
@@ -14193,7 +14193,7 @@
 		},
 		"7_form": {
 			"name":"피가로의 왕 에드가",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"wikiEntry":"King_Edgar of Figaro",
 			"id":"206001905",
 			"game_id":"10006",
@@ -14236,7 +14236,7 @@
 	},
 	"206002005": {
 		"name":"콜츠의 격투가 매시",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","physicalTank","magicalTank"],
 		"wikiEntry":"Monk_Sabin of Kolts",
 		"id":"206002005",
 		"game_id":"10006",
@@ -14357,7 +14357,7 @@
 	},
 	"206002205": {
 		"name":"모험가 로크",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Adventurer_Locke",
 		"id":"206002205",
 		"game_id":"10006",
@@ -14394,7 +14394,7 @@
 	},
 	"206002305": {
 		"name":"대마도사 케프카",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Archmage_Kefka",
 		"id":"206002305",
 		"game_id":"10006",
@@ -14415,7 +14415,7 @@
 		"enhancementSkills":["UNBELIEVABLE!","Twisty-Turny Blizzaga","Warring Triad's Power"],
 		"6_form": {
 			"name":"대마도사 케프카",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"wikiEntry":"Archmage_Kefka",
 			"id":"206002305",
 			"game_id":"10006",
@@ -14435,7 +14435,7 @@
 		},
 		"7_form": {
 			"name":"대마도사 케프카",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"wikiEntry":"Archmage_Kefka",
 			"id":"206002305",
 			"game_id":"10006",
@@ -15242,7 +15242,7 @@
 	},
 	"207000605": {
 		"name":"유피",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Yuffie",
 		"id":"207000605",
 		"game_id":"10007",
@@ -15259,7 +15259,7 @@
 		"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes","lightArmor"],
 		"6_form": {
 			"name":"유피",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"wikiEntry":"Yuffie",
 			"id":"207000605",
 			"game_id":"10007",
@@ -15334,7 +15334,7 @@
 	},
 	"207001005": {
 		"name":"세피로스",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Sephiroth",
 		"id":"207001005",
 		"game_id":"10007",
@@ -15352,7 +15352,7 @@
 		"enhancementSkills":["Katana Mastery","Legendary SOLDIER","The Heavens Wept","Reunion","Tragic End","ATK +20%"],
 		"6_form": {
 			"name":"세피로스",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"wikiEntry":"Sephiroth",
 			"id":"207001005",
 			"game_id":"10007",
@@ -15665,7 +15665,7 @@
 		"wikiEntry":"Cloud_(FFVII: AC)",
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -15682,7 +15682,7 @@
 			"wikiEntry":"Cloud_(FFVII: AC)",
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -15702,7 +15702,7 @@
 		"wikiEntry":"Tifa_(FFVII: AC)",
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -15719,7 +15719,7 @@
 			"wikiEntry":"Tifa_(FFVII: AC)",
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -15739,7 +15739,7 @@
 		"wikiEntry":"Kadaj",
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -15756,7 +15756,7 @@
 			"wikiEntry":"Kadaj",
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -15776,7 +15776,7 @@
 		"wikiEntry":"Yazoo_& Loz",
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -16458,7 +16458,7 @@
 	},
 	"208000505": {
 		"name":"셀피",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer","support"],
 		"wikiEntry":"Selphie",
 		"id":"208000505",
 		"game_id":"10008",
@@ -16475,7 +16475,7 @@
 		"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"],
 		"6_form": {
 			"name":"셀피",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer","support"],
 			"wikiEntry":"Selphie",
 			"id":"208000505",
 			"game_id":"10008",
@@ -16569,7 +16569,7 @@
 	},
 	"208001304": {
 		"name":"이데아",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Edea",
 		"id":"208001304",
 		"game_id":"10008",
@@ -16587,7 +16587,7 @@
 	},
 	"208001505": {
 		"name":"고고한 사자 스퀄",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Lone_Lion Squall",
 		"id":"208001505",
 		"game_id":"10008",
@@ -16818,7 +16818,7 @@
 	},
 	"209000103": {
 		"name":"지탄",
-		"roles":["support"],
+		"roles":["support","debuffer","physicalAttacker"],
 		"wikiEntry":"Zidane",
 		"id":"209000103",
 		"game_id":"10009",
@@ -16856,7 +16856,7 @@
 	},
 	"209000304": {
 		"name":"가넷",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"wikiEntry":"Garnet",
 		"id":"209000304",
 		"game_id":"10009",
@@ -16894,7 +16894,7 @@
 	},
 	"209000503": {
 		"name":"프레이야",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","healer"],
 		"wikiEntry":"Freya",
 		"id":"209000503",
 		"game_id":"10009",
@@ -16912,7 +16912,7 @@
 	},
 	"209000705": {
 		"name":"에코",
-		"roles":["healer","support"],
+		"roles":["healer","support","magicalAttacker"],
 		"wikiEntry":"Eiko",
 		"id":"209000705",
 		"game_id":"10009",
@@ -16930,7 +16930,7 @@
 		"enhancementSkills":["Curaga","Passion Performance","Mog's Friendship","Summoner Descendant","Crypto Performance"],
 		"6_form": {
 			"name":"에코",
-			"roles":["healer","support"],
+			"roles":["healer","support","magicalAttacker"],
 			"wikiEntry":"Eiko",
 			"id":"209000705",
 			"game_id":"10009",
@@ -16951,7 +16951,7 @@
 	},
 	"209000803": {
 		"name":"샐러맨더",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Amarant",
 		"id":"209000803",
 		"game_id":"10009",
@@ -16972,7 +16972,7 @@
 		"enhancementSkills":["Martial Arts Mastery","Flair - No Mercy"],
 		"6_form": {
 			"name":"샐러맨더",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"wikiEntry":"Amarant",
 			"id":"209000803",
 			"game_id":"10009",
@@ -16992,7 +16992,7 @@
 		},
 		"7_form": {
 			"name":"샐러맨더",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"wikiEntry":"Amarant",
 			"id":"209000803",
 			"game_id":"10009",
@@ -17073,7 +17073,7 @@
 	},
 	"209001105": {
 		"name":"베아트릭스",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"wikiEntry":"Beatrix",
 		"id":"209001105",
 		"game_id":"10009",
@@ -17114,7 +17114,7 @@
 		},
 		"7_form": {
 			"name":"베아트릭스",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","magicalAttacker","debuffer"],
 			"wikiEntry":"Beatrix",
 			"id":"209001105",
 			"game_id":"10009",
@@ -17157,7 +17157,7 @@
 	},
 	"209001203": {
 		"name":"검은 왈츠 3호",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Black_Waltz 3",
 		"id":"209001203",
 		"game_id":"10009",
@@ -17703,7 +17703,7 @@
 	},
 	"210000105": {
 		"name":"티다",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Tidus",
 		"id":"210000105",
 		"game_id":"10010",
@@ -17742,7 +17742,7 @@
 	},
 	"210000205": {
 		"name":"유우나",
-		"roles":["magicalAttacker","healer","support"],
+		"roles":["healer","support","magicalAttacker"],
 		"wikiEntry":"Yuna",
 		"id":"210000205",
 		"game_id":"10010",
@@ -17781,7 +17781,7 @@
 	},
 	"210000303": {
 		"name":"와카",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Wakka",
 		"id":"210000303",
 		"game_id":"10010",
@@ -17802,7 +17802,7 @@
 		"enhancementSkills":["Water Ball","Jupiter Crest","Zealous Fighter","Throwing Weapon Mastery","Drain Tackle","Blitz Spirit"],
 		"6_form": {
 			"name":"와카",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"wikiEntry":"Wakka",
 			"id":"210000303",
 			"game_id":"10010",
@@ -17822,7 +17822,7 @@
 		},
 		"7_form": {
 			"name":"와카",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"wikiEntry":"Wakka",
 			"id":"210000303",
 			"game_id":"10010",
@@ -17903,7 +17903,7 @@
 	},
 	"210000505": {
 		"name":"키마리",
-		"roles":["magicalAttacker","debuffer"],
+		"roles":["magicalAttacker","debuffer","support"],
 		"wikiEntry":"Kimahri",
 		"id":"210000505",
 		"game_id":"10010",
@@ -17996,7 +17996,7 @@
 	},
 	"210000804": {
 		"name":"시모어",
-		"roles":["magicalAttacker","debuffer"],
+		"roles":["magicalAttacker","debuffer","magicalTank"],
 		"wikiEntry":"Seymour",
 		"id":"210000804",
 		"game_id":"10010",
@@ -18079,7 +18079,7 @@
 	},
 	"210000905": {
 		"name":"유우나레스카",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"wikiEntry":"Yunalesca",
 		"id":"210000905",
 		"game_id":"10010",
@@ -18100,7 +18100,7 @@
 		"enhancementSkills":["False Teachings","Rod Mastery"],
 		"6_form": {
 			"name":"유우나레스카",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","support"],
 			"wikiEntry":"Yunalesca",
 			"id":"210000905",
 			"game_id":"10010",
@@ -18120,7 +18120,7 @@
 		},
 		"7_form": {
 			"name":"유우나레스카",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","support"],
 			"wikiEntry":"Yunalesca",
 			"id":"210000905",
 			"game_id":"10010",
@@ -18319,7 +18319,7 @@
 	},
 	"210001805": {
 		"name":"자나르칸드의 티다",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Star_Player Tidus",
 		"id":"210001805",
 		"game_id":"10010",
@@ -18340,7 +18340,7 @@
 		"enhancementSkills":["Quick Hit+","Quick Flash","Dream to End Dreams"],
 		"6_form": {
 			"name":"자나르칸드의 티다",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"wikiEntry":"Star_Player Tidus",
 			"id":"210001805",
 			"game_id":"10010",
@@ -18360,7 +18360,7 @@
 		},
 		"7_form": {
 			"name":"자나르칸드의 티다",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"wikiEntry":"Star_Player Tidus",
 			"id":"210001805",
 			"game_id":"10010",
@@ -18761,7 +18761,7 @@
 	},
 	"211000303": {
 		"name":"쿠피피",
-		"roles":["healer","support"],
+		"roles":["healer","magicalAttacker"],
 		"wikiEntry":"Kupipi",
 		"id":"211000303",
 		"game_id":"10011",
@@ -18819,7 +18819,7 @@
 	},
 	"211000805": {
 		"name":"분노한 샨토토",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer","support"],
 		"wikiEntry":"Livid_Shantotto",
 		"id":"211000805",
 		"game_id":"10011",
@@ -18840,7 +18840,7 @@
 		"enhancementSkills":["Former Orastery Minister","Elemental Seal","Spirit Magic Skill: A+","Mana Wall","Flood II","Flare II","Manafont","Doublehand Staff Skill: A+","DEF +20%","You're making me lose my temper, dear!","Wind Crusher"],
 		"6_form": {
 			"name":"분노한 샨토토",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer","support"],
 			"wikiEntry":"Livid_Shantotto",
 			"id":"211000805",
 			"game_id":"10011",
@@ -18860,7 +18860,7 @@
 		},
 		"7_form": {
 			"name":"분노한 샨토토",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer","support"],
 			"wikiEntry":"Livid_Shantotto",
 			"id":"211000805",
 			"game_id":"10011",
@@ -18903,7 +18903,7 @@
 	},
 	"211000905": {
 		"name":"암흑의 왕",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Shadow_Lord",
 		"id":"211000905",
 		"game_id":"10011",
@@ -18924,7 +18924,7 @@
 		"enhancementSkills":["Hatred for the Talekeeper","Cross Smash","Dynamic Implosion","Doom Arc","Blood Weapon (FFXI: Shadow Lord)","Shadow Lord","SPR +20%","Immortal Justice","True Cross Smash"],
 		"6_form": {
 			"name":"암흑의 왕",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"wikiEntry":"Shadow_Lord",
 			"id":"211000905",
 			"game_id":"10011",
@@ -18944,7 +18944,7 @@
 		},
 		"7_form": {
 			"name":"암흑의 왕",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"wikiEntry":"Shadow_Lord",
 			"id":"211000905",
 			"game_id":"10011",
@@ -19228,7 +19228,7 @@
 	},
 	"212000103": {
 		"name":"반",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Vaan",
 		"id":"212000103",
 		"game_id":"10012",
@@ -19247,7 +19247,7 @@
 	},
 	"212000204": {
 		"name":"아셰",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer","healer"],
 		"wikiEntry":"Ashe",
 		"id":"212000204",
 		"game_id":"10012",
@@ -19284,7 +19284,7 @@
 	},
 	"212000505": {
 		"name":"발프레아",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker"],
 		"wikiEntry":"Balthier",
 		"id":"212000505",
 		"game_id":"10012",
@@ -19406,7 +19406,7 @@
 	},
 	"212000905": {
 		"name":"바슈",
-		"roles":["debuffer","support"],
+		"roles":["physicalTank","magicalTank","debuffer"],
 		"wikiEntry":"Basch",
 		"id":"212000905",
 		"game_id":"10012",
@@ -19424,7 +19424,7 @@
 		"enhancementSkills":["Loyal Spirit","Confusing Lament","Fulminating Darkness","Twilight Guard","Dawn Guard","Bell of a New Dawn"],
 		"6_form": {
 			"name":"바슈",
-			"roles":["debuffer","support"],
+			"roles":["physicalTank","magicalTank","debuffer"],
 			"wikiEntry":"Basch",
 			"id":"212000905",
 			"game_id":"10012",
@@ -19481,7 +19481,7 @@
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"6_form": {
 			"name":"가브라스",
-			"roles":["physicalTank","physicalAttacker"],
+			"roles":["physicalTank","physicalAttacker","debuffer"],
 			"wikiEntry":"Gabranth",
 			"id":"212001105",
 			"game_id":"10012",
@@ -19501,7 +19501,7 @@
 	},
 	"212001204": {
 		"name":"베인",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","magicalAttacker"],
 		"wikiEntry":"Vayne",
 		"id":"212001204",
 		"game_id":"10012",
@@ -19522,7 +19522,7 @@
 		"enhancementSkills":["Bravery","Faith","Firaga","Thundaga","Archadian Emperor","Magick Barrier","Force Barrier","Battering Ram"],
 		"6_form": {
 			"name":"베인",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","magicalAttacker"],
 			"wikiEntry":"Vayne",
 			"id":"212001204",
 			"game_id":"10012",
@@ -19542,7 +19542,7 @@
 		},
 		"7_form": {
 			"name":"베인",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","magicalAttacker"],
 			"wikiEntry":"Vayne",
 			"id":"212001204",
 			"game_id":"10012",
@@ -19602,7 +19602,7 @@
 	},
 	"212001404": {
 		"name":"드레이스",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"wikiEntry":"Drace",
 		"id":"212001404",
 		"game_id":"10012",
@@ -19695,7 +19695,7 @@
 	},
 	"212001705": {
 		"name":"창궁의 가인 프란",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker"],
 		"wikiEntry":"Blue_Sky Belle Fran",
 		"id":"212001705",
 		"game_id":"10012",
@@ -19870,7 +19870,7 @@
 	},
 	"212002104": {
 		"name":"베르가",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Bergan",
 		"id":"212002104",
 		"game_id":"10012",
@@ -20203,7 +20203,7 @@
 	},
 	"213000304": {
 		"name":"바닐라",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"wikiEntry":"Vanille",
 		"id":"213000304",
 		"game_id":"10013",
@@ -20222,7 +20222,7 @@
 	},
 	"213000403": {
 		"name":"삿즈",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Sazh",
 		"id":"213000403",
 		"game_id":"10013",
@@ -20240,7 +20240,7 @@
 	},
 	"213000504": {
 		"name":"호프",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","healer"],
 		"wikiEntry":"Hope",
 		"id":"213000504",
 		"game_id":"10013",
@@ -20535,7 +20535,7 @@
 	},
 	"214000404": {
 		"name":"이다",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Yda",
 		"id":"214000404",
 		"game_id":"10014",
@@ -20573,7 +20573,7 @@
 	},
 	"214000605": {
 		"name":"마녀 야슈톨라",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Y'shtola,_the Sorceress",
 		"id":"214000605",
 		"game_id":"10014",
@@ -20590,7 +20590,7 @@
 		"equip":["staff","rod","hammer","lightShield","hat","clothes","robe"],
 		"6_form": {
 			"name":"마녀 야슈톨라",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"wikiEntry":"Y'shtola,_the Sorceress",
 			"id":"214000605",
 			"game_id":"10014",
@@ -20649,7 +20649,7 @@
 	},
 	"215000205": {
 		"name":"글라디올러스",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","physicalAttacker"],
 		"wikiEntry":"Gladiolus",
 		"id":"215000205",
 		"game_id":"10015",
@@ -20670,7 +20670,7 @@
 		"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard","Razor Shield","Master and Pupil"],
 		"6_form": {
 			"name":"글라디올러스",
-			"roles":["physicalTank"],
+			"roles":["physicalTank","physicalAttacker"],
 			"wikiEntry":"Gladiolus",
 			"id":"215000205",
 			"game_id":"10015",
@@ -20690,7 +20690,7 @@
 		},
 		"7_form": {
 			"name":"글라디올러스",
-			"roles":["physicalTank"],
+			"roles":["physicalTank","physicalAttacker"],
 			"wikiEntry":"Gladiolus",
 			"id":"215000205",
 			"game_id":"10015",
@@ -20733,7 +20733,7 @@
 	},
 	"215000304": {
 		"name":"코르",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Cor",
 		"id":"215000304",
 		"game_id":"10015",
@@ -20752,7 +20752,7 @@
 	},
 	"215000403": {
 		"name":"아이리스",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"wikiEntry":"Iris",
 		"id":"215000403",
 		"game_id":"10015",
@@ -21079,7 +21079,7 @@
 	},
 	"215001105": {
 		"name":"닉스",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Nyx",
 		"id":"215001105",
 		"game_id":"10015",
@@ -21120,7 +21120,7 @@
 		},
 		"7_form": {
 			"name":"닉스",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"wikiEntry":"Nyx",
 			"id":"215001105",
 			"game_id":"10015",
@@ -21163,7 +21163,7 @@
 	},
 	"215001204": {
 		"name":"글라우카",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Glauca",
 		"id":"215001204",
 		"game_id":"10015",
@@ -21201,7 +21201,7 @@
 	},
 	"215001403": {
 		"name":"리베르투스",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","support"],
 		"wikiEntry":"Libertus",
 		"id":"215001403",
 		"game_id":"10015",
@@ -21374,7 +21374,7 @@
 	},
 	"215002605": {
 		"name":"겐티아나",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"wikiEntry":"Gentiana",
 		"id":"215002605",
 		"game_id":"10015",
@@ -21391,7 +21391,7 @@
 		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
 		"6_form": {
 			"name":"겐티아나",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","support"],
 			"wikiEntry":"Gentiana",
 			"id":"215002605",
 			"game_id":"10015",
@@ -21448,7 +21448,7 @@
 	},
 	"215002804": {
 		"name":"케니 크로우",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Kenny_Crow",
 		"id":"215002804",
 		"game_id":"10015",
@@ -21591,7 +21591,7 @@
 	},
 	"249000205": {
 		"name":"류크(FFX-2)",
-		"roles":["debuffer","physicalAttacker"],
+		"roles":["debuffer","support","physicalAttacker"],
 		"wikiEntry":"Rikku_(FFX-2)",
 		"id":"249000205",
 		"game_id":"11004",
@@ -21608,7 +21608,7 @@
 		"equip":["dagger","throwing","gun","fist","lightShield","hat","clothes","lightArmor"],
 		"6_form": {
 			"name":"류크(FFX-2)",
-			"roles":["debuffer","physicalAttacker"],
+			"roles":["debuffer","support","physicalAttacker"],
 			"wikiEntry":"Rikku_(FFX-2)",
 			"id":"249000205",
 			"game_id":"11004",
@@ -22010,7 +22010,7 @@
 	},
 	"253000105": {
 		"name":"람자",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Ramza",
 		"id":"253000105",
 		"game_id":"11002",
@@ -22028,7 +22028,7 @@
 		"enhancementSkills":["Mind Break","Weapon Break","Hero's Rime"],
 		"6_form": {
 			"name":"람자",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"wikiEntry":"Ramza",
 			"id":"253000105",
 			"game_id":"11002",
@@ -22049,7 +22049,7 @@
 	},
 	"253000115": {
 		"name":"용병 람자",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","physicalTank"],
 		"wikiEntry":"Mercenary_Ramza",
 		"id":"253000115",
 		"game_id":"11002",
@@ -22067,7 +22067,7 @@
 		"enhancementSkills":["Stone Throw","Branded Heretic","True Justice","Blade of Justice","True Hero"],
 		"6_form": {
 			"name":"용병 람자",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","debuffer","physicalTank"],
 			"wikiEntry":"Mercenary_Ramza",
 			"id":"253000115",
 			"game_id":"11002",
@@ -22088,7 +22088,7 @@
 	},
 	"253000205": {
 		"name":"디리타",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"wikiEntry":"Delita",
 		"id":"253000205",
 		"game_id":"11002",
@@ -22106,7 +22106,7 @@
 		"enhancementSkills":["Helm Break","Shield Break","Meditate"],
 		"6_form": {
 			"name":"디리타",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"wikiEntry":"Delita",
 			"id":"253000205",
 			"game_id":"11002",
@@ -22166,7 +22166,7 @@
 	},
 	"253000304": {
 		"name":"아그리아스",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Agrias",
 		"id":"253000304",
 		"game_id":"11002",
@@ -22223,7 +22223,7 @@
 	},
 	"253000603": {
 		"name":"무스타디오",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Mustadio",
 		"id":"253000603",
 		"game_id":"11002",
@@ -22391,7 +22391,7 @@
 	},
 	"253001305": {
 		"name":"성천사 알테마",
-		"roles":["magicalAttacker","support"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"High_Seraph Ultima",
 		"id":"253001305",
 		"game_id":"11002",
@@ -22408,7 +22408,7 @@
 		"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","clothes","robe"],
 		"6_form": {
 			"name":"성천사 알테마",
-			"roles":["magicalAttacker","support"],
+			"roles":["magicalAttacker","debuffer"],
 			"wikiEntry":"High_Seraph Ultima",
 			"id":"253001305",
 			"game_id":"11002",
@@ -22624,7 +22624,7 @@
 	},
 	"254000603": {
 		"name":"잭",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Jack",
 		"id":"254000603",
 		"game_id":"11003",
@@ -22642,7 +22642,7 @@
 	},
 	"254000704": {
 		"name":"세븐",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support","debuffer"],
 		"wikiEntry":"Seven",
 		"id":"254000704",
 		"game_id":"11003",
@@ -22700,7 +22700,7 @@
 	},
 	"254001003": {
 		"name":"에이트",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Eight",
 		"id":"254001003",
 		"game_id":"11003",
@@ -22736,7 +22736,7 @@
 	},
 	"254001204": {
 		"name":"킹",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"King",
 		"id":"254001204",
 		"game_id":"11003",
@@ -22755,7 +22755,7 @@
 	},
 	"254001403": {
 		"name":"사이스",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Sice",
 		"id":"254001403",
 		"game_id":"11003",
@@ -22773,7 +22773,7 @@
 	},
 	"254001505": {
 		"name":"0반의 수재 에이스",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Wild_Card Ace",
 		"id":"254001505",
 		"game_id":"11003",
@@ -22790,7 +22790,7 @@
 		"equip":["dagger","rod","harp","whip","throwing","hat","clothes","lightArmor","robe"],
 		"6_form": {
 			"name":"0반의 수재 에이스",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"wikiEntry":"Wild_Card Ace",
 			"id":"254001505",
 			"game_id":"11003",
@@ -23269,7 +23269,7 @@
 	},
 	"302000104": {
 		"name":"티리스",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"wikiEntry":"Tilith",
 		"id":"302000104",
 		"game_id":"20003",
@@ -23287,7 +23287,7 @@
 	},
 	"302000204": {
 		"name":"칼(BF)",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Karl",
 		"id":"302000204",
 		"game_id":"20003",
@@ -23306,7 +23306,7 @@
 	},
 	"302000304": {
 		"name":"세리아",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"wikiEntry":"Seria",
 		"id":"302000304",
 		"game_id":"20003",
@@ -23708,7 +23708,7 @@
 	},
 	"304000303": {
 		"name":"포포이",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Popoi",
 		"id":"304000303",
 		"game_id":"20005",
@@ -23727,7 +23727,7 @@
 	},
 	"304000405": {
 		"name":"플래미",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Flammie",
 		"id":"304000405",
 		"game_id":"20005",
@@ -23744,7 +23744,7 @@
 		"equip":["dagger","sword","staff","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
 			"name":"플래미",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"wikiEntry":"Flammie",
 			"id":"304000405",
 			"game_id":"20005",
@@ -23866,7 +23866,7 @@
 	},
 	"306000204": {
 		"name":"야마타노오로치",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker"],
 		"wikiEntry":"Orochi",
 		"id":"306000204",
 		"game_id":"20006",
@@ -23885,7 +23885,7 @@
 	},
 	"306000303": {
 		"name":"칸다타",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Robbin'_'Ood",
 		"id":"306000303",
 		"game_id":"20006",
@@ -24319,7 +24319,7 @@
 	},
 	"310000304": {
 		"name":"아담",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Adam",
 		"id":"310000304",
 		"game_id":"20010",
@@ -24337,7 +24337,7 @@
 	},
 	"310000403": {
 		"name":"21O",
-		"roles":["physicalAttacker","healer"],
+		"roles":["versatile"],
 		"wikiEntry":"21O",
 		"id":"310000403",
 		"game_id":"20010",
@@ -24429,7 +24429,7 @@
 	},
 	"312000404": {
 		"name":"샤를로트",
-		"roles":["physicalAttacker","magicalAttacker","healer"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"wikiEntry":"Charlotte",
 		"id":"312000404",
 		"game_id":"20012",
@@ -24579,7 +24579,7 @@
 	},
 	"316000103": {
 		"name":"라틱스",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"wikiEntry":"Roddick",
 		"id":"316000103",
 		"game_id":"20016",
@@ -24597,7 +24597,7 @@
 	},
 	"317000105": {
 		"name":"레나",
-		"roles":["healer","magicalAttacker"],
+		"roles":["healer","magicalAttacker","support"],
 		"wikiEntry":"Rena",
 		"id":"317000105",
 		"game_id":"20017",
@@ -24615,7 +24615,7 @@
 		"enhancementSkills":["Enhanced Dispel","Martial Arts Knowledge","Reflection","Hasten Speech","Time Traveler","Enshelter+","Fix Cloud","Light Cross","Mother's Protection","Two Mothers' Blessings (SO2)"],
 		"6_form": {
 			"name":"레나",
-			"roles":["healer","magicalAttacker"],
+			"roles":["healer","magicalAttacker","support"],
 			"wikiEntry":"Rena",
 			"id":"317000105",
 			"game_id":"20017",
@@ -24691,7 +24691,7 @@
 	},
 	"320000104": {
 		"name":"피델",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Fidel",
 		"id":"320000104",
 		"game_id":"20020",
@@ -25147,7 +25147,7 @@
 	},
 	"331000603": {
 		"name":"츄츄",
-		"roles":["healer"],
+		"roles":["magicalAttacker"],
 		"wikiEntry":"Chu-Chu",
 		"id":"331000603",
 		"game_id":"20024",
@@ -25699,7 +25699,7 @@
 	},
 	"337000105": {
 		"name":"용사 일레븐",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Eleven",
 		"id":"337000105",
 		"game_id":"20029",
@@ -25716,7 +25716,7 @@
 		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
 			"name":"용사 일레븐",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"wikiEntry":"Eleven",
 			"id":"337000105",
 			"game_id":"20029",
@@ -25847,7 +25847,7 @@
 	},
 	"337000505": {
 		"name":"마도사 우르노가",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Mordegon",
 		"id":"337000505",
 		"game_id":"20029",
@@ -25939,7 +25939,7 @@
 	},
 	"337000805": {
 		"name":"마왕 우르노가",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"The_Lord of Shadows",
 		"id":"337000805",
 		"game_id":"20029",
@@ -25956,7 +25956,7 @@
 		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","mace","helm","heavyArmor"],
 		"6_form": {
 			"name":"마왕 우르노가",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"wikiEntry":"The_Lord of Shadows",
 			"id":"337000805",
 			"game_id":"20029",
@@ -26087,7 +26087,7 @@
 	},
 	"338000105": {
 		"name":"에드워드 엘릭",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Edward_Elric",
 		"id":"338000105",
 		"game_id":"20032",
@@ -26245,7 +26245,7 @@
 	},
 	"338000404": {
 		"name":"리자 호크아이",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Riza_Hawkeye",
 		"id":"338000404",
 		"game_id":"20032",
@@ -26263,7 +26263,7 @@
 	},
 	"338000503": {
 		"name":"윈리 록벨",
-		"roles":["debuffer"],
+		"roles":["support","debuffer"],
 		"wikiEntry":"Winry_Rockbell",
 		"id":"338000503",
 		"game_id":"20032",
@@ -26399,7 +26399,7 @@
 	},
 	"339000105": {
 		"name":"길가메시(WOTV FFBE)",
-		"roles":["physicalAttacker","magicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","support"],
 		"wikiEntry":"Gilgamesh_(WOTV FFBE)",
 		"id":"339000105",
 		"game_id":"11010",
@@ -26416,7 +26416,7 @@
 		"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"],
 		"6_form": {
 			"name":"길가메시(WOTV FFBE)",
-			"roles":["physicalAttacker","magicalAttacker"],
+			"roles":["physicalAttacker","magicalAttacker","support"],
 			"wikiEntry":"Gilgamesh_(WOTV FFBE)",
 			"id":"339000105",
 			"game_id":"11010",
@@ -27769,7 +27769,7 @@
 	},
 	"401001504": {
 		"name":"루비칸테",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"wikiEntry":"Rubicante",
 		"id":"401001504",
 		"game_id":"10004",
@@ -27810,7 +27810,7 @@
 		},
 		"7_form": {
 			"name":"루비칸테",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"wikiEntry":"Rubicante",
 			"id":"401001504",
 			"game_id":"10004",

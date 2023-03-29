@@ -2,7 +2,7 @@
 
 	"100000102": {
 		"name":"Rain",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","debuffer","support"],
 		"id":"100000102",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -235,7 +235,7 @@
 	},
 	"100000603": {
 		"name":"Sakura",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"id":"100000603",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -256,7 +256,7 @@
 	},
 	"100000703": {
 		"name":"Jake",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100000703",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -277,7 +277,7 @@
 	},
 	"100000901": {
 		"name":"Rizer",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100000901",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -338,7 +338,7 @@
 	},
 	"100001201": {
 		"name":"Eldin",
-		"roles":["support"],
+		"roles":["support","debuffer"],
 		"id":"100001201",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -380,7 +380,7 @@
 	},
 	"100001401": {
 		"name":"Gimlee",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","healer"],
 		"id":"100001401",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -401,7 +401,7 @@
 	},
 	"100001501": {
 		"name":"Maxell",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker"],
 		"id":"100001501",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -525,7 +525,7 @@
 	},
 	"100002103": {
 		"name":"Clyne",
-		"roles":["healer"],
+		"roles":["healer","physicalTank"],
 		"id":"100002103",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -606,7 +606,7 @@
 	},
 	"100002503": {
 		"name":"Duane",
-		"roles":["debuffer"],
+		"roles":["debuffer","physicalAttacker","magicalAttacker"],
 		"id":"100002503",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -737,7 +737,7 @@
 	},
 	"100003202": {
 		"name":"Kenyu",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100003202",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -861,7 +861,7 @@
 	},
 	"100003803": {
 		"name":"Miyuki",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"id":"100003803",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -885,7 +885,7 @@
 	},
 	"100003903": {
 		"name":"Gilbert",
-		"roles":["debuffer"],
+		"roles":["debuffer","support"],
 		"id":"100003903",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -950,7 +950,7 @@
 	},
 	"100004203": {
 		"name":"Ludmille",
-		"roles":["magicalAttacker","healer"],
+		"roles":["magicalAttacker","healer","debuffer"],
 		"id":"100004203",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1038,7 +1038,7 @@
 	},
 	"100004703": {
 		"name":"Hayate",
-		"roles":["physicalAttacker","magicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"id":"100004703",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1080,7 +1080,7 @@
 	},
 	"100005004": {
 		"name":"Luka",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"id":"100005004",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1104,7 +1104,7 @@
 	},
 	"100005104": {
 		"name":"Mercedes",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"100005104",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1128,7 +1128,7 @@
 	},
 	"100005203": {
 		"name":"Lawrence",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100005203",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1217,7 +1217,7 @@
 	},
 	"100005604": {
 		"name":"Sozhe",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"100005604",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1241,7 +1241,7 @@
 	},
 	"100005703": {
 		"name":"Heltich",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"id":"100005703",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1312,7 +1312,7 @@
 	},
 	"100005905": {
 		"name":"Aileen",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"100005905",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1369,7 +1369,7 @@
 		},
 		"7_form": {
 			"name":"Aileen",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"id":"100005905",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -1455,7 +1455,7 @@
 	},
 	"100006105": {
 		"name":"Wilhelm",
-		"roles":["physicalTank","support"],
+		"roles":["physicalTank","support","debuffer"],
 		"id":"100006105",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1597,7 +1597,7 @@
 	},
 	"100006603": {
 		"name":"Camille",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"100006603",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1645,7 +1645,7 @@
 	},
 	"100006805": {
 		"name":"Fohlen",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"100006805",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1671,7 +1671,7 @@
 		],
 		"6_form": {
 			"name":"Fohlen",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"id":"100006805",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -1697,7 +1697,7 @@
 	},
 	"100006904": {
 		"name":"Victoria",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"100006904",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1767,7 +1767,7 @@
 	},
 	"100007205": {
 		"name":"Seabreeze Dark Fina",
-		"roles":["magicalAttacker","support"],
+		"roles":["magicalAttacker","support","debuffer"],
 		"id":"100007205",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1840,7 +1840,7 @@
 	},
 	"100007404": {
 		"name":"Bran",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","healer"],
 		"id":"100007404",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1864,7 +1864,7 @@
 	},
 	"100007505": {
 		"name":"Lunera",
-		"roles":["magicalAttacker","healer"],
+		"roles":["magicalAttacker","healer","support"],
 		"id":"100007505",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1892,7 +1892,7 @@
 		],
 		"6_form": {
 			"name":"Lunera",
-			"roles":["magicalAttacker","healer"],
+			"roles":["magicalAttacker","healer","support"],
 			"id":"100007505",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -1919,7 +1919,7 @@
 	},
 	"100007603": {
 		"name":"Ruggles",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"100007603",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1945,7 +1945,7 @@
 	},
 	"100007705": {
 		"name":"Veritas of the Dark",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"100007705",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -1983,7 +1983,7 @@
 		],
 		"6_form": {
 			"name":"Veritas of the Dark",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"id":"100007705",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -2009,7 +2009,7 @@
 		},
 		"7_form": {
 			"name":"Veritas of the Dark",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"id":"100007705",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -2099,7 +2099,7 @@
 	},
 	"100007904": {
 		"name":"Veritas of the Waters",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","healer"],
 		"id":"100007904",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2125,7 +2125,7 @@
 	},
 	"100008005": {
 		"name":"Veritas of the Flame",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"100008005",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2153,7 +2153,7 @@
 		],
 		"6_form": {
 			"name":"Veritas of the Flame",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"id":"100008005",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -2204,7 +2204,7 @@
 	},
 	"100008205": {
 		"name":"Veritas of the Light",
-		"roles":["physicalAttacker","magicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"id":"100008205",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2233,7 +2233,7 @@
 		],
 		"6_form": {
 			"name":"Veritas of the Light",
-			"roles":["physicalAttacker","magicalAttacker"],
+			"roles":["physicalAttacker","magicalAttacker","debuffer"],
 			"id":"100008205",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -2262,7 +2262,7 @@
 	},
 	"100008504": {
 		"name":"Helena",
-		"roles":["support"],
+		"roles":["support","healer"],
 		"id":"100008504",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2552,7 +2552,7 @@
 	},
 	"100009204": {
 		"name":"Kupolkan",
-		"roles":["debuffer"],
+		"roles":["support","debuffer"],
 		"id":"100009204",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2572,7 +2572,7 @@
 	},
 	"100009304": {
 		"name":"Ashteroze",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100009304",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2612,7 +2612,7 @@
 	},
 	"100009504": {
 		"name":"Nyalu",
-		"roles":["healer"],
+		"roles":["healer","debuffer"],
 		"id":"100009504",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2633,7 +2633,7 @@
 	},
 	"100009604": {
 		"name":"Sandee",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support","debuffer"],
 		"id":"100009604",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2653,7 +2653,7 @@
 	},
 	"100009704": {
 		"name":"Grinfield",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","support"],
 		"id":"100009704",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2674,7 +2674,7 @@
 	},
 	"100009805": {
 		"name":"Elfreeda",
-		"roles":["physicalTank","debuffer"],
+		"roles":["physicalTank","debuffer","support"],
 		"id":"100009805",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2754,7 +2754,7 @@
 	},
 	"100010005": {
 		"name":"Raegen",
-		"roles":["physicalAttacker","debuffer","support"],
+		"roles":["physicalAttacker","support"],
 		"id":"100010005",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2905,7 +2905,7 @@
 	},
 	"100010203": {
 		"name":"Kamui",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100010203",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2949,7 +2949,7 @@
 	},
 	"100010405": {
 		"name":"Roy",
-		"roles":["support","healer"],
+		"roles":["support","healer","debuffer"],
 		"id":"100010405",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -2977,7 +2977,7 @@
 		],
 		"6_form": {
 			"name":"Roy",
-			"roles":["support","healer"],
+			"roles":["support","healer","debuffer"],
 			"id":"100010405",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -3071,7 +3071,7 @@
 	},
 	"100010805": {
 		"name":"Duke",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100010805",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -3102,7 +3102,7 @@
 		],
 		"6_form": {
 			"name":"Duke",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"id":"100010805",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -3129,7 +3129,7 @@
 	},
 	"100010904": {
 		"name":"Olif",
-		"roles":["support"],
+		"roles":["support","magicalAttacker"],
 		"id":"100010904",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -3199,7 +3199,7 @@
 	},
 	"100011203": {
 		"name":"Ryunan",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"100011203",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -3274,7 +3274,7 @@
 	},
 	"100011404": {
 		"name":"Kaede",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"100011404",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -3317,7 +3317,7 @@
 	},
 	"100011603": {
 		"name":"Otogiri",
-		"roles":["healer"],
+		"roles":["healer","debuffer"],
 		"id":"100011603",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -3611,7 +3611,7 @@
 	},
 	"100011905": {
 		"name":"Heavenly Technician Lid",
-		"roles":["debuffer"],
+		"roles":["debuffer","support"],
 		"id":"100011905",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -3641,7 +3641,7 @@
 		],
 		"6_form": {
 			"name":"Heavenly Technician Lid",
-			"roles":["debuffer"],
+			"roles":["debuffer","support"],
 			"id":"100011905",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -3753,7 +3753,7 @@
 	},
 	"100012203": {
 		"name":"Riley",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"100012203",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -3773,7 +3773,7 @@
 	},
 	"100012304": {
 		"name":"Ozetta",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","support"],
 		"id":"100012304",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4016,7 +4016,7 @@
 		],
 		"6_form": {
 			"name":"Kunshira",
-			"roles":["physicalAttacker","magicalAttacker"],
+			"roles":["physicalAttacker","magicalAttacker","support"],
 			"id":"100012605",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -4042,7 +4042,7 @@
 		},
 		"7_form": {
 			"name":"Kunshira",
-			"roles":["physicalAttacker","magicalAttacker"],
+			"roles":["physicalAttacker","magicalAttacker","support"],
 			"id":"100012605",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -4107,7 +4107,7 @@
 	},
 	"100012704": {
 		"name":"Wadow",
-		"roles":["physicalAttacker","magicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","support"],
 		"id":"100012704",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4177,7 +4177,7 @@
 	},
 	"100013203": {
 		"name":"Erwin",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"100013203",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4197,7 +4197,7 @@
 	},
 	"100013305": {
 		"name":"Emperor Shera",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"100013305",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4225,7 +4225,7 @@
 		],
 		"6_form": {
 			"name":"Emperor Shera",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"id":"100013305",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -4253,7 +4253,7 @@
 	},
 	"100013404": {
 		"name":"Killian",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"100013404",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4278,7 +4278,7 @@
 	},
 	"100013504": {
 		"name":"Shylt",
-		"roles":["magicalTank"],
+		"roles":["magicalTank","support"],
 		"id":"100013504",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4540,7 +4540,7 @@
 	},
 	"100014104": {
 		"name":"Lexa",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"id":"100014104",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4565,7 +4565,7 @@
 	},
 	"100014204": {
 		"name":"Elbis",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"100014204",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4723,7 +4723,7 @@
 	},
 	"100015405": {
 		"name":"Nalu",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"100015405",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4758,7 +4758,7 @@
 		],
 		"6_form": {
 			"name":"Nalu",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"id":"100015405",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -4785,7 +4785,7 @@
 		},
 		"7_form": {
 			"name":"Nalu",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"id":"100015405",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -4850,7 +4850,7 @@
 	},
 	"100015504": {
 		"name":"Pecciotta",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100015504",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4874,7 +4874,7 @@
 	},
 	"100015604": {
 		"name":"Shinju",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"100015604",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4899,7 +4899,7 @@
 	},
 	"100015703": {
 		"name":"Ryuka",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"100015703",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4919,7 +4919,7 @@
 	},
 	"100015805": {
 		"name":"Awakened Rain",
-		"roles":["magicalTank"],
+		"roles":["magicalTank","support"],
 		"id":"100015805",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -4983,7 +4983,7 @@
 	},
 	"100016205": {
 		"name":"Hyoh",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100016205",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -5286,7 +5286,7 @@
 	},
 	"100017105": {
 		"name":"Elephim",
-		"roles":["debuffer","support"],
+		"roles":["debuffer","support","healer"],
 		"id":"100017105",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -5313,7 +5313,7 @@
 		],
 		"6_form": {
 			"name":"Elephim",
-			"roles":["debuffer","support"],
+			"roles":["debuffer","support","healer"],
 			"id":"100017105",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -6392,7 +6392,7 @@
 	},
 	"100019505": {
 		"name":"Cid",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100019505",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -6725,7 +6725,7 @@
 	},
 	"100020303": {
 		"name":"Majora",
-		"roles":["debuffer"],
+		"roles":["debuffer","magicalAttacker"],
 		"id":"100020303",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -6745,7 +6745,7 @@
 	},
 	"100020505": {
 		"name":"Summer Fina & Lid",
-		"roles":["debuffer"],
+		"roles":["debuffer","healer"],
 		"id":"100020505",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -6776,7 +6776,7 @@
 		],
 		"6_form": {
 			"name":"Summer Fina & Lid",
-			"roles":["debuffer"],
+			"roles":["debuffer","healer"],
 			"id":"100020505",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -6801,7 +6801,7 @@
 		},
 		"7_form": {
 			"name":"Summer Fina & Lid",
-			"roles":["debuffer"],
+			"roles":["debuffer","healer"],
 			"id":"100020505",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -6861,7 +6861,7 @@
 	},
 	"100020605": {
 		"name":"Crimson",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"100020605",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -6889,7 +6889,7 @@
 		],
 		"6_form": {
 			"name":"Crimson",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"id":"100020605",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -6957,7 +6957,7 @@
 	},
 	"100020905": {
 		"name":"Summer Folka & Citra",
-		"roles":["magicalAttacker","support"],
+		"roles":["magicalAttacker","support","healer"],
 		"id":"100020905",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -7013,7 +7013,7 @@
 		},
 		"7_form": {
 			"name":"Summer Folka & Citra",
-			"roles":["magicalAttacker","support"],
+			"roles":["magicalAttacker","support","healer"],
 			"id":"100020905",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -7164,7 +7164,7 @@
 	},
 	"100021504": {
 		"name":"Amber",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100021504",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -7205,7 +7205,7 @@
 	},
 	"100021705": {
 		"name":"Sacred Shield Charlotte",
-		"roles":["physicalAttacker","support"],
+		"roles":["magicalTank","support","physicalAttacker"],
 		"id":"100021705",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -7238,7 +7238,7 @@
 		],
 		"6_form": {
 			"name":"Sacred Shield Charlotte",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","magicalTank"],
 			"id":"100021705",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -7265,7 +7265,7 @@
 		},
 		"7_form": {
 			"name":"Sacred Shield Charlotte",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","magicalTank"],
 			"id":"100021705",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -7398,7 +7398,7 @@
 	},
 	"100022005": {
 		"name":"Dressy Aileen",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"100022005",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -7421,7 +7421,7 @@
 		],
 		"6_form": {
 			"name":"Dressy Aileen",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"id":"100022005",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -7752,7 +7752,7 @@
 	},
 	"100023005": {
 		"name":"Hess King Lasswell",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"100023005",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -7776,7 +7776,7 @@
 		],
 		"6_form": {
 			"name":"Hess King Lasswell",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"id":"100023005",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -7845,7 +7845,7 @@
 	},
 	"100023305": {
 		"name":"White Lily Dark Fina",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"100023305",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -7869,7 +7869,7 @@
 		],
 		"6_form": {
 			"name":"White Lily Dark Fina",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"id":"100023305",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -7913,7 +7913,7 @@
 	},
 	"100023503": {
 		"name":"Tessen",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100023503",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -8023,7 +8023,7 @@
 	},
 	"100023903": {
 		"name":"Winkel",
-		"roles":["debuffer"],
+		"roles":["debuffer","support"],
 		"id":"100023903",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -8045,7 +8045,7 @@
 	},
 	"100024003": {
 		"name":"Latyl",
-		"roles":["magicalTank"],
+		"roles":["magicalTank","support","debuffer"],
 		"id":"100024003",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -8115,7 +8115,7 @@
 	},
 	"100024205": {
 		"name":"Sweet Luka",
-		"roles":["magicalAttacker","support"],
+		"roles":["support","debuffer"],
 		"id":"100024205",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -8211,7 +8211,7 @@
 	},
 	"100024404": {
 		"name":"Diezell",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"100024404",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -8587,7 +8587,7 @@
 	},
 	"100025905": {
 		"name":"Nichol of the Epsilon Star",
-		"roles":["support"],
+		"roles":["support","debuffer"],
 		"id":"100025905",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -8611,7 +8611,7 @@
 		],
 		"6_form": {
 			"name":"Nichol of the Epsilon Star",
-			"roles":["support"],
+			"roles":["support","debuffer"],
 			"id":"100025905",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -8831,7 +8831,7 @@
 	},
 	"100027205": {
 		"name":"Draconian Princess Fina",
-		"roles":["magicalAttacker","support"],
+		"roles":["magicalAttacker","support","healer"],
 		"id":"100027205",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -8864,7 +8864,7 @@
 		],
 		"6_form": {
 			"name":"Draconian Princess Fina",
-			"roles":["magicalAttacker","support"],
+			"roles":["magicalAttacker","support","healer"],
 			"id":"100027205",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -8887,7 +8887,7 @@
 		},
 		"7_form": {
 			"name":"Draconian Princess Fina",
-			"roles":["magicalAttacker","support"],
+			"roles":["magicalAttacker","support","healer"],
 			"id":"100027205",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -9041,7 +9041,7 @@
 	},
 	"100027505": {
 		"name":"Hallowed Aegis Charlotte",
-		"roles":["physicalTank","support"],
+		"roles":["physicalTank","magicalTank","support"],
 		"id":"100027505",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -9066,7 +9066,7 @@
 		],
 		"6_form": {
 			"name":"Hallowed Aegis Charlotte",
-			"roles":["physicalTank","support"],
+			"roles":["physicalTank","magicalTank","support"],
 			"id":"100027505",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -9414,7 +9414,7 @@
 	},
 	"100028305": {
 		"name":"Daisy",
-		"roles":["physicalTank","support"],
+		"roles":["versatile"],
 		"id":"100028305",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -9467,7 +9467,7 @@
 		},
 		"7_form": {
 			"name":"Daisy",
-			"roles":["physicalTank","support"],
+			"roles":["versatile"],
 			"id":"100028305",
 			"game_id":"11001",
 			"game":"FFBE",
@@ -10580,7 +10580,7 @@
 	},
 	"100032005": {
 		"name":"Relentless Might Elbis",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"100032005",
 		"game_id":"11001",
 		"game":"FFBE",
@@ -13787,7 +13787,7 @@
 	},
 	"201000104": {
 		"name":"Warrior of Light",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","debuffer","support"],
 		"id":"201000104",
 		"game_id":"10001",
 		"game":"FFI",
@@ -13837,7 +13837,7 @@
 	},
 	"201000302": {
 		"name":"Sarah",
-		"roles":["support"],
+		"roles":["support","magicalAttacker"],
 		"id":"201000302",
 		"game_id":"10001",
 		"game":"FFI",
@@ -13858,7 +13858,7 @@
 	},
 	"201000405": {
 		"name":"Awakened Warrior of Light",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","support"],
 		"id":"201000405",
 		"game_id":"10001",
 		"game":"FFI",
@@ -13882,7 +13882,7 @@
 		],
 		"6_form": {
 			"name":"Awakened Warrior of Light",
-			"roles":["physicalTank"],
+			"roles":["physicalTank","support"],
 			"id":"201000405",
 			"game_id":"10001",
 			"game":"FFI",
@@ -13905,7 +13905,7 @@
 	},
 	"201000505": {
 		"name":"Immortal Knight Garland",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"201000505",
 		"game_id":"10001",
 		"game":"FFI",
@@ -13943,7 +13943,7 @@
 		],
 		"6_form": {
 			"name":"Immortal Knight Garland",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support"],
 			"id":"201000505",
 			"game_id":"10001",
 			"game":"FFI",
@@ -13967,7 +13967,7 @@
 		},
 		"7_form": {
 			"name":"Immortal Knight Garland",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"id":"201000505",
 			"game_id":"10001",
 			"game":"FFI",
@@ -14206,7 +14206,7 @@
 	},
 	"202000303": {
 		"name":"Guy",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","debuffer"],
 		"id":"202000303",
 		"game_id":"10002",
 		"game":"FFII",
@@ -14245,7 +14245,7 @@
 		],
 		"6_form": {
 			"name":"Guy",
-			"roles":["physicalTank"],
+			"roles":["physicalTank","debuffer"],
 			"id":"202000303",
 			"game_id":"10002",
 			"game":"FFII",
@@ -14267,7 +14267,7 @@
 		},
 		"7_form": {
 			"name":"Guy",
-			"roles":["physicalTank"],
+			"roles":["physicalTank","debuffer"],
 			"id":"202000303",
 			"game_id":"10002",
 			"game":"FFII",
@@ -14607,7 +14607,7 @@
 	},
 	"202001705": {
 		"name":"Dark Knight Leon",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"202001705",
 		"game_id":"10002",
 		"game":"FFII",
@@ -14642,7 +14642,7 @@
 		],
 		"6_form": {
 			"name":"Dark Knight Leon",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"id":"202001705",
 			"game_id":"10002",
 			"game":"FFII",
@@ -14671,7 +14671,7 @@
 		},
 		"7_form": {
 			"name":"Dark Knight Leon",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"id":"202001705",
 			"game_id":"10002",
 			"game":"FFII",
@@ -14849,7 +14849,7 @@
 	},
 	"202002205": {
 		"name":"Minwu",
-		"roles":["magicalAttacker","healer"],
+		"roles":["magicalAttacker","healer","support"],
 		"id":"202002205",
 		"game_id":"10002",
 		"game":"FFII",
@@ -14871,7 +14871,7 @@
 		],
 		"6_form": {
 			"name":"Minwu",
-			"roles":["magicalAttacker","healer"],
+			"roles":["magicalAttacker","healer","support"],
 			"id":"202002205",
 			"game_id":"10002",
 			"game":"FFII",
@@ -15129,7 +15129,7 @@
 	},
 	"203000404": {
 		"name":"Refia",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"id":"203000404",
 		"game_id":"10003",
 		"game":"FFIII",
@@ -15217,7 +15217,7 @@
 	},
 	"203000803": {
 		"name":"Cloud of Darkness",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","physicalAttacker","support"],
 		"id":"203000803",
 		"game_id":"10003",
 		"game":"FFIII",
@@ -16015,7 +16015,7 @@
 	},
 	"204000304": {
 		"name":"Rosa",
-		"roles":["healer","physicalAttacker"],
+		"roles":["healer","magicalAttacker","physicalAttacker"],
 		"id":"204000304",
 		"game_id":"10004",
 		"game":"FFIV",
@@ -16058,7 +16058,7 @@
 	},
 	"204000503": {
 		"name":"Tellah",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","healer"],
 		"id":"204000503",
 		"game_id":"10004",
 		"game":"FFIV",
@@ -16146,7 +16146,7 @@
 	},
 	"204001103": {
 		"name":"Edge",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"id":"204001103",
 		"game_id":"10004",
 		"game":"FFIV",
@@ -16187,7 +16187,7 @@
 	},
 	"204001403": {
 		"name":"Golbez",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"204001403",
 		"game_id":"10004",
 		"game":"FFIV",
@@ -16439,7 +16439,7 @@
 	},
 	"204002205": {
 		"name":"Paladin Cecil",
-		"roles":["support","magicalTank"],
+		"roles":["debuffer","support","magicalTank"],
 		"id":"204002205",
 		"game_id":"10004",
 		"game":"FFIV",
@@ -16463,7 +16463,7 @@
 		],
 		"6_form": {
 			"name":"Paladin Cecil",
-			"roles":["support","magicalTank"],
+			"roles":["debuffer","support","magicalTank"],
 			"id":"204002205",
 			"game_id":"10004",
 			"game":"FFIV",
@@ -16903,7 +16903,7 @@
 	},
 	"205000303": {
 		"name":"Galuf",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","debuffer"],
 		"id":"205000303",
 		"game_id":"10005",
 		"game":"FFV",
@@ -16924,7 +16924,7 @@
 	},
 	"205000403": {
 		"name":"Faris",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"205000403",
 		"game_id":"10005",
 		"game":"FFV",
@@ -17360,7 +17360,7 @@
 	},
 	"205001005": {
 		"name":"Warrior of Dawn Galuf",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","physicalTank"],
 		"id":"205001005",
 		"game_id":"10005",
 		"game":"FFV",
@@ -17397,7 +17397,7 @@
 		],
 		"6_form": {
 			"name":"Warrior of Dawn Galuf",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","physicalTank"],
 			"id":"205001005",
 			"game_id":"10005",
 			"game":"FFV",
@@ -17424,7 +17424,7 @@
 		},
 		"7_form": {
 			"name":"Warrior of Dawn Galuf",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","physicalTank"],
 			"id":"205001005",
 			"game_id":"10005",
 			"game":"FFV",
@@ -17522,7 +17522,7 @@
 		],
 		"6_form": {
 			"name":"Warrior of Light Bartz",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"id":"205001105",
 			"game_id":"10005",
 			"game":"FFV",
@@ -17545,7 +17545,7 @@
 		},
 		"7_form": {
 			"name":"Warrior of Light Bartz",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"id":"205001105",
 			"game_id":"10005",
 			"game":"FFV",
@@ -18199,7 +18199,7 @@
 	},
 	"206000125": {
 		"name":"Trance Terra",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"id":"206000125",
 		"game_id":"10006",
 		"game":"FFVI",
@@ -18225,7 +18225,7 @@
 		],
 		"6_form": {
 			"name":"Trance Terra",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","support"],
 			"id":"206000125",
 			"game_id":"10006",
 			"game":"FFVI",
@@ -18312,7 +18312,7 @@
 	},
 	"206000503": {
 		"name":"Shadow",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"206000503",
 		"game_id":"10006",
 		"game":"FFVI",
@@ -18374,7 +18374,7 @@
 	},
 	"206000804": {
 		"name":"Setzer",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"206000804",
 		"game_id":"10006",
 		"game":"FFVI",
@@ -18596,7 +18596,7 @@
 	},
 	"206001502": {
 		"name":"Wedge",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","healer"],
 		"id":"206001502",
 		"game_id":"10006",
 		"game":"FFVI",
@@ -18616,7 +18616,7 @@
 	},
 	"206001602": {
 		"name":"Biggs",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"206001602",
 		"game_id":"10006",
 		"game":"FFVI",
@@ -18636,7 +18636,7 @@
 	},
 	"206001703": {
 		"name":"Kefka",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"206001703",
 		"game_id":"10006",
 		"game":"FFVI",
@@ -18681,7 +18681,7 @@
 	},
 	"206001905": {
 		"name":"King Edgar of Figaro",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"206001905",
 		"game_id":"10006",
 		"game":"FFVI",
@@ -18735,7 +18735,7 @@
 		},
 		"7_form": {
 			"name":"King Edgar of Figaro",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"id":"206001905",
 			"game_id":"10006",
 			"game":"FFVI",
@@ -18796,7 +18796,7 @@
 	},
 	"206002005": {
 		"name":"Monk Sabin of Kolts",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","physicalTank","magicalTank"],
 		"id":"206002005",
 		"game_id":"10006",
 		"game":"FFVI",
@@ -18964,7 +18964,7 @@
 	},
 	"206002205": {
 		"name":"Adventurer Locke",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"206002205",
 		"game_id":"10006",
 		"game":"FFVI",
@@ -19011,7 +19011,7 @@
 	},
 	"206002305": {
 		"name":"Archmage Kefka",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"206002305",
 		"game_id":"10006",
 		"game":"FFVI",
@@ -19043,7 +19043,7 @@
 		],
 		"6_form": {
 			"name":"Archmage Kefka",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"id":"206002305",
 			"game_id":"10006",
 			"game":"FFVI",
@@ -19066,7 +19066,7 @@
 		},
 		"7_form": {
 			"name":"Archmage Kefka",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"id":"206002305",
 			"game_id":"10006",
 			"game":"FFVI",
@@ -20142,7 +20142,7 @@
 	},
 	"207000605": {
 		"name":"Yuffie",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"207000605",
 		"game_id":"10007",
 		"game":"FFVII",
@@ -20167,7 +20167,7 @@
 		],
 		"6_form": {
 			"name":"Yuffie",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"id":"207000605",
 			"game_id":"10007",
 			"game":"FFVII",
@@ -20256,7 +20256,7 @@
 	},
 	"207001005": {
 		"name":"Sephiroth",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"207001005",
 		"game_id":"10007",
 		"game":"FFVII",
@@ -20284,7 +20284,7 @@
 		],
 		"6_form": {
 			"name":"Sephiroth",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"id":"207001005",
 			"game_id":"10007",
 			"game":"FFVII",
@@ -20696,7 +20696,7 @@
 		"roles":["physicalAttacker","debuffer"],
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -20718,7 +20718,7 @@
 			"roles":["physicalAttacker","debuffer"],
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -20740,7 +20740,7 @@
 		"roles":["physicalAttacker"],
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -20764,7 +20764,7 @@
 			"roles":["physicalAttacker"],
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -20788,7 +20788,7 @@
 		"roles":["physicalAttacker","debuffer"],
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -20811,7 +20811,7 @@
 			"roles":["physicalAttacker","debuffer"],
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -20834,7 +20834,7 @@
 		"roles":["physicalAttacker"],
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -21756,7 +21756,7 @@
 	},
 	"208000505": {
 		"name":"Selphie",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer","support"],
 		"id":"208000505",
 		"game_id":"10008",
 		"game":"FFVIII",
@@ -21779,7 +21779,7 @@
 		],
 		"6_form": {
 			"name":"Selphie",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer","support"],
 			"id":"208000505",
 			"game_id":"10008",
 			"game":"FFVIII",
@@ -21892,7 +21892,7 @@
 	},
 	"208001304": {
 		"name":"Edea",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"208001304",
 		"game_id":"10008",
 		"game":"FFVIII",
@@ -21912,7 +21912,7 @@
 	},
 	"208001505": {
 		"name":"Lone Lion Squall",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"208001505",
 		"game_id":"10008",
 		"game":"FFVIII",
@@ -22228,7 +22228,7 @@
 	},
 	"209000103": {
 		"name":"Zidane",
-		"roles":["support"],
+		"roles":["support","debuffer","physicalAttacker"],
 		"id":"209000103",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -22275,7 +22275,7 @@
 	},
 	"209000304": {
 		"name":"Garnet",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"id":"209000304",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -22325,7 +22325,7 @@
 	},
 	"209000503": {
 		"name":"Freya",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","healer"],
 		"id":"209000503",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -22345,7 +22345,7 @@
 	},
 	"209000705": {
 		"name":"Eiko",
-		"roles":["healer","support"],
+		"roles":["healer","support","magicalAttacker"],
 		"id":"209000705",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -22374,7 +22374,7 @@
 		],
 		"6_form": {
 			"name":"Eiko",
-			"roles":["healer","support"],
+			"roles":["healer","support","magicalAttacker"],
 			"id":"209000705",
 			"game_id":"10009",
 			"game":"FFIX",
@@ -22402,7 +22402,7 @@
 	},
 	"209000803": {
 		"name":"Amarant",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"209000803",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -22434,7 +22434,7 @@
 		],
 		"6_form": {
 			"name":"Amarant",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"id":"209000803",
 			"game_id":"10009",
 			"game":"FFIX",
@@ -22459,7 +22459,7 @@
 		},
 		"7_form": {
 			"name":"Amarant",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"id":"209000803",
 			"game_id":"10009",
 			"game":"FFIX",
@@ -22565,7 +22565,7 @@
 	},
 	"209001105": {
 		"name":"Beatrix",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"id":"209001105",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -22623,7 +22623,7 @@
 		},
 		"7_form": {
 			"name":"Beatrix",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","magicalAttacker","debuffer"],
 			"id":"209001105",
 			"game_id":"10009",
 			"game":"FFIX",
@@ -22680,7 +22680,7 @@
 	},
 	"209001203": {
 		"name":"Black Waltz 3",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"209001203",
 		"game_id":"10009",
 		"game":"FFIX",
@@ -23374,7 +23374,7 @@
 	},
 	"210000105": {
 		"name":"Tidus",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"210000105",
 		"game_id":"10010",
 		"game":"FFX",
@@ -23429,7 +23429,7 @@
 	},
 	"210000205": {
 		"name":"Yuna",
-		"roles":["magicalAttacker","healer","support"],
+		"roles":["healer","support","magicalAttacker"],
 		"id":"210000205",
 		"game_id":"10010",
 		"game":"FFX",
@@ -23481,7 +23481,7 @@
 	},
 	"210000303": {
 		"name":"Wakka",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"210000303",
 		"game_id":"10010",
 		"game":"FFX",
@@ -23515,7 +23515,7 @@
 		],
 		"6_form": {
 			"name":"Wakka",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"id":"210000303",
 			"game_id":"10010",
 			"game":"FFX",
@@ -23540,7 +23540,7 @@
 		},
 		"7_form": {
 			"name":"Wakka",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"id":"210000303",
 			"game_id":"10010",
 			"game":"FFX",
@@ -23661,7 +23661,7 @@
 	},
 	"210000505": {
 		"name":"Kimahri",
-		"roles":["magicalAttacker","debuffer"],
+		"roles":["magicalAttacker","debuffer","support"],
 		"id":"210000505",
 		"game_id":"10010",
 		"game":"FFX",
@@ -23784,7 +23784,7 @@
 	},
 	"210000804": {
 		"name":"Seymour",
-		"roles":["magicalAttacker","debuffer"],
+		"roles":["magicalAttacker","debuffer","magicalTank"],
 		"id":"210000804",
 		"game_id":"10010",
 		"game":"FFX",
@@ -23901,7 +23901,7 @@
 	},
 	"210000905": {
 		"name":"Yunalesca",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"id":"210000905",
 		"game_id":"10010",
 		"game":"FFX",
@@ -23939,7 +23939,7 @@
 		],
 		"6_form": {
 			"name":"Yunalesca",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","support"],
 			"id":"210000905",
 			"game_id":"10010",
 			"game":"FFX",
@@ -23962,7 +23962,7 @@
 		},
 		"7_form": {
 			"name":"Yunalesca",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","support"],
 			"id":"210000905",
 			"game_id":"10010",
 			"game":"FFX",
@@ -24241,7 +24241,7 @@
 	},
 	"210001805": {
 		"name":"Star Player Tidus",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"210001805",
 		"game_id":"10010",
 		"game":"FFX",
@@ -24277,7 +24277,7 @@
 		],
 		"6_form": {
 			"name":"Star Player Tidus",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"id":"210001805",
 			"game_id":"10010",
 			"game":"FFX",
@@ -24301,7 +24301,7 @@
 		},
 		"7_form": {
 			"name":"Star Player Tidus",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"id":"210001805",
 			"game_id":"10010",
 			"game":"FFX",
@@ -24853,7 +24853,7 @@
 	},
 	"211000303": {
 		"name":"Kupipi",
-		"roles":["healer","support"],
+		"roles":["healer","magicalAttacker"],
 		"id":"211000303",
 		"game_id":"10011",
 		"game":"FFXI",
@@ -24931,7 +24931,7 @@
 	},
 	"211000805": {
 		"name":"Livid Shantotto",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer","support"],
 		"id":"211000805",
 		"game_id":"10011",
 		"game":"FFXI",
@@ -24965,7 +24965,7 @@
 		],
 		"6_form": {
 			"name":"Livid Shantotto",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer","support"],
 			"id":"211000805",
 			"game_id":"10011",
 			"game":"FFXI",
@@ -24991,7 +24991,7 @@
 		},
 		"7_form": {
 			"name":"Livid Shantotto",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer","support"],
 			"id":"211000805",
 			"game_id":"10011",
 			"game":"FFXI",
@@ -25051,7 +25051,7 @@
 	},
 	"211000905": {
 		"name":"Shadow Lord",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"211000905",
 		"game_id":"10011",
 		"game":"FFXI",
@@ -25087,7 +25087,7 @@
 		],
 		"6_form": {
 			"name":"Shadow Lord",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"id":"211000905",
 			"game_id":"10011",
 			"game":"FFXI",
@@ -25113,7 +25113,7 @@
 		},
 		"7_form": {
 			"name":"Shadow Lord",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"id":"211000905",
 			"game_id":"10011",
 			"game":"FFXI",
@@ -25492,7 +25492,7 @@
 	},
 	"212000103": {
 		"name":"Vaan",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"212000103",
 		"game_id":"10012",
 		"game":"FFXII",
@@ -25513,7 +25513,7 @@
 	},
 	"212000204": {
 		"name":"Ashe",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer","healer"],
 		"id":"212000204",
 		"game_id":"10012",
 		"game":"FFXII",
@@ -25558,7 +25558,7 @@
 	},
 	"212000505": {
 		"name":"Balthier",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker"],
 		"id":"212000505",
 		"game_id":"10012",
 		"game":"FFXII",
@@ -25720,7 +25720,7 @@
 	},
 	"212000905": {
 		"name":"Basch",
-		"roles":["debuffer","support"],
+		"roles":["physicalTank","magicalTank","debuffer"],
 		"id":"212000905",
 		"game_id":"10012",
 		"game":"FFXII",
@@ -25748,7 +25748,7 @@
 		],
 		"6_form": {
 			"name":"Basch",
-			"roles":["debuffer","support"],
+			"roles":["physicalTank","magicalTank","debuffer"],
 			"id":"212000905",
 			"game_id":"10012",
 			"game":"FFXII",
@@ -25826,7 +25826,7 @@
 		],
 		"6_form": {
 			"name":"Gabranth",
-			"roles":["physicalTank","physicalAttacker"],
+			"roles":["physicalTank","physicalAttacker","debuffer"],
 			"id":"212001105",
 			"game_id":"10012",
 			"game":"FFXII",
@@ -25852,7 +25852,7 @@
 	},
 	"212001204": {
 		"name":"Vayne",
-		"roles":["physicalAttacker","support"],
+		"roles":["physicalAttacker","support","magicalAttacker"],
 		"id":"212001204",
 		"game_id":"10012",
 		"game":"FFXII",
@@ -25883,7 +25883,7 @@
 		],
 		"6_form": {
 			"name":"Vayne",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","magicalAttacker"],
 			"id":"212001204",
 			"game_id":"10012",
 			"game":"FFXII",
@@ -25910,7 +25910,7 @@
 		},
 		"7_form": {
 			"name":"Vayne",
-			"roles":["physicalAttacker","support"],
+			"roles":["physicalAttacker","support","magicalAttacker"],
 			"id":"212001204",
 			"game_id":"10012",
 			"game":"FFXII",
@@ -25992,7 +25992,7 @@
 	},
 	"212001404": {
 		"name":"Drace",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"id":"212001404",
 		"game_id":"10012",
 		"game":"FFXII",
@@ -26111,7 +26111,7 @@
 	},
 	"212001705": {
 		"name":"Blue Sky Belle Fran",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker"],
 		"id":"212001705",
 		"game_id":"10012",
 		"game":"FFXII",
@@ -26373,7 +26373,7 @@
 	},
 	"212002104": {
 		"name":"Bergan",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"212002104",
 		"game_id":"10012",
 		"game":"FFXII",
@@ -26864,7 +26864,7 @@
 	},
 	"213000304": {
 		"name":"Vanille",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"id":"213000304",
 		"game_id":"10013",
 		"game":"FFXIII",
@@ -26885,7 +26885,7 @@
 	},
 	"213000403": {
 		"name":"Sazh",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"213000403",
 		"game_id":"10013",
 		"game":"FFXIII",
@@ -26906,7 +26906,7 @@
 	},
 	"213000504": {
 		"name":"Hope",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","healer"],
 		"id":"213000504",
 		"game_id":"10013",
 		"game":"FFXIII",
@@ -27307,7 +27307,7 @@
 	},
 	"214000404": {
 		"name":"Yda",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"214000404",
 		"game_id":"10014",
 		"game":"FFXIV",
@@ -27352,7 +27352,7 @@
 	},
 	"214000605": {
 		"name":"Y'shtola, the Sorceress",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"214000605",
 		"game_id":"10014",
 		"game":"FFXIV",
@@ -27376,7 +27376,7 @@
 		],
 		"6_form": {
 			"name":"Y'shtola, the Sorceress",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"id":"214000605",
 			"game_id":"10014",
 			"game":"FFXIV",
@@ -27472,7 +27472,7 @@
 	},
 	"215000205": {
 		"name":"Gladiolus",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","physicalAttacker"],
 		"id":"215000205",
 		"game_id":"10015",
 		"game":"FFXV",
@@ -27506,7 +27506,7 @@
 		],
 		"6_form": {
 			"name":"Gladiolus",
-			"roles":["physicalTank"],
+			"roles":["physicalTank","physicalAttacker"],
 			"id":"215000205",
 			"game_id":"10015",
 			"game":"FFXV",
@@ -27532,7 +27532,7 @@
 		},
 		"7_form": {
 			"name":"Gladiolus",
-			"roles":["physicalTank"],
+			"roles":["physicalTank","physicalAttacker"],
 			"id":"215000205",
 			"game_id":"10015",
 			"game":"FFXV",
@@ -27596,7 +27596,7 @@
 	},
 	"215000304": {
 		"name":"Cor",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"215000304",
 		"game_id":"10015",
 		"game":"FFXV",
@@ -27622,7 +27622,7 @@
 	},
 	"215000403": {
 		"name":"Iris",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"id":"215000403",
 		"game_id":"10015",
 		"game":"FFXV",
@@ -28082,7 +28082,7 @@
 	},
 	"215001105": {
 		"name":"Nyx",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"215001105",
 		"game_id":"10015",
 		"game":"FFXV",
@@ -28141,7 +28141,7 @@
 		},
 		"7_form": {
 			"name":"Nyx",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"id":"215001105",
 			"game_id":"10015",
 			"game":"FFXV",
@@ -28205,7 +28205,7 @@
 	},
 	"215001204": {
 		"name":"Glauca",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"215001204",
 		"game_id":"10015",
 		"game":"FFXV",
@@ -28253,7 +28253,7 @@
 	},
 	"215001403": {
 		"name":"Libertus",
-		"roles":["physicalTank"],
+		"roles":["physicalTank","support"],
 		"id":"215001403",
 		"game_id":"10015",
 		"game":"FFXV",
@@ -28466,7 +28466,7 @@
 	},
 	"215002605": {
 		"name":"Gentiana",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support"],
 		"id":"215002605",
 		"game_id":"10015",
 		"game":"FFXV",
@@ -28488,7 +28488,7 @@
 		],
 		"6_form": {
 			"name":"Gentiana",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","support"],
 			"id":"215002605",
 			"game_id":"10015",
 			"game":"FFXV",
@@ -28554,7 +28554,7 @@
 	},
 	"215002804": {
 		"name":"Kenny Crow",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"215002804",
 		"game_id":"10015",
 		"game":"FFXV",
@@ -28725,7 +28725,7 @@
 	},
 	"249000205": {
 		"name":"Rikku (FFX-2)",
-		"roles":["debuffer","physicalAttacker"],
+		"roles":["debuffer","support","physicalAttacker"],
 		"id":"249000205",
 		"game_id":"11004",
 		"game":"FFX-2",
@@ -28750,7 +28750,7 @@
 		],
 		"6_form": {
 			"name":"Rikku (FFX-2)",
-			"roles":["debuffer","physicalAttacker"],
+			"roles":["debuffer","support","physicalAttacker"],
 			"id":"249000205",
 			"game_id":"11004",
 			"game":"FFX-2",
@@ -29341,7 +29341,7 @@
 	},
 	"253000105": {
 		"name":"Ramza",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"253000105",
 		"game_id":"11002",
 		"game":"FFT",
@@ -29365,7 +29365,7 @@
 		],
 		"6_form": {
 			"name":"Ramza",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"id":"253000105",
 			"game_id":"11002",
 			"game":"FFT",
@@ -29388,7 +29388,7 @@
 	},
 	"253000115": {
 		"name":"Mercenary Ramza",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","physicalTank"],
 		"id":"253000115",
 		"game_id":"11002",
 		"game":"FFT",
@@ -29418,7 +29418,7 @@
 		],
 		"6_form": {
 			"name":"Mercenary Ramza",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","debuffer","physicalTank"],
 			"id":"253000115",
 			"game_id":"11002",
 			"game":"FFT",
@@ -29448,7 +29448,7 @@
 	},
 	"253000205": {
 		"name":"Delita",
-		"roles":["physicalAttacker","debuffer"],
+		"roles":["physicalAttacker","debuffer","support"],
 		"id":"253000205",
 		"game_id":"11002",
 		"game":"FFT",
@@ -29473,7 +29473,7 @@
 		],
 		"6_form": {
 			"name":"Delita",
-			"roles":["physicalAttacker","debuffer"],
+			"roles":["physicalAttacker","debuffer","support"],
 			"id":"253000205",
 			"game_id":"11002",
 			"game":"FFT",
@@ -29551,7 +29551,7 @@
 	},
 	"253000304": {
 		"name":"Agrias",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"253000304",
 		"game_id":"11002",
 		"game":"FFT",
@@ -29620,7 +29620,7 @@
 	},
 	"253000603": {
 		"name":"Mustadio",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"253000603",
 		"game_id":"11002",
 		"game":"FFT",
@@ -29824,7 +29824,7 @@
 	},
 	"253001305": {
 		"name":"High Seraph Ultima",
-		"roles":["magicalAttacker","support"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"253001305",
 		"game_id":"11002",
 		"game":"FFT",
@@ -29847,7 +29847,7 @@
 		],
 		"6_form": {
 			"name":"High Seraph Ultima",
-			"roles":["magicalAttacker","support"],
+			"roles":["magicalAttacker","debuffer"],
 			"id":"253001305",
 			"game_id":"11002",
 			"game":"FFT",
@@ -30135,7 +30135,7 @@
 	},
 	"254000603": {
 		"name":"Jack",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"254000603",
 		"game_id":"11003",
 		"game":"FF TYPE-0",
@@ -30156,7 +30156,7 @@
 	},
 	"254000704": {
 		"name":"Seven",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","support","debuffer"],
 		"id":"254000704",
 		"game_id":"11003",
 		"game":"FF TYPE-0",
@@ -30233,7 +30233,7 @@
 	},
 	"254001003": {
 		"name":"Eight",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"254001003",
 		"game_id":"11003",
 		"game":"FF TYPE-0",
@@ -30275,7 +30275,7 @@
 	},
 	"254001204": {
 		"name":"King",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"254001204",
 		"game_id":"11003",
 		"game":"FF TYPE-0",
@@ -30300,7 +30300,7 @@
 	},
 	"254001403": {
 		"name":"Sice",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"254001403",
 		"game_id":"11003",
 		"game":"FF TYPE-0",
@@ -30320,7 +30320,7 @@
 	},
 	"254001505": {
 		"name":"Wild Card Ace",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"254001505",
 		"game_id":"11003",
 		"game":"FF TYPE-0",
@@ -30343,7 +30343,7 @@
 		],
 		"6_form": {
 			"name":"Wild Card Ace",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"id":"254001505",
 			"game_id":"11003",
 			"game":"FF TYPE-0",
@@ -30940,7 +30940,7 @@
 	},
 	"302000104": {
 		"name":"Tilith",
-		"roles":["healer"],
+		"roles":["healer","support"],
 		"id":"302000104",
 		"game_id":"20003",
 		"game":"Brave Frontier",
@@ -30960,7 +30960,7 @@
 	},
 	"302000204": {
 		"name":"Karl",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"302000204",
 		"game_id":"20003",
 		"game":"Brave Frontier",
@@ -30981,7 +30981,7 @@
 	},
 	"302000304": {
 		"name":"Seria",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support"],
 		"id":"302000304",
 		"game_id":"20003",
 		"game":"Brave Frontier",
@@ -31537,7 +31537,7 @@
 	},
 	"304000303": {
 		"name":"Popoi",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"304000303",
 		"game_id":"20005",
 		"game":"Secret of Mana",
@@ -31558,7 +31558,7 @@
 	},
 	"304000405": {
 		"name":"Flammie",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"304000405",
 		"game_id":"20005",
 		"game":"Secret of Mana",
@@ -31581,7 +31581,7 @@
 		],
 		"6_form": {
 			"name":"Flammie",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","support","debuffer"],
 			"id":"304000405",
 			"game_id":"20005",
 			"game":"Secret of Mana",
@@ -31741,7 +31741,7 @@
 	},
 	"306000204": {
 		"name":"Orochi",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker"],
 		"id":"306000204",
 		"game_id":"20006",
 		"game":"Dragon Quest",
@@ -31762,7 +31762,7 @@
 	},
 	"306000303": {
 		"name":"Robbin' 'Ood",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"306000303",
 		"game_id":"20006",
 		"game":"Dragon Quest",
@@ -32288,7 +32288,7 @@
 	},
 	"310000304": {
 		"name":"Adam",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"310000304",
 		"game_id":"20010",
 		"game":"NieR:Automata",
@@ -32308,7 +32308,7 @@
 	},
 	"310000403": {
 		"name":"21O",
-		"roles":["physicalAttacker","healer"],
+		"roles":["versatile"],
 		"id":"310000403",
 		"game_id":"20010",
 		"game":"NieR:Automata",
@@ -32415,7 +32415,7 @@
 	},
 	"312000404": {
 		"name":"Charlotte",
-		"roles":["physicalAttacker","magicalAttacker","healer"],
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
 		"id":"312000404",
 		"game_id":"20012",
 		"game":"Seiken Densetsu 3",
@@ -32594,7 +32594,7 @@
 	},
 	"316000103": {
 		"name":"Roddick",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","support","debuffer"],
 		"id":"316000103",
 		"game_id":"20016",
 		"game":"SO1",
@@ -32615,7 +32615,7 @@
 	},
 	"317000105": {
 		"name":"Rena",
-		"roles":["healer","magicalAttacker"],
+		"roles":["healer","magicalAttacker","support"],
 		"id":"317000105",
 		"game_id":"20017",
 		"game":"SO2",
@@ -32641,7 +32641,7 @@
 		],
 		"6_form": {
 			"name":"Rena",
-			"roles":["healer","magicalAttacker"],
+			"roles":["healer","magicalAttacker","support"],
 			"id":"317000105",
 			"game_id":"20017",
 			"game":"SO2",
@@ -32734,7 +32734,7 @@
 	},
 	"320000104": {
 		"name":"Fidel",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"320000104",
 		"game_id":"20020",
 		"game":"SO5",
@@ -33338,7 +33338,7 @@
 	},
 	"331000603": {
 		"name":"Chu-Chu",
-		"roles":["healer"],
+		"roles":["magicalAttacker"],
 		"id":"331000603",
 		"game_id":"20024",
 		"game":"Xenogears",
@@ -34054,7 +34054,7 @@
 	},
 	"337000105": {
 		"name":"Eleven",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"337000105",
 		"game_id":"20029",
 		"game":"DRAGON QUEST XI S",
@@ -34078,7 +34078,7 @@
 		],
 		"6_form": {
 			"name":"Eleven",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"id":"337000105",
 			"game_id":"20029",
 			"game":"DRAGON QUEST XI S",
@@ -34249,7 +34249,7 @@
 	},
 	"337000505": {
 		"name":"Mordegon",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"337000505",
 		"game_id":"20029",
 		"game":"DRAGON QUEST XI S",
@@ -34365,7 +34365,7 @@
 	},
 	"337000805": {
 		"name":"The Lord of Shadows",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"337000805",
 		"game_id":"20029",
 		"game":"DRAGON QUEST XI S",
@@ -34387,7 +34387,7 @@
 		],
 		"6_form": {
 			"name":"The Lord of Shadows",
-			"roles":["physicalAttacker"],
+			"roles":["physicalAttacker","debuffer"],
 			"id":"337000805",
 			"game_id":"20029",
 			"game":"DRAGON QUEST XI S",
@@ -34556,7 +34556,7 @@
 	},
 	"338000105": {
 		"name":"Edward Elric",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"338000105",
 		"game_id":"20032",
 		"game":"Other",
@@ -34777,7 +34777,7 @@
 	},
 	"338000404": {
 		"name":"Riza Hawkeye",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"id":"338000404",
 		"game_id":"20032",
 		"game":"Other",
@@ -34798,7 +34798,7 @@
 	},
 	"338000503": {
 		"name":"Winry Rockbell",
-		"roles":["debuffer"],
+		"roles":["support","debuffer"],
 		"id":"338000503",
 		"game_id":"20032",
 		"game":"Other",
@@ -34956,7 +34956,7 @@
 	},
 	"339000105": {
 		"name":"Gilgamesh (WOTV FFBE)",
-		"roles":["physicalAttacker","magicalAttacker"],
+		"roles":["physicalAttacker","magicalAttacker","support"],
 		"id":"339000105",
 		"game_id":"11010",
 		"game":"WOTV FFBE",
@@ -34978,7 +34978,7 @@
 		],
 		"6_form": {
 			"name":"Gilgamesh (WOTV FFBE)",
-			"roles":["physicalAttacker","magicalAttacker"],
+			"roles":["physicalAttacker","magicalAttacker","support"],
 			"id":"339000105",
 			"game_id":"11010",
 			"game":"WOTV FFBE",
@@ -36764,7 +36764,7 @@
 	},
 	"401001504": {
 		"name":"Rubicante",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","debuffer"],
 		"id":"401001504",
 		"game_id":"10004",
 		"game":"FFIV",
@@ -36827,7 +36827,7 @@
 		},
 		"7_form": {
 			"name":"Rubicante",
-			"roles":["magicalAttacker"],
+			"roles":["magicalAttacker","debuffer"],
 			"id":"401001504",
 			"game_id":"10004",
 			"game":"FFIV",
