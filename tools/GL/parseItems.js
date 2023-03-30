@@ -820,7 +820,7 @@ function readSkills(itemIn, itemOut, skills) {
 
             if (skill) {
                 skill.id = skillId;
-                itemOut = addNonStackableSkills(skill, itemOut, skills);
+                itemOut = addNotStackableSkills(skill, itemOut, skills);
                 if (skill.type == "MAGIC") {
                     skill = parseActiveSkill(skillId, skills[skillId], skills, itemOut);
                     if (!itemOut.skills) {
@@ -931,7 +931,7 @@ function readSkills(itemIn, itemOut, skills) {
                     }
                 }
                 addNotTreatedEffects(copy, effectsNotTreated, skill, skill.id);
-                copy = addNonStackableSkills(skill, copy, skills);
+                copy = addNotStackableSkills(skill, copy, skills);
                 result.push(copy);
                 if (masterySkills.length > 0) {
                     addMasterySkills(copy, masterySkills, result);
@@ -950,7 +950,7 @@ function readSkills(itemIn, itemOut, skills) {
                     }
                 }
                 addNotTreatedEffects(copy, effectsNotTreated, skill, skill.id);
-                copy = addNonStackableSkills(skill, copy);
+                copy = addNotStackableSkills(skill, copy);
                 result.push(copy);
                 if (masterySkills.length > 0) {
                     addMasterySkills(copy, masterySkills, result);
@@ -983,7 +983,7 @@ function readSkills(itemIn, itemOut, skills) {
     }
     return result;
 }
-function addNonStackableSkills(skill, itemOut, skills) {
+function addNotStackableSkills(skill, itemOut, skills) {
     if (skill.unique && !skill.active) {
         if (!itemOut.notStackableSkills) {
             itemOut.notStackableSkills = {};
