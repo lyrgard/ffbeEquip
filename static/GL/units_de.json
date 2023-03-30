@@ -2227,7 +2227,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","Sonic Octostrike Blade","Entrusted by a Friend"],
+		"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","Sonic Octostrike Blade","Crimson-Dyed Blade","Azure-Dyed Blade","Entrusted by a Friend"],
 		"6_form": {
 			"name":"Raegen",
 			"roles":["physicalAttacker","debuffer","support"],
@@ -2246,7 +2246,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","Sonic Octostrike Blade","Entrusted by a Friend"]
+			"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","Sonic Octostrike Blade","Crimson-Dyed Blade","Azure-Dyed Blade","Entrusted by a Friend"]
 		},
 		"7_form": {
 			"name":"Raegen",
@@ -2266,7 +2266,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","Sonic Octostrike Blade","Entrusted by a Friend"]
+			"enhancementSkills":["Blades of Azure Crimson","Octostrike Blade","Forsaken Armor","Azure Flame Edge","Crimson Frost Edge","Kingdom's Hero","Sonic Octostrike Blade","Crimson-Dyed Blade","Azure-Dyed Blade","Entrusted by a Friend"]
 		}
 	},
 	"100010027": {
@@ -2289,7 +2289,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Sonic Octostrike Blade","Hero's Blood Linkage"]
+		"enhancementSkills":["Sonic Octostrike Blade","Crimson-Dyed Blade","Azure-Dyed Blade","Hero's Blood Linkage"]
 	},
 	"100010104": {
 		"name":"Silvia",
@@ -5914,6 +5914,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Final Mirror of Equity"],
 		"6_form": {
 			"name":"König Lasswell von Hess",
 			"roles":["physicalAttacker","support"],
@@ -5931,7 +5932,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Final Mirror of Equity"]
 		}
 	},
 	"100023205": {
@@ -8271,7 +8273,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Blaze Arrow Saber","Dispel Arrow"]
+		"enhancementSkills":["Blaze Arrow Saber","Journey to Protect the World","Dispel Arrow"]
 	},
 	"100032717": {
 		"name":"Rain & Fina BS",
@@ -10546,6 +10548,136 @@
 		"stats_pattern":4,
 		"equip":["greatSword","hat","helm","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Large Sword Mastery"]
+	},
+	"100040707": {
+		"name":"Raegen -Dunkle Blutlinie-",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Raegen_-Dark Lineage-",
+		"id":"100040707",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"100040717",
+		"exAwakening": [{"hp":690,"mp":43,"atk":75,"def":33,"mag":26,"spr":29},{"hp":531,"mp":33,"atk":58,"def":26,"mag":20,"spr":22},{"hp":372,"mp":23,"atk":41,"def":18,"mag":14,"spr":16}],
+		"fragmentId": "250016000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5311,"mp":330,"atk":290,"def":255,"mag":197,"spr":224},
+			"minStats":{"hp":1753,"mp":109,"atk":96,"def":84,"mag":65,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Sonic Octostrike Blade","Crimson-Dyed Blade","Azure-Dyed Blade","Sword Mastery","Large Sword Mastery"]
+	},
+	"100040717": {
+		"name":"Raegen -Dunkle Blutlinie- BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Raegen_-Dark Lineage-",
+		"id":"100040717",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"100040707",
+		"exAwakening": [{"hp":690,"mp":43,"atk":75,"def":33,"mag":26,"spr":29},{"hp":531,"mp":33,"atk":58,"def":26,"mag":20,"spr":22},{"hp":372,"mp":23,"atk":41,"def":18,"mag":14,"spr":16}],
+		"fragmentId": "250016000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5311,"mp":330,"atk":290,"def":255,"mag":197,"spr":224},
+			"minStats":{"hp":1753,"mp":109,"atk":96,"def":84,"mag":65,"spr":74},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"100040807": {
+		"name":"Lasswell -Dunkle Blutlinie-",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Lasswell_-Dark Lineage-",
+		"id":"100040807",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"100040817",
+		"exAwakening": [{"hp":686,"mp":49,"atk":78,"def":27,"mag":82,"spr":22},{"hp":527,"mp":38,"atk":60,"def":21,"mag":63,"spr":17},{"hp":369,"mp":27,"atk":42,"def":15,"mag":44,"spr":12}],
+		"fragmentId": "250015900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5274,"mp":360,"atk":300,"def":210,"mag":130,"spr":160},
+			"minStats":{"hp":1740,"mp":119,"atk":99,"def":69,"mag":43,"spr":53},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["katana","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Glacial Judgment Blade","Final Mirror of Equity"]
+	},
+	"100040817": {
+		"name":"Lasswell -Dunkle Blutlinie- BS",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Lasswell_-Dark Lineage-",
+		"id":"100040817",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"100040807",
+		"exAwakening": [{"hp":686,"mp":49,"atk":78,"def":27,"mag":82,"spr":22},{"hp":527,"mp":38,"atk":60,"def":21,"mag":63,"spr":17},{"hp":369,"mp":27,"atk":42,"def":15,"mag":44,"spr":12}],
+		"fragmentId": "250015900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4928,"mp":380,"atk":270,"def":190,"mag":315,"spr":170},
+			"minStats":{"hp":1626,"mp":125,"atk":89,"def":63,"mag":104,"spr":56},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["katana","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Line of Fire - Iceberg","Obliterating Magic Blade","Obliterating Magic Blade+"]
+	},
+	"100040907": {
+		"name":"Roca -Dunkle Blutlinie-",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Roca_-Dark Lineage-",
+		"id":"100040907",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"100040917",
+		"exAwakening": [{"hp":566,"mp":46,"atk":17,"def":27,"mag":78,"spr":31},{"hp":436,"mp":35,"atk":13,"def":21,"mag":60,"spr":24},{"hp":305,"mp":25,"atk":9,"def":15,"mag":42,"spr":17}],
+		"fragmentId": "250015700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4358,"mp":350,"atk":130,"def":210,"mag":300,"spr":240},
+			"minStats":{"hp":1438,"mp":116,"atk":43,"def":69,"mag":99,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","gun","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Pseudo-Magitek Core - Boomer","Earth Crystal Field","Quick","Stonra","Stonga","Quake"]
+	},
+	"100040917": {
+		"name":"Roca -Dunkle Blutlinie- BS",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Roca_-Dark Lineage-",
+		"id":"100040917",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"100040907",
+		"exAwakening": [{"hp":566,"mp":46,"atk":17,"def":27,"mag":78,"spr":31},{"hp":436,"mp":35,"atk":13,"def":21,"mag":60,"spr":24},{"hp":305,"mp":25,"atk":9,"def":15,"mag":42,"spr":17}],
+		"fragmentId": "250015700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4358,"mp":350,"atk":130,"def":210,"mag":300,"spr":240},
+			"minStats":{"hp":1438,"mp":116,"atk":43,"def":69,"mag":99,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","gun","hat","clothes","robe","visionCard"]
 	},
 	"100041407": {
 		"name":"Mid",
@@ -15682,7 +15814,7 @@
 		"wikiEntry":"Cloud_(FFVII: AC)",
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -15699,7 +15831,7 @@
 			"wikiEntry":"Cloud_(FFVII: AC)",
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -15719,7 +15851,7 @@
 		"wikiEntry":"Tifa_(FFVII: AC)",
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -15736,7 +15868,7 @@
 			"wikiEntry":"Tifa_(FFVII: AC)",
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -15756,7 +15888,7 @@
 		"wikiEntry":"Kadaj",
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -15773,7 +15905,7 @@
 			"wikiEntry":"Kadaj",
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -15793,7 +15925,7 @@
 		"wikiEntry":"Yazoo_& Loz",
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -32315,12 +32447,6 @@
   "100034005":{"name":"Belmera","jpname":"ベルメーラ","roles":["physicalAttacker"],"id":"100034005","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4722,"mp":246,"atk":212,"def":182,"mag":142,"spr":175},"minStats":{"hp":1558,"mp":81,"atk":70,"def":60,"mag":47,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","throwing","gun","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"],"6_form":{"name":"Belmera","jpname":"ベルメーラ","roles":["physicalAttacker"],"id":"100034005","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3632,"mp":189,"atk":163,"def":140,"mag":109,"spr":134},"minStats":{"hp":1199,"mp":62,"atk":54,"def":46,"mag":36,"spr":44},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","throwing","gun","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"]}},
   "100039207":{"name":"Christmas Domino","jpname":"クリスマスドミノ","roles":["physicalAttacker"],"id":"100039207","game_id":"undefined","game":"undefined","braveShift":"100039217","exAwakening":[{"hp":647,"mp":30,"atk":74,"def":21,"mag":5,"spr":26},{"hp":498,"mp":23,"atk":57,"def":16,"mag":4,"spr":20},{"hp":348,"mp":16,"atk":40,"def":11,"mag":3,"spr":14}],"fragmentId":"250008400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4977,"mp":230,"atk":284,"def":164,"mag":37,"spr":199},"minStats":{"hp":1642,"mp":76,"atk":94,"def":54,"mag":12,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","gun","mace","fist","hat","clothes","visionCard"],"enhancementSkills":["銃の極意","格闘の極意","ボリアススマッシュ","オーロラシュート","けり"]},
   "100039217":{"name":"Christmas Domino BS","jpname":"クリスマスドミノ BS","roles":["physicalAttacker"],"id":"100039217","game_id":"undefined","game":"undefined","braveShifted":"100039207","exAwakening":[{"hp":647,"mp":30,"atk":74,"def":21,"mag":5,"spr":26},{"hp":498,"mp":23,"atk":57,"def":16,"mag":4,"spr":20},{"hp":348,"mp":16,"atk":40,"def":11,"mag":3,"spr":14}],"fragmentId":"250008400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4977,"mp":230,"atk":284,"def":164,"mag":37,"spr":199},"minStats":{"hp":1642,"mp":76,"atk":94,"def":54,"mag":12,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","gun","mace","fist","hat","clothes","visionCard"]},
-  "100040707":{"name":"レーゲン -魔将の系譜-","jpname":"レーゲン -魔将の系譜-","roles":["physicalAttacker"],"id":"100040707","game_id":"undefined","game":"undefined","braveShift":"100040717","exAwakening":[{"hp":690,"mp":43,"atk":75,"def":33,"mag":26,"spr":29},{"hp":531,"mp":33,"atk":58,"def":26,"mag":20,"spr":22},{"hp":372,"mp":23,"atk":41,"def":18,"mag":14,"spr":16}],"fragmentId":"250016000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5311,"mp":330,"atk":290,"def":255,"mag":197,"spr":224},"minStats":{"hp":1753,"mp":109,"atk":96,"def":84,"mag":65,"spr":74},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["超速八連刃","緋の剣","蒼の剣","剣の極意","大剣の極意"]},
-  "100040717":{"name":"レーゲン -魔将の系譜- BS","jpname":"レーゲン -魔将の系譜- BS","roles":["physicalAttacker"],"id":"100040717","game_id":"undefined","game":"undefined","braveShifted":"100040707","exAwakening":[{"hp":690,"mp":43,"atk":75,"def":33,"mag":26,"spr":29},{"hp":531,"mp":33,"atk":58,"def":26,"mag":20,"spr":22},{"hp":372,"mp":23,"atk":41,"def":18,"mag":14,"spr":16}],"fragmentId":"250016000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5311,"mp":330,"atk":290,"def":255,"mag":197,"spr":224},"minStats":{"hp":1753,"mp":109,"atk":96,"def":84,"mag":65,"spr":74},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
-  "100040807":{"name":"ラスウェル -魔将の系譜-","jpname":"ラスウェル -魔将の系譜-","roles":["physicalAttacker"],"id":"100040807","game_id":"undefined","game":"undefined","braveShift":"100040817","exAwakening":[{"hp":686,"mp":49,"atk":78,"def":27,"mag":82,"spr":22},{"hp":527,"mp":38,"atk":60,"def":21,"mag":63,"spr":17},{"hp":369,"mp":27,"atk":42,"def":15,"mag":44,"spr":12}],"fragmentId":"250015900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5274,"mp":360,"atk":300,"def":210,"mag":130,"spr":160},"minStats":{"hp":1740,"mp":119,"atk":99,"def":69,"mag":43,"spr":53},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["katana","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["氷河断刃","終・明鏡"]},
-  "100040817":{"name":"ラスウェル -魔将の系譜- BS","jpname":"ラスウェル -魔将の系譜- BS","roles":["magicalAttacker"],"id":"100040817","game_id":"undefined","game":"undefined","braveShifted":"100040807","exAwakening":[{"hp":686,"mp":49,"atk":78,"def":27,"mag":82,"spr":22},{"hp":527,"mp":38,"atk":60,"def":21,"mag":63,"spr":17},{"hp":369,"mp":27,"atk":42,"def":15,"mag":44,"spr":12}],"fragmentId":"250015900","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4928,"mp":380,"atk":270,"def":190,"mag":315,"spr":170},"minStats":{"hp":1626,"mp":125,"atk":89,"def":63,"mag":104,"spr":56},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["katana","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["堅氷の射線","絶魔剣","絶魔剣・改"]},
-  "100040907":{"name":"ロカ -魔将の系譜-","jpname":"ロカ -魔将の系譜-","roles":["magicalAttacker"],"id":"100040907","game_id":"undefined","game":"undefined","braveShift":"100040917","exAwakening":[{"hp":566,"mp":46,"atk":17,"def":27,"mag":78,"spr":31},{"hp":436,"mp":35,"atk":13,"def":21,"mag":60,"spr":24},{"hp":305,"mp":25,"atk":9,"def":15,"mag":42,"spr":17}],"fragmentId":"250015700","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4358,"mp":350,"atk":130,"def":210,"mag":300,"spr":240},"minStats":{"hp":1438,"mp":116,"atk":43,"def":69,"mag":99,"spr":79},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","gun","hat","clothes","robe","visionCard"],"enhancementSkills":["疑似魔導コア・まるボン","アースクリスタル・フィールド","クイック","ストンラ","ストンガ","クエイク"]},
-  "100040917":{"name":"ロカ -魔将の系譜- BS","jpname":"ロカ -魔将の系譜- BS","roles":["magicalAttacker"],"id":"100040917","game_id":"undefined","game":"undefined","braveShifted":"100040907","exAwakening":[{"hp":566,"mp":46,"atk":17,"def":27,"mag":78,"spr":31},{"hp":436,"mp":35,"atk":13,"def":21,"mag":60,"spr":24},{"hp":305,"mp":25,"atk":9,"def":15,"mag":42,"spr":17}],"fragmentId":"250015700","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4358,"mp":350,"atk":130,"def":210,"mag":300,"spr":240},"minStats":{"hp":1438,"mp":116,"atk":43,"def":69,"mag":99,"spr":79},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","gun","hat","clothes","robe","visionCard"]},
   "100041007":{"name":"氷刃のヴェリアス","jpname":"氷刃のヴェリアス","roles":["physicalAttacker","support"],"id":"100041007","game_id":"undefined","game":"undefined","braveShift":"100041017","exAwakening":[{"hp":728,"mp":47,"atk":78,"def":28,"mag":31,"spr":26},{"hp":560,"mp":36,"atk":60,"def":22,"mag":24,"spr":20},{"hp":392,"mp":25,"atk":42,"def":15,"mag":17,"spr":14}],"fragmentId":"250016100","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5604,"mp":360,"atk":300,"def":218,"mag":240,"spr":201},"minStats":{"hp":1849,"mp":119,"atk":99,"def":72,"mag":79,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["katana","spear","helm","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["氷武殺","刀の極意","槍の極意"]},
   "100041017":{"name":"氷刃のヴェリアス BS","jpname":"氷刃のヴェリアス BS","roles":["physicalAttacker","support"],"id":"100041017","game_id":"undefined","game":"undefined","braveShifted":"100041007","exAwakening":[{"hp":728,"mp":47,"atk":78,"def":28,"mag":31,"spr":26},{"hp":560,"mp":36,"atk":60,"def":22,"mag":24,"spr":20},{"hp":392,"mp":25,"atk":42,"def":15,"mag":17,"spr":14}],"fragmentId":"250016100","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5604,"mp":360,"atk":300,"def":218,"mag":240,"spr":201},"minStats":{"hp":1849,"mp":119,"atk":99,"def":72,"mag":79,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["katana","spear","helm","lightArmor","heavyArmor","visionCard"]},
   "100041107":{"name":"サクラ -魔将の系譜-","jpname":"サクラ -魔将の系譜-","roles":["support"],"id":"100041107","game_id":"undefined","game":"undefined","braveShift":"100041117","exAwakening":[{"hp":676,"mp":59,"atk":17,"def":30,"mag":75,"spr":31},{"hp":520,"mp":45,"atk":13,"def":23,"mag":58,"spr":24},{"hp":364,"mp":32,"atk":9,"def":16,"mag":41,"spr":17}],"fragmentId":"250016200","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4900,"mp":400,"atk":130,"def":190,"mag":270,"spr":200},"minStats":{"hp":1617,"mp":132,"atk":43,"def":63,"mag":89,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","spear","hat","clothes","robe","visionCard"],"enhancementSkills":["雷の賢者の本領","槍の極意","防御結界","真・闘雷石","サンダラ","サンダガ","バースト(FFBE)","プロテガ","シェルガ"]},
