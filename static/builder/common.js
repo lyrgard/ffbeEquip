@@ -1514,7 +1514,7 @@ function checkForNotStackableSkills(itemsAndPassives, stat, unitBuild, calculate
                                         calculatedValue += skillStatValue;
                                         // But if more than one of the item is equipped, then only add half of the value
                                     } else if (count > 1 && stat != "atk") {
-                                        calculatedValue -= skillStatValue / 2
+                                        calculatedValue += skillStatValue / 2
                                     } else if (count > 1 && stat == "atk") {
                                         calculatedValue -= skillStatValue / 2;
                                     }
