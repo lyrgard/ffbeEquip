@@ -1518,6 +1518,12 @@ function checkForNotStackableSkills(itemsAndPassives, stat, unitBuild, calculate
                                     } else if (count > 1 && stat == "atk") {
                                         calculatedValue -= skillStatValue / 2;
                                     }
+
+                                    if (stat == "atk") {
+                                        if (i >= 2) {
+                                            calculatedValue += skillStatValue;
+                                        }
+                                    }
                                     
                                 }
                             }
