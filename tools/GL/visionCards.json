@@ -684,6 +684,18 @@
 {"id":"100007201", "name":"To Arms, Paladian Magitek Corps!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100007201.png", "sortId":153, "vc":["100040807"], "levels":[
 	{"atk":170, "mag":170, "conditional":[{"atk%":80,"mag%":80},{"lbDamage":100},{"staticStats":{"atk":500,"mag":500}}]}
 ]},
+{"id":"100007301", "name":"Sworn Eight, Sworn Enemies", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_100007301.png", "sortId":154, "vc":["100041007"], "levels":[
+	{"atk":55, "mag":55},
+	{"atk":60, "mag":60},
+	{"atk":66, "mag":66},
+	{"atk":71, "mag":71, "killers":[{"name":"bird","physical":75,"magical":75}]},
+	{"atk":77, "mag":77, "killers":[{"name":"bird","physical":75,"magical":75}]},
+	{"atk":82, "mag":82, "killers":[{"name":"bird","physical":75,"magical":75}]},
+	{"atk":88, "mag":88, "killers":[{"name":"bird","physical":75,"magical":75},{"name":"stone","physical":75,"magical":75}]},
+	{"atk":93, "mag":93, "killers":[{"name":"bird","physical":75,"magical":75},{"name":"stone","physical":75,"magical":75}]},
+	{"atk":99, "mag":99, "killers":[{"name":"bird","physical":75,"magical":75},{"name":"stone","physical":75,"magical":75}]},
+	{"atk":110, "mag":110, "killers":[{"name":"bird","physical":75,"magical":75},{"name":"stone","physical":75,"magical":75},{"name":"demon","physical":75,"magical":75}]}
+]},
 {"id":"201000101", "name":"And So Their Quest Began", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_201000101.png", "sortId":100, "vc":["201000607"], "levels":[
 	{"hp":500, "def":50},
 	{"hp":550, "def":55},
@@ -1983,6 +1995,9 @@
 ]},
 {"id":"401006101", "name":"Wish-Granting Demon", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401006101.png", "sortId":9060, "vc":["401014407"], "levels":[
 	{"atk":170, "mag":170, "staticStats":{"atk":300,"mag":300}, "chainMastery":100, "lbDamage":50}
+]},
+{"id":"401006301", "name":"And None Knew Him", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401006301.png", "sortId":9062, "levels":[
+	{"atk":130, "atk%":80, "mag":130, "mag%":80, "staticStats":{"atk":500,"mag":500}, "chainMastery":50, "resist":[{"name":"ice","percent":30}], "lbDamage":50}
 ]},
 {"id":"900020101", "name":"Metal Gigantuar's Here!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_900020101.png", "sortId":6, "levels":[
 	{"hp":10, "mp":10}

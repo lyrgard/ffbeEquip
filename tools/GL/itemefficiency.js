@@ -81,7 +81,7 @@ const typeMap = {
     60: 'accessory'
 }
 //'HP', 'HP%', 'MP', 'MP%', 'ATK', 'ATK%', 'MAG', 'MAG%', 'DEF', 'DEF%', 'SPR', 'SPR%', 'tdh', 'tdw', 'lbDamage', 'dualwield'
-let goalCritieria = ['DEF']
+let goalCritieria = ['ATK', 'ATK%', 'tdh', 'lbDamage']
 
 let unitCriteria = {
     "baseATK": 430,
@@ -676,6 +676,6 @@ calculateEfficiency(efficiencyArray, goalCritieria)
 
 efficiencyArray.sort((a, b) => (a["itemEfficiency"] < b["itemEfficiency"]) ? 1 : -1)
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 20; i++) {
     console.log(efficiencyArray[i])
 }
