@@ -2571,7 +2571,32 @@ function formatItem(item) {
                 result += ", ";
             }
             try {
-                result+= "\"" + property + "\":" + JSON.stringify(item[property]);
+                if (property == "conditional") {
+                    if (item.conditional.length > 1) {
+                        let item1Keys = Object.keys(item.conditional[0]);
+                        let item2Keys = Object.keys(item.conditional[1]);
+                        // check if both are singleWielding for example
+                        if (item1Keys.length === item2Keys.length && item1Keys.every((value, index) => value === item2Keys[index])) {
+                            // if they do match, then get the Object values.
+                            let item1Objects = Object.values(item.conditional[0]);
+                            let item2Objects = Object.values(item.conditional[1]);
+
+                            // get the first key and value of each object
+                            let newPropertyKey = item1Keys[0]; // singleWielding
+                            let newPropertyKey2 = item2Keys[0]; // singleWielding
+                            let item1Value = item1Objects[0]; // {"atk": 200}
+                            let item2Value = item2Objects[0]; // {"mag": 200}
+                            // if the keys match, then update item1Value to include item2Value while not changing the rest of the item.conditional[0][newPropertyKey] object
+                            if (newPropertyKey === "singleWielding" && newPropertyKey2 === "singleWielding") {
+                                item.conditional[0][newPropertyKey] = Object.assign(item1Value, item2Value);
+                                delete item.conditional[1];
+                            }
+                        }
+                    }
+                    result+= "\"" + property + "\":" + JSON.stringify(item[property]);
+                } else {
+                    result+= "\"" + property + "\":" + JSON.stringify(item[property]);
+                }
             } catch (err) {
                 console.log(item)
                 console.log(err)
@@ -2579,6 +2604,10 @@ function formatItem(item) {
         }
     }
     result += "}";
+
+    if (result.endsWith(",null]}")) {
+        result = result.replace(",null]}", "]}");
+    }
     return result;
 }
 
