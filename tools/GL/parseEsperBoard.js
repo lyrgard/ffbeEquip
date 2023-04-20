@@ -53,7 +53,7 @@ var oldItemsMaxNumberById = {};
 var oldItemsWikiEntryById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
-var dev = true;
+var dev = false;
 
 
 async function getData(filename, callback) {
@@ -169,7 +169,7 @@ function beginScript() {
 }
 
 function getNode(node, skills_ability, skills_magic, skills_passive) {
-    var nodeOut = {"children": [], "cost":node.cost, "position":node.position};
+    var nodeOut = {"children": [], "cost":node["cost"], "position":node.position};
     if (stats.includes(node.reward[0])) {
         nodeOut[node.reward[0].toLowerCase()] = node.reward[1];
     } else if (node.reward[0].endsWith("Res")) {

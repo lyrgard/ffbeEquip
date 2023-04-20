@@ -382,7 +382,7 @@ function calculateUsedSpNode(node, skills) {
     var cost = 0;
     var posString = getEsperBoardPositionString(node.position[0], node.position[1]);
     if (skills.includes(posString)) {
-        cost += node.cost;
+        cost += node["cost"]["SP"];
         for(var i = 0; i < node.children.length; i++) {
             cost += calculateUsedSpNode(node.children[i], skills);
         }
@@ -407,12 +407,12 @@ function showNode(node, parentNodeHtml, star, scale=1) {
     var nodeHtml = $("#grid li." + posString + " .hexagon");
     for (var statIndex = 0; statIndex < baseStats.length; statIndex++) {
         if (node[baseStats[statIndex]]) {
-            nodeHtml.html('<span class="iconHolder"></span><span class="text">' + baseStats[statIndex].toUpperCase() + ' + ' + node[baseStats[statIndex]] + '</span><span class="cost">' + node.cost + ' SP</span>');
+            nodeHtml.html('<span class="iconHolder"></span><span class="text">' + baseStats[statIndex].toUpperCase() + ' + ' + node[baseStats[statIndex]] + '</span><span class="cost">' + node["cost"]["SP"] + ' SP</span>');
             nodeHtml.addClass(baseStats[statIndex]);
             break;
         }
         if (node[percentValues[baseStats[statIndex]]]) {
-            nodeHtml.html('<span class="iconHolder"><img class="icon" src="/img/items/ability_77.png"></img></span><span class="text">' + baseStats[statIndex].toUpperCase() + ' + ' + node[percentValues[baseStats[statIndex]]] + '%</span><span class="cost">' + node.cost + ' SP</span>');
+            nodeHtml.html('<span class="iconHolder"><img class="icon" src="/img/items/ability_77.png"></img></span><span class="text">' + baseStats[statIndex].toUpperCase() + ' + ' + node[percentValues[baseStats[statIndex]]] + '%</span><span class="cost">' + node["cost"]["SP"] + ' SP</span>');
             nodeHtml.addClass(baseStats[statIndex]);
             break;
         }
@@ -421,11 +421,11 @@ function showNode(node, parentNodeHtml, star, scale=1) {
         var indexOfBracket = node.special[0].toString().indexOf("[");
         var indexOfSemicolon = node.special[0].toString().indexOf(":");
         var ability = node.special[0].toString().substr(indexOfBracket,indexOfSemicolon);
-        nodeHtml.html('<span class="iconHolder">' + abilityIcon(ability) + '</span><span class="text">' + abilityName(ability) + '</span><span class="cost">' + node.cost + ' SP</span>');
+        nodeHtml.html('<span class="iconHolder">' + abilityIcon(ability) + '</span><span class="text">' + abilityName(ability) + '</span><span class="cost">' + node["cost"]["SP"] + ' SP</span>');
         nodeHtml.addClass("ability");
     }
     if (node.resist) {
-        nodeHtml.html('<span class="iconHolder"></span><span class="text">' + getResistHtml(node) + '</span><span class="cost">' + node.cost + ' SP</span>');
+        nodeHtml.html('<span class="iconHolder"></span><span class="text">' + getResistHtml(node) + '</span><span class="cost">' + node["cost"]["SP"] + ' SP</span>');
         nodeHtml.addClass("resist");
     }
     if (node.killers) {
@@ -433,37 +433,37 @@ function showNode(node, parentNodeHtml, star, scale=1) {
         var html = '<span class="iconHolder">';
         let killers = getKillerHtml(node.killers);
         html += killers.physical + killers.magical;
-        html+='</span><span class="cost">' + node.cost + ' SP</span>';
+        html+='</span><span class="cost">' + node["cost"]["SP"] + ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("killer");
     }
     if (node.esperStatsBonus) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_77.png"></img></span><span class="text">ST Reflection Boost<a href="http://exvius.gamepedia.com/ST_Reflection_Boost" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_77.png"></img></span><span class="text">ST Reflection Boost<a href="http://exvius.gamepedia.com/ST_Reflection_Boost" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node["cost"]["SP"]+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
     if (node.lbPerTurn) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_91.png"></img></span><span class="text">+' + node.lbPerTurn.min + ' LS/turn<a href="http://exvius.gamepedia.com/Auto-Limit" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_91.png"></img></span><span class="text">+' + node.lbPerTurn.min + ' LS/turn<a href="http://exvius.gamepedia.com/Auto-Limit" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node["cost"]["SP"]+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
     if (node.lbFillRate) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_78.png"></img></span><span class="text">+' + node.lbFillRate + '% LB fill rate</span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_78.png"></img></span><span class="text">+' + node.lbFillRate + '% LB fill rate</span><span class="cost">' + node["cost"]["SP"]+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
     if (node.lbDamage) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_78.png"></img></span><span class="text">+' + node.lbDamage + '% LB damage</span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_78.png"></img></span><span class="text">+' + node.lbDamage + '% LB damage</span><span class="cost">' + node["cost"]["SP"]+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
     if (node.evade && node.evade.physical) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_97.png"></img></span><span class="text">' + node.evade.physical + '% physical evasion<a href="http://exvius.gamepedia.com/Air_Step" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_97.png"></img></span><span class="text">' + node.evade.physical + '% physical evasion<a href="http://exvius.gamepedia.com/Air_Step" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node["cost"]["SP"]+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
     if (node.evade && node.evade.magical) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_97.png"></img></span><span class="text">' + node.evade.magical + '% magical evasion<a href="http://exvius.gamepedia.com/Air_Wall" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_97.png"></img></span><span class="text">' + node.evade.magical + '% magical evasion<a href="http://exvius.gamepedia.com/Air_Wall" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node["cost"]["SP"]+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
@@ -485,7 +485,7 @@ function showNode(node, parentNodeHtml, star, scale=1) {
                html += ' if <i class="img img-equipment-' + c.equipedCondition + '"></i></span>';
             }
         });
-        html += '<span class="cost">' + node.cost+ ' SP</span>';
+        html += '<span class="cost">' + node["cost"]["SP"]+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
