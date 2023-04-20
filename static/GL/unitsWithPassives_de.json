@@ -9786,7 +9786,7 @@
 	},
 	"100028305": {
 		"name":"Daisy",
-		"roles":["versatile"],
+		"roles":["physicalTank","support"],
 		"wikiEntry":"Daisy",
 		"id":"100028305",
 		"game_id":"11001",
@@ -9841,7 +9841,7 @@
 		},
 		"7_form": {
 			"name":"Daisy",
-			"roles":["versatile"],
+			"roles":["physicalTank","support"],
 			"wikiEntry":"Daisy",
 			"id":"100028305",
 			"game_id":"11001",
@@ -44741,6 +44741,68 @@
 			{"mag%":100, "equipedConditions":["katana",["1100000710","1100000711","401006101","1500000138","1100000416"]]},
 			{"mag":500, "chainMastery":100, "lbFillRate":100, "exLevelCondition":2},
 			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "exLevelCondition":2}
+		]
+	},
+	"401014507": {
+		"name":"Dunkelritter Deen",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Dark_Knight Duane",
+		"id":"401014507",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401014517",
+		"exAwakening": [{"hp":689,"mp":40,"atk":86,"def":38,"mag":17,"spr":31},{"hp":530,"mp":31,"atk":66,"def":29,"mag":13,"spr":24},{"hp":371,"mp":22,"atk":46,"def":20,"mag":9,"spr":17}],
+		"fragmentId": "310001040",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":310,"atk":330,"def":290,"mag":130,"spr":240},
+			"minStats":{"hp":1749,"mp":102,"atk":109,"def":96,"mag":43,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","axe","hammer","spear","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Hellfire Infusion","Dark Arcane Swordsmanship"],
+		"enhancements": [
+			{"name":"Dark Arcane Swordsmanship","levels":[[{"lbDamage":100,"killers":[{"name":"beast","physical":100},{"name":"demon","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100}],"equipedConditions":[["1100000723","1100000724"]]},{"equipedConditions":["sword",["1100000723","1100000724"]],"atk%":100}],[{"lbDamage":120,"killers":[{"name":"beast","physical":125},{"name":"demon","physical":125},{"name":"dragon","physical":125},{"name":"spirit","physical":125},{"name":"stone","physical":125},{"name":"plant","physical":125}],"equipedConditions":[["1100000723","1100000724"]]},{"equipedConditions":["sword",["1100000723","1100000724"]],"atk%":100}],[{"lbDamage":130,"killers":[{"name":"beast","physical":150},{"name":"demon","physical":150},{"name":"dragon","physical":150},{"name":"spirit","physical":150},{"name":"stone","physical":150},{"name":"plant","physical":150}],"equipedConditions":[["1100000723","1100000724"]]},{"equipedConditions":["sword",["1100000723","1100000724"]],"atk%":100}],[{"lbDamage":140,"killers":[{"name":"beast","physical":175},{"name":"demon","physical":175},{"name":"dragon","physical":175},{"name":"spirit","physical":175},{"name":"stone","physical":175},{"name":"plant","physical":175}],"equipedConditions":[["1100000723","1100000724"]]},{"equipedConditions":["sword",["1100000723","1100000724"]],"atk%":100}],[{"lbDamage":150,"killers":[{"name":"beast","physical":200},{"name":"demon","physical":200},{"name":"dragon","physical":200},{"name":"spirit","physical":200},{"name":"stone","physical":200},{"name":"plant","physical":200}],"equipedConditions":[["1100000723","1100000724"]]},{"equipedConditions":["sword",["1100000723","1100000724"]],"atk%":100}]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":100, "atk%":150, "def%":100, "evade":{"physical":50}, "dualWielding":{"atk":200}, "improvedDW":true, "resist":[{"name":"fire","percent":75},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":15, "special":["dualWield"]},
+			{"atk%":100, "equipedConditions":["sword"]},
+			{"atk":750, "exLevelCondition":2},
+			{"hp":2000, "atk":500, "exLevelCondition":3}
+		]
+	},
+	"401014517": {
+		"name":"Dunkelritter Deen BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Dark_Knight Duane",
+		"id":"401014517",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401014507",
+		"exAwakening": [{"hp":689,"mp":40,"atk":86,"def":38,"mag":17,"spr":31},{"hp":530,"mp":31,"atk":66,"def":29,"mag":13,"spr":24},{"hp":371,"mp":22,"atk":46,"def":20,"mag":9,"spr":17}],
+		"fragmentId": "310001040",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":310,"atk":330,"def":290,"mag":130,"spr":240},
+			"minStats":{"hp":1749,"mp":102,"atk":109,"def":96,"mag":43,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","axe","hammer","spear","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Hellfire Infusion","Dark Arcane Swordsmanship"],
+		"enhancements": [
+			{"name":"Dark Arcane Swordsmanship","levels":[[{"lbDamage":100,"killers":[{"name":"beast","physical":100},{"name":"demon","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100}],"equipedConditions":[["1100000723","1100000724"]]},{"equipedConditions":["sword",["1100000723","1100000724"]],"atk%":100}],[{"lbDamage":120,"killers":[{"name":"beast","physical":125},{"name":"demon","physical":125},{"name":"dragon","physical":125},{"name":"spirit","physical":125},{"name":"stone","physical":125},{"name":"plant","physical":125}],"equipedConditions":[["1100000723","1100000724"]]},{"equipedConditions":["sword",["1100000723","1100000724"]],"atk%":100}],[{"lbDamage":130,"killers":[{"name":"beast","physical":150},{"name":"demon","physical":150},{"name":"dragon","physical":150},{"name":"spirit","physical":150},{"name":"stone","physical":150},{"name":"plant","physical":150}],"equipedConditions":[["1100000723","1100000724"]]},{"equipedConditions":["sword",["1100000723","1100000724"]],"atk%":100}],[{"lbDamage":140,"killers":[{"name":"beast","physical":175},{"name":"demon","physical":175},{"name":"dragon","physical":175},{"name":"spirit","physical":175},{"name":"stone","physical":175},{"name":"plant","physical":175}],"equipedConditions":[["1100000723","1100000724"]]},{"equipedConditions":["sword",["1100000723","1100000724"]],"atk%":100}],[{"lbDamage":150,"killers":[{"name":"beast","physical":200},{"name":"demon","physical":200},{"name":"dragon","physical":200},{"name":"spirit","physical":200},{"name":"stone","physical":200},{"name":"plant","physical":200}],"equipedConditions":[["1100000723","1100000724"]]},{"equipedConditions":["sword",["1100000723","1100000724"]],"atk%":100}]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":100, "atk%":150, "def%":100, "evade":{"physical":50}, "dualWielding":{"atk":200}, "improvedDW":true, "resist":[{"name":"fire","percent":75},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":15, "special":["dualWield"]},
+			{"atk%":100, "equipedConditions":["sword"]},
+			{"atk":750, "exLevelCondition":2},
+			{"hp":2000, "atk":500, "exLevelCondition":3}
 		]
 	}
 ,

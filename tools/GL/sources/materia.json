@@ -11631,7 +11631,7 @@
             "names": ["Yin-Yang Dual Hand", "陰陽雙手", "음양쌍수", "Paumes Yin et Yang", "Yin-Yang-Doppelhand", "Mano dual yin-yang", "Dua Tangan Yin-Yang", "หัตถ์\u001aคู่\u001aหยิน\u001aหยาง\u001a"],
             "desc_short": [
                 "Boost ATK and MAG by 40%, and boost equipment ATK and MAG when armed with two one-handed weapons (Not stackable)",
-                "提高40%攻擊魔力+裝備2把單手武器時武具魔力攻擊提升 [無法重複裝備]",
+                "提高40%攻擊魔力+裝備2把單手武器時武具攻擊魔力提升 [無法重複裝備]",
                 "공격력과 마력 40% 상승+한손용 무기 2개 장착 시 장비의 공격력과 마력 상승(중복 장착 불가)",
                 "Augmente l'ATT et la MAGIE de 40 %, et augmente l'ATT et la MAGIE de l'équipement lorsque deux armes à une main sont équipées (Non cumulable)",
                 "Erhöht ANG sowie MAG um 40% und erhöht Ausrüstung-ANG sowie -MAG, wenn mit zwei einhändigen Waffen ausgerüstet (Nicht stapelbar).",
@@ -11641,7 +11641,7 @@
             ],
             "desc_long": [
                 "Boosts ATK and MAG by 40%, and boosts equipment ATK and MAG when armed with two one-handed weapons. Not stackable.",
-                "提高40%攻擊魔力，以及裝備2把單手武器時武具攻擊提升。[無法重複裝備]",
+                "提高40%攻擊魔力，以及裝備2把單手武器時武具攻擊魔力提升。[無法重複裝備]",
                 "공격력과 마력이 40% 상승하고, 한손용 무기 2개 장착 시 장비의 공격력과 마력이 상승합니다.(중복 장착 불가)",
                 "Augmente l'ATT et la MAGIE de 40 %, et augmente l'ATT et la MAGIE de l'équipement lorsque deux armes à une main sont équipées. Non cumulable.",
                 "Erhöht ANG sowie MAG um 40% und erhöht Ausrüstung-ANG sowie -MAG, wenn mit zwei einhändigen Waffen ausgerüstet. Nicht stapelbar.",
@@ -34340,6 +34340,76 @@
                 "Aumenta el ATQ y la MAG un 25% y el daño físico y mágico contra humanos y demonios un 50%. No acumulable.",
                 "Meningkatkan ATK dan MAG sebanyak 25%, serta meningkatkan damage fisik dan magic terhadap jenis manusia dan demon sebanyak 50%. Tidak dapat ditumpuk.",
                 "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001a25% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมนุษย์\u001aและ\u001aปีศาจ\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
+        }
+    },
+    "1500000227": {
+        "name": "Wing Clipping",
+        "compendium_id": 90228,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [917285],
+        "effects": ["Grant 'Wing Clipping' passive"],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": ["Wing Clipping", "剪翼", "날개 자르기", "Briser les ailes", "Flügel stutzen", "Partealas", "Patahkan Sayap", "สะ\u001aปั้น\u001aปีก\u001a"],
+            "desc_short": [
+                "Boost physical and magic damage against beasts, dragons, insects, and avian monsters by 50% (Not stackable)",
+                "物理、魔法攻擊時提高50%對獸龍蟲鳥系魔物的傷害[無法重複裝備]",
+                "물리, 마법 공격 시 야수, 드래곤, 곤충, 조류형 마물에게 부여하는 피해량 50% 상승(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux bêtes, aux dragons, aux insectes et aux oiseaux de 50 % (non cumulable)",
+                "Erhöht physischen sowie magischen Schaden gegen Bestien, Drachen, Insekten, und Vogelmonster um 50% (nicht stapelbar).",
+                "Aumenta el daño físico y mágico contra bestias, dragones, insectos y aves un 50% (no acumulable)",
+                "Meningkatkan damage fisik dan magic terhadap jenis makhluk buas, naga, serangga, dan makhluk bersayap sebanyak 50% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aอสูร\u001a,\u001a \u001aมังกร\u001a,\u001a \u001aแมลง\u001a \u001aและ\u001aสัตว์ปีก\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts physical and magic damage against beasts, dragons, insects, and avian monsters by 50%. Not stackable.",
+                "物理、魔法攻擊時提高50%對獸龍蟲鳥系魔物的傷害。[無法重複裝備]",
+                "물리, 마법 공격 시 야수, 드래곤, 곤충, 조류형 마물에게 부여하는 피해량이 50% 상승합니다.(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux bêtes, aux dragons, aux insectes et aux oiseaux de 50 %. Non cumulable.",
+                "Erhöht physischen sowie magischen Schaden gegen Bestien, Drachen, Insekten, und Vogelmonster um 50%. Nicht stapelbar.",
+                "Aumenta el daño físico y mágico contra bestias, dragones, insectos y aves un 50%. No acumulable.",
+                "Meningkatkan damage fisik dan magic terhadap jenis makhluk buas, naga, serangga, dan makhluk bersayap sebanyak 50%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aอสูร\u001a,\u001a \u001aมังกร\u001a,\u001a \u001aแมลง\u001a \u001aและ\u001aสัตว์ปีก\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
+        }
+    },
+    "1500000228": {
+        "name": "Perfect Provocation",
+        "compendium_id": 90229,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [917286],
+        "effects": ["Grant 'Perfect Provocation' passive"],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_83.png",
+        "strings": {
+            "names": ["Perfect Provocation", "完美挑釁", "완벽한 도발", "Provocation parfaite", "Perfekte Provokation", "Provocación perfecta", "Provokasi Sempurna", "การยั่วยุ\u001aอัน\u001aไร้\u001aที่\u001aติ\u001a"],
+            "desc_short": [
+                "Increase chance of being targeted by 100% (Not stackable)",
+                "增加100%機率容易被敵人攻擊[無法重複裝備]",
+                "적의 공격 대상이 될 확률 100% 상승(중복 장착 불가)",
+                "Augmente les chances d'être pris pour cible de 100 % (non cumulable)",
+                "Erhöht Chance, zum Ziel zu werden, um 100% (nicht stapelbar).",
+                "Aumenta la probabilidad de ser atacado un 100% (no acumulable)",
+                "Meningkatkan peluang menjadi target musuh sebanyak 100% (Tidak dapat ditumpuk)",
+                "เพิ่ม\u001aโอกาส\u001aใน\u001aการ\u001aตกเป็น\u001aเป้าหมาย\u001aการ\u001aโจมตี\u001aของ\u001aศัตรู\u001a \u001a100% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Increases chance of being targeted by 100%. Not stackable.",
+                "增加100%機率容易被敵人攻擊。[無法重複裝備]",
+                "적의 공격 대상이 될 확률이 100% 상승합니다.(중복 장착 불가)",
+                "Augmente les chances d'être pris pour cible de 100 %. Non cumulable.",
+                "Erhöht Chance, zum Ziel zu werden, um 100%. Nicht stapelbar.",
+                "Aumenta la probabilidad de ser atacado un 100%. No acumulable.",
+                "Meningkatkan peluang menjadi target musuh sebanyak 100%. Tidak dapat ditumpuk.",
+                "เพิ่ม\u001aโอกาส\u001aใน\u001aการ\u001aตกเป็น\u001aเป้าหมาย\u001aการ\u001aโจมตี\u001aของ\u001aศัตรู\u001a \u001a100% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     }

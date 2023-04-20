@@ -7168,7 +7168,7 @@
 	},
 	"100028305": {
 		"name":"Daisy",
-		"roles":["versatile"],
+		"roles":["physicalTank","support"],
 		"wikiEntry":"Daisy",
 		"id":"100028305",
 		"game_id":"11001",
@@ -7209,7 +7209,7 @@
 		},
 		"7_form": {
 			"name":"Daisy",
-			"roles":["versatile"],
+			"roles":["physicalTank","support"],
 			"wikiEntry":"Daisy",
 			"id":"100028305",
 			"game_id":"11001",
@@ -32524,6 +32524,50 @@
 		"stats_pattern":4,
 		"equip":["katana","rod","throwing","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"enhancementSkills":["Demonic Warrior","Demonic Retribution"]
+	},
+	"401014507": {
+		"name":"Dunkelritter Deen",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Dark_Knight Duane",
+		"id":"401014507",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401014517",
+		"exAwakening": [{"hp":689,"mp":40,"atk":86,"def":38,"mag":17,"spr":31},{"hp":530,"mp":31,"atk":66,"def":29,"mag":13,"spr":24},{"hp":371,"mp":22,"atk":46,"def":20,"mag":9,"spr":17}],
+		"fragmentId": "310001040",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":310,"atk":330,"def":290,"mag":130,"spr":240},
+			"minStats":{"hp":1749,"mp":102,"atk":109,"def":96,"mag":43,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","axe","hammer","spear","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Hellfire Infusion","Dark Arcane Swordsmanship"]
+	},
+	"401014517": {
+		"name":"Dunkelritter Deen BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Dark_Knight Duane",
+		"id":"401014517",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401014507",
+		"exAwakening": [{"hp":689,"mp":40,"atk":86,"def":38,"mag":17,"spr":31},{"hp":530,"mp":31,"atk":66,"def":29,"mag":13,"spr":24},{"hp":371,"mp":22,"atk":46,"def":20,"mag":9,"spr":17}],
+		"fragmentId": "310001040",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":310,"atk":330,"def":290,"mag":130,"spr":240},
+			"minStats":{"hp":1749,"mp":102,"atk":109,"def":96,"mag":43,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","axe","hammer","spear","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Hellfire Infusion","Dark Arcane Swordsmanship"]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker"],"id":"100000115","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"]},
