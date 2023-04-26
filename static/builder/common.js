@@ -566,7 +566,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
         } else if(formula.value.mechanism == "summonerSkillMAG/SPRMechanism" || formula.value.mechanism == "summonerSkillMAGMechanism" || formula.value.mechanism == "summonerSkillSPRMechanism"){
             if (formula.value.sprSplit > 0) {
                 var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
-                let coefIncrease = coef - formula.value.magCoef;
+                let coefIncrease = 0;
+                if (formula.value.magCoef > 0) {
+                    coefIncrease -= formula.value.magCoef;
+                }
                 var sprDamage =
                     (formula.value.sprCoef + coefIncrease)
                     * (sprStat * sprStat)
@@ -586,6 +589,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 "max" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.max * variance.max,
                 "switchWeapons" : switchWeapons
             }
+            return result;
         } else if(formula.value.mechanism == "mpMagPhysicalDamage") {
             let magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
             let mpStat = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
@@ -607,7 +611,6 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 "max": (baseDamage + magDamage) * context.damageMultiplier.max * variance.max,
                 "switchWeapons": switchWeapons
             }
-            return result;
         } else if(formula.value.mechanism == "mpMagMagicalDamage") {
             let magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
             let mpStat = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
