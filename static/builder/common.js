@@ -566,12 +566,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
         } else if(formula.value.mechanism == "summonerSkillMAG/SPRMechanism" || formula.value.mechanism == "summonerSkillMAGMechanism" || formula.value.mechanism == "summonerSkillSPRMechanism"){
             if (formula.value.sprSplit > 0) {
                 var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
-                let coefIncrease = 0;
-                if (formula.value.magCoef > 0) {
-                    coefIncrease -= formula.value.magCoef;
-                }
                 var sprDamage =
-                    (formula.value.sprCoef + coefIncrease)
+                    ((formula.value.sprCoef * formula.value.sprSplit) + (formula.value.magCoef * formula.value.magSplit))
                     * (sprStat * sprStat)
                     * evoMagMultiplier
                     * evokeDamageBoostMultiplier
