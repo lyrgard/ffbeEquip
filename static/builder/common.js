@@ -575,7 +575,6 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                     * resistModifier
                     * weaponImperilCoef
                     * elementBoostModifier
-                    * jumpMultiplier
                     * lbMultiplier
                     / (enemyStats.spr * (1 + (enemyStats.buffs.spr - enemyStats.breaks.spr) / 100));
             } else {
@@ -608,6 +607,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, enemySt
                 "max": (baseDamage + magDamage) * context.damageMultiplier.max * variance.max,
                 "switchWeapons": switchWeapons
             }
+            return result;
         } else if(formula.value.mechanism == "mpMagMagicalDamage") {
             let magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
             let mpStat = getStatCalculatedValue(context, itemAndPassives, "mp", unitBuild).total
