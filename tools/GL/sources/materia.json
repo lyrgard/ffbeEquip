@@ -1736,6 +1736,23 @@
             "desc_long": ["Enables unit to equip clothes.", "可以裝備衣服。", "옷을 장착할 수 있게 됩니다.", "Permet d'équiper des vêtements", "Die Einheit kann mit Kleidung ausgerüstet werden.", "Permite equipar ropa", "Memungkinkan unit untuk menggunakan pakaian.", "ยู\u001aนิ\u001aทสา\u001aมา\u001aรถ\u001aสวม\u001aชุด\u001aผ้า\u001aได้\u001a"]
         }
     },
+    "504100930": {
+        "name": "軽鎧装備",
+        "compendium_id": 1538,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [100930],
+        "effects": ["Grant '軽鎧装備' passive"],
+        "unique": false,
+        "price_buy": 50000,
+        "price_sell": 5000,
+        "icon": "ability_96.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
     "504100940": {
         "name": "Equip H Armor",
         "compendium_id": 238,
@@ -1894,7 +1911,7 @@
                 "Augmente les dégâts physiques infligés aux insectes de 50 % (non cumulable)",
                 "Mehr physischer Schaden gegen Insektenmonster (Nicht stapelbar)",
                 "Aumenta el daño infligido a monstruos insecto (no acumulable)",
-                "Meningkatkan damage fisik terhadap jenis serangga (Tidak dapat ditumpuk)",
+                "Meningkatkan damage fisik terhadap jenis serangga sebanyak 50% (Tidak dapat ditumpuk)",
                 "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aแมลง\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aได้\u001a)\u001a"
             ],
             "desc_long": [
@@ -2427,6 +2444,23 @@
             "names": ["MAG +15%", "魔力+15%", "마력+15%", "MAGIE +15%", "MAG +15%", "MAG +15%", "MAG +15%", "MAG\u001a \u001a+\u001a15%"],
             "desc_short": ["Boost MAG by 15%", "提高15%魔力", "마력 15% 상승", "Augmente la MAGIE de 15 %", "Erhöht MAG um 15%", "Aumenta la MAG un 15%.", "Meningkatkan MAG sebanyak 15%", "เพิ่มค่า\u001a \u001aMAG\u001a \u001a15%"],
             "desc_long": ["Boosts MAG by 15%.", "提高15%魔力。", "마력이 15% 상승합니다.", "Augmente la MAGIE de 15 %.", "Erhöht MAG um 15%.", "Aumenta la MAG un 15%.", "Meningkatkan MAG sebanyak 15%.", "เพิ่มค่า\u001a \u001aMAG\u001a \u001a15%"]
+        }
+    },
+    "504120810": {
+        "name": "先制LBブースト(攻)",
+        "compendium_id": 1533,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [120810],
+        "effects": ["Grant 'Preemptive LB Boost (ATK)' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
         }
     },
     "504200010": {
@@ -8561,7 +8595,7 @@
                 "Augmente les dégâts physiques et magiques infligés aux insectes de 75 % (non cumulable)",
                 "Erhöht physischen und magischen Schaden gegen Insekten (Nicht stapelbar).",
                 "Aumenta el daño físico y mágico contra insectos (no acumulable)",
-                "Meningkatkan damage fisik dan magic terhadap jenis serangga (Tidak dapat ditumpuk)",
+                "Meningkatkan damage fisik dan magic terhadap jenis serangga sebanyak 75% (Tidak dapat ditumpuk)",
                 "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aแมลง\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ],
             "desc_long": [
@@ -27621,6 +27655,23 @@
             ]
         }
     },
+    "504244156": {
+        "name": "ダークフェニックスシナジー",
+        "compendium_id": 1515,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244156],
+        "effects": ["Grant 'ダークフェニックスシナジー' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
     "504244165": {
         "name": "Most Respected Doctor",
         "compendium_id": 1516,
@@ -27690,6 +27741,23 @@
             "desc_long": [null, null, null, null, null, null, null, null]
         }
     },
+    "504244206": {
+        "name": "デスペルフォース",
+        "compendium_id": 1521,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244206],
+        "effects": ["Grant 'デスペルフォース' ability"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_3.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
     "504244213": {
         "name": "武闘家フォンの教え",
         "compendium_id": 1519,
@@ -27718,6 +27786,279 @@
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_78.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244262": {
+        "name": "白刃に込める気魄",
+        "compendium_id": 1523,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244262],
+        "effects": ["Grant '白刃に込める気魄' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244280": {
+        "name": "戦場の獅子",
+        "compendium_id": 1525,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244280],
+        "effects": ["Grant '戦場の獅子' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244287": {
+        "name": "Rivalry with a Hero",
+        "compendium_id": 1522,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244287],
+        "effects": ["Grant 'Rivalry with a Hero' passive"],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": ["Rivalry with a Hero", "對英雄的對抗心", "영웅에 대한 대항심", "Rivalité avec un héros légendaire", "Rivalität mit einem Helden", "Rival del héroe", "Bersaing dengan Pahlawan", "ใจ\u001aคิด\u001aแข่ง\u001aวีรบุรุษ\u001a"],
+            "desc_short": [
+                "Boost MAG by 50%, and boost physical and magic damage against machina monsters by 50% (Not stackable)",
+                "提高50%魔力+物理、魔法攻擊時提高50%對機械系魔物的傷害[無法重複裝備]",
+                "마력 50% 상승+물리, 마법 공격 시 기계형 마물에게 부여하는 피해량 50% 상승(중복 장착 불가)",
+                "Augmente la MAGIE de 50 %, et augmente les dégâts physiques et magiques infligés aux machines de 50 % (Non cumulable)",
+                "Erhöht MAG um 50% und erhöht physischen sowie magischen Schaden gegen Maschinen um 50% (nicht stapelbar).",
+                "Aumenta la MAG un 50% y el daño físico y mágico contra máquinas un 50% (no acumulable)",
+                "Meningkatkan MAG sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis mesin sebanyak 50% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aจักรกล\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts MAG by 50%, and boosts physical and magic damage against machina monsters by 50%. Not stackable.",
+                "提高50%魔力，且物理、魔法攻擊時提高50%對機械系魔物的傷害。[無法重複裝備]",
+                "마력이 50% 상승하고, 물리, 마법 공격 시 기계형 마물에게 부여하는 피해량이 50% 상승합니다.(중복 장착 불가)",
+                "Augmente la MAGIE de 50 %, et augmente les dégâts physiques et magiques infligés aux machines de 50 %. Non cumulable.",
+                "Erhöht MAG um 50% und erhöht physischen sowie magischen Schaden gegen Maschinen um 50%. Nicht stapelbar.",
+                "Aumenta la MAG un 50% y el daño físico y mágico contra máquinas un 50%. No acumulable.",
+                "Meningkatkan MAG sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis mesin sebanyak 50%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aจักรกล\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
+        }
+    },
+    "504244300": {
+        "name": "魔女の力",
+        "compendium_id": 1527,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244300],
+        "effects": ["Grant '魔女の力' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_78.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244308": {
+        "name": "シェラタンの用兵論",
+        "compendium_id": 1524,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244308],
+        "effects": ["Grant 'シェラタンの用兵論' passive"],
+        "unique": false,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244309": {
+        "name": "セルフィへの想い",
+        "compendium_id": 1526,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244309],
+        "effects": ["Grant 'セルフィへの想い' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244340": {
+        "name": "ソウルオブサマサ",
+        "compendium_id": 1528,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244340],
+        "effects": ["Grant 'ソウルオブサマサ' passive"],
+        "unique": false,
+        "price_buy": 50000,
+        "price_sell": 5000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244341": {
+        "name": "ソウルオブサマサ+1",
+        "compendium_id": 1529,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244341],
+        "effects": ["Grant 'ソウルオブサマサ+1' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244342": {
+        "name": "ソウルオブサマサ+2",
+        "compendium_id": 1530,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244342],
+        "effects": ["Grant 'ソウルオブサマサ+2' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244343": {
+        "name": "ソウルオブサマサ+3",
+        "compendium_id": 1531,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244343],
+        "effects": ["Grant 'ソウルオブサマサ+3' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244344": {
+        "name": "ソウルオブサマサ+4",
+        "compendium_id": 1532,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244344],
+        "effects": ["Grant 'ソウルオブサマサ+4' passive"],
+        "unique": false,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244355": {
+        "name": "戦場での魔導知識",
+        "compendium_id": 1534,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244355],
+        "effects": ["Grant '戦場での魔導知識' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244375": {
+        "name": "聡明なカード使い",
+        "compendium_id": 1535,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244375],
+        "effects": ["Grant '聡明なカード使い' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244378": {
+        "name": "心優しき演奏者",
+        "compendium_id": 1536,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244378],
+        "effects": ["Grant '心優しき演奏者' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_9.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244447": {
+        "name": "ユニルシオンの秘剣技",
+        "compendium_id": 1537,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244447],
+        "effects": ["Grant 'ユニルシオンの秘剣技' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_6000200.png",
         "strings": {
             "names": [null, null, null, null, null, null, null, null],
             "desc_short": [null, null, null, null, null, null, null, null],
@@ -33706,7 +34047,7 @@
                 "Augmente la MAGIE et les dégâts de la limite de 50 % et augmente la MAGIE de l'équipement quand une arme est tenue avec les deux mains (non cumulable)",
                 "Erhöht MAG sowie Schaden durch Limitrausch um 50% und erhöht Ausrüstung-MAG, wenn eine einzige Waffe in beiden Händen ausgerüstet ist (nicht stapelbar).",
                 "Aumenta la MAG y el daño del EL un 50%, y aumenta la MAG del equipo al llevar una sola arma en ambas manos (no acumulable)",
-                "Meningkatkan MAG dan meningkatkan damage LB sebanyak 50%, serta meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan (Tidak dapat ditumpuk)",
+                "Meningkatkan MAG, meningkatkan damage LB sebanyak 50%, dan meningkatkan MAG perlengkapan ketika 1 senjata digunakan dengan kedua tangan (Tidak dapat ditumpuk)",
                 "เพิ่มค่า\u001a \u001aMAG\u001a \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a50% + เพิ่มค่า MAG\u001a \u001aของ\u001aอุปกรณ์\u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ],
             "desc_long": [

@@ -15517,7 +15517,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Starshower"]
+		"enhancementSkills":["Power to Protect Everyone","Starshower"]
 	},
 	"207002317": {
 		"name":"Avalanche's Tifa BS",
@@ -15538,7 +15538,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Rise and Fall (FFVII REMAKE)"]
+		"enhancementSkills":["Power to Fight Shinra","Rise and Fall (FFVII REMAKE)"]
 	},
 	"207002407": {
 		"name":"Legendary Hero Sephiroth",
@@ -15616,6 +15616,48 @@
 			"stats_pattern":1,
 			"equip":["dagger","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
+	},
+	"207002807": {
+		"name":"Genesis",
+		"roles":["magicalAttacker"],
+		"id":"207002807",
+		"game_id":"11012",
+		"game":"CCFFVIIR",
+		"braveShift":"207002817",
+		"exAwakening": [{"hp":628,"mp":54,"atk":29,"def":25,"mag":82,"spr":32},{"hp":483,"mp":42,"atk":23,"def":19,"mag":63,"spr":24},{"hp":338,"mp":29,"atk":16,"def":13,"mag":44,"spr":17}],
+		"fragmentId": "250017400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4831,"mp":417,"atk":226,"def":189,"mag":315,"spr":243},
+			"minStats":{"hp":1594,"mp":138,"atk":75,"def":62,"mag":104,"spr":80},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Cell Aggravation","Ancient Epic - Purgatory","Sword Mastery","Fira","Blizzara","Thundara","Darkra","Firaga","Blizzaga","Thundaga","Darkga"]
+	},
+	"207002817": {
+		"name":"Genesis BS",
+		"roles":["magicalAttacker"],
+		"id":"207002817",
+		"game_id":"11012",
+		"game":"CCFFVIIR",
+		"braveShifted":"207002807",
+		"exAwakening": [{"hp":628,"mp":54,"atk":29,"def":25,"mag":82,"spr":32},{"hp":483,"mp":42,"atk":23,"def":19,"mag":63,"spr":24},{"hp":338,"mp":29,"atk":16,"def":13,"mag":44,"spr":17}],
+		"fragmentId": "250017400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4831,"mp":417,"atk":226,"def":189,"mag":315,"spr":243},
+			"minStats":{"hp":1594,"mp":138,"atk":75,"def":62,"mag":104,"spr":80},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Cell Aggravation","Ancient Epic - Purgatory","Sword Mastery","Fira","Blizzara","Thundara","Darkra","Firaga","Blizzaga","Thundaga","Darkga"]
 	},
 	"207002907": {
 		"name":"Materia Hunter Yuffie",
@@ -15784,6 +15826,48 @@
 		"stats_pattern":4,
 		"equip":["gun","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Maximum Fury","Gun Mastery","Martial Arts Mastery","Cover - Physical I","Protectga"]
+	},
+	"207003307": {
+		"name":"Cissnei",
+		"roles":["magicalAttacker"],
+		"id":"207003307",
+		"game_id":"11012",
+		"game":"CCFFVIIR",
+		"braveShift":"207003317",
+		"exAwakening": [{"hp":639,"mp":41,"atk":23,"def":24,"mag":75,"spr":32},{"hp":492,"mp":32,"atk":17,"def":19,"mag":58,"spr":25},{"hp":344,"mp":22,"atk":12,"def":13,"mag":41,"spr":17}],
+		"fragmentId": "250017500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4918,"mp":315,"atk":172,"def":187,"mag":290,"spr":246},
+			"minStats":{"hp":1623,"mp":104,"atk":57,"def":62,"mag":96,"spr":81},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["throwing","fist","hat","clothes","visionCard"],
+		"enhancementSkills":["Burning Flames","Illusive Fire","Throwing Weapon Mastery","Fira","Blizzara","Thundara","Firaga","Blizzaga","Thundaga"]
+	},
+	"207003317": {
+		"name":"Cissnei BS",
+		"roles":["magicalAttacker"],
+		"id":"207003317",
+		"game_id":"11012",
+		"game":"CCFFVIIR",
+		"braveShifted":"207003307",
+		"exAwakening": [{"hp":639,"mp":41,"atk":23,"def":24,"mag":75,"spr":32},{"hp":492,"mp":32,"atk":17,"def":19,"mag":58,"spr":25},{"hp":344,"mp":22,"atk":12,"def":13,"mag":41,"spr":17}],
+		"fragmentId": "250017500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4918,"mp":315,"atk":172,"def":187,"mag":290,"spr":246},
+			"minStats":{"hp":1623,"mp":104,"atk":57,"def":62,"mag":96,"spr":81},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["throwing","fist","hat","clothes","visionCard"],
+		"enhancementSkills":["Burning Flames","Illusive Fire","Throwing Weapon Mastery","Fira","Blizzara","Thundara","Firaga","Blizzaga","Thundaga"]
 	},
 	"208000105": {
 		"name":"Squall",
@@ -31075,10 +31159,6 @@
   "207002617":{"name":"英雄になった青年ザックス BS","jpname":"英雄になった青年ザックス BS","roles":["physicalAttacker"],"id":"207002617","game_id":"undefined","game":"undefined","braveShifted":"207002607","exAwakening":[{"hp":695,"mp":42,"atk":86,"def":32,"mag":20,"spr":34},{"hp":534,"mp":33,"atk":66,"def":24,"mag":16,"spr":26},{"hp":374,"mp":23,"atk":46,"def":17,"mag":11,"spr":18}],"fragmentId":"250017200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5344,"mp":326,"atk":330,"def":242,"mag":158,"spr":261},"minStats":{"hp":1764,"mp":108,"atk":109,"def":80,"mag":52,"spr":86},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
   "207002707":{"name":"アンジール","jpname":"アンジール","roles":["debuffer","support"],"id":"207002707","game_id":"undefined","game":"undefined","braveShift":"207002717","exAwakening":[{"hp":712,"mp":44,"atk":73,"def":31,"mag":24,"spr":28},{"hp":548,"mp":34,"atk":56,"def":24,"mag":18,"spr":22},{"hp":384,"mp":24,"atk":39,"def":17,"mag":13,"spr":15}],"fragmentId":"250017300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5479,"mp":338,"atk":280,"def":237,"mag":184,"spr":215},"minStats":{"hp":1808,"mp":112,"atk":92,"def":78,"mag":61,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["サンダーラッシュ","大剣の極意","剣の極意","サンダラ","サンダガ","プロテガ","シェルガ"]},
   "207002717":{"name":"アンジール BS","jpname":"アンジール BS","roles":["debuffer","support"],"id":"207002717","game_id":"undefined","game":"undefined","braveShifted":"207002707","exAwakening":[{"hp":712,"mp":44,"atk":73,"def":31,"mag":24,"spr":28},{"hp":548,"mp":34,"atk":56,"def":24,"mag":18,"spr":22},{"hp":384,"mp":24,"atk":39,"def":17,"mag":13,"spr":15}],"fragmentId":"250017300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5479,"mp":338,"atk":280,"def":237,"mag":184,"spr":215},"minStats":{"hp":1808,"mp":112,"atk":92,"def":78,"mag":61,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
-  "207002807":{"name":"ジェネシス","jpname":"ジェネシス","roles":["magicalAttacker"],"id":"207002807","game_id":"undefined","game":"undefined","braveShift":"207002817","exAwakening":[{"hp":628,"mp":54,"atk":29,"def":25,"mag":82,"spr":32},{"hp":483,"mp":42,"atk":23,"def":19,"mag":63,"spr":24},{"hp":338,"mp":29,"atk":16,"def":13,"mag":44,"spr":17}],"fragmentId":"250017400","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4831,"mp":417,"atk":226,"def":189,"mag":315,"spr":243},"minStats":{"hp":1594,"mp":138,"atk":75,"def":62,"mag":104,"spr":80},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["激化する細胞","煉獄の叙事詩","剣の極意","ファイラ","ブリザラ","サンダラ","ダーラ","ファイガ","ブリザガ","サンダガ","ダーガ"]},
-  "207002817":{"name":"ジェネシス BS","jpname":"ジェネシス BS","roles":["magicalAttacker"],"id":"207002817","game_id":"undefined","game":"undefined","braveShifted":"207002807","exAwakening":[{"hp":628,"mp":54,"atk":29,"def":25,"mag":82,"spr":32},{"hp":483,"mp":42,"atk":23,"def":19,"mag":63,"spr":24},{"hp":338,"mp":29,"atk":16,"def":13,"mag":44,"spr":17}],"fragmentId":"250017400","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4831,"mp":417,"atk":226,"def":189,"mag":315,"spr":243},"minStats":{"hp":1594,"mp":138,"atk":75,"def":62,"mag":104,"spr":80},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]},
-  "207003307":{"name":"シスネ","jpname":"シスネ","roles":["magicalAttacker"],"id":"207003307","game_id":"undefined","game":"undefined","braveShift":"207003317","exAwakening":[{"hp":639,"mp":41,"atk":23,"def":24,"mag":75,"spr":32},{"hp":492,"mp":32,"atk":17,"def":19,"mag":58,"spr":25},{"hp":344,"mp":22,"atk":12,"def":13,"mag":41,"spr":17}],"fragmentId":"250017500","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4918,"mp":315,"atk":172,"def":187,"mag":290,"spr":246},"minStats":{"hp":1623,"mp":104,"atk":57,"def":62,"mag":96,"spr":81},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["throwing","fist","hat","clothes","visionCard"],"enhancementSkills":["燎原之火","幻投千火","投擲の極意","ファイラ","ブリザラ","サンダラ","ファイガ","ブリザガ","サンダガ"]},
-  "207003317":{"name":"シスネ BS","jpname":"シスネ BS","roles":["magicalAttacker"],"id":"207003317","game_id":"undefined","game":"undefined","braveShifted":"207003307","exAwakening":[{"hp":639,"mp":41,"atk":23,"def":24,"mag":75,"spr":32},{"hp":492,"mp":32,"atk":17,"def":19,"mag":58,"spr":25},{"hp":344,"mp":22,"atk":12,"def":13,"mag":41,"spr":17}],"fragmentId":"250017500","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4918,"mp":315,"atk":172,"def":187,"mag":290,"spr":246},"minStats":{"hp":1623,"mp":104,"atk":57,"def":62,"mag":96,"spr":81},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["throwing","fist","hat","clothes","visionCard"]},
   "208000527":{"name":"セルフィ BS","jpname":"セルフィ BS","roles":["magicalAttacker","debuffer","support"],"id":"208000527","game_id":"undefined","game":"undefined","braveShifted":"208000505","exAwakening":[{"hp":653,"mp":42,"atk":15,"def":24,"mag":75,"spr":32},{"hp":502,"mp":32,"atk":11,"def":19,"mag":57,"spr":25},{"hp":351,"mp":23,"atk":8,"def":13,"mag":40,"spr":17}],"fragmentId":"250018100","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5020,"mp":324,"atk":112,"def":186,"mag":286,"spr":248},"minStats":{"hp":1657,"mp":107,"atk":37,"def":61,"mag":94,"spr":82},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe","visionCard"]},
   "208002507":{"name":"魔女の騎士スコール","jpname":"魔女の騎士スコール","roles":["physicalAttacker"],"id":"208002507","game_id":"undefined","game":"undefined","braveShift":"208002517","exAwakening":[{"hp":699,"mp":45,"atk":86,"def":25,"mag":33,"spr":31},{"hp":538,"mp":34,"atk":66,"def":19,"mag":25,"spr":24},{"hp":376,"mp":24,"atk":46,"def":13,"mag":18,"spr":17}],"fragmentId":"250018000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5375,"mp":328,"atk":330,"def":189,"mag":204,"spr":226},"minStats":{"hp":1774,"mp":108,"atk":109,"def":62,"mag":67,"spr":75},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["ブラスティングチェイン","ガンブレードの使い手","G.F.","大剣の極意","ライトバレット","アクセラレートエッジ","ドロー改"]},
   "208002517":{"name":"魔女の騎士スコール BS","jpname":"魔女の騎士スコール BS","roles":["physicalAttacker"],"id":"208002517","game_id":"undefined","game":"undefined","braveShifted":"208002507","exAwakening":[{"hp":699,"mp":45,"atk":86,"def":25,"mag":33,"spr":31},{"hp":538,"mp":34,"atk":66,"def":19,"mag":25,"spr":24},{"hp":376,"mp":24,"atk":46,"def":13,"mag":18,"spr":17}],"fragmentId":"250018000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5102,"mp":343,"atk":330,"def":171,"mag":249,"spr":239},"minStats":{"hp":1684,"mp":113,"atk":109,"def":56,"mag":82,"spr":79},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["ダークバレット","ガンブレードの使い手","G.F.","大剣の極意","ライトバレット","フレイムバレット","サンダーバレット","ウィンドバレット","キーンエッジ","ファイガ","サンダガ","エアロガ"]},
