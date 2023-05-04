@@ -14957,6 +14957,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Vital Slash","Lucky Stars"],
 		"6_form": {
 			"name":"Zack",
 			"roles":["physicalAttacker"],
@@ -14973,7 +14974,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Vital Slash","Lucky Stars"]
 		}
 	},
 	"207001205": {
@@ -14995,7 +14997,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["Hunting Mark"],
+		"enhancementSkills":["A New Beginning for Shinra","Hunting Mark"],
 		"6_form": {
 			"name":"Rufus Shinra (FFVII REMAKE)",
 			"roles":["physicalAttacker","debuffer"],
@@ -15013,7 +15015,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"],
-			"enhancementSkills":["Hunting Mark"]
+			"enhancementSkills":["A New Beginning for Shinra","Hunting Mark"]
 		},
 		"7_form": {
 			"name":"Rufus Shinra (FFVII REMAKE)",
@@ -15032,7 +15034,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor"],
-			"enhancementSkills":["Hunting Mark"]
+			"enhancementSkills":["A New Beginning for Shinra","Hunting Mark"]
 		}
 	},
 	"207001227": {
@@ -15054,7 +15056,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","gun","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["Corkscrew","Subdue (FFVII REMAKE)"]
+		"enhancementSkills":["A New Beginning for Shinra","Corkscrew","Subdue (FFVII REMAKE)"]
 	},
 	"207001305": {
 		"name":"Reno (FFVII REMAKE)",
@@ -15616,6 +15618,90 @@
 			"stats_pattern":1,
 			"equip":["dagger","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
+	},
+	"207002607": {
+		"name":"Young Hero Zack",
+		"roles":["physicalAttacker"],
+		"id":"207002607",
+		"game_id":"11012",
+		"game":"CCFFVIIR",
+		"braveShift":"207002617",
+		"exAwakening": [{"hp":695,"mp":42,"atk":86,"def":32,"mag":20,"spr":34},{"hp":534,"mp":33,"atk":66,"def":24,"mag":16,"spr":26},{"hp":374,"mp":23,"atk":46,"def":17,"mag":11,"spr":18}],
+		"fragmentId": "250017200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5344,"mp":326,"atk":330,"def":242,"mag":158,"spr":261},
+			"minStats":{"hp":1764,"mp":108,"atk":109,"def":80,"mag":52,"spr":86},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Octaslash (Young Hero Zack)","Large Sword Mastery","Sword Mastery","Vital Slash","Lucky Stars"]
+	},
+	"207002617": {
+		"name":"Young Hero Zack BS",
+		"roles":["physicalAttacker"],
+		"id":"207002617",
+		"game_id":"11012",
+		"game":"CCFFVIIR",
+		"braveShifted":"207002607",
+		"exAwakening": [{"hp":695,"mp":42,"atk":86,"def":32,"mag":20,"spr":34},{"hp":534,"mp":33,"atk":66,"def":24,"mag":16,"spr":26},{"hp":374,"mp":23,"atk":46,"def":17,"mag":11,"spr":18}],
+		"fragmentId": "250017200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5344,"mp":326,"atk":330,"def":242,"mag":158,"spr":261},
+			"minStats":{"hp":1764,"mp":108,"atk":109,"def":80,"mag":52,"spr":86},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Octaslash (Young Hero Zack)","Large Sword Mastery","Sword Mastery","Vital Slash","Lucky Stars"]
+	},
+	"207002707": {
+		"name":"Angeal",
+		"roles":["debuffer","support"],
+		"id":"207002707",
+		"game_id":"11012",
+		"game":"CCFFVIIR",
+		"braveShift":"207002717",
+		"exAwakening": [{"hp":712,"mp":44,"atk":73,"def":31,"mag":24,"spr":28},{"hp":548,"mp":34,"atk":56,"def":24,"mag":18,"spr":22},{"hp":384,"mp":24,"atk":39,"def":17,"mag":13,"spr":15}],
+		"fragmentId": "250017300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5479,"mp":338,"atk":280,"def":237,"mag":184,"spr":215},
+			"minStats":{"hp":1808,"mp":112,"atk":92,"def":78,"mag":61,"spr":71},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Thunder Rush","Large Sword Mastery","Sword Mastery","Thundara","Thundaga","Protectga","Shellga"]
+	},
+	"207002717": {
+		"name":"Angeal BS",
+		"roles":["debuffer","support"],
+		"id":"207002717",
+		"game_id":"11012",
+		"game":"CCFFVIIR",
+		"braveShifted":"207002707",
+		"exAwakening": [{"hp":712,"mp":44,"atk":73,"def":31,"mag":24,"spr":28},{"hp":548,"mp":34,"atk":56,"def":24,"mag":18,"spr":22},{"hp":384,"mp":24,"atk":39,"def":17,"mag":13,"spr":15}],
+		"fragmentId": "250017300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5479,"mp":338,"atk":280,"def":237,"mag":184,"spr":215},
+			"minStats":{"hp":1808,"mp":112,"atk":92,"def":78,"mag":61,"spr":71},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Thunder Rush","Large Sword Mastery","Sword Mastery","Thundara","Thundaga","Protectga","Shellga"]
 	},
 	"207002807": {
 		"name":"Genesis",
@@ -31155,10 +31241,6 @@
   "204002104":{"name":"Cagnazzo","jpname":"カイナッツォ","roles":["physicalTank"],"id":"204002104","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3901,"mp":145,"atk":120,"def":146,"mag":105,"spr":124},"minStats":{"hp":1287,"mp":48,"atk":40,"def":48,"mag":35,"spr":41},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["fist","helm","lightArmor","heavyArmor"]},
   "204002705":{"name":"Ceodore","jpname":"セオドア","roles":["physicalAttacker","physicalTank"],"id":"204002705","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4910,"mp":255,"atk":206,"def":193,"mag":164,"spr":192},"minStats":{"hp":1620,"mp":84,"atk":68,"def":64,"mag":54,"spr":63},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","axe","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],"enhancementSkills":["プロテガ","シェルガ"],"6_form":{"name":"Ceodore","jpname":"セオドア","roles":["physicalAttacker","physicalTank"],"id":"204002705","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3776,"mp":196,"atk":158,"def":148,"mag":126,"spr":147},"minStats":{"hp":1246,"mp":65,"atk":52,"def":49,"mag":42,"spr":49},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","katana","axe","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],"enhancementSkills":["プロテガ","シェルガ"]}},
   "204002805":{"name":"Ursula","jpname":"アーシュラ","roles":["physicalAttacker"],"id":"204002805","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4798,"mp":246,"atk":208,"def":176,"mag":158,"spr":176},"minStats":{"hp":1583,"mp":81,"atk":69,"def":58,"mag":52,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","hammer","throwing","mace","fist","hat","clothes","robe"],"6_form":{"name":"Ursula","jpname":"アーシュラ","roles":["physicalAttacker"],"id":"204002805","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3690,"mp":189,"atk":160,"def":135,"mag":121,"spr":135},"minStats":{"hp":1218,"mp":62,"atk":53,"def":45,"mag":40,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","hammer","throwing","mace","fist","hat","clothes","robe"]}},
-  "207002607":{"name":"英雄になった青年ザックス","jpname":"英雄になった青年ザックス","roles":["physicalAttacker"],"id":"207002607","game_id":"undefined","game":"undefined","braveShift":"207002617","exAwakening":[{"hp":695,"mp":42,"atk":86,"def":32,"mag":20,"spr":34},{"hp":534,"mp":33,"atk":66,"def":24,"mag":16,"spr":26},{"hp":374,"mp":23,"atk":46,"def":17,"mag":11,"spr":18}],"fragmentId":"250017200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5344,"mp":326,"atk":330,"def":242,"mag":158,"spr":261},"minStats":{"hp":1764,"mp":108,"atk":109,"def":80,"mag":52,"spr":86},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["八刀一閃","大剣の極意","剣の極意","急所斬り","ラッキースター"]},
-  "207002617":{"name":"英雄になった青年ザックス BS","jpname":"英雄になった青年ザックス BS","roles":["physicalAttacker"],"id":"207002617","game_id":"undefined","game":"undefined","braveShifted":"207002607","exAwakening":[{"hp":695,"mp":42,"atk":86,"def":32,"mag":20,"spr":34},{"hp":534,"mp":33,"atk":66,"def":24,"mag":16,"spr":26},{"hp":374,"mp":23,"atk":46,"def":17,"mag":11,"spr":18}],"fragmentId":"250017200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5344,"mp":326,"atk":330,"def":242,"mag":158,"spr":261},"minStats":{"hp":1764,"mp":108,"atk":109,"def":80,"mag":52,"spr":86},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
-  "207002707":{"name":"アンジール","jpname":"アンジール","roles":["debuffer","support"],"id":"207002707","game_id":"undefined","game":"undefined","braveShift":"207002717","exAwakening":[{"hp":712,"mp":44,"atk":73,"def":31,"mag":24,"spr":28},{"hp":548,"mp":34,"atk":56,"def":24,"mag":18,"spr":22},{"hp":384,"mp":24,"atk":39,"def":17,"mag":13,"spr":15}],"fragmentId":"250017300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5479,"mp":338,"atk":280,"def":237,"mag":184,"spr":215},"minStats":{"hp":1808,"mp":112,"atk":92,"def":78,"mag":61,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["サンダーラッシュ","大剣の極意","剣の極意","サンダラ","サンダガ","プロテガ","シェルガ"]},
-  "207002717":{"name":"アンジール BS","jpname":"アンジール BS","roles":["debuffer","support"],"id":"207002717","game_id":"undefined","game":"undefined","braveShifted":"207002707","exAwakening":[{"hp":712,"mp":44,"atk":73,"def":31,"mag":24,"spr":28},{"hp":548,"mp":34,"atk":56,"def":24,"mag":18,"spr":22},{"hp":384,"mp":24,"atk":39,"def":17,"mag":13,"spr":15}],"fragmentId":"250017300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5479,"mp":338,"atk":280,"def":237,"mag":184,"spr":215},"minStats":{"hp":1808,"mp":112,"atk":92,"def":78,"mag":61,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
   "208000527":{"name":"セルフィ BS","jpname":"セルフィ BS","roles":["magicalAttacker","debuffer","support"],"id":"208000527","game_id":"undefined","game":"undefined","braveShifted":"208000505","exAwakening":[{"hp":653,"mp":42,"atk":15,"def":24,"mag":75,"spr":32},{"hp":502,"mp":32,"atk":11,"def":19,"mag":57,"spr":25},{"hp":351,"mp":23,"atk":8,"def":13,"mag":40,"spr":17}],"fragmentId":"250018100","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5020,"mp":324,"atk":112,"def":186,"mag":286,"spr":248},"minStats":{"hp":1657,"mp":107,"atk":37,"def":61,"mag":94,"spr":82},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe","visionCard"]},
   "208002507":{"name":"魔女の騎士スコール","jpname":"魔女の騎士スコール","roles":["physicalAttacker"],"id":"208002507","game_id":"undefined","game":"undefined","braveShift":"208002517","exAwakening":[{"hp":699,"mp":45,"atk":86,"def":25,"mag":33,"spr":31},{"hp":538,"mp":34,"atk":66,"def":19,"mag":25,"spr":24},{"hp":376,"mp":24,"atk":46,"def":13,"mag":18,"spr":17}],"fragmentId":"250018000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5375,"mp":328,"atk":330,"def":189,"mag":204,"spr":226},"minStats":{"hp":1774,"mp":108,"atk":109,"def":62,"mag":67,"spr":75},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["ブラスティングチェイン","ガンブレードの使い手","G.F.","大剣の極意","ライトバレット","アクセラレートエッジ","ドロー改"]},
   "208002517":{"name":"魔女の騎士スコール BS","jpname":"魔女の騎士スコール BS","roles":["physicalAttacker"],"id":"208002517","game_id":"undefined","game":"undefined","braveShifted":"208002507","exAwakening":[{"hp":699,"mp":45,"atk":86,"def":25,"mag":33,"spr":31},{"hp":538,"mp":34,"atk":66,"def":19,"mag":25,"spr":24},{"hp":376,"mp":24,"atk":46,"def":13,"mag":18,"spr":17}],"fragmentId":"250018000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5102,"mp":343,"atk":330,"def":171,"mag":249,"spr":239},"minStats":{"hp":1684,"mp":113,"atk":109,"def":56,"mag":82,"spr":79},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["ダークバレット","ガンブレードの使い手","G.F.","大剣の極意","ライトバレット","フレイムバレット","サンダーバレット","ウィンドバレット","キーンエッジ","ファイガ","サンダガ","エアロガ"]},
