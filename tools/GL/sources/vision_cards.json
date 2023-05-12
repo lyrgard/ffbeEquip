@@ -2629,7 +2629,7 @@
         }
     },
     "100007801": {
-        "name": "戦乱を終わらせるために",
+        "name": "To Bring an End to This War",
         "compendium_id": 168,
         "compendium_shown": true,
         "rarity": 1,
@@ -2658,10 +2658,10 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "常闇のヴェリアス・レーゲンと、バブイルの巨人を操るソル。バブイルの心臓をめぐる二人の因縁は、開戦前から続いていた。幻魔導兵器が跋扈する悲惨な戦乱を終わらせるべく、レーゲンは信念の剣を振るう。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "戦乱を終わらせるために",
-            "music": "♪Celestial Battle",
+            "desc": "As Veritas of the Dark, Raegen readies himself before the Giant of Babel, controlled by Sol. These two men, whose fates are bound by the Heart of Babel, have long been at odds—since even before the current conflict. Now stout resolve steels Raegen's blades as he fights to end this tragic war that has been dominated by visionary magic weapons.",
+            "info": "As Veritas of the Dark, Raegen readies himself before the Giant of Babel, controlled by Sol. These two men, whose fates are bound by the Heart of Babel, have long been at odds—since even before the current conflict. Now stout resolve steels Raegen's blades as he fights to end this tragic war that has been dominated by visionary magic weapons.",
+            "shop": "To Bring an End to This War",
+            "music": "Celestial Battle",
             "music_id": "400007"
         }
     },
@@ -8414,6 +8414,43 @@
             "shop": "Star-Rending Claws",
             "music": "Parallel Star",
             "music_id": "400402"
+        }
+    },
+    "401006701": {
+        "name": "Sage Without Emotion",
+        "compendium_id": 9066,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11001,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [0, 0, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [135, 135, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "1": [917275, 917276, 917278]
+        },
+        "restriction": {
+            "917278": [7216]
+        },
+        "max_level": 1,
+        "exp_pattern": 1,
+        "stat_pattern": 1,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "After being sealed in a crystal where he was constantly exposed to humanity's negative emotions, a certain sage began to hate all forms of life. Now all that remains within him is the desire to destroy the repulsiveness that is humanity, and with it, the false sun known as \"Rain.\" To reach liberation by returning all to nothingness–that is the one and only truth he embraces.",
+            "info": "After being sealed in a crystal where he was constantly exposed to humanity's negative emotions, a certain sage began to hate all forms of life. Now all that remains within him is the desire to destroy the repulsiveness that is humanity, and with it, the false sun known as \"Rain.\" To reach liberation by returning all to nothingness–that is the one and only truth he embraces.",
+            "shop": "Sage Without Emotion",
+            "music": "A Climactic Clash",
+            "music_id": "400334"
         }
     },
     "900020101": {

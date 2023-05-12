@@ -2447,20 +2447,38 @@
         }
     },
     "504120810": {
-        "name": "先制LBブースト(攻)",
+        "name": "Preemptive LB Boost (ATK)",
         "compendium_id": 1533,
         "compendium_shown": true,
         "requirements": null,
         "skills": [120810],
         "effects": ["Grant 'Preemptive LB Boost (ATK)' passive"],
-        "unique": false,
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_77.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Preemptive LB Boost (ATK)", "先制LB增幅(攻)", "선제 LB 부스트(공격)", "Boost de limite préventif (ATT)", "Präventiver LR-Schub (ANG)", "Carga EL preventiva (ATQ)", "Peningkatan LB Preventif (ATK)", "เพิ่ม\u001a \u001aLB\u001a \u001aตัดหน้า\u001a \u001a(\u001aATK\u001a)\u001a"],
+            "desc_short": [
+                "Boost damage for certain LBs at the beginning of battle (Not stackable)",
+                "戰鬥開始時提高特定極限技的傷害[無法重複裝備]",
+                "전투 시작 시 특정 LB의 피해량 상승(중복 장착 불가)",
+                "Augmente les dégâts de certaines limites au début du combat (non cumulable)",
+                "Erhöht Schaden bestimmter Limiträusche zu Beginn des Kampfes (nicht stapelbar).",
+                "Aumenta el daño de determinados EL al inicio del combate (no acumulable)",
+                "Meningkatkan damage LB tertentu di awal battle (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001aที่\u001aกำหนด\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts damage for certain LBs at the beginning of battle. Not stackable.",
+                "戰鬥開始時提高特定極限技的傷害。[無法重複裝備]",
+                "전투 시작 시 특정 LB의 피해량이 상승합니다.(중복 장착 불가)",
+                "Augmente les dégâts de certaines limites au début du combat. Non cumulable.",
+                "Erhöht Schaden bestimmter Limiträusche zu Beginn des Kampfes. Nicht stapelbar.",
+                "Aumenta el daño de determinados EL al inicio del combate. No acumulable.",
+                "Meningkatkan damage limit burst tertentu di awal battle. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001aที่\u001aกำหนด\u001aเมื่อ\u001aเริ่มต้น\u001aการต่อสู้\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504200010": {
@@ -3361,8 +3379,8 @@
         "icon": "ability_9.png",
         "strings": {
             "names": ["Melody of Life", "生命的旋律", "생명의 멜로디", "Mélodie de la Vie", "Melodie des Lebens", "Melodía vital", "Melodi Kehidupan", "ทำนอง\u001aชีวิต\u001a"],
-            "desc_short": ["Boost all elemental resistances by 20%", "提高20%火冰雷水風土光暗屬性耐性", "불, 얼음, 번개, 물, 바람, 땅, 빛, 어둠속성 저항력 20% 상승", "Augmente toutes les résistances élémentaires de 20%", "Alle Elementar-Res. um 20% hoch.", "Aumenta las resistencias elementales un 20%", "Meningkatkan resistansi semua elemen sebanyak 20%", "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aทุก\u001aธาตุ\u001a \u001a20%"],
-            "desc_long": ["Boosts all elemental resistances by 20%.", "提高20%火冰雷水風土光暗屬性耐性。", "불, 얼음, 번개, 물, 바람, 땅, 빛, 어둠속성 저항력이 20% 상승합니다.", "Augmente toutes les résistances élémentaires de 20%.", "Alle Res. hoch.", "Aumenta las resistencias elementales un 20%", "Meningkatkan resistansi semua elemen sebanyak 20%.", "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aทุก\u001aธาตุ\u001a \u001a20%"]
+            "desc_short": ["Boost all elemental resistances by 20%", "提高20%火冰雷水風土光暗屬性耐性", "불, 얼음, 번개, 물, 바람, 땅, 빛, 어둠속성 저항력 20% 상승", "Augmente toutes les résistances élémentaires de 20%", "Erhöht alle Elementarresistenzen um 20%.", "Aumenta las resistencias elementales un 20%", "Meningkatkan resistansi semua elemen sebanyak 20%", "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aทุก\u001aธาตุ\u001a \u001a20%"],
+            "desc_long": ["Boosts all elemental resistances by 20%.", "提高20%火冰雷水風土光暗屬性耐性。", "불, 얼음, 번개, 물, 바람, 땅, 빛, 어둠속성 저항력이 20% 상승합니다.", "Augmente toutes les résistances élémentaires de 20%.", "Erhöht alle Elementarresistenzen um 20%.", "Aumenta las resistencias elementales un 20%", "Meningkatkan resistansi semua elemen sebanyak 20%.", "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aทุก\u001aธาตุ\u001a \u001a20%"]
         }
     },
     "504201950": {
@@ -27998,20 +28016,38 @@
         }
     },
     "504244355": {
-        "name": "戦場での魔導知識",
+        "name": "Magitek Knowledge on the Field",
         "compendium_id": 1534,
         "compendium_shown": true,
         "requirements": null,
         "skills": [244355],
-        "effects": ["Grant '戦場での魔導知識' passive"],
-        "unique": false,
+        "effects": ["Grant 'Magitek Knowledge on the Field' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Magitek Knowledge on the Field", "戰場上的魔導知識", "전장에서 펼치는 마도 지식", "Connaissance magitech de terrain", "Magitek-Wissen auf dem Schlachtfeld", "Estudio de campo Magitec", "Pengetahuan Magitek di Medan Perang", "ความรู้\u001a \u001aMagitek\u001a \u001aใน\u001aสนามรบ\u001a"],
+            "desc_short": [
+                "Boost MAG by 50% and physical and magic damage against fairies by 50% (Not stackable)",
+                "提高50%魔力+物理、魔法攻擊時提高50%對精靈系魔物的傷害[無法重複裝備]",
+                "마력 50% 상승+물리, 마법 공격 시 정령형 마물에게 부여하는 피해량 50% 상승(중복 장착 불가)",
+                "Augmente la MAGIE de 50 % et les dégâts physiques et magiques infligés aux esprits de 50 % (non cumulable)",
+                "Erhöht MAG um 50% und erhöht physischen sowie magischen Schaden gegen Feen um 50% (nicht stapelbar).",
+                "Aumenta la MAG un 50% y el daño físico y mágico contra espíritus un 50% (no acumulable)",
+                "Meningkatkan MAG sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis peri sebanyak 50% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aแฟรี่\u001a \u001a50\u001a % \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts MAG by 50% and physical and magic damage against fairies by 50%. Not stackable.",
+                "提高50%魔力且物理、魔法攻擊時提高50%對精靈系魔物的傷害。[無法重複裝備]",
+                "마력이 50% 상승하고, 물리, 마법 공격 시 정령형 마물에게 부여하는 피해량이 50% 상승합니다.(중복 장착 불가)",
+                "Augmente la MAGIE de 50 % et les dégâts physiques et magiques infligés aux esprits de 50 %. Non cumulable.",
+                "Erhöht MAG um 50% und erhöht physischen sowie magischen Schaden gegen Feen um 50%. Nicht stapelbar.",
+                "Aumenta la MAG un 50% y el daño físico y mágico contra espíritus un 50%. No acumulable.",
+                "Meningkatkan MAG sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis peri sebanyak 50%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aแฟรี่\u001a \u001a50\u001a % \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504244375": {
@@ -28553,7 +28589,7 @@
         "price_sell": 5000,
         "icon": "global_item_10038.png",
         "strings": {
-            "names": ["Chilling Aura", "恐怖氣場", "공포의 아우라", "Aura effrayante", "Gruselaura", "Aura estremecedora", "Aura Mencekam", "รัศมี\u001aสยองขวัญ\u001a"],
+            "names": ["Chilling Aura", "恐怖氣場", "공포의 오라", "Aura effrayante", "Gruselaura", "Aura estremecedora", "Aura Mencekam", "รัศมี\u001aสยองขวัญ\u001a"],
             "desc_short": [
                 "Boost HP and MP by 13% (Demon Rain, Dracu Lasswell, White Witch Fina, Black Cat Lid, Grim Lord Sakura, Illusionist Nichol, Pirate Jake only)",
                 "提高13%HP、MP[僅限惡魔雷因、吸血鬼拉斯韋爾、白魔女菲娜、黑貓里德、冷血貴族櫻、幻術師尼科爾、海盜傑科專用]",
@@ -28579,7 +28615,7 @@
         "price_sell": 5000,
         "icon": "global_item_10039.png",
         "strings": {
-            "names": ["Spooky Aura", "驚悚氣場", "섬뜩한 아우라", "Aura étrange", "Spukaura", "Aura atemorizadora", "Aura Menyeramkan", "รังสี\u001aพิศวง\u001a"],
+            "names": ["Spooky Aura", "驚悚氣場", "섬뜩한 오라", "Aura étrange", "Spukaura", "Aura atemorizadora", "Aura Menyeramkan", "รังสี\u001aพิศวง\u001a"],
             "desc_short": [
                 "Boost ATK and MAG by 13% (Demon Rain, Dracu Lasswell, White Witch Fina, Black Cat Lid, Grim Lord Sakura, Illusionist Nichol, Pirate Jake only)",
                 "提高13%攻擊、魔力[僅限惡魔雷因、吸血鬼拉斯韋爾、白魔女菲娜、黑貓里德、冷血貴族櫻、幻術師尼科爾、海盜傑科專用]",
@@ -30157,7 +30193,7 @@
         "price_sell": 1000,
         "icon": "global_item_10039.png",
         "strings": {
-            "names": ["Malicious Aura", "惡毒靈氣", "악독한 아우라", "Aura maléfique", "Bösartige Aura", "Aura maligna", "Aura Jahat", "รัศมี\u001aอัน\u001aชั่วร้าย\u001a"],
+            "names": ["Malicious Aura", "惡毒靈氣", "악독한 오라", "Aura maléfique", "Bösartige Aura", "Aura maligna", "Aura Jahat", "รัศมี\u001aอัน\u001aชั่วร้าย\u001a"],
             "desc_short": ["Boost HP, DEF, and SPR by 6%", "提高6%HP防禦精神", "HP, 방어력, 정신력 6% 상승", "Augmente les PV, la DEF et la PSY de 6%.", "Erhöht LP, ABW und PSY um 6%.", "Aumenta la VIT, la DEF y el ESP un 6%", "Meningkatkan HP, DEF, dan SPR sebanyak 6%", "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aDEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a6%"],
             "desc_long": ["Boosts HP, DEF, and SPR by 6%.", "提高6%HP防禦精神", "HP, 방어력, 정신력이 6% 상승합니다.", "Augmente les PV, la DEF et la PSY de 6%.", "Erhöht LP, ABW und PSY um 6%.", "Aumenta la VIT, la DEF y el ESP un 6%.", "Meningkatkan HP, DEF, dan SPR sebanyak 6%.", "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aDEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a6%"]
         }
@@ -30666,7 +30702,7 @@
         "price_sell": 20000,
         "icon": "ability_77.png",
         "strings": {
-            "names": ["Saint's Aura", "聖人氣場", "성인의 아우라", "Aura du saint", "Heiligenaura", "Aura santa", "Aura Sakti", "รัศมี\u001aแห่ง\u001aนักบุญ\u001a"],
+            "names": ["Saint's Aura", "聖人氣場", "성인의 오라", "Aura du saint", "Heiligenaura", "Aura santa", "Aura Sakti", "รัศมี\u001aแห่ง\u001aนักบุญ\u001a"],
             "desc_short": ["Boost HP and MP by 10%, ATK and SPR by 30%, restore HP, and fill LB gauge every turn", "提高10%HPMP、30%攻擊精神+每回合恢復HP、增加極限技槽", "HP와 MP 10% 상승+공격력과 정신력 30% 상승+매 턴마다 HP 회복+LB 게이지 증가", "Augmente les PV et les PM de 10%, augmente l'ATT et la PSY de 30%, régénère les PV, et remplit la jauge de limite à chaque tour", "Erhöht LP und MP um 10%, ANG und PSY um 30% und regeneriert LP und füllt Limitmeter jede Runde.", "Aumenta la VIT y los PM un 10%, el ATQ y el ESP un 30%, recupera la VIT y rellena la barra de EL cada turno", "Meningkatkan HP dan MP sebanyak 10% dan ATK dan SPR sebanyak 30%, serta memulihkan HP dan mengisi bar LB setiap giliran", "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aMP\u001a \u001a10% + เพิ่มค่า ATK\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% และฟื้นฟูค่า HP รวมทั้งเติม LB Gauge\u001a \u001aใน\u001aทุก\u001aเทิร์น\u001a"],
             "desc_long": ["Boosts HP and MP by 10%, ATK and SPR by 30%, and restores HP and fills the limit burst gauge every turn.", "提高10%HPMP、30%攻擊精神+每回合恢復HP、增加極限技槽", "HP와 MP 10% 상승+공격력과 정신력 30% 상승+매 턴마다 HP 회복+LB 게이지 증가", "Augmente les PV et les PM de 10%, augmente l'ATT et la PSY de 30%, régénère les PV, et remplit la jauge de limite à chaque tour.", "Erhöht LP und MP um 10%, ANG und PSY um 30% und regeneriert LP und füllt Limitmeter jede Runde.", "Aumenta la VIT y los PM un 10%, el ATQ y el ESP un 30%, recupera la VIT y rellena la barra de EL cada turno", "Meningkatkan HP dan MP sebanyak 10%, ATK dan SPR sebanyak 30%, serta memulihkan HP dan mengisi bar limit burst setiap giliran.", "เพิ่มค่า\u001a \u001aHP\u001a,\u001a \u001aMP\u001a \u001a10% + เพิ่มค่า ATK\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% + ฟื้นฟู HP + เติม LB Gauge\u001a \u001aเต็มที่\u001aใน\u001aทุก\u001aเทิร์น\u001a"]
         }
