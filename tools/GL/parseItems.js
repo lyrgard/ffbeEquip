@@ -183,6 +183,7 @@ const unitRules = {
     7208: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10008], // FF8
     7209: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10009], // FF9
     7210: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10010], // FF10
+    7211: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10011], // FF11
     7212: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10012], // FF12
     7215: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[10015], // FF15
     7216: (item, nvFlag) => item.exclusiveUnits = unitIdsByGameId[11001], // FFBE units
@@ -202,6 +203,7 @@ const unitRules = {
     7401: (item) => item.exclusiveUnits = ["100031507", "100031517"],
     7402: (item) => item.exclusiveUnits = ["100039407"],
     7601: (item) => item.max7StarUnit = true, // not implemented yet. Only for unit max 7*
+    7907: (item, nvFlag) => item.exclusiveUnits = (unitIdsByGameId[11012] || []).concat(unitIdsByGameId[10007] || [] ), // FFBE units
     9501: (item) => item.exclusiveUnits = unitIdsByGameId[11001].concat(unitIdsByGameId[11010]), // FFBE & WOTV units
     9502: (item) => item.exclusiveUnits = (unitIdsByGameId[90003] || []).concat((unitIdsByGameId[90008] || [])), // Tomb raider units
 }
