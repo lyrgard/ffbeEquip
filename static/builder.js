@@ -144,7 +144,7 @@ var currentBestParamChallengeBuild = {
 
 let buildCounter = 0;
 
-let displayOnly7StarsUnits = true;
+let displayOnlyNVUnits = true;
 
 let fixItemList;
 
@@ -1157,12 +1157,12 @@ function populateUnitSelect() {
     selector.html(getUnitSelectOptions());
     selector.on("select2:select", async () => await onUnitChange());
     selector.on('select2:open', function (e) {
-        $('<label class="checkbox-label"><input id="displayOnly7StarsUnits" class="checkbox" type="checkbox" ' + (displayOnly7StarsUnits ? 'checked' : '') + '><span></span>Only 7★ units</label>')
+        $('<label class="checkbox-label"><input id="displayOnlyNVUnits" class="checkbox" type="checkbox" ' + (displayOnlyNVUnits ? 'checked' : '') + '><span></span>Only NV units</label>')
             .insertAfter(".select2-search")
             .on('mousedown mouseup click', function(e) { e.stopPropagation(); })
             .children('input')
             .on('change', function(e) {
-                displayOnly7StarsUnits = !displayOnly7StarsUnits;
+                displayOnlyNVUnits = !displayOnlyNVUnits;
                 refreshUnitSelect();
                 e.stopPropagation();
             });
@@ -1176,7 +1176,7 @@ function populateUnitSelect() {
 
 function refreshUnitSelect() {
     var selector = $("#unitsSelect");
-    $("#displayOnly7StarsUnits").prop("checked", displayOnly7StarsUnits);
+    $("#displayOnlyNVUnits").prop("checked", displayOnlyNVUnits);
     selector.html(getUnitSelectOptions());
     selector.trigger('change');
     selector.select2('close');
@@ -1188,19 +1188,19 @@ function getUnitSelectOptions() {
     Object.keys(units).sort(function(id1, id2) {
         return units[id1].name.localeCompare(units[id2].name);
     }).forEach(function(value, index) {
-        if (displayOnly7StarsUnits && units[value].max_rarity != 7 && units[value].max_rarity != 'NV') {
+        if (displayOnlyNVUnits && units[value].max_rarity != 'NV') {
             return;
         }
         options += '<option value="'+ value + '">'
             + units[value].name
-            + (!displayOnly7StarsUnits && units[value]["6_form"] && units[value].max_rarity == 7 ? ' ' + units[value].max_rarity + '★ ' : "")
+            + (!displayOnlyNVUnits && units[value]["6_form"] && units[value].max_rarity == 7 ? ' ' + units[value].max_rarity + '★ ' : "")
             + (units[value].max_rarity == 'NV' && units[value]["7_form"] ? ' NV ' : "")
             + ((server != 'JP' && (units[value].unreleased7Star || units[value].jpname)) ? ' - JP data' : "")
             + '</option>';
-        if (units[value]["7_form"]) {
+        if (!displayOnlyNVUnits && units[value]["7_form"]) {
             options += '<option value="'+ value + '-7">' + units[value]["7_form"].name + ' 7★</option>';
         }
-        if (!displayOnly7StarsUnits && units[value]["6_form"]) {
+        if (!displayOnlyNVUnits && units[value]["6_form"]) {
             options += '<option value="'+ value + '-6">' + units[value]["6_form"].name + ' 6★</option>';
         }
     });
@@ -3474,8 +3474,8 @@ async function loadStateHashAndBuild(data, importMode = false) {
         }
 
         var unit = data.units[i];
-        if (!unit.id.endsWith("7") && displayOnly7StarsUnits) {
-            displayOnly7StarsUnits = !displayOnly7StarsUnits;
+        if (!unit.id.endsWith("7") && displayOnlyNVUnits) {
+            displayOnlyNVUnits = !displayOnlyNVUnits;
             refreshUnitSelect();
         }
         var unitToSelect = unit.id;
