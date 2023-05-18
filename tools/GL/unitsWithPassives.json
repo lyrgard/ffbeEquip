@@ -43673,6 +43673,58 @@
 			{"atk":750, "exLevelCondition":2},
 			{"hp":2000, "atk":500, "exLevelCondition":3}
 		]
+	},
+	"401014607": {
+		"name":"Ruin Explorer Nora",
+		"roles":["magicalAttacker"],
+		"id":"401014607",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401014617",
+		"exAwakening": [{"hp":718,"mp":42,"atk":17,"def":30,"mag":82,"spr":32},{"hp":552,"mp":32,"atk":13,"def":23,"mag":63,"spr":25},{"hp":387,"mp":22,"atk":9,"def":16,"mag":44,"spr":17}],
+		"fragmentId": "310001050",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5522,"mp":320,"atk":130,"def":230,"mag":315,"spr":245},
+			"minStats":{"hp":1822,"mp":106,"atk":43,"def":76,"mag":104,"spr":81},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Enigma Wave","Thundara","Thundaga","Fira","Firaga","Burst (FFBE)","Tormenta Torment"],
+		"skills": [
+			{"hp%":100, "mp%":100, "def%":100, "mag%":200, "spr%":100, "evade":{"physical":50,"magical":50}, "dualWielding":{"mag":325}, "improvedDW":true, "lbPerTurn":{"min":10,"max":10}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":100},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":15, "lbDamage":150, "special":["dualWield"]},
+			{"mag":1000, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200}], "lbDamage":100, "equipedConditions":[["1100000733","1100000734"]]},
+			{"def":500, "mag":500, "spr":500, "exLevelCondition":3}
+		]
+	},
+	"401014617": {
+		"name":"Ruin Explorer Nora BS",
+		"roles":["magicalAttacker"],
+		"id":"401014617",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401014607",
+		"exAwakening": [{"hp":718,"mp":42,"atk":17,"def":30,"mag":82,"spr":32},{"hp":552,"mp":32,"atk":13,"def":23,"mag":63,"spr":25},{"hp":387,"mp":22,"atk":9,"def":16,"mag":44,"spr":17}],
+		"fragmentId": "310001050",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5522,"mp":320,"atk":130,"def":230,"mag":315,"spr":245},
+			"minStats":{"hp":1822,"mp":106,"atk":43,"def":76,"mag":104,"spr":81},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Enigma Wave","Thundara","Thundaga","Fira","Firaga","Burst (FFBE)","Tormenta Torment"],
+		"skills": [
+			{"hp%":100, "mp%":100, "def%":100, "mag%":200, "spr%":100, "evade":{"physical":50,"magical":50}, "dualWielding":{"mag":325}, "improvedDW":true, "lbPerTurn":{"min":10,"max":10}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":100},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":15, "lbDamage":150, "special":["dualWield"]},
+			{"mag":1000, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200}], "lbDamage":100, "equipedConditions":[["1100000733","1100000734"]]},
+			{"def":500, "mag":500, "spr":500, "exLevelCondition":3}
+		]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker"],"id":"100000115","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"],"skills":[{"hp%":30,"def%":30,"singleWieldingOneHanded":{"accuracy":25,"atk":75},"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50}],"killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25},{"name":"dragon","physical":25},{"name":"bug","physical":25}]},{"def%":60,"equipedConditions":["heavyArmor"]},{"atk%":50,"equipedConditions":["greatSword"]}]},
