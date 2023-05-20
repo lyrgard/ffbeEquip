@@ -766,7 +766,12 @@ export function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
 
     // MAG DH
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 70) {
-        if (rawEffect[3][2] == 0) {
+        
+        if (rawEffect[3].length == 3 && rawEffect[3][2] == 2 && rawEffect[3][0] && rawEffect[3][1] && rawEffect[3][1] > 0) {
+            result.singleWielding = {};
+            addToStat(result.singleWielding, "mag", rawEffect[3][0]);
+            addToStat(result.singleWielding, "accuracy", rawEffect[3][1]);
+        }else if (rawEffect[3][2] == 0) {
             result.singleWieldingOneHanded = {};
             addToStat(result.singleWieldingOneHanded,"mag",rawEffect[3][0]);    
         } else if (rawEffect[3][2] == 2) {
