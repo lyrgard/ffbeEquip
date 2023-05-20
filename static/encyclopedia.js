@@ -46,7 +46,7 @@ var displayId = 0;
 var itemList;
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
-var update = function() {
+function update() {
 	
 	readFilterValues();
 	updateFilterHeadersDisplay();
@@ -56,15 +56,18 @@ var update = function() {
     if (!onlyShowOwnedItems && stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && physicalKillers.length == 0 && magicalKillers.length == 0 && accessToRemove.length == 0 && additionalStat.length == 0) {
 		// Empty filters => no results
         $("#resultsContent").html("");
+        $("#resultsContent").hide();
         $("#resultsContent").addClass("notSorted");
         $("#resultNumber").html("Add filters to see results");
         return;
+    } else {
+        $("#resultsContent").show();
     }
 	
 	// If the result are to be sorted by a stat, display the stat column, else hide it.
     if (stat.length != 0) {
-        $("#statTitle").text(stat);    
         $("#results").removeClass("notSorted");
+        $("#statTitle").text(stat);    
     } else {
         $("#results").addClass("notSorted");
     }
@@ -89,7 +92,9 @@ var update = function() {
 
     if (stat.length > 0) filters.push({type: 'stat', value: stat});
     if (searchText) filters.push({type: 'text', value: searchText});
-    if (additionalStat.length > 0) filters.push({type: 'stat', value: additionalStat});
+    if (additionalStat.length > 0) {
+        filters.push({type: 'stat', value: additionalStat});
+    }
     if (accessToRemove.length > 0) {
         accessToRemove = accessToRemove.flatMap(a => a.split('/'));
         let authorizedAccess = accessList.filter(a => !accessToRemove.some(forbiddenAccess => a.startsWith(forbiddenAccess) || a.endsWith(forbiddenAccess)));
@@ -101,7 +106,6 @@ var update = function() {
     if (elements.length > 0) filters.push(convertValuesToFilter(elements, 'element', elementsAnd ? 'and' : 'or'));
     if (types.length > 0) filters.push(convertValuesToFilter(types, 'type'));
     if (onlyShowOwnedItems) filters.push({type: 'onlyOwned'});
-    
     
     let filter = andFilters(...filters);
     
@@ -243,7 +247,7 @@ var modifyFilterSummary = function() {
 }
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
-var displayItems = function(items) {
+function displayItems(items) {
     $("#resultNumber").html(items.length);
     itemList.display(items);
 
@@ -339,6 +343,7 @@ var displayUnitRarity = function(unit) {
 // Unselect all values for a filter of the given type. if runUpdate = true, then call update() function
 function unselectAll(type, runUpdate) {
     runUpdate = runUpdate || true;
+    console.log(type)
     $('.active input[name='+ type +']').each(function(index, checkbox) {
         $(checkbox).prop('checked', false);
         $(checkbox).parent().removeClass('active');
@@ -441,27 +446,28 @@ function populateUnitSelect() {
         options += '<option value="'+ value + '">' + units[value].name + '</option>';
     });
     $("#unitsSelect").html(options);
-    $("#unitsSelect").change(function() {
-        $(this).find(':selected').each(function() {
-            var selectedUnitData = units[$(this).val()];
-            if (selectedUnitData) {
-                selectedUnitId = $(this).val();
-                $(baseStats).each(function (index, stat) {
-                    $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
-                });
-                $(".unit-image").html("<img src=\"img/units/unit_ills_" + selectedUnitData.id + ".png\"/>");
-                unselectAll("types", false);
-            } else {
-                selectedUnitId = 0;
-                $(baseStats).each(function (index, stat) {
-                    $("#baseStat_" + stat).val("");
-		      	});
-                $(".unit-image").html("");
-            }
-            displayUnitRarity(selectedUnitData);
-        });
-        update();
-    });
+   $("#unitsSelect").on("change", function() {
+       $(this).find(':selected').each(function() {
+           var selectedUnitData = units[$(this).val()];
+           if (selectedUnitData) {
+               selectedUnitId = $(this).val();
+               $(baseStats).each(function (index, stat) {
+                   $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
+               });
+               $(".unit-image").html("<img src=\"img/units/unit_ills_" + selectedUnitData.id + ".png\"/>");
+               unselectAll("types", false);
+           } else {
+               selectedUnitId = 0;
+               $(baseStats).each(function (index, stat) {
+                   $("#baseStat_" + stat).val("");
+                 });
+               $(".unit-image").html("");
+           }
+           displayUnitRarity(selectedUnitData);
+       });
+       update();
+   });
+   
     $('#unitsSelect').select2({
         placeholder: 'Select a unit...',
         theme: 'bootstrap'

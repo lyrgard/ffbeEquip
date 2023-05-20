@@ -35,7 +35,7 @@ class VirtualScroll {
     }
     
     render() {
-        if (this.items.length > 0) {
+        if (this.items?.length && this.items.length > 0) {
             if (this.firstItemIndex !== -1) {
                 this.updateHeights();
             }

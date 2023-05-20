@@ -1445,7 +1445,7 @@ function getSearchTokens(text) {
 
 // Return true if the item has the required stat
 function hasStat(stat, item) {
-    return item[stat] || item[stat+'%'] || (item.staticStats && item.staticStats[stat]) || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist);
+    return item[stat] || item[stat+'%'] || (item.staticStats && item.staticStats[stat]) || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist) || isTwoHanded(item);
 };
 
 // Return true if the item has all the required stats
