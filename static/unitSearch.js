@@ -51,7 +51,7 @@ var defaultFilter = {
 };
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
-var update = function() {
+function update() {
 
 	readFilterValues();
 	updateFilterHeadersDisplay();
@@ -132,27 +132,26 @@ function isOwnedUnit(unit) {
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-var filterUnits = function(searchUnits,
-                           onlyShowOwnedUnits = true,
-                           searchText = "",
-                           types = [],
-                           elements = [],
-                           ailments = [],
-                           physicalKillers = [],
-                           magicalKillers = [],
-                           breaks = [],
-                           baseRarity = [],
-                           maxRarity = [],
-                           seriesValues = [],
-                           racialMitigations = []
-
+function filterUnits(searchUnits,
+                     onlyShowOwnedUnits = true,
+                     searchText = "",
+                     types = [],
+                     elements = [],
+                     ailments = [],
+                     physicalKillers = [],
+                     magicalKillers = [],
+                     breaks = [],
+                     baseRarity = [],
+                     maxRarity = [],
+                     seriesValues = [],
+                     racialMitigations = []
 ) {
     var result = [];
     for (var index = 0, len = searchUnits.length; index < len; index++) {
         var unit = searchUnits[index];
         if (releasedUnits[unit.id]) {
             if (!onlyShowOwnedUnits || isOwnedUnit(unit)) {
-                if (baseRarity.length == 0 || baseRarity.includes(unit.minRarity)) {
+                if (baseRarity.length == 0 || baseRarity.includes(unit.minRarity) || baseRarity.includes(unit.NVA?.baseRarity)) {
                     if (maxRarity.length == 0 || maxRarity.includes(unit.maxRarity)) {
                         if (skillFilter.chainFamily == 'none' || matchesSkill(unit)) {
                             if (types.length == 0 || includeAll(unit.equip, types)) {
@@ -602,7 +601,7 @@ var containAllKeyPositive = function(object, array, acceptZero = false) {
 };
 
 // Read filter values into the corresponding variables
-var readFilterValues = function() {
+function readFilterValues() {
 	searchText = $("#searchText").val().toLocaleLowerCase();
 
     baseRarity = getSelectedValuesFor("baseRarity");
@@ -752,7 +751,7 @@ var updateFilterHeadersDisplay = function() {
 
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
-var displayUnits = function(units) {
+function displayUnits(units) {
     var resultDiv = $("#results");
     resultDiv.empty();
 //    let htmls = units.map(unitData => getUnitHtml(unitData));

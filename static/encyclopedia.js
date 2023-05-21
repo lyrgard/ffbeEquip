@@ -219,7 +219,7 @@ var modifyUrl = function() {
     if (killersAnd) {
         state.killersAnd = true;
     }
-    window.location.hash = '#' + window.btoa(unescape(encodeURIComponent(JSON.stringify(state))));
+    window.location.hash = '#' + window.btoa(decodeURIComponent(encodeURIComponent(JSON.stringify(state))));
 };
 
 // Update the filter summary (small icons of the filter on the right, on mobile view only)

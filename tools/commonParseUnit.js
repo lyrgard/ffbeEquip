@@ -2993,7 +2993,14 @@ export function formatForSearch(units) {
             unitOut.minRarity = unit.min_rarity.toString();
             unitOut.maxRarity = unit.max_rarity.toString();
             unitOut.roles = unit.roles;
-            
+
+            if (unit.braveShifted !== undefined && units[unit.braveShifted]) {
+                if (units[unit.braveShifted].min_rarity != "NV") {
+                    unitOut.NVA = {"baseUnit":{}, "baseRarity": {}};
+                    unitOut.NVA.baseUnit = unit.braveShifted;
+                    unitOut.NVA.baseRarity = units[unit.braveShifted].min_rarity.toString();
+                }
+            }
             
             if (unit.innates.resist) {
                 for (var resistIndex = unit.innates.resist.length; resistIndex--;) {
