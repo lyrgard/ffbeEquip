@@ -2234,6 +2234,7 @@ function updateSearchResult() {
 }
 
 function displayEquipableItemList(clickBehavior) {
+    $("#fixItemModal").show();
     if (!builds[currentUnitIndex].unit) {
         Modal.showMessage("No unit selected", "Please select an unit");
         return;
@@ -2275,6 +2276,7 @@ function displayEquipableItemList(clickBehavior) {
 }
 
 function displayFixItemModal(slot) {
+    $("#fixItemModal").show();
     if (!builds[currentUnitIndex].unit) {
         Modal.showMessage("No unit selected", "Please select an unit");
         return;
