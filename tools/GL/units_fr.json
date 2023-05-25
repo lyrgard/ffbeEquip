@@ -17139,6 +17139,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["bow","throwing","gun","hat","clothes","lightArmor"],
+		"enhancementSkills":["Armor Shot"],
 		"6_form": {
 			"name":"Irvine",
 			"roles":["physicalAttacker"],
@@ -17156,7 +17157,8 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["bow","throwing","gun","hat","clothes","lightArmor"]
+			"equip":["bow","throwing","gun","hat","clothes","lightArmor"],
+			"enhancementSkills":["Armor Shot"]
 		}
 	},
 	"208001005": {
@@ -17335,7 +17337,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","throwing","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Aeroga","Tornado","Quake","Aura","Meteor (FFVIII)"]
+		"enhancementSkills":["Throwing Weapon Mastery","Bond with Beloved Buddy","Aerora","Darkra","Aeroga","Tornado","Quake","Aura","Meteor (FFVIII)"]
 	},
 	"208002117": {
 		"name":"Linoa, descendante des sorcières BS",
@@ -17357,7 +17359,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["rod","throwing","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Awoken Sorceress's Power","Aeroga","Tornado","Quake","Apocalypse"]
+		"enhancementSkills":["Throwing Weapon Mastery","The Promise","Aerora","Darkra","Awoken Sorceress's Power","Aeroga","Tornado","Quake","Apocalypse"]
 	},
 	"208002207": {
 		"name":"Laguna",
@@ -17445,6 +17447,92 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"208002707": {
+		"name":"Irvine, tireur d'élite chevronné",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Expert_Sharpshooter Irvine",
+		"id":"208002707",
+		"game_id":"10008",
+		"game":"FFVIII",
+		"braveShift":"208002717",
+		"exAwakening": [{"hp":662,"mp":46,"atk":82,"def":27,"mag":21,"spr":29},{"hp":509,"mp":35,"atk":63,"def":21,"mag":16,"spr":22},{"hp":356,"mp":25,"atk":44,"def":14,"mag":11,"spr":15}],
+		"fragmentId": "250018200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5090,"mp":349,"atk":315,"def":207,"mag":160,"spr":221},
+			"minStats":{"hp":1680,"mp":115,"atk":104,"def":68,"mag":53,"spr":73},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["bow","throwing","gun","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Armor Shot","Cripple Shot","Hydro Shot","GF","Gun Mastery"]
+	},
+	"208002717": {
+		"name":"Irvine, tireur d'élite chevronné BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Expert_Sharpshooter Irvine",
+		"id":"208002717",
+		"game_id":"10008",
+		"game":"FFVIII",
+		"braveShifted":"208002707",
+		"exAwakening": [{"hp":662,"mp":46,"atk":82,"def":27,"mag":21,"spr":29},{"hp":509,"mp":35,"atk":63,"def":21,"mag":16,"spr":22},{"hp":356,"mp":25,"atk":44,"def":14,"mag":11,"spr":15}],
+		"fragmentId": "250018200",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5090,"mp":349,"atk":315,"def":207,"mag":160,"spr":221},
+			"minStats":{"hp":1680,"mp":115,"atk":104,"def":68,"mag":53,"spr":73},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["bow","throwing","gun","hat","clothes","lightArmor","visionCard"]
+	},
+	"208002807": {
+		"name":"Edea, sorcière du présent",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Sorceress_of the Present Edea",
+		"id":"208002807",
+		"game_id":"10008",
+		"game":"FFVIII",
+		"braveShift":"208002817",
+		"exAwakening": [{"hp":702,"mp":42,"atk":20,"def":22,"mag":75,"spr":33},{"hp":540,"mp":32,"atk":16,"def":17,"mag":58,"spr":25},{"hp":378,"mp":23,"atk":11,"def":12,"mag":41,"spr":18}],
+		"fragmentId": "250018300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5403,"mp":322,"atk":158,"def":169,"mag":290,"spr":251},
+			"minStats":{"hp":1783,"mp":106,"atk":52,"def":56,"mag":96,"spr":83},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["The End of a Painful Story","Astral Abyss","Fira","Blizzara","Thundara","Aerora","Darkra","Firaga","Blizzaga","Thundaga","Aeroga","Darkga","Firaja","Blizzaja","Thundaja","Aeroja","Tornado"]
+	},
+	"208002817": {
+		"name":"Edea, sorcière du présent BS",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Sorceress_of the Present Edea",
+		"id":"208002817",
+		"game_id":"10008",
+		"game":"FFVIII",
+		"braveShifted":"208002807",
+		"exAwakening": [{"hp":702,"mp":42,"atk":20,"def":22,"mag":75,"spr":33},{"hp":540,"mp":32,"atk":16,"def":17,"mag":58,"spr":25},{"hp":378,"mp":23,"atk":11,"def":12,"mag":41,"spr":18}],
+		"fragmentId": "250018300",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5403,"mp":322,"atk":158,"def":169,"mag":290,"spr":251},
+			"minStats":{"hp":1783,"mp":106,"atk":52,"def":56,"mag":96,"spr":83},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","hat","clothes","robe","visionCard"]
 	},
 	"209000103": {
 		"name":"Djidane",
@@ -32998,10 +33086,6 @@
   "208002517":{"name":"魔女の騎士スコール BS","jpname":"魔女の騎士スコール BS","roles":["physicalAttacker"],"id":"208002517","game_id":"undefined","game":"undefined","braveShifted":"208002507","exAwakening":[{"hp":699,"mp":45,"atk":86,"def":25,"mag":33,"spr":31},{"hp":538,"mp":34,"atk":66,"def":19,"mag":25,"spr":24},{"hp":376,"mp":24,"atk":46,"def":13,"mag":18,"spr":17}],"fragmentId":"250018000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5102,"mp":343,"atk":330,"def":171,"mag":249,"spr":239},"minStats":{"hp":1684,"mp":113,"atk":109,"def":56,"mag":82,"spr":79},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["ダークバレット","ガンブレードの使い手","G.F.","大剣の極意","ライトバレット","フレイムバレット","サンダーバレット","ウィンドバレット","キーンエッジ","ファイガ","サンダガ","エアロガ"]},
   "208002607":{"name":"SeeDの青魔道士キスティス","jpname":"SeeDの青魔道士キスティス","roles":["magicalAttacker"],"id":"208002607","game_id":"undefined","game":"undefined","braveShift":"208002617","exAwakening":[{"hp":667,"mp":48,"atk":22,"def":28,"mag":78,"spr":32},{"hp":513,"mp":37,"atk":17,"def":21,"mag":60,"spr":24},{"hp":359,"mp":26,"atk":12,"def":15,"mag":42,"spr":17}],"fragmentId":"250017900","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5130,"mp":368,"atk":171,"def":214,"mag":300,"spr":242},"minStats":{"hp":1693,"mp":121,"atk":56,"def":71,"mag":99,"spr":80},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","whip","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["ホーリージャッジ","ホーリーレーザー","鞭の極意","G.F."]},
   "208002617":{"name":"SeeDの青魔道士キスティス BS","jpname":"SeeDの青魔道士キスティス BS","roles":["magicalAttacker"],"id":"208002617","game_id":"undefined","game":"undefined","braveShifted":"208002607","exAwakening":[{"hp":667,"mp":48,"atk":22,"def":28,"mag":78,"spr":32},{"hp":513,"mp":37,"atk":17,"def":21,"mag":60,"spr":24},{"hp":359,"mp":26,"atk":12,"def":15,"mag":42,"spr":17}],"fragmentId":"250017900","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5130,"mp":368,"atk":171,"def":214,"mag":300,"spr":242},"minStats":{"hp":1693,"mp":121,"atk":56,"def":71,"mag":99,"spr":80},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","whip","hat","clothes","lightArmor","robe","visionCard"]},
-  "208002707":{"name":"精密射撃の名手アーヴァイン","jpname":"精密射撃の名手アーヴァイン","roles":["physicalAttacker"],"id":"208002707","game_id":"undefined","game":"undefined","braveShift":"208002717","exAwakening":[{"hp":662,"mp":46,"atk":82,"def":27,"mag":21,"spr":29},{"hp":509,"mp":35,"atk":63,"def":21,"mag":16,"spr":22},{"hp":356,"mp":25,"atk":44,"def":14,"mag":11,"spr":15}],"fragmentId":"250018200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5090,"mp":349,"atk":315,"def":207,"mag":160,"spr":221},"minStats":{"hp":1680,"mp":115,"atk":104,"def":68,"mag":53,"spr":73},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["bow","throwing","gun","hat","clothes","lightArmor","visionCard"],"enhancementSkills":["アーマーショット","ウィークショット","ハイドロショット","G.F.","銃の極意"]},
-  "208002717":{"name":"精密射撃の名手アーヴァイン BS","jpname":"精密射撃の名手アーヴァイン BS","roles":["physicalAttacker"],"id":"208002717","game_id":"undefined","game":"undefined","braveShifted":"208002707","exAwakening":[{"hp":662,"mp":46,"atk":82,"def":27,"mag":21,"spr":29},{"hp":509,"mp":35,"atk":63,"def":21,"mag":16,"spr":22},{"hp":356,"mp":25,"atk":44,"def":14,"mag":11,"spr":15}],"fragmentId":"250018200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5090,"mp":349,"atk":315,"def":207,"mag":160,"spr":221},"minStats":{"hp":1680,"mp":115,"atk":104,"def":68,"mag":53,"spr":73},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["bow","throwing","gun","hat","clothes","lightArmor","visionCard"]},
-  "208002807":{"name":"現代の魔女イデア","jpname":"現代の魔女イデア","roles":["magicalAttacker"],"id":"208002807","game_id":"undefined","game":"undefined","braveShift":"208002817","exAwakening":[{"hp":702,"mp":42,"atk":20,"def":22,"mag":75,"spr":33},{"hp":540,"mp":32,"atk":16,"def":17,"mag":58,"spr":25},{"hp":378,"mp":23,"atk":11,"def":12,"mag":41,"spr":18}],"fragmentId":"250018300","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5403,"mp":322,"atk":158,"def":169,"mag":290,"spr":251},"minStats":{"hp":1783,"mp":106,"atk":52,"def":56,"mag":96,"spr":83},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","whip","hat","clothes","robe","visionCard"],"enhancementSkills":["苦しみの物語の果てに","アストラル・アビス","ファイラ","ブリザラ","サンダラ","エアロラ","ダーラ","ファイガ","ブリザガ","サンダガ","エアロガ","ダーガ","ファイジャ","ブリザジャ","サンダジャ","エアロジャ","トルネド"]},
-  "208002817":{"name":"現代の魔女イデア BS","jpname":"現代の魔女イデア BS","roles":["magicalAttacker"],"id":"208002817","game_id":"undefined","game":"undefined","braveShifted":"208002807","exAwakening":[{"hp":702,"mp":42,"atk":20,"def":22,"mag":75,"spr":33},{"hp":540,"mp":32,"atk":16,"def":17,"mag":58,"spr":25},{"hp":378,"mp":23,"atk":11,"def":12,"mag":41,"spr":18}],"fragmentId":"250018300","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5403,"mp":322,"atk":158,"def":169,"mag":290,"spr":251},"minStats":{"hp":1783,"mp":106,"atk":52,"def":56,"mag":96,"spr":83},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","whip","hat","clothes","robe","visionCard"]},
   "209001305":{"name":"Dagger","jpname":"ダガー","roles":["healer","support","magicalAttacker"],"id":"209001305","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4747,"mp":264,"atk":128,"def":166,"mag":176,"spr":216},"minStats":{"hp":1567,"mp":87,"atk":42,"def":55,"mag":58,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","mace","hat","clothes","robe"],"6_form":{"name":"Dagger","jpname":"ダガー","roles":["healer","support","magicalAttacker"],"id":"209001305","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3651,"mp":203,"atk":98,"def":127,"mag":135,"spr":166},"minStats":{"hp":1205,"mp":67,"atk":32,"def":42,"mag":45,"spr":55},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","mace","hat","clothes","robe"]}},
   "209001827":{"name":"ブルメシアの竜騎士フライヤ BS","roles":["physicalAttacker","healer"],"id":"209001827","game_id":"undefined","game":"undefined","braveShifted":"209001805","exAwakening":[{"hp":723,"mp":40,"atk":39,"def":31,"mag":26,"spr":33},{"hp":556,"mp":31,"atk":30,"def":24,"mag":20,"spr":26},{"hp":389,"mp":21,"atk":21,"def":17,"mag":14,"spr":18}],"fragmentId":"250020000","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5562,"mp":307,"atk":300,"def":238,"mag":197,"spr":258},"minStats":{"hp":1835,"mp":101,"atk":99,"def":79,"mag":65,"spr":85},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","spear","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["飛竜風躍","飛竜光躍","ジャベリンレイン","竜槍震貫","槍の極意","プロテガ","シェルガ","蛟竜飛天","聖竜翔空","スピニングリープ","猛牙竜王躍"]},
   "209002227":{"name":"ガーランド(FFIX) BS","roles":["magicalAttacker","debuffer"],"id":"209002227","game_id":"undefined","game":"undefined","braveShifted":"209002205","exAwakening":[{"hp":728,"mp":45,"atk":21,"def":24,"mag":38,"spr":32},{"hp":560,"mp":34,"atk":16,"def":18,"mag":29,"spr":24},{"hp":392,"mp":24,"atk":11,"def":13,"mag":21,"spr":17}],"fragmentId":"250020200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5603,"mp":344,"atk":162,"def":184,"mag":293,"spr":242},"minStats":{"hp":1849,"mp":114,"atk":53,"def":61,"mag":97,"spr":80},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]},
