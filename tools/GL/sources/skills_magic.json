@@ -6258,9 +6258,9 @@
         "attack_type": "Magic",
         "element_inflict": null,
         "effects": [
-            ["Magic damage (6x, MAG) to one enemy"]
+            ["Magic damage (80x, MAG) to one enemy"]
         ],
-        "effects_raw": [[1, 1, 15, [0,  0,  0,  0,  0,  600,  0]]],
+        "effects_raw": [[1, 1, 15, [0,  0,  0,  0,  0,  8000,  0]]],
         "requirements": null
     },
     "40270": {
@@ -6298,19 +6298,19 @@
         "is_reflectable": false,
         "in_exploration": false,
         "attack_count": [8, 1, 1],
-        "attack_damage": [[8,  8,  8,  8,  8,  8,  8,  44], [100], [100]],
+        "attack_damage": [[10,  10,  10,  10,  10,  10,  10,  30], [100], [100]],
         "attack_frames": [[42,  62,  82,  102,  122,  142,  162,  182], [82], [82]],
-        "effect_frames": [[76,  40,  40,  40,  40], [40,  40]],
+        "effect_frames": [[40,  40,  40,  40], [40,  40]],
         "move_type": 0,
         "effect_type": "Default",
         "attack_type": "Magic",
         "element_inflict": ["Lightning"],
         "effects": [
-            ["Magic lightning damage (12x, MAG) to all enemies"],
-            ["Reduce resistance to Lightning by 100% for 4 turns to all enemies"],
+            ["Magic lightning damage (100x, MAG) to all enemies"],
+            ["Reduce resistance to Lightning by 120% for 4 turns to all enemies"],
             ["Increase LB gauge by 3-4 to caster"]
         ],
-        "effects_raw": [[2, 1, 15, [0,  0,  0,  0,  0,  1200,  0]], [2, 1, 33, [0,  0,  -100,  0,  0,  0,  0,  0,  1,  4]], [0, 3, 125, [300,  400]]],
+        "effects_raw": [[2, 1, 15, [0,  0,  0,  0,  0,  10000,  0]], [2, 1, 33, [0,  0,  -120,  0,  0,  0,  0,  0,  1,  4]], [0, 3, 125, [300,  400]]],
         "requirements": [["SWITCH",  18583110]]
     },
     "40290": {
@@ -6332,9 +6332,9 @@
         "attack_type": "Magic",
         "element_inflict": null,
         "effects": [
-            ["Reduce DEF and SPR by 60% for 4 turns to one enemy"]
+            ["Reduce DEF and SPR by 83% for 4 turns to one enemy"]
         ],
-        "effects_raw": [[1, 1, 24, [0,  -60,  0,  -60,  4,  1]]],
+        "effects_raw": [[1, 1, 24, [0,  -83,  0,  -83,  4,  1]]],
         "requirements": [["SWITCH",  18583120]]
     },
     "40300": {
@@ -6348,17 +6348,17 @@
         "is_reflectable": false,
         "in_exploration": false,
         "attack_count": [8],
-        "attack_damage": [[8,  8,  8,  8,  8,  8,  8,  44]],
+        "attack_damage": [[10,  10,  10,  10,  10,  10,  10,  30]],
         "attack_frames": [[42,  62,  82,  102,  122,  142,  162,  182]],
-        "effect_frames": [[76,  40,  40]],
+        "effect_frames": [[40,  40]],
         "move_type": 0,
         "effect_type": "Default",
         "attack_type": "Magic",
         "element_inflict": null,
         "effects": [
-            ["Magic damage (22x, MAG) to one enemy"]
+            ["Magic damage (120x, MAG) to one enemy"]
         ],
-        "effects_raw": [[1, 1, 15, [0,  0,  0,  0,  0,  2200,  0]]],
+        "effects_raw": [[1, 1, 15, [0,  0,  0,  0,  0,  12000,  0]]],
         "requirements": [["SWITCH",  18583130]]
     },
     "40310": {
@@ -6372,19 +6372,19 @@
         "is_reflectable": false,
         "in_exploration": false,
         "attack_count": [8, 1, 1],
-        "attack_damage": [[8,  8,  8,  8,  8,  8,  8,  44], [100], [100]],
+        "attack_damage": [[10,  10,  10,  10,  10,  10,  10,  30], [100], [100]],
         "attack_frames": [[42,  62,  82,  102,  122,  142,  162,  182], [82], [82]],
-        "effect_frames": [[76,  40,  40,  40,  40], [40,  40]],
+        "effect_frames": [[40,  40,  40,  40], [40,  40]],
         "move_type": 0,
         "effect_type": "Default",
         "attack_type": "Magic",
         "element_inflict": ["Fire"],
         "effects": [
-            ["Magic fire damage (17x, MAG) to all enemies"],
-            ["Reduce resistance to Fire by 100% for 4 turns to all enemies"],
+            ["Magic fire damage (80x, MAG) to all enemies"],
+            ["Reduce resistance to Fire by 120% for 4 turns to all enemies"],
             ["Increase LB gauge by 3-4 to caster"]
         ],
-        "effects_raw": [[2, 1, 15, [0,  0,  0,  0,  0,  1700,  0]], [2, 1, 33, [-100,  0,  0,  0,  0,  0,  0,  0,  1,  4]], [0, 3, 125, [300,  400]]],
+        "effects_raw": [[2, 1, 15, [0,  0,  0,  0,  0,  8000,  0]], [2, 1, 33, [-120,  0,  0,  0,  0,  0,  0,  0,  1,  4]], [0, 3, 125, [300,  400]]],
         "requirements": [["SWITCH",  18583210]]
     },
     "40320": {
@@ -6398,19 +6398,19 @@
         "is_reflectable": false,
         "in_exploration": false,
         "attack_count": [8, 1, 1],
-        "attack_damage": [[8,  8,  8,  8,  8,  8,  8,  44], [100], [100]],
+        "attack_damage": [[10,  10,  10,  10,  10,  10,  10,  30], [100], [100]],
         "attack_frames": [[42,  62,  82,  102,  122,  142,  162,  182], [82], [82]],
-        "effect_frames": [[76,  40,  40,  40,  40], [40,  40]],
+        "effect_frames": [[40,  40,  40,  40], [40,  40]],
         "move_type": 0,
         "effect_type": "Default",
         "attack_type": "Magic",
         "element_inflict": ["Water"],
         "effects": [
-            ["Magic water damage (17x, MAG) to all enemies"],
-            ["Reduce resistance to Water by 100% for 4 turns to all enemies"],
+            ["Magic water damage (80x, MAG) to all enemies"],
+            ["Reduce resistance to Water by 120% for 4 turns to all enemies"],
             ["Increase LB gauge by 3-4 to caster"]
         ],
-        "effects_raw": [[2, 1, 15, [0,  0,  0,  0,  0,  1700,  0]], [2, 1, 33, [0,  0,  0,  -100,  0,  0,  0,  0,  1,  4]], [0, 3, 125, [300,  400]]],
+        "effects_raw": [[2, 1, 15, [0,  0,  0,  0,  0,  8000,  0]], [2, 1, 33, [0,  0,  0,  -120,  0,  0,  0,  0,  1,  4]], [0, 3, 125, [300,  400]]],
         "requirements": [["SWITCH",  18583220]]
     },
     "40330": {
@@ -6474,17 +6474,17 @@
         "is_reflectable": false,
         "in_exploration": false,
         "attack_count": [8],
-        "attack_damage": [[8,  8,  8,  8,  8,  8,  8,  44]],
+        "attack_damage": [[10,  10,  10,  10,  10,  10,  10,  30]],
         "attack_frames": [[42,  62,  82,  102,  122,  142,  162,  182]],
-        "effect_frames": [[76,  40,  40]],
+        "effect_frames": [[40,  40]],
         "move_type": 0,
         "effect_type": "Default",
         "attack_type": "Magic",
         "element_inflict": null,
         "effects": [
-            ["Magic damage (20x, MAG) to all enemies"]
+            ["Magic damage (200x, MAG) to all enemies"]
         ],
-        "effects_raw": [[2, 1, 15, [0,  0,  0,  0,  0,  2000,  0]]],
+        "effects_raw": [[2, 1, 15, [0,  0,  0,  0,  0,  20000,  0]]],
         "requirements": [["SWITCH",  18583320]]
     },
     "40360": {

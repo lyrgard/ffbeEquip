@@ -17096,16 +17096,20 @@
 		"id":"208000505",
 		"game_id":"10008",
 		"game":"FFVIII",
-		"max_rarity":"7",
+		"braveShift":"208000527",
+		"exAwakening": [{"hp":653,"mp":42,"atk":15,"def":24,"mag":75,"spr":32},{"hp":502,"mp":32,"atk":11,"def":19,"mag":57,"spr":25},{"hp":351,"mp":23,"atk":8,"def":13,"mag":40,"spr":17}],
+		"fragmentId": "250018100",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4563,"mp":270,"atk":101,"def":169,"mag":220,"spr":206},
-			"minStats":{"hp":1506,"mp":89,"atk":33,"def":56,"mag":73,"spr":68},
+			"maxStats":{"hp":5020,"mp":324,"atk":112,"def":186,"mag":286,"spr":248},
+			"minStats":{"hp":1657,"mp":107,"atk":37,"def":61,"mag":94,"spr":82},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"],
+		"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Intense Water","Intense Quake","Furious Watera","Furious Quakera","The Heart of the Party","Intense Banish","Furious Banishra","Martial Arts Mastery","GF","Fira","Thundara","Aerora","Firaga","Thundaga","Aeroga"],
 		"6_form": {
 			"name":"Selphie",
 			"roles":["magicalAttacker","debuffer","support"],
@@ -17114,7 +17118,7 @@
 			"game_id":"10008",
 			"game":"FFVIII",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -17123,8 +17127,51 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Intense Water","Intense Quake","Furious Watera","Furious Quakera","The Heart of the Party","Intense Banish","Furious Banishra","Martial Arts Mastery","GF","Fira","Thundara","Aerora","Firaga","Thundaga","Aeroga"]
+		},
+		"7_form": {
+			"name":"Selphie",
+			"roles":["magicalAttacker","debuffer","support"],
+			"wikiEntry":"Selphie",
+			"id":"208000505",
+			"game_id":"10008",
+			"game":"FFVIII",
+			"sevenStarForm":true,
+			"max_rarity":"NV",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4563,"mp":270,"atk":101,"def":169,"mag":220,"spr":206},
+				"minStats":{"hp":1506,"mp":89,"atk":33,"def":56,"mag":73,"spr":68},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Intense Water","Intense Quake","Furious Watera","Furious Quakera","The Heart of the Party","Intense Banish","Furious Banishra","Martial Arts Mastery","GF","Fira","Thundara","Aerora","Firaga","Thundaga","Aeroga"]
 		}
+	},
+	"208000527": {
+		"name":"Selphie BS",
+		"roles":["magicalAttacker","debuffer","support"],
+		"wikiEntry":"Selphie",
+		"id":"208000527",
+		"game_id":"10008",
+		"game":"FFVIII",
+		"braveShifted":"208000505",
+		"exAwakening": [{"hp":653,"mp":42,"atk":15,"def":24,"mag":75,"spr":32},{"hp":502,"mp":32,"atk":11,"def":19,"mag":57,"spr":25},{"hp":351,"mp":23,"atk":8,"def":13,"mag":40,"spr":17}],
+		"fragmentId": "250018100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5020,"mp":324,"atk":112,"def":186,"mag":286,"spr":248},
+			"minStats":{"hp":1657,"mp":107,"atk":37,"def":61,"mag":94,"spr":82},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Intense Water","Intense Quake","Furious Watera","Furious Quakera","The Heart of the Party","Intense Banish","Furious Banishra","Martial Arts Mastery","GF","Fira","Thundara","Aerora","Firaga","Thundaga","Aeroga"]
 	},
 	"208000605": {
 		"name":"Irvine",
@@ -17385,7 +17432,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Rain Bullets","Eruption Bullets","Warning Shot"]
+		"enhancementSkills":["Gun Mastery","Rain Bullets","Eruption Bullets","The Cuchi-Cuchi treatment!","Warning Shot"]
 	},
 	"208002217": {
 		"name":"Laguna BS",
@@ -17407,7 +17454,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","gun","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Rain Bullets","Eruption Bullets","Warning Shot"]
+		"enhancementSkills":["Gun Mastery","Rain Bullets","Eruption Bullets","The Cuchi-Cuchi treatment!","Warning Shot"]
 	},
 	"208002307": {
 		"name":"Kiros & Ward",
@@ -17452,6 +17499,93 @@
 		"stats_pattern":4,
 		"equip":["dagger","spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Splash Anchor","Blood Storm"]
+	},
+	"208002507": {
+		"name":"Hexen-Ritter Squall",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Sorceress's_Knight Squall",
+		"id":"208002507",
+		"game_id":"10008",
+		"game":"FFVIII",
+		"braveShift":"208002517",
+		"exAwakening": [{"hp":699,"mp":45,"atk":86,"def":25,"mag":33,"spr":31},{"hp":538,"mp":34,"atk":66,"def":19,"mag":25,"spr":24},{"hp":376,"mp":24,"atk":46,"def":13,"mag":18,"spr":17}],
+		"fragmentId": "250018000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5375,"mp":328,"atk":330,"def":189,"mag":204,"spr":226},
+			"minStats":{"hp":1774,"mp":108,"atk":109,"def":62,"mag":67,"spr":75},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Blasting Chain","Gunblade Wielder","GF","Large Sword Mastery","Light Barret","Accelerator Edge","Draw+"]
+	},
+	"208002517": {
+		"name":"Hexen-Ritter Squall BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Sorceress's_Knight Squall",
+		"id":"208002517",
+		"game_id":"10008",
+		"game":"FFVIII",
+		"braveShifted":"208002507",
+		"exAwakening": [{"hp":699,"mp":45,"atk":86,"def":25,"mag":33,"spr":31},{"hp":538,"mp":34,"atk":66,"def":19,"mag":25,"spr":24},{"hp":376,"mp":24,"atk":46,"def":13,"mag":18,"spr":17}],
+		"fragmentId": "250018000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5102,"mp":343,"atk":330,"def":171,"mag":249,"spr":239},
+			"minStats":{"hp":1684,"mp":113,"atk":109,"def":56,"mag":82,"spr":79},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Dark Barret","Gunblade Wielder","GF","Large Sword Mastery","Light Barret","Flame Barret","Thunder Barret","Wind Barret","Keen Edge","Firaga","Thundaga","Aeroga"]
+	},
+	"208002607": {
+		"name":"Quistis, Blaumagierin der SeeD",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"SeeD's_Blue Mage Quistis",
+		"id":"208002607",
+		"game_id":"10008",
+		"game":"FFVIII",
+		"braveShift":"208002617",
+		"exAwakening": [{"hp":667,"mp":48,"atk":22,"def":28,"mag":78,"spr":32},{"hp":513,"mp":37,"atk":17,"def":21,"mag":60,"spr":24},{"hp":359,"mp":26,"atk":12,"def":15,"mag":42,"spr":17}],
+		"fragmentId": "250017900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5130,"mp":368,"atk":171,"def":214,"mag":300,"spr":242},
+			"minStats":{"hp":1693,"mp":121,"atk":56,"def":71,"mag":99,"spr":80},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Sacred Judgment","Sacred Laser","Whip Mastery","GF"]
+	},
+	"208002617": {
+		"name":"Quistis, Blaumagierin der SeeD BS",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"SeeD's_Blue Mage Quistis",
+		"id":"208002617",
+		"game_id":"10008",
+		"game":"FFVIII",
+		"braveShifted":"208002607",
+		"exAwakening": [{"hp":667,"mp":48,"atk":22,"def":28,"mag":78,"spr":32},{"hp":513,"mp":37,"atk":17,"def":21,"mag":60,"spr":24},{"hp":359,"mp":26,"atk":12,"def":15,"mag":42,"spr":17}],
+		"fragmentId": "250017900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5130,"mp":368,"atk":171,"def":214,"mag":300,"spr":242},
+			"minStats":{"hp":1693,"mp":121,"atk":56,"def":71,"mag":99,"spr":80},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","hat","clothes","lightArmor","robe","visionCard"]
 	},
 	"208002707": {
 		"name":"Irvine, Scharfschütze der Spitzenklasse",
@@ -33086,11 +33220,6 @@
   "204002104":{"name":"Cagnazzo","jpname":"カイナッツォ","roles":["physicalTank"],"id":"204002104","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"4","sex":"male","stats":{"maxStats":{"hp":3901,"mp":145,"atk":120,"def":146,"mag":105,"spr":124},"minStats":{"hp":1287,"mp":48,"atk":40,"def":48,"mag":35,"spr":41},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["fist","helm","lightArmor","heavyArmor"]},
   "204002705":{"name":"Ceodore","jpname":"セオドア","roles":["physicalAttacker","physicalTank"],"id":"204002705","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":4910,"mp":255,"atk":206,"def":193,"mag":164,"spr":192},"minStats":{"hp":1620,"mp":84,"atk":68,"def":64,"mag":54,"spr":63},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","axe","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],"enhancementSkills":["プロテガ","シェルガ"],"6_form":{"name":"Ceodore","jpname":"セオドア","roles":["physicalAttacker","physicalTank"],"id":"204002705","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3776,"mp":196,"atk":158,"def":148,"mag":126,"spr":147},"minStats":{"hp":1246,"mp":65,"atk":52,"def":49,"mag":42,"spr":49},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","katana","axe","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],"enhancementSkills":["プロテガ","シェルガ"]}},
   "204002805":{"name":"Ursula","jpname":"アーシュラ","roles":["physicalAttacker"],"id":"204002805","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4798,"mp":246,"atk":208,"def":176,"mag":158,"spr":176},"minStats":{"hp":1583,"mp":81,"atk":69,"def":58,"mag":52,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","hammer","throwing","mace","fist","hat","clothes","robe"],"6_form":{"name":"Ursula","jpname":"アーシュラ","roles":["physicalAttacker"],"id":"204002805","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3690,"mp":189,"atk":160,"def":135,"mag":121,"spr":135},"minStats":{"hp":1218,"mp":62,"atk":53,"def":45,"mag":40,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","hammer","throwing","mace","fist","hat","clothes","robe"]}},
-  "208000527":{"name":"セルフィ BS","jpname":"セルフィ BS","roles":["magicalAttacker","debuffer","support"],"id":"208000527","game_id":"undefined","game":"undefined","braveShifted":"208000505","exAwakening":[{"hp":653,"mp":42,"atk":15,"def":24,"mag":75,"spr":32},{"hp":502,"mp":32,"atk":11,"def":19,"mag":57,"spr":25},{"hp":351,"mp":23,"atk":8,"def":13,"mag":40,"spr":17}],"fragmentId":"250018100","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5020,"mp":324,"atk":112,"def":186,"mag":286,"spr":248},"minStats":{"hp":1657,"mp":107,"atk":37,"def":61,"mag":94,"spr":82},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe","visionCard"]},
-  "208002507":{"name":"魔女の騎士スコール","jpname":"魔女の騎士スコール","roles":["physicalAttacker"],"id":"208002507","game_id":"undefined","game":"undefined","braveShift":"208002517","exAwakening":[{"hp":699,"mp":45,"atk":86,"def":25,"mag":33,"spr":31},{"hp":538,"mp":34,"atk":66,"def":19,"mag":25,"spr":24},{"hp":376,"mp":24,"atk":46,"def":13,"mag":18,"spr":17}],"fragmentId":"250018000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5375,"mp":328,"atk":330,"def":189,"mag":204,"spr":226},"minStats":{"hp":1774,"mp":108,"atk":109,"def":62,"mag":67,"spr":75},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["ブラスティングチェイン","ガンブレードの使い手","G.F.","大剣の極意","ライトバレット","アクセラレートエッジ","ドロー改"]},
-  "208002517":{"name":"魔女の騎士スコール BS","jpname":"魔女の騎士スコール BS","roles":["physicalAttacker"],"id":"208002517","game_id":"undefined","game":"undefined","braveShifted":"208002507","exAwakening":[{"hp":699,"mp":45,"atk":86,"def":25,"mag":33,"spr":31},{"hp":538,"mp":34,"atk":66,"def":19,"mag":25,"spr":24},{"hp":376,"mp":24,"atk":46,"def":13,"mag":18,"spr":17}],"fragmentId":"250018000","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5102,"mp":343,"atk":330,"def":171,"mag":249,"spr":239},"minStats":{"hp":1684,"mp":113,"atk":109,"def":56,"mag":82,"spr":79},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["ダークバレット","ガンブレードの使い手","G.F.","大剣の極意","ライトバレット","フレイムバレット","サンダーバレット","ウィンドバレット","キーンエッジ","ファイガ","サンダガ","エアロガ"]},
-  "208002607":{"name":"SeeDの青魔道士キスティス","jpname":"SeeDの青魔道士キスティス","roles":["magicalAttacker"],"id":"208002607","game_id":"undefined","game":"undefined","braveShift":"208002617","exAwakening":[{"hp":667,"mp":48,"atk":22,"def":28,"mag":78,"spr":32},{"hp":513,"mp":37,"atk":17,"def":21,"mag":60,"spr":24},{"hp":359,"mp":26,"atk":12,"def":15,"mag":42,"spr":17}],"fragmentId":"250017900","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5130,"mp":368,"atk":171,"def":214,"mag":300,"spr":242},"minStats":{"hp":1693,"mp":121,"atk":56,"def":71,"mag":99,"spr":80},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","whip","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["ホーリージャッジ","ホーリーレーザー","鞭の極意","G.F."]},
-  "208002617":{"name":"SeeDの青魔道士キスティス BS","jpname":"SeeDの青魔道士キスティス BS","roles":["magicalAttacker"],"id":"208002617","game_id":"undefined","game":"undefined","braveShifted":"208002607","exAwakening":[{"hp":667,"mp":48,"atk":22,"def":28,"mag":78,"spr":32},{"hp":513,"mp":37,"atk":17,"def":21,"mag":60,"spr":24},{"hp":359,"mp":26,"atk":12,"def":15,"mag":42,"spr":17}],"fragmentId":"250017900","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5130,"mp":368,"atk":171,"def":214,"mag":300,"spr":242},"minStats":{"hp":1693,"mp":121,"atk":56,"def":71,"mag":99,"spr":80},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","whip","hat","clothes","lightArmor","robe","visionCard"]},
   "209001305":{"name":"Dagger","jpname":"ダガー","roles":["healer","support","magicalAttacker"],"id":"209001305","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4747,"mp":264,"atk":128,"def":166,"mag":176,"spr":216},"minStats":{"hp":1567,"mp":87,"atk":42,"def":55,"mag":58,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","mace","hat","clothes","robe"],"6_form":{"name":"Dagger","jpname":"ダガー","roles":["healer","support","magicalAttacker"],"id":"209001305","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3651,"mp":203,"atk":98,"def":127,"mag":135,"spr":166},"minStats":{"hp":1205,"mp":67,"atk":32,"def":42,"mag":45,"spr":55},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","mace","hat","clothes","robe"]}},
   "209001827":{"name":"ブルメシアの竜騎士フライヤ BS","roles":["physicalAttacker","healer"],"id":"209001827","game_id":"undefined","game":"undefined","braveShifted":"209001805","exAwakening":[{"hp":723,"mp":40,"atk":39,"def":31,"mag":26,"spr":33},{"hp":556,"mp":31,"atk":30,"def":24,"mag":20,"spr":26},{"hp":389,"mp":21,"atk":21,"def":17,"mag":14,"spr":18}],"fragmentId":"250020000","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5562,"mp":307,"atk":300,"def":238,"mag":197,"spr":258},"minStats":{"hp":1835,"mp":101,"atk":99,"def":79,"mag":65,"spr":85},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","spear","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["飛竜風躍","飛竜光躍","ジャベリンレイン","竜槍震貫","槍の極意","プロテガ","シェルガ","蛟竜飛天","聖竜翔空","スピニングリープ","猛牙竜王躍"]},
   "209002227":{"name":"ガーランド(FFIX) BS","roles":["magicalAttacker","debuffer"],"id":"209002227","game_id":"undefined","game":"undefined","braveShifted":"209002205","exAwakening":[{"hp":728,"mp":45,"atk":21,"def":24,"mag":38,"spr":32},{"hp":560,"mp":34,"atk":16,"def":18,"mag":29,"spr":24},{"hp":392,"mp":24,"atk":11,"def":13,"mag":21,"spr":17}],"fragmentId":"250020200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5603,"mp":344,"atk":162,"def":184,"mag":293,"spr":242},"minStats":{"hp":1849,"mp":114,"atk":53,"def":61,"mag":97,"spr":80},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]},
