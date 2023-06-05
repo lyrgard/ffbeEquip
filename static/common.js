@@ -1317,7 +1317,7 @@ function sort(items, unitId) {
                 return typeIndex1 - typeIndex2;
             }
 		} else {
-			return item2.calculatedValue - item1.calculatedValue;
+			return Math.round(item2.calculatedValue - item1.calculatedValue);
 		}
     });
 };
