@@ -222,6 +222,12 @@
                         <div class="panel-heading">
                             <span>Desired stat (filter and sort)</span>
                             <a class="buttonLink hidden unselectAll" onclick="unselectAll('stats')">unselect</a>
+                            <div class="filters">
+                                <div class="btn-group choice" id="statModifiers" data-toggle="buttons">
+                                    <label class="btn btn-default" data-toggle="tooltip" title="" data-original-title="Include stat % modifiers in the stat calculation"><input type="checkbox" name="percentageStat" id="percentageStat" autocomplete="off">%</label>
+                                    <label class="btn btn-default active" data-toggle="tooltip" title="" data-original-title="Include static stats in the stat calculation"><input type="checkbox" name="staticStats" id="staticStats" autocomplete="off" checked>Static</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="panel-body">
                             <div class="btn-group colors choice" data-toggle="buttons" id="stats">

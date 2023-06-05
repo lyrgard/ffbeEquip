@@ -1186,6 +1186,10 @@ function itemMatches(item, filter) {
             return item.killers && item.killers.some(k => k.name === filter.value && k.physical);
         case 'magicalKiller':
             return item.killers && item.killers.some(k => k.name === filter.value && k.magical);
+        case 'percentageStat':
+            return item[filter.value + '%'] && item[filter.value + '%'] > 0;
+        case 'staticStat':
+            return item.staticStats && hasStaticStat(filter.value, item);
         case 'access':
             return item.access && item.access.includes(filter.value);
         case 'text':
@@ -1289,7 +1293,7 @@ function sort(items, unitId) {
                 if (item1.stmrUnit != unitId) {
                     return 1;
                 }
-            }
+            }   
         }
 		if (item2.calculatedValue == item1.calculatedValue) {
             var typeIndex1 = typeListWithEsper.indexOf(item1.type);
@@ -1319,16 +1323,18 @@ function sort(items, unitId) {
 };
 
 // If sort is required, this calculate the effective value of the requested stat, based on the unit stat for percentage increase.
-function calculateValue(item, baseStat, stat, ailments, elements, killers) {
+function calculateValue(item, baseStat, stat, percentageStat, staticStats, ailments, elements, killers) {
     var calculatedValue = 0;
     if (item[stat] && stat != "evade") {
         calculatedValue = item[stat];
-    }
-    if (item[stat + '%']) {
-        calculatedValue += item[stat+'%'] * baseStat / 100;
-    }
-    if (item.staticStats && item.staticStats[stat]) {
-        calculatedValue += item.staticStats[stat];
+
+        if (percentageStat === true && item[stat + '%']) {
+            calculatedValue += item[stat+'%'] * baseStat / 100;
+        }
+
+        if (staticStats === true && item.staticStats && item.staticStats[stat]) {
+            calculatedValue += item.staticStats[stat];
+        }
     }
     if (item[stat] && stat == "evade") {
         if (item.evade.physical) {
@@ -1445,8 +1451,18 @@ function getSearchTokens(text) {
 
 // Return true if the item has the required stat
 function hasStat(stat, item) {
-    return item[stat] || item[stat+'%'] || (item.staticStats && item.staticStats[stat]) || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist) || isTwoHanded(item);
+    return item[stat] || (item.staticStats && item.staticStats[stat]) || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist) || isTwoHanded(item);
 };
+
+// Return true if the item has the required stat percentage
+function hasStatPercent(stat, item) {
+    return item[stat+'%'];
+};
+
+// Return true if the item has the required static stat
+function hasStaticStat(stat, item) {
+    return item.staticStats && item.staticStats[stat];
+}
 
 // Return true if the item has all the required stats
 function hasStats(additionalStat, item) {

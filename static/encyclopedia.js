@@ -37,6 +37,8 @@ var physicalKillers;
 var magicalKillers;
 var accessToRemove;
 var additionalStat;
+var percentageStat;
+var staticStats;
 var elementsAnd = false;
 var ailmentsAnd = false;
 var killersAnd = false;
@@ -90,7 +92,9 @@ function update() {
         filters.push({type: 'unitSex', value: unitData.sex})
     }
 
-    if (stat.length > 0) filters.push({type: 'stat', value: stat});
+    if (stat.length > 0) {
+        filters.push({type: 'stat', value: stat});
+    }
     if (searchText) filters.push({type: 'text', value: searchText});
     if (additionalStat.length > 0) {
         filters.push({type: 'stat', value: additionalStat});
@@ -111,7 +115,10 @@ function update() {
     
     let filteredItems = filterItems(data, filter, showNotReleasedYet);
 
-    filteredItems.forEach(item => calculateValue(item, baseStat, stat, ailments, elements, killers));
+    staticStats = document.getElementById("staticStats").checked;
+    percentageStat = document.getElementById("percentageStat").checked;
+    
+    filteredItems.forEach(item => calculateValue(item, baseStat, stat, percentageStat, staticStats, ailments, elements, killers));
     
 	// filter, sort and display the results
     displayItems(sort(filteredItems));
@@ -129,7 +136,7 @@ function update() {
 }
 
 // Read filter values into the corresponding variables
-var readFilterValues = function() {
+function readFilterValues() {
 	searchText = $("#searchText").val();
 	stat = getSelectedValuesFor("stats");
     stat = stat[0] || '';
