@@ -644,7 +644,7 @@ function displayItemLine(item, actionOnImage = "") {
     html += getNameColumnHtml(item);
 
     // value
-    html += '<div class="td value sort">' + item.calculatedValue;
+    html += '<div class="td value sort">' + Math.round(item.calculatedValue);
     if (stat == 'inflict' || stat == 'evade' || stat == 'resist') {
         html += '%';
     }
@@ -1317,7 +1317,7 @@ function sort(items, unitId) {
                 return typeIndex1 - typeIndex2;
             }
 		} else {
-			return Math.round(item2.calculatedValue - item1.calculatedValue);
+			return item2.calculatedValue - item1.calculatedValue;
 		}
     });
 };
