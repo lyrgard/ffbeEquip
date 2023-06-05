@@ -1186,10 +1186,10 @@ function itemMatches(item, filter) {
             return item.killers && item.killers.some(k => k.name === filter.value && k.physical);
         case 'magicalKiller':
             return item.killers && item.killers.some(k => k.name === filter.value && k.magical);
-        case 'percentageStat':
-            return item[filter.value] && item[filter.value] > 0;
-        case 'staticStats':
-            return item.staticStats && hasStaticStat(filter.value, item);
+        // case 'percentageStat':
+        //     return item[filter.value] && item[filter.value] > 0;
+        // case 'staticStats':
+        //     return item.staticStats && hasStaticStat(filter.value, item);
         case 'access':
             return item.access && item.access.includes(filter.value);
         case 'text':
@@ -1377,6 +1377,8 @@ function calculateValue(item, baseStat, stat, percentageStat, staticStats, ailme
         if (calculatedValue == -999) {
             calculatedValue = 0;
         }
+        // Round to the nearest whole number
+        calculatedValue = Math.round(calculatedValue);
     }
     item['calculatedValue'] = calculatedValue;
 };

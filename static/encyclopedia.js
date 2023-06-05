@@ -101,12 +101,12 @@ function update() {
     }
     staticStats = document.getElementById("staticStats").checked;
     percentageStat = document.getElementById("percentageStat").checked;
-    if (staticStats) {
-        filters.push({type: 'staticStats', value: stat});
-    }
-    if (percentageStat) {
-        filters.push({type: 'percentageStat', value: stat+'%'});
-    }
+    // if (staticStats) {
+    //     filters.push({type: 'staticStats', value: stat});
+    // }
+    // if (percentageStat) {
+    //     filters.push({type: 'percentageStat', value: stat+'%'});
+    // }
     if (accessToRemove.length > 0) {
         accessToRemove = accessToRemove.flatMap(a => a.split('/'));
         let authorizedAccess = accessList.filter(a => !accessToRemove.some(forbiddenAccess => a.startsWith(forbiddenAccess) || a.endsWith(forbiddenAccess)));
