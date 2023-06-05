@@ -99,6 +99,14 @@ function update() {
     if (additionalStat.length > 0) {
         filters.push({type: 'stat', value: additionalStat});
     }
+    staticStats = document.getElementById("staticStats").checked;
+    percentageStat = document.getElementById("percentageStat").checked;
+    if (staticStats) {
+        filters.push({type: 'staticStats', value: stat});
+    }
+    if (percentageStat) {
+        filters.push({type: 'percentageStat', value: stat+'%'});
+    }
     if (accessToRemove.length > 0) {
         accessToRemove = accessToRemove.flatMap(a => a.split('/'));
         let authorizedAccess = accessList.filter(a => !accessToRemove.some(forbiddenAccess => a.startsWith(forbiddenAccess) || a.endsWith(forbiddenAccess)));
@@ -110,14 +118,11 @@ function update() {
     if (elements.length > 0) filters.push(convertValuesToFilter(elements, 'element', elementsAnd ? 'and' : 'or'));
     if (types.length > 0) filters.push(convertValuesToFilter(types, 'type'));
     if (onlyShowOwnedItems) filters.push({type: 'onlyOwned'});
-    
+
     let filter = andFilters(...filters);
     
     let filteredItems = filterItems(data, filter, showNotReleasedYet);
 
-    staticStats = document.getElementById("staticStats").checked;
-    percentageStat = document.getElementById("percentageStat").checked;
-    
     filteredItems.forEach(item => calculateValue(item, baseStat, stat, percentageStat, staticStats, ailments, elements, killers));
     
 	// filter, sort and display the results

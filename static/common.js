@@ -1187,8 +1187,8 @@ function itemMatches(item, filter) {
         case 'magicalKiller':
             return item.killers && item.killers.some(k => k.name === filter.value && k.magical);
         case 'percentageStat':
-            return item[filter.value + '%'] && item[filter.value + '%'] > 0;
-        case 'staticStat':
+            return item[filter.value] && item[filter.value] > 0;
+        case 'staticStats':
             return item.staticStats && hasStaticStat(filter.value, item);
         case 'access':
             return item.access && item.access.includes(filter.value);
@@ -1327,14 +1327,12 @@ function calculateValue(item, baseStat, stat, percentageStat, staticStats, ailme
     var calculatedValue = 0;
     if (item[stat] && stat != "evade") {
         calculatedValue = item[stat];
-
-        if (percentageStat === true && item[stat + '%']) {
-            calculatedValue += item[stat+'%'] * baseStat / 100;
-        }
-
-        if (staticStats === true && item.staticStats && item.staticStats[stat]) {
-            calculatedValue += item.staticStats[stat];
-        }
+    }
+    if (percentageStat === true && item[stat + '%']) {
+        calculatedValue += baseStat * (item[stat+'%'] / 100);
+    }
+    if (staticStats === true && item.staticStats && item.staticStats[stat]) {
+        calculatedValue += item.staticStats[stat];
     }
     if (item[stat] && stat == "evade") {
         if (item.evade.physical) {
@@ -1451,7 +1449,7 @@ function getSearchTokens(text) {
 
 // Return true if the item has the required stat
 function hasStat(stat, item) {
-    return item[stat] || (item.staticStats && item.staticStats[stat]) || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist) || isTwoHanded(item);
+    return item[stat] || item[stat + "%"] || (item.staticStats && item.staticStats[stat]) || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist) || isTwoHanded(item);
 };
 
 // Return true if the item has the required stat percentage
