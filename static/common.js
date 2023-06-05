@@ -1380,7 +1380,8 @@ function calculateValue(item, baseStat, stat, percentageStat, staticStats, ailme
         // Round to the nearest whole number
         calculatedValue = Math.round(calculatedValue);
     }
-    item['calculatedValue'] = calculatedValue;
+    
+    item['calculatedValue'] = Math.round(calculatedValue);
 };
 
 // Return true if the two arrays share at least one value
