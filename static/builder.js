@@ -152,7 +152,7 @@ let defaultMonsterAttackFormula = {"type":"*","value1":{"type":"constant","value
 let monsterAttackFormula;
 
 let percentageStat = false;
-let staticStat = false;
+let staticStats = false;
 
 function onBuildClick() {
     if (builds[currentUnitIndex] && builds[currentUnitIndex].unit.id === '777700004') {
@@ -2279,6 +2279,8 @@ function displayEquipableItemList(clickBehavior) {
 }
 
 function displayFixItemModal(slot) {
+    staticStats = false;
+    percentageStat = false;
     $("#fixItemModal").show();
     if (!builds[currentUnitIndex].unit) {
         Modal.showMessage("No unit selected", "Please select an unit");
@@ -2526,7 +2528,11 @@ function selectSearchStat(stat) {
         searchStat = stat;
         let statToAdd = "img-sort-" + stat.split('-')[0];
         $("#fixItemModal .modal-header .stat .dropdown-toggle").addClass(statToAdd);
-        staticStats = true;
+        if (stat.includes("-flat")) {
+            staticStats = true;
+        } else {
+            staticStats = false;
+        }
     }
 }
 
