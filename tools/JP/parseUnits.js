@@ -107,49 +107,31 @@ function manageNV(units) {
     const braveShiftUnitIdByBaseUnitId = [];
     const baseUnitIdByNVUnitId = {};
     for (var unitId in units) {
-        if (unitId.startsWith("7")) continue;
         const unitIn = units[unitId];
-        if (unitIn.skills) {
-            unitIn.skills
-                .filter(skill => skill.brave_ability)
-                .forEach(skill => {
-                    skill.rarity = "NV"
-                    skill.level = 0
-                });
-        }
-        if (unitIn.base_id) {
-            unitIn.rarity_max = 'NV';
-            unitIn.rarity_min = 'NV';
-            unitIn.entries[unitId].rarity = 'NV';
-            if (unitIn.base_id != unitId)  {
-                braveShiftUnitIdByBaseUnitId.push({baseUnitId: unitIn.base_id, braveShiftedUnitId: unitId});
-            } else {
-                unitIn.nv_upgrade = unitIn.entries[unitId].nv_upgrade;
-            }
-        }
-        if (unitIn.rarity_max == 7 || unitIn.rarity_max == 'NV') {
-            const baseUnitId = unitId.substr(0, unitId.length -1);
+        if (unitIn.rarity_max == 7) {
+            const baseUnitId = unitId.substring(0, unitId.length -1);
             let nvIds = Object.keys(unitIn.entries).filter(id => !id.startsWith(baseUnitId));
-            if (nvIds.length) {
+            
+            nvIds.forEach(nvId => {
                 unitIn.rarity_max = 'NV';
-                unitIn.entries[nvIds[0]].rarity = 'NV';
-                baseUnitIdByNVUnitId[nvIds[0]] = unitId;
-                unitIn.nv_upgrade = unitIn.entries[nvIds[0]].nv_upgrade;
-            }
-            if (unitIn.rarity_min == 7 || unitIn.rarity_min == 'NV') {
+                unitIn.entries[nvId].rarity = 'NV';
+                baseUnitIdByNVUnitId[nvId] = unitId;
+                unitIn.nv_upgrade = unitIn.entries[nvId].nv_upgrade;
+            });
+            if (unitIn.rarity_min == 7) {
                 unitIn.rarity_max = 'NV';
                 unitIn.rarity_min = 'NV';
                 Object.values(unitIn.entries).forEach(e => e.rarity = 'NV');
                 //baseUnitIdByNVUnitId[nvIds[0]] = unitId;
                 unitIn.nv_upgrade = Object.values(unitIn.entries)[0].nv_upgrade;
-                let potentialBaseUnits = Object.keys(units).filter(k => !k.startsWith("7")).filter(k => units[k].name === unitIn.name && k < unitId).sort();
-                if (unitId == "100011727") {
-                    console.log("PG Lasswell BS", potentialBaseUnits);
-                }
-                if (potentialBaseUnits.length) {
-                    baseUnitIdByNVUnitId[unitId] = potentialBaseUnits[0];
-                    braveShiftUnitIdByBaseUnitId.push({baseUnitId: potentialBaseUnits[0], braveShiftedUnitId: unitId});
-                    unitIn.base_id = potentialBaseUnits[0];
+                if (unitId.endsWith('17') || unitId.endsWith('27') || unitId.endsWith('37')) {
+                    const baseUnitCommonPart = unitId.substring(0, unitId.length - 2);
+                    let potentialBaseUnits = Object.keys(units).filter(k => k.startsWith(baseUnitCommonPart) && k < unitId && (k.endsWith('3')||k.endsWith('4') || k.endsWith('5') || k.endsWith('7'))).sort();
+                    if (potentialBaseUnits.length) {
+                        baseUnitIdByNVUnitId[unitId] = potentialBaseUnits[0];
+                        braveShiftUnitIdByBaseUnitId.push({baseUnitId: potentialBaseUnits[0], braveShiftedUnitId: unitId});
+                        unitIn.base_id = potentialBaseUnits[0];
+                    }
                 }
             }
         }
@@ -163,6 +145,7 @@ function manageNV(units) {
         units[data.braveShiftedUnitId].nv_upgrade = units[baseId].nv_upgrade;
     });
 }
+
 
 function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRarity = unitIn["rarity_max"]) {
     var unit = {};
@@ -223,14 +206,25 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRarity 
     
     data["enhancementSkills"] = [];
     for (let skillIndex in unitIn.skills) {
+        if (unitIn.skills[skillIndex].rarity.startsWith && unitIn.skills[skillIndex].rarity.startsWith('NV+')) {
+            unitIn.skills[skillIndex].exLevel = parseInt(unitIn.skills[skillIndex].rarity.substring(3,unitIn.skills[skillIndex].rarity.length));
+            unitIn.skills[skillIndex].rarity = 'NV';
+        }
+    }
+
+    data["enhancementSkills"] = [];
+    for (let skillIndex in unitIn.skills) {
         if (unitIn.skills[skillIndex].rarity > unitIn.rarity_max) {
             continue; // don't take into account skills for a max rarity not yet released
         }
         var skillId = unitIn.skills[skillIndex].id.toString();
         if (enhancementsByUnitId[unitId] && enhancementsByUnitId[unitId][skillId]) {
+            if (!skills[skillId]) console.log(unitIn.name, unitId);
             data["enhancementSkills"].push(skills[skillId].name);
         }
     }
+    
+    data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, lbs, enhancementsByUnitId[unitId], maxRarity, unitData, data);
 
     if (unitIn.braveShiftedUnitId && maxRarity == 'NV') {
         data["braveShift"] = unitIn.braveShiftedUnitId;

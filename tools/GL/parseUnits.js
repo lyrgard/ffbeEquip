@@ -364,8 +364,6 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
 
     if (jpUnits && unitIn["rarity_max"] == 6 && unitIn.skills && unitIn.skills.length && unitIn.skills[unitIn.skills.length - 1].rarity == 7) {
         var maxRarityInGLData = 0;
-        console.log(unitId)
-        console.log(unitIn.entries)
         for (entryId in unitIn.entries) {
             if (unitIn.entries[entryId].rarity > maxRarityInGLData) {
                 maxRarityInGLData = unitIn.entries[entryId].rarity;
