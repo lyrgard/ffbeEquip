@@ -2,6 +2,7 @@ import fs from 'fs';
 import request from 'request';
 import PNG from 'pngjs';
 import * as commonParse from '../commonParseUnit.js'
+import { exit } from 'process';
 
 let filterGame = [];
 let filterUnits = ["199000101", "256000301"]
@@ -53,7 +54,7 @@ getData('units.json', function (units) {
                 });
                 getData('limitbursts.json', function (lbs) {
                     getData('enhancements.json', function (enhancements) {
-                        fs.readFile('../../static/JP/units.json', function (err, nameDatacontent) {
+                        fs.readFile('units.json', function (err, nameDatacontent) {
                             var nameData = JSON.parse(nameDatacontent);
                             for (var unitId in nameData) {
                                 glNameById[unitId] = nameData[unitId].name;
@@ -163,7 +164,7 @@ function manageNV(units) {
     });
 }
 
-function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry = unitIn["rarity_max"]) {
+function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRarity = unitIn["rarity_max"]) {
     var unit = {};
     unit.data = {};
     
@@ -173,7 +174,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
     var unitStats = {"minStats":{}, "maxStats":{}, "pots":{}};
 
     for (let entryId in unitIn.entries) {
-        if (unitIn.entries[entryId].rarity == maxRariry) {
+        if (unitIn.entries[entryId].rarity == maxRarity) {
             unitData = unitIn.entries[entryId];
             for (var statIndex in commonParse.stats) {
                 var stat = commonParse.stats[statIndex];
@@ -182,7 +183,9 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
                 unitStats.pots[stat.toLowerCase()] = unitData["stats"][stat][2];
             }
 
-            data["stat_pattern"] = entryId.stat_pattern;
+            if (unitIn.entries[entryId]["stat_pattern"]) {
+                data["stats_pattern"] = unitIn.entries[entryId]["stat_pattern"];
+            }
             if (unitData.ability_slots != 4) {
                 data["materiaSlots"] = unitData.ability_slots;
             }
@@ -199,6 +202,10 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
         }
     }
 
+    var unitIdInEntries = Object.keys(unitIn.entries).find(key => unitIn.entries[key].rarity == maxRarity);
+
+    data["roles"] = unitIn.entries[unitIdInEntries].roles.map(role => commonParse.unitRoles[role]);
+
     if (glNameById[unitId]) {
         data["name"] = glNameById[unitId];
         data["jpname"] = unitIn["name"];
@@ -206,16 +213,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
         data["name"] = unitIn["name"];    
     }
 
-    // if unitIn["roles"] is defined
-    if (unitIn["roles"]) {
-        data["roles"] = unitIn["roles"].map(role => {
-            const mappedRole = commonParse.unitRoles[role];
-            if (!mappedRole) console.log('MISSING ROLE', role);
-            return mappedRole;
-        });
-    }
-
-    data["max_rarity"] = maxRariry;
+    data["max_rarity"] = maxRarity;
     data["min_rarity"] = unitIn["rarity_min"];
 
     data["stats"] = unitStats;
@@ -234,16 +232,15 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
         }
     }
 
-    if (unitIn.braveShiftedUnitId && maxRariry == 'NV') {
+    if (unitIn.braveShiftedUnitId && maxRarity == 'NV') {
         data["braveShift"] = unitIn.braveShiftedUnitId;
     }
     if (unitIn.base_id != unitId) {
         data["braveShifted"] = unitIn.base_id;
     }
     //unitIn.nv_upgrade //isn't null or undefined
-    if (maxRariry == 'NV' && unitIn.nv_upgrade != null && unitIn.nv_upgrade != undefined) {
+    if (maxRarity == 'NV' && unitIn.nv_upgrade != null && unitIn.nv_upgrade != undefined) {
         data.equip.push("visionCard");
-        console.log(unitIn)
         data.exAwakenings = [
             lowerCaseKeys(unitIn.nv_upgrade[0].stats),
             lowerCaseKeys(unitIn.nv_upgrade[1].stats),
@@ -252,14 +249,14 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
         data.fragmentId = Object.keys(unitIn.nv_upgrade[0].materials).filter(id => unitIn.nv_upgrade[0].materials[id] % 25 === 0)[0];
     }
     
-    data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, lbs, enhancementsByUnitId[unitId], maxRariry, unitData, data);
+    data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, lbs, enhancementsByUnitId[unitId], maxRarity, unitData, data);
     
     verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     
-    if ((maxRariry == 7 || maxRariry == 'NV') && unitIn.rarity_min != 'NV') {
+    if ((maxRarity == 7 || maxRarity == 'NV') && unitIn.rarity_min != 'NV') {
         data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, 6).data;
     }
-    if (maxRariry == 'NV' && unitIn.rarity_min != 'NV') {
+    if (maxRarity == 'NV' && unitIn.rarity_min != 'NV') {
         data["7_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, 7).data;
     }
     

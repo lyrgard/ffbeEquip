@@ -1,4 +1,5 @@
 import console from 'console'
+import { exit } from 'process';
 
 export var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 export var baseStats = ["hp","mp","atk","def","mag","spr"];
@@ -156,7 +157,7 @@ export const unitRoles = {
     "Support": "support",
     "Breaker": "debuffer",
     "Versatile": "versatile",
-    "EXP Boost": null,
+    "EXP Boost": "expBoost",
     "Sellable": null,
     "Fusion": null,
     "Stat Boost": null,
@@ -2925,7 +2926,9 @@ export function getUnitBasicInfo(unit, prefix = "", form = null) {
     if (unit.jpname) {
         result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname.replace(/"/g, '\\"').replace(/ - Brave Shifted/g, "") + (unit.braveShifted ? " BS" : '') + "\",";
     }
-    result += "\n" + prefix + "\t\t\"roles\":" + JSON.stringify(unit.roles) + ",";
+    if (unit.roles) {
+        result += "\n" + prefix + "\t\t\"roles\":" + JSON.stringify(unit.roles) + ",";
+    } 
     if (unit.wikiEntry) {
         result += "\n" + prefix + "\t\t\"wikiEntry\":\"" + unit.wikiEntry + "\",";
     }
