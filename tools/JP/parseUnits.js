@@ -181,7 +181,8 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
                 unitStats.maxStats[stat.toLowerCase()] = unitData["stats"][stat][1];
                 unitStats.pots[stat.toLowerCase()] = unitData["stats"][stat][2];
             }
-            data["stats_pattern"] = unitData.stat_pattern;
+
+            data["stat_pattern"] = entryId.stat_pattern;
             if (unitData.ability_slots != 4) {
                 data["materiaSlots"] = unitData.ability_slots;
             }
@@ -197,30 +198,27 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
             break;
         }
     }
-    if (!unitData) {
-        console.log(unitId)
-        console.log(maxRariry);
-        console.log(JSON.stringify(unitIn.entries));
-    }
+
     if (glNameById[unitId]) {
         data["name"] = glNameById[unitId];
         data["jpname"] = unitIn["name"];
     } else {
         data["name"] = unitIn["name"];    
     }
-    data.roles = unitIn["roles"].map(role => {
-        const mappedRole = commonParse.unitRoles[role];
-        if (!mappedRole) console.log('MISSING ROLE', role);
-        return mappedRole;
-    });
+
+    // if unitIn["roles"] is defined
+    if (unitIn["roles"]) {
+        data["roles"] = unitIn["roles"].map(role => {
+            const mappedRole = commonParse.unitRoles[role];
+            if (!mappedRole) console.log('MISSING ROLE', role);
+            return mappedRole;
+        });
+    }
 
     data["max_rarity"] = maxRariry;
     data["min_rarity"] = unitIn["rarity_min"];
 
     data["stats"] = unitStats;
-    if (!unitIn.sex) {
-        console.log(unitIn);
-    }
     data["sex"] = unitIn.sex.toLowerCase();
     data["equip"] = commonParse.getEquip(unitIn.equip); 
     data["id"] = unitId;
