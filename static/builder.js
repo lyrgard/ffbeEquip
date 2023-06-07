@@ -151,6 +151,9 @@ let fixItemList;
 let defaultMonsterAttackFormula = {"type":"*","value1":{"type":"constant","value":1},"value2":{"type":"skill","id":"0","name":"1x physical ATK damage","formulaName":"physicalDamage","value":{"type":"damage","value":{"mechanism":"physical","damageType":"body","coef":1}}}};
 let monsterAttackFormula;
 
+let percentageStat = false;
+let staticStat = false;
+
 function onBuildClick() {
     if (builds[currentUnitIndex] && builds[currentUnitIndex].unit.id === '777700004') {
         Modal.showMessage("Hum ?", "Are you saying you want me to help you build my foe? I'm afraid not! You're on your own there !");
@@ -2213,7 +2216,7 @@ function updateSearchResult() {
     });
 
     readItemsExcludeInclude();
-    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, onlyOwnedItems, searchStat.split('-')[0], baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], [], "", !excludeNotReleasedYetOption, true), builds[currentUnitIndex].unit.id));
+    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, onlyOwnedItems, searchStat.split('-')[0], baseStat, percentageStat, staticStats, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], [], "", !excludeNotReleasedYetOption, true), builds[currentUnitIndex].unit.id));
 
     if (searchStat == "") {
         $("#fixItemModal .results").addClass("notSorted");
@@ -2517,9 +2520,13 @@ function selectSearchStat(stat) {
     if (!stat) {
         searchStat = "";
         $("#fixItemModal .modal-header .stat .dropdown-toggle").addClass("img-sort-a-z");
+        staticStats = false;
+        percentageStat = false;
     } else {
         searchStat = stat;
-        $("#fixItemModal .modal-header .stat .dropdown-toggle").addClass("img-sort-" + stat.split('-')[0]);
+        let statToAdd = "img-sort-" + stat.split('-')[0];
+        $("#fixItemModal .modal-header .stat .dropdown-toggle").addClass(statToAdd);
+        staticStats = true;
     }
 }
 

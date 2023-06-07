@@ -1051,8 +1051,8 @@ class ItemFilter {
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnitId = null,
-                      types = [],elements = [], ailments = [], physicalKillers = [], magicalKillers = [], accessToRemove = [],
+function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, percentageStat = false, staticStats = false, searchText = "", selectedUnitId = null,
+                      types = [],elements = [], ailments = [], physicalKillers = [], magicalKillers = [],accessToRemove = [],
                       additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) {
     var filters = [];
     if (!showItemsWithoutStat && stat.length > 0) filters.push({type: 'stat', value: stat});
@@ -1102,7 +1102,7 @@ function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, search
             }
         }
     }*/
-    result.forEach(item => calculateValue(item, baseStat, stat, ailments, elements, killers));
+    result.forEach(item => calculateValue(item, baseStat, stat, percentageStat, staticStats, ailments, elements, killers));
     return result;
 };
 
