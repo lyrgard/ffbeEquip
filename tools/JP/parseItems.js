@@ -109,6 +109,7 @@ const visionCardStatPatterns = {
 
 const unitRules = {
     4008: (item) => item.exclusiveUnits = unitIdsByGameId[10007], // FF7 units
+    4039: (item) => item.exclusiveUnits = unitIdsByGameId[20035], // Legend of Mana
     7102: (item) => item.exclusiveSex = 'male',// Male units
     7103: (item) => item.exclusiveSex = 'female',// Female units,
     7110: (item) => item.exclusiveRoles = ['physicalAttacker'],

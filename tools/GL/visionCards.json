@@ -1480,7 +1480,7 @@
 	{"atk":104, "atk%":50, "mag":104, "mag%":50, "lbDamage":25},
 	{"atk":110, "atk%":50, "mag":110, "mag%":50, "lbDamage":25},
 	{"atk":117, "atk%":50, "mag":117, "mag%":50, "lbDamage":25},
-	{"atk":130, "atk%":50, "mag":130, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500,"mag":500}}]}
+	{"atk":130, "atk%":50, "mag":130, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500,"mag":500},"exclusiveUnits":["342000107","342000117","342000207","342000217","342000307","342000317","342000407","342000417"]}]}
 ]},
 {"id":"343000101", "name":"Advent of the Lord of Light", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_343000101.png", "sortId":99, "vc":["343000107"], "levels":[
 	{"atk":40, "mag":40},
