@@ -25355,7 +25355,7 @@
 	},
 	"312001007": {
 		"name":"Falco, maestro ninja",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Ninja_Master Hawkeye",
 		"id":"312001007",
 		"game_id":"20012",
@@ -25373,11 +25373,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["Shadow Slash","True Thunder Technique"]
+		"enhancementSkills":["Niccolo's Support","Shadow Slash","True Thunder Technique"]
 	},
 	"312001017": {
 		"name":"Falco, sombra siniestra BS",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","debuffer"],
 		"wikiEntry":"Nightblade_Hawkeye",
 		"id":"312001017",
 		"game_id":"20012",
@@ -25395,7 +25395,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor","visionCard"],
-		"enhancementSkills":["Shadow Slash","True Dark Rain"]
+		"enhancementSkills":["Niccolo's Support","Shadow Slash","True Dark Rain","True Weapon Smack"]
 	},
 	"316000103": {
 		"name":"Roddick",
@@ -27644,7 +27644,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Bird of Prey","Cross Strike (Elazul)"]
+		"enhancementSkills":["Bird of Prey","Cross Strike (Elazul)","Lapis Lazuli Iridescence"]
 	},
 	"342000117": {
 		"name":"Elazul BS",
@@ -27666,7 +27666,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Bird of Prey","Cross Strike (Elazul)"]
+		"enhancementSkills":["Bird of Prey","Cross Strike (Elazul)","Lapis Lazuli Iridescence"]
 	},
 	"342000207": {
 		"name":"Pearl",
@@ -27709,7 +27709,95 @@
 		},
 		"stats_pattern":4,
 		"equip":["hammer","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Blazing Hammer","Blammo"]
+		"enhancementSkills":["Jumi's Finest","Blazing Hammer","Blammo","Black Pearl Iridescence"]
+	},
+	"342000307": {
+		"name":"Shiloh",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Shiloh",
+		"id":"342000307",
+		"game_id":"20035",
+		"game":"Legend of Mana",
+		"braveShift":"342000317",
+		"exAwakening": [{"hp":687,"mp":48,"atk":78,"def":26,"mag":29,"spr":26},{"hp":529,"mp":37,"atk":60,"def":20,"mag":22,"spr":20},{"hp":370,"mp":26,"atk":42,"def":14,"mag":15,"spr":14}],
+		"fragmentId": "250017600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5286,"mp":370,"atk":300,"def":198,"mag":220,"spr":198},
+			"minStats":{"hp":1744,"mp":122,"atk":99,"def":65,"mag":73,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","staff","rod","bow","hammer","spear","harp","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Raging Pain","Salamander's Support","Sword Mastery"]
+	},
+	"342000317": {
+		"name":"Shiloh BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Shiloh",
+		"id":"342000317",
+		"game_id":"20035",
+		"game":"Legend of Mana",
+		"braveShifted":"342000307",
+		"exAwakening": [{"hp":687,"mp":48,"atk":78,"def":26,"mag":29,"spr":26},{"hp":529,"mp":37,"atk":60,"def":20,"mag":22,"spr":20},{"hp":370,"mp":26,"atk":42,"def":14,"mag":15,"spr":14}],
+		"fragmentId": "250017600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5286,"mp":370,"atk":300,"def":198,"mag":220,"spr":198},
+			"minStats":{"hp":1744,"mp":122,"atk":99,"def":65,"mag":73,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","staff","rod","bow","hammer","spear","harp","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Raging Pain","Salamander's Support","Sword Mastery"]
+	},
+	"342000407": {
+		"name":"Serafina",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Serafina",
+		"id":"342000407",
+		"game_id":"20035",
+		"game":"Legend of Mana",
+		"braveShift":"342000417",
+		"exAwakening": [{"hp":687,"mp":48,"atk":29,"def":26,"mag":78,"spr":26},{"hp":529,"mp":37,"atk":22,"def":20,"mag":60,"spr":20},{"hp":370,"mp":26,"atk":15,"def":14,"mag":42,"spr":14}],
+		"fragmentId": "250017700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5286,"mp":370,"atk":220,"def":198,"mag":300,"spr":198},
+			"minStats":{"hp":1744,"mp":122,"atk":73,"def":65,"mag":99,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","staff","rod","bow","hammer","spear","harp","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Holy Thunderbolt","Wisp's Support","Spear Mastery"]
+	},
+	"342000417": {
+		"name":"Serafina BS",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Serafina",
+		"id":"342000417",
+		"game_id":"20035",
+		"game":"Legend of Mana",
+		"braveShifted":"342000407",
+		"exAwakening": [{"hp":687,"mp":48,"atk":29,"def":26,"mag":78,"spr":26},{"hp":529,"mp":37,"atk":22,"def":20,"mag":60,"spr":20},{"hp":370,"mp":26,"atk":15,"def":14,"mag":42,"spr":14}],
+		"fragmentId": "250017700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5286,"mp":370,"atk":220,"def":198,"mag":300,"spr":198},
+			"minStats":{"hp":1744,"mp":122,"atk":73,"def":65,"mag":99,"spr":65},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","staff","rod","bow","hammer","spear","harp","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Holy Thunderbolt","Wisp's Support","Spear Mastery"]
 	},
 	"343000107": {
 		"name":"Señor de la Luz",
@@ -33327,10 +33415,6 @@
   "339000717":{"name":"ジェーダン BS","jpname":"ジェーダン BS","roles":["magicalAttacker"],"id":"339000717","game_id":"undefined","game":"undefined","braveShifted":"339000707","exAwakening":[{"hp":637,"mp":42,"atk":26,"def":22,"mag":82,"spr":29},{"hp":490,"mp":33,"atk":20,"def":17,"mag":63,"spr":22},{"hp":343,"mp":23,"atk":14,"def":12,"mag":44,"spr":16}],"fragmentId":"250020700","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4904,"mp":328,"atk":204,"def":169,"mag":315,"spr":222},"minStats":{"hp":1618,"mp":108,"atk":67,"def":56,"mag":104,"spr":73},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["gun","hat","clothes","lightArmor","visionCard"]},
   "339000807":{"name":"革命の旗手グラセラ","jpname":"革命の旗手グラセラ","roles":["physicalAttacker"],"id":"339000807","game_id":"undefined","game":"undefined","braveShift":"339000817","exAwakening":[{"hp":705,"mp":41,"atk":82,"def":28,"mag":21,"spr":29},{"hp":543,"mp":31,"atk":63,"def":22,"mag":16,"spr":23},{"hp":380,"mp":22,"atk":44,"def":15,"mag":11,"spr":16}],"fragmentId":"250020500","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5427,"mp":313,"atk":315,"def":218,"mag":164,"spr":227},"minStats":{"hp":1791,"mp":103,"atk":104,"def":72,"mag":54,"spr":75},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["spear","hat","clothes","lightArmor","visionCard"],"enhancementSkills":["ヴァルキリーランス・風","ヴァルキリーランス・水","銀狼の撃槍","槍の極意"]},
   "339000817":{"name":"革命の旗手グラセラ BS","jpname":"革命の旗手グラセラ BS","roles":["physicalAttacker"],"id":"339000817","game_id":"undefined","game":"undefined","braveShifted":"339000807","exAwakening":[{"hp":705,"mp":41,"atk":82,"def":28,"mag":21,"spr":29},{"hp":543,"mp":31,"atk":63,"def":22,"mag":16,"spr":23},{"hp":380,"mp":22,"atk":44,"def":15,"mag":11,"spr":16}],"fragmentId":"250020500","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5427,"mp":313,"atk":315,"def":218,"mag":164,"spr":227},"minStats":{"hp":1791,"mp":103,"atk":104,"def":72,"mag":54,"spr":75},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["spear","hat","clothes","lightArmor","visionCard"]},
-  "342000307":{"name":"シャイロ","jpname":"シャイロ","roles":["physicalAttacker"],"id":"342000307","game_id":"undefined","game":"undefined","braveShift":"342000317","exAwakening":[{"hp":687,"mp":48,"atk":78,"def":26,"mag":29,"spr":26},{"hp":529,"mp":37,"atk":60,"def":20,"mag":22,"spr":20},{"hp":370,"mp":26,"atk":42,"def":14,"mag":15,"spr":14}],"fragmentId":"250017600","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5286,"mp":370,"atk":300,"def":198,"mag":220,"spr":198},"minStats":{"hp":1744,"mp":122,"atk":99,"def":65,"mag":73,"spr":65},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","staff","rod","bow","hammer","spear","harp","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["レイジングペイン","サラマンダーの援護","剣の極意"]},
-  "342000317":{"name":"シャイロ BS","jpname":"シャイロ BS","roles":["physicalAttacker"],"id":"342000317","game_id":"undefined","game":"undefined","braveShifted":"342000307","exAwakening":[{"hp":687,"mp":48,"atk":78,"def":26,"mag":29,"spr":26},{"hp":529,"mp":37,"atk":60,"def":20,"mag":22,"spr":20},{"hp":370,"mp":26,"atk":42,"def":14,"mag":15,"spr":14}],"fragmentId":"250017600","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5286,"mp":370,"atk":300,"def":198,"mag":220,"spr":198},"minStats":{"hp":1744,"mp":122,"atk":99,"def":65,"mag":73,"spr":65},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","staff","rod","bow","hammer","spear","harp","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]},
-  "342000407":{"name":"セラフィナ","jpname":"セラフィナ","roles":["magicalAttacker"],"id":"342000407","game_id":"undefined","game":"undefined","braveShift":"342000417","exAwakening":[{"hp":687,"mp":48,"atk":29,"def":26,"mag":78,"spr":26},{"hp":529,"mp":37,"atk":22,"def":20,"mag":60,"spr":20},{"hp":370,"mp":26,"atk":15,"def":14,"mag":42,"spr":14}],"fragmentId":"250017700","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5286,"mp":370,"atk":220,"def":198,"mag":300,"spr":198},"minStats":{"hp":1744,"mp":122,"atk":73,"def":65,"mag":99,"spr":65},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","staff","rod","bow","hammer","spear","harp","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["ホーリーボルト","ウィル・オ・ウィスプの援護","槍の極意"]},
-  "342000417":{"name":"セラフィナ BS","jpname":"セラフィナ BS","roles":["magicalAttacker"],"id":"342000417","game_id":"undefined","game":"undefined","braveShifted":"342000407","exAwakening":[{"hp":687,"mp":48,"atk":29,"def":26,"mag":78,"spr":26},{"hp":529,"mp":37,"atk":22,"def":20,"mag":60,"spr":20},{"hp":370,"mp":26,"atk":15,"def":14,"mag":42,"spr":14}],"fragmentId":"250017700","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5286,"mp":370,"atk":220,"def":198,"mag":300,"spr":198},"minStats":{"hp":1744,"mp":122,"atk":73,"def":65,"mag":99,"spr":65},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","staff","rod","bow","hammer","spear","harp","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]},
   "344000807":{"name":"伝説の勇者アバン","jpname":"伝説の勇者アバン","roles":["debuffer"],"id":"344000807","game_id":"undefined","game":"undefined","braveShift":"344000817","exAwakening":[{"hp":677,"mp":42,"atk":75,"def":22,"mag":36,"spr":35},{"hp":521,"mp":32,"atk":58,"def":17,"mag":28,"spr":27},{"hp":364,"mp":23,"atk":41,"def":12,"mag":19,"spr":19}],"fragmentId":"250023200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5205,"mp":322,"atk":290,"def":171,"mag":276,"spr":269},"minStats":{"hp":1718,"mp":106,"atk":96,"def":56,"mag":91,"spr":89},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","spear","throwing","gun","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["この場は私にまかせて下さい","力なき正義もまた無力なのですよ","大地斬","海波斬","剣の極意"]},
   "344000817":{"name":"伝説の勇者アバン BS","jpname":"伝説の勇者アバン BS","roles":["debuffer"],"id":"344000817","game_id":"undefined","game":"undefined","braveShifted":"344000807","exAwakening":[{"hp":677,"mp":42,"atk":75,"def":22,"mag":36,"spr":35},{"hp":521,"mp":32,"atk":58,"def":17,"mag":28,"spr":27},{"hp":364,"mp":23,"atk":41,"def":12,"mag":19,"spr":19}],"fragmentId":"250023200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5205,"mp":322,"atk":290,"def":171,"mag":276,"spr":269},"minStats":{"hp":1718,"mp":106,"atk":96,"def":56,"mag":91,"spr":89},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","spear","throwing","gun","hat","clothes","lightArmor","robe","visionCard"]},
   "344000907":{"name":"魂の継承者ヒム","jpname":"魂の継承者ヒム","roles":["physicalAttacker"],"id":"344000907","game_id":"undefined","game":"undefined","braveShift":"344000917","exAwakening":[{"hp":679,"mp":43,"atk":82,"def":37,"mag":25,"spr":32},{"hp":523,"mp":33,"atk":63,"def":29,"mag":19,"spr":25},{"hp":366,"mp":23,"atk":44,"def":20,"mag":13,"spr":17}],"fragmentId":"250023300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5227,"mp":329,"atk":315,"def":288,"mag":191,"spr":247},"minStats":{"hp":1725,"mp":109,"atk":104,"def":95,"mag":63,"spr":82},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["fist","helm","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["高速格闘・光","高速格闘・火","兵士の突撃","格闘の極意"]},
