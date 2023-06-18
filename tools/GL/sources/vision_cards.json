@@ -5056,7 +5056,7 @@
         }
     },
     "254000201": {
-        "name": "あなたの言　まずは聞きましょう",
+        "name": "Now Unto Me, Your Innocence You Must Prove",
         "compendium_id": 169,
         "compendium_shown": true,
         "rarity": 1,
@@ -5087,10 +5087,10 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "０組の前に立ちふさがった蒼龍最強の戦士ホシヒメ。０組がコンコルディア女王の仇であるという誤解をとくために、デュースは命を懸けて身の潔白を証明する。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "あなたの言　まずは聞きましょう",
-            "music": "♪寂しき心",
+            "desc": "Celestia, the strongest warrior in Concordia, impedes Class Zero's path. With the students wrongly suspected of murdering the queen of Concordia, Deuce risks her life to prove Class Zero's innocence.",
+            "info": "Celestia, the strongest warrior in Concordia, impedes Class Zero's path. With the students wrongly suspected of murdering the queen of Concordia, Deuce risks her life to prove Class Zero's innocence.",
+            "shop": "Now Unto Me, Your Innocence You Must Prove",
+            "music": "The Forlorn Heart",
             "music_id": "4001205"
         }
     },
@@ -8453,6 +8453,45 @@
             "shop": "The Cost of Power",
             "music": "Sacred Ground",
             "music_id": "400319"
+        }
+    },
+    "401006601": {
+        "name": "An Unforgettable Smile",
+        "compendium_id": 9065,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 90009,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [750, 1500, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [60, 110, 0, 0],
+            "DEF": [60, 110, 0, 0],
+            "MAG": [60, 110, 0, 0],
+            "SPR": [60, 110, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [917245],
+            "7": [917246],
+            "10": [917247]
+        },
+        "restriction": {
+            "917247": [9505]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "With wonderful dance skills and never-ending positivity, the beautiful Addison charms everyone in her path.<br>It is rumored that, even before her arrival, she had fans in Ardra who somehow followed her exploits, but the truth of this will likely remain a mystery.",
+            "info": "With wonderful dance skills and never-ending positivity, the beautiful Addison charms everyone in her path.<br>It is rumored that, even before her arrival, she had fans in Ardra who somehow followed her exploits, but the truth of this will likely remain a mystery.",
+            "shop": "An Unforgettable Smile",
+            "music": "Chill Out",
+            "music_id": "400337"
         }
     },
     "401006701": {

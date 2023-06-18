@@ -3843,7 +3843,7 @@
         "name": "Cut Cards",
         "compendium_id": 491,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [254000105]],
+        "requirements": ["UNIT_ID", [254000105, 254001505, 254002307, 254002317]],
         "skills": [203220],
         "effects": ["Grant 'Cut Cards' ability"],
         "unique": false,
@@ -4854,8 +4854,8 @@
         "icon": "ability_77.png",
         "strings": {
             "names": ["Persistence", "執著之力", "집착하는 힘", "Persévérance", "Bestehen", "Perseverancia", "Kegigihan", "ความแน่วแน่\u001a"],
-            "desc_short": ["Boost DEF and SPR by 20%", "提高20%防禦精神", "방어력과 정신력 20% 상승", "Augmente la DEF et la PSY de 20%", "Erhöht ABW und PSY um 20%", "Aumenta la DEF y el ESP un 20%", "Meningkatkan DEF dan SPR sebanyak 20%", "เพิ่มค่า\u001a \u001aDEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a20%"],
-            "desc_long": ["Boosts DEF and SPR by 20%.", "提高20%防禦精神。", "방어력과 정신력이 20% 상승합니다.", "Augmente la DEF et la PSY de 20%", "Erhöht ABW und PSY um 20%.", "Aumenta la DEF y el ESP un 20%", "Meningkatkan DEF dan SPR sebanyak 20%.", "เพิ่มค่า\u001a \u001aDEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a20%"]
+            "desc_short": ["Boost MP by 30% and DEF and SPR by 40%", "提高30%MP、40%防禦精神", "MP 30%, 방어력과 정신력 40% 상승", "Augmente les PM de 30 % et la DEF et la PSY de 40 %", "Erhöht MP um 30% und ABW sowie PSY um 40%.", "Aumenta los PM un 30% y la DEF y el ESP un 40%", "Meningkatkan MP sebanyak 30%, serta DEF dan SPR sebanyak 40%", "เพิ่มค่า\u001a \u001aMP\u001a \u001a30% + เพิ่มค่า DEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a40%"],
+            "desc_long": ["Boosts MP by 30% and DEF and SPR by 40%.", "提高30%MP、40%防禦精神。", "MP가 30%, 방어력과 정신력이 40% 상승합니다.", "Augmente les PM de 30 % et la DEF et la PSY de 40 %", "Erhöht MP um 30% sowie ABW und PSY um 40%.", "Aumenta los PM un 30% y la DEF y el ESP un 40%.", "Meningkatkan MP sebanyak 30%, serta DEF dan SPR sebanyak 40%.", "เพิ่มค่า\u001a \u001aMP\u001a \u001a30% + เพิ่มค่า DEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a40%"]
         }
     },
     "504206840": {
@@ -17153,8 +17153,8 @@
         "icon": "ability_9.png",
         "strings": {
             "names": ["Elem-Def Junction", "屬性防禦接續", "속성 방어 정션", "Déf-Élé-A", "EL-Abwehr-Kopplung", "Enlace defensa ELM", "Elem-Def Junction", "Elem-Def\u001a \u001aJunction\u001a"],
-            "desc_short": ["Boost fire, ice, lightning, water, wind, earth, light, and dark resistance by 25%", "提高25%火冰雷水風土光暗屬性耐性", "불, 얼음, 번개, 물, 바람, 땅, 빛, 어둠속성 저항력 25% 상승", "Augmente la résistance au feu, à la glace, à la foudre, à l'eau, au vent, à la terre, à la lumière et aux ténèbres de 25 %", "Erhöht Feuer-, Eis-, Blitz-, Wasser-, Wind-, Erd-, Licht- und Dunkelresistenz um 25%.", "Aumenta la resistencia a fuego, hielo, rayo, agua, viento, tierra, luz y oscuridad un 25%", "Meningkatkan resistansi api, es, petir, air, angin, tanah, cahaya, dan kegelapan sebanyak 25%", "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำแข็ง\u001a,\u001a \u001aสายฟ้า\u001a,\u001a \u001aน้ำ\u001a,\u001a \u001aลม\u001a,\u001a \u001aแสง\u001a \u001aและ\u001aมืด\u001a \u001a25%"],
-            "desc_long": ["Boosts fire, ice, lightning, water, wind, earth, light, and dark resistance by 25%.", "提高25%火冰雷水風土光暗屬性耐性。", "불, 얼음, 번개, 물, 바람, 땅, 빛, 어둠속성 저항력이 25% 상승합니다.", "Augmente la résistance au feu, à la glace, à la foudre, à l'eau, au vent, à la terre, à la lumière et aux ténèbres de 25 %.", "Erhöht Feuer-, Eis-, Blitz-, Wasser-, Wind-, Erd-, Licht- und Dunkelresistenz um 25%.", "Aumenta la resistencia a fuego, hielo, rayo, agua, viento, tierra, luz y oscuridad un 25%.", "Meningkatkan resistansi api, es, petir, air, angin, tanah, cahaya, dan kegelapan sebanyak 25%.", "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำแข็ง\u001a,\u001a \u001aสายฟ้า\u001a,\u001a \u001aน้ำ\u001a,\u001a \u001aลม\u001a,\u001a \u001aแสง\u001a \u001aและ\u001aมืด\u001a \u001a25%"]
+            "desc_short": ["Boost fire, ice, lightning, water, wind, earth, light, and dark resistance by 25%", "提高25%火冰雷水風土光暗屬性耐性", "불, 얼음, 번개, 물, 바람, 땅, 빛, 어둠속성 저항력 25% 상승", "Augmente la résistance au feu, à la glace, à la foudre, à l'eau, au vent, à la terre, à la lumière et aux ténèbres de 25 %", "Erhöht Feuer-, Eis-, Blitz-, Wasser-, Wind-, Erd-, Licht- und Dunkelresistenz um 25%.", "Aumenta la resistencia a fuego, hielo, rayo, agua, viento, tierra, luz y oscuridad un 25%", "Meningkatkan resistansi api, es, petir, air, angin, tanah, cahaya, dan kegelapan sebanyak 25%", "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำแข็ง\u001a,\u001a \u001aสายฟ้า\u001a,\u001a \u001aน้ำ\u001a,\u001a \u001aลม\u001a,\u001a \u001aดิน\u001a,\u001a \u001aแสง\u001a \u001aและ\u001aมืด\u001a \u001a25%"],
+            "desc_long": ["Boosts fire, ice, lightning, water, wind, earth, light, and dark resistance by 25%.", "提高25%火冰雷水風土光暗屬性耐性。", "불, 얼음, 번개, 물, 바람, 땅, 빛, 어둠속성 저항력이 25% 상승합니다.", "Augmente la résistance au feu, à la glace, à la foudre, à l'eau, au vent, à la terre, à la lumière et aux ténèbres de 25 %.", "Erhöht Feuer-, Eis-, Blitz-, Wasser-, Wind-, Erd-, Licht- und Dunkelresistenz um 25%.", "Aumenta la resistencia a fuego, hielo, rayo, agua, viento, tierra, luz y oscuridad un 25%.", "Meningkatkan resistansi api, es, petir, air, angin, tanah, cahaya, dan kegelapan sebanyak 25%.", "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำแข็ง\u001a,\u001a \u001aสายฟ้า\u001a,\u001a \u001aน้ำ\u001a,\u001a \u001aลม\u001a,\u001a \u001aดิน\u001a,\u001a \u001aแสง\u001a \u001aและ\u001aมืด\u001a \u001a25%"]
         }
     },
     "504234755": {
@@ -28261,7 +28261,7 @@
         "requirements": null,
         "skills": [244340],
         "effects": ["Grant 'Samantha Soul' passive"],
-        "unique": false,
+        "unique": true,
         "price_buy": 50000,
         "price_sell": 5000,
         "icon": "ability_77.png",
@@ -28278,7 +28278,7 @@
         "requirements": null,
         "skills": [244341],
         "effects": ["Grant 'Samantha Soul I' passive"],
-        "unique": false,
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_77.png",
@@ -28295,7 +28295,7 @@
         "requirements": null,
         "skills": [244342],
         "effects": ["Grant 'Samantha Soul II' passive"],
-        "unique": false,
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_77.png",
@@ -28312,7 +28312,7 @@
         "requirements": null,
         "skills": [244343],
         "effects": ["Grant 'Samantha Soul III' passive"],
-        "unique": false,
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_77.png",
@@ -28375,37 +28375,73 @@
         }
     },
     "504244375": {
-        "name": "聡明なカード使い",
+        "name": "Sagacious Wild Card",
         "compendium_id": 1535,
         "compendium_shown": true,
         "requirements": null,
         "skills": [244375],
-        "effects": ["Grant '聡明なカード使い' passive"],
-        "unique": false,
+        "effects": ["Grant 'Sagacious Wild Card' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Sagacious Wild Card", "聰慧的卡片戰士", "총명한 카드술사", "Cartomancien sagace", "Scharfsinniger Kartendealer", "Crupier sagaz", "Pengguna Kartu yang Pintar", "มือ\u001aไพ่\u001aหลักแหลม\u001a"],
+            "desc_short": [
+                "Boost MAG by 50%, and boost physical and magic damage against demons by 50% (Not stackable)",
+                "提高50%魔力+物理、魔法攻擊時提高50%對惡魔系魔物的傷害[無法重複裝備]",
+                "마력 50% 상승+물리, 마법 공격 시 악마형 마물에게 부여하는 피해량 50% 상승(중복 장착 불가)",
+                "Augmente la MAGIE de 50 % et augmente les dégâts physiques et magiques infligés aux démons de 50 % (non cumulable)",
+                "Erhöht MAG um 50% und erhöht physischen sowie magischen Schaden gegen Dämonen um 50% (nicht stapelbar).",
+                "Aumenta la MAG un 50% y el daño físico y mágico contra demonios un 50% (no acumulable)",
+                "Meningkatkan MAG sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis demon sebanyak 50% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts MAG by 50%, and boosts physical and magic damage against demons by 50%. Not stackable.",
+                "提高50%魔力，以及物理、魔法攻擊時提高50%對惡魔系魔物的傷害。[無法重複裝備]",
+                "마력이 50% 상승하고, 물리, 마법 공격 시 악마형 마물에게 부여하는 피해량이 50% 상승합니다.(중복 장착 불가)",
+                "Augmente la MAGIE de 50 % et augmente les dégâts physiques et magiques infligés aux démons de 50 %. Non cumulable.",
+                "Erhöht MAG um 50% und erhöht physischen sowie magischen Schaden gegen Dämonen um 50%. Nicht stapelbar.",
+                "Aumenta la MAG un 50% y el daño físico y mágico contra demonios un 50%. No acumulable.",
+                "Meningkatkan MAG sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis demon sebanyak 50%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aMAG\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aปีศาจ\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504244378": {
-        "name": "心優しき演奏者",
+        "name": "Kindhearted Flutist",
         "compendium_id": 1536,
         "compendium_shown": true,
         "requirements": null,
         "skills": [244378],
-        "effects": ["Grant '心優しき演奏者' passive"],
-        "unique": false,
+        "effects": ["Grant 'Kindhearted Flutist' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_9.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Kindhearted Flutist", "心地善良的演奏者", "마음씨 착한 연주자", "Flûtiste au cœur tendre", "Gutherzige Flötistin", "Flautista amable", "Pemain Seruling yang Baik", "นัก\u001aเป่า\u001aฟลุต\u001aใจ\u001aอ่อนโยน\u001a"],
+            "desc_short": [
+                "Boost fire, ice, lightning, and water resistance by 20%, and boost parameters when setting an esper by 200% (Not stackable)",
+                "提高20%火冰雷水屬性耐性+提高200%設定幻獸時反映在兵員身上的狀態數值[無法重複裝備]",
+                "불, 얼음, 번개, 물속성 저항력 20% 상승+환수 장착 시 반영되는 능력치 200% 상승(중복 장착 불가)",
+                "Augmente la résistance au feu, à la glace, à la foudre et à l'eau de 20 %, et augmente les caractéristiques lorsqu'une chimère est attribuée de 200 % (non cumulable)",
+                "Erhöht Feuer-, Eis-, Blitz- sowie Wasserresistenz um 20% und erhöht Werte beim Festlegen eines Espers um 200% (nicht stapelbar).",
+                "Aumenta la resistencia a fuego, hielo, rayo y agua un 20%, y los parámetros un 200% al vincular un esper (no acumulable)",
+                "Meningkatkan resistansi api, es, petir, dan air sebanyak 20%, serta parameter sebanyak 200% ketika esper dipasang (Tidak dapat ditumpuk)",
+                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำแข็ง\u001a,\u001a \u001aสายฟ้า\u001aและ\u001aน้ำ\u001a \u001a20% + เพิ่มค่าสเตตัสเมื่อทำการติดตั้ง Esper\u001a \u001a200% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts fire, ice, lightning, and water resistance by 20%, and boosts parameters when setting an esper by 200%. Not stackable.",
+                "提高20%火冰雷水屬性耐性，並且提高200%設定幻獸時反映在兵員身上的狀態數值。[無法重複裝備]",
+                "불, 얼음, 번개, 물속성 저항력이 20% 상승하고, 환수 장착 시 반영되는 능력치가 200% 상승합니다.(중복 장착 불가)",
+                "Augmente la résistance au feu, à la glace, à la foudre et à l'eau de 20 %, et augmente les caractéristiques lorsqu'une chimère est attribuée de 200 %. Non cumulable.",
+                "Erhöht Feuer-, Eis-, Blitz- sowie Wasserresistenz um 20% und erhöht Werte beim Festlegen eines Espers um 200%. Nicht stapelbar.",
+                "Aumenta la resistencia a fuego, hielo, rayo y agua un 20%, y los parámetros un 200% al vincular un esper. No acumulable.",
+                "Meningkatkan resistansi api, es, petir, dan air sebanyak 20%, serta parameter sebanyak 200% ketika esper dipasang. Tidak dapat ditumpuk.",
+                "เพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a,\u001a \u001aน้ำแข็ง\u001a,\u001a \u001aสายฟ้า\u001aและ\u001aน้ำ\u001a \u001a20% + เพิ่มค่าสเตตัสเมื่อทำการติดตั้ง Esper\u001a \u001a200% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
         }
     },
     "504244447": {
@@ -35258,6 +35294,23 @@
                 "Meningkatkan ATK dan MAG sebanyak 25%, serta meningkatkan damage fisik dan magic terhadap jenis manusia dan demon sebanyak 50%. Tidak dapat ditumpuk.",
                 "เพิ่มค่า\u001a \u001aATK\u001a \u001aและ\u001a \u001aMAG\u001a \u001a25% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมนุษย์\u001aและ\u001aปีศาจ\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
+        }
+    },
+    "1500000226": {
+        "name": "Groove Inspiria",
+        "compendium_id": 90227,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [917248],
+        "effects": ["Grant 'Groove Inspiria' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": ["Groove Inspiria", "旋味鼓舞", "그루브 인스파이어", "Inspiration rythmique", "Groove Inspiria", "Inspiración rítmica", "Groove Inspiria", "Groove\u001a \u001aInspiria\u001a"],
+            "desc_short": ["Boost DEF and SPR by 30%, and 10% chance of evading some physical attacks", "提高30%防禦精神+10%機率閃避部分物理攻擊", "방어력과 정신력 30% 상승+10% 확률로 일부 물리 공격 회피", "Augmente la DEF et la PSY de 30 %, et confère 10 % de chances d'esquiver certaines attaques physiques", "Erhöht ABW sowie PSY um 30% und 10% Chance, einigen physischen Angriffen auszuweichen.", "Aumenta la DEF y el ESP un 30%, y 10% de probabilidad de evadir algunos ataques físicos", "Meningkatkan DEF dan SPR sebanyak 30%, serta meningkatkan peluang untuk menghindari beberapa serangan fisik sebanyak 10%", "เพิ่มค่า\u001a \u001aDEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% \u001a+\u001a \u001aมีโอกาส\u001aหลบ\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001aบางส่วน\u001a \u001a10%"],
+            "desc_long": ["Boosts DEF and SPR by 30%, and 10% chance of evading some physical attacks.", "提高30%防禦精神，並且10%機率閃避部分物理攻擊。", "방어력과 정신력이 30% 상승하고, 10% 확률로 일부 물리 공격을 회피합니다.", "Augmente la DEF et la PSY de 30 %, et confère 10 % de chances d'esquiver certaines attaques physiques.", "Erhöht ABW sowie PSY um 30% und 10% Chance, einigen physischen Angriffen auszuweichen.", "Aumenta la DEF y el ESP un 30%, y 10% de probabilidad de evadir algunos ataques físicos.", "Meningkatkan DEF dan SPR sebanyak 30%, serta meningkatkan peluang untuk menghindari beberapa serangan fisik sebanyak 10%", "เพิ่มค่า\u001a \u001aDEF\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% \u001a+\u001a \u001aมีโอกาส\u001aหลบ\u001aการ\u001aโจมตี\u001aทางกายภาพ\u001aบางส่วน\u001a \u001a10%"]
         }
     },
     "1500000227": {
