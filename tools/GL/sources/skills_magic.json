@@ -5478,6 +5478,32 @@
         "effects_raw": [[2, 2, 95, [100,  0,  0,  0,  0,  0,  0,  0,  5,  1]], [2, 2, 149, [0, [45,  0,  0,  0,  0,  0,  0,  0], 1, 5, 1]], [2, 2, 149, [1, [45,  0,  0,  0,  0,  0,  0,  0], 1, 5, 1]]],
         "requirements": null
     },
+    "30732": {
+        "name": "Enblizzaja",
+        "icon": "ability_22.png",
+        "compendium_id": 317,
+        "rarity": 9,
+        "cost": {"MP": 100},
+        "magic_type": "Green",
+        "is_sealable": true,
+        "is_reflectable": false,
+        "in_exploration": false,
+        "attack_count": [0],
+        "attack_damage": [[]],
+        "attack_frames": [[]],
+        "effect_frames": [[40,  40,  40,  40,  40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": ["Ice"],
+        "effects": [
+            ["Add Ice element (100%) to physical attacks for 5 turns to all allies"],
+            ["Increase Ice physical damage by 45% to all allies for 5 turns"],
+            ["Increase Ice magic damage by 45% to all allies for 5 turns"]
+        ],
+        "effects_raw": [[2, 2, 95, [0,  100,  0,  0,  0,  0,  0,  0,  5,  1]], [2, 2, 149, [0, [0,  45,  0,  0,  0,  0,  0,  0], 1, 5, 1]], [2, 2, 149, [1, [0,  45,  0,  0,  0,  0,  0,  0], 1, 5, 1]]],
+        "requirements": null
+    },
     "30740": {
         "name": "Barrier",
         "icon": "ability_43.png",

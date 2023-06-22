@@ -2043,7 +2043,7 @@
         "price_sell": 800,
         "icon": "ability_79.png",
         "strings": {
-            "names": ["Undead Killer", "驅靈", "언데드 킬러", "Tue-morts-vivants", "Weihrauch", "Matazombis", "Pembantai Zombie", "Undead\u001a \u001aKiller\u001a"],
+            "names": ["Undead Killer", "驅靈", "언데드 킬러", "Tue-morts-vivants", "Untotenkiller", "Matazombis", "Pembantai Zombie", "Undead\u001a \u001aKiller\u001a"],
             "desc_short": [
                 "Boost physical damage against reaper monsters (Not stackable)",
                 "物理攻擊時提高對死靈系的傷害[無法重複裝備]",
@@ -4156,13 +4156,13 @@
                 "Consume caster's HP to damage all enemies (Queen only)",
                 "消耗自身的HP對全體敵人發動攻擊[葵因專用]",
                 "자신의 HP를 소비하여 적 전체에 피해 (퀸 전용)",
-                "Consume les PV du lanceur pour infliger des dégâts à tous les ennemis (Pour Queen uniquement)",
+                "Consomme les PV du lanceur pour infliger des dégâts à tous les ennemis (Pour Queen uniquement)",
                 "Verbraucht LP des Benutzers, um allen Gegnern Schaden zuzufügen (nur Queen).",
                 "Daña a enemigos usando VIT propia (exclusiva de Queen)",
                 "Menggunakan HP diri sendiri untuk memberikan damage pada semua musuh (Khusus Queen)",
                 "ใช้\u001aค่า\u001a \u001aHP\u001a \u001aของ\u001aตัวเอง\u001aไป\u001aสร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a \u001a(\u001aสำหรับ\u001a \u001aQueen\u001a \u001aใช้\u001aเท่านั้น\u001a)\u001a"
             ],
-            "desc_long": ["Consumes caster's HP to deal damage to all enemies. Queen only.", "消耗自身的HP來對全體敵人發動攻擊。【葵因專用】", "자신의 HP를 소비하여 적 전체에 피해를 줍니다. (퀸 전용)", "Consume les PV du lanceur pour infliger des dégâts à tous les ennemis. (Pour Queen uniquement)", "Benutzer verbraucht LP, um allen Gegnern Schaden zuzufügen (nur Queen).", "Daña a enemigos usando VIT propia (exclusiva de Queen)", "Menggunakan HP diri sendiri untuk memberikan damage pada semua musuh. Khusus Queen.", "ใช้\u001aค่า\u001a \u001aHP\u001a \u001aของ\u001aตัวเอง\u001aไป\u001aสร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a \u001a(\u001aสำหรับ\u001a \u001aQueen\u001a \u001aใช้\u001aเท่านั้น\u001a)\u001a"]
+            "desc_long": ["Consumes caster's HP to deal damage to all enemies. Queen only.", "消耗自身的HP來對全體敵人發動攻擊。【葵因專用】", "자신의 HP를 소비하여 적 전체에 피해를 줍니다. (퀸 전용)", "Consomme les PV du lanceur pour infliger des dégâts à tous les ennemis. (Pour Queen uniquement)", "Benutzer verbraucht LP, um allen Gegnern Schaden zuzufügen (nur Queen).", "Daña a enemigos usando VIT propia (exclusiva de Queen)", "Menggunakan HP diri sendiri untuk memberikan damage pada semua musuh. Khusus Queen.", "ใช้\u001aค่า\u001a \u001aHP\u001a \u001aของ\u001aตัวเอง\u001aไป\u001aสร้าง\u001aความเสียหาย\u001aแก่\u001aศัตรู\u001aทุกราย\u001a \u001a(\u001aสำหรับ\u001a \u001aQueen\u001a \u001aใช้\u001aเท่านั้น\u001a)\u001a"]
         }
     },
     "504204300": {
@@ -4776,7 +4776,7 @@
         "name": "Siphon Delta",
         "compendium_id": 554,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [254000905]],
+        "requirements": ["UNIT_ID", [254000905, 254001605, 254001627]],
         "skills": [206650],
         "effects": ["Grant 'Siphon Delta' ability"],
         "unique": false,
@@ -7402,7 +7402,7 @@
         "price_sell": 3000,
         "icon": "ability_79.png",
         "strings": {
-            "names": ["Bird Killer+", "射鳥改", "개량형 새 킬러", "Tue-oiseaux +", "Papageno+", "Matapájaros+", "Pembantai Burung+", "Bird\u001a \u001aKiller\u001a+\u001a"],
+            "names": ["Bird Killer+", "射鳥改", "개량형 새 킬러", "Tue-oiseaux +", "Papageno +", "Matapájaros+", "Pembantai Burung+", "Bird\u001a \u001aKiller\u001a+\u001a"],
             "desc_short": [
                 "Boost physical and magic damage against avian monsters by 75% (Not stackable)",
                 "物理、魔法攻擊時提高75%對鳥系魔物的傷害[無法重複裝備]",
@@ -15049,7 +15049,7 @@
             "names": ["Originator of the Final Summoning", "究極召喚傳承者", "궁극 소환의 전승자", "Mère de l'Ultime Invocation", "Überbringerin der Hohen Beschwörung", "Madre de la invocación suprema", "Pelopor Summon Terakhir", "ผู้\u001aก่อกำเนิด\u001aการ\u001aซัม\u001aม่อน\u001aขั้นสุดท้าย\u001a"],
             "desc_short": [
                 "Boost MAG by 60%, parameters of espers evoked and parameters when setting an esper by 40%, and evocation damage (Not stackable)",
-                "提高60%魔力+提高40%發動召喚魔法時的幻獸狀態、設定幻獸時反映在兵員身上的狀態數值+提高召喚魔法的威力[無法重複裝備]",
+                "提高60%魔力+發動召喚魔法時提高40%幻獸狀態+提高40%設定幻獸時反映在兵員身上的狀態數值+提高召喚魔法的威力[無法重複裝備]",
                 "마력 60% 상승+소환마법 사용 시 환수 능력치와 환수 장착 시 반영되는 능력치 40% 상승+소환마법 사용 시 피해량 상승 (중복 장착 불가)",
                 "Augmente la MAGIE de 60 %, les caractéristiques des chimères appelées et les caractéristiques quand une chimère est attribuée de 40 %, et les dégâts d'appel de chimère (Non cumulable)",
                 "Erhöht MAG um 60%, erhöht Werte gerufener Esper, Werte beim Festlegen eines Espers um 40% und Rufen-Schaden (Nicht stapelbar).",
@@ -15059,7 +15059,7 @@
             ],
             "desc_long": [
                 "Boosts MAG by 60%, parameters of espers evoked and parameters when setting an esper by 40%, and evocation damage. Not stackable.",
-                "提高60%魔力，提高40%發動召喚魔法時的幻獸狀態、設定幻獸時反映在兵員身上的狀態數值，提高召喚魔法的威力。[無法重複裝備]",
+                "提高60%魔力，發動召喚魔法時提高40%幻獸狀態，並且提高40%設定幻獸時反映在兵員身上的狀態數值，以及提高召喚魔法的威力。[無法重複裝備]",
                 "마력이 60% 상승하고, 소환마법 사용 시 환수 능력치와 환수 장착 시 반영되는 능력치가 40% 상승하며, 소환마법 사용 시 피해량이 상승합니다. (중복 장착 불가)",
                 "Augmente la MAGIE de 60 %, les caractéristiques des chimères appelées et les caractéristiques quand une chimère est attribuée de 40 %, et les dégâts d'appel de chimère. Non cumulable",
                 "Erhöht MAG um 60%, erhöht Werte gerufener Esper, Werte beim Festlegen eines Espers um 40% und Rufen-Schaden. Nicht stapelbar.",
@@ -15116,8 +15116,8 @@
         "icon": "ability_77.png",
         "strings": {
             "names": ["Knowledge of Aeons", "召喚心得", "소환의 마음가짐", "Savoir des chimères", "Wissen der Bestia", "Sabiduría de los eones", "Pengetahuan Tentang Aeon", "ภูมิปัญญา\u001aแห่ง\u001a \u001aAeon\u001a"],
-            "desc_short": ["Boost MP and SPR by 10%, and parameters of espers evoked and parameters when setting an esper by 30%", "提高10%MP精神+提高30%發動召喚魔法時的幻獸狀態、設定幻獸時反映在兵員身上的狀態數值", "MP와 정신력 10% 상승+소환마법 사용 시 환수 능력치와 환수 장착 시 반영되는 능력치 30% 상승", "Augmente les PM et la PSY de 10 %, les caractéristiques des chimères appelées et les caractéristiques quand une chimère est attribuée de 30 %", "Erhöht MP und PSY um 10%, Werte gerufener Esper und Werte beim Festlegen eines Espers um 30%.", "Aumenta los PM y el ESP un 10%, y los parámetros de los espers evocados y los parámetros al vincular un esper un 30%", "Meningkatkan MP dan SPR sebanyak 10%, serta parameter esper yang dipanggil dan parameter sebanyak 30% ketika esper dipasang", "เพิ่ม\u001a \u001aMP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a10% + เพิ่มสเตตัสของ Esper\u001a \u001aที่\u001aถูก\u001aเรียก\u001aมา\u001a \u001aและ\u001aเพิ่ม\u001aสเตตัส\u001aเมื่อ\u001aติดตั้ง\u001a \u001aEsper\u001a \u001a30%"],
-            "desc_long": ["Boosts MP and SPR by 10%, and parameters of espers evoked and parameters when setting an esper by 30%.", "提高10%MP精神，提高30%發動召喚魔法時的幻獸狀態、設定幻獸時反映在兵員身上的狀態數值。", "MP와 정신력이 10% 상승하고, 소환마법 사용 시 환수 능력치와 환수 장착 시 반영되는 능력치가 30% 상승합니다.", "Augmente les PM et la PSY de 10 %, les caractéristiques des chimères appelées et les caractéristiques quand une chimère est attribuée de 30 %", "Erhöht MP und PSY um 10%, erhöht Werte gerufener Esper und Werte beim Festlegen eines Espers um 30%.", "Aumenta los PM y el ESP un 10%, y los parámetros de los espers evocados y los parámetros al vincular un esper un 30%.", "Meningkatkan MP dan SPR sebanyak 10%, serta parameter esper yang dipanggil dan parameter sebanyak 30% ketika esper dipasang.", "เพิ่ม\u001a \u001aMP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a10% + เพิ่มสเตตัสของ Esper\u001a \u001aที่\u001aถูก\u001aเรียก\u001aมา\u001a \u001aและ\u001aเพิ่ม\u001aสเตตัส\u001aเมื่อ\u001aติดตั้ง\u001a \u001aEsper\u001a \u001a30%"]
+            "desc_short": ["Boost MP and SPR by 10%, and parameters of espers evoked and parameters when setting an esper by 30%", "提高10%MP精神+發動召喚魔法時提高30%幻獸狀態+提高30%設定幻獸時反映在兵員身上的狀態數值", "MP와 정신력 10% 상승+소환마법 사용 시 환수 능력치와 환수 장착 시 반영되는 능력치 30% 상승", "Augmente les PM et la PSY de 10 %, les caractéristiques des chimères appelées et les caractéristiques quand une chimère est attribuée de 30 %", "Erhöht MP und PSY um 10%, Werte gerufener Esper und Werte beim Festlegen eines Espers um 30%.", "Aumenta los PM y el ESP un 10%, y los parámetros de los espers evocados y los parámetros al vincular un esper un 30%", "Meningkatkan MP dan SPR sebanyak 10%, serta parameter esper yang dipanggil dan parameter sebanyak 30% ketika esper dipasang", "เพิ่ม\u001a \u001aMP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a10% + เพิ่มสเตตัสของ Esper\u001a \u001aที่\u001aถูก\u001aเรียก\u001aมา\u001a \u001aและ\u001aเพิ่ม\u001aสเตตัส\u001aเมื่อ\u001aติดตั้ง\u001a \u001aEsper\u001a \u001a30%"],
+            "desc_long": ["Boosts MP and SPR by 10%, and parameters of espers evoked and parameters when setting an esper by 30%.", "提高10%MP精神，發動召喚魔法時提高30%幻獸狀態，並且提高30%設定幻獸時反映在兵員身上的狀態數值。", "MP와 정신력이 10% 상승하고, 소환마법 사용 시 환수 능력치와 환수 장착 시 반영되는 능력치가 30% 상승합니다.", "Augmente les PM et la PSY de 10 %, les caractéristiques des chimères appelées et les caractéristiques quand une chimère est attribuée de 30 %", "Erhöht MP und PSY um 10%, erhöht Werte gerufener Esper und Werte beim Festlegen eines Espers um 30%.", "Aumenta los PM y el ESP un 10%, y los parámetros de los espers evocados y los parámetros al vincular un esper un 30%.", "Meningkatkan MP dan SPR sebanyak 10%, serta parameter esper yang dipanggil dan parameter sebanyak 30% ketika esper dipasang.", "เพิ่ม\u001a \u001aMP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a10% + เพิ่มสเตตัสของ Esper\u001a \u001aที่\u001aถูก\u001aเรียก\u001aมา\u001a \u001aและ\u001aเพิ่ม\u001aสเตตัส\u001aเมื่อ\u001aติดตั้ง\u001a \u001aEsper\u001a \u001a30%"]
         }
     },
     "504232790": {
@@ -17209,20 +17209,20 @@
         }
     },
     "504234842": {
-        "name": "Knowing Tag",
+        "name": "Benevolent Heart",
         "compendium_id": 1107,
         "compendium_shown": true,
         "requirements": null,
         "skills": [234842],
-        "effects": ["Grant 'Knowing Tag' passive"],
+        "effects": ["Grant 'Benevolent Heart' passive"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_72.png",
         "strings": {
-            "names": ["Knowing Tag", "知之標籤", "노잉 태그", "Plaque d'identité", "Kennungsmarke", "Memento", "Tanda Identitas", "Knowing\u001a \u001aTag\u001a"],
-            "desc_short": ["Boost HP by 10%, MAG and SPR by 30%, potency of healing items used in battle, and equipment MAG when armed with two one-handed weapons", "提高10%HP、30%魔力精神+戰鬥中提升恢復道具的恢復量+裝備2把單手武器時武具魔力提升", "HP 10%, 마력과 정신력 30% 상승+전투 중에만 회복 아이템 회복량 상승+한손용 무기 2개 장착 시 장비의 마력 상승", "Augmente les PV de 10 %, la MAGIE et la PSY de 30 %, augmente l'efficacité des objets de soin en combat, et augmente la MAGIE de l'équipement quand deux armes à une main sont équipées", "Erhöht LP um 10%, MAG und PSY um 30%, Wirksamkeit von Heilgegenständen im Kampf und Ausrüstung-MAG, wenn mit zwei einhändigen Waffen ausgerüstet.", "Aumenta la VIT un 10%, la MAG y el ESP un 30%, y el efecto de los objetos curativos en combate, y aumenta la MAG del equipo al llevar dos armas de una sola mano", "Meningkatkan HP sebanyak 10%, dan MAG dan SPR sebanyak 30%, meningkatkan daya pemulihan item yang digunakan dalam battle, dan meningkatkan MAG perlengkapan ketika 2 senjata satu tangan digunakan", "เพิ่มค่า\u001a \u001aHP\u001a \u001a10% และ MAG\u001a,\u001a \u001aSPR\u001a \u001a30% + เพิ่มประสิทธิภาพไอเทมฟื้นฟูที่ใช้ระหว่างการต่อสู้ + เพิ่มค่า MAG\u001a \u001aของ\u001aอาวุธ\u001aเมื่อ\u001aถือ\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a"],
-            "desc_long": ["Boosts HP by 10%, MAG and SPR by 30%, potency of healing items used in battle, and equipment MAG when armed with two one-handed weapons.", "提高10%HP、30%魔力精神，並且戰鬥中提升恢復道具的恢復量，以及裝備2把單手武器時武具魔力提升。", "HP가 10%, 마력과 정신력이 30% 상승하고, 전투 중에만 회복 아이템 회복량이 상승하며, 한손용 무기 2개 장착 시 장비의 마력이 상승합니다.", "Augmente les PV de 10 % ainsi que la MAGIE et la PSY de 30 %, augmente l'efficacité des objets de soin utilisés en combat et augmente la MAGIE de l'équipement quand deux armes à une main sont équipées.", "Erhöht LP um 10%, MAG und PSY um 30%, Wirksamkeit von Heilgegenständen im Kampf und Ausrüstung-MAG, wenn mit zwei einhändigen Waffen ausgerüstet.", "Aumenta la VIT un 10%, la MAG y el ESP un 30%, y el efecto de los objetos curativos en combate, y aumenta la MAG del equipo al llevar dos armas de una sola mano.", "Meningkatkan HP sebanyak 10%, dan MAG dan SPR sebanyak 30%, meningkatkan daya pemulihan item yang digunakan dalam battle, dan meningkatkan MAG perlengkapan ketika 2 senjata satu tangan digunakan.", "เพิ่มค่า\u001a \u001aHP\u001a \u001a10% และ MAG\u001a,\u001a \u001aSPR\u001a \u001a30% + เพิ่มประสิทธิภาพไอเทมฟื้นฟูที่ใช้ระหว่างการต่อสู้ + เพิ่มค่า MAG\u001a \u001aของ\u001aอาวุธ\u001aเมื่อ\u001aถือ\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a"]
+            "names": ["Benevolent Heart", "慈愛之心", "자애의 마음", "Cœur bienfaisant", "Wohlwollendes Herz", "Corazón bondadoso", "Hati yang Baik", "ใจ\u001aกรุณา\u001a"],
+            "desc_short": ["Boost HP by 10% and MAG and SPR by 30%, boost potency of healing items used in battle by 200%, and boost equipment MAG by 50% when armed with two one-handed weapons", "提高10%HP、30%魔力精神+戰鬥中提升200%恢復道具的恢復量+裝備2把單手武器時武具魔力提升50%", "HP 10%, 마력과 정신력 30% 상승+전투 중에만 회복 아이템 회복량 200% 상승+한손용 무기 2개 장착 시 장비의 마력 50% 상승", "Augmente les PV de 10 % et la MAGIE et la PSY de 30 %, augmente les effets des objets de soin utilisés en combat de 200 %, et augmente la MAGIE de l'équipement de 50 % quand deux armes à une main sont équipées", "Erhöht LP um 10%, MAG sowie PSY um 30%, die Wirksamkeit von Heilgegenständen im Kampf um 200% und Ausrüstung-MAG um 50%, wenn mit zwei Einhandwaffen ausgerüstet.", "Aumenta la VIT un 10%, la MAG y el ESP un 30% y la potencia de objetos curativos en combate un 200%, y la MAG del equipo un 50% al llevar 2 armas de una sola mano", "Meningkatkan HP sebanyak 10%, dan MAG dan SPR sebanyak 30%, meningkatkan daya pemulihan item yang digunakan dalam battle sebanyak 200%, dan meningkatkan MAG perlengkapan sebanyak 50% ketika 2 senjata satu tangan digunakan", "เพิ่มค่า\u001a \u001aHP\u001a \u001a10% และค่า MAG\u001a,\u001a \u001aSPR\u001a \u001a30% + เพิ่มอานุภาพของ<br>ไอเทมฟื้นฟูที่ใช้ในการต่อสู้ 200% + เพิ่มค่า MAG\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a50% \u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a"],
+            "desc_long": ["Boosts HP by 10% and MAG and SPR by 30%, boosts potency of healing items used in battle by 200%, and boosts equipment MAG by 50% when armed with two one-handed weapons.", "提高10%HP、30%魔力精神，並且戰鬥中提升200%恢復道具的恢復量，以及裝備2把單手武器時武具魔力提升50%。", "HP가 10%, 마력과 정신력이 30% 상승하고, 전투 중에만 회복 아이템 회복량이 200% 상승하며, 한손용 무기 2개 장착 시 장비의 마력이 50% 상승합니다.", "Augmente les PV de 10 % et la MAGIE et la PSY de 30 %, augmente les effets des objets de soin utilisés en combat de 200 %, et augmente la MAGIE de l'équipement de 50 % quand deux armes à une main sont équipées", "Erhöht LP um 10%, MAG sowie PSY um 30%, die Wirksamkeit von Heilgegenständen im Kampf um 200% und Ausrüstung-MAG um 50%, wenn mit zwei Einhandwaffen ausgerüstet.", "Aumenta la VIT un 10%, la MAG y el ESP un 30% y la potencia de objetos curativos en combate un 200%, y la MAG del equipo un 50% al llevar 2 armas de una sola mano.", "Meningkatkan HP sebanyak 10%, dan MAG dan SPR sebanyak 30%, meningkatkan daya pemulihan item yang digunakan dalam battle sebanyak 200%, dan meningkatkan MAG perlengkapan sebanyak 50% ketika 2 senjata satu tangan digunakan.", "เพิ่มค่า\u001a \u001aHP\u001a \u001a10% และค่า MAG\u001a,\u001a \u001aSPR\u001a \u001a30% + เพิ่มอานุภาพของ<br>ไอเทมฟื้นฟูที่ใช้ในการต่อสู้ 200% + เพิ่มค่า MAG\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a50% \u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a"]
         }
     },
     "504234846": {
