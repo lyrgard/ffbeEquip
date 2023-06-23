@@ -987,6 +987,18 @@
 	{"atk":108, "spr":108, "oneWeaponMastery":{"atk":50,"spr":50}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]},
 	{"atk":120, "spr":120, "oneWeaponMastery":{"atk":50,"spr":50}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "conditional":[{"staticStats":{"atk":500,"spr":500}}]}
 ]},
+{"id":"204000601", "name":"リディアの勇気", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_204000601.png", "sortId":198, "levels":[
+	{"mag":65, "spr":65},
+	{"mag":71, "spr":71},
+	{"mag":78, "spr":78},
+	{"atk%":30, "def%":30, "mag":84, "mag%":30, "spr":84, "spr%":30},
+	{"atk%":30, "def%":30, "mag":91, "mag%":30, "spr":91, "spr%":30},
+	{"atk%":30, "def%":30, "mag":97, "mag%":30, "spr":97, "spr%":30},
+	{"atk%":30, "def%":30, "mag":104, "mag%":30, "spr":104, "spr%":30, "conditional":[{"staticStats":{"spr":500}}]},
+	{"atk%":30, "def%":30, "mag":110, "mag%":30, "spr":110, "spr%":30, "conditional":[{"staticStats":{"spr":500}}]},
+	{"atk%":30, "def%":30, "mag":117, "mag%":30, "spr":117, "spr%":30, "conditional":[{"staticStats":{"spr":500}}]},
+	{"atk%":30, "def%":30, "mag":130, "mag%":30, "spr":130, "spr%":30, "conditional":[{"staticStats":{"spr":500}},{"staticStats":{"mag":500}}]}
+]},
 {"id":"205000101", "name":"Syldra! Come Up and Say Hello!", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000101.png", "sortId":41, "levels":[
 	{"atk":35, "mag":50},
 	{"atk":38, "mag":54},
@@ -1047,6 +1059,18 @@
 	{"atk":90, "atk%":50, "conditional":[{"killers":[{"name":"human","physical":100,"magical":100}],"exclusiveRoles":["debuffer"]}]},
 	{"atk":100, "atk%":50, "conditional":[{"killers":[{"name":"human","physical":100,"magical":100}],"exclusiveRoles":["debuffer"]},{"lbDamage":100,"exclusiveRoles":["debuffer"]}]}
 ]},
+{"id":"205000701", "name":"VSウイングラプター", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_205000701.png", "sortId":195, "levels":[
+	{"atk":55, "mag":55},
+	{"atk":60, "mag":60},
+	{"atk":66, "mag":66},
+	{"atk":71, "atk%":50, "mag":71, "mag%":50},
+	{"atk":77, "atk%":50, "mag":77, "mag%":50},
+	{"atk":82, "atk%":50, "mag":82, "mag%":50},
+	{"atk":88, "atk%":50, "mag":88, "mag%":50, "lbDamage":50},
+	{"atk":93, "atk%":50, "mag":93, "mag%":50, "lbDamage":50},
+	{"atk":99, "atk%":50, "mag":99, "mag%":50, "lbDamage":50},
+	{"atk":110, "atk%":50, "mag":110, "mag%":50, "lbDamage":50, "conditional":[{"staticStats":{"atk":500,"mag":500}}]}
+]},
 {"id":"206000101", "name":"Search for the Esper", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000101.png", "sortId":26, "levels":[
 	{"mag":50},
 	{"mag":55},
@@ -1094,6 +1118,21 @@
 	{"atk":110, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}},
 	{"atk":117, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}},
 	{"atk":130, "atk%":50, "singleWielding":{"atk":50,"accuracy":25}, "conditional":[{"staticStats":{"atk":500}}]}
+]},
+{"id":"206000501", "name":"オルトロス再び", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000501.png", "sortId":194, "levels":[
+	{"atk":170, "mag":170, "conditional":[{"atk%":80,"mag%":80},{"lbDamage":100},{"staticStats":{"atk":650,"mag":650}}]}
+]},
+{"id":"206000601", "name":"仲間を求めて", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_206000601.png", "sortId":197, "levels":[
+	{"atk":65, "spr":65},
+	{"atk":71, "spr":71},
+	{"atk":78, "spr":78},
+	{"atk":84, "atk%":30, "def%":30, "mag%":30, "spr":84, "spr%":30},
+	{"atk":91, "atk%":30, "def%":30, "mag%":30, "spr":91, "spr%":30},
+	{"atk":97, "atk%":30, "def%":30, "mag%":30, "spr":97, "spr%":30},
+	{"atk":104, "atk%":30, "def%":30, "mag%":30, "spr":104, "spr%":30, "conditional":[{"staticStats":{"spr":500}}]},
+	{"atk":110, "atk%":30, "def%":30, "mag%":30, "spr":110, "spr%":30, "conditional":[{"staticStats":{"spr":500}}]},
+	{"atk":117, "atk%":30, "def%":30, "mag%":30, "spr":117, "spr%":30, "conditional":[{"staticStats":{"spr":500}}]},
+	{"atk":130, "atk%":30, "def%":30, "mag%":30, "spr":130, "spr%":30, "conditional":[{"staticStats":{"spr":500}},{"staticStats":{"atk":500}}]}
 ]},
 {"id":"207000101", "name":"Mad Dash", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_207000101.png", "sortId":1, "levels":[
 	{"atk":40},
@@ -1212,10 +1251,10 @@
 	{"atk":90, "atk%":50, "lbDamage":25},
 	{"atk":100, "atk%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":500}}]}
 ]},
-{"id":"208000301", "name":"スコールVSサイファー", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_208000301.png", "sortId":165, "levels":[
+{"id":"208000301", "name":"Squall versus Seifer", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_208000301.png", "sortId":165, "levels":[
 	{"atk":170, "mag":170, "conditional":[{"atk%":80,"mag%":80},{"lbDamage":100},{"staticStats":{"atk":500,"mag":500}}]}
 ]},
-{"id":"208000401", "name":"危機一髪", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_208000401.png", "sortId":166, "levels":[
+{"id":"208000401", "name":"The Nick of Time", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_208000401.png", "sortId":166, "levels":[
 	{"mag":65},
 	{"mag":71},
 	{"mag":78},
@@ -1530,7 +1569,7 @@
 	{"atk":90, "atk%":50, "mag":90, "mag%":50, "lbDamage":25},
 	{"atk":100, "atk%":50, "mag":100, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
 ]},
-{"id":"254000201", "name":"あなたの言　まずは聞きましょう", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_254000201.png", "sortId":169, "levels":[
+{"id":"254000201", "name":"Now Unto Me, Your Innocence You Must Prove", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_254000201.png", "sortId":169, "levels":[
 	{"mag":65},
 	{"mag":71},
 	{"mag":78},
@@ -1710,7 +1749,7 @@
 	{"atk":90, "def":90, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25},
 	{"atk":100, "def":100, "killers":[{"name":"stone","physical":50,"magical":50}], "lbDamage":25, "conditional":[{"staticStats":{"atk":300,"def":300,"mag":300,"spr":300}}]}
 ]},
-{"id":"342000201", "name":"珠魅の存亡をかけた冒険", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_342000201.png", "sortId":164, "levels":[
+{"id":"342000201", "name":"Saving the Jumi", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_342000201.png", "sortId":164, "levels":[
 	{"atk":65, "mag":65},
 	{"atk":71, "mag":71},
 	{"atk":78, "mag":78},
@@ -1880,6 +1919,9 @@
 ]},
 {"id":"347000101", "name":"ドラゴンの島", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_347000101.png", "sortId":183, "levels":[
 	{"atk":110, "atk%":30, "def":110, "def%":30, "mag":110, "mag%":30, "spr":110, "spr%":30, "lbPerTurn":{"min":4,"max":4}, "lbDamage":50}
+]},
+{"id":"348000101", "name":"Engage Kill", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_348000101.png", "sortId":196, "levels":[
+	{"hp":1000, "hp%":30, "mp%":30, "atk":110, "atk%":30, "mag":110, "mag%":30, "lbDamage":50}
 ]},
 {"id":"401000101", "name":"Virtual Training", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_401000101.png", "sortId":48, "levels":[
 	{"spr":50},
