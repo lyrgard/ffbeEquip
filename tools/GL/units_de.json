@@ -33561,6 +33561,94 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","bow","harp","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["Sorcerous Shuffle","Fascinating Twirl"]
+	},
+	"401014807": {
+		"name":"Unvergänglicher Glanz Elena",
+		"roles":["magicalAttacker","magicalTank"],
+		"wikiEntry":"Eternal_Radiance Elena",
+		"id":"401014807",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401014817",
+		"exAwakening": [{"hp":728,"mp":42,"atk":27,"def":34,"mag":28,"spr":86},{"hp":560,"mp":32,"atk":21,"def":26,"mag":22,"spr":66},{"hp":392,"mp":22,"atk":15,"def":18,"mag":15,"spr":46}],
+		"fragmentId": "310001070",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5600,"mp":320,"atk":211,"def":260,"mag":217,"spr":330},
+			"minStats":{"hp":1848,"mp":106,"atk":70,"def":86,"mag":72,"spr":109},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Pollux's Blade","Shellga","Protectga","Sanctuary of the Azure Crystal"]
+	},
+	"401014817": {
+		"name":"Unvergänglicher Glanz Elena BS",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Eternal_Radiance Elena",
+		"id":"401014817",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401014807",
+		"exAwakening": [{"hp":728,"mp":42,"atk":27,"def":34,"mag":28,"spr":86},{"hp":560,"mp":32,"atk":21,"def":26,"mag":22,"spr":66},{"hp":392,"mp":22,"atk":15,"def":18,"mag":15,"spr":46}],
+		"fragmentId": "310001070",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4831,"mp":417,"atk":211,"def":250,"mag":217,"spr":332},
+			"minStats":{"hp":1594,"mp":138,"atk":70,"def":83,"mag":72,"spr":110},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["greatSword","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Pollux's Blade","Judgment of Betelgeuse"]
+	},
+	"401014907": {
+		"name":"Richt",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Richt",
+		"id":"401014907",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401014917",
+		"exAwakening": [{"hp":696,"mp":40,"atk":87,"def":36,"mag":17,"spr":30},{"hp":535,"mp":31,"atk":67,"def":28,"mag":13,"spr":23},{"hp":374,"mp":22,"atk":47,"def":19,"mag":9,"spr":16}],
+		"fragmentId": "310001080",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5350,"mp":310,"atk":335,"def":275,"mag":130,"spr":230},
+			"minStats":{"hp":1766,"mp":102,"atk":111,"def":91,"mag":43,"spr":76},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Warrior of the Light Crystal","Light from Within"]
+	},
+	"401014917": {
+		"name":"Richt BS",
+		"roles":["physicalAttacker","debuffer"],
+		"wikiEntry":"Richt",
+		"id":"401014917",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401014907",
+		"exAwakening": [{"hp":696,"mp":40,"atk":87,"def":36,"mag":17,"spr":30},{"hp":535,"mp":31,"atk":67,"def":28,"mag":13,"spr":23},{"hp":374,"mp":22,"atk":47,"def":19,"mag":9,"spr":16}],
+		"fragmentId": "310001080",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5250,"mp":300,"atk":335,"def":295,"mag":130,"spr":245},
+			"minStats":{"hp":1733,"mp":99,"atk":111,"def":97,"mag":43,"spr":81},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Radiant Protection","Warrior of the Light Crystal"]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker","support"],"id":"100000115","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"]},
