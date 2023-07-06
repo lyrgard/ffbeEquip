@@ -5717,7 +5717,7 @@
                 "裝備重盾時提高防禦+裝備重鎧甲時提高攻擊 [無法重複裝備]",
                 "중방패 장착 시 방어력 상승+중갑 장착 시 공격력 상승 (중복 장착 불가)",
                 "Augmente la DEF lorsqu'un bouclier lourd est équipé et l'ATT lorsqu'une armure lourde est équipée (non cumulable)",
-                "ABW hoch, wenn mit schwerem Schild ausgerüstet und ANG, wenn mit schwerer Rüstung. (Nicht stapelbar)",
+                "Erhöht ABW, wenn mit schwerem Schild ausgerüstet und ANG, wenn mit schwerer Rüstung ausgerüstet (nicht stapelbar).",
                 "Aumenta la DEF al llevar escudo pesado y el ataque al llevar armadura pesada (no acumulable)",
                 "Meningkatkan DEF ketika perisai kelas berat digunakan dan meningkatkan ATK ketika armor kelas berat digunakan (Tidak dapat ditumpuk)",
                 "เพิ่มค่า\u001a \u001aDEF\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aโล่\u001aหนัก\u001aหรือ\u001aชุด\u001aเกราะ\u001aหนัก\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aได้\u001a)\u001a"
@@ -10089,7 +10089,7 @@
                 "雙手只裝備1把武器時提高攻擊+裝備長槍時提高攻擊[無法重複裝備]",
                 "양손의 장비가 무기 1개일 경우 장비의 공격력 상승+창 장착 시 공격력 상승 (중복 장착 불가)",
                 "Augmente l'ATT de l'équipement lorsqu'une arme est tenue avec les deux mains et augmente l'ATT lorsqu'une lance est équipée (non cumulable)",
-                "Erhöht Ausrüstung-ANG, wenn eine einzelne Waffe in beiden Händen ausgerüstet ist und erhöht ANG wenn mit einem Speer ausgerüstet (Nicht stapelbar).",
+                "Erhöht Ausrüstung-ANG, wenn eine einzige Waffe in beiden Händen ausgerüstet ist und erhöht ANG, wenn mit einem Speer ausgerüstet (nicht stapelbar).",
                 "Aumenta el ATQ del equipo al llevar una sola arma en las dos manos y aumenta el ATQ al llevar lanza (no acumulable)",
                 "Meningkatkan ATK perlengkapan ketika 1 senjata digunakan dengan kedua tangan, dan meningkatkan ATK ketika tombak digunakan (Tidak dapat ditumpuk)",
                 "เพิ่มค่า\u001a \u001aATK\u001a \u001aของ\u001aอุปกรณ์\u001a \u001aเมื่อ\u001aใช้\u001aสอง\u001aมือถือ\u001aอาวุธ\u001aชิ้น\u001aเดียว\u001a \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aATK\u001a \u001aเมื่อ\u001aยู\u001aนิ\u001aท\u001aถือ\u001aหอก\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
@@ -28463,16 +28463,51 @@
         }
     },
     "504244447": {
-        "name": "ユニルシオンの秘剣技",
+        "name": "Secret Sword Arts of Unilucion",
         "compendium_id": 1537,
         "compendium_shown": true,
         "requirements": null,
         "skills": [244447],
-        "effects": ["Grant 'ユニルシオンの秘剣技' passive"],
-        "unique": false,
+        "effects": ["Grant 'Secret Sword Arts of Unilucion' passive"],
+        "unique": true,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_6000200.png",
+        "strings": {
+            "names": ["Secret Sword Arts of Unilucion", "尤尼爾西昂秘劍技", "유닐시온의 숨겨진 검술", "Arts secrets de l'épée d'Unilucion", "Geheime Schwertkunst von Unilucion", "Esgrima secreta de Unilucion", "Teknik Pedang Rahasia Unilucion", "วิชา\u001aดาบ\u001aลับ\u001aแห่ง\u001a \u001aUnilucion\u001a"],
+            "desc_short": [
+                "Boost LB damage by 50%, and boost equipment ATK and SPR by 50% when a single weapon is equipped in one or both hands (Not stackable)",
+                "提高50%極限技的傷害+只裝備1把武器時武具攻擊精神提升50%[無法重複裝備]",
+                "LB 피해량 50% 상승+한손 또는 양손에 무기 1개 장착 시 장비의 공격력과 정신력 50% 상승(중복 장착 불가)",
+                "Augmente les dégâts de la limite de 50 % et augmente l'ATT et la PSY de l'équipement de 50 % quand une seule arme est équipée dans une ou les deux mains (non cumulable)",
+                "Erhöht Schaden durch Limitrausch um 50% und erhöht Ausrüstung-ANG sowie -PSY um 50%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist (nicht stapelbar).",
+                "Aumenta el daño del EL un 50%, y el ATQ y el ESP del equipo un 50% al llevar una sola arma en una o ambas manos (no acumulable)",
+                "Meningkatkan damage LB sebanyak 50%, serta meningkatkan ATK dan SPR perlengkapan sebanyak 50% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a50% + เพิ่มค่า ATK\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a50% \u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aมือ\u001aเดียว\u001aหรือ\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts LB damage by 50%, and boosts equipment ATK and SPR by 50% when a single weapon is equipped in one or both hands. Not stackable.",
+                "提高50%極限技的傷害，以及只裝備1把武器時武具攻擊精神提升50%。[無法重複裝備]",
+                "LB 피해량이 50% 상승하고, 한손 또는 양손에 무기 1개 장착 시 장비의 공격력과 정신력이 50% 상승합니다.(중복 장착 불가)",
+                "Augmente les dégâts de la limite de 50 % et augmente l'ATT et la PSY de l'équipement de 50 % quand une seule arme est équipée dans une ou les deux mains. Non cumulable.",
+                "Erhöht Schaden durch Limitrausch um 50% und erhöht Ausrüstung-ANG sowie -PSY um 50%, wenn eine einzelne Waffe in einer oder beiden Händen ausgerüstet ist. Nicht stapelbar.",
+                "Aumenta el daño del EL un 50%, y el ATQ y el ESP del equipo un 50% al llevar una sola arma en una o ambas manos. No acumulable.",
+                "Meningkatkan damage limit burst sebanyak 50%, serta meningkatkan ATK dan SPR perlengkapan sebanyak 50% ketika 1 senjata digunakan dengan satu tangan atau kedua tangan. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a50% + เพิ่มค่า ATK\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a50% \u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001a \u001a1\u001a \u001aชิ้น\u001aใน\u001aมือ\u001aเดียว\u001aหรือ\u001aสอง\u001aมือ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
+        }
+    },
+    "504244490": {
+        "name": "食にかける執念",
+        "compendium_id": 1540,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244490],
+        "effects": ["Grant '食にかける執念' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
         "strings": {
             "names": [null, null, null, null, null, null, null, null],
             "desc_short": [null, null, null, null, null, null, null, null],
