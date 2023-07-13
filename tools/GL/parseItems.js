@@ -205,6 +205,7 @@ const unitRules = {
     7402: (item) => item.exclusiveUnits = ["100039407"],
     7601: (item) => item.max7StarUnit = true, // not implemented yet. Only for unit max 7*
     7908: (item) => item.exclusiveUnits = unitIdsByGameId[10008], // FF8 units
+    7909: (item) => item.exclusiveUnits = unitIdsByGameId[10011], // FF11 units
     7933: (item) => item.exclusiveUnits = unitIdsByGameId[11003], // FF type Zero Tag units
     7907: (item, nvFlag) => item.exclusiveUnits = (unitIdsByGameId[11012] || []).concat(unitIdsByGameId[10007] || [] ), // FFBE units
     9501: (item) => item.exclusiveUnits = unitIdsByGameId[11001].concat(unitIdsByGameId[11010]), // FFBE & WOTV units
