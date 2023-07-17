@@ -2284,6 +2284,8 @@ function displayFixItemModal(slot) {
     $("#fixItemModal").show();
     if (!builds[currentUnitIndex].unit) {
         Modal.showMessage("No unit selected", "Please select an unit");
+        // hide #fixItemModal
+        $("#fixItemModal").hide();
         return;
     }
 
@@ -2291,6 +2293,7 @@ function displayFixItemModal(slot) {
     builds[currentUnitIndex].prepareEquipable(slot);
     if (builds[currentUnitIndex].equipable[slot].length == 0) {
         Modal.showMessage("Equipment error", "Nothing can be added at this slot");
+        $("#fixItemModal").hide();
         return;
     }
     currentItemSlot = slot;
