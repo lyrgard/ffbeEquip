@@ -46735,6 +46735,66 @@
 			{"hp":3000, "atk":1000, "chainMastery":100, "exLevelCondition":2},
 			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "exLevelCondition":2}
 		]
+	},
+	"401015007": {
+		"name":"Malphasie, ailes de la nuit",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Wings_of Midnight Malphasie",
+		"id":"401015007",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401015017",
+		"exAwakening": [{"hp":650,"mp":46,"atk":17,"def":27,"mag":83,"spr":31},{"hp":500,"mp":35,"atk":13,"def":21,"mag":64,"spr":24},{"hp":350,"mp":24,"atk":9,"def":14,"mag":45,"spr":16}],
+		"fragmentId": "310001090",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":350,"atk":130,"def":205,"mag":320,"spr":235},
+			"minStats":{"hp":1650,"mp":116,"atk":43,"def":68,"mag":106,"spr":78},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","fist","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Darkra","Darkga","Aerora","Aeroga","Aeroja","Tornado","Gale Force","Swift Divebomb"],
+		"enhancements": [
+			{"name":"Gale Force","levels":[[{"mag":500,"skillEnhancement":{"20120":120,"20240":120,"20330":120,"20390":120,"20460":120,"20470":120,"70170":120,"70180":120,"70440":120,"70441":120,"70479":120,"70481":120,"70486":120,"70487":120,"70488":120,"70511":120,"70512":120,"70513":120,"70517":120,"70518":120,"70519":120,"70520":120,"70521":120,"70522":120},"equipedConditions":[["1500000231","1100000761","401007301"]]}],[{"mag":500,"skillEnhancement":{"20120":140,"20240":140,"20330":140,"20390":140,"20460":140,"20470":140,"70170":140,"70180":140,"70440":140,"70441":140,"70479":140,"70481":140,"70486":140,"70487":140,"70488":140,"70511":140,"70512":140,"70513":140,"70517":140,"70518":140,"70519":140,"70520":140,"70521":140,"70522":140},"equipedConditions":[["1500000231","1100000761","401007301"]]}],[{"mag":500,"skillEnhancement":{"20120":160,"20240":160,"20330":160,"20390":160,"20460":160,"20470":160,"70170":160,"70180":160,"70440":160,"70441":160,"70479":160,"70481":160,"70486":160,"70487":160,"70488":160,"70511":160,"70512":160,"70513":160,"70517":160,"70518":160,"70519":160,"70520":160,"70521":160,"70522":160},"equipedConditions":[["1500000231","1100000761","401007301"]]}],[{"mag":500,"skillEnhancement":{"20120":180,"20240":180,"20330":180,"20390":180,"20460":180,"20470":180,"70170":180,"70180":180,"70440":180,"70441":180,"70479":180,"70481":180,"70486":180,"70487":180,"70488":180,"70511":180,"70512":180,"70513":180,"70517":180,"70518":180,"70519":180,"70520":180,"70521":180,"70522":180},"equipedConditions":[["1500000231","1100000761","401007301"]]}],[{"mag":500,"skillEnhancement":{"20120":200,"20240":200,"20330":200,"20390":200,"20460":200,"20470":200,"70170":200,"70180":200,"70440":200,"70441":200,"70479":200,"70481":200,"70486":200,"70487":200,"70488":200,"70511":200,"70512":200,"70513":200,"70517":200,"70518":200,"70519":200,"70520":200,"70521":200,"70522":200},"equipedConditions":[["1500000231","1100000761","401007301"]]}]]}
+		],
+		"skills": [
+			{"mp%":100, "mag%":200, "spr%":100, "dualWielding":{"mag":200}, "improvedDW":true, "resist":[{"name":"charm","percent":100},{"name":"wind","percent":80},{"name":"dark","percent":80},{"name":"blind","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200}], "mpRefresh":15, "lbDamage":100, "special":["dualWield"]},
+			{"mag":500, "evade":{"physical":50,"magical":50}, "exLevelCondition":2},
+			{"mag":500, "mag%":100, "spr":500, "dualWielding":{"mag":100}, "exLevelCondition":3}
+		]
+	},
+	"401015017": {
+		"name":"Malphasie, ailes de la nuit BS",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Wings_of Midnight Malphasie",
+		"id":"401015017",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401015007",
+		"exAwakening": [{"hp":650,"mp":46,"atk":17,"def":27,"mag":83,"spr":31},{"hp":500,"mp":35,"atk":13,"def":21,"mag":64,"spr":24},{"hp":350,"mp":24,"atk":9,"def":14,"mag":45,"spr":16}],
+		"fragmentId": "310001090",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":365,"atk":132,"def":215,"mag":326,"spr":246},
+			"minStats":{"hp":1749,"mp":120,"atk":44,"def":71,"mag":108,"spr":81},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["rod","fist","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Darkra","Darkga","Aerora","Aeroga","Aeroja","Tornado","Gale Force","Swift Divebomb","Skilled Scavengers"],
+		"enhancements": [
+			{"name":"Gale Force","levels":[[{"mag":500,"skillEnhancement":{"20120":120,"20240":120,"20330":120,"20390":120,"20460":120,"20470":120,"70170":120,"70180":120,"70440":120,"70441":120,"70479":120,"70481":120,"70486":120,"70487":120,"70488":120,"70511":120,"70512":120,"70513":120,"70517":120,"70518":120,"70519":120,"70520":120,"70521":120,"70522":120},"equipedConditions":[["1500000231","1100000761","401007301"]]}],[{"mag":500,"skillEnhancement":{"20120":140,"20240":140,"20330":140,"20390":140,"20460":140,"20470":140,"70170":140,"70180":140,"70440":140,"70441":140,"70479":140,"70481":140,"70486":140,"70487":140,"70488":140,"70511":140,"70512":140,"70513":140,"70517":140,"70518":140,"70519":140,"70520":140,"70521":140,"70522":140},"equipedConditions":[["1500000231","1100000761","401007301"]]}],[{"mag":500,"skillEnhancement":{"20120":160,"20240":160,"20330":160,"20390":160,"20460":160,"20470":160,"70170":160,"70180":160,"70440":160,"70441":160,"70479":160,"70481":160,"70486":160,"70487":160,"70488":160,"70511":160,"70512":160,"70513":160,"70517":160,"70518":160,"70519":160,"70520":160,"70521":160,"70522":160},"equipedConditions":[["1500000231","1100000761","401007301"]]}],[{"mag":500,"skillEnhancement":{"20120":180,"20240":180,"20330":180,"20390":180,"20460":180,"20470":180,"70170":180,"70180":180,"70440":180,"70441":180,"70479":180,"70481":180,"70486":180,"70487":180,"70488":180,"70511":180,"70512":180,"70513":180,"70517":180,"70518":180,"70519":180,"70520":180,"70521":180,"70522":180},"equipedConditions":[["1500000231","1100000761","401007301"]]}],[{"mag":500,"skillEnhancement":{"20120":200,"20240":200,"20330":200,"20390":200,"20460":200,"20470":200,"70170":200,"70180":200,"70440":200,"70441":200,"70479":200,"70481":200,"70486":200,"70487":200,"70488":200,"70511":200,"70512":200,"70513":200,"70517":200,"70518":200,"70519":200,"70520":200,"70521":200,"70522":200},"equipedConditions":[["1500000231","1100000761","401007301"]]}]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":200, "def%":100, "mag%":200, "spr%":200, "dualWielding":{"mag":200}, "improvedDW":true, "lbPerTurn":{"min":10,"max":10}, "resist":[{"name":"charm","percent":100},{"name":"wind","percent":80},{"name":"dark","percent":80},{"name":"blind","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200}], "mpRefresh":15, "lbDamage":200, "special":["dualWield"]},
+			{"mag":500, "evade":{"physical":50,"magical":50}, "exLevelCondition":2},
+			{"mag":500, "mag%":100, "spr":500, "dualWielding":{"mag":100}, "exLevelCondition":3}
+		]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker","support"],"id":"100000115","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"],"skills":[{"hp%":30,"def%":30,"singleWieldingOneHanded":{"accuracy":25,"atk":75},"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50}],"killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25},{"name":"dragon","physical":25},{"name":"bug","physical":25}]},{"def%":60,"equipedConditions":["heavyArmor"]},{"atk%":50,"equipedConditions":["greatSword"]}]},

@@ -1,0 +1,5176 @@
+{
+    "1": {
+        "name": "Relic Hunting Craze I",
+        "type": 0,
+        "cost": 100,
+        "rank": "D",
+        "difficulty": 1,
+        "duration": 10,
+        "units": 1,
+        "required": null,
+        "next_id": 2,
+        "reward": {
+            "type": "UNIT",
+            "id": "900020301",
+            "name": "Metal Gigantuar",
+            "amount": "1"
+        },
+        "relics": 1,
+        "exp_levels": [6000, 4500, 3000, 1500],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFBE",
+            "bonus": 15
+        },
+        "unit_bonus_max": 100,
+        "item_bonus": null,
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Relic Hunting Craze I",
+                "Relic Hunting Craze I"
+            ],
+            "desc": [
+                "A craze for ancient relics has swept across the lands. Embark on an expedition to find some relics.",
+                "A craze for ancient relics has swept across the lands. Embark on an expedition to find some relics."
+            ]
+        }
+    },
+    "2": {
+        "name": "Relic Hunting Craze II",
+        "type": 0,
+        "cost": 100,
+        "rank": "D",
+        "difficulty": 1,
+        "duration": 10,
+        "units": 2,
+        "required": null,
+        "next_id": 3,
+        "reward": {
+            "type": "RECIPE",
+            "id": "1000000034",
+            "name": "Adventurer",
+            "amount": "1"
+        },
+        "relics": 1,
+        "exp_levels": [6000, 4500, 3000, 1500],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFBE",
+            "bonus": 15
+        },
+        "unit_bonus_max": 50,
+        "item_bonus": null,
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Relic Hunting Craze II",
+                "Relic Hunting Craze II"
+            ],
+            "desc": [
+                "Relics have been discovered to be able to craft powerful abilities. Send a group to dicover those recipes!",
+                "Relics have been discovered to be able to craft powerful abilities. Send a group to dicover those recipes!"
+            ]
+        }
+    },
+    "3": {
+        "name": "Relic Hunting Craze III",
+        "type": 0,
+        "cost": 100,
+        "rank": "D",
+        "difficulty": 1,
+        "duration": 10,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "KEYITEM",
+            "id": "901",
+            "name": "Advance Token",
+            "amount": "5"
+        },
+        "relics": 1,
+        "exp_levels": [6000, 4500, 3000, 1500],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFBE",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": null,
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Relic Hunting Craze III",
+                "Relic Hunting Craze III"
+            ],
+            "desc": [
+                "Guilds has been formed around the world to promote and give away weekly achievement rewards for high relics collection scores. What are you waiting for?",
+                "Guilds has been formed around the world to promote and give away weekly achievement rewards for high relics collection scores. What are you waiting for?"
+            ]
+        }
+    },
+    "4": {
+        "name": "Strange Encounters",
+        "type": 2,
+        "cost": 1000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 10800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "107000100",
+            "name": "Magicite Shard",
+            "amount": "1"
+        },
+        "relics": 1,
+        "exp_levels": [6000, 4500, 3000, 1500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Dagger",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 201000100,
+                "name": "Fire Cryst",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Strange Encounters",
+                "Strange Encounters"
+            ],
+            "desc": [
+                "There have been reports of strange activity around the local farms at night. Investigate to see what's going on to be rewarded.",
+                "There have been reports of strange activity around the local farms at night. Investigate to see what's going on to be rewarded."
+            ]
+        }
+    },
+    "5": {
+        "name": "Shirts and Skins",
+        "type": 2,
+        "cost": 1000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 10800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "107000100",
+            "name": "Magicite Shard",
+            "amount": "1"
+        },
+        "relics": 1,
+        "exp_levels": [6000, 4500, 3000, 1500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Clothes",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 290010100,
+                "name": "Pearl of Wisdom",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Shirts and Skins",
+                "Shirts and Skins"
+            ],
+            "desc": [
+                "Rising tensions have led to an increase in violent confrontations between two rival gangs. Send a party to help defuse the situation before things get out of hand.",
+                "Rising tensions have led to an increase in violent confrontations between two rival gangs. Send a party to help defuse the situation before things get out of hand."
+            ]
+        }
+    },
+    "6": {
+        "name": "Put to the Test",
+        "type": 2,
+        "cost": 3000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 28800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "107000200",
+            "name": "Magicite",
+            "amount": "1"
+        },
+        "relics": 2,
+        "exp_levels": [18000, 13500, 9000, 4500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Sword",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 101000100,
+                "name": "Potion",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Put to the Test",
+                "Put to the Test"
+            ],
+            "desc": [
+                "A blacksmith has requested that you try his weapon out on a powerful enemy. Dispatch a party deep into a dungeon to try it out. You will be rewarded for your efforts.",
+                "A blacksmith has requested that you try his weapon out on a powerful enemy. Dispatch a party deep into a dungeon to try it out. You will be rewarded for your efforts."
+            ]
+        }
+    },
+    "7": {
+        "name": "Needle in a Haystack",
+        "type": 2,
+        "cost": 3000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 28800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "107000200",
+            "name": "Magicite",
+            "amount": "1"
+        },
+        "relics": 2,
+        "exp_levels": [18000, 13500, 9000, 4500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Rod",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 102006100,
+                "name": "Gold Needle",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Needle in a Haystack",
+                "Needle in a Haystack"
+            ],
+            "desc": [
+                "A young traveller has lost a gold needle in a haystack. Help him find it so he can continue safely on his journey.",
+                "A young traveller has lost a gold needle in a haystack. Help him find it so he can continue safely on his journey."
+            ]
+        }
+    },
+    "8": {
+        "name": "Merchant Guard",
+        "type": 2,
+        "cost": 5000,
+        "rank": "D",
+        "difficulty": 104,
+        "duration": 43200,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "107000200",
+            "name": "Magicite",
+            "amount": "2"
+        },
+        "relics": 3,
+        "exp_levels": [30000, 22500, 15000, 7500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Light Shield",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 103008100,
+                "name": "Protect Drink",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Merchant Guard",
+                "Merchant Guard"
+            ],
+            "desc": [
+                "Your party has been hired by a wealthy merchant to escort him on a treacherous journey. A rare and valuable item awaits you as your reward.",
+                "Your party has been hired by a wealthy merchant to escort him on a treacherous journey. A rare and valuable item awaits you as your reward."
+            ]
+        }
+    },
+    "9": {
+        "name": "Guard Duty",
+        "type": 2,
+        "cost": 5000,
+        "rank": "D",
+        "difficulty": 104,
+        "duration": 43200,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "107000200",
+            "name": "Magicite",
+            "amount": "2"
+        },
+        "relics": 3,
+        "exp_levels": [30000, 22500, 15000, 7500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Heavy Shield",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 103006100,
+                "name": "Body Boost",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Guard Duty",
+                "Guard Duty"
+            ],
+            "desc": [
+                "A mysterious man wants to send his goods to another town but requires an escort in order to do so. He has specifically requested for only strong and qualified warriors. Help him to be rewarded.",
+                "A mysterious man wants to send his goods to another town but requires an escort in order to do so. He has specifically requested for only strong and qualified warriors. Help him to be rewarded."
+            ]
+        }
+    },
+    "10": {
+        "name": "Mouse Trapped",
+        "type": 2,
+        "cost": 1000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 10800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000811",
+            "name": "Random Awakening Material",
+            "amount": "1"
+        },
+        "relics": 1,
+        "exp_levels": [6000, 4500, 3000, 1500],
+        "unit_bonus": {
+            "type": "White magic",
+            "value": 2,
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 202001600,
+                "name": "Otherworldly Bone",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Mouse Trapped",
+                "Mouse Trapped"
+            ],
+            "desc": [
+                "Your party has come across a puppy caught in a mouse trap. Treat its wounds and help find its owner. Surely a handsome reward awaits.",
+                "Your party has come across a puppy caught in a mouse trap. Treat its wounds and help find its owner. Surely a handsome reward awaits."
+            ]
+        }
+    },
+    "11": {
+        "name": "Farmers Dismay",
+        "type": 2,
+        "cost": 1000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 10800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000811",
+            "name": "Random Awakening Material",
+            "amount": "1"
+        },
+        "relics": 1,
+        "exp_levels": [6000, 4500, 3000, 1500],
+        "unit_bonus": {
+            "type": "Black magic",
+            "value": 2,
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 201000500,
+                "name": "Earth Cryst",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Farmer's Dismay",
+                "Farmer's Dismay"
+            ],
+            "desc": [
+                "A farmer's crops are attracting a lot of insect monsters to his farm. Help him out to give your units a chance to grow.",
+                "A farmer's crops are attracting a lot of insect monsters to his farm. Help him out to give your units a chance to grow."
+            ]
+        }
+    },
+    "12": {
+        "name": "Cause for Celebration",
+        "type": 2,
+        "cost": 1000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 10800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000811",
+            "name": "Random Awakening Material",
+            "amount": "1"
+        },
+        "relics": 1,
+        "exp_levels": [6000, 4500, 3000, 1500],
+        "unit_bonus": {
+            "type": "Green magic",
+            "value": 2,
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 201000400,
+                "name": "Water Cryst",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Cause for Celebration",
+                "Cause for Celebration"
+            ],
+            "desc": [
+                "A wealthy man is planning a huge celebration and needs help obtaining some supplies which can only be found deep in the woods. Help him for a piece of his stash.",
+                "A wealthy man is planning a huge celebration and needs help obtaining some supplies which can only be found deep in the woods. Help him for a piece of his stash."
+            ]
+        }
+    },
+    "13": {
+        "name": "What Might Happen?",
+        "type": 2,
+        "cost": 3000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 28800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "290050300",
+            "name": "Sacred Crystal",
+            "amount": "1"
+        },
+        "relics": 2,
+        "exp_levels": [18000, 13500, 9000, 4500],
+        "unit_bonus": {
+            "type": "White magic",
+            "value": 2,
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 103006100,
+                "name": "Body Boost",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "What Might Happen?",
+                "What Might Happen?"
+            ],
+            "desc": [
+                "You have heard of a pile of stones that seem to be giving out a strange glow. Send a team to investigate",
+                "You have heard of a pile of stones that seem to be giving out a strange glow. Send a team to investigate"
+            ]
+        }
+    },
+    "14": {
+        "name": "Flame Fighters",
+        "type": 2,
+        "cost": 3000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 28800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "290050300",
+            "name": "Sacred Crystal",
+            "amount": "1"
+        },
+        "relics": 2,
+        "exp_levels": [18000, 13500, 9000, 4500],
+        "unit_bonus": {
+            "type": "Black magic",
+            "value": 2,
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 201000400,
+                "name": "Water Cryst",
+                "amount": 5,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Flame Fighters",
+                "Flame Fighters"
+            ],
+            "desc": [
+                "A huge fire has broken out in a neighbouring village and emergency help is needed. Send a party to help fight back the flames and be rewarded.",
+                "A huge fire has broken out in a neighbouring village and emergency help is needed. Send a party to help fight back the flames and be rewarded."
+            ]
+        }
+    },
+    "15": {
+        "name": "Devilish Arms",
+        "type": 2,
+        "cost": 3000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 28800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "290050300",
+            "name": "Sacred Crystal",
+            "amount": "1"
+        },
+        "relics": 2,
+        "exp_levels": [18000, 13500, 9000, 4500],
+        "unit_bonus": {
+            "type": "Green magic",
+            "value": 2,
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 202000700,
+                "name": "Demon Tail",
+                "amount": 5,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Devilish Arms",
+                "Devilish Arms"
+            ],
+            "desc": [
+                "A blacksmith is in need of fresh demon tails to finish crafting a new type of weapon. Capture and bring him some imps and fiends for a valuable reward.",
+                "A blacksmith is in need of fresh demon tails to finish crafting a new type of weapon. Capture and bring him some imps and fiends for a valuable reward."
+            ]
+        }
+    },
+    "16": {
+        "name": "Cant Beat Free",
+        "type": 2,
+        "cost": 3000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 28800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 2,
+        "exp_levels": [18000, 13500, 9000, 4500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Hat",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 201000400,
+                "name": "Water Cryst",
+                "amount": 5,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Can't Beat Free",
+                "Can't Beat Free"
+            ],
+            "desc": [
+                "You have been invited to a festival in town. Sending a team to help commemorate the event will surely improve the town's morale and liven up the party",
+                "You have been invited to a festival in town. Sending a team to help commemorate the event will surely improve the town's morale and liven up the party"
+            ]
+        }
+    },
+    "17": {
+        "name": "To the Rescue",
+        "type": 2,
+        "cost": 3000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 28800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 2,
+        "exp_levels": [18000, 13500, 9000, 4500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Light Armor",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 101000200,
+                "name": "Hi-Potion",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "To the Rescue",
+                "To the Rescue"
+            ],
+            "desc": [
+                "Rumors of an increase in highway robberies are starting to affect local trade routes. Send some armored units to fend off these bandits. You will be rewarded for your troubles.",
+                "Rumors of an increase in highway robberies are starting to affect local trade routes. Send some armored units to fend off these bandits. You will be rewarded for your troubles."
+            ]
+        }
+    },
+    "18": {
+        "name": "Heavy Objects Collide",
+        "type": 2,
+        "cost": 3000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 28800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 2,
+        "exp_levels": [18000, 13500, 9000, 4500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Heavy Armor",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 101000200,
+                "name": "Hi-Potion",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Heavy Objects Collide",
+                "Heavy Objects Collide"
+            ],
+            "desc": [
+                "A gigantic beast threatens to destroy a small merchant camp. Send some heavily armored units to ensure the camp's safety, and be rewarded.",
+                "A gigantic beast threatens to destroy a small merchant camp. Send some heavily armored units to ensure the camp's safety, and be rewarded."
+            ]
+        }
+    },
+    "19": {
+        "name": "Lightning Rod",
+        "type": 2,
+        "cost": 3000,
+        "rank": "D",
+        "difficulty": 78,
+        "duration": 28800,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 2,
+        "exp_levels": [18000, 13500, 9000, 4500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Helm",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 102006100,
+                "name": "Gold Needle",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Lightning Rod",
+                "Lightning Rod"
+            ],
+            "desc": [
+                "The electrical activity around Thunder Summit has gotten a bit out of control. Have a team place some lightning rods about town to prevent potential damage.",
+                "The electrical activity around Thunder Summit has gotten a bit out of control. Have a team place some lightning rods about town to prevent potential damage."
+            ]
+        }
+    },
+    "20": {
+        "name": "Dream Job",
+        "type": 2,
+        "cost": 12000,
+        "rank": "D",
+        "difficulty": 104,
+        "duration": 86400,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "KEYITEM",
+            "id": "100",
+            "name": "NRG Restore 10",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [72000, 54000, 36000, 18000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFBE",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 201000800,
+                "name": "Dark Cryst",
+                "amount": 10,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Dream Job",
+                "Dream Job"
+            ],
+            "desc": [
+                "A sleep researcher is looking for people to take part in a research study where she plans to watch them sleep. You will be compensated for your time.",
+                "A sleep researcher is looking for people to take part in a research study where she plans to watch them sleep. You will be compensated for your time."
+            ]
+        }
+    },
+    "21": {
+        "name": "No Sheep to Count",
+        "type": 2,
+        "cost": 12000,
+        "rank": "D",
+        "difficulty": 104,
+        "duration": 86400,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "KEYITEM",
+            "id": "100",
+            "name": "NRG Restore 10",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [72000, 54000, 36000, 18000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFBE",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 201000800,
+                "name": "Dark Cryst",
+                "amount": 10,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "No Sheep to Count",
+                "No Sheep to Count"
+            ],
+            "desc": [
+                "Your party is having trouble sleeping. Find something to help with their insomnia and be rewarded.",
+                "Your party is having trouble sleeping. Find something to help with their insomnia and be rewarded."
+            ]
+        }
+    },
+    "22": {
+        "name": "Poker Tournament",
+        "type": 2,
+        "cost": 12000,
+        "rank": "D",
+        "difficulty": 104,
+        "duration": 86400,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "KEYITEM",
+            "id": "100",
+            "name": "NRG Restore 10",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [72000, 54000, 36000, 18000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FF TYPE-0",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 290030800,
+                "name": "Brilliant Ray",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Poker Tournament",
+                "Poker Tournament"
+            ],
+            "desc": [
+                "A poker tournament promising a dream holiday is taking place in town. Send your best team to win the championship.",
+                "A poker tournament promising a dream holiday is taking place in town. Send your best team to win the championship."
+            ]
+        }
+    },
+    "23": {
+        "name": "Winter Retreat",
+        "type": 2,
+        "cost": 12000,
+        "rank": "D",
+        "difficulty": 104,
+        "duration": 86400,
+        "units": 3,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "KEYITEM",
+            "id": "100",
+            "name": "NRG Restore 10",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [72000, 54000, 36000, 18000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFT",
+            "bonus": 15
+        },
+        "unit_bonus_max": 30,
+        "item_bonus": [
+            {
+                "id": 106000100,
+                "name": "Tent",
+                "amount": 5,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Winter Retreat",
+                "Winter Retreat"
+            ],
+            "desc": [
+                "As the season turns cooler, it feels like the right time to visit a hot spring. Use this chance to help your units grow.",
+                "As the season turns cooler, it feels like the right time to visit a hot spring. Use this chance to help your units grow."
+            ]
+        }
+    },
+    "24": {
+        "name": "Buzzkill",
+        "type": 2,
+        "cost": 2000,
+        "rank": "C",
+        "difficulty": 388,
+        "duration": 10800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000829",
+            "name": "Random Milcryst",
+            "amount": "2"
+        },
+        "relics": 2,
+        "exp_levels": [16000, 12000, 8000, 4000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Dagger",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 101000100,
+                "name": "Potion",
+                "amount": 4,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 50,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Buzzkill",
+                "Buzzkill"
+            ],
+            "desc": [
+                "You must stop an assassin before she can assassinate another mistakenly suspected assassin. You'll be rewarded for your troubles.",
+                "You must stop an assassin before she can assassinate another mistakenly suspected assassin. You'll be rewarded for your troubles."
+            ]
+        }
+    },
+    "25": {
+        "name": "Just Cause",
+        "type": 2,
+        "cost": 2000,
+        "rank": "C",
+        "difficulty": 345,
+        "duration": 10800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000829",
+            "name": "Random Milcryst",
+            "amount": "2"
+        },
+        "relics": 2,
+        "exp_levels": [16000, 12000, 8000, 4000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Clothes",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 101000100,
+                "name": "Potion",
+                "amount": 4,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Just Cause",
+                "Just Cause"
+            ],
+            "desc": [
+                "Not much else going on, why not assemble a small team to go out and explore. Who knows, maybe you'll find something?",
+                "Not much else going on, why not assemble a small team to go out and explore. Who knows, maybe you'll find something?"
+            ]
+        }
+    },
+    "26": {
+        "name": "Bad to the Bone",
+        "type": 2,
+        "cost": 6000,
+        "rank": "C",
+        "difficulty": 345,
+        "duration": 28800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000810",
+            "name": "Random Megacryst",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [48000, 36000, 24000, 12000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Sword",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 202001600,
+                "name": "Otherworldly Bone",
+                "amount": 5,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Bad to the Bone",
+                "Bad to the Bone"
+            ],
+            "desc": [
+                "A bone collector is organizing a mission to collect some dinosaur bones. He requires experienced mercenaries to ensure his quest goes safely. You will be handsomely rewarded.",
+                "A bone collector is organizing a mission to collect some dinosaur bones. He requires experienced mercenaries to ensure his quest goes safely. You will be handsomely rewarded."
+            ]
+        }
+    },
+    "27": {
+        "name": "Volcano on Ice",
+        "type": 2,
+        "cost": 6000,
+        "rank": "C",
+        "difficulty": 388,
+        "duration": 28800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000810",
+            "name": "Random Megacryst",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [48000, 36000, 24000, 12000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Staff",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 201000100,
+                "name": "Fire Cryst",
+                "amount": 5,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Volcano on Ice",
+                "Volcano on Ice"
+            ],
+            "desc": [
+                "A volcano has suddenly frozen over. Nearby villagers have asked you to send a party to investigate what's going on. Solve the mystery and be rewarded.",
+                "A volcano has suddenly frozen over. Nearby villagers have asked you to send a party to investigate what's going on. Solve the mystery and be rewarded."
+            ]
+        }
+    },
+    "28": {
+        "name": "Leave No Stones Unturned",
+        "type": 2,
+        "cost": 6000,
+        "rank": "C",
+        "difficulty": 388,
+        "duration": 28800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000809",
+            "name": "Random Magicite",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [48000, 36000, 24000, 12000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Rod",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 290030600,
+                "name": "Fury Seed",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 50,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Leave No Stones Unturned",
+                "Leave No Stones Unturned"
+            ],
+            "desc": [
+                "Reports tell of a big rock with something shiny underneath it. Dispatch a team to find the rock. Surely, a great reward awaits if anyone in the team can pull it out",
+                "Reports tell of a big rock with something shiny underneath it. Dispatch a team to find the rock. Surely, a great reward awaits if anyone in the team can pull it out"
+            ]
+        }
+    },
+    "29": {
+        "name": "Precious Lumber",
+        "type": 2,
+        "cost": 6000,
+        "rank": "C",
+        "difficulty": 345,
+        "duration": 28800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000809",
+            "name": "Random Magicite",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [48000, 36000, 24000, 12000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Axe",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 204000100,
+                "name": "Lumber",
+                "amount": 10,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Precious Lumber",
+                "Precious Lumber"
+            ],
+            "desc": [
+                "A craftsman in the village wants to acquire fine lumber from the goblin-infested woods nearby. Prepare as much lumber as possible before night falls to be rewarded.",
+                "A craftsman in the village wants to acquire fine lumber from the goblin-infested woods nearby. Prepare as much lumber as possible before night falls to be rewarded."
+            ]
+        }
+    },
+    "30": {
+        "name": "Test Your Strength",
+        "type": 2,
+        "cost": 10000,
+        "rank": "C",
+        "difficulty": 423,
+        "duration": 43200,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000809",
+            "name": "Random Magicite",
+            "amount": "2"
+        },
+        "relics": 4,
+        "exp_levels": [80000, 60000, 40000, 20000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Fist",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 290010000,
+                "name": "Beast Meat",
+                "amount": 10,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Test Your Strength",
+                "Test Your Strength"
+            ],
+            "desc": [
+                "An arm wrestling competition is being held nearby. Send some units to participate and see if you can win the grand prize!",
+                "An arm wrestling competition is being held nearby. Send some units to participate and see if you can win the grand prize!"
+            ]
+        }
+    },
+    "31": {
+        "name": "Targeted",
+        "type": 2,
+        "cost": 10000,
+        "rank": "C",
+        "difficulty": 423,
+        "duration": 43200,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000809",
+            "name": "Random Magicite",
+            "amount": "2"
+        },
+        "relics": 4,
+        "exp_levels": [80000, 60000, 40000, 20000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Light Shield",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 103008100,
+                "name": "Protect Drink",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Targeted",
+                "Targeted"
+            ],
+            "desc": [
+                "A woman comes to you looking for someone to protect her from an assassin. Assign a team to guard her. You will be handsomely rewarded.",
+                "A woman comes to you looking for someone to protect her from an assassin. Assign a team to guard her. You will be handsomely rewarded."
+            ]
+        }
+    },
+    "32": {
+        "name": "Call to Arms",
+        "type": 2,
+        "cost": 2000,
+        "rank": "C",
+        "difficulty": 345,
+        "duration": 10800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "290050300",
+            "name": "Sacred Crystal",
+            "amount": "1"
+        },
+        "relics": 2,
+        "exp_levels": [16000, 12000, 8000, 4000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Heavy Shield",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 101000100,
+                "name": "Potion",
+                "amount": 4,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Call to Arms",
+                "Call to Arms"
+            ],
+            "desc": [
+                "Word of an impending attack has been received by town officials. Send help to bolster the town's defenses. You will be rewarded for your efforts.",
+                "Word of an impending attack has been received by town officials. Send help to bolster the town's defenses. You will be rewarded for your efforts."
+            ]
+        }
+    },
+    "33": {
+        "name": "Grand Theft Carriage",
+        "type": 2,
+        "cost": 2000,
+        "rank": "C",
+        "difficulty": 345,
+        "duration": 10800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "290050300",
+            "name": "Sacred Crystal",
+            "amount": "1"
+        },
+        "relics": 2,
+        "exp_levels": [16000, 12000, 8000, 4000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Helm",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 290010100,
+                "name": "Pearl of Wisdom",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Grand Theft Carriage",
+                "Grand Theft Carriage"
+            ],
+            "desc": [
+                "An old merchant offers your party a generous reward for helping him track down his stolen carriage.",
+                "An old merchant offers your party a generous reward for helping him track down his stolen carriage."
+            ]
+        }
+    },
+    "34": {
+        "name": "Paging All White Mages",
+        "type": 2,
+        "cost": 6000,
+        "rank": "C",
+        "difficulty": 388,
+        "duration": 28800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "290050400",
+            "name": "Holy Crystal",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [48000, 36000, 24000, 12000],
+        "unit_bonus": {
+            "type": "White magic",
+            "value": 3,
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 101000200,
+                "name": "Hi-Potion",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 50
+        },
+        "strings": {
+            "name": [
+                "Paging All White Mages",
+                "Paging All White Mages"
+            ],
+            "desc": [
+                "You come across a town whose local healer is out sick. Send a party with a white mage to help out. You will be paid for your services.",
+                "You come across a town whose local healer is out sick. Send a party with a white mage to help out. You will be paid for your services."
+            ]
+        }
+    },
+    "35": {
+        "name": "The Mage-Off",
+        "type": 2,
+        "cost": 6000,
+        "rank": "C",
+        "difficulty": 388,
+        "duration": 28800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "290050400",
+            "name": "Holy Crystal",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [48000, 36000, 24000, 12000],
+        "unit_bonus": {
+            "type": "Black magic",
+            "value": 3,
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 290020900,
+                "name": "Book of Ruin",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "The Mage-Off",
+                "The Mage-Off"
+            ],
+            "desc": [
+                "A magic competition is being organized, and they're now searching for powerful mage participants. Win and be rewarded.",
+                "A magic competition is being organized, and they're now searching for powerful mage participants. Win and be rewarded."
+            ]
+        }
+    },
+    "36": {
+        "name": "Crab Battle",
+        "type": 2,
+        "cost": 6000,
+        "rank": "C",
+        "difficulty": 345,
+        "duration": 28800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "290050400",
+            "name": "Holy Crystal",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [48000, 36000, 24000, 12000],
+        "unit_bonus": {
+            "type": "Green magic",
+            "value": 3,
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 290020200,
+                "name": "Crimson Tear",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Crab Battle",
+                "Crab Battle"
+            ],
+            "desc": [
+                "A giant crustacean has escaped from the town zoo, send a party to hunt it down before someone gets hurt.",
+                "A giant crustacean has escaped from the town zoo, send a party to hunt it down before someone gets hurt."
+            ]
+        }
+    },
+    "37": {
+        "name": "None Shall Starve",
+        "type": 2,
+        "cost": 6000,
+        "rank": "C",
+        "difficulty": 345,
+        "duration": 28800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [48000, 36000, 24000, 12000],
+        "unit_bonus": {
+            "type": "White magic",
+            "value": 3,
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 290010000,
+                "name": "Beast Meat",
+                "amount": 5,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "None Shall Starve",
+                "None Shall Starve"
+            ],
+            "desc": [
+                "A recent forest fire has caused a lost of edible plantlife. Bring food for the starving animals there before permanent damage is done to their ecosystem",
+                "A recent forest fire has caused a lost of edible plantlife. Bring food for the starving animals there before permanent damage is done to their ecosystem"
+            ]
+        }
+    },
+    "38": {
+        "name": "Stop the Horde!",
+        "type": 2,
+        "cost": 6000,
+        "rank": "C",
+        "difficulty": 345,
+        "duration": 28800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [48000, 36000, 24000, 12000],
+        "unit_bonus": {
+            "type": "Black magic",
+            "value": 3,
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 101001100,
+                "name": "Ether",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Stop the Horde!",
+                "Stop the Horde!"
+            ],
+            "desc": [
+                "A small group of goblins has been seen lurking around a nearby village. Dispatch a team to shoe them away.",
+                "A small group of goblins has been seen lurking around a nearby village. Dispatch a team to shoe them away."
+            ]
+        }
+    },
+    "39": {
+        "name": "Arms on Fire!",
+        "type": 2,
+        "cost": 6000,
+        "rank": "C",
+        "difficulty": 345,
+        "duration": 28800,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [48000, 36000, 24000, 12000],
+        "unit_bonus": {
+            "type": "Green magic",
+            "value": 3,
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 201000400,
+                "name": "Water Cryst",
+                "amount": 5,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Arms on Fire!",
+                "Arms on Fire!"
+            ],
+            "desc": [
+                "A fire has broken out in a nearby arms repository! Send a team to salvage as much as you can!",
+                "A fire has broken out in a nearby arms repository! Send a team to salvage as much as you can!"
+            ]
+        }
+    },
+    "40": {
+        "name": "Lost in Fantasy",
+        "type": 2,
+        "cost": 10000,
+        "rank": "C",
+        "difficulty": 423,
+        "duration": 43200,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "KEYITEM",
+            "id": "100",
+            "name": "NRG Restore 10",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [80000, 60000, 40000, 20000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFBE",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 106000100,
+                "name": "Tent",
+                "amount": 4,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Lost in Fantasy",
+                "Lost in Fantasy"
+            ],
+            "desc": [
+                "Battle-worn and tired, your team begun daydreaming on the job. Let your party rest and be rewarded for your compassion.",
+                "Battle-worn and tired, your team begun daydreaming on the job. Let your party rest and be rewarded for your compassion."
+            ]
+        }
+    },
+    "41": {
+        "name": "Time to Relax",
+        "type": 2,
+        "cost": 10000,
+        "rank": "C",
+        "difficulty": 423,
+        "duration": 43200,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "KEYITEM",
+            "id": "100",
+            "name": "NRG Restore 10",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [80000, 60000, 40000, 20000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFBE",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 106000100,
+                "name": "Tent",
+                "amount": 4,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Time to Relax",
+                "Time to Relax"
+            ],
+            "desc": [
+                "A hard day's work deserves a good rest. Take a load off and enjoy some nice rewards.",
+                "A hard day's work deserves a good rest. Take a load off and enjoy some nice rewards."
+            ]
+        }
+    },
+    "42": {
+        "name": "Parley?",
+        "type": 2,
+        "cost": 24000,
+        "rank": "C",
+        "difficulty": 431,
+        "duration": 86400,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "KEYITEM",
+            "id": "100",
+            "name": "NRG Restore 10",
+            "amount": "2"
+        },
+        "relics": 5,
+        "exp_levels": [192000, 144000, 96000, 48000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFXII",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 103000100,
+                "name": "Light Curtain",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 50,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Parley?",
+                "Parley?"
+            ],
+            "desc": [
+                "Traces of pirate activities has been discovered in a nearby hotspring. Send forth a team to investigate, and you might even be able to share in the bounty you recover.",
+                "Traces of pirate activities has been discovered in a nearby hotspring. Send forth a team to investigate, and you might even be able to share in the bounty you recover."
+            ]
+        }
+    },
+    "43": {
+        "name": "Lightning Returns?",
+        "type": 2,
+        "cost": 24000,
+        "rank": "C",
+        "difficulty": 431,
+        "duration": 86400,
+        "units": 4,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "KEYITEM",
+            "id": "100",
+            "name": "NRG Restore 10",
+            "amount": "2"
+        },
+        "relics": 5,
+        "exp_levels": [192000, 144000, 96000, 48000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFXIII",
+            "bonus": 10
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": [
+            {
+                "id": 103001100,
+                "name": "Lunar Curtain",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Lightning Returns?",
+                "Lightning Returns?"
+            ],
+            "desc": [
+                "Lightning has reportedly struck twice in the same location. Dispatch a party to investigate this incredibly rare occurrence.",
+                "Lightning has reportedly struck twice in the same location. Dispatch a party to investigate this incredibly rare occurrence."
+            ]
+        }
+    },
+    "44": {
+        "name": "Plumbers Paradise",
+        "type": 2,
+        "cost": 9000,
+        "rank": "B",
+        "difficulty": 993,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000810",
+            "name": "Random Megacryst",
+            "amount": "2"
+        },
+        "relics": 4,
+        "exp_levels": [90000, 67500, 45000, 22500],
+        "unit_bonus": {
+            "type": "White magic",
+            "value": 5,
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 104009100,
+                "name": "Holy Torch",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Plumbers Paradise",
+                "Plumbers Paradise"
+            ],
+            "desc": [
+                "A girl has apparently become trapped deep down in a sewer. Send a team to rescue her and collect your reward.",
+                "A girl has apparently become trapped deep down in a sewer. Send a team to rescue her and collect your reward."
+            ]
+        }
+    },
+    "45": {
+        "name": "Spelunking Splendor",
+        "type": 2,
+        "cost": 9000,
+        "rank": "B",
+        "difficulty": 993,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000810",
+            "name": "Random Megacryst",
+            "amount": "2"
+        },
+        "relics": 4,
+        "exp_levels": [90000, 67500, 45000, 22500],
+        "unit_bonus": {
+            "type": "Black magic",
+            "value": 5,
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290020100,
+                "name": "Seed of Life",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Spelunking Splendor",
+                "Spelunking Splendor"
+            ],
+            "desc": [
+                "There are said to be treasures hidden deep within the crevices around Lapis. Send a team to search for them.",
+                "There are said to be treasures hidden deep within the crevices around Lapis. Send a team to search for them."
+            ]
+        }
+    },
+    "46": {
+        "name": "Will to Survive",
+        "type": 2,
+        "cost": 9000,
+        "rank": "B",
+        "difficulty": 1011,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000810",
+            "name": "Random Megacryst",
+            "amount": "2"
+        },
+        "relics": 4,
+        "exp_levels": [90000, 67500, 45000, 22500],
+        "unit_bonus": {
+            "type": "Green magic",
+            "value": 5,
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103006100,
+                "name": "Body Boost",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 2,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Will to Survive",
+                "Will to Survive"
+            ],
+            "desc": [
+                "A local village is hosting a single fault elimination obstacle course competition. How long can your units hold on?! Can you obtain the top prize?!",
+                "A local village is hosting a single fault elimination obstacle course competition. How long can your units hold on?! Can you obtain the top prize?!"
+            ]
+        }
+    },
+    "47": {
+        "name": "Unpleasant Dreams",
+        "type": 2,
+        "cost": 3000,
+        "rank": "B",
+        "difficulty": 993,
+        "duration": 10800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000830",
+            "name": "Random Heavicryst",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [30000, 22500, 15000, 7500],
+        "unit_bonus": {
+            "type": "White magic",
+            "value": 5,
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 102002100,
+                "name": "Smelling Salts",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Unpleasant Dreams",
+                "Unpleasant Dreams"
+            ],
+            "desc": [
+                "An innkeeper has reported hearing strange music playing every time he goes to bed at night. Send a team to investigate what's going on and be rewarded.",
+                "An innkeeper has reported hearing strange music playing every time he goes to bed at night. Send a team to investigate what's going on and be rewarded."
+            ]
+        }
+    },
+    "48": {
+        "name": "Egg Hunt",
+        "type": 2,
+        "cost": 3000,
+        "rank": "B",
+        "difficulty": 993,
+        "duration": 10800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000830",
+            "name": "Random Heavicryst",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [30000, 22500, 15000, 7500],
+        "unit_bonus": {
+            "type": "Black magic",
+            "value": 5,
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290020800,
+                "name": "Golden Egg",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Egg Hunt",
+                "Egg Hunt"
+            ],
+            "desc": [
+                "An egg collector is looking for guards to escort him on a dangerous quest for some mystical eggs. Help him and be rewarded.",
+                "An egg collector is looking for guards to escort him on a dangerous quest for some mystical eggs. Help him and be rewarded."
+            ]
+        }
+    },
+    "49": {
+        "name": "Back to the Sands",
+        "type": 2,
+        "cost": 3000,
+        "rank": "B",
+        "difficulty": 993,
+        "duration": 10800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000830",
+            "name": "Random Heavicryst",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [30000, 22500, 15000, 7500],
+        "unit_bonus": {
+            "type": "Green magic",
+            "value": 5,
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 104003100,
+                "name": "Fish Scale",
+                "amount": 6,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Back to the Sands",
+                "Back to the Sands"
+            ],
+            "desc": [
+                "Head for the Westersands where an old enemy awaits. Surely, a reward does as well!",
+                "Head for the Westersands where an old enemy awaits. Surely, a reward does as well!"
+            ]
+        }
+    },
+    "50": {
+        "name": "Weathering the Weather",
+        "type": 2,
+        "cost": 9000,
+        "rank": "B",
+        "difficulty": 993,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000828",
+            "name": "Random Megacite",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [90000, 67500, 45000, 22500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Staff",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 106000100,
+                "name": "Tent",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Weathering the Weather",
+                "Weathering the Weather"
+            ],
+            "desc": [
+                "Local meteorologists have hired you to escort them on an upcoming expedition. Assemble a team to accompany them. You will be rewarded for your service.",
+                "Local meteorologists have hired you to escort them on an upcoming expedition. Assemble a team to accompany them. You will be rewarded for your service."
+            ]
+        }
+    },
+    "51": {
+        "name": "Quarry Quickness",
+        "type": 2,
+        "cost": 9000,
+        "rank": "B",
+        "difficulty": 1011,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000828",
+            "name": "Random Megacite",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [90000, 67500, 45000, 22500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Axe",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103006100,
+                "name": "Body Boost",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 2,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Quarry Quickness",
+                "Quarry Quickness"
+            ],
+            "desc": [
+                "A new copper mine has opened up near town, and they're looking for miners. Send a team to help dig up some ore. A reward surely awaits you.",
+                "A new copper mine has opened up near town, and they're looking for miners. Send a team to help dig up some ore. A reward surely awaits you."
+            ]
+        }
+    },
+    "52": {
+        "name": "Cat Lost",
+        "type": 2,
+        "cost": 15000,
+        "rank": "B",
+        "difficulty": 1159,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000828",
+            "name": "Random Megacite",
+            "amount": "2"
+        },
+        "relics": 5,
+        "exp_levels": [150000, 112500, 75000, 37500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Instrument",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 104009100,
+                "name": "Holy Torch",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Cat Lost",
+                "Cat Lost"
+            ],
+            "desc": [
+                "You have come across an old woman who seems to have lost her beloved cat. Assist her in finding them and be rewarded.",
+                "You have come across an old woman who seems to have lost her beloved cat. Assist her in finding them and be rewarded."
+            ]
+        }
+    },
+    "53": {
+        "name": "Monster Tamer",
+        "type": 2,
+        "cost": 3000,
+        "rank": "B",
+        "difficulty": 993,
+        "duration": 10800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000811",
+            "name": "Random Awakening Material",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [30000, 22500, 15000, 7500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Whip",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290010200,
+                "name": "Allure Powder",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Monster Tamer",
+                "Monster Tamer"
+            ],
+            "desc": [
+                "A local monster trainer needs help wrangling some monsters to tame. Send a party to help him find some beasts and be rewarded.",
+                "A local monster trainer needs help wrangling some monsters to tame. Send a party to help him find some beasts and be rewarded."
+            ]
+        }
+    },
+    "54": {
+        "name": "Run, Cactuar, Run",
+        "type": 2,
+        "cost": 3000,
+        "rank": "B",
+        "difficulty": 1011,
+        "duration": 10800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000811",
+            "name": "Random Awakening Material",
+            "amount": "1"
+        },
+        "relics": 3,
+        "exp_levels": [30000, 22500, 15000, 7500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Throwing Weapon",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 105002100,
+                "name": "Shuriken",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 50,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Run, Cactuar, Run",
+                "Run, Cactuar, Run"
+            ],
+            "desc": [
+                "A handful of cactuars have been spotted running around town. Dispatch a squad to take care of them and be rewarded.",
+                "A handful of cactuars have been spotted running around town. Dispatch a squad to take care of them and be rewarded."
+            ]
+        }
+    },
+    "55": {
+        "name": "A Certain Set of Skills",
+        "type": 2,
+        "cost": 9000,
+        "rank": "B",
+        "difficulty": 1011,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "290050400",
+            "name": "Holy Crystal",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [90000, 67500, 45000, 22500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Mace",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290030800,
+                "name": "Brilliant Ray",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 50,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "A Certain Set of Skills",
+                "A Certain Set of Skills"
+            ],
+            "desc": [
+                "A young girl has been kidnapped and no one knows where she's been taken. Use your skills to find her and bring her back and collect your reward.",
+                "A young girl has been kidnapped and no one knows where she's been taken. Use your skills to find her and bring her back and collect your reward."
+            ]
+        }
+    },
+    "56": {
+        "name": "Bashers Brawl",
+        "type": 2,
+        "cost": 9000,
+        "rank": "B",
+        "difficulty": 993,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "290050400",
+            "name": "Holy Crystal",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [90000, 67500, 45000, 22500],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Fist",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103006100,
+                "name": "Body Boost",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Basher's Brawl",
+                "Basher's Brawl"
+            ],
+            "desc": [
+                "There is a beginner martial arts competition going on nearby. Send your best fighters to participate and compete for the prize.",
+                "There is a beginner martial arts competition going on nearby. Send your best fighters to participate and compete for the prize."
+            ]
+        }
+    },
+    "57": {
+        "name": "Undead Rising",
+        "type": 2,
+        "cost": 9000,
+        "rank": "B",
+        "difficulty": 1011,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [90000, 67500, 45000, 22500],
+        "unit_bonus": {
+            "type": "White magic",
+            "value": 5,
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 101003100,
+                "name": "Phoenix Down",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 50
+        },
+        "strings": {
+            "name": [
+                "Undead Rising",
+                "Undead Rising"
+            ],
+            "desc": [
+                "The dead have been spotted rising from their graves. Send a party down to the cemetery to put them back to rest. You will be rewarded for your troubles.",
+                "The dead have been spotted rising from their graves. Send a party down to the cemetery to put them back to rest. You will be rewarded for your troubles."
+            ]
+        }
+    },
+    "58": {
+        "name": "Will It Hold?",
+        "type": 2,
+        "cost": 9000,
+        "rank": "B",
+        "difficulty": 1011,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [90000, 67500, 45000, 22500],
+        "unit_bonus": {
+            "type": "Black magic",
+            "value": 5,
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 101001100,
+                "name": "Ether",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Will It Hold?",
+                "Will It Hold?"
+            ],
+            "desc": [
+                "An alchemist in town wishes to test the effects of black magic on various objects. Send a party capable of black magic to aid him and be rewarded.",
+                "An alchemist in town wishes to test the effects of black magic on various objects. Send a party capable of black magic to aid him and be rewarded."
+            ]
+        }
+    },
+    "59": {
+        "name": "Crying Over Spilt Milk",
+        "type": 2,
+        "cost": 9000,
+        "rank": "B",
+        "difficulty": 993,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 4,
+        "exp_levels": [90000, 67500, 45000, 22500],
+        "unit_bonus": {
+            "type": "Green magic",
+            "value": 5,
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103006100,
+                "name": "Body Boost",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Crying Over Spilt Milk",
+                "Crying Over Spilt Milk"
+            ],
+            "desc": [
+                "You've come across a bodybuilder who has dropped his milk and now can't mix up his protein shake. Send a team to resolve his problems and be rewarded for your troubles.",
+                "You've come across a bodybuilder who has dropped his milk and now can't mix up his protein shake. Send a team to resolve his problems and be rewarded for your troubles."
+            ]
+        }
+    },
+    "60": {
+        "name": "Sword in the Stone",
+        "type": 2,
+        "cost": 15000,
+        "rank": "B",
+        "difficulty": 1159,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000102",
+            "name": "Mini Burst Pot",
+            "amount": "3"
+        },
+        "relics": 5,
+        "exp_levels": [150000, 112500, 75000, 37500],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFIV",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290040200,
+                "name": "Dragon Heart",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 50,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Sword in the Stone",
+                "Sword in the Stone"
+            ],
+            "desc": [
+                "You've heard stories of a sword stuck in a stone, and rumor has it that only the worthy can pull it out. A reward has been promised to anyone who succeeds.",
+                "You've heard stories of a sword stuck in a stone, and rumor has it that only the worthy can pull it out. A reward has been promised to anyone who succeeds."
+            ]
+        }
+    },
+    "61": {
+        "name": "Join the Circus",
+        "type": 2,
+        "cost": 15000,
+        "rank": "B",
+        "difficulty": 1165,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000102",
+            "name": "Mini Burst Pot",
+            "amount": "3"
+        },
+        "relics": 5,
+        "exp_levels": [150000, 112500, 75000, 37500],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFIX",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 102003100,
+                "name": "Echo Herbs",
+                "amount": 10,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 25,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Join the Circus",
+                "Join the Circus"
+            ],
+            "desc": [
+                "A travelling circus just arrived and is looking to hire more performers for its show. Send your most talented performers to join.",
+                "A travelling circus just arrived and is looking to hire more performers for its show. Send your most talented performers to join."
+            ]
+        }
+    },
+    "62": {
+        "name": "Hot Topic",
+        "type": 2,
+        "cost": 36000,
+        "rank": "B",
+        "difficulty": 1159,
+        "duration": 86400,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "900000101",
+            "name": "Mini Tough Pot",
+            "amount": "1"
+        },
+        "relics": 6,
+        "exp_levels": [360000, 270000, 180000, 90000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFVI",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103100100,
+                "name": "Hero Drink",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Hot Topic",
+                "Hot Topic"
+            ],
+            "desc": [
+                "You have come across an arsonist who is threatening to burn down the village around him. Defeat him before he can cause any more harm and collect your reward.",
+                "You have come across an arsonist who is threatening to burn down the village around him. Defeat him before he can cause any more harm and collect your reward."
+            ]
+        }
+    },
+    "63": {
+        "name": "Impact from Above",
+        "type": 2,
+        "cost": 36000,
+        "rank": "B",
+        "difficulty": 1165,
+        "duration": 86400,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "900000101",
+            "name": "Mini Tough Pot",
+            "amount": "1"
+        },
+        "relics": 6,
+        "exp_levels": [360000, 270000, 180000, 90000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFV",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 101000300,
+                "name": "X-Potion",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 25,
+            "MAG": 25,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Impact from Above",
+                "Impact from Above"
+            ],
+            "desc": [
+                "Apparently, a small rock has fallen from the sky in a nearby village. Send a team to investigate.",
+                "Apparently, a small rock has fallen from the sky in a nearby village. Send a team to investigate."
+            ]
+        }
+    },
+    "64": {
+        "name": "General Hospitality",
+        "type": 2,
+        "cost": 12000,
+        "rank": "A",
+        "difficulty": 2204,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000810",
+            "name": "Random Megacryst",
+            "amount": "3"
+        },
+        "relics": 5,
+        "exp_levels": [120000, 90000, 60000, 30000],
+        "unit_bonus": {
+            "type": "White magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 101000300,
+                "name": "X-Potion",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 75
+        },
+        "strings": {
+            "name": [
+                "General Hospitality",
+                "General Hospitality"
+            ],
+            "desc": [
+                "A local hospital is short-staffed and looking for white mages to aid them. Send a team with one to help and be rewarded.",
+                "A local hospital is short-staffed and looking for white mages to aid them. Send a team with one to help and be rewarded."
+            ]
+        }
+    },
+    "65": {
+        "name": "Stranger Stuff",
+        "type": 2,
+        "cost": 12000,
+        "rank": "A",
+        "difficulty": 2204,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000810",
+            "name": "Random Megacryst",
+            "amount": "3"
+        },
+        "relics": 5,
+        "exp_levels": [120000, 90000, 60000, 30000],
+        "unit_bonus": {
+            "type": "Black magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103009100,
+                "name": "Shell Drink",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 75,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Stranger Stuff",
+                "Stranger Stuff"
+            ],
+            "desc": [
+                "A monster-like form has appeared, seemingly from another world. Send your best mages to put a stop to it.",
+                "A monster-like form has appeared, seemingly from another world. Send your best mages to put a stop to it."
+            ]
+        }
+    },
+    "66": {
+        "name": "He Who Smelt It",
+        "type": 2,
+        "cost": 12000,
+        "rank": "A",
+        "difficulty": 2142,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000810",
+            "name": "Random Megacryst",
+            "amount": "3"
+        },
+        "relics": 5,
+        "exp_levels": [120000, 90000, 60000, 30000],
+        "unit_bonus": {
+            "type": "Green magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 102007100,
+                "name": "Remedy",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "He Who Smelt It",
+                "He Who Smelt It"
+            ],
+            "desc": [
+                "A miasmatic cloud has been discovered coming out from the Shrine of Decay. Find the source of this smelly disturbance and be rewarded.",
+                "A miasmatic cloud has been discovered coming out from the Shrine of Decay. Find the source of this smelly disturbance and be rewarded."
+            ]
+        }
+    },
+    "67": {
+        "name": "Full House",
+        "type": 2,
+        "cost": 12000,
+        "rank": "A",
+        "difficulty": 2164,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000828",
+            "name": "Random Megacite",
+            "amount": "2"
+        },
+        "relics": 5,
+        "exp_levels": [120000, 90000, 60000, 30000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Instrument",
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 102008100,
+                "name": "Hyper",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 0,
+            "SPR": 50
+        },
+        "strings": {
+            "name": [
+                "Full House",
+                "Full House"
+            ],
+            "desc": [
+                "A local musical troupe is looking for someone to fill an empty seat. Send a team including your best musician to help out and be rewarded.",
+                "A local musical troupe is looking for someone to fill an empty seat. Send a team including your best musician to help out and be rewarded."
+            ]
+        }
+    },
+    "68": {
+        "name": "A Beasts Bounty",
+        "type": 2,
+        "cost": 12000,
+        "rank": "A",
+        "difficulty": 2164,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000828",
+            "name": "Random Megacite",
+            "amount": "2"
+        },
+        "relics": 5,
+        "exp_levels": [120000, 90000, 60000, 30000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Whip",
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 101000300,
+                "name": "X-Potion",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 20,
+            "ATK": 50,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "A Beast's Bounty",
+                "A Beast's Bounty"
+            ],
+            "desc": [
+                "A bounty has been set to defeat a large creature terrorising the villagers by a wealthy merchant. Send a party to defeat it and be rewarded.",
+                "A bounty has been set to defeat a large creature terrorising the villagers by a wealthy merchant. Send a party to defeat it and be rewarded."
+            ]
+        }
+    },
+    "69": {
+        "name": "Childs Play",
+        "type": 2,
+        "cost": 12000,
+        "rank": "A",
+        "difficulty": 2164,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000811",
+            "name": "Random Awakening Material",
+            "amount": "3"
+        },
+        "relics": 5,
+        "exp_levels": [120000, 90000, 60000, 30000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Throwing Weapon",
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103006100,
+                "name": "Body Boost",
+                "amount": 5,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 2,
+            "MP": 0,
+            "ATK": 50,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Child's Play",
+                "Child's Play"
+            ],
+            "desc": [
+                "It appears a group of children has lost their kite high up in a tree. Send a team with someone with a good arm, go and help them get it down, and be rewarded.",
+                "It appears a group of children has lost their kite high up in a tree. Send a team with someone with a good arm, go and help them get it down, and be rewarded."
+            ]
+        }
+    },
+    "70": {
+        "name": "A Priest, a Monk, and a Paladin",
+        "type": 2,
+        "cost": 12000,
+        "rank": "A",
+        "difficulty": 2172,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000811",
+            "name": "Random Awakening Material",
+            "amount": "3"
+        },
+        "relics": 5,
+        "exp_levels": [120000, 90000, 60000, 30000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Mace",
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103010100,
+                "name": "Bacchus's Wine",
+                "amount": 5,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 25,
+            "DEF": 25,
+            "MAG": 25,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "A Priest, a Monk, and a Paladin",
+                "A Priest, a Monk, and a Paladin"
+            ],
+            "desc": [
+                "A group of men with greatly varying backgrounds have decided to host a summit to promote peace. Send a party to maintain peaceful discussions.",
+                "A group of men with greatly varying backgrounds have decided to host a summit to promote peace. Send a party to maintain peaceful discussions."
+            ]
+        }
+    },
+    "71": {
+        "name": "Shopping for Medicine",
+        "type": 2,
+        "cost": 12000,
+        "rank": "A",
+        "difficulty": 2164,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 5,
+        "exp_levels": [120000, 90000, 60000, 30000],
+        "unit_bonus": {
+            "type": "White magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290030800,
+                "name": "Brilliant Ray",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 50
+        },
+        "strings": {
+            "name": [
+                "Shopping for Medicine",
+                "Shopping for Medicine"
+            ],
+            "desc": [
+                "Reports indicate a store nearby literally giving away its overstocked medical supplies. Send a party with medical knowledge to check it out.",
+                "Reports indicate a store nearby literally giving away its overstocked medical supplies. Send a party with medical knowledge to check it out."
+            ]
+        }
+    },
+    "72": {
+        "name": "The Missing Key",
+        "type": 2,
+        "cost": 12000,
+        "rank": "A",
+        "difficulty": 2142,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 5,
+        "exp_levels": [120000, 90000, 60000, 30000],
+        "unit_bonus": {
+            "type": "Black magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 104009100,
+                "name": "Holy Torch",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "The Missing Key",
+                "The Missing Key"
+            ],
+            "desc": [
+                "A treasure chest has been found on a nearby island but the key is nowhere in sight. Dispatch a team to find it so the chest can be unlocked.",
+                "A treasure chest has been found on a nearby island but the key is nowhere in sight. Dispatch a team to find it so the chest can be unlocked."
+            ]
+        }
+    },
+    "73": {
+        "name": "Across the Desert",
+        "type": 2,
+        "cost": 12000,
+        "rank": "A",
+        "difficulty": 2142,
+        "duration": 28800,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000827",
+            "name": "Random Consumable",
+            "amount": "1"
+        },
+        "relics": 5,
+        "exp_levels": [120000, 90000, 60000, 30000],
+        "unit_bonus": {
+            "type": "Green magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103008100,
+                "name": "Protect Drink",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Across the Desert",
+                "Across the Desert"
+            ],
+            "desc": [
+                "You have been asked to help a band of merchants traverse a great desert. Send a team with experience to do so, and be rewarded.",
+                "You have been asked to help a band of merchants traverse a great desert. Send a team with experience to do so, and be rewarded."
+            ]
+        }
+    },
+    "74": {
+        "name": "Cook Off",
+        "type": 2,
+        "cost": 20000,
+        "rank": "A",
+        "difficulty": 2389,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000831",
+            "name": "Random Giancryst",
+            "amount": "1"
+        },
+        "relics": 6,
+        "exp_levels": [200000, 150000, 100000, 50000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFXV",
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 202000600,
+                "name": "Chromatic Ooze",
+                "amount": 40,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Cook Off",
+                "Cook Off"
+            ],
+            "desc": [
+                "There is a cooking contest being held in a nearby village. The reward is rumored to be something of high value.",
+                "There is a cooking contest being held in a nearby village. The reward is rumored to be something of high value."
+            ]
+        }
+    },
+    "75": {
+        "name": "Tavern Cleanup",
+        "type": 2,
+        "cost": 20000,
+        "rank": "A",
+        "difficulty": 2429,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000831",
+            "name": "Random Giancryst",
+            "amount": "1"
+        },
+        "relics": 6,
+        "exp_levels": [200000, 150000, 100000, 50000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFIII",
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 102005100,
+                "name": "Vaccine",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 25,
+            "DEF": 25,
+            "MAG": 25,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Tavern Cleanup",
+                "Tavern Cleanup"
+            ],
+            "desc": [
+                "A local tavern's cellar has become overrun with dire rats. A bounty has been placed to help clear the tavern of this infestation.",
+                "A local tavern's cellar has become overrun with dire rats. A bounty has been placed to help clear the tavern of this infestation."
+            ]
+        }
+    },
+    "76": {
+        "name": "Too Many Coeurls",
+        "type": 2,
+        "cost": 20000,
+        "rank": "A",
+        "difficulty": 2389,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000831",
+            "name": "Random Giancryst",
+            "amount": "1"
+        },
+        "relics": 6,
+        "exp_levels": [200000, 150000, 100000, 50000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFII",
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 102004100,
+                "name": "Unicorn Horn",
+                "amount": 8,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 50,
+            "DEF": 25,
+            "MAG": 25,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Too Many Coeurls",
+                "Too Many Coeurls"
+            ],
+            "desc": [
+                "Coeurls are terrorizing local villages in great numbers. Assemble a team to help thin out their numbers.",
+                "Coeurls are terrorizing local villages in great numbers. Assemble a team to help thin out their numbers."
+            ]
+        }
+    },
+    "77": {
+        "name": "Lost in the Dark",
+        "type": 2,
+        "cost": 20000,
+        "rank": "A",
+        "difficulty": 2380,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000831",
+            "name": "Random Giancryst",
+            "amount": "1"
+        },
+        "relics": 6,
+        "exp_levels": [200000, 150000, 100000, 50000],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFI",
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 104009100,
+                "name": "Holy Torch",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 2,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 50,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Lost in the Dark",
+                "Lost in the Dark"
+            ],
+            "desc": [
+                "The lights suddenly go out in the tavern you are visiting. Send a team to figure out the cause and bring the lights back on. You will be rewarded.",
+                "The lights suddenly go out in the tavern you are visiting. Send a team to figure out the cause and bring the lights back on. You will be rewarded."
+            ]
+        }
+    },
+    "78": {
+        "name": "Anger Management",
+        "type": 2,
+        "cost": 20000,
+        "rank": "A",
+        "difficulty": 2389,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000102",
+            "name": "Mini Burst Pot",
+            "amount": "5"
+        },
+        "relics": 6,
+        "exp_levels": [200000, 150000, 100000, 50000],
+        "unit_bonus": {
+            "type": "White magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290030600,
+                "name": "Fury Seed",
+                "amount": 4,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 25,
+            "SPR": 50
+        },
+        "strings": {
+            "name": [
+                "Anger Management",
+                "Anger Management"
+            ],
+            "desc": [
+                "A psychologist in town wants to study the effects of battle on a person's temperament. Send a party to participate in her research. You will be compensated.",
+                "A psychologist in town wants to study the effects of battle on a person's temperament. Send a party to participate in her research. You will be compensated."
+            ]
+        }
+    },
+    "79": {
+        "name": "Wrath in the Wreckage",
+        "type": 2,
+        "cost": 20000,
+        "rank": "A",
+        "difficulty": 2389,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000102",
+            "name": "Mini Burst Pot",
+            "amount": "5"
+        },
+        "relics": 6,
+        "exp_levels": [200000, 150000, 100000, 50000],
+        "unit_bonus": {
+            "type": "Black magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 104009100,
+                "name": "Holy Torch",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 50,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Wrath in the Wreckage",
+                "Wrath in the Wreckage"
+            ],
+            "desc": [
+                "You've been asked to salvage treasures from a wrecked luxury liner airship. However, it has since been inhabited by a monstrous being.",
+                "You've been asked to salvage treasures from a wrecked luxury liner airship. However, it has since been inhabited by a monstrous being."
+            ]
+        }
+    },
+    "80": {
+        "name": "Seven Years Bad Luck",
+        "type": 2,
+        "cost": 20000,
+        "rank": "A",
+        "difficulty": 2380,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000102",
+            "name": "Mini Burst Pot",
+            "amount": "5"
+        },
+        "relics": 6,
+        "exp_levels": [200000, 150000, 100000, 50000],
+        "unit_bonus": {
+            "type": "Green magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290030900,
+                "name": "Lucky Seedling",
+                "amount": 4,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 2,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Seven Years Bad Luck",
+                "Seven Years Bad Luck"
+            ],
+            "desc": [
+                "One of your allies dropped a mirror in a shop and cracked it. Have a team repair it or risk the repercussions. You will be rewarded for fixing it.",
+                "One of your allies dropped a mirror in a shop and cracked it. Have a team repair it or risk the repercussions. You will be rewarded for fixing it."
+            ]
+        }
+    },
+    "81": {
+        "name": "Ghost Busted",
+        "type": 2,
+        "cost": 48000,
+        "rank": "A",
+        "difficulty": 2389,
+        "duration": 86400,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "900000201",
+            "name": "Tough Pot",
+            "amount": "1"
+        },
+        "relics": 7,
+        "exp_levels": [480000, 360000, 240000, 120000],
+        "unit_bonus": {
+            "type": "White magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 101002100,
+                "name": "Elixir",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 25,
+            "SPR": 50
+        },
+        "strings": {
+            "name": [
+                "Ghost Busted",
+                "Ghost Busted"
+            ],
+            "desc": [
+                "Some thieving ghosts have been reported looting shops all around town. Send a team to investigate what's going on and be rewarded.",
+                "Some thieving ghosts have been reported looting shops all around town. Send a team to investigate what's going on and be rewarded."
+            ]
+        }
+    },
+    "82": {
+        "name": "Whats Her Secret?",
+        "type": 2,
+        "cost": 48000,
+        "rank": "A",
+        "difficulty": 2389,
+        "duration": 86400,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "900000201",
+            "name": "Tough Pot",
+            "amount": "1"
+        },
+        "relics": 7,
+        "exp_levels": [480000, 360000, 240000, 120000],
+        "unit_bonus": {
+            "type": "Black magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290040400,
+                "name": "Talmonite of Life",
+                "amount": 5,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 50,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "What's Her Secret?",
+                "What's Her Secret?"
+            ],
+            "desc": [
+                "A local debutant is suspected of carrying out unspeakable acts in order to retain her youthful look. Send a team to investigate what she's really up to and be rewarded.",
+                "A local debutant is suspected of carrying out unspeakable acts in order to retain her youthful look. Send a team to investigate what she's really up to and be rewarded."
+            ]
+        }
+    },
+    "83": {
+        "name": "Braving the Elements",
+        "type": 2,
+        "cost": 48000,
+        "rank": "A",
+        "difficulty": 2380,
+        "duration": 86400,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "900000201",
+            "name": "Tough Pot",
+            "amount": "1"
+        },
+        "relics": 7,
+        "exp_levels": [480000, 360000, 240000, 120000],
+        "unit_bonus": {
+            "type": "Green magic",
+            "value": 7,
+            "bonus": 4
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103001100,
+                "name": "Lunar Curtain",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 2,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Braving the Elements",
+                "Braving the Elements"
+            ],
+            "desc": [
+                "Severe storms are on their way, and brave men and women are needed to help ready the town for impact.",
+                "Severe storms are on their way, and brave men and women are needed to help ready the town for impact."
+            ]
+        }
+    },
+    "84": {
+        "name": "Lost in the World",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4596,
+        "duration": 86400,
+        "units": 5,
+        "required": "Rain",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000103",
+            "name": "Burst Pot",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Great Sword",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290030800,
+                "name": "Brilliant Ray",
+                "amount": 10,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 2,
+            "MP": 20,
+            "ATK": 50,
+            "DEF": 50,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Lost in the World",
+                "Lost in the World"
+            ],
+            "desc": [
+                "A small child has gone missing. Dispatch Rain and a search party to find him and bring him back to his family. A precious reward awaits you if you do.",
+                "A small child has gone missing. Dispatch Rain and a search party to find him and bring him back to his family. A precious reward awaits you if you do."
+            ]
+        }
+    },
+    "85": {
+        "name": "Hotline Grandshelt",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4447,
+        "duration": 86400,
+        "units": 5,
+        "required": "Lasswell",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000103",
+            "name": "Burst Pot",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Katana",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290050500,
+                "name": "Divine Crystal",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 75,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Hotline Grandshelt",
+                "Hotline Grandshelt"
+            ],
+            "desc": [
+                "Lasswell receives reports from all across Grandshelt of thefts and muggings. Dispatch your best team to help make sense of the chaos.",
+                "Lasswell receives reports from all across Grandshelt of thefts and muggings. Dispatch your best team to help make sense of the chaos."
+            ]
+        }
+    },
+    "86": {
+        "name": "Break Time",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4596,
+        "duration": 86400,
+        "units": 5,
+        "required": "Fina",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000103",
+            "name": "Burst Pot",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Bow",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290030000,
+                "name": "Earth's Core",
+                "amount": 10,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 50
+        },
+        "strings": {
+            "name": [
+                "Break Time",
+                "Break Time"
+            ],
+            "desc": [
+                "Overburdened with work, a local chocobo farmer is looking for help in tending the fields while he has a much needed break. Fina volunteers and request for a team to support her.",
+                "Overburdened with work, a local chocobo farmer is looking for help in tending the fields while he has a much needed break. Fina volunteers and request for a team to support her."
+            ]
+        }
+    },
+    "87": {
+        "name": "Reinventing the Wheel",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4575,
+        "duration": 86400,
+        "units": 5,
+        "required": "Lid",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000103",
+            "name": "Burst Pot",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Hammer",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290020600,
+                "name": "Quality Parts",
+                "amount": 20,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 50,
+            "DEF": 50,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Reinventing the Wheel",
+                "Reinventing the Wheel"
+            ],
+            "desc": [
+                "An ambitious inventor is looking for parts to make a new fully-automated vehicle for traveling by land. Have Lid and a team help him find the parts he needs and be rewarded.",
+                "An ambitious inventor is looking for parts to make a new fully-automated vehicle for traveling by land. Have Lid and a team help him find the parts he needs and be rewarded."
+            ]
+        }
+    },
+    "88": {
+        "name": "Winter is Coming",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4596,
+        "duration": 86400,
+        "units": 5,
+        "required": "Nichol",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000103",
+            "name": "Burst Pot",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Robe",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 202000800,
+                "name": "Broken Blade",
+                "amount": 120,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 50,
+            "SPR": 50
+        },
+        "strings": {
+            "name": [
+                "Winter is Coming",
+                "Winter is Coming"
+            ],
+            "desc": [
+                "A local village is busy preparing for the coming winter and all of the monsters it will bring. Send NIchol and a team to help expedite their efforts.",
+                "A local village is busy preparing for the coming winter and all of the monsters it will bring. Send NIchol and a team to help expedite their efforts."
+            ]
+        }
+    },
+    "89": {
+        "name": "Hide Your Kids, Hide Your Wife",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4447,
+        "duration": 86400,
+        "units": 5,
+        "required": "Jake",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000103",
+            "name": "Burst Pot",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Gun",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103100100,
+                "name": "Hero Drink",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 75,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Hide your wallets!",
+                "Hide your wallets!"
+            ],
+            "desc": [
+                "A sneaky pickpocket is on the loose, shamefully targeting women and children. Dispatch Jake and a team to hunt this degenerate down.",
+                "A sneaky pickpocket is on the loose, shamefully targeting women and children. Dispatch Jake and a team to hunt this degenerate down."
+            ]
+        }
+    },
+    "90": {
+        "name": "Paper, Please!",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4575,
+        "duration": 86400,
+        "units": 5,
+        "required": "Sakura",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "905000103",
+            "name": "Burst Pot",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Spear",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 102002100,
+                "name": "Smelling Salts",
+                "amount": 60,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 40,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Paper, Please!",
+                "Paper, Please!"
+            ],
+            "desc": [
+                "In preparation for an upcoming event, you've been asked to help fold 99 paper cranes. Have Sakura and a party go and help out. You will be rewarded with something else.",
+                "In preparation for an upcoming event, you've been asked to help fold 99 paper cranes. Have Sakura and a party go and help out. You will be rewarded with something else."
+            ]
+        }
+    },
+    "91": {
+        "name": "Wherefore Art Thou, Father",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4596,
+        "duration": 86400,
+        "units": 5,
+        "required": "Rain",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "904000101",
+            "name": "Trust Moogle",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Great Sword",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290030800,
+                "name": "Brilliant Ray",
+                "amount": 10,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 2,
+            "MP": 20,
+            "ATK": 50,
+            "DEF": 50,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Wherefore Art Thou, Father",
+                "Wherefore Art Thou, Father"
+            ],
+            "desc": [
+                "Rain has encountered a young orphan whom has set out to find her father who recently went missing. Help her find him and bring him back for a great reward.",
+                "Rain has encountered a young orphan whom has set out to find her father who recently went missing. Help her find him and bring him back for a great reward."
+            ]
+        }
+    },
+    "92": {
+        "name": "A Legendary Challenge",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4447,
+        "duration": 86400,
+        "units": 5,
+        "required": "Lasswell",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "904000101",
+            "name": "Trust Moogle",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Katana",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103100100,
+                "name": "Hero Drink",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 75,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "A \"Legendary\" Challenge",
+                "A \"Legendary\" Challenge"
+            ],
+            "desc": [
+                "A self-proclaimed \"legendary warrior\" has come to town with his party in search of worthy opponents. He promises a reward for any able to best them. Send Lasswell and a team to defeat them and be rewarded.",
+                "A self-proclaimed \"legendary warrior\" has come to town with his party in search of worthy opponents. He promises a reward for any able to best them. Send Lasswell and a team to defeat them and be rewarded."
+            ]
+        }
+    },
+    "93": {
+        "name": "Wheres My Mommy?",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4596,
+        "duration": 86400,
+        "units": 5,
+        "required": "Fina",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "904000101",
+            "name": "Trust Moogle",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Bow",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290030800,
+                "name": "Brilliant Ray",
+                "amount": 10,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 50
+        },
+        "strings": {
+            "name": [
+                "Where's My Mommy?",
+                "Where's My Mommy?"
+            ],
+            "desc": [
+                "Fina came across a lost young girl looking for her mother. Help Fina and the poor girl find her and be rewarded.",
+                "Fina came across a lost young girl looking for her mother. Help Fina and the poor girl find her and be rewarded."
+            ]
+        }
+    },
+    "94": {
+        "name": "Be the Best",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4575,
+        "duration": 86400,
+        "units": 5,
+        "required": "Lid",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "904000101",
+            "name": "Trust Moogle",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Hammer",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 290020600,
+                "name": "Quality Parts",
+                "amount": 20,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 50,
+            "DEF": 50,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Be the Best",
+                "Be the Best"
+            ],
+            "desc": [
+                "Help Lid find airship parts on her quest to become Cid. You'll be rewarded for your help.",
+                "Help Lid find airship parts on her quest to become Cid. You'll be rewarded for your help."
+            ]
+        }
+    },
+    "95": {
+        "name": "Hot Ice",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4596,
+        "duration": 86400,
+        "units": 5,
+        "required": "Nichol",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "904000101",
+            "name": "Trust Moogle",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Robe",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103100100,
+                "name": "Hero Drink",
+                "amount": 3,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 0,
+            "MP": 40,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 50,
+            "SPR": 50
+        },
+        "strings": {
+            "name": [
+                "Hot Ice",
+                "Hot Ice"
+            ],
+            "desc": [
+                "A volcano is rumored to be frozen by a frost dragon. Further investigation is needed to ascertain why such a beast decided to roost here. Dispatch Nichol and a team to solve the mystery to receive a reward.",
+                "A volcano is rumored to be frozen by a frost dragon. Further investigation is needed to ascertain why such a beast decided to roost here. Dispatch Nichol and a team to solve the mystery to receive a reward."
+            ]
+        }
+    },
+    "96": {
+        "name": "Save the Children",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4447,
+        "duration": 86400,
+        "units": 5,
+        "required": "Jake",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "904000101",
+            "name": "Trust Moogle",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Gun",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 102005100,
+                "name": "Vaccine",
+                "amount": 6,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 75,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Save the Children",
+                "Save the Children"
+            ],
+            "desc": [
+                "Jake hear screams for help coming from a nearby orphanage. Send Jake and a team to ensure the children's' safety and receive a hero's reward.",
+                "Jake hear screams for help coming from a nearby orphanage. Send Jake and a team to ensure the children's' safety and receive a hero's reward."
+            ]
+        }
+    },
+    "97": {
+        "name": "Magi in Danger",
+        "type": 2,
+        "cost": 60000,
+        "rank": "S",
+        "difficulty": 4575,
+        "duration": 86400,
+        "units": 5,
+        "required": "Sakura",
+        "next_id": null,
+        "reward": {
+            "type": "UNIT",
+            "id": "904000101",
+            "name": "Trust Moogle",
+            "amount": "1"
+        },
+        "relics": 8,
+        "exp_levels": [600000, 450000, 300000, 150000],
+        "unit_bonus": {
+            "type": "equipable",
+            "value": "Spear",
+            "bonus": 3
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 103100100,
+                "name": "Hero Drink",
+                "amount": 1,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 40,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 50,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Magi in Danger",
+                "Magi in Danger"
+            ],
+            "desc": [
+                "Sakura has identified a group of inexperienced magi that have come under attack in a nearby tower. Locate them and ensure their safe return. A reward awaits you.",
+                "Sakura has identified a group of inexperienced magi that have come under attack in a nearby tower. Locate them and ensure their safe return. A reward awaits you."
+            ]
+        }
+    },
+    "98": {
+        "name": "Red and Blue Supercite",
+        "type": 1,
+        "cost": 7500,
+        "rank": "B",
+        "difficulty": 1165,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000872",
+            "name": "Blue and Red Supercites",
+            "amount": "2"
+        },
+        "relics": 5,
+        "exp_levels": [150000, 112500, 75000, 37500],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFBE",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 106000100,
+                "name": "Tent",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 25,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Supercites of Red and Blue",
+                "Supercites of Red and Blue"
+            ],
+            "desc": [
+                "Trekking up fiery mountains,<br>and across the stormy seas.<br>To find them supercite,<br>they're worth it, you'll see.",
+                "Trekking up fiery mountains,<br>and across the stormy seas.<br>To find them supercite,<br>they're worth it, you'll see."
+            ]
+        }
+    },
+    "99": {
+        "name": "Violet and Yellow Supercite",
+        "type": 1,
+        "cost": 7500,
+        "rank": "B",
+        "difficulty": 1165,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000873",
+            "name": "Violet and Yellow Supercites",
+            "amount": "2"
+        },
+        "relics": 5,
+        "exp_levels": [150000, 112500, 75000, 37500],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFBE",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 106000100,
+                "name": "Tent",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 20,
+            "ATK": 0,
+            "DEF": 0,
+            "MAG": 25,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Supercites of Violet and Yellow",
+                "Supercites of Violet and Yellow"
+            ],
+            "desc": [
+                "Through frozen caverns,<br>and thundering isles.<br>You'll find supercite,<br>in large piles.",
+                "Through frozen caverns,<br>and thundering isles.<br>You'll find supercite,<br>in large piles."
+            ]
+        }
+    },
+    "100": {
+        "name": "Orange and White Supercite",
+        "type": 1,
+        "cost": 7500,
+        "rank": "B",
+        "difficulty": 1159,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000874",
+            "name": "Orange and White Supercites",
+            "amount": "2"
+        },
+        "relics": 5,
+        "exp_levels": [150000, 112500, 75000, 37500],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFBE",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 106000100,
+                "name": "Tent",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 0,
+            "ATK": 50,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 0
+        },
+        "strings": {
+            "name": [
+                "Supercites of Orange and White",
+                "Supercites of Orange and White"
+            ],
+            "desc": [
+                "Chance upon forgotten ruins,<br>and dance through lush forests.<br>Clusters of supercite,<br>beautiful and flawless.",
+                "Chance upon forgotten ruins,<br>and dance through lush forests.<br>Clusters of supercite,<br>beautiful and flawless."
+            ]
+        }
+    },
+    "101": {
+        "name": "Green and Black Supercite",
+        "type": 1,
+        "cost": 7500,
+        "rank": "B",
+        "difficulty": 1159,
+        "duration": 43200,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000875",
+            "name": "Green and Black Supercites",
+            "amount": "2"
+        },
+        "relics": 5,
+        "exp_levels": [150000, 112500, 75000, 37500],
+        "unit_bonus": {
+            "type": "game",
+            "value": "FFBE",
+            "bonus": 6
+        },
+        "unit_bonus_max": 16,
+        "item_bonus": [
+            {
+                "id": 106000100,
+                "name": "Tent",
+                "amount": 2,
+                "bonus": 20
+            }
+        ],
+        "stat_bonus": {
+            "HP": 2,
+            "MP": 0,
+            "ATK": 0,
+            "DEF": 25,
+            "MAG": 0,
+            "SPR": 25
+        },
+        "strings": {
+            "name": [
+                "Supercites of Green and Black",
+                "Supercites of Green and Black"
+            ],
+            "desc": [
+                "Brace against strong winds,<br>and traverse the demonic wasteland.<br>Gather as much supercite,<br>while you still can.",
+                "Brace against strong winds,<br>and traverse the demonic wasteland.<br>Gather as much supercite,<br>while you still can."
+            ]
+        }
+    },
+    "102": {
+        "name": "TM Expedition",
+        "type": 3,
+        "cost": null,
+        "rank": "D",
+        "difficulty": 1,
+        "duration": 14400,
+        "units": 5,
+        "required": null,
+        "next_id": null,
+        "reward": {
+            "type": "ITEM",
+            "id": "1209000926",
+            "name": "Exploring the Moogle Cave",
+            "amount": "0"
+        },
+        "relics": 5,
+        "exp_levels": [6000, 4500, 3000, 1500],
+        "unit_bonus": {
+            "type": "game",
+            "value": null,
+            "bonus": 0
+        },
+        "unit_bonus_max": 20,
+        "item_bonus": null,
+        "stat_bonus": {
+            "HP": 1,
+            "MP": 1,
+            "ATK": 1,
+            "DEF": 1,
+            "MAG": 1,
+            "SPR": 1
+        },
+        "strings": {
+            "name": [
+                "Exploring the Moogle Cave",
+                "Exploring the Moogle Cave"
+            ],
+            "desc": [
+                "Venture into the moogle cave and who knows, maybe you could make friends with the moogles and gain some trust experiences!",
+                "Venture into the moogle cave and who knows, maybe you could make friends with the moogles and gain some trust experiences!"
+            ]
+        }
+    }
+}

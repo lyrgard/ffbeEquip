@@ -1,0 +1,2138 @@
+{
+    "73": {
+        "area_effect_id": "73",
+        "desc_short": "Fill LB gauge",
+        "desc_long": "Fill LB gauge",
+        "turns": -1,
+        "effects": ["Fill LB gauge by 20000 each turn for unlimited turns"],
+        "effects_raw": [[-1, 4, [0,  0,  20000,  0]]]},
+    "100000001": {
+        "area_effect_id": "100000001",
+        "desc_short": "Reduce water, wind, earth, and light resistance",
+        "desc_long": "Reduce water, wind, earth, and light resistance",
+        "turns": -1,
+        "effects": ["Decrease water, wind, earth and light resistance (100%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0, 0, 0, [-100,  -100], [-100,  -100], [-100,  -100], [-100,  -100], 0]]]},
+    "100000002": {
+        "area_effect_id": "100000002",
+        "desc_short": "Reduce all elemental resistances",
+        "desc_long": "Reduce fire, ice, lightning, water, wind, earth, light, and dark resistance",
+        "turns": -1,
+        "effects": ["Decrease all elements resistance (300%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [-300,  -300,  -300,  -300,  -300,  -300,  -300,  -300]]]},
+    "100000003": {
+        "area_effect_id": "100000003",
+        "desc_short": "Boost ATK, DEF, MAG, and SPR",
+        "desc_long": "Boost ATK, DEF, MAG, and SPR for blue dragon",
+        "turns": -1,
+        "effects": ["Increase ATK/DEF/MAG/SPR (10%) for unlimited turns"],
+        "effects_raw": [[-1, 1, [[0,  10], [0,  10], [0,  10], [0,  10]]]]},
+    "100000004": {
+        "area_effect_id": "100000004",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase physical damage (300%) for 3 turns"],
+        "effects_raw": [[3, 7, [300]]]},
+    "100000005": {
+        "area_effect_id": "100000005",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase magic damage (300%) for 3 turns"],
+        "effects_raw": [[3, 8, [300]]]},
+    "100000006": {
+        "area_effect_id": "100000006",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 4,
+        "effects": ["Decrease all elements resistance (300%) for 4 turns"],
+        "effects_raw": [[4, 2, [-300,  -300,  -300,  -300,  -300,  -300,  -300,  -300]]]},
+    "100000007": {
+        "area_effect_id": "100000007",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase ATK and MAG (300%) for 3 turns"],
+        "effects_raw": [[3, 1, [300,  0,  300,  0]]]},
+    "100000008": {
+        "area_effect_id": "100000008",
+        "desc_short": "Restore MP",
+        "desc_long": "Restore MP",
+        "turns": -1,
+        "effects": ["Restore MP (100) each turn for unlimited turns"],
+        "effects_raw": [[-1, 3, [0,  100,  0,  0]]]},
+    "100000009": {
+        "area_effect_id": "100000009",
+        "desc_short": "Reduce earth resistance",
+        "desc_long": "Reduce earth resistance",
+        "turns": -1,
+        "effects": ["Decrease earth resistance (50%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0, 0, 0, 0, 0, [-50,  -50], 0, 0]]]},
+    "100000010": {
+        "area_effect_id": "100000010",
+        "desc_short": "Boost magic damage",
+        "desc_long": "Boost magic damage by 100%",
+        "turns": -1,
+        "effects": ["Increase magic damage (100%) for unlimited turns"],
+        "effects_raw": [[-1, 8, [[100,  100]]]]},
+    "100000011": {
+        "area_effect_id": "100000011",
+        "desc_short": "Reduce water resistance",
+        "desc_long": "Reduce water resistance",
+        "turns": -1,
+        "effects": ["Decrease water resistance (150%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0,  0,  0,  -150,  0,  0,  0,  0]]]},
+    "100000012": {
+        "area_effect_id": "100000012",
+        "desc_short": "Reduce dark resistance",
+        "desc_long": "Reduce dark resistance",
+        "turns": -1,
+        "effects": ["Decrease dark resistance (200%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0,  0,  0,  0,  0,  0,  0,  -200]]]},
+    "100000013": {
+        "area_effect_id": "100000013",
+        "desc_short": "Reduce ice resistance",
+        "desc_long": "Reduce ice resistance",
+        "turns": -1,
+        "effects": ["Decrease ice resistance (200%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0,  -200,  0,  0,  0,  0,  0,  0]]]},
+    "100000014": {
+        "area_effect_id": "100000014",
+        "desc_short": "Reduce lightning resistance",
+        "desc_long": "Reduce lightning resistance by 300%",
+        "turns": -1,
+        "effects": ["Decrease lightning resistance (300%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0,  0,  -300,  0,  0,  0,  0,  0]]]},
+    "100000015": {
+        "area_effect_id": "100000015",
+        "desc_short": "Reduce ice resistance",
+        "desc_long": "Reduce ice resistance by 300%",
+        "turns": -1,
+        "effects": ["Decrease ice resistance (300%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0,  -300,  0,  0,  0,  0,  0,  0]]]},
+    "100000016": {
+        "area_effect_id": "100000016",
+        "desc_short": "Reduce earth resistance",
+        "desc_long": "Reduce earth resistance",
+        "turns": -1,
+        "effects": ["Decrease earth resistance (200%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0, 0, 0, 0, 0, [-200,  -200], 0, 0]]]},
+    "100000017": {
+        "area_effect_id": "100000017",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": ["Decrease lightning resistance (200%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0, 0, [-200,  -200], 0, 0, 0, 0, 0]]]},
+    "100000018": {
+        "area_effect_id": "100000018",
+        "desc_short": "Reduce ice resistance",
+        "desc_long": "Reduce ice resistance",
+        "turns": -1,
+        "effects": ["Decrease ice resistance (200%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0, [-200,  -200], 0, 0, 0, 0, 0, 0]]]},
+    "100000019": {
+        "area_effect_id": "100000019",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": ["Decrease dark resistance (200%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0, 0, 0, 0, 0, 0, 0, [-200,  -200]]]]},
+    "100000020": {
+        "area_effect_id": "100000020",
+        "desc_short": "Reduce earth resistance",
+        "desc_long": "Reduce earth resistance",
+        "turns": -1,
+        "effects": ["Decrease earth resistance (300%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0, 0, 0, 0, 0, [-300,  -300], 0, 0]]]},
+    "100000021": {
+        "area_effect_id": "100000021",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": ["Decrease wind resistance (200%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0, 0, 0, 0, [-200,  -200], 0, 0, 0]]]},
+    "100000022": {
+        "area_effect_id": "100000022",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": ["Decrease water resistance (200%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0, 0, 0, [-200,  -200], 0, 0, 0, 0]]]},
+    "100000023": {
+        "area_effect_id": "100000023",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": ["Decrease light resistance (200%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0, 0, 0, 0, 0, 0, [-200,  -200], 0]]]},
+    "100000024": {
+        "area_effect_id": "100000024",
+        "desc_short": "Reduce lightning resistance",
+        "desc_long": "Reduce lightning resistance",
+        "turns": -1,
+        "effects": ["Decrease lightning resistance (300%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [0, 0, [-300,  -300], 0, 0, 0, 0, 0]]]},
+    "100000025": {
+        "area_effect_id": "100000025",
+        "desc_short": "Boost ice physical and magic damage",
+        "desc_long": "Boost ice physical and magic damage by 25%",
+        "turns": 5,
+        "effects": [
+            "Increase ice magic damage (25%) for 5 turns",
+            "Increase ice physical damage (25%) for 5 turns"
+        ],
+        "effects_raw": [[5, 11, [0, [25,  25], 0, 0, 0, 0, 0, 0]], [5, 10, [0, [25,  25], 0, 0, 0, 0, 0, 0]]]},
+    "100000026": {
+        "area_effect_id": "100000026",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": ["Decrease fire resistance (200%) for unlimited turns"],
+        "effects_raw": [[-1, 2, [[-200,  -200], 0, 0, 0, 0, 0, 0, 0]]]},
+    "100000028": {
+        "area_effect_id": "100000028",
+        "desc_short": "Boost LB damage",
+        "desc_long": "Boost LB damage by 300%",
+        "turns": 10,
+        "effects": ["Increase LB damage (300%) for 10 turns"],
+        "effects_raw": [[10, 9, [300]]]},
+    "100000029": {
+        "area_effect_id": "100000029",
+        "desc_short": "Boost DEF",
+        "desc_long": "Boost DEF by 400%",
+        "turns": -1,
+        "effects": ["Increase DEF (300%) for unlimited turns"],
+        "effects_raw": [[-1, 1, [[0,  0], [300,  300], [0,  0], [0,  0]]]]},
+    "100000030": {
+        "area_effect_id": "100000030",
+        "desc_short": "Boost damage for jump attacks",
+        "desc_long": "Boost damage for jump attacks by 200%",
+        "turns": -1,
+        "effects": ["Increase jump damage (200%) for unlimited turns"],
+        "effects_raw": [[-1, 13, [[200,  200]]]]},
+    "100000033": {
+        "area_effect_id": "100000033",
+        "desc_short": "Boost water physical and magic damage",
+        "desc_long": "Boost water physical and magic damage by 50%",
+        "turns": 3,
+        "effects": [
+            "Increase water physical damage (50%) for 3 turns",
+            "Increase water magic damage (50%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [0, 0, 0, [50,  50], 0, 0, 0, 0]], [3, 11, [0, 0, 0, [50,  50], 0, 0, 0, 0]]]},
+    "100000035": {
+        "area_effect_id": "100000035",
+        "desc_short": "Boost dark physical and magic damage",
+        "desc_long": "Boost dark physical and magic damage by 100%",
+        "turns": -1,
+        "effects": [
+            "Increase dark physical damage (100%) for unlimited turns",
+            "Increase dark magic damage (100%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 10, [0, 0, 0, 0, 0, 0, 0, [100,  100]]], [-1, 11, [0, 0, 0, 0, 0, 0, 0, [100,  100]]]]},
+    "100000036": {
+        "area_effect_id": "100000036",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 100%",
+        "turns": -1,
+        "effects": [
+            "Increase fire magic damage (100%) for unlimited turns",
+            "Increase fire physical damage (100%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 11, [[100,  100], 0, 0, 0, 0, 0, 0, 0]], [-1, 10, [[100,  100], 0, 0, 0, 0, 0, 0, 0]]]},
+    "100000037": {
+        "area_effect_id": "100000037",
+        "desc_short": "Boost lightning physical and magic damage",
+        "desc_long": "Boost lightning physical and magic damage by 100%",
+        "turns": -1,
+        "effects": [
+            "Increase lightning magic damage (100%) for unlimited turns",
+            "Increase lightning physical damage (100%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 11, [0, 0, [100,  100], 0, 0, 0, 0, 0]], [-1, 10, [0, 0, [100,  100], 0, 0, 0, 0, 0]]]},
+    "100000038": {
+        "area_effect_id": "100000038",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 100%",
+        "turns": 5,
+        "effects": [
+            "Increase fire physical damage (100%) for 5 turns",
+            "Increase fire magic damage (100%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [[100,  100], 0, 0, 0, 0, 0, 0, 0]], [5, 11, [[100,  100], 0, 0, 0, 0, 0, 0, 0]]]},
+    "100000039": {
+        "area_effect_id": "100000039",
+        "desc_short": "Boost ice physical and magic damage",
+        "desc_long": "Boost ice physical and magic damage by 100%",
+        "turns": 5,
+        "effects": [
+            "Increase ice physical damage (100%) for 5 turns",
+            "Increase ice magic damage (100%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, [100,  100], 0, 0, 0, 0, 0, 0]], [5, 11, [0, [100,  100], 0, 0, 0, 0, 0, 0]]]},
+    "100000040": {
+        "area_effect_id": "100000040",
+        "desc_short": "Boost dark physical and magic damage",
+        "desc_long": "Boost dark physical and magic damage by 100%",
+        "turns": 5,
+        "effects": [
+            "Increase dark physical damage (100%) for 5 turns",
+            "Increase dark magic damage (100%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, 0, 0, 0, [100,  100]]], [5, 11, [0, 0, 0, 0, 0, 0, 0, [100,  100]]]]},
+    "100000041": {
+        "area_effect_id": "100000041",
+        "desc_short": "Boost lightning physical and magic damage",
+        "desc_long": "Boost lightning physical and magic damage by 100%",
+        "turns": 5,
+        "effects": [
+            "Increase lightning physical damage (100%) for 5 turns",
+            "Increase lightning magic damage (100%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, [100,  100], 0, 0, 0, 0, 0]], [5, 11, [0, 0, [100,  100], 0, 0, 0, 0, 0]]]},
+    "100000042": {
+        "area_effect_id": "100000042",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": [
+            "Increase dark physical damage (100%) for unlimited turns",
+            "Increase dark magic damage (100%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 10, [0, 0, 0, 0, 0, 0, 0, [100,  100]]], [-1, 11, [0, 0, 0, 0, 0, 0, 0, [100,  100]]]]},
+    "100000043": {
+        "area_effect_id": "100000043",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Decrease lightning and wind resistance (50%) for 3 turns"],
+        "effects_raw": [[3, 2, [0,  0,  -50,  0,  -50,  0,  0,  0]]]},
+    "100000044": {
+        "area_effect_id": "100000044",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase jump damage (100%) for 3 turns"],
+        "effects_raw": [[3, 13, [100]]]},
+    "100000045": {
+        "area_effect_id": "100000045",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase jump damage (1000%) for 3 turns"],
+        "effects_raw": [[3, 13, [1000]]]},
+    "100000046": {
+        "area_effect_id": "100000046",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase jump damage (2000%) for 3 turns"],
+        "effects_raw": [[3, 13, [2000]]]},
+    "100000047": {
+        "area_effect_id": "100000047",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase jump damage (3000%) for 3 turns"],
+        "effects_raw": [[3, 13, [3000]]]},
+    "100000048": {
+        "area_effect_id": "100000048",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase jump damage (4000%) for 3 turns"],
+        "effects_raw": [[3, 13, [4000]]]},
+    "100000049": {
+        "area_effect_id": "100000049",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase jump damage (5000%) for 3 turns"],
+        "effects_raw": [[3, 13, [5000]]]},
+    "100000050": {
+        "area_effect_id": "100000050",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase jump damage (6000%) for 3 turns"],
+        "effects_raw": [[3, 13, [6000]]]},
+    "100000051": {
+        "area_effect_id": "100000051",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase jump damage (7000%) for 3 turns"],
+        "effects_raw": [[3, 13, [7000]]]},
+    "100000052": {
+        "area_effect_id": "100000052",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": [
+            "Increase lightning and wind physical damage (10%) for 3 turns",
+            "Increase lightning and wind magic damage (10%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [0, 0, [0,  10], 0, [0,  10], 0, 0, 0]], [3, 11, [0, 0, [0,  10], 0, [0,  10], 0, 0, 0]]]},
+    "100000053": {
+        "area_effect_id": "100000053",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": [
+            "Increase lightning and wind physical damage (25%) for 3 turns",
+            "Increase lightning and wind magic damage (25%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [0, 0, [0,  25], 0, [0,  25], 0, 0, 0]], [3, 11, [0, 0, [0,  25], 0, [0,  25], 0, 0, 0]]]},
+    "100000054": {
+        "area_effect_id": "100000054",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": [
+            "Increase lightning and wind physical damage (50%) for 3 turns",
+            "Increase lightning and wind magic damage (50%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [0, 0, [0,  50], 0, [0,  50], 0, 0, 0]], [3, 11, [0, 0, [0,  50], 0, [0,  50], 0, 0, 0]]]},
+    "100000055": {
+        "area_effect_id": "100000055",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": [
+            "Increase lightning and wind physical damage (100%) for 3 turns",
+            "Increase lightning and wind magic damage (100%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [0, 0, [0,  100], 0, [0,  100], 0, 0, 0]], [3, 11, [0, 0, [0,  100], 0, [0,  100], 0, 0, 0]]]},
+    "100000056": {
+        "area_effect_id": "100000056",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": [
+            "Increase lightning and wind physical damage (125%) for 3 turns",
+            "Increase lightning and wind magic damage (125%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [0, 0, [0,  125], 0, [0,  125], 0, 0, 0]], [3, 11, [0, 0, [0,  125], 0, [0,  125], 0, 0, 0]]]},
+    "100000057": {
+        "area_effect_id": "100000057",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": [
+            "Increase lightning and wind physical damage (150%) for 3 turns",
+            "Increase lightning and wind magic damage (150%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [0, 0, [0,  150], 0, [0,  150], 0, 0, 0]], [3, 11, [0, 0, [0,  150], 0, [0,  150], 0, 0, 0]]]},
+    "100000058": {
+        "area_effect_id": "100000058",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": [
+            "Increase lightning and wind physical damage (175%) for 3 turns",
+            "Increase lightning and wind magic damage (175%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [0, 0, [0,  175], 0, [0,  175], 0, 0, 0]], [3, 11, [0, 0, [0,  175], 0, [0,  175], 0, 0, 0]]]},
+    "100000059": {
+        "area_effect_id": "100000059",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": [
+            "Increase lightning and wind physical damage (200%) for 3 turns",
+            "Increase lightning and wind magic damage (200%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [0, 0, [0,  200], 0, [0,  200], 0, 0, 0]], [3, 11, [0, 0, [0,  200], 0, [0,  200], 0, 0, 0]]]},
+    "100000060": {
+        "area_effect_id": "100000060",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": [
+            "Increase lightning and wind physical damage (25%) for unlimited turns",
+            "Increase lightning and wind magic damage (25%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 10, [0,  0,  25,  0,  25,  0,  0,  0]], [-1, 11, [0,  0,  25,  0,  25,  0,  0,  0]]]},
+    "100000061": {
+        "area_effect_id": "100000061",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": [
+            "Increase lightning and wind physical damage (50%) for unlimited turns",
+            "Increase lightning and wind magic damage (50%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 10, [0,  0,  50,  0,  50,  0,  0,  0]], [-1, 11, [0,  0,  50,  0,  50,  0,  0,  0]]]},
+    "100000062": {
+        "area_effect_id": "100000062",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": [
+            "Increase lightning and wind physical damage (100%) for unlimited turns",
+            "Increase lightning and wind magic damage (100%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 10, [0,  0,  100,  0,  100,  0,  0,  0]], [-1, 11, [0,  0,  100,  0,  100,  0,  0,  0]]]},
+    "100000063": {
+        "area_effect_id": "100000063",
+        "desc_short": "Boost wind physical and magic damage",
+        "desc_long": "Boost wind physical and magic damage by 100%",
+        "turns": -1,
+        "effects": [
+            "Increase wind magic damage (100%) for unlimited turns",
+            "Increase wind physical damage (100%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 11, [0, 0, 0, 0, [100,  100], 0, 0, 0]], [-1, 10, [0, 0, 0, 0, [100,  100], 0, 0, 0]]]},
+    "200000001": {
+        "area_effect_id": "200000001",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 25%",
+        "turns": 10,
+        "effects": [
+            "Increase fire magic damage (25%) for 10 turns",
+            "Increase fire physical damage (25%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [[25,  25], 0, 0, 0, 0, 0, 0, 0]], [10, 10, [[25,  25], 0, 0, 0, 0, 0, 0, 0]]]},
+    "200000002": {
+        "area_effect_id": "200000002",
+        "desc_short": "Boost ice physical and magic damage",
+        "desc_long": "Boost ice physical and magic damage by 25%",
+        "turns": 10,
+        "effects": [
+            "Increase ice magic damage (25%) for 10 turns",
+            "Increase ice physical damage (25%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [0, [25,  25], 0, 0, 0, 0, 0, 0]], [10, 10, [0, [25,  25], 0, 0, 0, 0, 0, 0]]]},
+    "200000003": {
+        "area_effect_id": "200000003",
+        "desc_short": "Boost lightning physical and magic damage",
+        "desc_long": "Boost lightning physical and magic damage by 25%",
+        "turns": 10,
+        "effects": [
+            "Increase lightning magic damage (25%) for 10 turns",
+            "Increase lightning physical damage (25%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [0, 0, [25,  25], 0, 0, 0, 0, 0]], [10, 10, [0, 0, [25,  25], 0, 0, 0, 0, 0]]]},
+    "200000004": {
+        "area_effect_id": "200000004",
+        "desc_short": "Boost LB damage",
+        "desc_long": "Boost LB damage by 25%",
+        "turns": 3,
+        "effects": ["Increase LB damage (25%) for 3 turns"],
+        "effects_raw": [[3, 9, [25]]]},
+    "200000005": {
+        "area_effect_id": "200000005",
+        "desc_short": "Boost DEF and SPR",
+        "desc_long": "Boost DEF and SPR by 150%",
+        "turns": 3,
+        "effects": ["Increase DEF and SPR (150%) for 3 turns"],
+        "effects_raw": [[3, 1, [0,  150,  0,  150]]]},
+    "200000006": {
+        "area_effect_id": "200000006",
+        "desc_short": "Boost evasion of some physical attacks",
+        "desc_long": "Boost evasion of some physical attacks by 25%",
+        "turns": 3,
+        "effects": ["Increase physical evasion (25%) for 3 turns"],
+        "effects_raw": [[3, 5, [[25,  25]]]]},
+    "200000007": {
+        "area_effect_id": "200000007",
+        "desc_short": "Boost fire physical damage",
+        "desc_long": "Boost fire physical damage by 25%",
+        "turns": 3,
+        "effects": ["Increase fire physical damage (25%) for 3 turns"],
+        "effects_raw": [[3, 10, [[25,  25], 0, 0, 0, 0, 0, 0, 0]]]},
+    "200000008": {
+        "area_effect_id": "200000008",
+        "desc_short": "Boost light magic damage",
+        "desc_long": "Boost light magic damage by 25%",
+        "turns": 3,
+        "effects": ["Increase light magic damage (25%) for 3 turns"],
+        "effects_raw": [[3, 11, [0, 0, 0, 0, 0, 0, [25,  25], 0]]]},
+    "200000009": {
+        "area_effect_id": "200000009",
+        "desc_short": "Boost water physical and magic damage",
+        "desc_long": "Boost water physical and magic damage by 25%",
+        "turns": 10,
+        "effects": [
+            "Increase water physical damage (25%) for 10 turns",
+            "Increase water magic damage (25%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, [25,  25], 0, 0, 0, 0]], [10, 11, [0, 0, 0, [25,  25], 0, 0, 0, 0]]]},
+    "200000010": {
+        "area_effect_id": "200000010",
+        "desc_short": "Boost earth physical and magic damage",
+        "desc_long": "Boost earth physical and magic damage by 25%",
+        "turns": 10,
+        "effects": [
+            "Increase earth physical damage (25%) for 10 turns",
+            "Increase earth magic damage (25%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, 0, 0, [25,  25], 0, 0]], [10, 11, [0, 0, 0, 0, 0, [25,  25], 0, 0]]]},
+    "200000011": {
+        "area_effect_id": "200000011",
+        "desc_short": "Boost lightning physical and magic damage",
+        "desc_long": "Boost lightning physical and magic damage by 25%",
+        "turns": 10,
+        "effects": [
+            "Increase lightning physical damage (25%) for 10 turns",
+            "Increase lightning magic damage (25%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, [25,  25], 0, 0, 0, 0, 0]], [10, 11, [0, 0, [25,  25], 0, 0, 0, 0, 0]]]},
+    "200000012": {
+        "area_effect_id": "200000012",
+        "desc_short": "Boost wind physical and magic damage",
+        "desc_long": "Boost wind physical and magic damage by 35%",
+        "turns": 10,
+        "effects": [
+            "Increase wind physical damage (35%) for 10 turns",
+            "Increase wind magic damage (35%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, 0, [35,  35], 0, 0, 0]], [10, 11, [0, 0, 0, 0, [35,  35], 0, 0, 0]]]},
+    "200000013": {
+        "area_effect_id": "200000013",
+        "desc_short": "Restore HP",
+        "desc_long": "Restore 5000 HP",
+        "turns": 4,
+        "effects": ["Restore HP (5000) each turn for 4 turns"],
+        "effects_raw": [[4, 3, [[5000,  5000], 0, 0, 0]]]},
+    "200000014": {
+        "area_effect_id": "200000014",
+        "desc_short": "Boost DEF",
+        "desc_long": "Boost DEF by 150%",
+        "turns": 3,
+        "effects": ["Increase DEF (150%) for 3 turns"],
+        "effects_raw": [[3, 1, [0,  150,  0,  0]]]},
+    "200000015": {
+        "area_effect_id": "200000015",
+        "desc_short": "Reduce light resistance",
+        "desc_long": "Reduce light resistance by 25%",
+        "turns": 3,
+        "effects": ["Decrease light resistance (25%) for 3 turns"],
+        "effects_raw": [[3, 2, [0,  0,  0,  0,  0,  0,  -25,  0]]]},
+    "200000016": {
+        "area_effect_id": "200000016",
+        "desc_short": "Boost ATK",
+        "desc_long": "Boost ATK by 25%",
+        "turns": 4,
+        "effects": ["Increase ATK (25%) for 4 turns"],
+        "effects_raw": [[4, 1, [25,  0,  0,  0]]]},
+    "200000017": {
+        "area_effect_id": "200000017",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase water resistance (50%) for 3 turns"],
+        "effects_raw": [[3, 2, [0, 0, 0, [50,  50], 0, 0, 0, 0]]]},
+    "200000018": {
+        "area_effect_id": "200000018",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 3,
+        "effects": ["Increase ice magic damage (25%) for 3 turns"],
+        "effects_raw": [[3, 11, [0, [25,  25], 0, 0, 0, 0, 0, 0]]]},
+    "200000019": {
+        "area_effect_id": "200000019",
+        "desc_short": "Boost ice magic damage",
+        "desc_long": "Boost ice magic damage by 25%",
+        "turns": 3,
+        "effects": ["Increase ice magic damage (25%) for 3 turns"],
+        "effects_raw": [[3, 11, [0, [25,  25], 0, 0, 0, 0, 0, 0]]]},
+    "200000020": {
+        "area_effect_id": "200000020",
+        "desc_short": "Boost lightning magic damage",
+        "desc_long": "Boost lightning magic damage by 25%",
+        "turns": 3,
+        "effects": ["Increase lightning magic damage (25%) for 3 turns"],
+        "effects_raw": [[3, 11, [0, 0, [25,  25], 0, 0, 0, 0, 0]]]},
+    "200000021": {
+        "area_effect_id": "200000021",
+        "desc_short": "Boost earth magic damage",
+        "desc_long": "Boost earth magic damage by 25%",
+        "turns": 3,
+        "effects": ["Increase earth magic damage (25%) for 3 turns"],
+        "effects_raw": [[3, 11, [0, 0, 0, 0, 0, [25,  25], 0, 0]]]},
+    "200000022": {
+        "area_effect_id": "200000022",
+        "desc_short": "Boost water magic damage",
+        "desc_long": "Boost water magic damage by 25%",
+        "turns": 3,
+        "effects": ["Increase water magic damage (25%) for 3 turns"],
+        "effects_raw": [[3, 11, [0, 0, 0, [25,  25], 0, 0, 0, 0]]]},
+    "200000023": {
+        "area_effect_id": "200000023",
+        "desc_short": "Boost earth physical damage",
+        "desc_long": "Boost earth physical damage by 25%",
+        "turns": 3,
+        "effects": ["Increase earth physical damage (25%) for 3 turns"],
+        "effects_raw": [[3, 10, [0, 0, 0, 0, 0, [25,  25], 0, 0]]]},
+    "200000024": {
+        "area_effect_id": "200000024",
+        "desc_short": "Boost dark physical and magic damage",
+        "desc_long": "Boost dark physical and magic damage by 25%",
+        "turns": 3,
+        "effects": [
+            "Increase dark physical damage (25%) for 3 turns",
+            "Increase dark magic damage (25%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [0, 0, 0, 0, 0, 0, 0, [25,  25]]], [3, 11, [0, 0, 0, 0, 0, 0, 0, [25,  25]]]]},
+    "200000025": {
+        "area_effect_id": "200000025",
+        "desc_short": "Reduce earth resistance",
+        "desc_long": "Reduce earth resistance by 25%",
+        "turns": 3,
+        "effects": ["Decrease earth resistance (25%) for 3 turns"],
+        "effects_raw": [[3, 2, [0,  0,  0,  0,  0,  -25,  0,  0]]]},
+    "200000026": {
+        "area_effect_id": "200000026",
+        "desc_short": "Reduce water resistance",
+        "desc_long": "Reduce water resistance by 25%",
+        "turns": 10,
+        "effects": ["Decrease water resistance (25%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, [-25,  -25], 0, 0, 0, 0]]]},
+    "200000027": {
+        "area_effect_id": "200000027",
+        "desc_short": "Reduce wind resistance",
+        "desc_long": "Reduce wind resistance by 25%",
+        "turns": 4,
+        "effects": ["Decrease wind resistance (25%) for 4 turns"],
+        "effects_raw": [[4, 2, [0,  0,  0,  0,  -25,  0,  0,  0]]]},
+    "200000028": {
+        "area_effect_id": "200000028",
+        "desc_short": "Reduce ice resistance",
+        "desc_long": "Reduce ice resistance by 25%",
+        "turns": 4,
+        "effects": ["Decrease ice resistance (25%) for 4 turns"],
+        "effects_raw": [[4, 2, [0,  -25,  0,  0,  0,  0,  0,  0]]]},
+    "200000029": {
+        "area_effect_id": "200000029",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 30%",
+        "turns": 10,
+        "effects": [
+            "Increase fire magic damage (30%) for 10 turns",
+            "Increase fire physical damage (30%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [[30,  30], 0, 0, 0, 0, 0, 0, 0]], [10, 10, [[30,  30], 0, 0, 0, 0, 0, 0, 0]]]},
+    "200000030": {
+        "area_effect_id": "200000030",
+        "desc_short": "Boost ice physical and magic damage",
+        "desc_long": "Boost ice physical and magic damage by 30%",
+        "turns": 10,
+        "effects": [
+            "Increase ice magic damage (30%) for 10 turns",
+            "Increase ice physical damage (30%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [0, [30,  30], 0, 0, 0, 0, 0, 0]], [10, 10, [0, [30,  30], 0, 0, 0, 0, 0, 0]]]},
+    "200000031": {
+        "area_effect_id": "200000031",
+        "desc_short": "Boost lightning physical and magic damage",
+        "desc_long": "Boost lightning physical and magic damage by 30%",
+        "turns": 10,
+        "effects": [
+            "Increase lightning magic damage (30%) for 10 turns",
+            "Increase lightning physical damage (30%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [0, 0, [30,  30], 0, 0, 0, 0, 0]], [10, 10, [0, 0, [30,  30], 0, 0, 0, 0, 0]]]},
+    "200000032": {
+        "area_effect_id": "200000032",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 35%",
+        "turns": 10,
+        "effects": [
+            "Increase fire magic damage (35%) for 10 turns",
+            "Increase fire physical damage (35%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [[35,  35], 0, 0, 0, 0, 0, 0, 0]], [10, 10, [[35,  35], 0, 0, 0, 0, 0, 0, 0]]]},
+    "200000033": {
+        "area_effect_id": "200000033",
+        "desc_short": "Boost ice physical and magic damage",
+        "desc_long": "Boost ice physical and magic damage by 35%",
+        "turns": 10,
+        "effects": [
+            "Increase ice magic damage (35%) for 10 turns",
+            "Increase ice physical damage (35%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [0, [35,  35], 0, 0, 0, 0, 0, 0]], [10, 10, [0, [35,  35], 0, 0, 0, 0, 0, 0]]]},
+    "200000034": {
+        "area_effect_id": "200000034",
+        "desc_short": "Boost lightning physical and magic damage",
+        "desc_long": "Boost lightning physical and magic damage by 35%",
+        "turns": 10,
+        "effects": [
+            "Increase lightning magic damage (35%) for 10 turns",
+            "Increase lightning physical damage (35%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [0, 0, [35,  35], 0, 0, 0, 0, 0]], [10, 10, [0, 0, [35,  35], 0, 0, 0, 0, 0]]]},
+    "200000035": {
+        "area_effect_id": "200000035",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 40%",
+        "turns": 10,
+        "effects": [
+            "Increase fire magic damage (40%) for 10 turns",
+            "Increase fire physical damage (40%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [[40,  40], 0, 0, 0, 0, 0, 0, 0]], [10, 10, [[40,  40], 0, 0, 0, 0, 0, 0, 0]]]},
+    "200000036": {
+        "area_effect_id": "200000036",
+        "desc_short": "Boost ice physical and magic damage",
+        "desc_long": "Boost ice physical and magic damage by 40%",
+        "turns": 10,
+        "effects": [
+            "Increase ice magic damage (40%) for 10 turns",
+            "Increase ice physical damage (40%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [0, [40,  40], 0, 0, 0, 0, 0, 0]], [10, 10, [0, [40,  40], 0, 0, 0, 0, 0, 0]]]},
+    "200000037": {
+        "area_effect_id": "200000037",
+        "desc_short": "Boost lightning physical and magic damage",
+        "desc_long": "Boost lightning physical and magic damage by 40%",
+        "turns": 10,
+        "effects": [
+            "Increase lightning magic damage (40%) for 10 turns",
+            "Increase lightning physical damage (40%) for 10 turns"
+        ],
+        "effects_raw": [[10, 11, [0, 0, [40,  40], 0, 0, 0, 0, 0]], [10, 10, [0, 0, [40,  40], 0, 0, 0, 0, 0]]]},
+    "200000038": {
+        "area_effect_id": "200000038",
+        "desc_short": "Reduce lightning resistance",
+        "desc_long": "Reduce lightning resistance by 25%",
+        "turns": 10,
+        "effects": ["Decrease lightning resistance (25%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, [-25,  -25], 0, 0, 0, 0, 0]]]},
+    "200000039": {
+        "area_effect_id": "200000039",
+        "desc_short": "Boost fire resistance",
+        "desc_long": "Boost fire resistance by 50%",
+        "turns": 10,
+        "effects": ["Increase fire resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [[50,  50], 0, 0, 0, 0, 0, 0, 0]]]},
+    "200000040": {
+        "area_effect_id": "200000040",
+        "desc_short": "Boost ice resistance",
+        "desc_long": "Boost ice resistance by 50%",
+        "turns": 10,
+        "effects": ["Increase ice resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, [50,  50], 0, 0, 0, 0, 0, 0]]]},
+    "200000041": {
+        "area_effect_id": "200000041",
+        "desc_short": "Boost dark physical and magic damage",
+        "desc_long": "Boost dark physical and magic damage by 30%",
+        "turns": 10,
+        "effects": [
+            "Increase dark physical damage (30%) for 10 turns",
+            "Increase dark magic damage (30%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, 0, 0, 0, 0, [30,  30]]], [10, 11, [0, 0, 0, 0, 0, 0, 0, [30,  30]]]]},
+    "200000042": {
+        "area_effect_id": "200000042",
+        "desc_short": "Boost lightning resistance",
+        "desc_long": "Boost lightning resistance by 50%",
+        "turns": 10,
+        "effects": ["Increase lightning resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, [50,  50], 0, 0, 0, 0, 0]]]},
+    "200000043": {
+        "area_effect_id": "200000043",
+        "desc_short": "Boost light resistance",
+        "desc_long": "Boost light resistance by 50%",
+        "turns": 10,
+        "effects": ["Increase light resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, 0, 0, 0, [50,  50], 0]]]},
+    "200000044": {
+        "area_effect_id": "200000044",
+        "desc_short": "Boost earth resistance",
+        "desc_long": "Boost earth resistance by 50%",
+        "turns": 10,
+        "effects": ["Increase earth resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, 0, 0, [50,  50], 0, 0]]]},
+    "200000045": {
+        "area_effect_id": "200000045",
+        "desc_short": "Boost wind resistance",
+        "desc_long": "Boost wind resistance by 50%",
+        "turns": 10,
+        "effects": ["Increase wind resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, 0, [50,  50], 0, 0, 0]]]},
+    "200000046": {
+        "area_effect_id": "200000046",
+        "desc_short": "Boost water physical and magic damage",
+        "desc_long": "Boost water physical and magic damage by 30%",
+        "turns": 10,
+        "effects": [
+            "Increase water physical damage (30%) for 10 turns",
+            "Increase water magic damage (30%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, [30,  30], 0, 0, 0, 0]], [10, 11, [0, 0, 0, [30,  30], 0, 0, 0, 0]]]},
+    "200000047": {
+        "area_effect_id": "200000047",
+        "desc_short": "Boost earth physical and magic damage",
+        "desc_long": "Boost earth physical and magic damage by 30%",
+        "turns": 10,
+        "effects": [
+            "Increase earth physical damage (30%) for 10 turns",
+            "Increase earth magic damage (30%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, 0, 0, [30,  30], 0, 0]], [10, 11, [0, 0, 0, 0, 0, [30,  30], 0, 0]]]},
+    "200000048": {
+        "area_effect_id": "200000048",
+        "desc_short": "Boost lightning physical and magic damage",
+        "desc_long": "Boost lightning physical and magic damage by 30%",
+        "turns": 10,
+        "effects": [
+            "Increase lightning physical damage (30%) for 10 turns",
+            "Increase lightning magic damage (30%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, [30,  30], 0, 0, 0, 0, 0]], [10, 11, [0, 0, [30,  30], 0, 0, 0, 0, 0]]]},
+    "200000049": {
+        "area_effect_id": "200000049",
+        "desc_short": "Boost water physical and magic damage",
+        "desc_long": "Boost water physical and magic damage by 35%",
+        "turns": 10,
+        "effects": [
+            "Increase water physical damage (35%) for 10 turns",
+            "Increase water magic damage (35%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, [35,  35], 0, 0, 0, 0]], [10, 11, [0, 0, 0, [35,  35], 0, 0, 0, 0]]]},
+    "200000050": {
+        "area_effect_id": "200000050",
+        "desc_short": "Boost earth physical and magic damage",
+        "desc_long": "Boost earth physical and magic damage by 35%",
+        "turns": 10,
+        "effects": [
+            "Increase earth physical damage (35%) for 10 turns",
+            "Increase earth magic damage (35%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, 0, 0, [35,  35], 0, 0]], [10, 11, [0, 0, 0, 0, 0, [35,  35], 0, 0]]]},
+    "200000051": {
+        "area_effect_id": "200000051",
+        "desc_short": "Boost lightning physical and magic damage",
+        "desc_long": "Boost lightning physical and magic damage by 35%",
+        "turns": 10,
+        "effects": [
+            "Increase lightning physical damage (35%) for 10 turns",
+            "Increase lightning magic damage (35%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, [35,  35], 0, 0, 0, 0, 0]], [10, 11, [0, 0, [35,  35], 0, 0, 0, 0, 0]]]},
+    "200000052": {
+        "area_effect_id": "200000052",
+        "desc_short": "Boost water physical and magic damage",
+        "desc_long": "Boost water physical and magic damage by 40%",
+        "turns": 10,
+        "effects": [
+            "Increase water physical damage (40%) for 10 turns",
+            "Increase water magic damage (40%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, [40,  40], 0, 0, 0, 0]], [10, 11, [0, 0, 0, [40,  40], 0, 0, 0, 0]]]},
+    "200000053": {
+        "area_effect_id": "200000053",
+        "desc_short": "Boost earth physical and magic damage",
+        "desc_long": "Boost earth physical and magic damage by 40%",
+        "turns": 10,
+        "effects": [
+            "Increase earth physical damage (40%) for 10 turns",
+            "Increase earth magic damage (40%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, 0, 0, [40,  40], 0, 0]], [10, 11, [0, 0, 0, 0, 0, [40,  40], 0, 0]]]},
+    "200000054": {
+        "area_effect_id": "200000054",
+        "desc_short": "Boost lightning physical and magic damage",
+        "desc_long": "Boost lightning physical and magic damage by 40%",
+        "turns": 10,
+        "effects": [
+            "Increase lightning physical damage (40%) for 10 turns",
+            "Increase lightning magic damage (40%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, [40,  40], 0, 0, 0, 0, 0]], [10, 11, [0, 0, [40,  40], 0, 0, 0, 0, 0]]]},
+    "200000055": {
+        "area_effect_id": "200000055",
+        "desc_short": "Boost fire resistance",
+        "desc_long": "Boost fire resistance by 50%",
+        "turns": 10,
+        "effects": ["Increase fire resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [50,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000056": {
+        "area_effect_id": "200000056",
+        "desc_short": "Boost SPR",
+        "desc_long": "Boost SPR by 100%",
+        "turns": 10,
+        "effects": ["Increase SPR (100%) for 10 turns"],
+        "effects_raw": [[10, 1, [0,  0,  0,  100]]]},
+    "200000057": {
+        "area_effect_id": "200000057",
+        "desc_short": "Boost ATK",
+        "desc_long": "Boost ATK by 100%",
+        "turns": 10,
+        "effects": ["Increase ATK (100%) for 10 turns"],
+        "effects_raw": [[10, 1, [100,  0,  0,  0]]]},
+    "200000058": {
+        "area_effect_id": "200000058",
+        "desc_short": "Boost MAG",
+        "desc_long": "Boost MAG by 100%",
+        "turns": 10,
+        "effects": ["Increase MAG (100%) for 10 turns"],
+        "effects_raw": [[10, 1, [0,  0,  100,  0]]]},
+    "200000059": {
+        "area_effect_id": "200000059",
+        "desc_short": "Boost light physical and magic damage",
+        "desc_long": "Boost light physical and magic damage by 30%",
+        "turns": 10,
+        "effects": [
+            "Increase light physical damage (30%) for 10 turns",
+            "Increase light magic damage (30%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0,  0,  0,  0,  0,  0,  30,  0]], [10, 11, [0,  0,  0,  0,  0,  0,  30,  0]]]},
+    "200000060": {
+        "area_effect_id": "200000060",
+        "desc_short": "Reduce dark resistance",
+        "desc_long": "Reduce dark resistance by 30%",
+        "turns": 10,
+        "effects": ["Decrease dark resistance (30%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, 0, 0, 0, 0, [0,  -30]]]]},
+    "200000061": {
+        "area_effect_id": "200000061",
+        "desc_short": "Boost dark physical and magic damage",
+        "desc_long": "Boost dark physical and magic damage by 30%",
+        "turns": 10,
+        "effects": [
+            "Increase dark physical damage (30%) for 10 turns",
+            "Increase dark magic damage (30%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0,  0,  0,  0,  0,  0,  0,  30]], [10, 11, [0,  0,  0,  0,  0,  0,  0,  30]]]},
+    "200000065": {
+        "area_effect_id": "200000065",
+        "desc_short": "Reduce water resistance",
+        "desc_long": "Reduce water resistance by 30%",
+        "turns": 10,
+        "effects": ["Decrease water resistance (30%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, [0,  -30], 0, 0, 0, 0]]]},
+    "200000066": {
+        "area_effect_id": "200000066",
+        "desc_short": "Reduce water resistance",
+        "desc_long": "Reduce water resistance by 40%",
+        "turns": 10,
+        "effects": ["Decrease water resistance (40%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, [0,  -40], 0, 0, 0, 0]]]},
+    "200000067": {
+        "area_effect_id": "200000067",
+        "desc_short": "Reduce water resistance",
+        "desc_long": "Reduce water resistance by 50%",
+        "turns": 10,
+        "effects": ["Decrease water resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, [0,  -50], 0, 0, 0, 0]]]},
+    "200000068": {
+        "area_effect_id": "200000068",
+        "desc_short": "Boost fire resistance",
+        "desc_long": "Boost fire resistance by 50%",
+        "turns": 10,
+        "effects": ["Increase fire resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [50,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000069": {
+        "area_effect_id": "200000069",
+        "desc_short": "Boost ice resistance",
+        "desc_long": "Boost ice resistance by 50%",
+        "turns": 10,
+        "effects": ["Increase ice resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [0,  50,  0,  0,  0,  0,  0,  0]]]},
+    "200000070": {
+        "area_effect_id": "200000070",
+        "desc_short": "Boost dark physical and magic damage",
+        "desc_long": "Boost dark physical and magic damage by 50%",
+        "turns": 10,
+        "effects": [
+            "Increase dark physical damage (50%) for 10 turns",
+            "Increase dark magic damage (50%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0,  0,  0,  0,  0,  0,  0,  50]], [10, 11, [0,  0,  0,  0,  0,  0,  0,  50]]]},
+    "200000071": {
+        "area_effect_id": "200000071",
+        "desc_short": "Boost fire resistance",
+        "desc_long": "Boost fire resistance by 100%",
+        "turns": 10,
+        "effects": ["Increase fire resistance (100%) for 10 turns"],
+        "effects_raw": [[10, 2, [100,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000072": {
+        "area_effect_id": "200000072",
+        "desc_short": "Boost ice resistance",
+        "desc_long": "Boost ice resistance by 100%",
+        "turns": 10,
+        "effects": ["Increase ice resistance (100%) for 10 turns"],
+        "effects_raw": [[10, 2, [0,  100,  0,  0,  0,  0,  0,  0]]]},
+    "200000073": {
+        "area_effect_id": "200000073",
+        "desc_short": "Boost dark physical and magic damage",
+        "desc_long": "Boost dark physical and magic damage by 30%",
+        "turns": 10,
+        "effects": [
+            "Increase dark physical damage (30%) for 10 turns",
+            "Increase dark magic damage (30%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0,  0,  0,  0,  0,  0,  0,  30]], [10, 11, [0,  0,  0,  0,  0,  0,  0,  30]]]},
+    "200000074": {
+        "area_effect_id": "200000074",
+        "desc_short": "Boost lightning physical and magic damage",
+        "desc_long": "Boost lightning physical and magic damage by 50%",
+        "turns": 10,
+        "effects": [
+            "Increase lightning physical damage (50%) for 10 turns",
+            "Increase lightning magic damage (50%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0,  0,  50,  0,  0,  0,  0,  0]], [10, 11, [0,  0,  50,  0,  0,  0,  0,  0]]]},
+    "200000075": {
+        "area_effect_id": "200000075",
+        "desc_short": "Boost light physical and magic damage",
+        "desc_long": "Boost light physical and magic damage by 50%",
+        "turns": 10,
+        "effects": [
+            "Increase light physical damage (50%) for 10 turns",
+            "Increase light magic damage (50%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0,  0,  0,  0,  0,  0,  50,  0]], [10, 11, [0,  0,  0,  0,  0,  0,  50,  0]]]},
+    "200000076": {
+        "area_effect_id": "200000076",
+        "desc_short": "Reduce lightning resistance",
+        "desc_long": "Reduce lightning resistance by 30%",
+        "turns": 10,
+        "effects": ["Decrease lightning resistance (30%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, [0,  -30], 0, 0, 0, 0, 0]]]},
+    "200000077": {
+        "area_effect_id": "200000077",
+        "desc_short": "Reduce lightning resistance",
+        "desc_long": "Reduce lightning resistance by 40%",
+        "turns": 10,
+        "effects": ["Decrease lightning resistance (40%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, [0,  -40], 0, 0, 0, 0, 0]]]},
+    "200000078": {
+        "area_effect_id": "200000078",
+        "desc_short": "Reduce lightning resistance",
+        "desc_long": "Reduce lightning resistance by 50%",
+        "turns": 10,
+        "effects": ["Decrease lightning resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, [0,  -50], 0, 0, 0, 0, 0]]]},
+    "200000079": {
+        "area_effect_id": "200000079",
+        "desc_short": "Boost LB damage",
+        "desc_long": "Boost LB damage by 100%",
+        "turns": 10,
+        "effects": ["Increase LB damage (100%) for 10 turns"],
+        "effects_raw": [[10, 9, [100]]]},
+    "200000086": {
+        "area_effect_id": "200000086",
+        "desc_short": "Boost fire physical and magic damage and ice resistance",
+        "desc_long": "Boost fire physical and magic damage by 30% and ice resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase fire physical damage (30%) for 5 turns",
+            "Increase fire magic damage (30%) for 5 turns",
+            "Increase ice resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [[30,  30], 0, 0, 0, 0, 0, 0, 0]], [5, 11, [[30,  30], 0, 0, 0, 0, 0, 0, 0]], [5, 2, [0, [50,  50], 0, 0, 0, 0, 0, 0]]]},
+    "200000087": {
+        "area_effect_id": "200000087",
+        "desc_short": "Boost fire physical and magic damage and ice resistance",
+        "desc_long": "Boost fire physical and magic damage by 30% and ice resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase fire physical damage (30%) for 5 turns",
+            "Increase fire magic damage (30%) for 5 turns",
+            "Increase ice resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [[30,  30], 0, 0, 0, 0, 0, 0, 0]], [5, 11, [[30,  30], 0, 0, 0, 0, 0, 0, 0]], [5, 2, [0, [50,  50], 0, 0, 0, 0, 0, 0]]]},
+    "200000088": {
+        "area_effect_id": "200000088",
+        "desc_short": "Boost light physical and magic damage and dark resistance",
+        "desc_long": "Boost light physical and magic damage by 30% and dark resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase light physical damage (30%) for 5 turns",
+            "Increase light magic damage (30%) for 5 turns",
+            "Increase dark resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, 0, 0, [30,  30], 0]], [5, 11, [0, 0, 0, 0, 0, 0, [30,  30], 0]], [5, 2, [0, 0, 0, 0, 0, 0, 0, [50,  50]]]]},
+    "200000089": {
+        "area_effect_id": "200000089",
+        "desc_short": "Boost light physical and magic damage and dark resistance",
+        "desc_long": "Boost light physical and magic damage by 30% and dark resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase light physical damage (30%) for 5 turns",
+            "Increase light magic damage (30%) for 5 turns",
+            "Increase dark resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, 0, 0, [30,  30], 0]], [5, 11, [0, 0, 0, 0, 0, 0, [30,  30], 0]], [5, 2, [0, 0, 0, 0, 0, 0, 0, [50,  50]]]]},
+    "200000090": {
+        "area_effect_id": "200000090",
+        "desc_short": "Boost dark physical and magic damage and light resistance",
+        "desc_long": "Boost dark physical and magic damage by 30% and light resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase dark physical damage (30%) for 5 turns",
+            "Increase dark magic damage (30%) for 5 turns",
+            "Increase light resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, 0, 0, 0, [30,  30]]], [5, 11, [0, 0, 0, 0, 0, 0, 0, [30,  30]]], [5, 2, [0, 0, 0, 0, 0, 0, [50,  50], 0]]]},
+    "200000091": {
+        "area_effect_id": "200000091",
+        "desc_short": "Boost dark physical and magic damage and light resistance",
+        "desc_long": "Boost dark physical and magic damage by 30% and light resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase dark physical damage (30%) for 5 turns",
+            "Increase dark magic damage (30%) for 5 turns",
+            "Increase light resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, 0, 0, 0, [30,  30]]], [5, 11, [0, 0, 0, 0, 0, 0, 0, [30,  30]]], [5, 2, [0, 0, 0, 0, 0, 0, [50,  50], 0]]]},
+    "200000092": {
+        "area_effect_id": "200000092",
+        "desc_short": "Boost light physical and magic damage and dark resistance",
+        "desc_long": "Boost light physical and magic damage by 20% and dark resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase light physical damage (20%) for 5 turns",
+            "Increase light magic damage (20%) for 5 turns",
+            "Increase dark resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, 0, 0, [20,  20], 0]], [5, 11, [0, 0, 0, 0, 0, 0, [20,  20], 0]], [5, 2, [0, 0, 0, 0, 0, 0, 0, [50,  50]]]]},
+    "200000093": {
+        "area_effect_id": "200000093",
+        "desc_short": "Boost light physical and magic damage and dark resistance",
+        "desc_long": "Boost light physical and magic damage by 30% and dark resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase light physical damage (30%) for 5 turns",
+            "Increase light magic damage (30%) for 5 turns",
+            "Increase dark resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, 0, 0, [30,  30], 0]], [5, 11, [0, 0, 0, 0, 0, 0, [30,  30], 0]], [5, 2, [0, 0, 0, 0, 0, 0, 0, [50,  50]]]]},
+    "200000094": {
+        "area_effect_id": "200000094",
+        "desc_short": "Boost dark physical and magic damage and light resistance",
+        "desc_long": "Boost dark physical and magic damage by 20% and light resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase dark physical damage (20%) for 5 turns",
+            "Increase dark magic damage (20%) for 5 turns",
+            "Increase light resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, 0, 0, 0, [20,  20]]], [5, 11, [0, 0, 0, 0, 0, 0, 0, [20,  20]]], [5, 2, [0, 0, 0, 0, 0, 0, [50,  50], 0]]]},
+    "200000095": {
+        "area_effect_id": "200000095",
+        "desc_short": "Boost wind physical and magic damage and earth resistance",
+        "desc_long": "Boost wind physical and magic damage by 20% and earth resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase wind physical damage (20%) for 5 turns",
+            "Increase wind magic damage (20%) for 5 turns",
+            "Increase earth resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, [20,  20], 0, 0, 0]], [5, 11, [0, 0, 0, 0, [20,  20], 0, 0, 0]], [5, 2, [0, 0, 0, 0, 0, [50,  50], 0, 0]]]},
+    "200000096": {
+        "area_effect_id": "200000096",
+        "desc_short": "Boost wind physical and magic damage and earth resistance",
+        "desc_long": "Boost wind physical and magic damage by 20% and earth resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase wind physical damage (20%) for 5 turns",
+            "Increase wind magic damage (20%) for 5 turns",
+            "Increase earth resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, [20,  20], 0, 0, 0]], [5, 11, [0, 0, 0, 0, [20,  20], 0, 0, 0]], [5, 2, [0, 0, 0, 0, 0, [50,  50], 0, 0]]]},
+    "200000097": {
+        "area_effect_id": "200000097",
+        "desc_short": "Boost water physical and magic damage and lightning resistance",
+        "desc_long": "Boost water physical and magic damage by 20% and lightning resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase water physical damage (20%) for 5 turns",
+            "Increase water magic damage (20%) for 5 turns",
+            "Increase lightning resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, [20,  20], 0, 0, 0, 0]], [5, 11, [0, 0, 0, [20,  20], 0, 0, 0, 0]], [5, 2, [0, 0, [50,  50], 0, 0, 0, 0, 0]]]},
+    "200000098": {
+        "area_effect_id": "200000098",
+        "desc_short": "Boost light physical and magic damage and dark resistance",
+        "desc_long": "Boost light physical and magic damage by 20% and dark resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase light physical damage (20%) for 5 turns",
+            "Increase light magic damage (20%) for 5 turns",
+            "Increase dark resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, 0, 0, [20,  20], 0]], [5, 11, [0, 0, 0, 0, 0, 0, [20,  20], 0]], [5, 2, [0, 0, 0, 0, 0, 0, 0, [50,  50]]]]},
+    "200000100": {
+        "area_effect_id": "200000100",
+        "desc_short": "Boost lightning physical and magic damage and water resistance",
+        "desc_long": "Boost lightning physical and magic damage by 20% and water resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase lightning physical damage (20%) for 5 turns",
+            "Increase lightning magic damage (20%) for 5 turns",
+            "Increase water resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, [20,  20], 0, 0, 0, 0, 0]], [5, 11, [0, 0, [20,  20], 0, 0, 0, 0, 0]], [5, 2, [0, 0, 0, [50,  50], 0, 0, 0, 0]]]},
+    "200000101": {
+        "area_effect_id": "200000101",
+        "desc_short": "Boost wind physical and magic damage and earth resistance",
+        "desc_long": "Boost wind physical and magic damage by 20% and earth resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase wind physical damage (20%) for 5 turns",
+            "Increase wind magic damage (20%) for 5 turns",
+            "Increase earth resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, [20,  20], 0, 0, 0]], [5, 11, [0, 0, 0, 0, [20,  20], 0, 0, 0]], [5, 2, [0, 0, 0, 0, 0, [50,  50], 0, 0]]]},
+    "200000102": {
+        "area_effect_id": "200000102",
+        "desc_short": "Boost ice physical and magic damage and fire resistance",
+        "desc_long": "Boost ice physical and magic damage by 20% and fire resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase ice physical damage (20%) for 5 turns",
+            "Increase ice magic damage (20%) for 5 turns",
+            "Increase fire resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, [20,  20], 0, 0, 0, 0, 0, 0]], [5, 11, [0, [20,  20], 0, 0, 0, 0, 0, 0]], [5, 2, [[50,  50], 0, 0, 0, 0, 0, 0, 0]]]},
+    "200000103": {
+        "area_effect_id": "200000103",
+        "desc_short": "Boost water physical and magic damage and lightning resistance",
+        "desc_long": "Boost water physical and magic damage by 20% and lightning resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase water physical damage (20%) for 5 turns",
+            "Increase water magic damage (20%) for 5 turns",
+            "Increase lightning resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, [20,  20], 0, 0, 0, 0]], [5, 11, [0, 0, 0, [20,  20], 0, 0, 0, 0]], [5, 2, [0, 0, [50,  50], 0, 0, 0, 0, 0]]]},
+    "200000104": {
+        "area_effect_id": "200000104",
+        "desc_short": "Boost fire physical and magic damage and ice resistance",
+        "desc_long": "Boost fire physical and magic damage by 20% and ice resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase fire physical damage (20%) for 5 turns",
+            "Increase fire magic damage (20%) for 5 turns",
+            "Increase ice resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [[20,  20], 0, 0, 0, 0, 0, 0, 0]], [5, 11, [[20,  20], 0, 0, 0, 0, 0, 0, 0]], [5, 2, [0, [50,  50], 0, 0, 0, 0, 0, 0]]]},
+    "200000105": {
+        "area_effect_id": "200000105",
+        "desc_short": "Boost dark physical and magic damage and light resistance",
+        "desc_long": "Boost dark physical and magic damage by 30% and light resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase dark physical damage (30%) for 5 turns",
+            "Increase dark magic damage (30%) for 5 turns",
+            "Increase light resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, 0, 0, 0, [30,  30]]], [5, 11, [0, 0, 0, 0, 0, 0, 0, [30,  30]]], [5, 2, [0, 0, 0, 0, 0, 0, [50,  50], 0]]]},
+    "200000106": {
+        "area_effect_id": "200000106",
+        "desc_short": "Boost light physical and magic damage and dark resistance",
+        "desc_long": "Boost light physical and magic damage by 20% and dark resistance by 50%",
+        "turns": 5,
+        "effects": [
+            "Increase light physical damage (20%) for 5 turns",
+            "Increase light magic damage (20%) for 5 turns",
+            "Increase dark resistance (50%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0, 0, 0, 0, 0, 0, [20,  20], 0]], [5, 11, [0, 0, 0, 0, 0, 0, [20,  20], 0]], [5, 2, [0, 0, 0, 0, 0, 0, 0, [50,  50]]]]},
+    "200000107": {
+        "area_effect_id": "200000107",
+        "desc_short": "Reduce fire resistance",
+        "desc_long": "Reduce fire resistance by 35%",
+        "turns": 10,
+        "effects": ["Decrease fire resistance (35%) for 10 turns"],
+        "effects_raw": [[10, 2, [-35,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000108": {
+        "area_effect_id": "200000108",
+        "desc_short": "Reduce earth resistance",
+        "desc_long": "Reduce earth resistance by 35%",
+        "turns": 10,
+        "effects": ["Decrease earth resistance (35%) for 10 turns"],
+        "effects_raw": [[10, 2, [0,  0,  0,  0,  0,  -35,  0,  0]]]},
+    "200000109": {
+        "area_effect_id": "200000109",
+        "desc_short": "Reduce water resistance",
+        "desc_long": "Reduce water resistance by 35%",
+        "turns": 10,
+        "effects": ["Decrease water resistance (35%) for 10 turns"],
+        "effects_raw": [[10, 2, [0,  0,  0,  -35,  0,  0,  0,  0]]]},
+    "200000110": {
+        "area_effect_id": "200000110",
+        "desc_short": "Reduce wind resistance",
+        "desc_long": "Reduce wind resistance by 35%",
+        "turns": 10,
+        "effects": ["Decrease wind resistance (35%) for 10 turns"],
+        "effects_raw": [[10, 2, [0,  0,  0,  0,  -35,  0,  0,  0]]]},
+    "200000111": {
+        "area_effect_id": "200000111",
+        "desc_short": "Reduce wind resistance",
+        "desc_long": "Reduce wind resistance by 50%",
+        "turns": 10,
+        "effects": ["Decrease wind resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [0,  0,  0,  0,  -50,  0,  0,  0]]]},
+    "200000112": {
+        "area_effect_id": "200000112",
+        "desc_short": "Reduce fire and ice resistance",
+        "desc_long": "Reduce fire and ice resistance by 35%",
+        "turns": 5,
+        "effects": ["Decrease fire and ice resistance (35%) for 5 turns"],
+        "effects_raw": [[5, 2, [-35,  -35,  0,  0,  0,  0,  0,  0]]]},
+    "200000113": {
+        "area_effect_id": "200000113",
+        "desc_short": "Boost fire resistance and fire physical and magic damage",
+        "desc_long": "Boost fire resistance by 50% and fire physical and magic damage by 30%",
+        "turns": 10,
+        "effects": [
+            "Increase fire resistance (50%) for 10 turns",
+            "Increase fire physical damage (30%) for 10 turns",
+            "Increase fire magic damage (30%) for 10 turns"
+        ],
+        "effects_raw": [[10, 2, [50,  0,  0,  0,  0,  0,  0,  0]], [10, 10, [30,  0,  0,  0,  0,  0,  0,  0]], [10, 11, [30,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000114": {
+        "area_effect_id": "200000114",
+        "desc_short": "Reduce dark resistance",
+        "desc_long": "Reduce dark resistance by 35%",
+        "turns": 5,
+        "effects": ["Decrease dark resistance (35%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  0,  0,  0,  0,  0,  0,  -35]]]},
+    "200000115": {
+        "area_effect_id": "200000115",
+        "desc_short": "Boost earth physical and magic damage",
+        "desc_long": "Boost earth physical and magic damage by 20%",
+        "turns": 5,
+        "effects": [
+            "Increase earth physical damage (20%) for 5 turns",
+            "Increase earth magic damage (20%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  0,  20,  0,  0]], [5, 11, [0,  0,  0,  0,  0,  20,  0,  0]]]},
+    "200000116": {
+        "area_effect_id": "200000116",
+        "desc_short": "Boost earth physical and magic damage",
+        "desc_long": "Boost earth physical and magic damage by 25%",
+        "turns": 5,
+        "effects": [
+            "Increase earth physical damage (25%) for 5 turns",
+            "Increase earth magic damage (25%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  0,  25,  0,  0]], [5, 11, [0,  0,  0,  0,  0,  25,  0,  0]]]},
+    "200000117": {
+        "area_effect_id": "200000117",
+        "desc_short": "Boost earth physical and magic damage",
+        "desc_long": "Boost earth physical and magic damage by 30%",
+        "turns": 5,
+        "effects": [
+            "Increase earth physical damage (30%) for 5 turns",
+            "Increase earth magic damage (30%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  0,  30,  0,  0]], [5, 11, [0,  0,  0,  0,  0,  30,  0,  0]]]},
+    "200000118": {
+        "area_effect_id": "200000118",
+        "desc_short": "Boost earth physical and magic damage",
+        "desc_long": "Boost earth physical and magic damage by 35%",
+        "turns": 5,
+        "effects": [
+            "Increase earth physical damage (35%) for 5 turns",
+            "Increase earth magic damage (35%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  0,  35,  0,  0]], [5, 11, [0,  0,  0,  0,  0,  35,  0,  0]]]},
+    "200000119": {
+        "area_effect_id": "200000119",
+        "desc_short": "Boost earth physical and magic damage",
+        "desc_long": "Boost earth physical and magic damage by 40%",
+        "turns": 5,
+        "effects": [
+            "Increase earth physical damage (40%) for 5 turns",
+            "Increase earth magic damage (40%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  0,  40,  0,  0]], [5, 11, [0,  0,  0,  0,  0,  40,  0,  0]]]},
+    "200000120": {
+        "area_effect_id": "200000120",
+        "desc_short": "Boost fire resistance and fire physical and magic damage",
+        "desc_long": "Boost fire resistance by 50% and fire physical and magic damage by 40%",
+        "turns": 10,
+        "effects": [
+            "Increase fire resistance (50%) for 10 turns",
+            "Increase fire physical damage (40%) for 10 turns",
+            "Increase fire magic damage (40%) for 10 turns"
+        ],
+        "effects_raw": [[10, 2, [50,  0,  0,  0,  0,  0,  0,  0]], [10, 10, [40,  0,  0,  0,  0,  0,  0,  0]], [10, 11, [40,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000121": {
+        "area_effect_id": "200000121",
+        "desc_short": "Boost wind physical and magic damage",
+        "desc_long": "Boost wind physical and magic damage by 40%",
+        "turns": 5,
+        "effects": [
+            "Increase wind physical damage (40%) for 5 turns",
+            "Increase wind magic damage (40%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  40,  0,  0,  0]], [5, 11, [0,  0,  0,  0,  40,  0,  0,  0]]]},
+    "200000122": {
+        "area_effect_id": "200000122",
+        "desc_short": "Reduce lightning resistance",
+        "desc_long": "Reduce lightning resistance by 50%",
+        "turns": 10,
+        "effects": ["Decrease lightning resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, [0,  -50], 0, 0, 0, 0, 0]]]},
+    "200000123": {
+        "area_effect_id": "200000123",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 10,
+        "effects": [
+            "Increase fire physical damage (35%) for 10 turns",
+            "Increase fire magic damage (35%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [[35,  0], 0, 0, 0, 0, 0, 0, 0]], [10, 11, [[35,  0], 0, 0, 0, 0, 0, 0, 0]]]},
+    "200000124": {
+        "area_effect_id": "200000124",
+        "desc_short": "Boost ice physical and magic damage",
+        "desc_long": "Boost ice physical and magic damage by 30%",
+        "turns": 5,
+        "effects": [
+            "Increase ice physical damage (30%) for 5 turns",
+            "Increase ice magic damage (30%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  30,  0,  0,  0,  0,  0,  0]], [5, 11, [0,  30,  0,  0,  0,  0,  0,  0]]]},
+    "200000125": {
+        "area_effect_id": "200000125",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": [
+            "Increase lightning physical damage (35%) for 5 turns",
+            "Increase lightning magic damage (35%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  35,  0,  0,  0,  0,  0]], [5, 11, [0,  0,  35,  0,  0,  0,  0,  0]]]},
+    "200000126": {
+        "area_effect_id": "200000126",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": ["Decrease fire resistance (35%) for 5 turns"],
+        "effects_raw": [[5, 2, [-35,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000127": {
+        "area_effect_id": "200000127",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": ["Decrease ice resistance (35%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  -35,  0,  0,  0,  0,  0,  0]]]},
+    "200000128": {
+        "area_effect_id": "200000128",
+        "desc_short": "Boost light physical and magic damage",
+        "desc_long": "Boost light physical and magic damage by 15%",
+        "turns": 5,
+        "effects": [
+            "Increase light physical damage (15%) for 5 turns",
+            "Increase light magic damage (15%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  0,  0,  15,  0]], [5, 11, [0,  0,  0,  0,  0,  0,  15,  0]]]},
+    "200000129": {
+        "area_effect_id": "200000129",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 15%",
+        "turns": 5,
+        "effects": [
+            "Increase fire physical damage (15%) for 5 turns",
+            "Increase fire magic damage (15%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [15,  0,  0,  0,  0,  0,  0,  0]], [5, 11, [15,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000130": {
+        "area_effect_id": "200000130",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": ["Decrease fire resistance (15%) for 5 turns"],
+        "effects_raw": [[5, 2, [-15,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000131": {
+        "area_effect_id": "200000131",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": ["Decrease fire resistance (20%) for 5 turns"],
+        "effects_raw": [[5, 2, [-20,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000132": {
+        "area_effect_id": "200000132",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": ["Decrease fire resistance (25%) for 5 turns"],
+        "effects_raw": [[5, 2, [-25,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000133": {
+        "area_effect_id": "200000133",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": ["Decrease fire resistance (30%) for 5 turns"],
+        "effects_raw": [[5, 2, [-30,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000134": {
+        "area_effect_id": "200000134",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": ["Decrease ice resistance (15%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  -15,  0,  0,  0,  0,  0,  0]]]},
+    "200000135": {
+        "area_effect_id": "200000135",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": ["Decrease ice resistance (20%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  -20,  0,  0,  0,  0,  0,  0]]]},
+    "200000136": {
+        "area_effect_id": "200000136",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": ["Decrease ice resistance (25%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  -25,  0,  0,  0,  0,  0,  0]]]},
+    "200000137": {
+        "area_effect_id": "200000137",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": ["Decrease ice resistance (30%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  -30,  0,  0,  0,  0,  0,  0]]]},
+    "200000138": {
+        "area_effect_id": "200000138",
+        "desc_short": "Reduce fire resistance",
+        "desc_long": "Reduce fire resistance by 25%",
+        "turns": 10,
+        "effects": ["Decrease fire resistance (25%) for 10 turns"],
+        "effects_raw": [[10, 2, [[0,  -25], 0, 0, 0, 0, 0, 0, 0]]]},
+    "200000139": {
+        "area_effect_id": "200000139",
+        "desc_short": "Reduce water resistance",
+        "desc_long": "Reduce water resistance by 25%",
+        "turns": 10,
+        "effects": ["Decrease water resistance (25%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, [0,  -25], 0, 0, 0, 0]]]},
+    "200000140": {
+        "area_effect_id": "200000140",
+        "desc_short": "Reduce wind resistance",
+        "desc_long": "Reduce wind resistance by 25%",
+        "turns": 10,
+        "effects": ["Decrease wind resistance (25%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, 0, [0,  -25], 0, 0, 0]]]},
+    "200000141": {
+        "area_effect_id": "200000141",
+        "desc_short": "Reduce light resistance",
+        "desc_long": "Reduce light resistance by 35%",
+        "turns": 5,
+        "effects": ["Decrease light resistance (35%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  0,  0,  0,  0,  0,  -35,  0]]]},
+    "200000143": {
+        "area_effect_id": "200000143",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 20%",
+        "turns": 10,
+        "effects": [
+            "Increase fire physical damage (20%) for 10 turns",
+            "Increase fire magic damage (20%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [[20,  0], 0, 0, 0, 0, 0, 0, 0]], [10, 11, [[20,  0], 0, 0, 0, 0, 0, 0, 0]]]},
+    "200000144": {
+        "area_effect_id": "200000144",
+        "desc_short": "Boost water physical and magic damage",
+        "desc_long": "Boost water physical and magic damage by 20%",
+        "turns": 10,
+        "effects": [
+            "Increase water physical damage (20%) for 10 turns",
+            "Increase water magic damage (20%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, [20,  0], 0, 0, 0, 0]], [10, 11, [0, 0, 0, [20,  0], 0, 0, 0, 0]]]},
+    "200000145": {
+        "area_effect_id": "200000145",
+        "desc_short": "Boost earth physical and magic damage",
+        "desc_long": "Boost earth physical and magic damage by 20%",
+        "turns": 10,
+        "effects": [
+            "Increase earth physical damage (20%) for 10 turns",
+            "Increase earth magic damage (20%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [0, 0, 0, 0, 0, [20,  0], 0, 0]], [10, 11, [0, 0, 0, 0, 0, [20,  0], 0, 0]]]},
+    "200000146": {
+        "area_effect_id": "200000146",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 20%",
+        "turns": 5,
+        "effects": [
+            "Increase fire physical damage (20%) for 5 turns",
+            "Increase fire magic damage (20%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [20,  0,  0,  0,  0,  0,  0,  0]], [5, 11, [20,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000147": {
+        "area_effect_id": "200000147",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 25%",
+        "turns": 5,
+        "effects": [
+            "Increase fire physical damage (25%) for 5 turns",
+            "Increase fire magic damage (25%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [25,  0,  0,  0,  0,  0,  0,  0]], [5, 11, [25,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000148": {
+        "area_effect_id": "200000148",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 30%",
+        "turns": 5,
+        "effects": [
+            "Increase fire physical damage (30%) for 5 turns",
+            "Increase fire magic damage (30%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [30,  0,  0,  0,  0,  0,  0,  0]], [5, 11, [30,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000149": {
+        "area_effect_id": "200000149",
+        "desc_short": "Boost fire physical and magic damage",
+        "desc_long": "Boost fire physical and magic damage by 35%",
+        "turns": 5,
+        "effects": [
+            "Increase fire physical damage (35%) for 5 turns",
+            "Increase fire magic damage (35%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [35,  0,  0,  0,  0,  0,  0,  0]], [5, 11, [35,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000150": {
+        "area_effect_id": "200000150",
+        "desc_short": "Boost light physical and magic damage",
+        "desc_long": "Boost light physical and magic damage by 20%",
+        "turns": 5,
+        "effects": [
+            "Increase light physical damage (20%) for 5 turns",
+            "Increase light magic damage (20%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  0,  0,  20,  0]], [5, 11, [0,  0,  0,  0,  0,  0,  20,  0]]]},
+    "200000151": {
+        "area_effect_id": "200000151",
+        "desc_short": "Boost light physical and magic damage",
+        "desc_long": "Boost light physical and magic damage by 25%",
+        "turns": 5,
+        "effects": [
+            "Increase light physical damage (25%) for 5 turns",
+            "Increase light magic damage (25%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  0,  0,  25,  0]], [5, 11, [0,  0,  0,  0,  0,  0,  25,  0]]]},
+    "200000152": {
+        "area_effect_id": "200000152",
+        "desc_short": "Boost light physical and magic damage",
+        "desc_long": "Boost light physical and magic damage by 30%",
+        "turns": 5,
+        "effects": [
+            "Increase light physical damage (30%) for 5 turns",
+            "Increase light magic damage (30%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  0,  0,  30,  0]], [5, 11, [0,  0,  0,  0,  0,  0,  30,  0]]]},
+    "200000153": {
+        "area_effect_id": "200000153",
+        "desc_short": "Boost light physical and magic damage",
+        "desc_long": "Boost light physical and magic damage by 35%",
+        "turns": 5,
+        "effects": [
+            "Increase light physical damage (35%) for 5 turns",
+            "Increase light magic damage (35%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  0,  0,  35,  0]], [5, 11, [0,  0,  0,  0,  0,  0,  35,  0]]]},
+    "200000154": {
+        "area_effect_id": "200000154",
+        "desc_short": "Reduce ice and dark resistance",
+        "desc_long": "Reduce ice and dark resistance by 10%",
+        "turns": 5,
+        "effects": ["Decrease ice and dark resistance (10%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  -10,  0,  0,  0,  0,  0,  -10]]]},
+    "200000155": {
+        "area_effect_id": "200000155",
+        "desc_short": "Reduce ice and dark resistance",
+        "desc_long": "Reduce ice and dark resistance by 15%",
+        "turns": 5,
+        "effects": ["Decrease ice and dark resistance (15%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  -15,  0,  0,  0,  0,  0,  -15]]]},
+    "200000156": {
+        "area_effect_id": "200000156",
+        "desc_short": "Reduce ice and dark resistance",
+        "desc_long": "Reduce ice and dark resistance by 20%",
+        "turns": 5,
+        "effects": ["Decrease ice and dark resistance (20%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  -20,  0,  0,  0,  0,  0,  -20]]]},
+    "200000157": {
+        "area_effect_id": "200000157",
+        "desc_short": "Reduce ice and dark resistance",
+        "desc_long": "Reduce ice and dark resistance by 25%",
+        "turns": 5,
+        "effects": ["Decrease ice and dark resistance (25%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  -25,  0,  0,  0,  0,  0,  -25]]]},
+    "200000158": {
+        "area_effect_id": "200000158",
+        "desc_short": "Reduce ice and dark resistance",
+        "desc_long": "Reduce ice and dark resistance by 30%",
+        "turns": 5,
+        "effects": ["Decrease ice and dark resistance (30%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  -30,  0,  0,  0,  0,  0,  -30]]]},
+    "200000159": {
+        "area_effect_id": "200000159",
+        "desc_short": "Boost ATK, DEF, MAG, and SPR",
+        "desc_long": "Boost ATK, DEF, MAG, and SPR by 100%",
+        "turns": 3,
+        "effects": ["Increase ATK/DEF/MAG/SPR (100%) for 3 turns"],
+        "effects_raw": [[3, 1, [100,  100,  100,  100]]]},
+    "200000160": {
+        "area_effect_id": "200000160",
+        "desc_short": "Boost LB damage",
+        "desc_long": "Boost LB damage by 100%",
+        "turns": 3,
+        "effects": ["Increase LB damage (100%) for 3 turns"],
+        "effects_raw": [[3, 9, [100]]]},
+    "200000161": {
+        "area_effect_id": "200000161",
+        "desc_short": "Boost fire, ice, wind, and light damage of LB, abilities, and magic",
+        "desc_long": "Boost fire, ice, wind, and light damage of LB, abilities, and magic by 35%",
+        "turns": 3,
+        "effects": [
+            "Increase fire, ice, wind and light physical damage (35%) for 3 turns",
+            "Increase fire, ice, wind and light magic damage (35%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [35,  35,  0,  0,  35,  0,  35,  0]], [3, 11, [35,  35,  0,  0,  35,  0,  35,  0]]]},
+    "200000162": {
+        "area_effect_id": "200000162",
+        "desc_short": "Reduce fire, water, wind, and earth resistance",
+        "desc_long": "Reduce fire, water, wind, and earth resistance by 15%",
+        "turns": 5,
+        "effects": ["Decrease fire, water, wind and earth resistance (15%) for 5 turns"],
+        "effects_raw": [[5, 2, [-15,  0,  0,  -15,  -15,  -15,  0,  0]]]},
+    "200000163": {
+        "area_effect_id": "200000163",
+        "desc_short": "Reduce fire, water, wind, and earth resistance",
+        "desc_long": "Reduce fire, water, wind, and earth resistance by 30%",
+        "turns": 5,
+        "effects": ["Decrease fire, water, wind and earth resistance (30%) for 5 turns"],
+        "effects_raw": [[5, 2, [-30,  0,  0,  -30,  -30,  -30,  0,  0]]]},
+    "200000164": {
+        "area_effect_id": "200000164",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 10,
+        "effects": ["Increase LB damage (100%) for 10 turns"],
+        "effects_raw": [[10, 9, [100]]]},
+    "200000165": {
+        "area_effect_id": "200000165",
+        "desc_short": "Reduce earth resistance",
+        "desc_long": "Reduce earth resistance by 35%",
+        "turns": 5,
+        "effects": ["Decrease earth resistance (35%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  0,  0,  0,  0,  -35,  0,  0]]]},
+    "200000166": {
+        "area_effect_id": "200000166",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 5,
+        "effects": [
+            "Increase earth physical damage (35%) for 5 turns",
+            "Increase earth magic damage (35%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  0,  0,  0,  0,  35,  0,  0]], [5, 11, [0,  0,  0,  0,  0,  35,  0,  0]]]},
+    "200000167": {
+        "area_effect_id": "200000167",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": [
+            "Increase fire physical damage (10%) for unlimited turns",
+            "Increase fire magic damage (10%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 10, [10,  0,  0,  0,  0,  0,  0,  0]], [-1, 11, [10,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000168": {
+        "area_effect_id": "200000168",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": [
+            "Increase fire physical damage (20%) for unlimited turns",
+            "Increase fire magic damage (20%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 10, [20,  0,  0,  0,  0,  0,  0,  0]], [-1, 11, [20,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000169": {
+        "area_effect_id": "200000169",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": [
+            "Increase fire physical damage (30%) for unlimited turns",
+            "Increase fire magic damage (30%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 10, [30,  0,  0,  0,  0,  0,  0,  0]], [-1, 11, [30,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000170": {
+        "area_effect_id": "200000170",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": [
+            "Increase fire physical damage (40%) for unlimited turns",
+            "Increase fire magic damage (40%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 10, [40,  0,  0,  0,  0,  0,  0,  0]], [-1, 11, [40,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000171": {
+        "area_effect_id": "200000171",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": [
+            "Increase fire physical damage (50%) for unlimited turns",
+            "Increase fire magic damage (50%) for unlimited turns"
+        ],
+        "effects_raw": [[-1, 10, [50,  0,  0,  0,  0,  0,  0,  0]], [-1, 11, [50,  0,  0,  0,  0,  0,  0,  0]]]},
+    "200000172": {
+        "area_effect_id": "200000172",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": ["Increase physical evasion (200%) for unlimited turns"],
+        "effects_raw": [[-1, 5, [[200,  200]]]]},
+    "200000173": {
+        "area_effect_id": "200000173",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": ["Increase physical evasion (150%) for unlimited turns"],
+        "effects_raw": [[-1, 5, [[150,  150]]]]},
+    "200000174": {
+        "area_effect_id": "200000174",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": ["Increase physical evasion (100%) for unlimited turns"],
+        "effects_raw": [[-1, 5, [[100,  100]]]]},
+    "200000175": {
+        "area_effect_id": "200000175",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": -1,
+        "effects": ["Increase physical evasion (50%) for unlimited turns"],
+        "effects_raw": [[-1, 5, [[50,  50]]]]},
+    "200000176": {
+        "area_effect_id": "200000176",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 10,
+        "effects": ["Decrease earth resistance (20%) for 10 turns"],
+        "effects_raw": [[10, 2, [0,  0,  0,  0,  0,  -20,  0,  0]]]},
+    "200000177": {
+        "area_effect_id": "200000177",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 10,
+        "effects": ["Decrease earth resistance (30%) for 10 turns"],
+        "effects_raw": [[10, 2, [0,  0,  0,  0,  0,  -30,  0,  0]]]},
+    "200000178": {
+        "area_effect_id": "200000178",
+        "desc_short": "Reduce wind resistance",
+        "desc_long": "Reduce wind resistance by 25%",
+        "turns": 10,
+        "effects": ["Decrease wind resistance (25%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, 0, [0,  -25], 0, 0, 0]]]},
+    "200000179": {
+        "area_effect_id": "200000179",
+        "desc_short": "Reduce fire resistance",
+        "desc_long": "Reduce fire resistance by 25%",
+        "turns": 10,
+        "effects": ["Decrease fire resistance (25%) for 10 turns"],
+        "effects_raw": [[10, 2, [[0,  -25], 0, 0, 0, 0, 0, 0, 0]]]},
+    "200000180": {
+        "area_effect_id": "200000180",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 10,
+        "effects": ["Decrease lightning resistance (25%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, [0,  -25], 0, 0, 0, 0, 0]]]},
+    "200000181": {
+        "area_effect_id": "200000181",
+        "desc_short": "Reduce light resistance",
+        "desc_long": "Reduce light resistance by 25%",
+        "turns": 10,
+        "effects": ["Decrease light resistance (25%) for 10 turns"],
+        "effects_raw": [[10, 2, [0, 0, 0, 0, 0, 0, [0,  -25], 0]]]},
+    "200000182": {
+        "area_effect_id": "200000182",
+        "desc_short": "Reduce wind resistance",
+        "desc_long": "Reduce wind resistance by 50%",
+        "turns": 5,
+        "effects": ["Decrease wind resistance (50%) for 5 turns"],
+        "effects_raw": [[5, 2, [0,  0,  0,  0,  -50,  0,  0,  0]]]},
+    "200000184": {
+        "area_effect_id": "200000184",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 10,
+        "effects": ["Increase LB damage (50%) for 10 turns"],
+        "effects_raw": [[10, 9, [50]]]},
+    "200000185": {
+        "area_effect_id": "200000185",
+        "desc_short": null,
+        "desc_long": null,
+        "turns": 10,
+        "effects": ["Increase LB damage (100%) for 10 turns"],
+        "effects_raw": [[10, 9, [100]]]},
+    "900000001": {
+        "area_effect_id": "900000001",
+        "desc_short": "Boost DEF and SPR",
+        "desc_long": "Boost DEF and SPR by 100%",
+        "turns": 3,
+        "effects": ["Increase DEF and SPR (100%) for 3 turns"],
+        "effects_raw": [[3, 1, [0,  100,  0,  100]]]},
+    "900000002": {
+        "area_effect_id": "900000002",
+        "desc_short": "Boost fire damage of LB, abilities, and magic",
+        "desc_long": "Boost fire damage of LB, abilities, and magic by 25%",
+        "turns": 3,
+        "effects": [
+            "Increase fire physical damage (25%) for 3 turns",
+            "Increase fire magic damage (25%) for 3 turns"
+        ],
+        "effects_raw": [[3, 10, [25,  0,  0,  0,  0,  0,  0,  0]], [3, 11, [25,  0,  0,  0,  0,  0,  0,  0]]]},
+    "900000003": {
+        "area_effect_id": "900000003",
+        "desc_short": "Boost MAG",
+        "desc_long": "Boost MAG by 30%",
+        "turns": 3,
+        "effects": ["Increase MAG (30%) for 3 turns"],
+        "effects_raw": [[3, 1, [0,  0,  30,  0]]]},
+    "900000004": {
+        "area_effect_id": "900000004",
+        "desc_short": "Reduce fire resistance",
+        "desc_long": "Reduce fire resistance by 25%",
+        "turns": 10,
+        "effects": ["Decrease fire resistance (25%) for 10 turns"],
+        "effects_raw": [[10, 2, [-25,  0,  0,  0,  0,  0,  0,  0]]]},
+    "900000005": {
+        "area_effect_id": "900000005",
+        "desc_short": "Boost LB damage",
+        "desc_long": "Boost LB damage by 100%",
+        "turns": 10,
+        "effects": ["Increase LB damage (100%) for 10 turns"],
+        "effects_raw": [[10, 9, [[100,  100]]]]},
+    "900000007": {
+        "area_effect_id": "900000007",
+        "desc_short": "Boost ice physical and magic damage",
+        "desc_long": "Boost ice physical and magic damage by 25%",
+        "turns": 5,
+        "effects": [
+            "Increase ice physical damage (25%) for 5 turns",
+            "Increase ice magic damage (25%) for 5 turns"
+        ],
+        "effects_raw": [[5, 10, [0,  25,  0,  0,  0,  0,  0,  0]], [5, 11, [0,  25,  0,  0,  0,  0,  0,  0]]]},
+    "900000008": {
+        "area_effect_id": "900000008",
+        "desc_short": "Boost all elemental magic damage",
+        "desc_long": "Boost fire, ice, lightning, water, wind, earth, light, and dark magic damage by 50%",
+        "turns": 10,
+        "effects": [
+            "Increase all elements physical damage (50%) for 10 turns",
+            "Increase all elements magic damage (50%) for 10 turns",
+            "Increase all elements fixed damage (50%) for 10 turns"
+        ],
+        "effects_raw": [[10, 10, [[50,  0], [50,  0], [50,  0], [50,  0], [50,  0], [50,  0], [50,  0], [50,  0]]], [10, 11, [[50,  0], [50,  0], [50,  0], [50,  0], [50,  0], [50,  0], [50,  0], [50,  0]]], [10, 12, [[50,  0], [50,  0], [50,  0], [50,  0], [50,  0], [50,  0], [50,  0], [50,  0]]]]},
+    "900000009": {
+        "area_effect_id": "900000009",
+        "desc_short": "Boost physical and magic damage",
+        "desc_long": "Boost physical and magic damage by 25%",
+        "turns": 10,
+        "effects": [
+            "Increase physical damage (25%) for 10 turns",
+            "Increase magic damage (25%) for 10 turns"
+        ],
+        "effects_raw": [[10, 7, [[25,  0]]], [10, 8, [[25,  0]]]]},
+    "900000010": {
+        "area_effect_id": "900000010",
+        "desc_short": "Boost physical damage",
+        "desc_long": "Boost physical damage by 50%",
+        "turns": 10,
+        "effects": ["Increase physical damage (50%) for 10 turns"],
+        "effects_raw": [[10, 7, [[50,  0]]]]},
+    "900000011": {
+        "area_effect_id": "900000011",
+        "desc_short": "Reduce earth resistance",
+        "desc_long": "Reduce earth resistance by 40%",
+        "turns": 15,
+        "effects": ["Decrease earth resistance (40%) for 15 turns"],
+        "effects_raw": [[15, 2, [0,  0,  0,  0,  0,  -40,  0,  0]]]},
+    "900000012": {
+        "area_effect_id": "900000012",
+        "desc_short": "Reduce light resistance",
+        "desc_long": "Reduce light resistance by 30%",
+        "turns": 15,
+        "effects": ["Decrease light resistance (30%) for 15 turns"],
+        "effects_raw": [[15, 2, [0,  0,  0,  0,  0,  0,  -30,  0]]]},
+    "900000013": {
+        "area_effect_id": "900000013",
+        "desc_short": "Reduce fire resistance",
+        "desc_long": "Reduce fire resistance by 30%",
+        "turns": 15,
+        "effects": ["Decrease fire resistance (30%) for 15 turns"],
+        "effects_raw": [[15, 2, [-30,  0,  0,  0,  0,  0,  0,  0]]]},
+    "900000014": {
+        "area_effect_id": "900000014",
+        "desc_short": "Reduce fire and lightning resistance",
+        "desc_long": "Reduce fire and lightning resistance by 35%",
+        "turns": 5,
+        "effects": ["Decrease fire and lightning resistance (35%) for 5 turns"],
+        "effects_raw": [[5, 2, [-35,  0,  -35,  0,  0,  0,  0,  0]]]},
+    "900000015": {
+        "area_effect_id": "900000015",
+        "desc_short": "Boost DEF and SPR",
+        "desc_long": "Boost DEF and SPR by 50%",
+        "turns": 10,
+        "effects": ["Increase DEF and SPR (50%) for 10 turns"],
+        "effects_raw": [[10, 1, [0, [50,  50], 0, [50,  50]]]]},
+    "900000016": {
+        "area_effect_id": "900000016",
+        "desc_short": "Boost ATK, DEF, MAG, and SPR",
+        "desc_long": "Boost ATK, DEF, MAG, and SPR by 100%",
+        "turns": 10,
+        "effects": ["Increase ATK/DEF/MAG/SPR (100%) for 10 turns"],
+        "effects_raw": [[10, 1, [100,  100,  100,  100]]]},
+    "900000017": {
+        "area_effect_id": "900000017",
+        "desc_short": "Reduce wind resistance",
+        "desc_long": "Reduce wind resistance by 50%",
+        "turns": 10,
+        "effects": ["Decrease wind resistance (50%) for 10 turns"],
+        "effects_raw": [[10, 2, [0,  0,  0,  0,  -50,  0,  0,  0]]]},
+    "900000018": {
+        "area_effect_id": "900000018",
+        "desc_short": "Boost ice, wind, and light physical and magic damage",
+        "desc_long": "Boost ice, wind, and light physical and magic damage by 100%",
+        "turns": -1,
+        "effects": [
+            "Increase ice, wind and light physical damage (100%) for unlimited turns",
+            "Increase ice, wind and light magic damage (100%) for unlimited turns"
+        ],
+        "effects_raw": [
+            [
+                -1,
+                10,
+                [
+                    0,
+                    [100, 0],
+                    0,
+                    0,
+                    [100, 0],
+                    0,
+                    [100, 0],
+                    0
+                ]
+            ],
+            [
+                -1,
+                11,
+                [
+                    0,
+                    [100, 0],
+                    0,
+                    0,
+                    [100, 0],
+                    0,
+                    [100, 0],
+                    0
+                ]
+            ]
+        ]
+    }
+}
