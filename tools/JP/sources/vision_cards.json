@@ -2663,7 +2663,7 @@
         }
     },
     "100007901": {
-        "name": "雨の結婚式前夜",
+        "name": "Rain Before a Wedding",
         "compendium_id": 171,
         "compendium_shown": true,
         "rarity": 1,
@@ -2695,10 +2695,10 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "結婚式を控えた雨の夜。スネフリンガの元にリダルが現れた。彼はスネフリンガを連れて逃げ出すつもりだったが、王女としての責務を全うしようとする彼女の覚悟を知り、一言「おめでとう」とだけ伝える。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "雨の結婚式前夜",
-            "music": "♪Mystic Ruins",
+            "desc": "A steady rain falls the night before Snovlinka's wedding as Riddar clambers up the castle wall. Though he came planning to abscond with Snovlinka, he hears the princess's dedication to her duty, and merely congratulates her instead.",
+            "info": "A steady rain falls the night before Snovlinka's wedding as Riddar clambers up the castle wall. Though he came planning to abscond with Snovlinka, he hears the princess's dedication to her duty, and merely congratulates her instead.",
+            "shop": "Rain Before a Wedding",
+            "music": "Mystic Ruins",
             "music_id": "400205"
         }
     },
@@ -4835,7 +4835,7 @@
         }
     },
     "209000401": {
-        "name": "守るべきもの",
+        "name": "Something to Protect",
         "compendium_id": 175,
         "compendium_shown": true,
         "rarity": 1,
@@ -4866,15 +4866,15 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "クジャによる襲撃を受けたアレクサンドリアの城下町で戦うスタイナーとベアトリクス。2人は決死の覚悟で、次から次へと現れる霧の魔獣を討伐する。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "守るべきもの",
-            "music": "♪守るべきもの",
+            "desc": "Steiner and Beatrix fight valiantly as Kuja's monsters flood the streets of Alexandria. Mistodon after mistodon falls to their blades as the two press on, resolved to defend the capital to their deaths.",
+            "info": "Steiner and Beatrix fight valiantly as Kuja's monsters flood the streets of Alexandria. Mistodon after mistodon falls to their blades as the two press on, resolved to defend the capital to their deaths.",
+            "shop": "Something to Protect",
+            "music": "Something to Protect",
             "music_id": "401031"
         }
     },
     "209000501": {
-        "name": "テラホーミングを唱えるクポ！",
+        "name": "Use Terra Homing, Kupo!",
         "compendium_id": 173,
         "compendium_shown": true,
         "rarity": 1,
@@ -4905,10 +4905,10 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "ゾーンとソーンからエーコを守るため、モグはエーコにテラホーミングを唱えるよう語りかける。エーコの詠唱でモグは本来の姿である召喚獣・マディーンとなって眼前の敵を撃退した。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "テラホーミングを唱えるクポ！",
-            "music": "♪バトル1",
+            "desc": "In order to protect Eiko from Zorn and Thorn, Mog urges Eiko to use Terra Homing. Through Eiko's incantation, Mog assumes her true form, the eidolon Madeen, and soundly defeats the meddlesome twins.",
+            "info": "In order to protect Eiko from Zorn and Thorn, Mog urges Eiko to use Terra Homing. Through Eiko's incantation, Mog assumes her true form, the eidolon Madeen, and soundly defeats the meddlesome twins.",
+            "shop": "Use Terra Homing, Kupo!",
+            "music": "Battle 1",
             "music_id": "400852"
         }
     },
@@ -5690,7 +5690,7 @@
             "MP": [0, 0, 0, 0],
             "ATK": [0, 0, 0, 0],
             "DEF": [0, 0, 0, 0],
-            "MAG": [50, 100, 0, 0],
+            "MAG": [65, 130, 0, 0],
             "SPR": [0, 0, 0, 0],
             "element_resist": null,
             "status_resist": null
@@ -5701,7 +5701,7 @@
             "10": [240222]
         },
         "restriction": {
-            "240222": [7103]
+            "240221": [7915]
         },
         "max_level": 10,
         "exp_pattern": 110,
@@ -5714,6 +5714,84 @@
             "shop": "Duty as the Oracle",
             "music": "LUNA",
             "music_id": "401026"
+        }
+    },
+    "215000401": {
+        "name": "常に胸を張れ",
+        "compendium_id": 203,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10015,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [170, 170, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [170, 170, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "1": [244803, 244804, 244805]
+        },
+        "restriction": {
+            "244803": [8019],
+            "244804": [8019],
+            "244805": [8019]
+        },
+        "max_level": 1,
+        "exp_pattern": 1,
+        "stat_pattern": 1,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "帝国との停戦調印式を控え、結婚のためにノクティスが王都を旅立つ日。レギスは王として、父としての言葉とともに、息子を送り出す。それが、二人の今生の別れとなった……。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "常に胸を張れ",
+            "music": "♪Departure",
+            "music_id": "4001704"
+        }
+    },
+    "215000501": {
+        "name": "剣神と炎神の攻防",
+        "compendium_id": 204,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 10015,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [65, 130, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244815],
+            "7": [244816],
+            "10": [244817]
+        },
+        "restriction": {
+            "244817": [7915]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "炎神イフリートと死闘を繰り広げるノクティスに、剣神バハムートが加勢する。アルテマソードを放ち高高度から攻撃するバハムート。イフリートはそれを次々とかわして応戦する。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "剣神と炎神の攻防",
+            "music": "♪NOX DIVINA",
+            "music_id": "4001708"
         }
     },
     "249000101": {
@@ -5751,6 +5829,119 @@
             "shop": "Y, R, P. - It's showtime, girls.",
             "music": "YRP, Fight! No. 1",
             "music_id": "4000405"
+        }
+    },
+    "253000101": {
+        "name": "亡き父の草笛",
+        "compendium_id": 199,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11002,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [170, 170, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [170, 170, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "1": [244749, 244750, 244751]
+        },
+        "restriction": {
+            "244749": [8014],
+            "244750": [8014],
+            "244751": [8014]
+        },
+        "max_level": 1,
+        "exp_pattern": 1,
+        "stat_pattern": 1,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "骸旅団との戦いのさなか、身分の違いという現実を突きつけられたラムザとディリータ。無力感に苛まれるディリータは複雑な胸中を明かす。二人は、バルバネスに教わった草笛を吹き、無聊を慰める。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "亡き父の草笛",
+            "music": "♪思い出",
+            "music_id": "400765"
+        }
+    },
+    "253000201": {
+        "name": "雷神シドの猛攻",
+        "compendium_id": 201,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11002,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [170, 170, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [170, 170, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "1": [244752, 244753, 244754]
+        },
+        "restriction": null,
+        "max_level": 1,
+        "exp_pattern": 1,
+        "stat_pattern": 1,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "南天騎士団長オルランドゥの本領発揮。次々と強力な剣技を繰り出し、瞬く間に眼前の敵を斬り伏せていく。電光石火の戦いぶりは、まさしく「雷神」の二つ名にふさわしい。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "雷神シドの猛攻",
+            "music": "♪Desert Land",
+            "music_id": "400762"
+        }
+    },
+    "253000301": {
+        "name": "オーボンヌ修道院の変事",
+        "compendium_id": 200,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11002,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [65, 130, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244758],
+            "7": [244759],
+            "10": [244760]
+        },
+        "restriction": {
+            "244760": [7932]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "ゴルターナ公の手勢に襲われるオーボンヌ修道院。アグリアスとラムザが応戦する中、王女オヴェリアは一人の騎士によってさらわれてしまう。その騎士こそ、かつてのラムザの親友ディリータだった。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "オーボンヌ修道院の変事",
+            "music": "♪敵兵襲撃",
+            "music_id": "400766"
         }
     },
     "254000101": {
@@ -5832,7 +6023,7 @@
         }
     },
     "254000301": {
-        "name": "VSカトル・バシュタール",
+        "name": "Besting Qator Bashtar",
         "compendium_id": 170,
         "compendium_shown": true,
         "rarity": 1,
@@ -5863,11 +6054,51 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "コンコルディア王国に勝利し、オリエンス統一への最後の障害となるミリテス皇国首都を攻略すべく、作戦を開始した０組。その前に、皇国最強の魔導アーマー乗り・カトルが立ちはだかる。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "VSカトル・バシュタール",
-            "music": "♪戦-白の兵器",
+            "desc": "The Kingdom of Concordia is fallen, and Class Zero now moves to conquer the capital of the Milites Empire—the final obstacle toward Orience's unification. Before achieving their aim, however, they must contend with the empire's strongest magitek armor pilot: Qator Bashtar.",
+            "info": "The Kingdom of Concordia is fallen, and Class Zero now moves to conquer the capital of the Milites Empire—the final obstacle toward Orience's unification. Before achieving their aim, however, they must contend with the empire's strongest magitek armor pilot: Qator Bashtar.",
+            "shop": "Besting Qator Bashtar",
+            "music": "War: The White Weapon",
             "music_id": "4001206"
+        }
+    },
+    "304000101": {
+        "name": "聖剣の伝説が始まる",
+        "compendium_id": 202,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 20005,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [75, 150, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [244915],
+            "7": [244916],
+            "10": [244917]
+        },
+        "restriction": {
+            "244916": [8020],
+            "244917": [8020]
+        },
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "地震でできた穴からポトス村の地下へ落下したランディとボブ。突如目の前に現れたマンティスアントに、ランディは聖剣を構えて立ち向かう。",
+            "info": "ビジョンカードが経験値を獲得！",
+            "shop": "聖剣の伝説が始まる",
+            "music": "♪危機",
+            "music_id": "400531"
         }
     },
     "306000101": {
@@ -5920,7 +6151,7 @@
         "stats": {
             "HP": [0, 0, 0, 0],
             "MP": [0, 0, 0, 0],
-            "ATK": [40, 110, 0, 0],
+            "ATK": [65, 130, 0, 0],
             "DEF": [0, 0, 0, 0],
             "MAG": [0, 0, 0, 0],
             "SPR": [0, 0, 0, 0],
@@ -6391,9 +6622,9 @@
         "stats": {
             "HP": [0, 0, 0, 0],
             "MP": [0, 0, 0, 0],
-            "ATK": [65, 130, 0, 0],
+            "ATK": [70, 140, 0, 0],
             "DEF": [0, 0, 0, 0],
-            "MAG": [65, 130, 0, 0],
+            "MAG": [70, 140, 0, 0],
             "SPR": [0, 0, 0, 0],
             "element_resist": null,
             "status_resist": null
