@@ -10137,7 +10137,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","whip","mace","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Darkra","Stonra","Darkga","Stonga","Ultima","Two-Handed Technique (MAG)","Nine Serpent Strike"]
+		"enhancementSkills":["Unleashed Evocation (Dark Fina -Warrior's Prayer-)","Darkra","Stonra","Darkga","Stonga","Ultima","Two-Handed Technique (MAG)","Nine Serpent Strike","Let's settle this now!"]
 	},
 	"100039417": {
 		"name":"Fina obscure, guerrière des prières BS",
@@ -15336,7 +15336,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Fang","Flurry (FFVI)"]
+		"enhancementSkills":["Daring Warrior from Doma","I must leave the past behind.","Fang","Flurry (FFVI)"]
 	},
 	"206002917": {
 		"name":"Cyan, samouraï de Doma BS",
@@ -27916,16 +27916,20 @@
 		"id":"339000105",
 		"game_id":"11010",
 		"game":"WOTV FFBE",
-		"max_rarity":"7",
+		"braveShift":"339000127",
+		"exAwakening": [{"hp":705,"mp":43,"atk":39,"def":27,"mag":39,"spr":28},{"hp":543,"mp":33,"atk":30,"def":21,"mag":30,"spr":22},{"hp":380,"mp":23,"atk":21,"def":14,"mag":21,"spr":15}],
+		"fragmentId": "250020600",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4720,"mp":256,"atk":207,"def":188,"mag":204,"spr":195},
-			"minStats":{"hp":1558,"mp":84,"atk":68,"def":62,"mag":67,"spr":64},
+			"maxStats":{"hp":5428,"mp":333,"atk":297,"def":207,"mag":297,"spr":215},
+			"minStats":{"hp":1791,"mp":110,"atk":98,"def":68,"mag":98,"spr":71},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"],
+		"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Defensive Barrier","Glacial Erosion","Heaven's Blade","Sword Mastery","Blizzara","Blizzaga","Blizzaja"],
 		"6_form": {
 			"name":"Gilgamesh (WOTV FFBE)",
 			"roles":["physicalAttacker","magicalAttacker","support"],
@@ -27934,7 +27938,7 @@
 			"game_id":"11010",
 			"game":"WOTV FFBE",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -27943,8 +27947,51 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"]
+			"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["Defensive Barrier","Glacial Erosion","Heaven's Blade","Sword Mastery","Blizzara","Blizzaga","Blizzaja"]
+		},
+		"7_form": {
+			"name":"Gilgamesh (WOTV FFBE)",
+			"roles":["physicalAttacker","magicalAttacker","support"],
+			"wikiEntry":"Gilgamesh_(WOTV FFBE)",
+			"id":"339000105",
+			"game_id":"11010",
+			"game":"WOTV FFBE",
+			"sevenStarForm":true,
+			"max_rarity":"NV",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4720,"mp":256,"atk":207,"def":188,"mag":204,"spr":195},
+				"minStats":{"hp":1558,"mp":84,"atk":68,"def":62,"mag":67,"spr":64},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["Defensive Barrier","Glacial Erosion","Heaven's Blade","Sword Mastery","Blizzara","Blizzaga","Blizzaja"]
 		}
+	},
+	"339000127": {
+		"name":"Gilgamesh (WOTV FFBE) BS",
+		"roles":["physicalAttacker","magicalAttacker","support"],
+		"wikiEntry":"Gilgamesh_(WOTV FFBE)",
+		"id":"339000127",
+		"game_id":"11010",
+		"game":"WOTV FFBE",
+		"braveShifted":"339000105",
+		"exAwakening": [{"hp":705,"mp":43,"atk":39,"def":27,"mag":39,"spr":28},{"hp":543,"mp":33,"atk":30,"def":21,"mag":30,"spr":22},{"hp":380,"mp":23,"atk":21,"def":14,"mag":21,"spr":15}],
+		"fragmentId": "250020600",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5428,"mp":333,"atk":297,"def":207,"mag":297,"spr":215},
+			"minStats":{"hp":1791,"mp":110,"atk":98,"def":68,"mag":98,"spr":71},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","rod","spear","helm","lightArmor","heavyArmor","robe","visionCard"],
+		"enhancementSkills":["Defensive Barrier","Glacial Erosion","Heaven's Blade","Sword Mastery","Blizzara","Blizzaga","Blizzaja"]
 	},
 	"339000205": {
 		"name":"Mont Leonis",
@@ -28146,6 +28193,93 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","staff","axe","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor","visionCard"]
+	},
+	"339000707": {
+		"name":"Jayden Rundall",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Jayden_Rundall",
+		"id":"339000707",
+		"game_id":"11010",
+		"game":"WOTV FFBE",
+		"braveShift":"339000717",
+		"exAwakening": [{"hp":637,"mp":42,"atk":26,"def":22,"mag":82,"spr":29},{"hp":490,"mp":33,"atk":20,"def":17,"mag":63,"spr":22},{"hp":343,"mp":23,"atk":14,"def":12,"mag":44,"spr":16}],
+		"fragmentId": "250020700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4904,"mp":328,"atk":204,"def":169,"mag":315,"spr":222},
+			"minStats":{"hp":1618,"mp":108,"atk":67,"def":56,"mag":104,"spr":73},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Heaven's Shot","Suppressive Shot","Gun Mastery","Flare"]
+	},
+	"339000717": {
+		"name":"Jayden Rundall BS",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Jayden_Rundall",
+		"id":"339000717",
+		"game_id":"11010",
+		"game":"WOTV FFBE",
+		"braveShifted":"339000707",
+		"exAwakening": [{"hp":637,"mp":42,"atk":26,"def":22,"mag":82,"spr":29},{"hp":490,"mp":33,"atk":20,"def":17,"mag":63,"spr":22},{"hp":343,"mp":23,"atk":14,"def":12,"mag":44,"spr":16}],
+		"fragmentId": "250020700",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4904,"mp":328,"atk":204,"def":169,"mag":315,"spr":222},
+			"minStats":{"hp":1618,"mp":108,"atk":67,"def":56,"mag":104,"spr":73},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Heaven's Shot","Suppressive Shot","Gun Mastery","Flare"]
+	},
+	"339000807": {
+		"name":"Graziella, Étendard du renouveau",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Flagbearer_of Reform Glaciela",
+		"id":"339000807",
+		"game_id":"11010",
+		"game":"WOTV FFBE",
+		"braveShift":"339000817",
+		"exAwakening": [{"hp":705,"mp":41,"atk":82,"def":28,"mag":21,"spr":29},{"hp":543,"mp":31,"atk":63,"def":22,"mag":16,"spr":23},{"hp":380,"mp":22,"atk":44,"def":15,"mag":11,"spr":16}],
+		"fragmentId": "250020500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5427,"mp":313,"atk":315,"def":218,"mag":164,"spr":227},
+			"minStats":{"hp":1791,"mp":103,"atk":104,"def":72,"mag":54,"spr":75},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["spear","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Valkyrie Lance - Wind","Valkyrie Lance - Water","Silver Wolf's Spear Thrust","Spear Mastery"]
+	},
+	"339000817": {
+		"name":"Graziella, Étendard du renouveau BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Flagbearer_of Reform Glaciela",
+		"id":"339000817",
+		"game_id":"11010",
+		"game":"WOTV FFBE",
+		"braveShifted":"339000807",
+		"exAwakening": [{"hp":705,"mp":41,"atk":82,"def":28,"mag":21,"spr":29},{"hp":543,"mp":31,"atk":63,"def":22,"mag":16,"spr":23},{"hp":380,"mp":22,"atk":44,"def":15,"mag":11,"spr":16}],
+		"fragmentId": "250020500",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5427,"mp":313,"atk":315,"def":218,"mag":164,"spr":227},
+			"minStats":{"hp":1791,"mp":103,"atk":104,"def":72,"mag":54,"spr":75},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["spear","hat","clothes","lightArmor","visionCard"]
 	},
 	"340000107": {
 		"name":"Sora (KHIII)",
@@ -34262,13 +34396,8 @@
   "336000304":{"name":"Gretel","jpname":"グレーテル","roles":["magicalAttacker","healer","support"],"id":"336000304","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"4","sex":"other","stats":{"maxStats":{"hp":3610,"mp":206,"atk":111,"def":116,"mag":139,"spr":154},"minStats":{"hp":1191,"mp":68,"atk":37,"def":38,"mag":46,"spr":51},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","rod","harp","lightShield","hat","clothes","robe"]},
   "338000707":{"name":"King Bradley","jpname":"キング・ブラッドレイ","roles":["physicalTank"],"id":"338000707","game_id":"undefined","game":"undefined","braveShift":"338000717","exAwakening":[{"hp":643,"mp":26,"atk":63,"def":22,"mag":17,"spr":22},{"hp":495,"mp":20,"atk":48,"def":17,"mag":13,"spr":17},{"hp":346,"mp":14,"atk":34,"def":12,"mag":9,"spr":11}],"fragmentId":"250000680","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4950,"mp":200,"atk":243,"def":172,"mag":131,"spr":170},"minStats":{"hp":1634,"mp":66,"atk":80,"def":57,"mag":43,"spr":56},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor","visionCard"],"enhancementSkills":["反逆者への鉄槌","私を壊してみせろ!!"]},
   "338000717":{"name":"King Bradley BS","jpname":"キング・ブラッドレイ BS","roles":["physicalAttacker"],"id":"338000717","game_id":"undefined","game":"undefined","braveShifted":"338000707","exAwakening":[{"hp":643,"mp":26,"atk":63,"def":22,"mag":17,"spr":22},{"hp":495,"mp":20,"atk":48,"def":17,"mag":13,"spr":17},{"hp":346,"mp":14,"atk":34,"def":12,"mag":9,"spr":11}],"fragmentId":"250000680","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4890,"mp":203,"atk":265,"def":186,"mag":131,"spr":184},"minStats":{"hp":1614,"mp":67,"atk":87,"def":61,"mag":43,"spr":61},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor","visionCard"],"enhancementSkills":["反逆者への鉄槌","修羅の斬撃"]},
-  "339000127":{"name":"ギルガメッシュ BS","jpname":"ギルガメッシュ BS","roles":["physicalAttacker","magicalAttacker","support"],"id":"339000127","game_id":"undefined","game":"undefined","braveShifted":"339000105","exAwakening":[{"hp":705,"mp":43,"atk":39,"def":27,"mag":39,"spr":28},{"hp":543,"mp":33,"atk":30,"def":21,"mag":30,"spr":22},{"hp":380,"mp":23,"atk":21,"def":14,"mag":21,"spr":15}],"fragmentId":"250020600","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5428,"mp":333,"atk":297,"def":207,"mag":297,"spr":215},"minStats":{"hp":1791,"mp":110,"atk":98,"def":68,"mag":98,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","rod","spear","helm","lightArmor","heavyArmor","robe","visionCard"]},
   "339000507":{"name":"Vinera Fennes","jpname":"ヴィネラ","roles":["debuffer"],"id":"339000507","game_id":"undefined","game":"undefined","braveShift":"339000517","exAwakening":[{"hp":723,"mp":28,"atk":65,"def":16,"mag":19,"spr":24},{"hp":556,"mp":22,"atk":50,"def":12,"mag":15,"spr":18},{"hp":389,"mp":15,"atk":35,"def":9,"mag":10,"spr":13}],"fragmentId":"250007300","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5563,"mp":218,"atk":250,"def":124,"mag":148,"spr":183},"minStats":{"hp":1836,"mp":72,"atk":83,"def":41,"mag":49,"spr":60},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","gun","hat","clothes","visionCard"],"enhancementSkills":["天刃"]},
   "339000517":{"name":"Vinera Fennes BS","jpname":"ヴィネラ BS","roles":["debuffer","physicalAttacker"],"id":"339000517","game_id":"undefined","game":"undefined","braveShifted":"339000507","exAwakening":[{"hp":723,"mp":28,"atk":65,"def":16,"mag":19,"spr":24},{"hp":556,"mp":22,"atk":50,"def":12,"mag":15,"spr":18},{"hp":389,"mp":15,"atk":35,"def":9,"mag":10,"spr":13}],"fragmentId":"250007300","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5563,"mp":218,"atk":270,"def":131,"mag":157,"spr":192},"minStats":{"hp":1836,"mp":72,"atk":89,"def":43,"mag":52,"spr":63},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","gun","hat","clothes","visionCard"],"enhancementSkills":["宿りし命を守る力","天刃"]},
-  "339000707":{"name":"ジェーダン","jpname":"ジェーダン","roles":["magicalAttacker"],"id":"339000707","game_id":"undefined","game":"undefined","braveShift":"339000717","exAwakening":[{"hp":637,"mp":42,"atk":26,"def":22,"mag":82,"spr":29},{"hp":490,"mp":33,"atk":20,"def":17,"mag":63,"spr":22},{"hp":343,"mp":23,"atk":14,"def":12,"mag":44,"spr":16}],"fragmentId":"250020700","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4904,"mp":328,"atk":204,"def":169,"mag":315,"spr":222},"minStats":{"hp":1618,"mp":108,"atk":67,"def":56,"mag":104,"spr":73},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["gun","hat","clothes","lightArmor","visionCard"],"enhancementSkills":["天光射撃","制圧射撃","銃の極意","フレア"]},
-  "339000717":{"name":"ジェーダン BS","jpname":"ジェーダン BS","roles":["magicalAttacker"],"id":"339000717","game_id":"undefined","game":"undefined","braveShifted":"339000707","exAwakening":[{"hp":637,"mp":42,"atk":26,"def":22,"mag":82,"spr":29},{"hp":490,"mp":33,"atk":20,"def":17,"mag":63,"spr":22},{"hp":343,"mp":23,"atk":14,"def":12,"mag":44,"spr":16}],"fragmentId":"250020700","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4904,"mp":328,"atk":204,"def":169,"mag":315,"spr":222},"minStats":{"hp":1618,"mp":108,"atk":67,"def":56,"mag":104,"spr":73},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["gun","hat","clothes","lightArmor","visionCard"]},
-  "339000807":{"name":"革命の旗手グラセラ","jpname":"革命の旗手グラセラ","roles":["physicalAttacker"],"id":"339000807","game_id":"undefined","game":"undefined","braveShift":"339000817","exAwakening":[{"hp":705,"mp":41,"atk":82,"def":28,"mag":21,"spr":29},{"hp":543,"mp":31,"atk":63,"def":22,"mag":16,"spr":23},{"hp":380,"mp":22,"atk":44,"def":15,"mag":11,"spr":16}],"fragmentId":"250020500","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5427,"mp":313,"atk":315,"def":218,"mag":164,"spr":227},"minStats":{"hp":1791,"mp":103,"atk":104,"def":72,"mag":54,"spr":75},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["spear","hat","clothes","lightArmor","visionCard"],"enhancementSkills":["ヴァルキリーランス・風","ヴァルキリーランス・水","銀狼の撃槍","槍の極意"]},
-  "339000817":{"name":"革命の旗手グラセラ BS","jpname":"革命の旗手グラセラ BS","roles":["physicalAttacker"],"id":"339000817","game_id":"undefined","game":"undefined","braveShifted":"339000807","exAwakening":[{"hp":705,"mp":41,"atk":82,"def":28,"mag":21,"spr":29},{"hp":543,"mp":31,"atk":63,"def":22,"mag":16,"spr":23},{"hp":380,"mp":22,"atk":44,"def":15,"mag":11,"spr":16}],"fragmentId":"250020500","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5427,"mp":313,"atk":315,"def":218,"mag":164,"spr":227},"minStats":{"hp":1791,"mp":103,"atk":104,"def":72,"mag":54,"spr":75},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["spear","hat","clothes","lightArmor","visionCard"]},
   "344000807":{"name":"伝説の勇者アバン","jpname":"伝説の勇者アバン","roles":["debuffer"],"id":"344000807","game_id":"undefined","game":"undefined","braveShift":"344000817","exAwakening":[{"hp":677,"mp":42,"atk":75,"def":22,"mag":36,"spr":35},{"hp":521,"mp":32,"atk":58,"def":17,"mag":28,"spr":27},{"hp":364,"mp":23,"atk":41,"def":12,"mag":19,"spr":19}],"fragmentId":"250023200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5205,"mp":322,"atk":290,"def":171,"mag":276,"spr":269},"minStats":{"hp":1718,"mp":106,"atk":96,"def":56,"mag":91,"spr":89},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","spear","throwing","gun","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["この場は私にまかせて下さい","力なき正義もまた無力なのですよ","大地斬","海波斬","剣の極意"]},
   "344000817":{"name":"伝説の勇者アバン BS","jpname":"伝説の勇者アバン BS","roles":["debuffer"],"id":"344000817","game_id":"undefined","game":"undefined","braveShifted":"344000807","exAwakening":[{"hp":677,"mp":42,"atk":75,"def":22,"mag":36,"spr":35},{"hp":521,"mp":32,"atk":58,"def":17,"mag":28,"spr":27},{"hp":364,"mp":23,"atk":41,"def":12,"mag":19,"spr":19}],"fragmentId":"250023200","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5205,"mp":322,"atk":290,"def":171,"mag":276,"spr":269},"minStats":{"hp":1718,"mp":106,"atk":96,"def":56,"mag":91,"spr":89},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","spear","throwing","gun","hat","clothes","lightArmor","robe","visionCard"]},
   "344000907":{"name":"魂の継承者ヒム","jpname":"魂の継承者ヒム","roles":["physicalAttacker"],"id":"344000907","game_id":"undefined","game":"undefined","braveShift":"344000917","exAwakening":[{"hp":679,"mp":43,"atk":82,"def":37,"mag":25,"spr":32},{"hp":523,"mp":33,"atk":63,"def":29,"mag":19,"spr":25},{"hp":366,"mp":23,"atk":44,"def":20,"mag":13,"spr":17}],"fragmentId":"250023300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5227,"mp":329,"atk":315,"def":288,"mag":191,"spr":247},"minStats":{"hp":1725,"mp":109,"atk":104,"def":95,"mag":63,"spr":82},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["fist","helm","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["高速格闘・光","高速格闘・火","兵士の突撃","格闘の極意"]},
