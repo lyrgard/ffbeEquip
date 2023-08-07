@@ -479,6 +479,9 @@ export function addEffectsToEffectList(effectList, effects) {
             if (effect.improvedDW) {
                 effectList[0].improvedDW = true;
             }
+            if (effect.improvedTDW) {
+                effectList[0].improvedTDW = true;
+            }
             if (effect.evokeDamageBoost) {
                 if (!effectList[0].evokeDamageBoost) {
                     effectList[0].evokeDamageBoost = {}
@@ -957,7 +960,7 @@ export function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
         return result;
     } else if (rawEffect[2] == 81) {
         result = {
-            "improvedDW": true
+            "improvedTDW": true
         }
         return [result];
 
@@ -2829,7 +2832,7 @@ export function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","roles","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding", "oneWeaponMastery","improvedDW", "chainMastery","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits", "exclusiveRoles","equipedConditions", "equipedConditionIsOr","levelCondition","exLevelCondition" ,"tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","roles","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evokeDamageBoost","evade","singleWielding","singleWieldingOneHanded","dualWielding", "oneWeaponMastery","improvedDW", "improvedTDW", "chainMastery","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits", "exclusiveRoles","equipedConditions", "equipedConditionIsOr","levelCondition","exLevelCondition" ,"tmrUnit","access","icon"];
 
 export function formatOutput(units) {
     var result = "{\n";

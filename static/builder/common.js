@@ -1441,7 +1441,7 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
 
     if (stat == "chainMastery") {
         calculatedValue = (calculatedValue  / 100) + 4;
-
+        console.log(unitBuild)
         let lengthValue = 0;
         let itemObject = Object.keys(unitBuild["unitShift"]["build"]);
         // loop through the unitBuild and see if any of the items have the improvedDW property
@@ -1452,6 +1452,18 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         }
 
         if (unitBuild && unitBuild["unitShift"]["build"][lengthValue]?.improvedDW && unitBuild["unitShift"]["build"][lengthValue]?.improvedDW === true) {
+            if (unitBuild["unitShift"]["build"][0] !== null && unitBuild["unitShift"]["build"][1] !== null) {
+                calculatedValue = calculatedValue + 2;
+            }
+        }
+
+        for (let i = 0; i < itemObject.length; i++) {
+            if (unitBuild["unitShift"]["build"][itemObject[i]]?.improvedTDW) {
+                lengthValue = itemObject[i];
+            }
+        }     
+
+        if (unitBuild && unitBuild["unitShift"]["build"][lengthValue]?.improvedTDW && unitBuild["unitShift"]["build"][lengthValue]?.improvedTDW === true) {
             if (unitBuild["unitShift"]["build"][0] !== null && unitBuild["unitShift"]["build"][1] !== null) {
                 calculatedValue = calculatedValue + 2;
             }
@@ -1654,6 +1666,21 @@ function getStatBonusCap(stat, unitBuild) {
                         }
                     }
                 }
+
+                for (let i = 0; i < itemObject.length; i++) {
+                    if (unitBuild["unitShift"]["build"][itemObject[i]]?.improvedTDW) {
+                        lengthValue = itemObject[i];
+                    }
+                }     
+
+                if(unitBuild["unitShift"]["build"][lengthValue]?.improvedTDW){
+                    // to increase their chain cap, they must have two weapons equipped.
+                    if (unitBuild["unitShift"]["build"][0] && unitBuild["unitShift"]["build"][1]) {
+                        if (unitBuild["unitShift"]["build"][0] != null && unitBuild["unitShift"]["build"][1] != null) {
+                            return 6;
+                        }
+                    }
+                }
             }
             return 600;
         case 'jumpDamage':
@@ -1678,8 +1705,23 @@ function getStatBonusCap(stat, unitBuild) {
                 if(unitBuild["unitShift"]["build"][lengthValue]?.improvedDW){
                     // to increase their chain cap, they must have two weapons equipped.
                     if (unitBuild["unitShift"]["build"][0] && unitBuild["unitShift"]["build"][1]) {
-                        if (unitBuild["unitShift"]["build"][0]?.damageVariance && unitBuild["unitShift"]["build"][1]?.damageVariance) {
+                        if (unitBuild["unitShift"]["build"][0] != null && unitBuild["unitShift"]["build"][1] != null) {
                             return 8;
+                        }
+                    }
+                }
+
+                for (let i = 0; i < itemObject.length; i++) {
+                    if (unitBuild["unitShift"]["build"][itemObject[i]]?.improvedTDW) {
+                        lengthValue = itemObject[i];
+                    }
+                }      
+
+                if(unitBuild["unitShift"]["build"][lengthValue]?.improvedTDW){
+                    // to increase their chain cap, they must have two weapons equipped.
+                    if (unitBuild["unitShift"]["build"][0] && unitBuild["unitShift"]["build"][1]) {
+                        if (unitBuild["unitShift"]["build"][0] != null && unitBuild["unitShift"]["build"][1] != null) {
+                            return 6;
                         }
                     }
                 }
