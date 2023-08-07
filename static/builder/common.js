@@ -1645,43 +1645,9 @@ function getStatBonusCap(stat, unitBuild) {
         case 'lbFillRate':
             return 1000;
         case 'tdh':
-            return 600;
+            return 400;
         case 'tdw':
-            if (unitBuild) {
-                // check to see if they can increase their chain cap
-                let lengthValue = 0;
-                let itemObject = Object.keys(unitBuild["unitShift"]["build"]);
-                // loop through the unitBuild and see if any of the items have the improvedDW property
-                for (let i = 0; i < itemObject.length; i++) {
-                    if (unitBuild["unitShift"]["build"][itemObject[i]]?.improvedDW) {
-                        lengthValue = itemObject[i];
-                    }
-                }    
-                if(unitBuild["unitShift"]["build"][lengthValue]?.improvedDW){
-                    // to increase their chain cap, they must have two weapons equipped.
-                    if (unitBuild["unitShift"]["build"][0] && unitBuild["unitShift"]["build"][1]) {
-                        if (unitBuild["unitShift"]["build"][0]?.damageVariance && unitBuild["unitShift"]["build"][1]?.damageVariance) {
-                            return 8;
-                        }
-                    }
-                }
-
-                for (let i = 0; i < itemObject.length; i++) {
-                    if (unitBuild["unitShift"]["build"][itemObject[i]]?.improvedTDW) {
-                        lengthValue = itemObject[i];
-                    }
-                }     
-
-                if(unitBuild["unitShift"]["build"][lengthValue]?.improvedTDW){
-                    // to increase their chain cap, they must have two weapons equipped.
-                    if (unitBuild["unitShift"]["build"][0] && unitBuild["unitShift"]["build"][1]) {
-                        if (unitBuild["unitShift"]["build"][0] != null && unitBuild["unitShift"]["build"][1] != null) {
-                            return 6;
-                        }
-                    }
-                }
-            }
-            return 600;
+            return 400;
         case 'jumpDamage':
             return 800;
         case 'evoMag':
