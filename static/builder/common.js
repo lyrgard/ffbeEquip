@@ -1441,7 +1441,6 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
 
     if (stat == "chainMastery") {
         calculatedValue = (calculatedValue  / 100) + 4;
-        console.log(unitBuild)
         let lengthValue = 0;
         let itemObject = Object.keys(unitBuild["unitShift"]["build"]);
         // loop through the unitBuild and see if any of the items have the improvedDW property
