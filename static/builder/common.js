@@ -1444,9 +1444,9 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
 
         let lengthValue = 0;
         if (Object.keys(unitBuild["unitShift"]["build"]).length > 14) {
-            lengthValue = 14;
+            lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 2;
         } else {
-            lengthValue = 13;
+            lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 1;
         }
         if (unitBuild && unitBuild["unitShift"]["build"][lengthValue]?.improvedDW && unitBuild["unitShift"]["build"][lengthValue]?.improvedDW === true) {
             if (unitBuild["unitShift"]["build"][0] !== null && unitBuild["unitShift"]["build"][1] !== null) {
@@ -1638,9 +1638,9 @@ function getStatBonusCap(stat, unitBuild) {
                 // check to see if they can increase their chain cap
                 let lengthValue = 0;
                 if (Object.keys(unitBuild["unitShift"]["build"]).length > 14) {
-                    lengthValue = 14;
+                    lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 2;
                 } else {
-                    lengthValue = 13;
+                    lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 1;
                 }
                 if(unitBuild["unitShift"]["build"][lengthValue]?.improvedDW){
                     // to increase their chain cap, they must have two weapons equipped.
@@ -1664,9 +1664,9 @@ function getStatBonusCap(stat, unitBuild) {
                 // check to see if they can increase their chain cap
                 let lengthValue = 0;
                 if (Object.keys(unitBuild["unitShift"]["build"]).length > 14) {
-                    lengthValue = 14;
+                    lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 2;
                 } else {
-                    lengthValue = 13;
+                    lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 1;
                 }
                 if(unitBuild["unitShift"]["build"][lengthValue]?.improvedDW){
                     // to increase their chain cap, they must have two weapons equipped.
