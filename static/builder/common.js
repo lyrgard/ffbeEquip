@@ -1443,11 +1443,14 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         calculatedValue = (calculatedValue  / 100) + 4;
 
         let lengthValue = 0;
-        if (Object.keys(unitBuild["unitShift"]["build"]).length > 14) {
-            lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 2;
-        } else {
-            lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 1;
+        let itemObject = Object.keys(unitBuild["unitShift"]["build"]);
+        // loop through the unitBuild and see if any of the items have the improvedDW property
+        for (let i = 0; i < itemObject.length; i++) {
+            if (unitBuild["unitShift"]["build"][itemObject[i]]?.improvedDW) {
+                lengthValue = itemObject[i];
+            }
         }
+
         if (unitBuild && unitBuild["unitShift"]["build"][lengthValue]?.improvedDW && unitBuild["unitShift"]["build"][lengthValue]?.improvedDW === true) {
             if (unitBuild["unitShift"]["build"][0] !== null && unitBuild["unitShift"]["build"][1] !== null) {
                 calculatedValue = calculatedValue + 2;
@@ -1634,14 +1637,15 @@ function getStatBonusCap(stat, unitBuild) {
             return 600;
         case 'tdw':
             if (unitBuild) {
-                console.log(unitBuild)
                 // check to see if they can increase their chain cap
                 let lengthValue = 0;
-                if (Object.keys(unitBuild["unitShift"]["build"]).length > 14) {
-                    lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 2;
-                } else {
-                    lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 1;
-                }
+                let itemObject = Object.keys(unitBuild["unitShift"]["build"]);
+                // loop through the unitBuild and see if any of the items have the improvedDW property
+                for (let i = 0; i < itemObject.length; i++) {
+                    if (unitBuild["unitShift"]["build"][itemObject[i]]?.improvedDW) {
+                        lengthValue = itemObject[i];
+                    }
+                }    
                 if(unitBuild["unitShift"]["build"][lengthValue]?.improvedDW){
                     // to increase their chain cap, they must have two weapons equipped.
                     if (unitBuild["unitShift"]["build"][0] && unitBuild["unitShift"]["build"][1]) {
@@ -1660,14 +1664,17 @@ function getStatBonusCap(stat, unitBuild) {
             return 300;
         case 'chainMastery':
             if (unitBuild) {
-                console.log(unitBuild)
                 // check to see if they can increase their chain cap
+                
                 let lengthValue = 0;
-                if (Object.keys(unitBuild["unitShift"]["build"]).length > 14) {
-                    lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 2;
-                } else {
-                    lengthValue = Object.keys(unitBuild["unitShift"]["build"]).length - 1;
-                }
+                let itemObject = Object.keys(unitBuild["unitShift"]["build"]);
+                // loop through the unitBuild and see if any of the items have the improvedDW property
+                for (let i = 0; i < itemObject.length; i++) {
+                    if (unitBuild["unitShift"]["build"][itemObject[i]]?.improvedDW) {
+                        lengthValue = itemObject[i];
+                    }
+                }                
+                
                 if(unitBuild["unitShift"]["build"][lengthValue]?.improvedDW){
                     // to increase their chain cap, they must have two weapons equipped.
                     if (unitBuild["unitShift"]["build"][0] && unitBuild["unitShift"]["build"][1]) {
