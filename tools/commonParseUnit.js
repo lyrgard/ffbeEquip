@@ -955,6 +955,11 @@ export function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
             result.push(gilgameshSkill);
         }
         return result;
+    } else if (rawEffect[2] == 81) {
+        result = {
+            "improvedDW": true
+        }
+        return [result];
 
     } else if (rawEffect[2] == 89) {
 
@@ -1277,6 +1282,8 @@ export function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
             "improvedDW": true
         }
         return [result];
+    } else if (rawEffect[2] == 86) {
+        
     }
     return null;
 }
@@ -1842,7 +1849,6 @@ export function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, 
             console.log(rawEffect);
         }
         result = {"damage":{"mechanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}, hpSacrifice:rawEffect[3][7]};
-
         // use random ability. - same as 29 - [[skillId, chance]]
     } else if (rawEffect[2] == 82) {
         result = null;
