@@ -1442,7 +1442,13 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
     if (stat == "chainMastery") {
         calculatedValue = (calculatedValue  / 100) + 4;
 
-        if (unitBuild && unitBuild["unitShift"]["build"][Object.keys(unitBuild["unitShift"]["build"]).length - 1]?.improvedDW && unitBuild["unitShift"]["build"][Object.keys(unitBuild["unitShift"]["build"]).length - 1]?.improvedDW === true) {
+        let lengthValue = 0;
+        if (Object.keys(unitBuild["unitShift"]["build"]).length > 14) {
+            lengthValue = 14;
+        } else {
+            lengthValue = 13;
+        }
+        if (unitBuild && unitBuild["unitShift"]["build"][lengthValue]?.improvedDW && unitBuild["unitShift"]["build"][lengthValue]?.improvedDW === true) {
             if (unitBuild["unitShift"]["build"][0] !== null && unitBuild["unitShift"]["build"][1] !== null) {
                 calculatedValue = calculatedValue + 2;
             }
@@ -1627,6 +1633,24 @@ function getStatBonusCap(stat, unitBuild) {
         case 'tdh':
             return 600;
         case 'tdw':
+            if (unitBuild) {
+                console.log(unitBuild)
+                // check to see if they can increase their chain cap
+                let lengthValue = 0;
+                if (Object.keys(unitBuild["unitShift"]["build"]).length > 14) {
+                    lengthValue = 14;
+                } else {
+                    lengthValue = 13;
+                }
+                if(unitBuild["unitShift"]["build"][lengthValue]?.improvedDW){
+                    // to increase their chain cap, they must have two weapons equipped.
+                    if (unitBuild["unitShift"]["build"][0] && unitBuild["unitShift"]["build"][1]) {
+                        if (unitBuild["unitShift"]["build"][0]?.damageVariance && unitBuild["unitShift"]["build"][1]?.damageVariance) {
+                            return 8;
+                        }
+                    }
+                }
+            }
             return 600;
         case 'jumpDamage':
             return 800;
@@ -1636,8 +1660,15 @@ function getStatBonusCap(stat, unitBuild) {
             return 300;
         case 'chainMastery':
             if (unitBuild) {
+                console.log(unitBuild)
                 // check to see if they can increase their chain cap
-                if(unitBuild["unitShift"]["build"][Object.keys(unitBuild["unitShift"]["build"]).length - 1]?.improvedDW){
+                let lengthValue = 0;
+                if (Object.keys(unitBuild["unitShift"]["build"]).length > 14) {
+                    lengthValue = 14;
+                } else {
+                    lengthValue = 13;
+                }
+                if(unitBuild["unitShift"]["build"][lengthValue]?.improvedDW){
                     // to increase their chain cap, they must have two weapons equipped.
                     if (unitBuild["unitShift"]["build"][0] && unitBuild["unitShift"]["build"][1]) {
                         if (unitBuild["unitShift"]["build"][0]?.damageVariance && unitBuild["unitShift"]["build"][1]?.damageVariance) {
