@@ -758,8 +758,8 @@ function logBuild(build, value) {
         var bonusTextElement = $("#resultStats ." + escapeDot(baseStats[statIndex]) + " .bonus");
 
         var bonusPercent;
-        if (result.bonusPercent > getStatBonusCap(baseStats[statIndex])) {
-            bonusPercent = "<span style='color:red;' title='Only " + getStatBonusCap(baseStats[statIndex]) + "% taken into account'>" + result.bonusPercent + "%</span>";
+        if (result.bonusPercent > getStatBonusCap(baseStats[statIndex], build)) {
+            bonusPercent = "<span style='color:red;' title='Only " + getStatBonusCap(baseStats[statIndex], build) + "% taken into account'>" + result.bonusPercent + "%</span>";
         } else {
             bonusPercent = result.bonusPercent + "%";
         }
@@ -770,7 +770,7 @@ function logBuild(build, value) {
             if (equipmentFlatStatBonus > 0) {
                 bonusTextElement.attr("title", `(${upperCaseStat} increase % - Equipped ${upperCaseStat} (DH) increase %) modifiers, capped individually.`);
                 bonusPercent += "&nbsp;-&nbsp;";
-                var cap = getStatBonusCap('tdh');
+                var cap = getStatBonusCap('tdh', build);
                 if (build[0] && build[1] && weaponList.includes(build[0].type) && weaponList.includes(build[1].type)) {
                     cap = builds[currentUnitIndex].tdwCap * 100;
                 }
@@ -934,7 +934,7 @@ function logBuild(build, value) {
 function checkOvercap(stat, build, builds, currentUnitIndex) {    
     let endChar = checkEndChar(stat);
     let statValue = calculateStatValue(build, stat, builds[currentUnitIndex]).overcap;
-    let statCap = getStatBonusCap(stat);
+    let statCap = getStatBonusCap(stat, builds[currentUnitIndex]);
 
     if (statValue > statCap) {
         displayStat("#resultStats ." + escapeDot(stat), statValue, endChar)

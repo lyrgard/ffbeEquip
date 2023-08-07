@@ -1272,9 +1272,7 @@ export function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
         }
         return [result];
         
-    // Increase maximum true double-wield bonus to 200%, Allow unit to reach 6x chain modifier, when using two one-handed weapons
-    } else if (rawEffect[3] && rawEffect[2] == 81) {
-        
+    } else if (rawEffect[0] == 0 && rawEffect[1] == 3 && rawEffect[2] == 106){
         result = {
             "improvedDW": true
         }
