@@ -698,6 +698,13 @@ function treatVisionCard(visionCard, visionCardId, skills) {
         card.vc = unitIdByVCId[visionCardId]
     }
 
+    // check to see if levels has a value of improvedTDW. If it does move it to the top level of the card
+    if (card.levels[0].improvedTDW) {
+        card.improvedTDW = card.levels[0].improvedTDW;
+        delete card.levels[0].improvedTDW;
+    }
+
+
     return card;
 }
 
@@ -1486,7 +1493,10 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         // Increase max chain coef
     } else if (rawEffect[2] == 98) {
         addStat(item, 'chainMastery', rawEffect[3][1]);
-    
+    } else if (rawEffect[2] == 81) {
+        if (rawEffect[0] == 0 && rawEffect[1] == 3 && rawEffect[2] == 81) {
+            item['improvedTDW'] = true;
+        }
         // item sets
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 74) {
         var result = [];
@@ -1735,8 +1745,6 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, item, skillId, enhance
     // Conditional skills
     } else if (rawEffect[2] == 99) {
         result = {};
-
-        console.log(skillId, rawEffect);
 
         var skillId1 = rawEffect[3][5].toString();
         var skillIn1 = skills[skillId1];
@@ -2563,8 +2571,8 @@ function formatOutput(items) {
     }
     result += "\n]";
     return result;
+    
 }
-
 function formatItem(item) {
     let result = "{";
     var firstProperty = true;
@@ -2618,7 +2626,7 @@ function formatItem(item) {
 }
 
 function formatVisionCards(cards) {
-    var baseProperties = ["id","name","jpname","type","access","maxNumber","eventNames","icon","sortId", "vc"];
+    var baseProperties = ["id","name","jpname","type","access","maxNumber","eventNames","icon","sortId", "vc", "improvedTDW"];
     var result = "[\n";
     var first = true;
     for (var index in cards) {
