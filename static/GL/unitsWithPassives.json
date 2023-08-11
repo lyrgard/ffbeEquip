@@ -21521,7 +21521,7 @@
 		"roles":["physicalAttacker","debuffer"],
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -21543,7 +21543,7 @@
 			"roles":["physicalAttacker","debuffer"],
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -21565,7 +21565,7 @@
 		"roles":["physicalAttacker"],
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -21589,7 +21589,7 @@
 			"roles":["physicalAttacker"],
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -21613,7 +21613,7 @@
 		"roles":["physicalAttacker","debuffer"],
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -21636,7 +21636,7 @@
 			"roles":["physicalAttacker","debuffer"],
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -21659,7 +21659,7 @@
 		"roles":["physicalAttacker"],
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -21693,15 +21693,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Braver (FFVII REMAKE)","Focused Thrust"],
+		"enhancementSkills":["Braver (FFVII REMAKE)","Focused Thrust","Legacy: Cloud"],
+		"enhancements": [
+			{"name":"Legacy: Cloud","levels":[[{"replaceLb":{"name":"Ascension (FFVII REMAKE)","minEffects":[{"effect":{"weaponImperil":{"weaponType":"greatSword","value":35},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by greatSword to one enemy by 35% for 4 turns"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":111},"area":"ST","target":"ENEMY"},"desc":"Physical damage (111x, ATK) to one enemy"}],"maxEffects":[{"effect":{"weaponImperil":{"weaponType":"greatSword","value":35},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by greatSword to one enemy by 35% for 4 turns"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":150},"area":"ST","target":"ENEMY"},"desc":"Physical damage (150x, ATK) to one enemy"}],"frames":[21,57,64,71,78,85,92,99,106,113,120,195],"move":"walk"},"exLevelCondition":2}],[{"atk":1500,"replaceLb":{"name":"Ascension (FFVII REMAKE)","minEffects":[{"effect":{"weaponImperil":{"weaponType":"greatSword","value":35},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by greatSword to one enemy by 35% for 4 turns"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":181},"area":"ST","target":"ENEMY"},"desc":"Physical damage (181x, ATK) to one enemy"}],"maxEffects":[{"effect":{"weaponImperil":{"weaponType":"greatSword","value":35},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by greatSword to one enemy by 35% for 4 turns"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":220},"area":"ST","target":"ENEMY"},"desc":"Physical damage (220x, ATK) to one enemy"}],"frames":[188],"move":"walk"},"exLevelCondition":2}],[{"atk":3000,"replaceLb":{"name":"Ascension (FFVII REMAKE)","minEffects":[{"effect":{"weaponImperil":{"weaponType":"greatSword","value":40},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by greatSword to one enemy by 40% for 4 turns"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":261},"area":"ST","target":"ENEMY"},"desc":"Physical damage (261x, ATK) to one enemy"}],"maxEffects":[{"effect":{"weaponImperil":{"weaponType":"greatSword","value":40},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by greatSword to one enemy by 40% for 4 turns"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":300},"area":"ST","target":"ENEMY"},"desc":"Physical damage (300x, ATK) to one enemy"}],"frames":[188],"move":"walk"},"exLevelCondition":2}]]}
+		],
 		"skills": [
-			{"hp%":100, "mp%":50, "atk%":110, "def%":80, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "mpRefresh":5, "lbDamage":50},
+			{"hp%":100, "mp%":50, "atk%":110, "def%":80, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"machine","physical":250,"magical":200},{"name":"human","physical":250,"magical":200},{"name":"undead","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200}], "mpRefresh":5, "lbDamage":50},
 			{"atk%":20, "spr%":20, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["303008700","303011000","303011100","303011200","303011300","504236244"]]},
 			{"mp%":20, "atk%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
 			{"atk%":30, "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "lbDamage":50, "skillEnhancement":{"236002":15,"236003":15,"236004":15,"236006":20,"236007":20,"236008":20}, "levelCondition":120},
-			{"replaceLb":{"name":"Ascension (FFVII REMAKE)","minEffects":[{"effect":{"weaponImperil":{"weaponType":"greatSword","value":35},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by greatSword to one enemy by 35% for 4 turns"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":111},"area":"ST","target":"ENEMY"},"desc":"Physical damage (111x, ATK) to one enemy"}],"maxEffects":[{"effect":{"weaponImperil":{"weaponType":"greatSword","value":35},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Increase damage dealt by greatSword to one enemy by 35% for 4 turns"},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":150},"area":"ST","target":"ENEMY"},"desc":"Physical damage (150x, ATK) to one enemy"}],"frames":[21,57,64,71,78,85,92,99,106,113,120,195],"move":"walk"}, "exLevelCondition":2},
-			{"atk":300, "skillEnhancement":{"236010":20,"236011":20,"236012":20,"236013":20,"236014":20,"236038":30,"236046":10,"236048":20}, "exLevelCondition":2}
+			{"atk":1500, "skillEnhancement":{"236010":50,"236011":50,"236012":50,"236013":50,"236014":50,"236038":50,"236046":50,"236048":50}, "exLevelCondition":2}
 		]
 	},
 	"207002017": {
@@ -21723,14 +21725,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Braver (FFVII REMAKE)","Spinning Slash (FFVII REMAKE)"],
+		"enhancementSkills":["Braver (FFVII REMAKE)","Spinning Slash (FFVII REMAKE)","Hardy-Daytona's Rider"],
+		"enhancements": [
+			{"name":"Hardy-Daytona's Rider","levels":[[{"spr%":30,"atk%":30,"dualWielding":{"atk":50},"levelCondition":110}],[{"spr%":50,"atk%":50,"atk":1500,"replaceLb":{"name":"Spinning Bike","minEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":161},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (161x, ATK) to all enemies"},{"effect":{"imperil":{"lightning":130},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 130% for 5 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":200},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (200x, ATK) to all enemies"},{"effect":{"imperil":{"lightning":130},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 130% for 5 turns to all enemies"}],"frames":[30,36,42,48,54,60,66,72,78,83,89,95,101,107,113,119,125,131,136,142,148,154,160,166,172,178,184],"move":"walk"},"dualWielding":{"atk":100},"singleWielding":{"accuracy":25,"atk":100},"levelCondition":110}],[{"spr%":50,"atk%":50,"atk":3000,"replaceLb":{"name":"Spinning Bike","minEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":261},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (261x, ATK) to all enemies"},{"effect":{"imperil":{"lightning":135},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 135% for 5 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":300},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (300x, ATK) to all enemies"},{"effect":{"imperil":{"lightning":135},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 135% for 5 turns to all enemies"}],"frames":[30,36,42,48,54,60,66,72,78,83,89,95,101,107,113,119,125,131,136,142,148,154,160,166,172,178,184],"move":"walk"},"dualWielding":{"atk":100},"singleWielding":{"accuracy":25,"atk":200},"levelCondition":110}]]}
+		],
 		"skills": [
-			{"hp%":90, "mp%":50, "atk%":80, "def%":70, "mag%":30, "spr%":30, "dualWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":90, "mp%":50, "atk%":80, "def%":70, "mag%":30, "spr%":30, "dualWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"machine","physical":250,"magical":200},{"name":"human","physical":250,"magical":200},{"name":"undead","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":20, "spr%":20, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["303008700","303011000","303011100","303011200","303011300","504236244"]]},
-			{"atk%":30, "spr%":30, "dualWielding":{"atk":50}, "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
 			{"atk%":30, "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "lbDamage":50, "skillEnhancement":{"236002":15,"236003":15,"236004":15,"236006":20,"236007":20,"236008":20}, "levelCondition":120},
-			{"atk":300, "skillEnhancement":{"236010":20,"236011":20,"236012":20,"236013":20,"236014":20,"236038":30,"236046":10,"236048":20}, "exLevelCondition":2}
+			{"atk":1500, "skillEnhancement":{"236010":50,"236011":50,"236012":50,"236013":50,"236014":50,"236038":50,"236046":50,"236048":50}, "exLevelCondition":2}
 		]
 	},
 	"207002105": {
@@ -45612,6 +45616,66 @@
 			{"hp%":100, "mp%":200, "def%":100, "mag%":200, "spr%":200, "dualWielding":{"mag":200}, "improvedDW":true, "improvedTDW":true, "lbPerTurn":{"min":10,"max":10}, "resist":[{"name":"charm","percent":100},{"name":"wind","percent":80},{"name":"dark","percent":80},{"name":"blind","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200}], "mpRefresh":15, "lbDamage":200, "special":["dualWield"]},
 			{"mag":500, "evade":{"physical":50,"magical":50}, "exLevelCondition":2},
 			{"mag":500, "mag%":100, "spr":500, "dualWielding":{"mag":100}, "exLevelCondition":3}
+		]
+	},
+	"401015107": {
+		"name":"Arcane Scholar Kir",
+		"roles":["magicalAttacker"],
+		"id":"401015107",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401015117",
+		"exAwakening": [{"hp":628,"mp":69,"atk":29,"def":26,"mag":82,"spr":26},{"hp":483,"mp":53,"atk":22,"def":20,"mag":63,"spr":20},{"hp":339,"mp":37,"atk":16,"def":13,"mag":44,"spr":14}],
+		"fragmentId": "310001120",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4832,"mp":531,"atk":223,"def":198,"mag":315,"spr":199},
+			"minStats":{"hp":1595,"mp":175,"atk":74,"def":65,"mag":104,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Staff Mastery","Rod Mastery","Logi's Judgment","Ullr's Judgment"],
+		"enhancements": [
+			{"name":"Staff Mastery","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"Rod Mastery","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":160, "atk%":100, "def%":160, "mag%":300, "spr%":160, "singleWielding":{"mag":300,"accuracy":25}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":75},{"name":"ice","percent":75},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":150},
+			{"mag":500, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "equipedConditions":[["1500000236","1100000788"]]},
+			{"mag":500, "exLevelCondition":3}
+		]
+	},
+	"401015117": {
+		"name":"Arcane Scholar Kir BS",
+		"roles":["magicalAttacker"],
+		"id":"401015117",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401015107",
+		"exAwakening": [{"hp":628,"mp":69,"atk":29,"def":26,"mag":82,"spr":26},{"hp":483,"mp":53,"atk":22,"def":20,"mag":63,"spr":20},{"hp":339,"mp":37,"atk":16,"def":13,"mag":44,"spr":14}],
+		"fragmentId": "310001120",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4832,"mp":531,"atk":223,"def":198,"mag":315,"spr":199},
+			"minStats":{"hp":1595,"mp":175,"atk":74,"def":65,"mag":104,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Staff Mastery","Rod Mastery","Logi's Judgment","Ullr's Judgment"],
+		"enhancements": [
+			{"name":"Staff Mastery","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"Rod Mastery","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":160, "atk%":100, "def%":160, "mag%":300, "spr%":160, "singleWielding":{"mag":300,"accuracy":25}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":75},{"name":"ice","percent":75},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":150},
+			{"mag":500, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "equipedConditions":[["1500000236","1100000788"]]},
+			{"mag":500, "exLevelCondition":3}
 		]
 	}
 ,

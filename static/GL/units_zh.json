@@ -16238,7 +16238,7 @@
 		"wikiEntry":"Cloud_(FFVII: AC)",
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -16255,7 +16255,7 @@
 			"wikiEntry":"Cloud_(FFVII: AC)",
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16275,7 +16275,7 @@
 		"wikiEntry":"Tifa_(FFVII: AC)",
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -16292,7 +16292,7 @@
 			"wikiEntry":"Tifa_(FFVII: AC)",
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16312,7 +16312,7 @@
 		"wikiEntry":"Kadaj",
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -16329,7 +16329,7 @@
 			"wikiEntry":"Kadaj",
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16349,7 +16349,7 @@
 		"wikiEntry":"Yazoo_& Loz",
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -16381,7 +16381,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Braver (FFVII REMAKE)","Focused Thrust"]
+		"enhancementSkills":["Braver (FFVII REMAKE)","Focused Thrust","Legacy: Cloud"]
 	},
 	"207002017": {
 		"name":"克勞德(FFVII REMAKE) BS",
@@ -16403,7 +16403,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Braver (FFVII REMAKE)","Spinning Slash (FFVII REMAKE)"]
+		"enhancementSkills":["Braver (FFVII REMAKE)","Spinning Slash (FFVII REMAKE)","Hardy-Daytona's Rider"]
 	},
 	"207002105": {
 		"name":"巴雷特(FFVII REMAKE)",
@@ -34189,6 +34189,50 @@
 		"stats_pattern":4,
 		"equip":["rod","fist","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["Darkra","Darkga","Aerora","Aeroga","Aeroja","Tornado","Gale Force","Swift Divebomb","Skilled Scavengers"]
+	},
+	"401015107": {
+		"name":"秘術學者齊爾",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Arcane_Scholar Kir",
+		"id":"401015107",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401015117",
+		"exAwakening": [{"hp":628,"mp":69,"atk":29,"def":26,"mag":82,"spr":26},{"hp":483,"mp":53,"atk":22,"def":20,"mag":63,"spr":20},{"hp":339,"mp":37,"atk":16,"def":13,"mag":44,"spr":14}],
+		"fragmentId": "310001120",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4832,"mp":531,"atk":223,"def":198,"mag":315,"spr":199},
+			"minStats":{"hp":1595,"mp":175,"atk":74,"def":65,"mag":104,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Staff Mastery","Rod Mastery","Logi's Judgment","Ullr's Judgment"]
+	},
+	"401015117": {
+		"name":"秘術學者齊爾 BS",
+		"roles":["magicalAttacker"],
+		"wikiEntry":"Arcane_Scholar Kir",
+		"id":"401015117",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401015107",
+		"exAwakening": [{"hp":628,"mp":69,"atk":29,"def":26,"mag":82,"spr":26},{"hp":483,"mp":53,"atk":22,"def":20,"mag":63,"spr":20},{"hp":339,"mp":37,"atk":16,"def":13,"mag":44,"spr":14}],
+		"fragmentId": "310001120",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4832,"mp":531,"atk":223,"def":198,"mag":315,"spr":199},
+			"minStats":{"hp":1595,"mp":175,"atk":74,"def":65,"mag":104,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Staff Mastery","Rod Mastery","Logi's Judgment","Ullr's Judgment"]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker","support"],"id":"100000115","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"]},
