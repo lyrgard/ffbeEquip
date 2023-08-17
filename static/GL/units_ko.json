@@ -8582,7 +8582,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["spear","hat","clothes","visionCard"],
-		"enhancementSkills":["Emotional Slash"]
+		"enhancementSkills":["Emotional Slash","Awakening of Power","Blazing Lance"]
 	},
 	"100033217": {
 		"name":"마주르카 BS",
@@ -8604,7 +8604,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["spear","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Blooming Jump"]
+		"enhancementSkills":["Blooming Jump","Awakening of Power","Jump","Blazing Lance"]
 	},
 	"100033305": {
 		"name":"트로트",
@@ -8685,7 +8685,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","mace","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Waterga","Aeroga","Waterja","Flood","I can't call everything a pain..."]
+		"enhancementSkills":["Hidden Magic Power","Waterga","Aeroga","Waterja","Flood","I can't call everything a pain..."]
 	},
 	"100033505": {
 		"name":"프리지아",
@@ -8772,7 +8772,7 @@
 	},
 	"100034107": {
 		"name":"디벨",
-		"roles":["physicalAttacker"],
+		"roles":["physicalAttacker","magicalTank"],
 		"wikiEntry":"Diverti",
 		"id":"100034107",
 		"game_id":"11001",
@@ -8790,11 +8790,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["throwing","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Fired Up Earth","Damage Card Cut"]
+		"enhancementSkills":["Shellga","He Who Wished for Strength","Fired Up Earth","Damage Card Cut","Card Assault"]
 	},
 	"100034117": {
 		"name":"디벨 BS",
-		"roles":["magicalAttacker"],
+		"roles":["magicalAttacker","magicalTank"],
 		"wikiEntry":"Diverti",
 		"id":"100034117",
 		"game_id":"11001",
@@ -8812,7 +8812,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["throwing","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Fired Up Earth","Abyssal Summon"]
+		"enhancementSkills":["Future Entrusted to Rinora","Fired Up Earth","Abyssal Summon"]
 	},
 	"100034205": {
 		"name":"콘체",
@@ -16238,7 +16238,7 @@
 		"wikiEntry":"Cloud_(FFVII: AC)",
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -16255,7 +16255,7 @@
 			"wikiEntry":"Cloud_(FFVII: AC)",
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16275,7 +16275,7 @@
 		"wikiEntry":"Tifa_(FFVII: AC)",
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -16292,7 +16292,7 @@
 			"wikiEntry":"Tifa_(FFVII: AC)",
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16312,7 +16312,7 @@
 		"wikiEntry":"Kadaj",
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -16329,7 +16329,7 @@
 			"wikiEntry":"Kadaj",
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16349,7 +16349,7 @@
 		"wikiEntry":"Yazoo_& Loz",
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -21530,7 +21530,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
-		"enhancementSkills":["Buster Impulse","Bolt","Commando's Seal"],
+		"enhancementSkills":["Sparkstrike II","Flamestrike II","Froststrike II","Aquastrike II","Buster Impulse","Bolt","Commando's Seal"],
 		"6_form": {
 			"name":"섬광의 라이트닝",
 			"roles":["physicalAttacker","debuffer"],
@@ -21549,7 +21549,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Buster Impulse","Bolt","Commando's Seal"]
+			"enhancementSkills":["Sparkstrike II","Flamestrike II","Froststrike II","Aquastrike II","Buster Impulse","Bolt","Commando's Seal"]
 		},
 		"7_form": {
 			"name":"섬광의 라이트닝",
@@ -21569,7 +21569,7 @@
 			},
 			"stats_pattern":4,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-			"enhancementSkills":["Buster Impulse","Bolt","Commando's Seal"]
+			"enhancementSkills":["Sparkstrike II","Flamestrike II","Froststrike II","Aquastrike II","Buster Impulse","Bolt","Commando's Seal"]
 		}
 	},
 	"213001027": {
@@ -21679,17 +21679,20 @@
 		"id":"213001305",
 		"game_id":"10013",
 		"game":"FFXIII",
-		"max_rarity":"7",
+		"braveShift":"213001327",
+		"exAwakening": [{"hp":694,"mp":45,"atk":38,"def":31,"mag":21,"spr":26},{"hp":534,"mp":34,"atk":29,"def":24,"mag":16,"spr":20},{"hp":374,"mp":24,"atk":21,"def":17,"mag":11,"spr":14}],
+		"fragmentId": "250021100",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4852,"mp":244,"atk":209,"def":191,"mag":154,"spr":182},
-			"minStats":{"hp":1601,"mp":81,"atk":69,"def":63,"mag":51,"spr":60},
+			"maxStats":{"hp":5338,"mp":342,"atk":293,"def":239,"mag":162,"spr":201},
+			"minStats":{"hp":1762,"mp":113,"atk":97,"def":79,"mag":53,"spr":66},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","spear","lightShield","hat","clothes","lightArmor"],
-		"enhancementSkills":["Flying Dragon Rider","Power Pulse","Broken l'Cie's Return"],
+		"equip":["dagger","sword","spear","lightShield","hat","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Flying Dragon Rider","Power Pulse","Broken l'Cie's Return","Destroyer's Jump","Aerial Loop"],
 		"6_form": {
 			"name":"아름다운 용사 팡",
 			"roles":["physicalAttacker"],
@@ -21698,7 +21701,7 @@
 			"game_id":"10013",
 			"game":"FFXIII",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -21708,8 +21711,136 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","spear","lightShield","hat","clothes","lightArmor"],
-			"enhancementSkills":["Flying Dragon Rider","Power Pulse","Broken l'Cie's Return"]
+			"enhancementSkills":["Flying Dragon Rider","Power Pulse","Broken l'Cie's Return","Destroyer's Jump","Aerial Loop"]
+		},
+		"7_form": {
+			"name":"아름다운 용사 팡",
+			"roles":["physicalAttacker"],
+			"wikiEntry":"Graceful_Champion Fang",
+			"id":"213001305",
+			"game_id":"10013",
+			"game":"FFXIII",
+			"sevenStarForm":true,
+			"max_rarity":"NV",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4852,"mp":244,"atk":209,"def":191,"mag":154,"spr":182},
+				"minStats":{"hp":1601,"mp":81,"atk":69,"def":63,"mag":51,"spr":60},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","spear","lightShield","hat","clothes","lightArmor"],
+			"enhancementSkills":["Flying Dragon Rider","Power Pulse","Broken l'Cie's Return","Destroyer's Jump","Aerial Loop"]
 		}
+	},
+	"213001327": {
+		"name":"아름다운 용사 팡 BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Graceful_Champion Fang",
+		"id":"213001327",
+		"game_id":"10013",
+		"game":"FFXIII",
+		"braveShifted":"213001305",
+		"exAwakening": [{"hp":694,"mp":45,"atk":38,"def":31,"mag":21,"spr":26},{"hp":534,"mp":34,"atk":29,"def":24,"mag":16,"spr":20},{"hp":374,"mp":24,"atk":21,"def":17,"mag":11,"spr":14}],
+		"fragmentId": "250021100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5338,"mp":342,"atk":293,"def":239,"mag":162,"spr":201},
+			"minStats":{"hp":1762,"mp":113,"atk":97,"def":79,"mag":53,"spr":66},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","visionCard"]
+	},
+	"213001407": {
+		"name":"아름다운 번개 라이트닝",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Wondrous_Flash Lightning",
+		"id":"213001407",
+		"game_id":"10013",
+		"game":"FFXIII",
+		"braveShift":"213001417",
+		"exAwakening": [{"hp":691,"mp":46,"atk":86,"def":32,"mag":35,"spr":29},{"hp":531,"mp":36,"atk":66,"def":24,"mag":27,"spr":22},{"hp":372,"mp":25,"atk":46,"def":17,"mag":19,"spr":15}],
+		"fragmentId": "250021000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5047,"mp":323,"atk":330,"def":216,"mag":242,"spr":182},
+			"minStats":{"hp":1666,"mp":107,"atk":109,"def":71,"mag":80,"spr":60},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Impulsestrike","Blitz (Lightning)","Sword Mastery","Gun Mastery","Sparkstrike II","Flamestrike II","Froststrike II","Aquastrike II","Imperilga"]
+	},
+	"213001417": {
+		"name":"아름다운 번개 라이트닝 BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Wondrous_Flash Lightning",
+		"id":"213001417",
+		"game_id":"10013",
+		"game":"FFXIII",
+		"braveShifted":"213001407",
+		"exAwakening": [{"hp":691,"mp":46,"atk":86,"def":32,"mag":35,"spr":29},{"hp":531,"mp":36,"atk":66,"def":24,"mag":27,"spr":22},{"hp":372,"mp":25,"atk":46,"def":17,"mag":19,"spr":15}],
+		"fragmentId": "250021000",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5313,"mp":356,"atk":330,"def":242,"mag":267,"spr":221},
+			"minStats":{"hp":1753,"mp":117,"atk":109,"def":80,"mag":88,"spr":73},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
+		"enhancementSkills":["Impulsestrike","Blitz (Lightning)","Sword Mastery","Gun Mastery","Imperilga"]
+	},
+	"213001507": {
+		"name":"운명과 싸우는 소년 호프",
+		"roles":["magicalAttacker","support"],
+		"wikiEntry":"Challenger_of Fate Hope",
+		"id":"213001507",
+		"game_id":"10013",
+		"game":"FFXIII",
+		"braveShift":"213001517",
+		"exAwakening": [{"hp":631,"mp":49,"atk":23,"def":30,"mag":78,"spr":36},{"hp":485,"mp":37,"atk":18,"def":23,"mag":60,"spr":28},{"hp":340,"mp":26,"atk":13,"def":16,"mag":42,"spr":20}],
+		"fragmentId": "250020800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4854,"mp":372,"atk":179,"def":232,"mag":300,"spr":279},
+			"minStats":{"hp":1602,"mp":123,"atk":59,"def":77,"mag":99,"spr":92},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Grieving His Mother","Throwing Weapon Mastery","Earthquake (FFXIII)","Defying Destiny (Hope)","Protectga","Shellga","Fira","Blizzara","Thundara","Watera","Firaga","Blizzaga","Thundaga","Waterga","Stonga"]
+	},
+	"213001517": {
+		"name":"운명과 싸우는 소년 호프 BS",
+		"roles":["magicalAttacker","support"],
+		"wikiEntry":"Challenger_of Fate Hope",
+		"id":"213001517",
+		"game_id":"10013",
+		"game":"FFXIII",
+		"braveShifted":"213001507",
+		"exAwakening": [{"hp":631,"mp":49,"atk":23,"def":30,"mag":78,"spr":36},{"hp":485,"mp":37,"atk":18,"def":23,"mag":60,"spr":28},{"hp":340,"mp":26,"atk":13,"def":16,"mag":42,"spr":20}],
+		"fragmentId": "250020800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4854,"mp":372,"atk":179,"def":232,"mag":300,"spr":279},
+			"minStats":{"hp":1602,"mp":123,"atk":59,"def":77,"mag":99,"spr":92},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe","visionCard"]
 	},
 	"214000105": {
 		"name":"야슈톨라",
@@ -34351,11 +34482,6 @@
   "209001305":{"name":"Dagger","jpname":"ダガー","roles":["healer","support","magicalAttacker"],"id":"209001305","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4747,"mp":264,"atk":128,"def":166,"mag":176,"spr":216},"minStats":{"hp":1567,"mp":87,"atk":42,"def":55,"mag":58,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","mace","hat","clothes","robe"],"6_form":{"name":"Dagger","jpname":"ダガー","roles":["healer","support","magicalAttacker"],"id":"209001305","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3651,"mp":203,"atk":98,"def":127,"mag":135,"spr":166},"minStats":{"hp":1205,"mp":67,"atk":32,"def":42,"mag":45,"spr":55},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","mace","hat","clothes","robe"]}},
   "209002505":{"name":"Summoner Scion Eiko","jpname":"召喚士の末裔エーコ","roles":["magicalAttacker","healer"],"id":"209002505","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4379,"mp":241,"atk":134,"def":164,"mag":178,"spr":218},"minStats":{"hp":1445,"mp":80,"atk":44,"def":54,"mag":59,"spr":72},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","hat","clothes","robe"],"enhancementSkills":["召喚士の角","エーコのおくのて"],"6_form":{"name":"Summoner Scion Eiko","jpname":"召喚士の末裔エーコ","roles":["magicalAttacker","healer"],"id":"209002505","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3368,"mp":185,"atk":103,"def":126,"mag":136,"spr":167},"minStats":{"hp":1111,"mp":61,"atk":34,"def":42,"mag":45,"spr":55},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","harp","hat","clothes","robe"],"enhancementSkills":["召喚士の角","エーコのおくのて"]}},
   "209002704":{"name":"Queen Brahne","jpname":"ブラネ女王","roles":["debuffer","support"],"id":"209002704","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"4","sex":"female","stats":{"maxStats":{"hp":3639,"mp":146,"atk":113,"def":119,"mag":133,"spr":149},"minStats":{"hp":1201,"mp":48,"atk":37,"def":39,"mag":44,"spr":49},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","rod","hat","clothes","robe"]},
-  "213001327":{"name":"麗しき勇士ファング BS","jpname":"麗しき勇士ファング BS","roles":["physicalAttacker"],"id":"213001327","game_id":"undefined","game":"undefined","braveShifted":"213001305","exAwakening":[{"hp":694,"mp":45,"atk":38,"def":31,"mag":21,"spr":26},{"hp":534,"mp":34,"atk":29,"def":24,"mag":16,"spr":20},{"hp":374,"mp":24,"atk":21,"def":17,"mag":11,"spr":14}],"fragmentId":"250021100","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5338,"mp":342,"atk":293,"def":239,"mag":162,"spr":201},"minStats":{"hp":1762,"mp":113,"atk":97,"def":79,"mag":53,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","visionCard"]},
-  "213001407":{"name":"美しき稲妻ライトニング","jpname":"美しき稲妻ライトニング","roles":["physicalAttacker"],"id":"213001407","game_id":"undefined","game":"undefined","braveShift":"213001417","exAwakening":[{"hp":691,"mp":46,"atk":86,"def":32,"mag":35,"spr":29},{"hp":531,"mp":36,"atk":66,"def":24,"mag":27,"spr":22},{"hp":372,"mp":25,"atk":46,"def":17,"mag":19,"spr":15}],"fragmentId":"250021000","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5047,"mp":323,"atk":330,"def":216,"mag":242,"spr":182},"minStats":{"hp":1666,"mp":107,"atk":109,"def":71,"mag":80,"spr":60},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["インパルスブロウ","エリアブラスト(ライトニング)","剣の極意","銃の極意","スパークブロウII","フレイムブロウII","フロストブロウII","ウェーブブロウII","ウィーガ"]},
-  "213001417":{"name":"美しき稲妻ライトニング BS","jpname":"美しき稲妻ライトニング BS","roles":["physicalAttacker"],"id":"213001417","game_id":"undefined","game":"undefined","braveShifted":"213001407","exAwakening":[{"hp":691,"mp":46,"atk":86,"def":32,"mag":35,"spr":29},{"hp":531,"mp":36,"atk":66,"def":24,"mag":27,"spr":22},{"hp":372,"mp":25,"atk":46,"def":17,"mag":19,"spr":15}],"fragmentId":"250021000","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5313,"mp":356,"atk":330,"def":242,"mag":267,"spr":221},"minStats":{"hp":1753,"mp":117,"atk":109,"def":80,"mag":88,"spr":73},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["インパルスブロウ","エリアブラスト(ライトニング)","剣の極意","銃の極意","ウィーガ"]},
-  "213001507":{"name":"運命と戦う少年ホープ","jpname":"運命と戦う少年ホープ","roles":["magicalAttacker","support"],"id":"213001507","game_id":"undefined","game":"undefined","braveShift":"213001517","exAwakening":[{"hp":631,"mp":49,"atk":23,"def":30,"mag":78,"spr":36},{"hp":485,"mp":37,"atk":18,"def":23,"mag":60,"spr":28},{"hp":340,"mp":26,"atk":13,"def":16,"mag":42,"spr":20}],"fragmentId":"250020800","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4854,"mp":372,"atk":179,"def":232,"mag":300,"spr":279},"minStats":{"hp":1602,"mp":123,"atk":59,"def":77,"mag":99,"spr":92},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["亡き母への想い","投擲の極意","アースクエイク【XIII】","運命に抗う力","プロテガ","シェルガ","ファイラ","ブリザラ","サンダラ","ウォタラ","ファイガ","ブリザガ","サンダガ","ウォタガ","ストンガ"]},
-  "213001517":{"name":"運命と戦う少年ホープ BS","jpname":"運命と戦う少年ホープ BS","roles":["magicalAttacker","support"],"id":"213001517","game_id":"undefined","game":"undefined","braveShifted":"213001507","exAwakening":[{"hp":631,"mp":49,"atk":23,"def":30,"mag":78,"spr":36},{"hp":485,"mp":37,"atk":18,"def":23,"mag":60,"spr":28},{"hp":340,"mp":26,"atk":13,"def":16,"mag":42,"spr":20}],"fragmentId":"250020800","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4854,"mp":372,"atk":179,"def":232,"mag":300,"spr":279},"minStats":{"hp":1602,"mp":123,"atk":59,"def":77,"mag":99,"spr":92},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe","visionCard"]},
   "213001707":{"name":"使命に抗う少女ヴァニラ","jpname":"使命に抗う少女ヴァニラ","roles":["debuffer"],"id":"213001707","game_id":"undefined","game":"undefined","braveShift":"213001717","exAwakening":[{"hp":663,"mp":49,"atk":26,"def":20,"mag":75,"spr":36},{"hp":510,"mp":38,"atk":20,"def":15,"mag":58,"spr":27},{"hp":357,"mp":26,"atk":14,"def":11,"mag":41,"spr":19}],"fragmentId":"250021200","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5102,"mp":376,"atk":197,"def":151,"mag":290,"spr":273},"minStats":{"hp":1684,"mp":124,"atk":65,"def":50,"mag":96,"spr":90},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","whip","hat","clothes","robe","visionCard"],"enhancementSkills":["ドライビングモード【ヘカトンケイル】","エリミネートショット","ペネトレイトレイ","ロッドの極意","ファイガ","ウォタガ","サンダガ","ストンガ","ウィーガ"]},
   "213001717":{"name":"使命に抗う少女ヴァニラ BS","jpname":"使命に抗う少女ヴァニラ BS","roles":["debuffer"],"id":"213001717","game_id":"undefined","game":"undefined","braveShifted":"213001707","exAwakening":[{"hp":663,"mp":49,"atk":26,"def":20,"mag":75,"spr":36},{"hp":510,"mp":38,"atk":20,"def":15,"mag":58,"spr":27},{"hp":357,"mp":26,"atk":14,"def":11,"mag":41,"spr":19}],"fragmentId":"250021200","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5102,"mp":376,"atk":197,"def":151,"mag":290,"spr":273},"minStats":{"hp":1684,"mp":124,"atk":65,"def":50,"mag":96,"spr":90},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","whip","hat","clothes","robe","visionCard"]},
   "213001807":{"name":"愛深き父サッズ","jpname":"愛深き父サッズ","roles":["physicalAttacker","support"],"id":"213001807","game_id":"undefined","game":"undefined","braveShift":"213001817","exAwakening":[{"hp":812,"mp":43,"atk":82,"def":32,"mag":27,"spr":31},{"hp":625,"mp":33,"atk":63,"def":25,"mag":21,"spr":24},{"hp":437,"mp":23,"atk":44,"def":17,"mag":15,"spr":17}],"fragmentId":"250021400","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5791,"mp":310,"atk":300,"def":223,"mag":189,"spr":217},"minStats":{"hp":1911,"mp":102,"atk":99,"def":74,"mag":62,"spr":72},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["gun","hat","clothes","lightArmor","visionCard"],"enhancementSkills":["ヒートバースト","この腕貸すぜ！","銃の極意"]},

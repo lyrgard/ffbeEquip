@@ -3594,7 +3594,7 @@
         "name": "Attacker",
         "compendium_id": 476,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [213000105, 213000204, 213000304, 213000403, 213000504, 213000603, 213001005, 213001105, 258000207, 258000217, 213001027, 213000127, 258000305, 213001205, 213001305, 250000105, 250000305, 250000404, 250000205, 258000107, 258000117, 250000127]],
+        "requirements": ["UNIT_ID", [213000105, 213000204, 213000304, 213000403, 213000504, 213000603, 213001005, 213001105, 258000207, 258000217, 213001027, 213000127, 258000305, 213001205, 213001305, 250000105, 250000305, 250000404, 250000205, 258000107, 258000117, 250000127, 213001327]],
         "skills": [202490],
         "effects": ["Grant 'Attacker' passive"],
         "unique": true,
@@ -3629,7 +3629,7 @@
         "name": "Defender",
         "compendium_id": 477,
         "compendium_shown": true,
-        "requirements": ["UNIT_ID", [213000105, 213000204, 213000304, 213000403, 213000504, 213000603, 213001005, 213001105, 258000207, 258000217, 213001027, 213000127, 258000305, 213001205, 213001305, 250000105, 250000305, 250000404, 250000205, 258000107, 258000117, 250000127]],
+        "requirements": ["UNIT_ID", [213000105, 213000204, 213000304, 213000403, 213000504, 213000603, 213001005, 213001105, 258000207, 258000217, 213001027, 213000127, 258000305, 213001205, 213001305, 250000105, 250000305, 250000404, 250000205, 258000107, 258000117, 250000127, 213001327]],
         "skills": [202500],
         "effects": ["Grant 'Defender' passive"],
         "unique": true,
@@ -13030,7 +13030,7 @@
         "price_sell": 1500,
         "icon": "ability_77.png",
         "strings": {
-            "names": ["Sanctum's Militant Art", "聖府軍式機壞術", "성부군식 기괴술", "Art militant du Sanctum", "Sanktums Kriegskunst", "Arte militar del Sanctum", "Teknik Militer Sanctum", "วิชา\u001aทหาร\u001aแห่ง\u001a \u001aSanctum\u001a"],
+            "names": ["Sanctum's Militant Art", "聖府軍式機壞術", "성부군식 기괴술", "Art militant du Sanctum", "Sanktums Kriegskunst", "Arte militar del Sanctum", "Teknik Militer Sanctum", "วิชา\u001aทหาร\u001aแห่ง\u001aรัฐบาล\u001aศักดิ์สิทธิ์\u001a"],
             "desc_short": ["Boost ATK by 10% and boost physical damage against machina monsters", "提高10%攻擊+物理攻擊時提高對機械系魔物的傷害", "공격력 10% 상승+물리 공격 시 기계형 마물에게 부여하는 피해량 상승", "Augmente l'ATT de 10% et augmente les dégâts physiques contre les machines", "Erhöht ANG um 10% und erhöht magischen Schaden gegen Maschinen.", "Aumenta el ATQ un 10% y el daño físico contra máquinas", "Meningkatkan ATK sebanyak 10% dan meningkatkan damage fisik terhadap jenis mesin", "เพิ่มค่า\u001a \u001aATK\u001a \u001a10% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aจักรกล\u001a"],
             "desc_long": ["Boosts ATK by 10% and boosts physical damage against machina monsters.", "提高10%攻擊+物理攻擊時提高對機械系魔物的傷害", "공격력이 10% 상승하고, 물리 공격 시 기계형 마물에게 부여하는 피해량이 상승합니다.", "Augmente l'ATT de 10% et augmente les dégâts physiques contre les machines", "Erhöht ANG um 10% und erhöht physischen Schaden gegen Maschinen.", "Aumenta el ATQ un 10% y el daño físico contra máquinas.", "Meningkatkan ATK sebanyak 10% dan meningkatkan damage fisik terhadap jenis mesin.", "เพิ่มค่า\u001a \u001aATK\u001a \u001a10% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aจักรกล\u001a"]
         }
@@ -13047,7 +13047,7 @@
         "price_sell": 1500,
         "icon": "ability_77.png",
         "strings": {
-            "names": ["Sanctum's Militant Law", "聖府軍式機壞法", "성부군식 기괴법", "Loi militante du Sanctum", "Sanktums Kriegsrecht", "Ley militar del Sanctum", "Hukum Militer Sanctum", "กฎหมาย\u001aทหาร\u001aแห่ง\u001a \u001aSanctum\u001a"],
+            "names": ["Sanctum's Militant Law", "聖府軍式機壞法", "성부군식 기괴법", "Loi militante du Sanctum", "Sanktums Kriegsrecht", "Ley militar del Sanctum", "Hukum Militer Sanctum", "กฎหมาย\u001aทหาร\u001aแห่ง\u001aรัฐบาล\u001aศักดิ์สิทธิ์\u001a"],
             "desc_short": ["Boost MAG by 10% and boost magic damage against machina monsters", "提高10%攻擊+魔法攻擊時提高對機械系魔物的傷害", "마력 10% 상승+마법 공격 시 기계형 마물에게 부여하는 피해량 상승", "Augmente la MAGIE de 10% et augmente les dégâts magiques contre les machines", "Erhöht MAG um 10% und erhöht magischen Schaden gegen Maschinen.", "Aumenta la MAG un 10% y el daño mágico contra máquinas", "Meningkatkan MAG sebanyak 10% dan meningkatkan damage magic terhadap jenis mesin", "เพิ่มค่า\u001a \u001aMAG\u001a \u001a10% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aจักรกล\u001a"],
             "desc_long": ["Boosts MAG by 10% and boosts magic damage against machina monsters.", "提高10%攻擊+魔法攻擊時提高對機械系魔物的傷害", "마력이 10% 상승하고, 마법 공격 시 기계형 마물에게 부여하는 피해량이 상승합니다.", "Augmente la MAGIE de 10% et augmente les dégâts magiques contre les machines", "Erhöht MAG um 10% und erhöht magischen Schaden gegen Maschinen.", "Aumenta la MAG un 10% y el daño mágico contra máquinas.", "Meningkatkan MAG sebanyak 10% dan meningkatkan damage magic terhadap jenis mesin.", "เพิ่มค่า\u001a \u001aMAG\u001a \u001a10% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aจักรกล\u001a"]
         }
@@ -22096,24 +22096,24 @@
         "strings": {
             "names": ["Doomtrain's Successor", "繼承了格剌希亞拉波斯的男人", "그라샬라볼라스를 이어받은 자", "Héritier de Helltrain", "Erbe des Glasya Labolas", "Heredero de Helltrain", "Pewaris Doomtrain", "รับ\u001aสืบทอด\u001a \u001aDoomtrain\u001a"],
             "desc_short": [
-                "Boost LB damage by 25%, and boost equipment SPR by 50% when armed with two one-handed weapons (Not stackable)",
-                "提高25%極限技的傷害+裝備2把單手武器時武具精神提升50%[無法重複裝備]",
-                "LB 피해량 25% 상승+한손용 무기 2개 장착 시 장비의 정신력 50% 상승  (중복 장착 불가)",
-                "Augmente les dégâts de la limite de 25 %, et augmente la PSY de l'équipement de 50 % quand deux armes à une main sont équipées (non cumulable)",
-                "Erhöht Schaden durch Limitrausch um 25% und erhöht Ausrüstung-PSY um 50%, wenn mit zwei Einhandwaffen ausgerüstet (nicht stapelbar).",
-                "Aumenta el daño del EL un 25%, y aumenta el ESP del equipo un 50% al llevar 2 armas de una sola mano (no acumulable)",
-                "Meningkatkan damage LB sebanyak 25% dan meningkatkan SPR perlengkapan sebanyak 50% ketika 2 senjata satu tangan digunakan (Tidak dapat ditumpuk)",
-                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a25% \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a50% \u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "Boost LB damage by 25%, and boost equipment MAG and SPR by 50% when armed with two one-handed weapons (Not stackable)",
+                "提高25%極限技的傷害+裝備2把單手武器時武具魔力精神提升50%[無法重複裝備]",
+                "LB 피해량 25% 상승+한손용 무기 2개 장착 시 장비의 마력과 정신력 50% 상승(중복 장착 불가)",
+                "Augmente les dégâts de la limite de 25 % et augmente la MAGIE et la PSY de l'équipement de 50 % quand deux armes à une main sont équipées (non cumulable)",
+                "Erhöht Schaden durch Limitrausch um 25% und erhöht Ausrüstung-MAG und -PSY um 50%, wenn mit zwei Einhandwaffen ausgerüstet (nicht stapelbar).",
+                "Aumenta el daño del EL un 25%, y la MAG y el ESP del equipo un 50% al llevar 2 armas de una sola mano (no acumulable)",
+                "Meningkatkan damage LB sebanyak 25%, serta meningkatkan MAG dan SPR perlengkapan sebanyak 50% ketika 2 senjata satu tangan digunakan (Tidak dapat digunakan)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a25% + เพิ่มค่า MAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a50% \u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ],
             "desc_long": [
-                "Boosts LB damage by 25%, and boosts equipment SPR by 50% when armed with two one-handed weapons. Not stackable.",
-                "提高25%極限技的傷害，以及裝備2把單手武器時武具精神提升50%。[無法重複裝備]",
-                "LB 피해량이 25% 상승하고, 한손용 무기 2개 장착 시 장비의 정신력이 50% 상승합니다.  (중복 장착 불가)",
-                "Augmente les dégâts de la limite de 25 %, et augmente la PSY de l'équipement de 50 % quand deux armes à une main sont équipées. Non cumulable.",
-                "Erhöht Schaden durch Limitrausch um 25% und erhöht Ausrüstung-PSY um 50%, wenn mit zwei Einhandwaffen ausgerüstet. Nicht stapelbar.",
-                "Aumenta el daño del EL un 25%, y aumenta el ESP del equipo un 50% al llevar 2 armas de una sola mano. No acumulable.",
-                "Meningkatkan damage limit burst sebanyak 25% dan meningkatkan SPR perlengkapan sebanyak 50% ketika 2 senjata satu tangan digunakan. Tidak dapat ditumpuk.",
-                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a25% \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a50% \u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+                "Boosts LB damage by 25%, and boosts equipment MAG and SPR by 50% when armed with two one-handed weapons. Not stackable.",
+                "提高25%極限技的傷害，以及裝備2把單手武器時武具魔力精神提升50%。[無法重複裝備]",
+                "LB 피해량이 25% 상승하고, 한손용 무기 2개 장착 시 장비의 마력과 정신력이 50% 상승합니다.(중복 장착 불가)",
+                "Augmente les dégâts de la limite de 25 % et augmente la MAGIE et la PSY de l'équipement de 50 % quand deux armes à une main sont équipées. Non cumulable.",
+                "Erhöht Schaden durch Limitrausch um 25% und erhöht Ausrüstung-MAG und -PSY um 50%, wenn mit zwei Einhandwaffen ausgerüstet. Nicht stapelbar.",
+                "Aumenta el daño del EL un 25%, y la MAG y el ESP del equipo un 50% al llevar 2 armas de una sola mano. No acumulable.",
+                "Meningkatkan damage limit burst sebanyak 25%, serta meningkatkan MAG dan SPR perlengkapan sebanyak 50% ketika 2 senjata satu tangan digunakan. Tidak dapat digunakan.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a25% + เพิ่มค่า MAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001aของ\u001aอุปกรณ์\u001a \u001a50% \u001aเมื่อ\u001aติดตั้ง\u001aอาวุธ\u001aสำหรับ\u001aถือ\u001aมือ\u001aเดียว\u001a \u001a2\u001a \u001aชิ้น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     },
@@ -28497,6 +28497,23 @@
             ]
         }
     },
+    "504244483": {
+        "name": "ダーク黒龍シナジー",
+        "compendium_id": 1539,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244483],
+        "effects": ["Grant 'ダーク黒龍シナジー' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
     "504244490": {
         "name": "An Obsession with Food",
         "compendium_id": 1540,
@@ -28530,6 +28547,93 @@
                 "Meningkatkan MAG sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis makhluk perairan sebanyak 50%. Tidak dapat ditumpuk.",
                 "เพิ่มค่า\u001a \u001aMAG\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aสัตว์น้ำ\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
+        }
+    },
+    "504244514": {
+        "name": "Alexander Eidolith",
+        "compendium_id": 1541,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244514],
+        "effects": ["Grant 'Alexander Eidolith' passive"],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_78.png",
+        "strings": {
+            "names": ["Alexander Eidolith", "秘石亞歷山大", "비석 알렉산더", "Eidolithe d'Alexandre", "Alexander-Stein", "Misticita de Alejandro", "Batu Eidolon Alexander", "ศิลา\u001a \u001aEidolon\u001a \u001aAlexander\u001a"],
+            "desc_short": [
+                "Boost HP and MP by 30%, boost LB gauge fill rate by 100%, and fill LB gauge by 200 every turn (Not stackable)",
+                "提高30%HPMP+提高100%極限技石對極限技槽的增加量+每回合增加200極限技槽[無法重複裝備]",
+                "HP와 MP 30% 상승+LB 게이지 효율 100% 상승+매 턴마다 LB 게이지 200 증가(중복 장착 불가)",
+                "Augmente les PV et les PM de 30 %, augmente le taux de remplissage de la jauge de limite de 100 %, et remplit la jauge de limite de 200 à chaque tour (non cumulable)",
+                "Erhöht LP sowie MP um 30%, Limitmeter füllt sich um 100% schneller und füllt jede Runde Limitmeter um 200 (nicht stapelbar).",
+                "Aumenta la VIT y los PM un 30%, la barra de EL se rellena un 100% más rápido, y se rellena en 200 cada turno (no acumulable)",
+                "Meningkatkan HP dan MP sebanyak 30%, meningkatkan kecepatan pengisian bar LB sebanyak 100%, dan mengisi bar LB sebanyak 200 setiap giliran (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a30% + เพิ่มค่า Fill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a100% + เติม LB Gauge\u001a \u001a200\u001a \u001aทุก\u001aเทิร์น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts HP and MP by 30%, boosts LB gauge fill rate by 100%, and fills LB gauge by 200 every turn. Not stackable.",
+                "提高30%HPMP，以及提高100%極限技石對極限技槽的增加量，並且每回合增加200極限技槽。[無法重複裝備]",
+                "HP와 MP가 30% 상승하고, LB 게이지 효율이 100% 상승하며, 매 턴마다 LB 게이지가 200 증가합니다.(중복 장착 불가)",
+                "Augmente les PV et les PM de 30 %, augmente le taux de remplissage de la jauge de limite de 100 %, et remplit la jauge de limite de 200 à chaque tour. Non cumulable.",
+                "Erhöht LP sowie MP um 30%, Limitmeter füllt sich um 100% schneller und füllt jede Runde Limitmeter um 200. Nicht stapelbar.",
+                "Aumenta la VIT y los PM un 30%, la barra de EL se rellena un 100% más rápido, y se rellena en 200 cada turno. No acumulable.",
+                "Meningkatkan HP dan MP sebanyak 30%, meningkatkan kecepatan pengisian bar limit burst sebanyak 100%, dan mengisi bar LB sebanyak 200 setiap giliran. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a30% + เพิ่มค่า Fill\u001a \u001aRate\u001a \u001aของ\u001a \u001aLB\u001a \u001aGauge\u001a \u001a100% + เติม LB Gauge\u001a \u001a200\u001a \u001aทุก\u001aเทิร์น\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
+        }
+    },
+    "504244528": {
+        "name": "Caring for Serah",
+        "compendium_id": 1542,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244528],
+        "effects": ["Grant 'Caring for Serah' passive"],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": ["Caring for Serah", "想念莎拉的心", "세라를 생각하는 마음", "Cœur chérissant Serah", "Gefühle für Serah", "Cariño por Serah", "Perasaan Sayang terhadap Serah", "ห่วงใย\u001aใน\u001a \u001aSerah\u001a"],
+            "desc_short": [
+                "Boost physical and magic damage against reapers and machina monsters by 75% when equipped with a sword or gun (Not stackable)",
+                "裝備劍火槍時提高75%對機械死靈系魔物的物理、魔法攻擊傷害[無法重複裝備]",
+                "검 또는 총 장착 시 사령과 기계형 마물에게 부여하는 물리, 마법 피해량 75% 상승(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants et aux machines de 75 % quand une arme ou un pistolet est équipé (non cumulable)",
+                "Erhöht physischen sowie magischen Schaden gegen Untote und Maschinen um 75%, wenn mit einem Schwert oder einer Schusswaffe ausgerüstet (nicht stapelbar).",
+                "Aumenta el daño físico y mágico contra muertos vivientes y máquinas un 75% al llevar espada o arma de fuego (no acumulable)",
+                "Meningkatkan damage fisik dan magic terhadap jenis makhluk halus dan mesin sebanyak 75% ketika pedang atau senapan digunakan (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aและ\u001aจักรกล\u001a \u001a75% \u001aเมื่อ\u001aติดตั้ง\u001aดาบ\u001aหรือ\u001aปืน\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts physical and magic damage against reapers and machina monsters by 75% when equipped with a sword or gun. Not stackable.",
+                "裝備劍火槍時提高75%對機械死靈系魔物的物理、魔法攻擊傷害。[無法重複裝備]",
+                "검 또는 총 장착 시 사령과 기계형 마물에게 부여하는 물리, 마법 피해량이 75% 상승합니다.(중복 장착 불가)",
+                "Augmente les dégâts physiques et magiques infligés aux morts-vivants et aux machines de 75 % quand une arme ou un pistolet est équipé. Non cumulable.",
+                "Erhöht physischen sowie magischen Schaden gegen Untote und Maschinen um 75%, wenn mit einem Schwert oder einer Schusswaffe ausgerüstet. Nicht stapelbar.",
+                "Aumenta el daño físico y mágico contra muertos vivientes y máquinas un 75% al llevar espada o arma de fuego. No acumulable.",
+                "Meningkatkan damage fisik dan magic terhadap jenis makhluk halus dan mesin sebanyak 75% ketika pedang atau senapan digunakan. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aภูตผี\u001aและ\u001aจักรกล\u001a \u001a75% \u001aเมื่อ\u001aติดตั้ง\u001aดาบ\u001aหรือ\u001aปืน\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
+        }
+    },
+    "504244549": {
+        "name": "がんばる父ちゃん",
+        "compendium_id": 1543,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244549],
+        "effects": ["Grant 'がんばる父ちゃん' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_11.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
         }
     },
     "504400110": {
