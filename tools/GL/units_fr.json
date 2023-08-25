@@ -34402,6 +34402,50 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
 		"enhancementSkills":["Staff Mastery","Rod Mastery","Logi's Judgment","Ullr's Judgment"]
+	},
+	"401015207": {
+		"name":"Ellesperis, danseuse sanglante",
+		"roles":["debuffer"],
+		"wikiEntry":"Blood_Dancer Ellesperis",
+		"id":"401015207",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"401015217",
+		"exAwakening": [{"hp":689,"mp":39,"atk":82,"def":31,"mag":17,"spr":32},{"hp":530,"mp":30,"atk":63,"def":24,"mag":13,"spr":25},{"hp":371,"mp":21,"atk":44,"def":17,"mag":9,"spr":17}],
+		"fragmentId": "310001130",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":300,"atk":315,"def":240,"mag":130,"spr":245},
+			"minStats":{"hp":1749,"mp":99,"atk":104,"def":79,"mag":43,"spr":81},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Blade of the Vampyr","Hemomancer's Delirium"]
+	},
+	"401015217": {
+		"name":"Ellesperis, danseuse sanglante BS",
+		"roles":["debuffer"],
+		"wikiEntry":"Blood_Dancer Ellesperis",
+		"id":"401015217",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"401015207",
+		"exAwakening": [{"hp":689,"mp":39,"atk":82,"def":31,"mag":17,"spr":32},{"hp":530,"mp":30,"atk":63,"def":24,"mag":13,"spr":25},{"hp":371,"mp":21,"atk":44,"def":17,"mag":9,"spr":17}],
+		"fragmentId": "310001130",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5300,"mp":300,"atk":315,"def":240,"mag":130,"spr":245},
+			"minStats":{"hp":1749,"mp":99,"atk":104,"def":79,"mag":43,"spr":81},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","visionCard"],
+		"enhancementSkills":["Blade of the Vampyr","Hemomancer's Delirium"]
 	}
 ,
   "100000115":{"name":"Hunter Rain","jpname":"ハンターレイン","roles":["physicalAttacker","support"],"id":"100000115","game_id":"undefined","game":"undefined","max_rarity":"6","min_rarity":"5","sex":"male","stats":{"maxStats":{"hp":3652,"mp":150,"atk":152,"def":120,"mag":110,"spr":116},"minStats":{"hp":1205,"mp":50,"atk":50,"def":40,"mag":36,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["sword","greatSword","helm","lightArmor","heavyArmor"]},
