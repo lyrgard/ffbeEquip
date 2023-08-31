@@ -5051,16 +5051,20 @@
 		"id":"100019905",
 		"game_id":"11001",
 		"game":"FFBE",
-		"max_rarity":"7",
+		"braveShift":"100019927",
+		"exAwakening": [{"hp":651,"mp":40,"atk":34,"def":22,"mag":36,"spr":29},{"hp":501,"mp":31,"atk":26,"def":17,"mag":28,"spr":22},{"hp":350,"mp":22,"atk":18,"def":12,"mag":20,"spr":16}],
+		"fragmentId": "250015800",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4572,"mp":256,"atk":195,"def":155,"mag":200,"spr":184},
-			"minStats":{"hp":1509,"mp":84,"atk":64,"def":51,"mag":66,"spr":61},
+			"maxStats":{"hp":5007,"mp":310,"atk":260,"def":168,"mag":280,"spr":222},
+			"minStats":{"hp":1652,"mp":102,"atk":86,"def":55,"mag":92,"spr":73},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"],
+		"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Waterja","Aeroja","Firaja","Thundaja","Aquatic Creation","Empowering Force","Combination Assault","Firaga","Thundaga","Waterga","Aeroga","Flare","Flood","Burst (FFBE)","Tornado"],
 		"6_form": {
 			"name":"Karlette",
 			"roles":["physicalAttacker","magicalAttacker","debuffer"],
@@ -5069,7 +5073,7 @@
 			"game_id":"11001",
 			"game":"FFBE",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -5078,8 +5082,51 @@
 				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Waterja","Aeroja","Firaja","Thundaja","Aquatic Creation","Empowering Force","Combination Assault","Firaga","Thundaga","Waterga","Aeroga","Flare","Flood","Burst (FFBE)","Tornado"]
+		},
+		"7_form": {
+			"name":"Karlette",
+			"roles":["physicalAttacker","magicalAttacker","debuffer"],
+			"wikiEntry":"Karlette",
+			"id":"100019905",
+			"game_id":"11001",
+			"game":"FFBE",
+			"sevenStarForm":true,
+			"max_rarity":"NV",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4572,"mp":256,"atk":195,"def":155,"mag":200,"spr":184},
+				"minStats":{"hp":1509,"mp":84,"atk":64,"def":51,"mag":66,"spr":61},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Waterja","Aeroja","Firaja","Thundaja","Aquatic Creation","Empowering Force","Combination Assault","Firaga","Thundaga","Waterga","Aeroga","Flare","Flood","Burst (FFBE)","Tornado"]
 		}
+	},
+	"100019927": {
+		"name":"Karlette BS",
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
+		"wikiEntry":"Karlette",
+		"id":"100019927",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"100019905",
+		"exAwakening": [{"hp":651,"mp":40,"atk":34,"def":22,"mag":36,"spr":29},{"hp":501,"mp":31,"atk":26,"def":17,"mag":28,"spr":22},{"hp":350,"mp":22,"atk":18,"def":12,"mag":20,"spr":16}],
+		"fragmentId": "250015800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5007,"mp":310,"atk":260,"def":168,"mag":280,"spr":222},
+			"minStats":{"hp":1652,"mp":102,"atk":86,"def":55,"mag":92,"spr":73},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Waterja","Aeroja","Firaja","Thundaja","Aquatic Creation","Empowering Force","Combination Assault","Firaga","Thundaga","Waterga","Aeroga","Flare","Flood","Burst (FFBE)","Tornado"]
 	},
 	"100020005": {
 		"name":"Akstar",
@@ -9006,7 +9053,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Stonga","Blizzaga","Earth Infliction","Quick","Haste"]
+		"enhancementSkills":["Boomer's Master","Stonga","Blizzaga","Earth Infliction","Quick","Haste","Spell of Plant and Stone"]
 	},
 	"100035117": {
 		"name":"Roca BS",
@@ -9028,7 +9075,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Stonga","Blizzaga","Earth Infliction","Quick","Haste"]
+		"enhancementSkills":["Boomer's Master","Stonga","Blizzaga","Earth Infliction","Quick","Haste","Spell of Plant and Stone"]
 	},
 	"100035307": {
 		"name":"Paus",
@@ -10312,7 +10359,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Furious Beatdown","Beat Up"]
+		"enhancementSkills":["This is the...","Furious Beatdown","Beat Up"]
 	},
 	"100039917": {
 		"name":"Neilikka BS",
@@ -10334,7 +10381,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","visionCard"],
-		"enhancementSkills":["Fists of Heavy Machinery"]
+		"enhancementSkills":["Fists of Heavy Machinery","This is the...","Duty to Fight Omega Spawn","Beat Up"]
 	},
 	"100040007": {
 		"name":"Ultimative Regina",
@@ -10399,7 +10446,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["axe","hammer","mace","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Eisen Schwall","Weighty Stance","Axe Mastery","Awakening of Power"]
+		"enhancementSkills":["Eisen Schwall","Eisen Platzen","Weighty Stance","Axe Mastery","Awakening of Power"]
 	},
 	"100040117": {
 		"name":"Vanharma BS",
@@ -10421,7 +10468,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["axe","hammer","mace","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Eisen Schwall","Weighty Stance","Axe Mastery","Awakening of Power"]
+		"enhancementSkills":["Eisen Schwall","Eisen Platzen","Weighty Stance","Axe Mastery","Awakening of Power"]
 	},
 	"100040207": {
 		"name":"Ihana",
@@ -10989,6 +11036,50 @@
 		"equip":["spear","helm","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Jump","Spear Mastery","Jump Master","Tornado Blast","Final Spineshatter Dive"]
 	},
+	"100041607": {
+		"name":"Sheratan",
+		"roles":["magicalAttacker","healer"],
+		"wikiEntry":"Sheratan",
+		"id":"100041607",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"100041617",
+		"exAwakening": [{"hp":666,"mp":48,"atk":29,"def":26,"mag":78,"spr":33},{"hp":512,"mp":37,"atk":22,"def":20,"mag":60,"spr":25},{"hp":358,"mp":26,"atk":16,"def":14,"mag":42,"spr":18}],
+		"fragmentId": "250018400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5119,"mp":368,"atk":223,"def":198,"mag":300,"spr":251},
+			"minStats":{"hp":1689,"mp":121,"atk":74,"def":65,"mag":99,"spr":83},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Mesartein's Royal Strategist","Flash of Genius: Petal Storm","Vehement Bloom","Staff Mastery","Rod Mastery","Banishga","Fira","Stonra","Firaga","Stonga","Quake"]
+	},
+	"100041617": {
+		"name":"Sheratan BS",
+		"roles":["magicalAttacker","healer"],
+		"wikiEntry":"Sheratan",
+		"id":"100041617",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"100041607",
+		"exAwakening": [{"hp":666,"mp":48,"atk":29,"def":26,"mag":78,"spr":33},{"hp":512,"mp":37,"atk":22,"def":20,"mag":60,"spr":25},{"hp":358,"mp":26,"atk":16,"def":14,"mag":42,"spr":18}],
+		"fragmentId": "250018400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5119,"mp":368,"atk":223,"def":198,"mag":300,"spr":251},
+			"minStats":{"hp":1689,"mp":121,"atk":74,"def":65,"mag":99,"spr":83},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Mesartein's Royal Strategist","Flash of Genius: Petal Storm","Vehement Bloom","Staff Mastery","Rod Mastery","Banishga","Fira","Stonra","Firaga","Stonga","Quake"]
+	},
 	"100041707": {
 		"name":"Raegen, Klingen der Schwarzflamme",
 		"roles":["physicalAttacker"],
@@ -11164,6 +11255,49 @@
 		"stats_pattern":4,
 		"equip":["sword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],
 		"enhancementSkills":["Jörd's Assault","Howling Sword","Sword Mastery","Cover - Magic I","Shellga"]
+	},
+	"100042307": {
+		"name":"Herausgeputzte Ayaka",
+		"roles":["healer","debuffer"],
+		"wikiEntry":"Grand_Couture Ayaka",
+		"id":"100042307",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"100042317",
+		"exAwakening": [{"hp":690,"mp":51,"atk":24,"def":25,"mag":78,"spr":76},{"hp":531,"mp":39,"atk":19,"def":19,"mag":60,"spr":59},{"hp":371,"mp":28,"atk":13,"def":13,"mag":42,"spr":41}],
+		"fragmentId": "250020900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5308,"mp":393,"atk":187,"def":189,"mag":300,"spr":294},
+			"minStats":{"hp":1752,"mp":130,"atk":62,"def":62,"mag":99,"spr":97},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Dress for a Special Occasion","Stop Detach","Sparkling Shackle","Sage Wisdom","Imperil"]
+	},
+	"100042317": {
+		"name":"Herausgeputzte Ayaka BS",
+		"roles":["healer","debuffer"],
+		"wikiEntry":"Grand_Couture Ayaka",
+		"id":"100042317",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"100042307",
+		"exAwakening": [{"hp":690,"mp":51,"atk":24,"def":25,"mag":78,"spr":76},{"hp":531,"mp":39,"atk":19,"def":19,"mag":60,"spr":59},{"hp":371,"mp":28,"atk":13,"def":13,"mag":42,"spr":41}],
+		"fragmentId": "250020900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5308,"mp":393,"atk":187,"def":189,"mag":300,"spr":294},
+			"minStats":{"hp":1752,"mp":130,"atk":62,"def":62,"mag":99,"spr":97},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"]
 	},
 	"201000104": {
 		"name":"Krieger des Lichts",
@@ -16258,7 +16392,7 @@
 		"wikiEntry":"Cloud_(FFVII: AC)",
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -16275,7 +16409,7 @@
 			"wikiEntry":"Cloud_(FFVII: AC)",
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16295,7 +16429,7 @@
 		"wikiEntry":"Tifa_(FFVII: AC)",
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -16312,7 +16446,7 @@
 			"wikiEntry":"Tifa_(FFVII: AC)",
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16332,7 +16466,7 @@
 		"wikiEntry":"Kadaj",
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -16349,7 +16483,7 @@
 			"wikiEntry":"Kadaj",
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -16369,7 +16503,7 @@
 		"wikiEntry":"Yazoo_& Loz",
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -34467,7 +34601,6 @@
   "100014703":{"name":"Aiden","jpname":"エイデン","roles":["healer","magicalAttacker"],"id":"100014703","game_id":"undefined","game":"undefined","max_rarity":"5","min_rarity":"3","sex":"male","stats":{"maxStats":{"hp":2635,"mp":110,"atk":115,"def":92,"mag":84,"spr":115},"minStats":{"hp":870,"mp":36,"atk":38,"def":30,"mag":28,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","staff","axe","hammer","mace","fist","lightShield","heavyShield","hat","clothes","lightArmor","robe"]},
   "100015227":{"name":"ザイル BS","jpname":"ザイル BS","roles":["support"],"id":"100015227","game_id":"undefined","game":"undefined","braveShifted":"100015204","exAwakening":[{"hp":625,"mp":25,"atk":27,"def":20,"mag":16,"spr":20},{"hp":480,"mp":19,"atk":21,"def":15,"mag":13,"spr":16},{"hp":336,"mp":13,"atk":14,"def":10,"mag":9,"spr":11}],"fragmentId":"250000910","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4329,"mp":215,"atk":236,"def":140,"mag":117,"spr":176},"minStats":{"hp":1429,"mp":71,"atk":78,"def":46,"mag":39,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["炎氷封じの砲弾","悪魔討伐の空砲"]},
   "100017005":{"name":"Santa Roselia","jpname":"サンタローゼリア","roles":["healer","support","debuffer"],"id":"100017005","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4518,"mp":257,"atk":93,"def":167,"mag":152,"spr":214},"minStats":{"hp":1495,"mp":89,"atk":31,"def":54,"mag":50,"spr":67},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],"enhancementSkills":["プレゼント・HP","プレゼント・MP","ホーリーリバイブ","防御+20%"],"6_form":{"name":"Santa Roselia","jpname":"サンタローゼリア","roles":["healer","support"],"id":"100017005","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3476,"mp":198,"atk":72,"def":123,"mag":117,"spr":157},"minStats":{"hp":1150,"mp":69,"atk":24,"def":42,"mag":39,"spr":52},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],"enhancementSkills":["プレゼント・HP","プレゼント・MP","ホーリーリバイブ","防御+20%"]}},
-  "100019927":{"name":"カルエラート BS","jpname":"カルエラート BS","roles":["physicalAttacker","magicalAttacker","debuffer"],"id":"100019927","game_id":"undefined","game":"undefined","braveShifted":"100019905","exAwakening":[{"hp":651,"mp":40,"atk":34,"def":22,"mag":36,"spr":29},{"hp":501,"mp":31,"atk":26,"def":17,"mag":28,"spr":22},{"hp":350,"mp":22,"atk":18,"def":12,"mag":20,"spr":16}],"fragmentId":"250015800","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5007,"mp":310,"atk":260,"def":168,"mag":280,"spr":222},"minStats":{"hp":1652,"mp":102,"atk":86,"def":55,"mag":92,"spr":73},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe","visionCard"]},
   "100022027":{"name":"ドレスアップアイリーン BS","jpname":"ドレスアップアイリーン BS","roles":["physicalAttacker","support"],"id":"100022027","game_id":"undefined","game":"undefined","braveShifted":"100022005","exAwakening":[{"hp":679,"mp":41,"atk":38,"def":25,"mag":23,"spr":30},{"hp":523,"mp":32,"atk":29,"def":19,"mag":18,"spr":23},{"hp":366,"mp":22,"atk":21,"def":14,"mag":12,"spr":16}],"fragmentId":"250021500","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5225,"mp":317,"atk":292,"def":194,"mag":175,"spr":231},"minStats":{"hp":1724,"mp":105,"atk":96,"def":64,"mag":58,"spr":76},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"]},
   "100024605":{"name":"Arie","jpname":"アリエ","roles":["physicalAttacker"],"id":"100024605","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4690,"mp":219,"atk":204,"def":165,"mag":154,"spr":176},"minStats":{"hp":1548,"mp":72,"atk":67,"def":54,"mag":51,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","hammer","whip","throwing","fist","hat","clothes"],"6_form":{"name":"Arie","jpname":"アリエ","roles":["physicalAttacker"],"id":"100024605","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3608,"mp":169,"atk":157,"def":127,"mag":119,"spr":136},"minStats":{"hp":1191,"mp":56,"atk":52,"def":42,"mag":39,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","hammer","whip","throwing","fist","hat","clothes"]}},
   "100024705":{"name":"Cantilena","jpname":"シャンティレーナ","roles":["magicalAttacker","support"],"id":"100024705","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4560,"mp":285,"atk":128,"def":156,"mag":216,"spr":207},"minStats":{"hp":1505,"mp":94,"atk":42,"def":51,"mag":71,"spr":68},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],"enhancementSkills":["風精に愛されし者","遮光の魔奏","日輪の大魔奏","芽吹きのアリア","魔奏の歌姫"],"6_form":{"name":"Cantilena","jpname":"シャンティレーナ","roles":["magicalAttacker","support"],"id":"100024705","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3507,"mp":219,"atk":98,"def":120,"mag":166,"spr":159},"minStats":{"hp":1157,"mp":72,"atk":32,"def":40,"mag":55,"spr":52},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],"enhancementSkills":["風精に愛されし者","遮光の魔奏","日輪の大魔奏","芽吹きのアリア","魔奏の歌姫"]}},
@@ -34516,12 +34649,8 @@
   "100039217":{"name":"Christmas Domino BS","jpname":"クリスマスドミノ BS","roles":["physicalAttacker"],"id":"100039217","game_id":"undefined","game":"undefined","braveShifted":"100039207","exAwakening":[{"hp":647,"mp":30,"atk":74,"def":21,"mag":5,"spr":26},{"hp":498,"mp":23,"atk":57,"def":16,"mag":4,"spr":20},{"hp":348,"mp":16,"atk":40,"def":11,"mag":3,"spr":14}],"fragmentId":"250008400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4977,"mp":230,"atk":284,"def":164,"mag":37,"spr":199},"minStats":{"hp":1642,"mp":76,"atk":94,"def":54,"mag":12,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","gun","mace","fist","hat","clothes","visionCard"]},
   "100041507":{"name":"黒鳳剣ヒョウ","jpname":"黒鳳剣ヒョウ","roles":["magicalAttacker"],"id":"100041507","game_id":"undefined","game":"undefined","braveShift":"100041517","exAwakening":[{"hp":693,"mp":35,"atk":38,"def":26,"mag":78,"spr":24},{"hp":533,"mp":27,"atk":29,"def":20,"mag":60,"spr":19},{"hp":373,"mp":19,"atk":20,"def":14,"mag":42,"spr":13}],"fragmentId":"250016500","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5329,"mp":270,"atk":290,"def":198,"mag":300,"spr":187},"minStats":{"hp":1759,"mp":89,"atk":96,"def":65,"mag":99,"spr":62},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["フュリアスフレイム","フュリアスボルト","大剣の極意","ファイラ","ファイガ","ファイジャ","ストンラ","ストンガ","サンダラ","サンダガ"]},
   "100041517":{"name":"黒鳳剣ヒョウ BS","jpname":"黒鳳剣ヒョウ BS","roles":["magicalAttacker"],"id":"100041517","game_id":"undefined","game":"undefined","braveShifted":"100041507","exAwakening":[{"hp":693,"mp":35,"atk":38,"def":26,"mag":78,"spr":24},{"hp":533,"mp":27,"atk":29,"def":20,"mag":60,"spr":19},{"hp":373,"mp":19,"atk":20,"def":14,"mag":42,"spr":13}],"fragmentId":"250016500","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5329,"mp":270,"atk":290,"def":198,"mag":300,"spr":187},"minStats":{"hp":1759,"mp":89,"atk":96,"def":65,"mag":99,"spr":62},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"]},
-  "100041607":{"name":"シェラタン","jpname":"シェラタン","roles":["magicalAttacker","healer"],"id":"100041607","game_id":"undefined","game":"undefined","braveShift":"100041617","exAwakening":[{"hp":666,"mp":48,"atk":29,"def":26,"mag":78,"spr":33},{"hp":512,"mp":37,"atk":22,"def":20,"mag":60,"spr":25},{"hp":358,"mp":26,"atk":16,"def":14,"mag":42,"spr":18}],"fragmentId":"250018400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5119,"mp":368,"atk":223,"def":198,"mag":300,"spr":251},"minStats":{"hp":1689,"mp":121,"atk":74,"def":65,"mag":99,"spr":83},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe","visionCard"],"enhancementSkills":["メサルティン王国の軍師","散華の閃計","フォースブルーム","杖の極意","ロッドの極意","バニシュガ","ファイラ","ストンラ","ファイガ","ストンガ","クエイク"]},
-  "100041617":{"name":"シェラタン BS","jpname":"シェラタン BS","roles":["magicalAttacker","healer"],"id":"100041617","game_id":"undefined","game":"undefined","braveShifted":"100041607","exAwakening":[{"hp":666,"mp":48,"atk":29,"def":26,"mag":78,"spr":33},{"hp":512,"mp":37,"atk":22,"def":20,"mag":60,"spr":25},{"hp":358,"mp":26,"atk":16,"def":14,"mag":42,"spr":18}],"fragmentId":"250018400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5119,"mp":368,"atk":223,"def":198,"mag":300,"spr":251},"minStats":{"hp":1689,"mp":121,"atk":74,"def":65,"mag":99,"spr":83},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe","visionCard"]},
   "100042107":{"name":"闇龍剣ビュフォン","jpname":"闇龍剣ビュフォン","roles":["magicalAttacker"],"id":"100042107","game_id":"undefined","game":"undefined","braveShift":"100042117","exAwakening":[{"hp":729,"mp":46,"atk":34,"def":32,"mag":78,"spr":28},{"hp":561,"mp":35,"atk":26,"def":25,"mag":60,"spr":22},{"hp":393,"mp":25,"atk":18,"def":17,"mag":42,"spr":15}],"fragmentId":"250020300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5611,"mp":349,"atk":262,"def":248,"mag":300,"spr":216},"minStats":{"hp":1852,"mp":115,"atk":86,"def":82,"mag":99,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","helm","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["レイジングストリーム","オーカーブラスト","剣の極意","フラッド","クエイク","ウォタガ","ストンガ"]},
   "100042117":{"name":"闇龍剣ビュフォン BS","jpname":"闇龍剣ビュフォン BS","roles":["magicalAttacker"],"id":"100042117","game_id":"undefined","game":"undefined","braveShifted":"100042107","exAwakening":[{"hp":729,"mp":46,"atk":34,"def":32,"mag":78,"spr":28},{"hp":561,"mp":35,"atk":26,"def":25,"mag":60,"spr":22},{"hp":393,"mp":25,"atk":18,"def":17,"mag":42,"spr":15}],"fragmentId":"250020300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5611,"mp":349,"atk":262,"def":248,"mag":300,"spr":216},"minStats":{"hp":1852,"mp":115,"atk":86,"def":82,"mag":99,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","helm","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["剣の極意","フラッド","クエイク","ウォタガ","ストンガ"]},
-  "100042307":{"name":"ドレスアップアヤカ","jpname":"ドレスアップアヤカ","roles":["healer","debuffer"],"id":"100042307","game_id":"undefined","game":"undefined","braveShift":"100042317","exAwakening":[{"hp":690,"mp":51,"atk":24,"def":25,"mag":78,"spr":76},{"hp":531,"mp":39,"atk":19,"def":19,"mag":60,"spr":59},{"hp":371,"mp":28,"atk":13,"def":13,"mag":42,"spr":41}],"fragmentId":"250020900","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5308,"mp":393,"atk":187,"def":189,"mag":300,"spr":294},"minStats":{"hp":1752,"mp":130,"atk":62,"def":62,"mag":99,"spr":97},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["特別な装い","ストップデタッチ","スパークルシャックル","賢者の教え","ウィーク"]},
-  "100042317":{"name":"ドレスアップアヤカ BS","jpname":"ドレスアップアヤカ BS","roles":["healer","debuffer"],"id":"100042317","game_id":"undefined","game":"undefined","braveShifted":"100042307","exAwakening":[{"hp":690,"mp":51,"atk":24,"def":25,"mag":78,"spr":76},{"hp":531,"mp":39,"atk":19,"def":19,"mag":60,"spr":59},{"hp":371,"mp":28,"atk":13,"def":13,"mag":42,"spr":41}],"fragmentId":"250020900","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5308,"mp":393,"atk":187,"def":189,"mag":300,"spr":294},"minStats":{"hp":1752,"mp":130,"atk":62,"def":62,"mag":99,"spr":97},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"]},
   "100042407":{"name":"闘神タイヴァス","jpname":"闘神タイヴァス","roles":["physicalAttacker","magicalAttacker"],"id":"100042407","game_id":"undefined","game":"undefined","braveShift":"100042417","exAwakening":[{"hp":699,"mp":40,"atk":86,"def":31,"mag":82,"spr":37},{"hp":538,"mp":31,"atk":66,"def":24,"mag":63,"spr":29},{"hp":376,"mp":22,"atk":46,"def":17,"mag":44,"spr":20}],"fragmentId":"250022400","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5114,"mp":309,"atk":315,"def":228,"mag":300,"spr":272},"minStats":{"hp":1688,"mp":102,"atk":104,"def":75,"mag":99,"spr":90},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["マディーンブラスト","大剣の極意","ファイガ"]},
   "100042417":{"name":"闘神タイヴァス BS","jpname":"闘神タイヴァス BS","roles":["physicalAttacker","magicalAttacker"],"id":"100042417","game_id":"undefined","game":"undefined","braveShifted":"100042407","exAwakening":[{"hp":699,"mp":40,"atk":86,"def":31,"mag":82,"spr":37},{"hp":538,"mp":31,"atk":66,"def":24,"mag":63,"spr":29},{"hp":376,"mp":22,"atk":46,"def":17,"mag":44,"spr":20}],"fragmentId":"250022400","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5377,"mp":309,"atk":330,"def":239,"mag":315,"spr":286},"minStats":{"hp":1774,"mp":102,"atk":109,"def":79,"mag":104,"spr":94},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["マディーンスヴェード","大剣の極意","ファイガ"]},
   "100042507":{"name":"呪鬼ネイリッカ","jpname":"呪鬼ネイリッカ","roles":["physicalAttacker","magicalAttacker"],"id":"100042507","game_id":"undefined","game":"undefined","braveShift":"100042517","exAwakening":[{"hp":632,"mp":43,"atk":82,"def":25,"mag":75,"spr":24},{"hp":486,"mp":33,"atk":63,"def":19,"mag":58,"spr":19},{"hp":340,"mp":23,"atk":44,"def":14,"mag":41,"spr":13}],"fragmentId":"250021600","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4861,"mp":329,"atk":315,"def":192,"mag":290,"spr":186},"minStats":{"hp":1604,"mp":109,"atk":104,"def":63,"mag":96,"spr":61},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["アニマの魔力供給","アニマブラスト","格闘の極意","ダーラ","ダーガ"]},

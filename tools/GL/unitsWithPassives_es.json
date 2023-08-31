@@ -2464,7 +2464,7 @@
 		"equip":["staff","rod","hat","clothes","lightArmor","robe"],
 		"enhancementSkills":["Sage Wisdom","Stop Detach","Dedication"],
 		"enhancements": [
-			{"name":"Sage Wisdom","levels":[[{"equipedConditions":["staff"],"spr%":50}],[{"equipedConditions":["staff"],"spr%":80}],[{"lbPerTurn":{"min":2,"max":2}},{"equipedConditions":["staff"],"spr%":100}]]}
+			{"name":"Sage Wisdom","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":80,"def%":80,"mag%":80,"spr%":80}],[{"lbPerTurn":{"min":4,"max":4}},{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
 		],
 		"skills": [
 			{"hp%":20, "mp%":30, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}], "mpRefresh":5},
@@ -2492,7 +2492,7 @@
 			"equip":["staff","rod","hat","clothes","lightArmor","robe"],
 			"enhancementSkills":["Sage Wisdom","Stop Detach","Dedication"],
 		"enhancements": [
-			{"name":"Sage Wisdom","levels":[[{"equipedConditions":["staff"],"spr%":50}],[{"equipedConditions":["staff"],"spr%":80}],[{"lbPerTurn":{"min":2,"max":2}},{"equipedConditions":["staff"],"spr%":100}]]}
+			{"name":"Sage Wisdom","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":80,"def%":80,"mag%":80,"spr%":80}],[{"lbPerTurn":{"min":4,"max":4}},{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
 		],
 			"skills": [
 				{"hp%":20, "mp%":30, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}], "mpRefresh":5}
@@ -6908,23 +6908,32 @@
 		"id":"100019905",
 		"game_id":"11001",
 		"game":"FFBE",
-		"max_rarity":"7",
+		"braveShift":"100019927",
+		"exAwakening": [{"hp":651,"mp":40,"atk":34,"def":22,"mag":36,"spr":29},{"hp":501,"mp":31,"atk":26,"def":17,"mag":28,"spr":22},{"hp":350,"mp":22,"atk":18,"def":12,"mag":20,"spr":16}],
+		"fragmentId": "250015800",
+		"max_rarity":"NV",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":4572,"mp":256,"atk":195,"def":155,"mag":200,"spr":184},
-			"minStats":{"hp":1509,"mp":84,"atk":64,"def":51,"mag":66,"spr":61},
+			"maxStats":{"hp":5007,"mp":310,"atk":260,"def":168,"mag":280,"spr":222},
+			"minStats":{"hp":1652,"mp":102,"atk":86,"def":55,"mag":92,"spr":73},
 			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
 		},
 		"stats_pattern":4,
-		"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"],
+		"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Waterja","Aeroja","Firaja","Thundaja","Aquatic Creation","Empowering Force","Combination Assault","Firaga","Thundaga","Waterga","Aeroga","Flare","Flood","Burst (FFBE)","Tornado"],
+		"enhancements": [
+			{"name":"Empowering Force","levels":[[{"skillEnhancement":{"20200":100,"20220":100,"20230":100,"20240":100,"20290":100,"20310":100,"20320":100,"20330":100,"20350":100,"20370":100,"20380":100,"20390":100,"70170":100,"70180":100,"70190":100,"70200":100,"70201":100,"70250":100,"70260":100,"70290":100,"70300":100,"70350":100,"70360":100,"70434":100,"70435":100,"70440":100,"70441":100,"70452":100,"70453":100,"70454":100,"70470":100,"70471":100,"70476":100,"70479":100,"70481":100,"70482":100,"70483":100,"70489":100,"70490":100,"70491":100,"70492":100,"70493":100,"70520":100,"70521":100,"70522":100,"70549":100,"70550":100,"70551":100}}],[{"skillEnhancement":{"20200":120,"20220":120,"20230":120,"20240":120,"20290":120,"20310":120,"20320":120,"20330":120,"20350":120,"20370":120,"20380":120,"20390":120,"70170":120,"70180":120,"70190":120,"70200":120,"70201":120,"70250":120,"70260":120,"70290":120,"70300":120,"70350":120,"70360":120,"70434":120,"70435":120,"70440":120,"70441":120,"70452":120,"70453":120,"70454":120,"70470":120,"70471":120,"70476":120,"70479":120,"70481":120,"70482":120,"70483":120,"70489":120,"70490":120,"70491":120,"70492":120,"70493":120,"70520":120,"70521":120,"70522":120,"70549":120,"70550":120,"70551":120}}],[{"skillEnhancement":{"20200":140,"20220":140,"20230":140,"20240":140,"20290":140,"20310":140,"20320":140,"20330":140,"20350":140,"20370":140,"20380":140,"20390":140,"70170":140,"70180":140,"70190":140,"70200":140,"70201":140,"70250":140,"70260":140,"70290":140,"70300":140,"70350":140,"70360":140,"70434":140,"70435":140,"70440":140,"70441":140,"70452":140,"70453":140,"70454":140,"70470":140,"70471":140,"70476":140,"70479":140,"70481":140,"70482":140,"70483":140,"70489":140,"70490":140,"70491":140,"70492":140,"70493":140,"70520":140,"70521":140,"70522":140,"70549":140,"70550":140,"70551":140}}],[{"skillEnhancement":{"20200":160,"20220":160,"20230":160,"20240":160,"20290":160,"20310":160,"20320":160,"20330":160,"20350":160,"20370":160,"20380":160,"20390":160,"70170":160,"70180":160,"70190":160,"70200":160,"70201":160,"70250":160,"70260":160,"70290":160,"70300":160,"70350":160,"70360":160,"70434":160,"70435":160,"70440":160,"70441":160,"70452":160,"70453":160,"70454":160,"70470":160,"70471":160,"70476":160,"70479":160,"70481":160,"70482":160,"70483":160,"70489":160,"70490":160,"70491":160,"70492":160,"70493":160,"70520":160,"70521":160,"70522":160,"70549":160,"70550":160,"70551":160}}],[{"skillEnhancement":{"20200":180,"20220":180,"20230":180,"20240":180,"20290":180,"20310":180,"20320":180,"20330":180,"20350":180,"20370":180,"20380":180,"20390":180,"70170":180,"70180":180,"70190":180,"70200":180,"70201":180,"70250":180,"70260":180,"70290":180,"70300":180,"70350":180,"70360":180,"70434":180,"70435":180,"70440":180,"70441":180,"70452":180,"70453":180,"70454":180,"70470":180,"70471":180,"70476":180,"70479":180,"70481":180,"70482":180,"70483":180,"70489":180,"70490":180,"70491":180,"70492":180,"70493":180,"70520":180,"70521":180,"70522":180,"70549":180,"70550":180,"70551":180}}]]}
+		],
 		"skills": [
-			{"mp%":30, "atk%":60, "mag%":60, "spr%":30, "singleWielding":{"accuracy":50,"atk":50,"mag":50}, "lbFillRate":100, "mpRefresh":5},
+			{"hp%":60, "mp%":90, "atk":2000, "atk%":210, "def%":60, "mag":2000, "mag%":210, "spr%":90, "singleWielding":{"accuracy":150,"atk":350,"mag":350}, "chainMastery":100, "lbFillRate":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":75},{"name":"lightning","percent":75},{"name":"water","percent":75},{"name":"wind","percent":75}], "mpRefresh":13, "lbDamage":150},
 			{"atk%":25, "mag%":50, "equipedConditions":["rod"]},
 			{"atk%":50, "mag%":25, "equipedConditions":["spear"]},
-			{"atk%":30, "mag%":30, "singleWielding":{"accuracy":50,"atk":50,"mag":50}, "equipedConditions":[["504229234","403046100"]]},
+			{"atk":1000, "atk%":30, "mag":1000, "mag%":30, "singleWielding":{"accuracy":50,"atk":50,"mag":50}, "equipedConditions":[["504229234","403046100"]]},
 			{"hp%":20, "levelCondition":115},
-			{"mp%":20, "atk%":20, "mag%":20, "mpRefresh":5, "skillEnhancement":{"229241":2,"229242":2,"229243":2,"229244":2,"229253":5}, "levelCondition":120}
+			{"mp%":20, "atk%":20, "mag%":20, "mpRefresh":5, "skillEnhancement":{"229241":2,"229242":2,"229243":2,"229244":2,"229253":5}, "levelCondition":120},
+			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "exLevelCondition":2},
+			{"atk":1000, "mag":1000, "exLevelCondition":3}
 		],
 		"6_form": {
 			"name":"Karlette",
@@ -6934,7 +6943,7 @@
 			"game_id":"11001",
 			"game":"FFBE",
 			"sixStarForm":true,
-			"max_rarity":"7",
+			"max_rarity":"NV",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -6944,12 +6953,76 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Waterja","Aeroja","Firaja","Thundaja","Aquatic Creation","Empowering Force","Combination Assault","Firaga","Thundaga","Waterga","Aeroga","Flare","Flood","Burst (FFBE)","Tornado"],
 			"skills": [
 				{"mp%":30, "atk%":60, "mag%":60, "spr%":30, "singleWielding":{"accuracy":50,"atk":50,"mag":50}, "lbFillRate":100, "mpRefresh":5},
 				{"atk%":25, "mag%":50, "equipedConditions":["rod"]},
 				{"atk%":50, "mag%":25, "equipedConditions":["spear"]}
 			]
+		},
+		"7_form": {
+			"name":"Karlette",
+			"roles":["physicalAttacker","magicalAttacker","debuffer"],
+			"wikiEntry":"Karlette",
+			"id":"100019905",
+			"game_id":"11001",
+			"game":"FFBE",
+			"sevenStarForm":true,
+			"max_rarity":"NV",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4572,"mp":256,"atk":195,"def":155,"mag":200,"spr":184},
+				"minStats":{"hp":1509,"mp":84,"atk":64,"def":51,"mag":66,"spr":61},
+				"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+			},
+			"stats_pattern":4,
+			"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Waterja","Aeroja","Firaja","Thundaja","Aquatic Creation","Empowering Force","Combination Assault","Firaga","Thundaga","Waterga","Aeroga","Flare","Flood","Burst (FFBE)","Tornado"],
+			"skills": [
+				{"mp%":30, "atk%":60, "mag%":60, "spr%":30, "singleWielding":{"accuracy":50,"atk":50,"mag":50}, "lbFillRate":100, "mpRefresh":5},
+				{"atk%":25, "mag%":50, "equipedConditions":["rod"]},
+				{"atk%":50, "mag%":25, "equipedConditions":["spear"]},
+				{"atk":1000, "atk%":30, "mag":1000, "mag%":30, "singleWielding":{"accuracy":50,"atk":50,"mag":50}, "equipedConditions":[["504229234","403046100"]]},
+				{"hp%":20, "levelCondition":115},
+				{"mp%":20, "atk%":20, "mag%":20, "mpRefresh":5, "skillEnhancement":{"229241":2,"229242":2,"229243":2,"229244":2,"229253":5}, "levelCondition":120}
+			]
 		}
+	},
+	"100019927": {
+		"name":"Karlette BS",
+		"roles":["physicalAttacker","magicalAttacker","debuffer"],
+		"wikiEntry":"Karlette",
+		"id":"100019927",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"100019905",
+		"exAwakening": [{"hp":651,"mp":40,"atk":34,"def":22,"mag":36,"spr":29},{"hp":501,"mp":31,"atk":26,"def":17,"mag":28,"spr":22},{"hp":350,"mp":22,"atk":18,"def":12,"mag":20,"spr":16}],
+		"fragmentId": "250015800",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5007,"mp":310,"atk":260,"def":168,"mag":280,"spr":222},
+			"minStats":{"hp":1652,"mp":102,"atk":86,"def":55,"mag":92,"spr":73},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Waterja","Aeroja","Firaja","Thundaja","Aquatic Creation","Empowering Force","Combination Assault","Firaga","Thundaga","Waterga","Aeroga","Flare","Flood","Burst (FFBE)","Tornado"],
+		"enhancements": [
+			{"name":"Empowering Force","levels":[[{"skillEnhancement":{"20200":100,"20220":100,"20230":100,"20240":100,"20290":100,"20310":100,"20320":100,"20330":100,"20350":100,"20370":100,"20380":100,"20390":100,"70170":100,"70180":100,"70190":100,"70200":100,"70201":100,"70250":100,"70260":100,"70290":100,"70300":100,"70350":100,"70360":100,"70434":100,"70435":100,"70440":100,"70441":100,"70452":100,"70453":100,"70454":100,"70470":100,"70471":100,"70476":100,"70479":100,"70481":100,"70482":100,"70483":100,"70489":100,"70490":100,"70491":100,"70492":100,"70493":100,"70520":100,"70521":100,"70522":100,"70549":100,"70550":100,"70551":100}}],[{"skillEnhancement":{"20200":120,"20220":120,"20230":120,"20240":120,"20290":120,"20310":120,"20320":120,"20330":120,"20350":120,"20370":120,"20380":120,"20390":120,"70170":120,"70180":120,"70190":120,"70200":120,"70201":120,"70250":120,"70260":120,"70290":120,"70300":120,"70350":120,"70360":120,"70434":120,"70435":120,"70440":120,"70441":120,"70452":120,"70453":120,"70454":120,"70470":120,"70471":120,"70476":120,"70479":120,"70481":120,"70482":120,"70483":120,"70489":120,"70490":120,"70491":120,"70492":120,"70493":120,"70520":120,"70521":120,"70522":120,"70549":120,"70550":120,"70551":120}}],[{"skillEnhancement":{"20200":140,"20220":140,"20230":140,"20240":140,"20290":140,"20310":140,"20320":140,"20330":140,"20350":140,"20370":140,"20380":140,"20390":140,"70170":140,"70180":140,"70190":140,"70200":140,"70201":140,"70250":140,"70260":140,"70290":140,"70300":140,"70350":140,"70360":140,"70434":140,"70435":140,"70440":140,"70441":140,"70452":140,"70453":140,"70454":140,"70470":140,"70471":140,"70476":140,"70479":140,"70481":140,"70482":140,"70483":140,"70489":140,"70490":140,"70491":140,"70492":140,"70493":140,"70520":140,"70521":140,"70522":140,"70549":140,"70550":140,"70551":140}}],[{"skillEnhancement":{"20200":160,"20220":160,"20230":160,"20240":160,"20290":160,"20310":160,"20320":160,"20330":160,"20350":160,"20370":160,"20380":160,"20390":160,"70170":160,"70180":160,"70190":160,"70200":160,"70201":160,"70250":160,"70260":160,"70290":160,"70300":160,"70350":160,"70360":160,"70434":160,"70435":160,"70440":160,"70441":160,"70452":160,"70453":160,"70454":160,"70470":160,"70471":160,"70476":160,"70479":160,"70481":160,"70482":160,"70483":160,"70489":160,"70490":160,"70491":160,"70492":160,"70493":160,"70520":160,"70521":160,"70522":160,"70549":160,"70550":160,"70551":160}}],[{"skillEnhancement":{"20200":180,"20220":180,"20230":180,"20240":180,"20290":180,"20310":180,"20320":180,"20330":180,"20350":180,"20370":180,"20380":180,"20390":180,"70170":180,"70180":180,"70190":180,"70200":180,"70201":180,"70250":180,"70260":180,"70290":180,"70300":180,"70350":180,"70360":180,"70434":180,"70435":180,"70440":180,"70441":180,"70452":180,"70453":180,"70454":180,"70470":180,"70471":180,"70476":180,"70479":180,"70481":180,"70482":180,"70483":180,"70489":180,"70490":180,"70491":180,"70492":180,"70493":180,"70520":180,"70521":180,"70522":180,"70549":180,"70550":180,"70551":180}}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":90, "atk":2000, "atk%":210, "def%":60, "mag":2000, "mag%":210, "spr%":90, "singleWielding":{"accuracy":150,"atk":350,"mag":350}, "chainMastery":100, "lbFillRate":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":75},{"name":"lightning","percent":75},{"name":"water","percent":75},{"name":"wind","percent":75}], "mpRefresh":13, "lbDamage":150},
+			{"atk%":25, "mag%":50, "equipedConditions":["rod"]},
+			{"atk%":50, "mag%":25, "equipedConditions":["spear"]},
+			{"atk":1000, "atk%":30, "mag":1000, "mag%":30, "singleWielding":{"accuracy":50,"atk":50,"mag":50}, "equipedConditions":[["504229234","403046100"]]},
+			{"hp%":20, "levelCondition":115},
+			{"mp%":20, "atk%":20, "mag%":20, "mpRefresh":5, "skillEnhancement":{"229241":2,"229242":2,"229243":2,"229244":2,"229253":5}, "levelCondition":120},
+			{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}], "exLevelCondition":2},
+			{"atk":1000, "mag":1000, "exLevelCondition":3}
+		]
 	},
 	"100020005": {
 		"name":"Akstar",
@@ -12281,10 +12354,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Stonga","Blizzaga","Earth Infliction","Quick","Haste"],
+		"enhancementSkills":["Boomer's Master","Stonga","Blizzaga","Earth Infliction","Quick","Haste","Spell of Plant and Stone"],
 		"skills": [
 			{"mp%":100, "mag%":100, "spr%":100, "oneWeaponMastery":{"spr":100}, "resist":[{"name":"earth","percent":100}], "mpRefresh":5},
-			{"mp%":50, "mag%":200, "oneWeaponMastery":{"mag":200}, "equipedConditions":[["504241800","405017300"]]}
+			{"mp%":50, "mag%":200, "oneWeaponMastery":{"mag":200}, "equipedConditions":[["504241800","405017300"]]},
+			{"mag":500, "exLevelCondition":3}
 		]
 	},
 	"100035117": {
@@ -12307,10 +12381,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","robe","visionCard"],
-		"enhancementSkills":["Stonga","Blizzaga","Earth Infliction","Quick","Haste"],
+		"enhancementSkills":["Boomer's Master","Stonga","Blizzaga","Earth Infliction","Quick","Haste","Spell of Plant and Stone"],
 		"skills": [
 			{"mp%":100, "mag%":100, "spr%":100, "oneWeaponMastery":{"spr":100}, "resist":[{"name":"earth","percent":100}], "mpRefresh":5},
-			{"mp%":50, "mag%":200, "oneWeaponMastery":{"mag":200}, "equipedConditions":[["504241800","405017300"]]}
+			{"mp%":50, "mag%":200, "oneWeaponMastery":{"mag":200}, "equipedConditions":[["504241800","405017300"]]},
+			{"mag":500, "exLevelCondition":3}
 		]
 	},
 	"100035307": {
@@ -13966,10 +14041,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Furious Beatdown","Beat Up"],
+		"enhancementSkills":["This is the...","Furious Beatdown","Beat Up"],
+		"enhancements": [
+			{"name":"Dual Blade Mastery -Fury-","levels":[[],[{"improvedDW":true}]]}
+		],
 		"skills": [
-			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "chainMastery":100, "lbPerTurn":{"min":12,"max":12}, "resist":[{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"machine","physical":150,"magical":150},{"name":"dragon","physical":150,"magical":150},{"name":"aquatic","physical":150,"magical":150},{"name":"plant","physical":150,"magical":150},{"name":"stone","physical":200,"magical":200}], "mpRefresh":5, "lbDamage":150},
-			{"atk":500, "equipedConditions":[["309008900","406006900"]]},
+			{"hp%":60, "mp%":60, "atk%":200, "def%":60, "spr%":60, "singleWielding":{"accuracy":25,"atk":200}, "dualWielding":{"atk":200}, "chainMastery":200, "lbPerTurn":{"min":12,"max":12}, "resist":[{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"machine","physical":150,"magical":150},{"name":"dragon","physical":150,"magical":150},{"name":"aquatic","physical":150,"magical":150},{"name":"plant","physical":150,"magical":150},{"name":"stone","physical":200,"magical":200}], "mpRefresh":5, "lbDamage":150, "special":["dualWield"]},
+			{"atk":500, "equipedConditions":[["309008900","406006900","309010600"]]},
 			{"atk":500, "exLevelCondition":3}
 		]
 	},
@@ -13993,10 +14071,14 @@
 		},
 		"stats_pattern":4,
 		"equip":["fist","visionCard"],
-		"enhancementSkills":["Fists of Heavy Machinery"],
+		"enhancementSkills":["Fists of Heavy Machinery","This is the...","Duty to Fight Omega Spawn","Beat Up"],
+		"enhancements": [
+			{"name":"Duty to Fight Omega Spawn","levels":[[{"lbDamage":25,"dualWielding":{"atk":50}}],[{"lbDamage":50,"dualWielding":{"atk":100}}],[{"lbDamage":50,"replaceLb":{"name":"Geo Destruction","minEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":1,"ifUsedAgain":{"race":"stone","coef":140}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1x, 140x to Stone monsters, ATK) to one enemy."},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":1,"ifUsedAgain":{"race":"machine","coef":140}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1x, 140x to Machina monsters, ATK) to one enemy."},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":10,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (10x * 2 = 20x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":1,"ifUsedAgain":{"race":"stone","coef":140}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1x, 140x to Stone monsters, ATK) to one enemy."},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":1,"ifUsedAgain":{"race":"machine","coef":140}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1x, 140x to Machina monsters, ATK) to one enemy."},{"effect":{"damage":{"mechanism":"physical","damageType":"body","coef":10,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (10x * 2 = 20x, ATK) to one enemy (ignore cover)"}],"frames":[193,203,213],"move":"walk"},"dualWielding":{"atk":100}}]]},
+			{"name":"Dual Blade Mastery -Fury-","levels":[[],[{"improvedDW":true}]]}
+		],
 		"skills": [
-			{"hp%":360, "mp%":60, "atk":2000, "atk%":200, "def%":180, "spr%":180, "singleWielding":{"accuracy":50,"atk":300}, "chainMastery":100, "resist":[{"name":"water","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100}], "killers":[{"name":"machine","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200}], "lbDamage":150},
-			{"atk":500, "equipedConditions":[["309008900","406006900"]]},
+			{"hp%":360, "mp%":60, "atk":2000, "atk%":200, "def%":180, "spr%":180, "singleWielding":{"accuracy":50,"atk":300}, "dualWielding":{"atk":200}, "chainMastery":200, "resist":[{"name":"water","percent":30},{"name":"dark","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100}], "killers":[{"name":"machine","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200}], "lbDamage":150, "special":["dualWield"]},
+			{"atk":500, "equipedConditions":[["309008900","406006900","309010600"]]},
 			{"atk":500, "exLevelCondition":3}
 		]
 	},
@@ -14075,16 +14157,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["axe","hammer","mace","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
-		"enhancementSkills":["Eisen Schwall","Weighty Stance","Axe Mastery","Awakening of Power"],
+		"enhancementSkills":["Eisen Schwall","Eisen Platzen","Weighty Stance","Axe Mastery","Awakening of Power"],
 		"enhancements": [
-			{"name":"Weighty Stance","levels":[[{"skillEnhancement":{"1134010":50,"1134020":50,"1134030":50,"1134040":50,"1134050":50,"1134061":50}}],[{"skillEnhancement":{"1134010":100,"1134020":100,"1134030":100,"1134040":100,"1134050":100,"1134061":100}}],[{"skillEnhancement":{"1134010":150,"1134020":150,"1134030":150,"1134040":150,"1134050":150,"1134061":150}}],[{"skillEnhancement":{"1134010":200,"1134020":200,"1134030":200,"1134040":200,"1134050":200,"1134061":200}}],[{"skillEnhancement":{"1134010":250,"1134020":250,"1134030":250,"1134040":250,"1134050":250,"1134061":250}}]]},
+			{"name":"Weighty Stance","levels":[[{"skillEnhancement":{"1134010":50,"1134020":50,"1134030":50,"1134040":50,"1134050":50,"1134061":50,"1239001":50,"1239011":50,"1239021":50}}],[{"skillEnhancement":{"1134010":100,"1134020":100,"1134030":100,"1134040":100,"1134050":100,"1134061":100,"1239001":100,"1239011":100,"1239021":100}}],[{"skillEnhancement":{"1134010":150,"1134020":150,"1134030":150,"1134040":150,"1134050":150,"1134061":150,"1239001":150,"1239011":150,"1239021":150}}],[{"skillEnhancement":{"1134010":200,"1134020":200,"1134030":200,"1134040":200,"1134050":200,"1134061":200,"1239001":200,"1239011":200,"1239021":200}}],[{"skillEnhancement":{"1134010":250,"1134020":250,"1134030":250,"1134040":250,"1134050":250,"1134061":250,"1239001":250,"1239011":250,"1239021":250}}]]},
 			{"name":"Axe Mastery","levels":[[{"equipedConditions":["axe"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["axe"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["axe"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
 			{"name":"Awakening of Power","levels":[[{"def":500,"atk":500,"esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}}],[{"def":1000,"atk":1000,"esperStatsBonus":{"all":{"hp":150,"mp":150,"atk":150,"def":150,"mag":150,"spr":150}}}],[{"def":1500,"atk":1500,"esperStatsBonus":{"all":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}}]]}
 		],
 		"skills": [
 			{"hp%":200, "mp%":200, "atk%":300, "def%":200, "mag%":300, "spr%":200, "singleWielding":{"accuracy":75,"atk":350,"mag":300}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"fire","percent":60},{"name":"ice","percent":60},{"name":"lightning","percent":60},{"name":"water","percent":60},{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"light","percent":60},{"name":"dark","percent":60},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bug","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"human","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":300},
-			{"atk":500, "equipedConditions":[["407006700","305005100"]]},
-			{"killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":["axe",["407006700","305005100"]]},
+			{"atk":500, "equipedConditions":[["407006700","305005100","407007500"]]},
+			{"killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":["axe",["407006700","305005100","407007500"]]},
 			{"atk":500, "exLevelCondition":3}
 		]
 	},
@@ -14109,10 +14191,10 @@
 		"stats_pattern":4,
 		"equip":["axe","hammer","mace","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],
 		"skills": [
-			{"hp%":200, "mp%":200, "atk":500, "atk%":300, "def":500, "def%":200, "mag%":300, "spr%":200, "singleWielding":{"accuracy":75,"atk":350,"mag":300}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"fire","percent":60},{"name":"ice","percent":60},{"name":"lightning","percent":60},{"name":"water","percent":60},{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"light","percent":60},{"name":"dark","percent":60},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bug","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"human","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":300, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "skillEnhancement":{"1134010":50,"1134020":50,"1134030":50,"1134040":50,"1134050":50,"1134061":50}},
+			{"hp%":200, "mp%":200, "atk":500, "atk%":300, "def":500, "def%":200, "mag%":300, "spr%":200, "singleWielding":{"accuracy":75,"atk":350,"mag":300}, "chainMastery":100, "lbPerTurn":{"min":8,"max":8}, "resist":[{"name":"fire","percent":60},{"name":"ice","percent":60},{"name":"lightning","percent":60},{"name":"water","percent":60},{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"light","percent":60},{"name":"dark","percent":60},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bug","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"human","physical":200,"magical":200}], "mpRefresh":13, "lbDamage":300, "esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "skillEnhancement":{"1134010":50,"1134020":50,"1134030":50,"1134040":50,"1134050":50,"1134061":50,"1239001":50,"1239011":50,"1239021":50}},
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["axe"]},
-			{"atk":500, "equipedConditions":[["407006700","305005100"]]},
-			{"killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":["axe",["407006700","305005100"]]},
+			{"atk":500, "equipedConditions":[["407006700","305005100","407007500"]]},
+			{"killers":[{"name":"beast","physical":100},{"name":"bird","physical":100},{"name":"aquatic","physical":100},{"name":"demon","physical":100},{"name":"human","physical":100},{"name":"machine","physical":100},{"name":"dragon","physical":100},{"name":"spirit","physical":100},{"name":"bug","physical":100},{"name":"stone","physical":100},{"name":"plant","physical":100},{"name":"undead","physical":100}], "equipedConditions":["axe",["407006700","305005100","407007500"]]},
 			{"atk":500, "exLevelCondition":3}
 		]
 	},
@@ -14870,6 +14952,70 @@
 			{"atk":500, "exLevelCondition":3}
 		]
 	},
+	"100041607": {
+		"name":"Sheratan",
+		"roles":["magicalAttacker","healer"],
+		"wikiEntry":"Sheratan",
+		"id":"100041607",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"100041617",
+		"exAwakening": [{"hp":666,"mp":48,"atk":29,"def":26,"mag":78,"spr":33},{"hp":512,"mp":37,"atk":22,"def":20,"mag":60,"spr":25},{"hp":358,"mp":26,"atk":16,"def":14,"mag":42,"spr":18}],
+		"fragmentId": "250018400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5119,"mp":368,"atk":223,"def":198,"mag":300,"spr":251},
+			"minStats":{"hp":1689,"mp":121,"atk":74,"def":65,"mag":99,"spr":83},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Mesartein's Royal Strategist","Flash of Genius: Petal Storm","Vehement Bloom","Staff Mastery","Rod Mastery","Banishga","Fira","Stonra","Firaga","Stonga","Quake"],
+		"enhancements": [
+			{"name":"Mesartein's Royal Strategist","levels":[[{"spr%":50,"oneWeaponMastery":{"spr":50}}],[{"spr%":75,"oneWeaponMastery":{"spr":75}}],[{"spr%":100,"oneWeaponMastery":{"spr":100}}],[{"spr%":125,"oneWeaponMastery":{"spr":125}}],[{"spr%":150,"oneWeaponMastery":{"spr":150}}]]},
+			{"name":"Staff Mastery","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"Rod Mastery","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"accuracy":25,"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"light","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":150, "skillEnhancement":{"10170":200,"20080":200,"20130":200,"20200":200,"20250":200,"20400":200,"70250":200,"70260":200,"70442":200,"70443":200,"70463":200,"70464":200,"70465":200,"70477":200,"70478":200,"70482":200,"70497":200,"70499":200,"70500":200,"70501":200,"70514":200,"70515":200,"70516":200,"70527":200}},
+			{"mag":1500, "spr":1500, "equipedConditions":[["405027700","504244308"]]},
+			{"mag":500, "spr":500, "exLevelCondition":3}
+		]
+	},
+	"100041617": {
+		"name":"Sheratan BS",
+		"roles":["magicalAttacker","healer"],
+		"wikiEntry":"Sheratan",
+		"id":"100041617",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"100041607",
+		"exAwakening": [{"hp":666,"mp":48,"atk":29,"def":26,"mag":78,"spr":33},{"hp":512,"mp":37,"atk":22,"def":20,"mag":60,"spr":25},{"hp":358,"mp":26,"atk":16,"def":14,"mag":42,"spr":18}],
+		"fragmentId": "250018400",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5119,"mp":368,"atk":223,"def":198,"mag":300,"spr":251},
+			"minStats":{"hp":1689,"mp":121,"atk":74,"def":65,"mag":99,"spr":83},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Mesartein's Royal Strategist","Flash of Genius: Petal Storm","Vehement Bloom","Staff Mastery","Rod Mastery","Banishga","Fira","Stonra","Firaga","Stonga","Quake"],
+		"enhancements": [
+			{"name":"Mesartein's Royal Strategist","levels":[[{"spr%":50,"oneWeaponMastery":{"spr":50}}],[{"spr%":75,"oneWeaponMastery":{"spr":75}}],[{"spr%":100,"oneWeaponMastery":{"spr":100}}],[{"spr%":125,"oneWeaponMastery":{"spr":125}}],[{"spr%":150,"oneWeaponMastery":{"spr":150}}]]},
+			{"name":"Staff Mastery","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},
+			{"name":"Rod Mastery","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "def%":60, "mag%":200, "spr%":60, "singleWielding":{"accuracy":25,"mag":200}, "chainMastery":100, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"light","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":150, "skillEnhancement":{"10170":200,"20080":200,"20130":200,"20200":200,"20250":200,"20400":200,"70250":200,"70260":200,"70442":200,"70443":200,"70463":200,"70464":200,"70465":200,"70477":200,"70478":200,"70482":200,"70497":200,"70499":200,"70500":200,"70501":200,"70514":200,"70515":200,"70516":200,"70527":200}},
+			{"mag":1500, "spr":1500, "equipedConditions":[["405027700","504244308"]]},
+			{"mag":500, "spr":500, "exLevelCondition":3}
+		]
+	},
 	"100041707": {
 		"name":"Raegen de la llama negra",
 		"roles":["physicalAttacker"],
@@ -15102,6 +15248,64 @@
 			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["sword"]},
 			{"hp%":150, "mp%":50, "atk":2500, "atk%":50, "spr":2500, "spr%":150, "equipedConditions":[["504244447","302023000"]]},
 			{"atk":500, "spr":500, "exLevelCondition":3}
+		]
+	},
+	"100042307": {
+		"name":"Ayaka, estrella de la alta costura",
+		"roles":["healer","debuffer"],
+		"wikiEntry":"Grand_Couture Ayaka",
+		"id":"100042307",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShift":"100042317",
+		"exAwakening": [{"hp":690,"mp":51,"atk":24,"def":25,"mag":78,"spr":76},{"hp":531,"mp":39,"atk":19,"def":19,"mag":60,"spr":59},{"hp":371,"mp":28,"atk":13,"def":13,"mag":42,"spr":41}],
+		"fragmentId": "250020900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5308,"mp":393,"atk":187,"def":189,"mag":300,"spr":294},
+			"minStats":{"hp":1752,"mp":130,"atk":62,"def":62,"mag":99,"spr":97},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],
+		"enhancementSkills":["Dress for a Special Occasion","Stop Detach","Sparkling Shackle","Sage Wisdom","Imperil"],
+		"enhancements": [
+			{"name":"Dress for a Special Occasion","levels":[[{"spr%":10,"def%":10,"mp%":10,"hp%":10}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20}],[{"spr%":30,"def%":30,"mp%":30,"hp%":30}],[{"spr%":40,"def%":40,"mp%":40,"hp%":40}],[{"spr%":50,"def%":50,"mp%":50,"hp%":50}]]},
+			{"name":"Sage Wisdom","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":80,"def%":80,"mag%":80,"spr%":80}],[{"lbPerTurn":{"min":4,"max":4}},{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"mp%":60, "mag%":100, "spr%":150, "singleWielding":{"accuracy":25,"mag":100}, "oneWeaponMastery":{"spr":200}, "chainMastery":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"earth","percent":30}], "killers":[{"name":"bird","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"undead","physical":150,"magical":150}], "mpRefresh":7},
+			{"mag":1000, "spr":500, "equipedConditions":[["311009100","405029500"]]},
+			{"mag":500, "exLevelCondition":3}
+		]
+	},
+	"100042317": {
+		"name":"Ayaka, estrella de la alta costura BS",
+		"roles":["healer","debuffer"],
+		"wikiEntry":"Grand_Couture Ayaka",
+		"id":"100042317",
+		"game_id":"11001",
+		"game":"FFBE",
+		"braveShifted":"100042307",
+		"exAwakening": [{"hp":690,"mp":51,"atk":24,"def":25,"mag":78,"spr":76},{"hp":531,"mp":39,"atk":19,"def":19,"mag":60,"spr":59},{"hp":371,"mp":28,"atk":13,"def":13,"mag":42,"spr":41}],
+		"fragmentId": "250020900",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5308,"mp":393,"atk":187,"def":189,"mag":300,"spr":294},
+			"minStats":{"hp":1752,"mp":130,"atk":62,"def":62,"mag":99,"spr":97},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],
+		"skills": [
+			{"hp%":10, "mp%":70, "def%":10, "mag%":100, "spr%":160, "singleWielding":{"accuracy":25,"mag":100}, "oneWeaponMastery":{"spr":200}, "chainMastery":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"earth","percent":30}], "killers":[{"name":"bird","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"undead","physical":150,"magical":150}], "mpRefresh":7},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["staff"]},
+			{"mag":1000, "spr":500, "equipedConditions":[["311009100","405029500"]]},
+			{"mag":500, "exLevelCondition":3}
 		]
 	},
 	"201000104": {
@@ -22270,7 +22474,7 @@
 		"wikiEntry":"Cloud_(FFVII: AC)",
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -22293,7 +22497,7 @@
 			"wikiEntry":"Cloud_(FFVII: AC)",
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -22316,7 +22520,7 @@
 		"wikiEntry":"Tifa_(FFVII: AC)",
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -22341,7 +22545,7 @@
 			"wikiEntry":"Tifa_(FFVII: AC)",
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -22366,7 +22570,7 @@
 		"wikiEntry":"Kadaj",
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -22390,7 +22594,7 @@
 			"wikiEntry":"Kadaj",
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"Other",
+			"game":"FFVII AC",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -22414,7 +22618,7 @@
 		"wikiEntry":"Yazoo_& Loz",
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"Other",
+		"game":"FFVII AC",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -47514,7 +47718,6 @@
   "100014703":{"name":"Aiden","jpname":"エイデン","roles":["healer","magicalAttacker"],"id":"100014703","game_id":"undefined","game":"undefined","max_rarity":"5","min_rarity":"3","sex":"male","stats":{"maxStats":{"hp":2635,"mp":110,"atk":115,"def":92,"mag":84,"spr":115},"minStats":{"hp":870,"mp":36,"atk":38,"def":30,"mag":28,"spr":38},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","greatSword","staff","axe","hammer","mace","fist","lightShield","heavyShield","hat","clothes","lightArmor","robe"],"skills":[{"hp%":20,"atk%":10,"spr%":30}]},
   "100015227":{"name":"ザイル BS","jpname":"ザイル BS","roles":["support"],"id":"100015227","game_id":"undefined","game":"undefined","braveShifted":"100015204","exAwakening":[{"hp":625,"mp":25,"atk":27,"def":20,"mag":16,"spr":20},{"hp":480,"mp":19,"atk":21,"def":15,"mag":13,"spr":16},{"hp":336,"mp":13,"atk":14,"def":10,"mag":9,"spr":11}],"fragmentId":"250000910","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":4329,"mp":215,"atk":236,"def":140,"mag":117,"spr":176},"minStats":{"hp":1429,"mp":71,"atk":78,"def":46,"mag":39,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["炎氷封じの砲弾","悪魔討伐の空砲"],"skills":[{"hp%":60,"mp%":60,"atk%":60,"def%":60,"mag%":60,"spr%":60,"lbPerTurn":{"min":3,"max":3},"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"dark","percent":20},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"killers":[{"name":"undead","physical":200}],"mpRefresh":7},{"atk%":50,"equipedConditions":["gun"]},{"singleWielding":{"accuracy":25,"atk":100},"equipedConditions":[["403044700","403053800","403053900","313007700"]]},{"atk%":70,"def%":20,"singleWielding":{"accuracy":25,"atk":100},"levelCondition":120}]},
   "100017005":{"name":"Santa Roselia","jpname":"サンタローゼリア","roles":["healer","support","debuffer"],"id":"100017005","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4518,"mp":257,"atk":93,"def":167,"mag":152,"spr":214},"minStats":{"hp":1495,"mp":89,"atk":31,"def":54,"mag":50,"spr":67},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],"enhancementSkills":["プレゼント・HP","プレゼント・MP","ホーリーリバイブ","防御+20%"],"enhancements":[{"name":"防御+20%","levels":[[{"def%":20,"levelCondition":115}],[{"def%":30,"levelCondition":115}],[]]},{"name":"防御+20%","levels":[[{"def%":20,"levelCondition":115}],[{"def%":30,"levelCondition":115}],[]]}],"skills":[{"hp%":20,"mp%":30,"spr%":30,"lbFillRate":100,"resist":[{"name":"charm","percent":100},{"name":"ice","percent":50}],"mpRefresh":5},{"spr%":50,"equipedConditions":["staff"]},{"spr%":50,"equipedConditions":["harp"]},{"spr%":50,"equipedConditions":["mace"]},{"hp%":20,"mp%":20,"def%":20,"spr%":20,"resist":[{"name":"ice","percent":20},{"name":"light","percent":20},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"equipedConditions":[["504227328","401002400"]]},{"spr%":30,"lbPerTurn":{"min":2,"max":2},"levelCondition":120}],"6_form":{"name":"Santa Roselia","jpname":"サンタローゼリア","roles":["healer","support"],"id":"100017005","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3476,"mp":198,"atk":72,"def":123,"mag":117,"spr":157},"minStats":{"hp":1150,"mp":69,"atk":24,"def":42,"mag":39,"spr":52},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],"enhancementSkills":["プレゼント・HP","プレゼント・MP","ホーリーリバイブ","防御+20%"],"skills":[{"hp%":20,"mp%":30,"spr%":30,"lbFillRate":100,"resist":[{"name":"charm","percent":100},{"name":"ice","percent":50}],"mpRefresh":5},{"spr%":50,"equipedConditions":["staff"]},{"spr%":50,"equipedConditions":["harp"]},{"spr%":50,"equipedConditions":["mace"]}]}},
-  "100019927":{"name":"カルエラート BS","jpname":"カルエラート BS","roles":["physicalAttacker","magicalAttacker","debuffer"],"id":"100019927","game_id":"undefined","game":"undefined","braveShifted":"100019905","exAwakening":[{"hp":651,"mp":40,"atk":34,"def":22,"mag":36,"spr":29},{"hp":501,"mp":31,"atk":26,"def":17,"mag":28,"spr":22},{"hp":350,"mp":22,"atk":18,"def":12,"mag":20,"spr":16}],"fragmentId":"250015800","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5007,"mp":310,"atk":260,"def":168,"mag":280,"spr":222},"minStats":{"hp":1652,"mp":102,"atk":86,"def":55,"mag":92,"spr":73},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe","visionCard"],"skills":[{"hp%":60,"mp%":90,"atk":2000,"atk%":210,"def%":60,"mag":2000,"mag%":210,"spr%":90,"singleWielding":{"accuracy":150,"atk":325,"mag":325},"chainMastery":100,"lbFillRate":100,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"fire","percent":75},{"name":"lightning","percent":75},{"name":"water","percent":75},{"name":"wind","percent":75}],"mpRefresh":13,"lbDamage":150,"skillEnhancement":{"20200":100,"20220":100,"20230":100,"20240":100,"20290":100,"20310":100,"20320":100,"20330":100,"20350":100,"20370":100,"20380":100,"20390":100,"70170":100,"70180":100,"70190":100,"70200":100,"70201":100,"70250":100,"70260":100,"70290":100,"70300":100,"70350":100,"70360":100,"70434":100,"70435":100,"70440":100,"70441":100,"70452":100,"70453":100,"70454":100,"70470":100,"70471":100,"70476":100,"70479":100,"70481":100,"70482":100,"70483":100,"70489":100,"70490":100,"70491":100,"70492":100,"70493":100,"70520":100,"70521":100,"70522":100,"70549":100,"70550":100,"70551":100}},{"atk%":25,"mag%":50,"equipedConditions":["rod"]},{"atk%":50,"mag%":25,"equipedConditions":["spear"]},{"atk":1000,"atk%":30,"mag":1000,"mag%":30,"singleWielding":{"accuracy":50,"atk":50,"mag":50},"equipedConditions":[["504229234","403046100"]]},{"hp%":20,"levelCondition":115},{"mp%":20,"atk%":20,"mag%":20,"mpRefresh":5,"skillEnhancement":{"229241":2,"229242":2,"229243":2,"229244":2,"229253":5,"709427":2,"709428":2,"709429":2,"709430":2},"levelCondition":120},{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}],"exLevelCondition":2},{"atk":1000,"mag":1000,"exLevelCondition":3}]},
   "100022027":{"name":"ドレスアップアイリーン BS","jpname":"ドレスアップアイリーン BS","roles":["physicalAttacker","support"],"id":"100022027","game_id":"undefined","game":"undefined","braveShifted":"100022005","exAwakening":[{"hp":679,"mp":41,"atk":38,"def":25,"mag":23,"spr":30},{"hp":523,"mp":32,"atk":29,"def":19,"mag":18,"spr":23},{"hp":366,"mp":22,"atk":21,"def":14,"mag":12,"spr":16}],"fragmentId":"250021500","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5225,"mp":317,"atk":292,"def":194,"mag":175,"spr":231},"minStats":{"hp":1724,"mp":105,"atk":96,"def":64,"mag":58,"spr":76},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"skills":[{"hp%":30,"mp%":20,"atk":100,"atk%":90,"evade":{"physical":20},"singleWielding":{"accuracy":25,"atk":50},"chainMastery":100,"lbPerTurn":{"min":5,"max":5},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"earth","percent":50}],"killers":[{"name":"demon","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200}],"mpRefresh":18,"skillEnhancement":{"allPhysicalAttacks":5}},{"atk%":50,"def%":50,"mag%":50,"spr%":50,"equipedConditions":["gun"]},{"atk%":50,"equipedConditions":["gun"]},{"singleWielding":{"accuracy":25,"atk":100},"equipedConditions":[["504230242","313005400"]]},{"spr%":20,"levelCondition":115},{"hp%":30,"mp%":30,"atk%":40,"lbFillRate":100,"levelCondition":120},{"atk":500,"exLevelCondition":3}]},
   "100024605":{"name":"Arie","jpname":"アリエ","roles":["physicalAttacker"],"id":"100024605","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4690,"mp":219,"atk":204,"def":165,"mag":154,"spr":176},"minStats":{"hp":1548,"mp":72,"atk":67,"def":54,"mag":51,"spr":58},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","hammer","whip","throwing","fist","hat","clothes"],"skills":[{"hp%":30,"mp%":20,"atk%":60,"def%":30,"spr%":20,"evade":{"physical":20},"lbFillRate":100,"resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"light","percent":30}],"killers":[{"name":"human","physical":25},{"name":"spirit","physical":25}],"mpRefresh":7,"special":["dualWield"]},{"atk%":30,"equipedConditions":["sword"]},{"atk%":30,"evade":{"physical":10},"lbPerTurn":{"min":4,"max":4},"equipedConditions":[["302009400","405006800"]]},{"hp%":20,"atk%":20,"killers":[{"name":"human","physical":50},{"name":"spirit","physical":50}],"levelCondition":110},{"spr%":20,"levelCondition":115},{"def%":20,"dualWielding":{"atk":50},"levelCondition":120}],"6_form":{"name":"Arie","jpname":"アリエ","roles":["physicalAttacker"],"id":"100024605","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3608,"mp":169,"atk":157,"def":127,"mag":119,"spr":136},"minStats":{"hp":1191,"mp":56,"atk":52,"def":42,"mag":39,"spr":45},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","sword","hammer","whip","throwing","fist","hat","clothes"],"skills":[{"hp%":30,"mp%":20,"atk%":60,"def%":30,"spr%":20,"evade":{"physical":20},"lbFillRate":100,"resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"light","percent":30}],"killers":[{"name":"human","physical":25},{"name":"spirit","physical":25}],"mpRefresh":7,"special":["dualWield"]},{"atk%":30,"equipedConditions":["sword"]}]}},
   "100024705":{"name":"Cantilena","jpname":"シャンティレーナ","roles":["magicalAttacker","support"],"id":"100024705","game_id":"undefined","game":"undefined","max_rarity":"7","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":4560,"mp":285,"atk":128,"def":156,"mag":216,"spr":207},"minStats":{"hp":1505,"mp":94,"atk":42,"def":51,"mag":71,"spr":68},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],"enhancementSkills":["風精に愛されし者","遮光の魔奏","日輪の大魔奏","芽吹きのアリア","魔奏の歌姫"],"enhancements":[{"name":"風精に愛されし者","levels":[[{"esperStatsBonus":{"Tetra Sylphid":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}},"spr%":30,"mag%":30}]]},{"name":"魔奏の歌姫","levels":[[{"mp%":20,"hp%":20,"singleWielding":{"mag":50},"dualWielding":{"mag":50},"levelCondition":120}],[{"spr%":20,"mag%":20,"mp%":20,"hp%":20,"singleWielding":{"mag":50},"dualWielding":{"mag":50},"levelCondition":120}],[{"spr%":20,"mag%":20,"mp%":30,"hp%":30,"singleWielding":{"mag":100},"dualWielding":{"mag":100},"levelCondition":120}]]},{"name":"風精に愛されし者","levels":[[{"esperStatsBonus":{"Tetra Sylphid":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}},"spr%":30,"mag%":30}]]},{"name":"魔奏の歌姫","levels":[[{"mp%":20,"hp%":20,"singleWielding":{"mag":50},"dualWielding":{"mag":50},"levelCondition":120}],[{"spr%":20,"mag%":20,"mp%":20,"hp%":20,"singleWielding":{"mag":50},"dualWielding":{"mag":50},"levelCondition":120}],[{"spr%":20,"mag%":20,"mp%":30,"hp%":30,"singleWielding":{"mag":100},"dualWielding":{"mag":100},"levelCondition":120}]]}],"skills":[{"mp%":60,"mag%":90,"resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30},{"name":"silence","percent":100}]},{"mag%":30,"spr%":30,"equipedConditions":["robe"]},{"mag%":30,"equipedConditions":["rod"]},{"equipedConditions":[["504231383","408004900"]]},{"def%":20,"levelCondition":115}],"6_form":{"name":"Cantilena","jpname":"シャンティレーナ","roles":["magicalAttacker","support"],"id":"100024705","game_id":"undefined","game":"undefined","sixStarForm":true,"max_rarity":"6","min_rarity":"5","sex":"female","stats":{"maxStats":{"hp":3507,"mp":219,"atk":98,"def":120,"mag":166,"spr":159},"minStats":{"hp":1157,"mp":72,"atk":32,"def":40,"mag":55,"spr":52},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":1,"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],"enhancementSkills":["風精に愛されし者","遮光の魔奏","日輪の大魔奏","芽吹きのアリア","魔奏の歌姫"],"enhancements":[{"name":"風精に愛されし者","levels":[[{"esperStatsBonus":{"Tetra Sylphid":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}},"spr%":30,"mag%":30}]]},{"name":"風精に愛されし者","levels":[[{"esperStatsBonus":{"Tetra Sylphid":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}},"spr%":30,"mag%":30}]]}],"skills":[{"mp%":60,"mag%":90,"resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30},{"name":"silence","percent":100}]},{"mag%":30,"spr%":30,"equipedConditions":["robe"]},{"mag%":30,"equipedConditions":["rod"]}]}},
@@ -47563,12 +47766,8 @@
   "100039217":{"name":"Christmas Domino BS","jpname":"クリスマスドミノ BS","roles":["physicalAttacker"],"id":"100039217","game_id":"undefined","game":"undefined","braveShifted":"100039207","exAwakening":[{"hp":647,"mp":30,"atk":74,"def":21,"mag":5,"spr":26},{"hp":498,"mp":23,"atk":57,"def":16,"mag":4,"spr":20},{"hp":348,"mp":16,"atk":40,"def":11,"mag":3,"spr":14}],"fragmentId":"250008400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4977,"mp":230,"atk":284,"def":164,"mag":37,"spr":199},"minStats":{"hp":1642,"mp":76,"atk":94,"def":54,"mag":12,"spr":66},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","gun","mace","fist","hat","clothes","visionCard"],"skills":[{"hp%":160,"mp%":60,"atk%":200,"def%":60,"spr%":60,"evade":{"physical":10},"singleWielding":{"accuracy":25,"atk":200},"chainMastery":100,"lbPerTurn":{"min":12,"max":12},"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}],"killers":[{"name":"beast","physical":150,"magical":150},{"name":"bird","physical":200,"magical":200},{"name":"aquatic","physical":150,"magical":150},{"name":"bug","physical":200,"magical":200}],"lbDamage":150},{"killers":[{"name":"bird","physical":75}],"equipedConditions":["gun"]},{"killers":[{"name":"aquatic","physical":75}],"equipedConditions":["gun"]},{"killers":[{"name":"human","physical":75}],"equipedConditions":["fist"]},{"killers":[{"name":"bug","physical":75}],"equipedConditions":["fist"]},{"atk%":50,"def%":50,"mag%":50,"spr%":50,"equipedConditions":["gun"]},{"atk%":50,"def%":50,"mag%":50,"spr%":50,"equipedConditions":["fist"]},{"atk":500,"singleWielding":{"accuracy":25,"atk":100},"equipedConditions":[["504243469","309008600"]]},{"atk":500,"exLevelCondition":3}]},
   "100041507":{"name":"黒鳳剣ヒョウ","jpname":"黒鳳剣ヒョウ","roles":["magicalAttacker"],"id":"100041507","game_id":"undefined","game":"undefined","braveShift":"100041517","exAwakening":[{"hp":693,"mp":35,"atk":38,"def":26,"mag":78,"spr":24},{"hp":533,"mp":27,"atk":29,"def":20,"mag":60,"spr":19},{"hp":373,"mp":19,"atk":20,"def":14,"mag":42,"spr":13}],"fragmentId":"250016500","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5329,"mp":270,"atk":290,"def":198,"mag":300,"spr":187},"minStats":{"hp":1759,"mp":89,"atk":96,"def":65,"mag":99,"spr":62},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["フュリアスフレイム","フュリアスボルト","大剣の極意","ファイラ","ファイガ","ファイジャ","ストンラ","ストンガ","サンダラ","サンダガ"],"enhancements":[{"name":"大剣の極意","levels":[[{"equipedConditions":["greatSword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["greatSword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["greatSword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},{"name":"大剣の極意","levels":[[{"equipedConditions":["greatSword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["greatSword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["greatSword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}],"skills":[{"hp%":60,"mp%":60,"def%":60,"mag%":200,"spr%":60,"evoMag":150,"evokeDamageBoost":{"all":210},"singleWielding":{"accuracy":25,"mag":200},"chainMastery":100,"lbPerTurn":{"min":4,"max":4},"killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}],"mpRefresh":8,"lbDamage":150,"esperStatsBonus":{"Phoenix":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}},{"mag":500,"equipedConditions":[["504244156","303013600"]]},{"mag":500,"exLevelCondition":3}]},
   "100041517":{"name":"黒鳳剣ヒョウ BS","jpname":"黒鳳剣ヒョウ BS","roles":["magicalAttacker"],"id":"100041517","game_id":"undefined","game":"undefined","braveShifted":"100041507","exAwakening":[{"hp":693,"mp":35,"atk":38,"def":26,"mag":78,"spr":24},{"hp":533,"mp":27,"atk":29,"def":20,"mag":60,"spr":19},{"hp":373,"mp":19,"atk":20,"def":14,"mag":42,"spr":13}],"fragmentId":"250016500","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5329,"mp":270,"atk":290,"def":198,"mag":300,"spr":187},"minStats":{"hp":1759,"mp":89,"atk":96,"def":65,"mag":99,"spr":62},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"skills":[{"hp%":60,"mp%":60,"def%":60,"mag%":200,"spr%":60,"evoMag":150,"evokeDamageBoost":{"all":210},"singleWielding":{"accuracy":25,"mag":200},"chainMastery":100,"lbPerTurn":{"min":4,"max":4},"killers":[{"name":"beast","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}],"mpRefresh":8,"lbDamage":150,"esperStatsBonus":{"Phoenix":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}},{"atk%":50,"def%":50,"mag%":50,"spr%":50,"equipedConditions":["greatSword"]},{"mag":500,"equipedConditions":[["504244156","303013600"]]},{"mag":500,"exLevelCondition":3}]},
-  "100041607":{"name":"シェラタン","jpname":"シェラタン","roles":["magicalAttacker","healer"],"id":"100041607","game_id":"undefined","game":"undefined","braveShift":"100041617","exAwakening":[{"hp":666,"mp":48,"atk":29,"def":26,"mag":78,"spr":33},{"hp":512,"mp":37,"atk":22,"def":20,"mag":60,"spr":25},{"hp":358,"mp":26,"atk":16,"def":14,"mag":42,"spr":18}],"fragmentId":"250018400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5119,"mp":368,"atk":223,"def":198,"mag":300,"spr":251},"minStats":{"hp":1689,"mp":121,"atk":74,"def":65,"mag":99,"spr":83},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe","visionCard"],"enhancementSkills":["メサルティン王国の軍師","散華の閃計","フォースブルーム","杖の極意","ロッドの極意","バニシュガ","ファイラ","ストンラ","ファイガ","ストンガ","クエイク"],"enhancements":[{"name":"メサルティン王国の軍師","levels":[[{"spr%":50,"oneWeaponMastery":{"spr":50}}],[{"spr%":75,"oneWeaponMastery":{"spr":75}}],[{"spr%":100,"oneWeaponMastery":{"spr":100}}],[{"spr%":125,"oneWeaponMastery":{"spr":125}}],[{"spr%":150,"oneWeaponMastery":{"spr":150}}]]},{"name":"杖の極意","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},{"name":"ロッドの極意","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},{"name":"メサルティン王国の軍師","levels":[[{"spr%":50,"oneWeaponMastery":{"spr":50}}],[{"spr%":75,"oneWeaponMastery":{"spr":75}}],[{"spr%":100,"oneWeaponMastery":{"spr":100}}],[{"spr%":125,"oneWeaponMastery":{"spr":125}}],[{"spr%":150,"oneWeaponMastery":{"spr":150}}]]},{"name":"杖の極意","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},{"name":"ロッドの極意","levels":[[{"equipedConditions":["rod"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["rod"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["rod"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}],"skills":[{"hp%":60,"mp%":60,"def%":60,"mag%":200,"spr%":60,"singleWielding":{"accuracy":25,"mag":200},"chainMastery":100,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"light","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}],"killers":[{"name":"beast","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200}],"mpRefresh":8,"lbDamage":150,"skillEnhancement":{"10170":200,"20080":200,"20130":200,"20200":200,"20250":200,"20400":200,"70250":200,"70260":200,"70442":200,"70443":200,"70463":200,"70464":200,"70465":200,"70477":200,"70478":200,"70482":200,"70497":200,"70499":200,"70500":200,"70501":200,"70514":200,"70515":200,"70516":200,"70527":200}},{"mag":1500,"spr":1500,"equipedConditions":[["405027700","504244308"]]},{"mag":500,"spr":500,"exLevelCondition":3}]},
-  "100041617":{"name":"シェラタン BS","jpname":"シェラタン BS","roles":["magicalAttacker","healer"],"id":"100041617","game_id":"undefined","game":"undefined","braveShifted":"100041607","exAwakening":[{"hp":666,"mp":48,"atk":29,"def":26,"mag":78,"spr":33},{"hp":512,"mp":37,"atk":22,"def":20,"mag":60,"spr":25},{"hp":358,"mp":26,"atk":16,"def":14,"mag":42,"spr":18}],"fragmentId":"250018400","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5119,"mp":368,"atk":223,"def":198,"mag":300,"spr":251},"minStats":{"hp":1689,"mp":121,"atk":74,"def":65,"mag":99,"spr":83},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","robe","visionCard"],"skills":[{"hp%":60,"mp%":60,"def%":60,"mag%":200,"spr%":110,"singleWielding":{"accuracy":25,"mag":200},"oneWeaponMastery":{"spr":50},"chainMastery":100,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"light","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}],"killers":[{"name":"beast","physical":200,"magical":200},{"name":"aquatic","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200}],"mpRefresh":8,"lbDamage":150,"skillEnhancement":{"10170":200,"20080":200,"20130":200,"20200":200,"20250":200,"20400":200,"70250":200,"70260":200,"70442":200,"70443":200,"70463":200,"70464":200,"70465":200,"70477":200,"70478":200,"70482":200,"70497":200,"70499":200,"70500":200,"70501":200,"70514":200,"70515":200,"70516":200,"70527":200}},{"atk%":50,"def%":50,"mag%":50,"spr%":50,"equipedConditions":["staff"]},{"atk%":50,"def%":50,"mag%":50,"spr%":50,"equipedConditions":["rod"]},{"mag":1500,"spr":1500,"equipedConditions":[["405027700","504244308"]]},{"mag":500,"spr":500,"exLevelCondition":3}]},
   "100042107":{"name":"闇龍剣ビュフォン","jpname":"闇龍剣ビュフォン","roles":["magicalAttacker"],"id":"100042107","game_id":"undefined","game":"undefined","braveShift":"100042117","exAwakening":[{"hp":729,"mp":46,"atk":34,"def":32,"mag":78,"spr":28},{"hp":561,"mp":35,"atk":26,"def":25,"mag":60,"spr":22},{"hp":393,"mp":25,"atk":18,"def":17,"mag":42,"spr":15}],"fragmentId":"250020300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5611,"mp":349,"atk":262,"def":248,"mag":300,"spr":216},"minStats":{"hp":1852,"mp":115,"atk":86,"def":82,"mag":99,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","helm","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["レイジングストリーム","オーカーブラスト","剣の極意","フラッド","クエイク","ウォタガ","ストンガ"],"enhancements":[{"name":"剣の極意","levels":[[{"equipedConditions":["sword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["sword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["sword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},{"name":"剣の極意","levels":[[{"equipedConditions":["sword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["sword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["sword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}],"skills":[{"hp%":60,"mp%":60,"def%":60,"mag%":200,"spr%":60,"evoMag":150,"evokeDamageBoost":{"all":210},"dualWielding":{"mag":100},"chainMastery":200,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"water","percent":30},{"name":"earth","percent":15},{"name":"confuse","percent":100}],"killers":[{"name":"aquatic","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200}],"mpRefresh":8,"lbDamage":150,"esperStatsBonus":{"Kokuryu":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}},"skillEnhancement":{"20230":150,"20250":150,"20380":150,"20400":150,"70190":150,"70200":150,"70201":150,"70434":150,"70435":150,"70442":150,"70443":150,"70477":150,"70478":150,"70489":150,"70497":150,"70527":150},"special":["dualWield"]},{"mag":500,"equipedConditions":[["504244483","302023100"]]},{"mag":500,"exLevelCondition":3}]},
   "100042117":{"name":"闇龍剣ビュフォン BS","jpname":"闇龍剣ビュフォン BS","roles":["magicalAttacker"],"id":"100042117","game_id":"undefined","game":"undefined","braveShifted":"100042107","exAwakening":[{"hp":729,"mp":46,"atk":34,"def":32,"mag":78,"spr":28},{"hp":561,"mp":35,"atk":26,"def":25,"mag":60,"spr":22},{"hp":393,"mp":25,"atk":18,"def":17,"mag":42,"spr":15}],"fragmentId":"250020300","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5611,"mp":349,"atk":262,"def":248,"mag":300,"spr":216},"minStats":{"hp":1852,"mp":115,"atk":86,"def":82,"mag":99,"spr":71},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["sword","helm","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["剣の極意","フラッド","クエイク","ウォタガ","ストンガ"],"enhancements":[{"name":"剣の極意","levels":[[{"equipedConditions":["sword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["sword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["sword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},{"name":"剣の極意","levels":[[{"equipedConditions":["sword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["sword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["sword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}],"skills":[{"hp%":60,"mp%":60,"def%":60,"mag%":200,"spr%":60,"evoMag":150,"evokeDamageBoost":{"all":210},"dualWielding":{"mag":100},"chainMastery":200,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"water","percent":30},{"name":"earth","percent":15},{"name":"confuse","percent":100}],"killers":[{"name":"aquatic","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"spirit","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200}],"mpRefresh":8,"lbDamage":150,"esperStatsBonus":{"Kokuryu":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}},"skillEnhancement":{"20230":150,"20250":150,"20380":150,"20400":150,"70190":150,"70200":150,"70201":150,"70434":150,"70435":150,"70442":150,"70443":150,"70477":150,"70478":150,"70489":150,"70497":150,"70527":150},"special":["dualWield"]},{"mag":500,"equipedConditions":[["504244483","302023100"]]},{"mag":500,"exLevelCondition":3}]},
-  "100042307":{"name":"ドレスアップアヤカ","jpname":"ドレスアップアヤカ","roles":["healer","debuffer"],"id":"100042307","game_id":"undefined","game":"undefined","braveShift":"100042317","exAwakening":[{"hp":690,"mp":51,"atk":24,"def":25,"mag":78,"spr":76},{"hp":531,"mp":39,"atk":19,"def":19,"mag":60,"spr":59},{"hp":371,"mp":28,"atk":13,"def":13,"mag":42,"spr":41}],"fragmentId":"250020900","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5308,"mp":393,"atk":187,"def":189,"mag":300,"spr":294},"minStats":{"hp":1752,"mp":130,"atk":62,"def":62,"mag":99,"spr":97},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],"enhancementSkills":["特別な装い","ストップデタッチ","スパークルシャックル","賢者の教え","ウィーク"],"enhancements":[{"name":"特別な装い","levels":[[{"spr%":10,"def%":10,"mp%":10,"hp%":10}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20}],[{"spr%":30,"def%":30,"mp%":30,"hp%":30}],[{"spr%":40,"def%":40,"mp%":40,"hp%":40}],[{"spr%":50,"def%":50,"mp%":50,"hp%":50}]]},{"name":"賢者の教え","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":80,"def%":80,"mag%":80,"spr%":80}],[{"lbPerTurn":{"min":4,"max":4}},{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},{"name":"特別な装い","levels":[[{"spr%":10,"def%":10,"mp%":10,"hp%":10}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20}],[{"spr%":30,"def%":30,"mp%":30,"hp%":30}],[{"spr%":40,"def%":40,"mp%":40,"hp%":40}],[{"spr%":50,"def%":50,"mp%":50,"hp%":50}]]},{"name":"賢者の教え","levels":[[{"equipedConditions":["staff"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["staff"],"atk%":80,"def%":80,"mag%":80,"spr%":80}],[{"lbPerTurn":{"min":4,"max":4}},{"equipedConditions":["staff"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}],"skills":[{"mp%":60,"mag%":100,"spr%":150,"singleWielding":{"accuracy":25,"mag":100},"oneWeaponMastery":{"spr":200},"chainMastery":100,"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"earth","percent":30}],"killers":[{"name":"bird","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"undead","physical":150,"magical":150}],"mpRefresh":7},{"mag":1000,"spr":500,"equipedConditions":[["311009100","405029500"]]},{"mag":500,"exLevelCondition":3}]},
-  "100042317":{"name":"ドレスアップアヤカ BS","jpname":"ドレスアップアヤカ BS","roles":["healer","debuffer"],"id":"100042317","game_id":"undefined","game":"undefined","braveShifted":"100042307","exAwakening":[{"hp":690,"mp":51,"atk":24,"def":25,"mag":78,"spr":76},{"hp":531,"mp":39,"atk":19,"def":19,"mag":60,"spr":59},{"hp":371,"mp":28,"atk":13,"def":13,"mag":42,"spr":41}],"fragmentId":"250020900","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":5308,"mp":393,"atk":187,"def":189,"mag":300,"spr":294},"minStats":{"hp":1752,"mp":130,"atk":62,"def":62,"mag":99,"spr":97},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["staff","rod","hat","clothes","lightArmor","robe","visionCard"],"skills":[{"hp%":10,"mp%":70,"def%":10,"mag%":100,"spr%":160,"singleWielding":{"accuracy":25,"mag":100},"oneWeaponMastery":{"spr":200},"chainMastery":100,"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"earth","percent":30}],"killers":[{"name":"bird","physical":150,"magical":150},{"name":"demon","physical":150,"magical":150},{"name":"spirit","physical":150,"magical":150},{"name":"undead","physical":150,"magical":150}],"mpRefresh":7},{"atk%":50,"def%":50,"mag%":50,"spr%":50,"equipedConditions":["staff"]},{"mag":1000,"spr":500,"equipedConditions":[["311009100","405029500"]]},{"mag":500,"exLevelCondition":3}]},
   "100042407":{"name":"闘神タイヴァス","jpname":"闘神タイヴァス","roles":["physicalAttacker","magicalAttacker"],"id":"100042407","game_id":"undefined","game":"undefined","braveShift":"100042417","exAwakening":[{"hp":699,"mp":40,"atk":86,"def":31,"mag":82,"spr":37},{"hp":538,"mp":31,"atk":66,"def":24,"mag":63,"spr":29},{"hp":376,"mp":22,"atk":46,"def":17,"mag":44,"spr":20}],"fragmentId":"250022400","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5114,"mp":309,"atk":315,"def":228,"mag":300,"spr":272},"minStats":{"hp":1688,"mp":102,"atk":104,"def":75,"mag":99,"spr":90},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["マディーンブラスト","大剣の極意","ファイガ"],"enhancements":[{"name":"大剣の極意","levels":[[{"equipedConditions":["greatSword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["greatSword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["greatSword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},{"name":"大剣の極意","levels":[[{"equipedConditions":["greatSword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["greatSword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["greatSword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}],"skills":[{"hp%":110,"mp%":110,"atk%":200,"def%":60,"mag%":200,"spr%":60,"evoMag":210,"evokeDamageBoost":{"all":210},"singleWielding":{"accuracy":75,"atk":300,"mag":300},"chainMastery":100,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"charm","percent":100},{"name":"light","percent":30},{"name":"confuse","percent":100}],"mpRefresh":8,"lbDamage":150,"esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}},"skillEnhancement":{"20200":200,"70250":200,"70260":200,"70482":200}},{"atk":1250,"mag":1250,"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}],"equipedConditions":[["504244616","303014100"]]},{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}],"exLevelCondition":2},{"atk":500,"mag":500,"exLevelCondition":3}]},
   "100042417":{"name":"闘神タイヴァス BS","jpname":"闘神タイヴァス BS","roles":["physicalAttacker","magicalAttacker"],"id":"100042417","game_id":"undefined","game":"undefined","braveShifted":"100042407","exAwakening":[{"hp":699,"mp":40,"atk":86,"def":31,"mag":82,"spr":37},{"hp":538,"mp":31,"atk":66,"def":24,"mag":63,"spr":29},{"hp":376,"mp":22,"atk":46,"def":17,"mag":44,"spr":20}],"fragmentId":"250022400","max_rarity":"NV","min_rarity":"NV","sex":"male","stats":{"maxStats":{"hp":5377,"mp":309,"atk":330,"def":239,"mag":315,"spr":286},"minStats":{"hp":1774,"mp":102,"atk":109,"def":79,"mag":104,"spr":94},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["greatSword","hat","helm","clothes","lightArmor","heavyArmor","visionCard"],"enhancementSkills":["マディーンスヴェード","大剣の極意","ファイガ"],"enhancements":[{"name":"大剣の極意","levels":[[{"equipedConditions":["greatSword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["greatSword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["greatSword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},{"name":"大剣の極意","levels":[[{"equipedConditions":["greatSword"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["greatSword"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["greatSword"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}],"skills":[{"hp%":60,"mp%":60,"atk%":200,"def%":60,"mag%":200,"spr%":60,"evoMag":270,"evokeDamageBoost":{"all":270},"singleWielding":{"accuracy":75,"atk":300,"mag":300},"chainMastery":100,"lbFillRate":100,"resist":[{"name":"charm","percent":100},{"name":"light","percent":50},{"name":"confuse","percent":100}],"lbDamage":150,"esperStatsBonus":{"all":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}},"skillEnhancement":{"20200":200,"70250":200,"70260":200,"70482":200}},{"atk":2500,"mag":2500,"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}],"lbDamage":50,"equipedConditions":[["504244616","303014100"]]},{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"bird","physical":100,"magical":100},{"name":"aquatic","physical":100,"magical":100},{"name":"demon","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"bug","physical":100,"magical":100},{"name":"stone","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}],"exLevelCondition":2},{"atk":500,"mag":500,"exLevelCondition":3}]},
   "100042507":{"name":"呪鬼ネイリッカ","jpname":"呪鬼ネイリッカ","roles":["physicalAttacker","magicalAttacker"],"id":"100042507","game_id":"undefined","game":"undefined","braveShift":"100042517","exAwakening":[{"hp":632,"mp":43,"atk":82,"def":25,"mag":75,"spr":24},{"hp":486,"mp":33,"atk":63,"def":19,"mag":58,"spr":19},{"hp":340,"mp":23,"atk":44,"def":14,"mag":41,"spr":13}],"fragmentId":"250021600","max_rarity":"NV","min_rarity":"NV","sex":"female","stats":{"maxStats":{"hp":4861,"mp":329,"atk":315,"def":192,"mag":290,"spr":186},"minStats":{"hp":1604,"mp":109,"atk":104,"def":63,"mag":96,"spr":61},"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}},"stats_pattern":4,"equip":["fist","hat","helm","clothes","lightArmor","heavyArmor","robe","visionCard"],"enhancementSkills":["アニマの魔力供給","アニマブラスト","格闘の極意","ダーラ","ダーガ"],"enhancements":[{"name":"アニマの魔力供給","levels":[[{"mag%":200,"skillEnhancement":{"20460":120,"20470":120,"70486":120,"70487":120,"70488":120,"70517":120,"70518":120,"70519":120},"dualWielding":{"mag":200}}],[{"mag%":200,"skillEnhancement":{"20460":140,"20470":140,"70486":140,"70487":140,"70488":140,"70517":140,"70518":140,"70519":140},"dualWielding":{"mag":200}}],[{"mag%":200,"skillEnhancement":{"20460":160,"20470":160,"70486":160,"70487":160,"70488":160,"70517":160,"70518":160,"70519":160},"dualWielding":{"mag":200}}],[{"mag%":200,"skillEnhancement":{"20460":180,"20470":180,"70486":180,"70487":180,"70488":180,"70517":180,"70518":180,"70519":180},"dualWielding":{"mag":200}}],[{"mag%":200,"skillEnhancement":{"20460":200,"20470":200,"70486":200,"70487":200,"70488":200,"70517":200,"70518":200,"70519":200},"dualWielding":{"mag":200}}]]},{"name":"格闘の極意","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]},{"name":"アニマの魔力供給","levels":[[{"mag%":200,"skillEnhancement":{"20460":120,"20470":120,"70486":120,"70487":120,"70488":120,"70517":120,"70518":120,"70519":120},"dualWielding":{"mag":200}}],[{"mag%":200,"skillEnhancement":{"20460":140,"20470":140,"70486":140,"70487":140,"70488":140,"70517":140,"70518":140,"70519":140},"dualWielding":{"mag":200}}],[{"mag%":200,"skillEnhancement":{"20460":160,"20470":160,"70486":160,"70487":160,"70488":160,"70517":160,"70518":160,"70519":160},"dualWielding":{"mag":200}}],[{"mag%":200,"skillEnhancement":{"20460":180,"20470":180,"70486":180,"70487":180,"70488":180,"70517":180,"70518":180,"70519":180},"dualWielding":{"mag":200}}],[{"mag%":200,"skillEnhancement":{"20460":200,"20470":200,"70486":200,"70487":200,"70488":200,"70517":200,"70518":200,"70519":200},"dualWielding":{"mag":200}}]]},{"name":"格闘の極意","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}],"skills":[{"hp%":60,"mp%":60,"atk%":200,"def%":60,"spr%":60,"evoMag":210,"evokeDamageBoost":{"all":210},"dualWielding":{"atk":300},"chainMastery":200,"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"dark","percent":30}],"killers":[{"name":"aquatic","physical":200,"magical":200},{"name":"machine","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"plant","physical":200,"magical":200}],"mpRefresh":8,"lbDamage":200,"esperStatsBonus":{"Anima":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}},"special":["dualWield"]},{"atk":1500,"mag":1500,"equipedConditions":[["504244593","309010700"]]},{"atk":500,"mag":500,"exLevelCondition":3}]},

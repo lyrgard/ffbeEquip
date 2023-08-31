@@ -1737,20 +1737,20 @@
         }
     },
     "504100930": {
-        "name": "軽鎧装備",
+        "name": "Equip L Armor",
         "compendium_id": 1538,
         "compendium_shown": true,
         "requirements": null,
         "skills": [100930],
-        "effects": ["Grant '軽鎧装備' passive"],
+        "effects": ["Grant 'Equip L Armor' passive"],
         "unique": false,
         "price_buy": 50000,
         "price_sell": 5000,
         "icon": "ability_96.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Equip L Armor", "裝備輕鎧甲", "경갑 장착", "Équiper armure légère", "Leichte Rstg. benutzen", "Equipar armadura L", "Gunakan Armor K. Ringan", "ติดตั้ง\u001aเกราะ\u001aเบา\u001a"],
+            "desc_short": ["Can equip light armor", "可以裝備輕鎧甲", "경갑 장착 가능", "Permet d'équiper les armures légères", "Kann leichte Rüstungen anlegen", "Puede llevar armadura ligera", "Memungkinkan penggunaan armor kelas ringan", "สามารถ\u001aติดตั้ง\u001aเกราะ\u001aเบา\u001a"],
+            "desc_long": ["Enables unit to equip light armor.", "可以裝備輕鎧甲。", "경갑을 장착할 수 있게 됩니다.", "L'unité peut s'équiper d'armures légères.", "Die Einheit kann mit leichter Rüstung ausgerüstet werden.", "La unidad puede llevar armadura ligera.", "Memungkinkan unit untuk menggunakan armor kelas ringan.", "ยู\u001aนิ\u001aทสา\u001aมา\u001aรถ\u001aติดตั้ง\u001aเกราะ\u001aเบา\u001aได้\u001a"]
         }
     },
     "504100940": {
@@ -28221,20 +28221,29 @@
         }
     },
     "504244308": {
-        "name": "シェラタンの用兵論",
+        "name": "Sheratan's Theoretical Tactics",
         "compendium_id": 1524,
         "compendium_shown": true,
         "requirements": null,
         "skills": [244308],
-        "effects": ["Grant 'シェラタンの用兵論' passive"],
-        "unique": false,
+        "effects": ["Grant 'Sheratan's Theoretical Tactics' passive"],
+        "unique": true,
         "price_buy": 200000,
         "price_sell": 20000,
         "icon": "ability_79.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": ["Sheratan's Theoretical Tactics", "榭拉坦的用兵論", "셰라탄의 용병론", "Tactiques théoriques de Sheratan", "Sheratans theoretische Taktiken", "Tácticas teóricas de Sheratan", "Taktik Teoritis Sheratan", "ทฤษฎี\u001aการศึก\u001a \u001aSheraton\u001a"],
+            "desc_short": [
+                "Boost ATK, DEF, MAG, and SPR by 30%, and boost physical and magic damage against insects by 100% (Not stackable)",
+                "提高30%攻擊防禦魔力精神+物理、魔法攻擊時提高100%對蟲系魔物的傷害[無法重複裝備]",
+                "공격력, 방어력, 마력, 정신력 30% 상승+물리, 마법 공격 시 곤충형 마물에게 부여하는 피해량 100% 상승(중복 장착 불가)",
+                "Augmente l'ATT, la DEF, la MAGIE et la PSY de 30 %, et augmente les dégâts physiques et magiques infligés aux insectes de 100 % (non cumulable)",
+                "Erhöht ANG, ABW, MAG sowie PSY um 30% und erhöht physischen und magischen Schaden gegen Insekten um 100% (nicht stapelbar).",
+                "Aumenta ATQ, DEF, MAG y ESP un 30% y el daño físico y mágico contra insectos un 100% (no acumulable)",
+                "Meningkatkan ATK, DEF, MAG, dan SPR sebanyak 30%, serta meningkatkan damage fisik dan magic terhadap jenis serangga sebanyak 100% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aแมลง\u001a \u001a100% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": ["Boosts ATK, DEF, MAG, and SPR by 30%, and boosts physical and magic damage against insects by 100%. Not stackable.", "提高30%攻擊防禦魔力精神，並且物理、魔法攻擊時提高100%對蟲系魔物的傷害。無法重複裝備", "공격력, 방어력, 마력, 정신력이 30% 상승하고, 물리, 마법 공격 시 곤충형 마물에게 부여하는 피해량이 100% 상승합니다.(중복 장착 불가)", "Augmente l'ATT, la DEF, la MAGIE et la PSY de 30 % et augmente les dégâts physiques et magiques infligés aux insectes de 100 %. Non cumulable.", "Erhöht ANG, ABW, MAG sowie PSY um 30% und erhöht physischen und magischen Schaden gegen Insekten um 100%. Nicht stapelbar.", "Aumenta ATQ, DEF, MAG y ESP un 30% y el daño físico y mágico contra insectos un 100%. No acumulable.", "Meningkatkan ATK, DEF, MAG, dan SPR sebanyak 30%, serta meningkatkan damage fisik dan magic terhadap jenis serangga sebanyak 100%. Tidak dapat ditumpuk.", "เพิ่มค่า\u001a \u001aATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a30% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aแมลง\u001a \u001a100% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"]
         }
     },
     "504244309": {
@@ -29662,7 +29671,7 @@
         "icon": "ability_77.png",
         "strings": {
             "names": ["Casanova", "風流浪子", "카사노바", "Casanova", "Casanova", "Casanova", "Casanova", "Casanova\u001a"],
-            "desc_short": ["Boost HP by 15% and enable casanova for Desch", "提高15%HP+德修裝備時，可以使用「風流浪子」", "HP 15% 상승, '데쉬' 장착 시 '카사노바' 사용 가능", "Augmente les PV de 15% et permet à Desh d'utiliser Casanova", "Erhöht HP um 15% und ermöglicht Casanova für Desch.", "Aumenta VIT un 15% y Desch aprende Casanova", "Meningkatkan HP sebanyak 15% dan memungkinkan Desch untuk menggunakan Casanova", "เพิ่มค่า\u001a \u001aHP\u001a \u001a15% + ในกรณี Desch\u001a \u001aจะ\u001aสามารถ\u001aใช้\u001a \u001aAbility\u001a \u001a'\u001aCasanova\u001a'\u001a \u001aได้\u001a"],
+            "desc_short": ["Boost HP by 15% and enable casanova for Desch", "提高15%HP+德修裝備時，可以使用「風流浪子」", "HP 15% 상승, '데쉬' 장착 시 '카사노바' 사용 가능", "Augmente les PV de 15% et permet à Desh d'utiliser Casanova", "Erhöht LP um 15% und ermöglicht Casanova für Desch.", "Aumenta VIT un 15% y Desch aprende Casanova", "Meningkatkan HP sebanyak 15% dan memungkinkan Desch untuk menggunakan Casanova", "เพิ่มค่า\u001a \u001aHP\u001a \u001a15% + ในกรณี Desch\u001a \u001aจะ\u001aสามารถ\u001aใช้\u001a \u001aAbility\u001a \u001a'\u001aCasanova\u001a'\u001a \u001aได้\u001a"],
             "desc_long": ["Boosts HP by 15% and enables casanova for Desch", "提高15%HP+德修裝備時，可以使用「風流浪子」", "HP가 15% 상승하고, '데쉬'가 장착 시 '카사노바'를 사용할 수 있게 됩니다.", "Augmente les PV de 15% et permet à Desh d'utiliser Casanova", "Erhöht HP um 15% und ermöglicht Casanova für Desch.", "Aumenta VIT un 15% y Desch aprende Casanova", "Meningkatkan HP sebanyak 15% dan memungkinkan Desch untuk menggunakan Casanova.", "เพิ่มค่า\u001a \u001aHP\u001a \u001a15% + ในกรณี Desch\u001a \u001aจะ\u001aสามารถ\u001aใช้\u001a \u001aAbility\u001a \u001a'\u001aCasanova\u001a'\u001a \u001aได้\u001a"]
         }
     },
@@ -30451,7 +30460,7 @@
         "icon": "ability_77.png",
         "strings": {
             "names": ["Splash of Life", "生命的水花", "생명의 물보라", "Éclaboussure vitale", "Spritzer des Lebens", "Salpicón de vida", "Percikan Kehidupan", "หยาด\u001aชีวิต\u001aสาด\u001aกระเซ็น\u001a"],
-            "desc_short": ["Boost HP and SPR by 10%", "提高10%HP、精神", "HP와 정신력 10% 상승", "Augmente les PV et la PSY de 10%", "Erhöht HP und PSY um 10%.", "Aumenta la VIT y el ESP un 10%", "Meningkatkan HP dan SPR sebanyak 10%", "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a10%"],
+            "desc_short": ["Boost HP and SPR by 10%", "提高10%HP、精神", "HP와 정신력 10% 상승", "Augmente les PV et la PSY de 10%", "Erhöht LP und PSY um 10%.", "Aumenta la VIT y el ESP un 10%", "Meningkatkan HP dan SPR sebanyak 10%", "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a10%"],
             "desc_long": ["Boosts HP and SPR by 10%.", "提高10%HP、精神。", "HP와 정신력이 10% 상승합니다.", "Augmente les PV et la PSY de 10%", "Erhöht HP und PSY um 10%.", "Aumenta la VIT y el ESP un 10%.", "Meningkatkan HP dan SPR sebanyak 10%.", "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aSPR\u001a \u001a10%"]
         }
     },
