@@ -22441,7 +22441,7 @@
 		"wikiEntry":"Cloud_(FFVII: AC)",
 		"id":"207001605",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -22464,7 +22464,7 @@
 			"wikiEntry":"Cloud_(FFVII: AC)",
 			"id":"207001605",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -22487,7 +22487,7 @@
 		"wikiEntry":"Tifa_(FFVII: AC)",
 		"id":"207001705",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -22512,7 +22512,7 @@
 			"wikiEntry":"Tifa_(FFVII: AC)",
 			"id":"207001705",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -22537,7 +22537,7 @@
 		"wikiEntry":"Kadaj",
 		"id":"207001805",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -22561,7 +22561,7 @@
 			"wikiEntry":"Kadaj",
 			"id":"207001805",
 			"game_id":"11009",
-			"game":"FFVII AC",
+			"game":"Other",
 			"sixStarForm":true,
 			"max_rarity":"7",
 			"min_rarity":"5",
@@ -22585,7 +22585,7 @@
 		"wikiEntry":"Yazoo_& Loz",
 		"id":"207001904",
 		"game_id":"11009",
-		"game":"FFVII AC",
+		"game":"Other",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -47638,6 +47638,64 @@
 			{"hp":1000, "atk":1000, "lbDamage":150, "equipedConditions":[["1100000789","1500000239","401007901","1100000213","1100000302","1500000080"]]},
 			{"atk":500, "exLevelCondition":2},
 			{"hp":1000, "atk":1000, "exLevelCondition":3}
+		]
+	},
+	"401015407": {
+		"name":"경쾌한 움직임 애디슨 레이",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Cool_Moves Addison Rae",
+		"id":"401015407",
+		"game_id":"90009",
+		"game":"Other",
+		"braveShift":"401015417",
+		"exAwakening": [{"hp":636,"mp":44,"atk":81,"def":27,"mag":17,"spr":32},{"hp":489,"mp":34,"atk":62,"def":21,"mag":13,"spr":24},{"hp":342,"mp":23,"atk":43,"def":14,"mag":10,"spr":17}],
+		"fragmentId": "310001110",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4890,"mp":336,"atk":310,"def":206,"mag":133,"spr":244},
+			"minStats":{"hp":1614,"mp":111,"atk":102,"def":68,"mag":44,"spr":81},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","fist","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Martial Arts Mastery","Get Hyped"],
+		"enhancements": [
+			{"name":"Martial Arts Mastery","levels":[[{"equipedConditions":["fist"],"atk%":50,"def%":50,"mag%":50,"spr%":50}],[{"equipedConditions":["fist"],"atk%":75,"def%":75,"mag%":75,"spr%":75}],[{"equipedConditions":["fist"],"atk%":100,"def%":100,"mag%":100,"spr%":100}]]}
+		],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk%":300, "def%":160, "mag%":100, "spr%":160, "evade":{"physical":15}, "dualWielding":{"atk":100}, "oneWeaponMastery":{"atk":200}, "improvedDW":true, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":75},{"name":"dark","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":150, "special":["dualWield"]},
+			{"atk":3000, "dualWielding":{"atk":200}, "equipedConditions":[["1500000234","1100000786","401008301"]]},
+			{"atk":500, "exLevelCondition":3}
+		]
+	},
+	"401015417": {
+		"name":"경쾌한 움직임 애디슨 레이 BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Cool_Moves Addison Rae",
+		"id":"401015417",
+		"game_id":"90009",
+		"game":"Other",
+		"braveShifted":"401015407",
+		"exAwakening": [{"hp":636,"mp":44,"atk":81,"def":27,"mag":17,"spr":32},{"hp":489,"mp":34,"atk":62,"def":21,"mag":13,"spr":24},{"hp":342,"mp":23,"atk":43,"def":14,"mag":10,"spr":17}],
+		"fragmentId": "310001110",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4890,"mp":336,"atk":310,"def":206,"mag":133,"spr":244},
+			"minStats":{"hp":1614,"mp":111,"atk":102,"def":68,"mag":44,"spr":81},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","fist","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Get Hyped"],
+		"skills": [
+			{"hp%":60, "mp%":60, "atk%":300, "def%":160, "mag%":100, "spr%":160, "evade":{"physical":15}, "dualWielding":{"atk":100}, "oneWeaponMastery":{"atk":200}, "improvedDW":true, "chainMastery":200, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":75},{"name":"dark","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":200,"magical":200},{"name":"stone","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"demon","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200},{"name":"undead","physical":200,"magical":200}], "mpRefresh":8, "lbDamage":150, "special":["dualWield"]},
+			{"atk%":50, "def%":50, "mag%":50, "spr%":50, "equipedConditions":["fist"]},
+			{"atk":3000, "dualWielding":{"atk":200}, "equipedConditions":[["1500000234","1100000786","401008301"]]},
+			{"atk":500, "exLevelCondition":3}
 		]
 	}
 ,
