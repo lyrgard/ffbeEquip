@@ -96,23 +96,36 @@ const goalValuesCaract = {
 };
 const itemEnhancementLabels = {
     "rare_3":{
+        // Old Enchants
         "dagger": "+100% LB fill rate", 
         "sword": "HP/ATK +15%", 
-        "greatSword": "HP/ATK +15%", 
-        "katana": "HP/ATK +15%", 
+        //"greatSword": "HP/ATK +15%", 
+        //"katana": "HP/ATK +15%", 
         "staff": "SPR/MP +15%", 
         "rod": "MAG/MP +15%", 
         "bow": "ATK/MAG +30%", 
         "axe": "ATK +30%", 
         "hammer": "HP/DEF +15%", 
-        "spear": "HP/ATK +15%", 
+       // "spear": "HP/ATK +15%", 
         "harp": "HP/SPR +15%", 
         "whip": "MP +30%", 
         "throwing": "HP/MP +15%", 
-        "gun": "ATK +30%", 
+        //"gun": "ATK +30%", 
         "mace": "HP +30%", 
-        "fist": "HP/ATK +15%",
-        "fake": "Rare"
+        //"fist": "HP/ATK +15%",
+        "fake": "Rare",
+        // New Enchants
+        "High Tide+": "+150% LB fill rate",
+        "Seal of Life and Power Lv. 4": "HP/ATK +20%",
+        "Seal of Skill and Magic Lv. 4": "MP/MAG +20%",
+        "Seal of Skill and Soul Lv. 4": "MP/SPR +20%",
+        "Seal of Life and Soul Lv. 4": "HP/SPR +20%",
+        "Seal of Life and Arms Lv. 4": "HP/DEF +20%",
+        "Projectile Prowess": "ATK/MAG +20%",
+        "Seal of Power and Magic Lv. 7": "ATK/MAG +35%",
+        "ATK + 40%": "ATK +40%",
+        "MP + 40%": "MP +40%",
+        "HP + 40%": "HP +40%",
     },
     "rare_4":{
         "dagger": "+150% LB fill rate",
