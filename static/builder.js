@@ -2795,40 +2795,14 @@ function selectEnchantement(item) {
         $("#modifyEnhancementModal .value." + currentEnchantmentItem.enhancements[i]).addClass("selected");
     }
     $("#modifyEnhancementModal .modal-header .title").html(getImageHtml(currentEnchantmentItem) + getNameColumnHtml(currentEnchantmentItem));
-    let weaponList = Object.keys(itemEnhancementLabels["rare_3"]);
-    let rareArray = [];
-    weaponList.forEach(w => {
-        // check to see if the weapon value in itemEnhancementLabels is in rareArray and add it if it's not.
-        if (!rareArray.includes(itemEnhancementLabels["rare_3"][w]) && w !== "fake") {
-            rareArray.push(itemEnhancementLabels["rare_3"][w]);
-        }
-    });
-
-    rareArray.forEach(r => {
-        // check to see if a div with the same id exists and if it doesn't then create it.
-        let newR = r.replace(/[^a-zA-Z0-9]/g, "");
-        if (!$("#modifyEnhancementModal .enhancementType #" + newR).length) {
-            // create a new div for each weapon type
-            let newDiv = document.createElement("div");
-            newDiv.classList.add("rareEnhancement")
-            newDiv.classList.add("value");
-            newDiv.classList.add("rare_3");
-            newDiv.setAttribute("onclick", "toggleItemEnhancement('rare_3')");
-            // strip any incompmatioble characters from the weapon type and use it as the id
-            let newR = r.replace(/[^a-zA-Z0-9]/g, "");
-            newDiv.setAttribute("id", newR);
-            newDiv.innerHTML = r;
-            // append to the div above the div with rare_4
-            $("#modifyEnhancementModal .enhancementType .rare_5").before(newDiv);
-        }
-    });
-    //$("#modifyEnhancementModal .value.rare_4").html(itemEnhancementLabels["rare_4"][currentEnchantmentItem.type]);
+    $("#modifyEnhancementModal .value.rare_3").html(itemEnhancementLabels["rare_3"][currentEnchantmentItem.type]);
+    $("#modifyEnhancementModal .value.rare_4").html(itemEnhancementLabels["rare_4"][currentEnchantmentItem.type]);
     if (itemEnhancementAbilities.rare_5[item.type]) {
         $("#modifyEnhancementModal .value.rare_5").removeClass('hidden');
         $("#modifyEnhancementModal .value.rare_5").html(itemEnhancementLabels["rare_5"][item.type]);
     } else {
+        $("#modifyEnhancementModal .value.rare_5").addClass('hidden');
     }
-    $("#modifyEnhancementModal .value.rare_5").addClass('hidden');
     if (itemEnhancementLabels["special_1"][item.id]) {
         $("#modifyEnhancementModal .value.special_1").removeClass("hidden");
         $("#modifyEnhancementModal .value.special_1").html(itemEnhancementLabels["special_1"][item.id]);
