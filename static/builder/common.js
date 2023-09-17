@@ -1787,11 +1787,12 @@ function areConditionOK(item, equiped, level = 0, exLevel) {
     }
     if (item.equipedConditions) {
         //if item.equippedConitions only has weapons in it and ONE of those weapons is equipped, then return true.
+        //
         if (item.equipedConditions.every(condition => weaponList.includes(condition))) {
-            if (equiped[0] && weaponList.includes(equiped[0].type)) {
+            if (equiped[0] && item.equipedConditions.includes(equiped[0].type)) {
                 return true;
             }
-            if (equiped[1] && weaponList.includes(equiped[1].type)) {
+            if (equiped[1] && item.equipedConditions.includes(equiped[1].type)) {
                 return true;
             }
             return false;
