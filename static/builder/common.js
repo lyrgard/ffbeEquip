@@ -1786,7 +1786,19 @@ function areConditionOK(item, equiped, level = 0, exLevel) {
         }
     }
     if (item.equipedConditions) {
-        for (var conditionIndex = 0, len = item.equipedConditions.length; conditionIndex < len; conditionIndex++) {
+        //if item.equippedConitions only has weapons in it and ONE of those weapons is equipped, then return true.
+        if (item.equipedConditions.every(condition => weaponList.includes(condition))) {
+            if (equiped[0] && weaponList.includes(equiped[0].type)) {
+                return true;
+            }
+            if (equiped[1] && weaponList.includes(equiped[1].type)) {
+                return true;
+            }
+            return false;
+        }
+        
+        // Otherweise loop through the item.equippedConditions and see if any of them are met usng the isEquipedConditionOK function
+        for (var conditionIndex = item.equipedConditions.length; conditionIndex--;) {
             if (!isEquipedConditionOK(equiped, item.equipedConditions[conditionIndex])) {
                 return false;
             }

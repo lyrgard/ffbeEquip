@@ -1739,6 +1739,7 @@ function updateUnitStats() {
     }
     populateUnitEquip();
     if (builds[currentUnitIndex].unit) {
+        console.log(builds[currentUnitIndex].unit.skills.filter(skill => skill.equipedConditions))
         let equipmentBoost = [];
         builds[currentUnitIndex].unit.skills
             .filter(skill => skill.equipedConditions)

@@ -625,7 +625,10 @@ function getEquipedConditionHtml(item) {
     for(var equipedConditionsIndex in item.equipedConditions) {
         if (first) {
             first = false;
-        } else {
+        } else if (item.equipedConditions && item.equipedConditions.every(e => weaponList.includes(e))) {
+            conditions += " or ";
+        } 
+        else {
             conditions += " and ";
         }
         if (elementList.includes(item.equipedConditions[equipedConditionsIndex])) {
