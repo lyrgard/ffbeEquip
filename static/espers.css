@@ -117,7 +117,8 @@ table.allEspers > tbody > tr > td.stats .bonus {
     justify-content: space-between;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-behavior: smooth;: touch;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 

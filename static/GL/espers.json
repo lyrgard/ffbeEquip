@@ -1,5 +1,5 @@
 [   
-    {"id":"Siren","name":"Siren","maxLevel":3,"hp":5400,"mp":6240,"atk":4200,"def":4680,"mag":6120,"spr":6120,"resist":[{"name":"lightning","percent":-50},{"name":"water","percent":50},{"name":"sleep","percent":100}]},
+    {"id":"Siren","name":"Siren","maxLevel":3,"hp":5400,"mp":6240,"atk":4200,"def":4680,"mag":6120,"spr":6120,"killers":[{"name":"bird", "physical": 60, "magical":60}],"resist":[{"name":"lightning","percent":-50},{"name":"water","percent":50},{"name":"sleep","percent":100}]},
     {"id":"Ifrit","name":"Ifrit","maxLevel":3,"hp":7000,"mp":4500,"atk":7480,"def":5060,"mag":3880,"spr":3800,"killers":[{"name":"beast","physical":125,"magical":75},{"name":"plant","physical":125,"magical":75}],"resist":[{"name":"ice","percent":-50},{"name":"fire","percent":50},{"name":"blind","percent":100}]},
     {"id":"Shiva","name":"Shiva","maxLevel":3,"hp":5800,"mp":7500,"atk":3960,"def":4460,"mag":7020,"spr":7020,"resist":[{"name":"fire","percent":-50},{"name":"ice","percent":50},{"name":"paralysis","percent":100}]},
     {"id":"Carbuncle","name":"Carbuncle","maxLevel":3,"hp":5280,"mp":7200,"atk":2560,"def":6160,"mag":5280,"spr":7760,"killers":[{"name":"spirit","physical":50}],"resist":[{"name":"dark","percent":-50},{"name":"light","percent":50},{"name":"disease","percent":100}]},

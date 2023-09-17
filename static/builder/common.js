@@ -1892,6 +1892,7 @@ function findBestItemVersion(build, item, itemWithVariation, unit) {
 }
 
 function getEsperItem(esper) {
+    console.log(esper)
     var item = {};
     item.name = esper.name;
     item.id = esper.name;
@@ -1936,6 +1937,9 @@ function getEsperItem(esper) {
     }
     if (esper.conditional) {
         item.conditional = esper.conditional;
+    }
+    if (esper.jumpDamage) {
+        item.jumpDamage = esper.jumpDamage;
     }
     for (var i = baseStats.length; i--;) {
         if (esper[percentValues[baseStats[i]]]) {

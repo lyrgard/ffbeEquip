@@ -406,6 +406,7 @@ function getCenterY(node, scale=1) {
 function showNode(node, parentNodeHtml, star, scale=1) {
     var posString = getEsperBoardPositionString(node.position[0], node.position[1]);
     var nodeHtml = $("#grid li." + posString + " .hexagon");
+    nodeHtml.removeClass("notUsed");
     for (var statIndex = 0; statIndex < baseStats.length; statIndex++) {
         if (node[baseStats[statIndex]]) {
             nodeHtml.html('<span class="iconHolder"></span><span class="text">' + baseStats[statIndex].toUpperCase() + ' + ' + node[baseStats[statIndex]] + '</span><span class="cost">' + node["cost"]["SP"] + ' SP</span>');
@@ -468,6 +469,11 @@ function showNode(node, parentNodeHtml, star, scale=1) {
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
+    if (node.jumpDamage) {
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_80.png"></img></span><span class="text">+' + node.jumpDamage + '% jump damage</span><span class="cost">' + node["cost"]["SP"]+ ' SP</span>';
+        nodeHtml.html(html);
+        nodeHtml.addClass("ability");
+    }
     
     if (node.conditional) {
         var html = '';
@@ -502,28 +508,25 @@ function showNode(node, parentNodeHtml, star, scale=1) {
 }
 
 function abilityIcon(text) {
-    return text.replace(/(\[[^\]]*\])/g, function(v) {
-        var vWithoutBrace = v.substring(1, v.length - 1);
-        var token = vWithoutBrace.split("|");
-        var result = "";
-        if (token.length >= 2) {
-            result += "<img class='icon' src='/img/items/" + token[token.length - 1] + "'></img>"
-        }
-        return result;
-    });
+    // [Bird Killer | Stat Break I | ability_79.png ] or [Bird Killer | ability_79.png] are both possible formats
+    // get the ability_###.png where there nubmer can be any length
+    var icon = text.match(/ability_\d+\.png/);
+    if (icon) {
+        return '<img class="icon" src="/img/items/' + icon[0] + '"></img>';
+    } else {
+        return '';
+    }
 };
 
 function abilityName(text) {
-    return text.replace(/(\[[^\]]*\])/g, function(v) {
-        var vWithoutBrace = v.substring(1, v.length - 1);
-        var token = vWithoutBrace.split("|");
-        if (token.length == 3) {
-            return toLink(token[1], token[0]);
-        } else {
-            return toLink(token[0]);    
-        }
-    });
-}
+    // [Bird Killer | Stat Break I | ability_79.png ] or [Bird Killer | ability_79.png] are both possible formats
+    // remove the | ability_###.png leaving just the part inside the brackets
+    var name = text.replace(/\|ability_\d+\.png/, '');
+    // remove the brackets
+    name = name.replace(/\[|\]/g, '');
+    console.log(name)
+    return name;
+};
 
 function prepareSave() {
     if (logged && !linkMode) {
@@ -621,6 +624,9 @@ function unselectNodeAndChildren(esper, node) {
         if (node.lbDamage) {
             delete esper.lbDamage;
         }
+        if (node.jumpDamage) {
+            delete esper.jumpDamage;
+        }
         if (node.evade && node.evade.physical && esper.evade && esper.evade.physical) {
             delete esper.evade.physical;
         }
@@ -644,12 +650,12 @@ function unselectNodeAndChildren(esper, node) {
     }
 }
 
-
 function addKillers(esper, killers) {
     for (var i = 0; i < killers.length; i++) {
         addKiller(esper, killers[i].name, killers[i].physical, killers[i].magical);
     }
 }
+
 function addKiller(esper, race, physicalPercent, magicalPercent) {
     if (!esper.killers) {
         esper.killers = [];
@@ -681,6 +687,7 @@ function addKiller(esper, race, physicalPercent, magicalPercent) {
         }
     }
 }
+
 function removeKillers(esper, killers) {
     for (var i = 0; i < killers.length; i++) {
         for (var index in esper.killers) {
@@ -708,7 +715,6 @@ function removeKillers(esper, killers) {
         delete esper.killers;
     }
 }
-
 
 function addElementalResist(item, resist) {
     for (var i = 0; i < resist.length; i++) {
@@ -754,6 +760,7 @@ function addEsperStatsBonus(item, bonus) {
         item.esperStatsBonus.all[baseStats[i]] += bonus[baseStats[i]];
     }
 }
+
 function removeEsperStatsBonus(item, bonus) {
     for (var i = 0; i < baseStats.length; i++) {
         item.esperStatsBonus.all[baseStats[i]] -= bonus[baseStats[i]];
@@ -771,6 +778,7 @@ function addToStat(esper, stat, value) {
     }
     esper[stat] += value;
 }
+
 function removeFromStat(esper, stat, value) {
     esper[stat] -= value;
     if (esper[stat] == 0) {

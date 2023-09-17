@@ -107,6 +107,7 @@ function loadTheme() {
 }
 
 function getImageHtml(item, actionOnImage = undefined) {
+    console.log(item)
     var html = '<div class="td type">';
 
     if (item?.special && item?.special.includes("notStackable")) {
@@ -325,6 +326,7 @@ function getMaxRarityUnitIcon(unit) {
 }
 
 function getSpecialHtml(item) {
+    console.log(item)
     var special = "";
 
     if (item.element) {

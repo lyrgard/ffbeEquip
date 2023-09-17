@@ -1312,7 +1312,7 @@
 	{"atk":64, "mag":64, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
 	{"atk":68, "mag":68, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
 	{"atk":72, "mag":72, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100}]},
-	{"atk":80, "mag":80, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100},{"oneWeaponMastery":{"atk":50},"exclusiveUnits":["213000105","213000127","213000204","213000304","213000403","213000504","213000603","213001005","213001027","213001105","213001205","213001305","213001327","213001407","213001417","213001507","213001517","213001707","213001717","213001807","213001817","213001907","213001917","250000105","250000127","250000205","250000305","250000404","258000107","258000117","258000207","258000217","258000305"]},{"oneWeaponMastery":{"mag":50},"exclusiveUnits":["213000105","213000127","213000204","213000304","213000403","213000504","213000603","213001005","213001027","213001105","213001205","213001305","213001327","213001407","213001417","213001507","213001517","213001707","213001717","213001807","213001817","213001907","213001917","250000105","250000127","250000205","250000305","250000404","258000107","258000117","258000207","258000217","258000305"]}]}
+	{"atk":80, "mag":80, "conditional":[{"equipedConditions":["lightShield"],"atk%":100,"mag%":100},{"equipedConditions":["heavyShield"],"atk%":100,"mag%":100},{"oneWeaponMastery":{"atk":50}},{"oneWeaponMastery":{"mag":50}}]}
 ]},
 {"id":"213000201", "name":"Five Hundred Years of Grief", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000201.png", "sortId":40, "vc":["258000107"], "levels":[
 	{"hp":500, "def":30, "spr":30},
@@ -1340,6 +1340,18 @@
 	{"mag":110, "mag%":50, "lbDamage":25},
 	{"mag":117, "mag%":50, "lbDamage":25},
 	{"mag":130, "mag%":50, "lbDamage":25, "conditional":[{"staticStats":{"mag":500}}]}
+]},
+{"id":"213000501", "name":"The Sunleth Waterscape Reserve", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_213000501.png", "sortId":182, "vc":["213001707","213001807"], "levels":[
+	{"atk":55, "mag":55},
+	{"atk":60, "mag":60},
+	{"atk":66, "mag":66},
+	{"atk":71, "atk%":50, "mag":71, "mag%":50},
+	{"atk":77, "atk%":50, "mag":77, "mag%":50},
+	{"atk":82, "atk%":50, "mag":82, "mag%":50},
+	{"atk":88, "atk%":50, "mag":88, "mag%":50, "lbDamage":50},
+	{"atk":93, "atk%":50, "mag":93, "mag%":50, "lbDamage":50},
+	{"atk":99, "atk%":50, "mag":99, "mag%":50, "lbDamage":50},
+	{"atk":110, "atk%":50, "mag":110, "mag%":50, "lbDamage":50, "conditional":[{"staticStats":{"atk":500,"mag":500}}]}
 ]},
 {"id":"215000101", "name":"The Cure for Insomnia", "type":"visionCard", "access":["unknown"], "icon":"vc_vignette_item_icon_215000101.png", "sortId":45, "vc":["215002907"], "levels":[
 	{"atk":60},
