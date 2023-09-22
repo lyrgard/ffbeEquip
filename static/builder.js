@@ -1739,12 +1739,11 @@ function updateUnitStats() {
     }
     populateUnitEquip();
     if (builds[currentUnitIndex].unit) {
-        console.log(builds[currentUnitIndex].unit.skills.filter(skill => skill.equipedConditions))
         let equipmentBoost = [];
         builds[currentUnitIndex].unit.skills
-            .filter(skill => skill.equipedConditions)
-            .forEach(skill => {
-           equipmentBoost = equipmentBoost.concat(skill.equipedConditions);
+        .filter(skill => skill.equipedConditions)
+        .forEach(skill => {
+            equipmentBoost = equipmentBoost.concat(skill.equipedConditions);
         });
 
         builds[currentUnitIndex].unit.equip.forEach(equip => {

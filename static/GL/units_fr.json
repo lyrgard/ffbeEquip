@@ -34712,6 +34712,50 @@
 		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","visionCard"],
 		"enhancementSkills":["Blade of the Vampyr","Hemomancer's Delirium"]
 	},
+	"401015307": {
+		"name":"Aya Brea",
+		"roles":["physicalAttacker","healer"],
+		"wikiEntry":"Aya_Brea",
+		"id":"401015307",
+		"game_id":"90010",
+		"game":"Other",
+		"braveShift":"401015317",
+		"exAwakening": [{"hp":625,"mp":53,"atk":83,"def":22,"mag":22,"spr":39},{"hp":481,"mp":41,"atk":64,"def":17,"mag":17,"spr":30},{"hp":336,"mp":29,"atk":45,"def":11,"mag":12,"spr":21}],
+		"fragmentId": "310001100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4807,"mp":410,"atk":320,"def":165,"mag":170,"spr":300},
+			"minStats":{"hp":1586,"mp":135,"atk":106,"def":54,"mag":56,"spr":99},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Mutated Mitochondria","Gene Heal"]
+	},
+	"401015317": {
+		"name":"Aya Brea BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Aya_Brea",
+		"id":"401015317",
+		"game_id":"90010",
+		"game":"Other",
+		"braveShifted":"401015307",
+		"exAwakening": [{"hp":625,"mp":53,"atk":83,"def":22,"mag":22,"spr":39},{"hp":481,"mp":41,"atk":64,"def":17,"mag":17,"spr":30},{"hp":336,"mp":29,"atk":45,"def":11,"mag":12,"spr":21}],
+		"fragmentId": "310001100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5650,"mp":300,"atk":332,"def":255,"mag":140,"spr":280},
+			"minStats":{"hp":1865,"mp":99,"atk":110,"def":84,"mag":46,"spr":92},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Mutated Mitochondria","Awakened Mitochondria"]
+	},
 	"401015407": {
 		"name":"Addison Rae, top tendance",
 		"roles":["physicalAttacker"],

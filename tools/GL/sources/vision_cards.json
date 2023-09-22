@@ -2706,7 +2706,7 @@
         }
     },
     "100008001": {
-        "name": "自己犠牲と別れ",
+        "name": "Parting in Self-Sacrifice",
         "compendium_id": 172,
         "compendium_shown": true,
         "rarity": 1,
@@ -2739,10 +2739,10 @@
         "merge_exp": 400,
         "merge_stats": [0, 0, 0, 0, 0, 0],
         "details": {
-            "desc": "オメガと一体化したスネフリンガは、火口に飛び込むことでこの怪物を倒そうとする。その決断を認められず涙するリダル。自分のために泣いてくれる幼馴染に感謝の言葉を残し、彼女は溶岩の中へと没した。",
-            "info": "ビジョンカードが経験値を獲得！",
-            "shop": "自己犠牲と別れ",
-            "music": "♪The Oath",
+            "desc": "Now fully merged with Omega, Snovlinka prepares to leap into a volcano, that she may destroy the monster once and for all. Riddar weeps bitterly, unwilling to accept her decision. Touched by her friend's tears, Snovlinka offers words of heartfelt thanks before sinking into the lava below.",
+            "info": "Now fully merged with Omega, Snovlinka prepares to leap into a volcano, that she may destroy the monster once and for all. Riddar weeps bitterly, unwilling to accept her decision. Touched by her friend's tears, Snovlinka offers words of heartfelt thanks before sinking into the lava below.",
+            "shop": "Parting in Self-Sacrifice",
+            "music": "The Oath",
             "music_id": "400106"
         }
     },
@@ -9439,6 +9439,43 @@
             "music_id": "400308"
         }
     },
+    "401008201": {
+        "name": "Mitochondria Eve",
+        "compendium_id": 9081,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 90010,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [0, 0, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [65, 120, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [65, 120, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "4": [917691],
+            "7": [917692],
+            "10": [917693]
+        },
+        "restriction": null,
+        "max_level": 10,
+        "exp_pattern": 110,
+        "stat_pattern": 100,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "After the audience is killed by Melissa when she is possessed by Eve, Aya finds her playing the piano in a locked room. Melissa then transforms into Mitochondria Eve, declaring that today is the day for the mitochondria to be freed, and launches an attack on Aya.",
+            "info": "After the audience is killed by Melissa when she is possessed by Eve, Aya finds her playing the piano in a locked room. Melissa then transforms into Mitochondria Eve, declaring that today is the day for the mitochondria to be freed, and launches an attack on Aya.",
+            "shop": "Mitochondria Eve",
+            "music": "Kyrie",
+            "music_id": "9000543"
+        }
+    },
     "401008301": {
         "name": "Fashion Leaders",
         "compendium_id": 9082,
@@ -9474,6 +9511,43 @@
             "shop": "Fashion Leaders",
             "music": "Peaceful Village",
             "music_id": "400201"
+        }
+    },
+    "401008401": {
+        "name": "Blood Moon",
+        "compendium_id": 9083,
+        "compendium_shown": true,
+        "rarity": 1,
+        "game_id": 11001,
+        "job_id": 0,
+        "unit_type": 0,
+        "stats": {
+            "HP": [1500, 1500, 0, 0],
+            "MP": [0, 0, 0, 0],
+            "ATK": [135, 135, 0, 0],
+            "DEF": [0, 0, 0, 0],
+            "MAG": [0, 0, 0, 0],
+            "SPR": [0, 0, 0, 0],
+            "element_resist": null,
+            "status_resist": null
+        },
+        "skills": {
+            "1": [917819, 917820, 917821]
+        },
+        "restriction": {
+            "917821": [7216]
+        },
+        "max_level": 1,
+        "exp_pattern": 1,
+        "stat_pattern": 1,
+        "merge_exp": 400,
+        "merge_stats": [0, 0, 0, 0, 0, 0],
+        "details": {
+            "desc": "Not a single trace remains of this assassin and master of hemomancy when she delivers her flawless executions. Some whispers in the dark claim the Blood Dancer is a cunning vampyr, while others insist the Blood Dancer is a cutthroat for coin in the guise of a child... But none truly know.",
+            "info": "Not a single trace remains of this assassin and master of hemomancy when she delivers her flawless executions. Some whispers in the dark claim the Blood Dancer is a cunning vampyr, while others insist the Blood Dancer is a cutthroat for coin in the guise of a child... But none truly know.",
+            "shop": "Blood Moon",
+            "music": "End is Nigh",
+            "music_id": "400103"
         }
     },
     "900020101": {

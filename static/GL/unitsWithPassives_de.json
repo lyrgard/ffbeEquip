@@ -47947,6 +47947,70 @@
 			{"hp":1000, "atk":1000, "exLevelCondition":3}
 		]
 	},
+	"401015307": {
+		"name":"Aya Brea",
+		"roles":["physicalAttacker","healer"],
+		"wikiEntry":"Aya_Brea",
+		"id":"401015307",
+		"game_id":"90010",
+		"game":"Other",
+		"braveShift":"401015317",
+		"exAwakening": [{"hp":625,"mp":53,"atk":83,"def":22,"mag":22,"spr":39},{"hp":481,"mp":41,"atk":64,"def":17,"mag":17,"spr":30},{"hp":336,"mp":29,"atk":45,"def":11,"mag":12,"spr":21}],
+		"fragmentId": "310001100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4807,"mp":410,"atk":320,"def":165,"mag":170,"spr":300},
+			"minStats":{"hp":1586,"mp":135,"atk":106,"def":54,"mag":56,"spr":99},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Mutated Mitochondria","Gene Heal"],
+		"enhancements": [
+			{"name":"Mutated Mitochondria","levels":[[{"singleWielding":{"accuracy":25,"atk":120}}],[{"singleWielding":{"accuracy":25,"atk":140}}],[{"singleWielding":{"accuracy":25,"atk":160}}],[{"singleWielding":{"accuracy":25,"atk":180}}],[{"singleWielding":{"accuracy":25,"atk":200}}]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":100, "evade":{"physical":50}, "chainMastery":100, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":80},{"name":"earth","percent":80},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200}], "mpRefresh":15, "lbDamage":100},
+			{"atk%":100, "spr%":100, "equipedConditions":["gun"]},
+			{"atk":1000, "atk%":50, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["1100000762","1100000763","401008201"]]},
+			{"atk":500, "chainMastery":100, "exLevelCondition":2},
+			{"atk":500, "atk%":100, "def%":100, "spr":500, "spr%":100, "exLevelCondition":3}
+		]
+	},
+	"401015317": {
+		"name":"Aya Brea BS",
+		"roles":["physicalAttacker"],
+		"wikiEntry":"Aya_Brea",
+		"id":"401015317",
+		"game_id":"90010",
+		"game":"Other",
+		"braveShifted":"401015307",
+		"exAwakening": [{"hp":625,"mp":53,"atk":83,"def":22,"mag":22,"spr":39},{"hp":481,"mp":41,"atk":64,"def":17,"mag":17,"spr":30},{"hp":336,"mp":29,"atk":45,"def":11,"mag":12,"spr":21}],
+		"fragmentId": "310001100",
+		"max_rarity":"NV",
+		"min_rarity":"NV",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5650,"mp":300,"atk":332,"def":255,"mag":140,"spr":280},
+			"minStats":{"hp":1865,"mp":99,"atk":110,"def":84,"mag":46,"spr":92},
+			"pots":{"hp":900,"mp":150,"atk":65,"def":65,"mag":65,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["gun","hat","clothes","robe","visionCard"],
+		"enhancementSkills":["Mutated Mitochondria","Awakened Mitochondria"],
+		"enhancements": [
+			{"name":"Mutated Mitochondria","levels":[[{"singleWielding":{"accuracy":25,"atk":120}}],[{"singleWielding":{"accuracy":25,"atk":140}}],[{"singleWielding":{"accuracy":25,"atk":160}}],[{"singleWielding":{"accuracy":25,"atk":180}}],[{"singleWielding":{"accuracy":25,"atk":200}}]]}
+		],
+		"skills": [
+			{"hp%":100, "mp%":100, "atk%":100, "def%":100, "evade":{"physical":50}, "chainMastery":100, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":80},{"name":"earth","percent":80},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":200,"magical":200},{"name":"dragon","physical":200,"magical":200},{"name":"beast","physical":200,"magical":200},{"name":"bird","physical":200,"magical":200},{"name":"human","physical":200,"magical":200},{"name":"bug","physical":200,"magical":200}], "mpRefresh":15, "lbDamage":250},
+			{"atk%":100, "spr%":100, "equipedConditions":["gun"]},
+			{"atk":1000, "atk%":50, "spr%":50, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["1100000762","1100000763","401008201"]]},
+			{"atk":500, "chainMastery":100, "exLevelCondition":2},
+			{"atk":500, "atk%":100, "def%":100, "spr":500, "spr%":100, "exLevelCondition":3}
+		]
+	},
 	"401015407": {
 		"name":"Addison Rae mit den coolen Moves",
 		"roles":["physicalAttacker"],
