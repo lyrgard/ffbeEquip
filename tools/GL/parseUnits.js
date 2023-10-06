@@ -260,6 +260,7 @@ function manageNV(units) {
                 unitIn.entries[nvId].rarity = 'NV';
                 baseUnitIdByNVUnitId[nvId] = unitId;
                 unitIn.nv_upgrade = unitIn.entries[nvId].nv_upgrade;
+                unitIn.categories = unitIn.entries[nvId].categories;
             });
             if (unitIn.rarity_min == 7) {
                 unitIn.rarity_max = 'NV';
@@ -444,6 +445,14 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, l
     data["sex"] = unitIn.sex.toLowerCase();
     data["equip"] = commonParse.getEquip(unitIn.equip);
     data["id"] = unitId;
+    
+    if (unitIn.categories || Object.keys(unitIn.entries).map(key => unitIn.entries[key].categories).length > 0) {
+        if (unitIn.categories) {
+            data["categories"] = unitIn.categories;
+        } else if (Object.keys(unitIn.entries).map(key => unitIn.entries[key].categories).length > 0) {
+            data["categories"] = Object.keys(unitIn.entries).map(key => unitIn.entries[key].categories).flat();
+        }
+    }
 
     for (let skillIndex in unitIn.skills) {
         if (unitIn.skills[skillIndex].rarity.startsWith && unitIn.skills[skillIndex].rarity.startsWith('NV+')) {

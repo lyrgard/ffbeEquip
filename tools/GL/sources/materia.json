@@ -841,7 +841,7 @@
         "compendium_shown": true,
         "requirements": null,
         "skills": [30050],
-        "effects": ["Grant 'Barthunder' magic"],
+        "effects": ["Grant 'Barthund' magic"],
         "unique": false,
         "price_buy": 1000,
         "price_sell": 100,
@@ -28507,20 +28507,47 @@
         }
     },
     "504244483": {
-        "name": "ダーク黒龍シナジー",
+        "name": "Dark Kokuryu Synergy",
         "compendium_id": 1539,
         "compendium_shown": true,
         "requirements": null,
         "skills": [244483],
-        "effects": ["Grant 'ダーク黒龍シナジー' passive"],
+        "effects": ["Grant 'Dark Kokuryu Synergy' passive"],
         "unique": false,
         "price_buy": 100000,
         "price_sell": 10000,
         "icon": "ability_77.png",
         "strings": {
-            "names": [null, null, null, null, null, null, null, null],
-            "desc_short": [null, null, null, null, null, null, null, null],
-            "desc_long": [null, null, null, null, null, null, null, null]
+            "names": [
+                "Dark Kokuryu Synergy",
+                "暗黑黑龍協同",
+                "다크 흑룡 시너지",
+                "Synergie : Kokuryu obscur",
+                "Dunkel-Kokuryu-Synergie",
+                "Sinergia de Kokuryu oscuro",
+                "Dark Kokuryu Synergy",
+                "Dark\u001a \u001aKokuryu\u001a \u001aSynergy\u001a"
+            ],
+            "desc_short": [
+                "Boost parameters of espers evoked by 30%, evocation damage by 40%, and water resistance by 30%",
+                "發動召喚魔法時提高30%幻獸狀態+提高40%召喚魔法的威力+提高30%水屬性耐性[無法重複裝備]",
+                "소환마법 사용 시 환수 능력치 30% 상승+소환마법 사용 시 피해량 40% 상승+물속성 저항력 30% 상승",
+                "Augmente les caractéristiques des chimères appelées de 30 %, les dégâts d'appel de 40 % et la résistance à l'eau de 30 %",
+                "Erhöht Werte gerufener Esper um 30%, Rufen-Schaden um 40% sowie Wasserresistenz um 30%.",
+                "Aumenta los parámetros de los espers evocados un 30%, el daño de evocación un 40% y la resistencia al agua un 30%",
+                "Boost parameters of espers evoked by 30%, evocation damage by 40%, and water resistance by 30%",
+                "Boost\u001a \u001aparameters\u001a \u001aof\u001a \u001aespers\u001a \u001aevoked\u001a \u001aby\u001a \u001a30%, evocation\u001a \u001adamage\u001a \u001aby\u001a \u001a40%, and\u001a \u001awater\u001a \u001aresistance\u001a \u001aby\u001a \u001a30%"
+            ],
+            "desc_long": [
+                "Boosts LB damage by 50%, parameters of espers evoked by 30%, and evocation damage by 30%. Not stackable.",
+                "發動召喚魔法時提高30%幻獸狀態，以及提高40%召喚魔法的威力，並提高30%水屬性耐性。[無法重複裝備]",
+                "소환마법 사용 시 환수 능력치가 30% 상승하고, 소환마법 사용 시 피해량이 40% 상승하며, 물속성 저항력이 30% 상승합니다.",
+                "Augmente les caractéristiques des chimères appelées de 30 %, les dégâts d'appel de 40 % et la résistance à l'eau de 30 %",
+                "Erhöht Werte gerufener Esper um 30%, Rufen-Schaden um 40% sowie Wasserresistenz um 30%.",
+                "Aumenta los parámetros de los espers evocados un 30%, el daño de evocación un 40% y la resistencia al agua un 30%.",
+                "Boosts LB damage by 50%, parameters of espers evoked by 30%, and evocation damage by 30%. Not stackable.",
+                "Boosts\u001a \u001aLB\u001a \u001adamage\u001a \u001aby\u001a \u001a50%, parameters\u001a \u001aof\u001a \u001aespers\u001a \u001aevoked\u001a \u001aby\u001a \u001a30%, and\u001a \u001aevocation\u001a \u001adamage\u001a \u001aby\u001a \u001a30%. Not\u001a \u001astackable\u001a.\u001a"
+            ]
         }
     },
     "504244490": {
@@ -28661,6 +28688,250 @@
                 "Meningkatkan damage fisik dan magic api, es, petir, dan air sebanyak 40%. Tidak dapat ditumpuk.",
                 "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aATK\u001a \u001a40% \u001a+\u001a \u001aเพิ่มค่า\u001a \u001aMP\u001a \u001a30% \u001a+\u001a \u001aเพิ่ม\u001aพลัง\u001aต้านทาน\u001aธาตุ\u001aไฟ\u001a \u001a40% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
+        }
+    },
+    "504244590": {
+        "name": "黒龍シナジー",
+        "compendium_id": 1545,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244590],
+        "effects": ["Grant '黒龍シナジー' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_19.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244593": {
+        "name": "Anima Synergy",
+        "compendium_id": 1546,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244593],
+        "effects": ["Grant 'Anima Synergy' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_78.png",
+        "strings": {
+            "names": [
+                "Anima Synergy",
+                "暴怒靈獸協同",
+                "아니마 시너지",
+                "Synergie : Anima",
+                "Anima-Synergie",
+                "Sinergia de Ánima",
+                "Anima Synergy",
+                "Anima\u001a \u001aSynergy\u001a"
+            ],
+            "desc_short": [
+                "Boost ATK and MAG by 30%, dark resistance by 30%, and LB gauge fill rate by 100% (Not stackable)",
+                "提高30%攻擊魔力、30%暗屬性耐性+提高100%極限技石對極限技槽的增加量[無法重複裝備]",
+                "공격력과 마력 30% 상승+어둠속성 저항력 30% 상승+LB 게이지 효율 100% 상승(중복 장착 불가)",
+                "Augmente l'ATT et la MAGIE de 30 % et la résistance aux ténèbres de 30 %, et augmente le taux de remplissage de la jauge de limite de 100 % (non cumulable)",
+                "Erhöht ANG sowie MAG um 30%, erhöht Dunkelresistenz um 30% und Limitmeter füllt sich um 100% schneller (nicht stapelbar).",
+                "Aumenta el ATQ y la MAG un 30% y la resistencia a la oscuridad un 30%, y la barra de EL se rellena un 100% más rápido (no acumulable)",
+                "Boost ATK and MAG by 30%, dark resistance by 30%, and LB gauge fill rate by 100% (Not stackable)",
+                "Boost\u001a \u001aATK\u001a \u001aand\u001a \u001aMAG\u001a \u001aby\u001a \u001a30%, dark\u001a \u001aresistance\u001a \u001aby\u001a \u001a30%, and\u001a \u001aLB\u001a \u001agauge\u001a \u001afill\u001a \u001arate\u001a \u001aby\u001a \u001a100% (Not\u001a \u001astackable\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts ATK and MAG by 30%, dark resistance by 30%, and LB gauge fill rate by 100%. Not stackable.",
+                "提高30%攻擊魔力、30%暗屬性耐性，並提高100%極限技石對極限技槽的增加量。[無法重複裝備]",
+                "공격력과 마력이 30% 상승하고, 어둠속성 저항력이 30% 상승하며, LB 게이지 효율이 100% 상승합니다.(중복 장착 불가)",
+                "Augmente l'ATT et la MAGIE de 30 % et la résistance aux ténèbres de 30 %, et augmente le taux de remplissage de la jauge de limite de 100 %. Non cumulable.",
+                "Erhöht ANG sowie MAG um 30%, erhöht Dunkelresistenz um 30% und Limitmeter füllt sich um 100% schneller. Nicht stapelbar.",
+                "Aumenta el ATQ y la MAG un 30% y la resistencia a la oscuridad un 30%, y la barra de EL se rellena un 100% más rápido. No acumulable.",
+                "Boosts ATK and MAG by 30%, dark resistance by 30%, and LB gauge fill rate by 100%. Not stackable.",
+                "Boosts\u001a \u001aATK\u001a \u001aand\u001a \u001aMAG\u001a \u001aby\u001a \u001a30%, dark\u001a \u001aresistance\u001a \u001aby\u001a \u001a30%, and\u001a \u001aLB\u001a \u001agauge\u001a \u001afill\u001a \u001arate\u001a \u001aby\u001a \u001a100%. Not\u001a \u001astackable\u001a.\u001a"
+            ]
+        }
+    },
+    "504244596": {
+        "name": "Atomos Synergy",
+        "compendium_id": 1544,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244596],
+        "effects": ["Grant 'Atomos Synergy' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_78.png",
+        "strings": {
+            "names": [
+                "Atomos Synergy",
+                "阿托莫斯協同",
+                "아트모스 시너지",
+                "Synergie : Atomos",
+                "Athmos-Synergie",
+                "Sinergia de Átomo",
+                "Atomos Synergy",
+                "Atomos\u001a \u001aSynergy\u001a"
+            ],
+            "desc_short": [
+                "Boost LB damage by 50%, parameters of espers evoked by 30%, and evocation damage by 30% (Not stackable)",
+                "提高50%極限技的傷害+發動召喚魔法時提高30%幻獸狀態+提高30%召喚魔法的威力[無法重複裝備]",
+                "LB 피해량 50% 상승+소환마법 사용 시 환수 능력치 30% 상승+소환마법 사용 시 피해량 30% 상승(중복 장착 불가)",
+                "Augmente les dégâts de la limite de 50 %, les caractéristiques des chimères appelées de 30 % et les dégâts d'appel de 30 % (non cumulable)",
+                "Erhöht Schaden durch Limitrausch um 50%, Werte gerufener Esper um 30% sowie Rufen-Schaden um 30% (nicht stapelbar).",
+                "Aumenta el daño del EL un 50%, los parámetros de los espers evocados un 30% y el daño de evocación un 30% (no acumulable)",
+                "Boost LB damage by 50%, parameters of espers evoked by 30%, and evocation damage by 30% (Not stackable)",
+                "Boost\u001a \u001aLB\u001a \u001adamage\u001a \u001aby\u001a \u001a50%, parameters\u001a \u001aof\u001a \u001aespers\u001a \u001aevoked\u001a \u001aby\u001a \u001a30%, and\u001a \u001aevocation\u001a \u001adamage\u001a \u001aby\u001a \u001a30% (Not\u001a \u001astackable\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts LB damage by 50%, parameters of espers evoked by 30%, and evocation damage by 30%. Not stackable.",
+                "提高50%極限技的傷害，以及發動召喚魔法時提高30%幻獸狀態，並提高30%召喚魔法的威力。[無法重複裝備]",
+                "LB 피해량이 50% 상승하고, 소환마법 사용 시 환수 능력치가 30% 상승하며, 소환마법 사용 시 피해량이 30% 상승합니다.(중복 장착 불가)",
+                "Augmente les dégâts de la limite de 50 %, les caractéristiques des chimères appelées de 30 % et les dégâts d'appel de 30 %. Non cumulable.",
+                "Erhöht Schaden durch Limitrausch um 50%, Werte gerufener Esper um 30% sowie Rufen-Schaden um 30%. Nicht stapelbar.",
+                "Aumenta el daño del EL un 50%, los parámetros de los espers evocados un 30% y el daño de evocación un 30%. No acumulable.",
+                "Boosts LB damage by 50%, parameters of espers evoked by 30%, and evocation damage by 30%. Not stackable.",
+                "Boosts\u001a \u001aLB\u001a \u001adamage\u001a \u001aby\u001a \u001a50%, parameters\u001a \u001aof\u001a \u001aespers\u001a \u001aevoked\u001a \u001aby\u001a \u001a30%, and\u001a \u001aevocation\u001a \u001adamage\u001a \u001aby\u001a \u001a30%. Not\u001a \u001astackable\u001a.\u001a"
+            ]
+        }
+    },
+    "504244614": {
+        "name": "セイレーンシナジー",
+        "compendium_id": 1548,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244614],
+        "effects": ["Grant 'セイレーンシナジー' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244616": {
+        "name": "Madeen Synergy",
+        "compendium_id": 1547,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244616],
+        "effects": ["Grant 'Madeen Synergy' passive"],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_77.png",
+        "strings": {
+            "names": [
+                "Madeen Synergy",
+                "馬蒂恩協同",
+                "마딘 시너지",
+                "Synergie : Marthym",
+                "Madhin-Synergie",
+                "Sinergia de Madine",
+                "Madeen Synergy",
+                "Madeen\u001a \u001aSynergy\u001a"
+            ],
+            "desc_short": [
+                "Boost ATK and MAG by 60%, and boost damage for various chains by 100% (Not stackable)",
+                "提高60%攻擊魔力+提高100%各種CHAIN的傷害[無法重複裝備]",
+                "공격력과 마력 60% 상승+각종 체인 피해량 100% 상승(중복 장착 불가)",
+                "Augmente l'ATT et la MAGIE de 60 %, et augmente les dégâts pour divers combo de 100 % (non cumulable)",
+                "Erhöht ANG sowie MAG um 60% und erhöht Schaden verschiedener Ketten um 100% (nicht stapelbar).",
+                "Aumenta el ATQ y la MAG un 60% y el daño de varios combos un 100% (no acumulable)",
+                "Boost ATK and MAG by 60%, and boost damage for various chains by 100% (Not stackable)",
+                "Boost\u001a \u001aATK\u001a \u001aand\u001a \u001aMAG\u001a \u001aby\u001a \u001a60%, and\u001a \u001aboost\u001a \u001adamage\u001a \u001afor\u001a \u001avarious\u001a \u001achains\u001a \u001aby\u001a \u001a100% (Not\u001a \u001astackable\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts ATK and MAG by 60%, and boosts damage for various chains by 100%. Not stackable.",
+                "提高60%攻擊魔力，並且提高100%各種CHAIN的傷害。[無法重複裝備]",
+                "공격력과 마력이 60% 상승하고, 각종 체인 피해량이 100% 상승합니다.(중복 장착 불가)",
+                "Augmente l'ATT et la MAGIE de 60 %, et augmente les dégâts pour divers combo de 100 %. Non cumulable.",
+                "Erhöht ANG sowie MAG um 60% und erhöht Schaden verschiedener Ketten um 100%. Nicht stapelbar.",
+                "Aumenta el ATQ y la MAG un 60% y el daño de varios combos un 100%. No acumulable.",
+                "Boosts ATK and MAG by 60%, and boosts damage for various chains by 100%. Not stackable.",
+                "Boosts\u001a \u001aATK\u001a \u001aand\u001a \u001aMAG\u001a \u001aby\u001a \u001a60%, and\u001a \u001aboosts\u001a \u001adamage\u001a \u001afor\u001a \u001avarious\u001a \u001achains\u001a \u001aby\u001a \u001a100%. Not\u001a \u001astackable\u001a.\u001a"
+            ]
+        }
+    },
+    "504244631": {
+        "name": "Carbuncle Synergy",
+        "compendium_id": 1549,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244631],
+        "effects": ["Grant 'Carbuncle Synergy' passive"],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_76.png",
+        "strings": {
+            "names": [
+                "Carbuncle Synergy",
+                "卡邦庫爾協同",
+                "카벙클 시너지",
+                "Synergie : Carbuncle",
+                "Karfunkel-Synergie",
+                "Sinergia de Rubí",
+                "Carbuncle Synergy",
+                "Carbuncle\u001a \u001aSynergy\u001a"
+            ],
+            "desc_short": [
+                "Boost fire, ice, and lightning resistance by 60%, and boost equipment MAG by 100% when a single weapon is equipped in both hands (Not stackable)",
+                "提高60%火冰雷屬性耐性+雙手只裝備1把武器時武具魔力提升100%[無法重複裝備]",
+                "불, 얼음, 번개속성 저항력 60% 상승+양손의 장비가 무기 1개일 경우 장비의 마력 100% 상승(중복 장착 불가)",
+                "Augmente la résistance au feu, à la glace et à la foudre de 60 %, et augmente la MAGIE de l'équipement de 100 % quand une arme est tenue avec les deux mains (non cumulable)",
+                "Erhöht Feuer-, Eis- und Lichtresistenz um 60% und erhöht Ausrüstung-MAG um 100%, wenn eine einzelne Waffe in beiden Händen ausgerüstet ist (nicht stapelbar).",
+                "Aumenta la resistencia a fuego, hielo y rayo un 60%, y la MAG del equipo un 100% al llevar una sola arma en ambas manos (no acumulable)",
+                "Boost fire, ice, and lightning resistance by 60%, and boost equipment MAG by 100% when a single weapon is equipped in both hands (Not stackable)",
+                "Boost\u001a \u001afire\u001a,\u001a \u001aice\u001a,\u001a \u001aand\u001a \u001alightning\u001a \u001aresistance\u001a \u001aby\u001a \u001a60%, and\u001a \u001aboost\u001a \u001aequipment\u001a \u001aMAG\u001a \u001aby\u001a \u001a100% when\u001a \u001aa\u001a \u001asingle\u001a \u001aweapon\u001a \u001ais\u001a \u001aequipped\u001a \u001ain\u001a \u001aboth\u001a \u001ahands\u001a \u001a(\u001aNot\u001a \u001astackable\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts fire, ice, and lightning resistance by 60%, and boosts equipment MAG by 100% when a single weapon is equipped in both hands. Not stackable.",
+                "提高60%火冰雷屬性耐性，並且雙手只裝備1把武器時武具魔力提升100%。[無法重複裝備]",
+                "불, 얼음, 번개속성 저항력이 60% 상승하고, 양손의 장비가 무기 1개일 경우 장비의 마력이 100% 상승합니다.(중복 장착 불가)",
+                "Augmente la résistance au feu, à la glace et à la foudre de 60 %, et augmente la MAGIE de l'équipement de 100 % quand une arme est tenue avec les deux mains. Non cumulable.",
+                "Erhöht Feuer-, Eis- und Lichtresistenz um 60% und erhöht Ausrüstung-MAG um 100%, wenn eine einzelne Waffe in beiden Händen ausgerüstet ist. Nicht stapelbar.",
+                "Aumenta la resistencia a fuego, hielo y rayo un 60%, y la MAG del equipo un 100% al llevar una sola arma en ambas manos. No acumulable.",
+                "Boosts fire, ice, and lightning resistance by 60%, and boosts equipment MAG by 100% when a single weapon is equipped in both hands. Not stackable.",
+                "Boosts\u001a \u001afire\u001a,\u001a \u001aice\u001a,\u001a \u001aand\u001a \u001alightning\u001a \u001aresistance\u001a \u001aby\u001a \u001a60%, and\u001a \u001aboosts\u001a \u001aequipment\u001a \u001aMAG\u001a \u001aby\u001a \u001a100% when\u001a \u001aa\u001a \u001asingle\u001a \u001aweapon\u001a \u001ais\u001a \u001aequipped\u001a \u001ain\u001a \u001aboth\u001a \u001ahands\u001a.\u001a \u001aNot\u001a \u001astackable\u001a.\u001a"
+            ]
+        }
+    },
+    "504244635": {
+        "name": "平和を願う心",
+        "compendium_id": 1550,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244635],
+        "effects": ["Grant '平和を願う心' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_6000200.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
+        }
+    },
+    "504244645": {
+        "name": "召喚魔法の使い手",
+        "compendium_id": 1551,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [244645],
+        "effects": ["Grant '召喚魔法の使い手' passive"],
+        "unique": false,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_76.png",
+        "strings": {
+            "names": [null, null, null, null, null, null, null, null],
+            "desc_short": [null, null, null, null, null, null, null, null],
+            "desc_long": [null, null, null, null, null, null, null, null]
         }
     },
     "504400110": {
@@ -35949,6 +36220,111 @@
                 "Aumenta el daño límite de varios combos un 100% y el daño del EL un 100%. No acumulable.",
                 "Meningkatkan batas damage dalam berbagai combo sebanyak 100% dan meningkatkan damage limit burst sebanyak 100%. Tidak dapat ditumpuk.",
                 "เพิ่ม\u001aความเสียหาย\u001aสูงสุด\u001aของ\u001a \u001aChain\u001a \u001aต่างๆ\u001a \u001a100% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aของ\u001a \u001aLB\u001a \u001a100% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
+        }
+    },
+    "1500000240": {
+        "name": "SOLDIER's Expertise",
+        "compendium_id": 90241,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [917848],
+        "effects": ["Grant 'SOLDIER's Expertise' passive"],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": ["SOLDIER's Expertise", "神羅戰士的專長", "솔저의 전문 기술", "Expertise de SOLDAT", "SOLDAT-Kompetenz", "Experiencia de Soldado", "Keahlian SOLDIER", "ความชำนาญ\u001aของ\u001aหน่วย\u001a \u001aSOLDIER\u001a"],
+            "desc_short": [
+                "Boost HP and MP by 10%, ATK, DEF, MAG, and SPR by 25%, and boost physical and magic damage against humans by 25% (Not stackable)",
+                "提高10%HPMP、25%攻擊防禦魔力精神+物理、魔法攻擊時提高25%對人系魔物的傷害[無法重複裝備]",
+                "HP와 MP 10%, 공격력, 방어력, 마력, 정신력 25% 상승+물리, 마법 공격 시 인간형 마물에게 부여하는 피해량 25% 상승(중복 장착 불가)",
+                "Augmente les PV et les PM de 10 %, l'ATT, la DEF, la MAGIE et la PSY de 25 %, et augmente les dégâts physiques et magiques infligés aux humains de 25 % (non cumulable)",
+                "Erhöht LP und MP um 10%, ANG, ABW, MAG sowie PSY um 25% und physischen sowie magischen Schaden gegen Menschen um 25% (nicht stapelbar).",
+                "Aumenta la VIT y los PM un 10%, ATQ, DEF, MAG y ESP un 25% y el daño físico y mágico contra humanos un 25% (no acumulable)",
+                "Meningkatkan HP dan MP sebanyak 10%, dan ATK, DEF, MAG, dan SPR sebanyak 25%, serta meningkatkan damage fisik dan magic terhadap jenis manusia sebanyak 25% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a10% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a25% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมนุษย์\u001a \u001a25% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts HP and MP by 10%, ATK, DEF, MAG, and SPR by 25%, and boosts physical and magic damage against humans by 25%. Not stackable.",
+                "提高10%HPMP、25%攻擊防禦魔力精神，並且物理、魔法攻擊時提高25%對人系魔物的傷害。[無法重複裝備]",
+                "HP와 MP가 10%, 공격력, 방어력, 마력, 정신력이 25% 상승하고, 물리, 마법 공격 시 인간형 마물에게 부여하는 피해량이 25% 상승합니다.(중복 장착 불가)",
+                "Augmente les PV et les PM de 10 %, l'ATT, la DEF, la MAGIE et la PSY de 25 %, et augmente les dégâts physiques et magiques infligés aux humains de 25 %. Non cumulable.",
+                "Erhöht LP und MP um 10%, ANG, ABW, MAG sowie PSY um 25% und physischen sowie magischen Schaden gegen Menschen um 25%. Nicht stapelbar.",
+                "Aumenta la VIT y los PM un 10%, ATQ, DEF, MAG y ESP un 25% y el daño físico y mágico contra humanos un 25%. No acumulable.",
+                "Meningkatkan HP dan MP sebanyak 10%, dan ATK, DEF, MAG, dan SPR sebanyak 25%, serta meningkatkan damage fisik dan magic terhadap jenis manusia sebanyak 25%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a10% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a25% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมนุษย์\u001a \u001a25% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
+        }
+    },
+    "1500000241": {
+        "name": "SOLDIER's Expertise I",
+        "compendium_id": 90242,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [917849],
+        "effects": ["Grant 'SOLDIER's Expertise I' passive"],
+        "unique": true,
+        "price_buy": 100000,
+        "price_sell": 10000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": ["SOLDIER's Expertise I", "神羅戰士的專長I", "솔저의 전문 기술 I", "Expertise de SOLDAT I", "SOLDAT-Kompetenz I", "Experiencia de Soldado I", "Keahlian SOLDIER I", "ความชำนาญ\u001aของ\u001aหน่วย\u001a \u001aSOLDIER\u001a \u001aI\u001a"],
+            "desc_short": [
+                "Boost HP and MP by 25%, ATK, DEF, MAG, and SPR by 50%, and boost physical and magic damage against humans by 50% (Not stackable)",
+                "提高25%HPMP、50%攻擊防禦魔力精神+物理、魔法攻擊時提高50%對人系魔物的傷害[無法重複裝備]",
+                "HP와 MP 25%, 공격력, 방어력, 마력, 정신력 50% 상승+물리, 마법 공격 시 인간형 마물에게 부여하는 피해량 50% 상승(중복 장착 불가)",
+                "Augmente les PV et les PM de 25 %, l'ATT, la DEF, la MAGIE et la PSY de 50 %, et augmente les dégâts physiques et magiques infligés aux humains de 50 % (non cumulable)",
+                "Erhöht LP und MP um 25%, ANG, ABW, MAG sowie PSY um 50% und physischen sowie magischen Schaden gegen Menschen um 50% (nicht stapelbar).",
+                "Aumenta la VIT y los PM un 25%, ATQ, DEF, MAG y ESP un 50% y el daño físico y mágico contra humanos un 50% (no acumulable)",
+                "Meningkatkan HP dan MP sebanyak 25%, dan ATK, DEF, MAG, dan SPR sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis manusia sebanyak 50% (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a25% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมนุษย์\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts HP and MP by 25%, ATK, DEF, MAG, and SPR by 50%, and boosts physical and magic damage against humans by 50%. Not stackable.",
+                "提高25%HPMP、50%攻擊防禦魔力精神，並且物理、魔法攻擊時提高50%對人系魔物的傷害。[無法重複裝備]",
+                "HP와 MP가 25%, 공격력, 방어력, 마력, 정신력이 50% 상승하고, 물리, 마법 공격 시 인간형 마물에게 부여하는 피해량이 50% 상승합니다.(중복 장착 불가)",
+                "Augmente les PV et les PM de 25 %, l'ATT, la DEF, la MAGIE et la PSY de 50 %, et augmente les dégâts physiques et magiques infligés aux humains de 50 %. Non cumulable.",
+                "Erhöht LP und MP um 25%, ANG, ABW, MAG sowie PSY um 50% und physischen sowie magischen Schaden gegen Menschen um 50%. Nicht stapelbar.",
+                "Aumenta la VIT y los PM un 25%, ATQ, DEF, MAG y ESP un 50% y el daño físico y mágico contra humanos un 50%. No acumulable.",
+                "Meningkatkan HP dan MP sebanyak 25%, dan ATK, DEF, MAG, dan SPR sebanyak 50%, serta meningkatkan damage fisik dan magic terhadap jenis manusia sebanyak 50%. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a25% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a50% \u001a+\u001a \u001aเพิ่มค่า\u001aความเสียหาย\u001aทางกายภาพ\u001aและ\u001aพลัง\u001aเวทย์\u001aเมื่อ\u001aโจมตี\u001aศัตรู\u001aชนิด\u001aมนุษย์\u001a \u001a50% \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ]
+        }
+    },
+    "1500000242": {
+        "name": "SOLDIER's Expertise II",
+        "compendium_id": 90243,
+        "compendium_shown": true,
+        "requirements": null,
+        "skills": [917849, 917850],
+        "effects": ["Grant 'SOLDIER's Expertise I' passive", "Grant 'SOLDIER's Expertise II' passive"],
+        "unique": true,
+        "price_buy": 200000,
+        "price_sell": 20000,
+        "icon": "ability_79.png",
+        "strings": {
+            "names": ["SOLDIER's Expertise II", "神羅戰士的專長II", "솔저의 전문 기술 II", "Expertise de SOLDAT II", "SOLDAT-Kompetenz II", "Experiencia de Soldado II", "Keahlian SOLDIER II", "ความชำนาญ\u001aของ\u001aหน่วย\u001a \u001aSOLDIER\u001a \u001aII\u001a"],
+            "desc_short": [
+                "Boost HP and MP by 25%, ATK, DEF, MAG, and SPR by 50%, and boost physical and magic damage against humans by 50%, or boost HP and MP by 50%, ATK, DEF, MAG, and SPR by 100%, and boost physical and magic damage against humans by 100% for FFVII or Clash of Wills category units (Not stackable)",
+                "提高25%HPMP、50%攻擊防禦魔力精神+物理、魔法攻擊時提高50%對人系魔物的傷害，或「FFVII」「意志對決」類別的兵員提高50%HPMP、100%攻擊防禦魔力精神+物理、魔法攻擊時提高100%對人系魔物的傷害[無法重複裝備]",
+                "HP와 MP 25%, 공격력, 방어력, 마력, 정신력 50% 상승+물리, 마법 공격 시 인간형 마물에게 부여하는 피해량 50% 상승+FFVII 또는 의지의 격돌 카테고리 유닛의 HP와 MP 50%, 공격력, 방어력, 마력, 정신력 100% 상승, 물리, 마법 공격 시 인간형 마물에 대한 피해량 100% 상승 효과 부여(중복 장착 불가)",
+                "Augmente les PV et les PM de 25 %, l'ATT, la DEF, la MAGIE et la PSY de 50 %, et les dégâts physiques et magiques infligés aux humains de 50 %, ou augmente les PV et les PM de 50 %, l'ATT, la DEF, la MAGIE et la PSY de 100 %, et les dégâts physiques et magiques infligés aux humains de 100 % pour les unités de la catégorie FFVII ou Choc des volontés (non cumulable)",
+                "Erhöht LP und MP um 25%, ANG, ABW, MAG sowie PSY um 50%, physischen sowie magischen Schaden gegen Menschen um 50% oder erhöht LP und MP von FFVII oder Krieg des Willens (Kategorie)-Einheiten um 50%, deren ANG, ABW, MAG sowie PSY um 100% und deren physischen sowie magischen Schaden gegen Menschen um 100% (nicht stapelbar).",
+                "Aumenta la VIT y los PM un 25%, ATQ, DEF, MAG y ESP un 50% y el daño físico y mágico contra humanos un 50%, o la VIT y los PM un 50%, ATQ, DEF, MAG y ESP un 100% y el daño físico y mágico contra humanos un 100% si son unidades de FFVII o Choque de Voluntades (no acumulable)",
+                "Meningkatkan HP dan MP sebanyak 25%, dan ATK, DEF, MAG, dan SPR sebanyak 50%, dan meningkatkan damage fisik dan magic terhadap jenis manusia sebanyak 50%, atau meningkatkan HP dan MP sebanyak 50%, dan ATK, DEF, MAG, dan SPR sebanyak 100%, serta meningkatkan damage fisik dan magic terhadap jenis manusia sebanyak 100% untuk unit kategori FFVII atau Pertentangan Tekad (Tidak dapat ditumpuk)",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a25% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a50% + เพิ่มค่าความเสียหายทางกายภาพและพลังเวทย์เมื่อโจมตีศัตรูชนิดมนุษย์ 50% หรือเพิ่มค่า HP และ MP 50% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a100% + เพิ่มค่าความเสียหายทางกายภาพและพลังเวทย์เมื่อโจมตีศัตรูชนิดมนุษย์ 100% สำหรับยูนิทประเภท FFVII\u001a \u001aหรือ\u001aปะทะ\u001aจิตวิญญาณ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
+            ],
+            "desc_long": [
+                "Boosts HP and MP by 25%, ATK, DEF, MAG, and SPR by 50%, and boosts physical and magic damage against humans by 50%, or boosts HP and MP by 50%, ATK, DEF, MAG, and SPR by 100%, and boosts physical and magic damage against humans by 100% for FFVII or Clash of Wills category units. Not stackable.",
+                "提高25%HPMP、50%攻擊防禦魔力精神，並且物理、魔法攻擊時提高50%對人系魔物的傷害，或「FFVII」「意志對決」類別的兵員提高50%HPMP、100%攻擊防禦魔力精神，並且物理、魔法攻擊時提高100%對人系魔物的傷害。[無法重複裝備]",
+                "HP와 MP가 25%, 공격력, 방어력, 마력, 정신력이 50% 상승하고, 물리, 마법 공격 시 인간형 마물에게 부여하는 피해량이 50% 상승하며, 또는 FFVII 또는 의지의 격돌 카테고리 유닛의 HP와 MP가 50%, 공격력, 방어력, 마력, 정신력이 100% 상승하고, 물리, 마법 공격 시 인간형 마물에 대한 피해량 100% 상승 효과를 부여합니다.(중복 장착 불가)",
+                "Augmente les PV et les PM de 25 %, l'ATT, la DEF, la MAGIE et la PSY de 50 %, et les dégâts physiques et magiques infligés aux humains de 50 %, ou augmente les PV et les PM de 50 %, l'ATT, la DEF, la MAGIE et la PSY de 100 %, et les dégâts physiques et magiques infligés aux humains de 100 % pour les unités de la catégorie FFVII ou Choc des volontés. Non cumulable.",
+                "Erhöht LP und MP um 25%, ANG, ABW, MAG sowie PSY um 50%, physischen sowie magischen Schaden gegen Menschen um 50% oder erhöht LP und MP von FFVII oder Krieg des Willens (Kategorie)-Einheiten um 50%, deren ANG, ABW, MAG sowie PSY um 100% und deren physischen sowie magischen Schaden gegen Menschen um 100%. Nicht stapelbar.",
+                "Aumenta la VIT y los PM un 25%, ATQ, DEF, MAG y ESP un 50% y el daño físico y mágico contra humanos un 50%, o la VIT y los PM un 50%, ATQ, DEF, MAG y ESP un 100% y el daño físico y mágico contra humanos un 100% si son unidades de FFVII o Choque de Voluntades. No acumulable.",
+                "Meningkatkan HP dan MP sebanyak 25%, dan ATK, DEF, MAG, dan SPR sebanyak 50%, dan meningkatkan damage fisik dan magic terhadap jenis manusia sebanyak 50%, atau meningkatkan HP dan MP sebanyak 50%, dan ATK, DEF, MAG, dan SPR sebanyak 100%, serta meningkatkan damage fisik dan magic terhadap jenis manusia sebanyak 100% untuk unit kategori FFVII atau Pertentangan Tekad. Tidak dapat ditumpuk.",
+                "เพิ่มค่า\u001a \u001aHP\u001a \u001aและ\u001a \u001aMP\u001a \u001a25% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a50% + เพิ่มค่าความเสียหายทางกายภาพและพลังเวทย์เมื่อโจมตีศัตรูชนิดมนุษย์ 50% หรือเพิ่มค่า HP และ MP 50% + เพิ่มค่า ATK\u001a,\u001a \u001aDEF\u001a,\u001a \u001aMAG\u001a \u001aและ\u001a \u001aSPR\u001a \u001a100% + เพิ่มค่าความเสียหายทางกายภาพและพลังเวทย์เมื่อโจมตีศัตรูชนิดมนุษย์ 100% สำหรับยูนิทประเภท FFVII\u001a \u001aหรือ\u001aปะทะ\u001aจิตวิญญาณ\u001a \u001a(ผล\u001aที่เกิด\u001aไม่\u001aสามารถ\u001aทับซ้อน\u001aกัน\u001aได้\u001a)\u001a"
             ]
         }
     }

@@ -2865,6 +2865,7 @@ export function formatUnit(unit, prefix = "", form = null) {
         }
         result += "\n\t\t],";
     }
+
     result += "\n" + prefix + "\t\t\"skills\": [";
     var firstSkill = true;
     for (var skillIndex in unit.skills) {
@@ -2981,6 +2982,9 @@ export function getUnitBasicInfo(unit, prefix = "", form = null) {
     result += "\n" + prefix + "\t\t\"equip\":" + JSON.stringify(unit.equip);
     if (unit.enhancementSkills.length > 0) {
         result += ",\n" + prefix + "\t\t\"enhancementSkills\":" + JSON.stringify(unit.enhancementSkills);
+    }
+    if (unit.categories && unit.categories.length > 0) {
+        result += ",\n" + prefix + "\t\t\"categories\":" + JSON.stringify(unit.categories);
     }
     
     return result;

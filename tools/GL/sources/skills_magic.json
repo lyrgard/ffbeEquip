@@ -1320,6 +1320,30 @@
         "effects_raw": [[1, 2, 8, [300,  1,  400,  -1]]],
         "requirements": null
     },
+    "10412": {
+        "name": "リジェネ",
+        "icon": "ability_4.png",
+        "compendium_id": 14,
+        "rarity": 8,
+        "cost": {},
+        "magic_type": "White",
+        "is_sealable": false,
+        "is_reflectable": false,
+        "in_exploration": false,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[50]],
+        "effect_frames": [[40,  40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": null,
+        "effects": [
+            ["Restore 3000 HP per turn to caster"]
+        ],
+        "effects_raw": [[0, 3, 8, [0,  1,  3000,  -1]]],
+        "requirements": null
+    },
     "10500": {
         "name": "Full-Life II",
         "icon": "ability_1.png",
@@ -3544,7 +3568,7 @@
         "requirements": null
     },
     "30050": {
-        "name": "Barthunder",
+        "name": "Barthund",
         "icon": "ability_13.png",
         "compendium_id": 204,
         "rarity": 1,
@@ -5493,6 +5517,32 @@
             ["Increase Lightning magic damage by 35% to all allies for 5 turns"]
         ],
         "effects_raw": [[2, 2, 95, [0,  0,  100,  0,  0,  0,  0,  0,  5,  1]], [2, 2, 149, [0, [0,  0,  35,  0,  0,  0,  0,  0], 1, 5, 1]], [2, 2, 149, [1, [0,  0,  35,  0,  0,  0,  0,  0], 1, 5, 1]]],
+        "requirements": null
+    },
+    "30690": {
+        "name": "エンウォタガ",
+        "icon": "ability_23.png",
+        "compendium_id": 311,
+        "rarity": 9,
+        "cost": {"MP": 48},
+        "magic_type": "Green",
+        "is_sealable": true,
+        "is_reflectable": false,
+        "in_exploration": false,
+        "attack_count": [0],
+        "attack_damage": [[]],
+        "attack_frames": [[]],
+        "effect_frames": [[40,  40,  40,  40,  40]],
+        "move_type": 0,
+        "effect_type": "Default",
+        "attack_type": "Magic",
+        "element_inflict": ["Water"],
+        "effects": [
+            ["Add Water element (100%) to physical attacks for 5 turns to all allies"],
+            ["Increase Water physical damage by 35% to all allies for 5 turns"],
+            ["Increase Water magic damage by 35% to all allies for 5 turns"]
+        ],
+        "effects_raw": [[2, 2, 95, [0,  0,  0,  100,  0,  0,  0,  0,  5,  1]], [2, 2, 149, [0, [0,  0,  0,  35,  0,  0,  0,  0], 1, 5, 1]], [2, 2, 149, [1, [0,  0,  0,  35,  0,  0,  0,  0], 1, 5, 1]]],
         "requirements": null
     },
     "30700": {
